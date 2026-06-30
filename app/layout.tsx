@@ -1,25 +1,35 @@
-// app/layout.tsx
-import { Nunito } from "next/font/google";
-import PageTransition from "@/components/PageTransition";
+import "@/styles/variables.css";
+import "@/styles/globals.css";
+import "@/styles/layout.css";
 import BottomNav from "@/components/BottomNav";
-
-const nunito = Nunito({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-  display: "swap",
-  variable: "--font-nunito",
-});
+import PageTransition from "@/components/PageTransition";
+import type { ReactNode } from "react";
 
 export const metadata = {
-  title: "Chintu 🐿️ — Your Study Companion",
-  description: "Study smarter for JEE, NEET, and Placements with Chintu.",
+  title: "Chintu — Your Study Companion",
+  description: "Study smarter with Chintu by your side.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={nunito.variable}>
-      <body style={{ margin: 0, padding: 0, fontFamily: "'Nunito', sans-serif", backgroundColor: "#FDF6EC" }}>
-        <PageTransition>{children}</PageTransition>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <PageTransition>
+          {children}
+        </PageTransition>
         <BottomNav />
       </body>
     </html>

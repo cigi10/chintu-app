@@ -1,0 +1,349 @@
+.dashboard {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.5rem 2rem 2rem;
+  box-sizing: border-box;
+}
+
+.dashboard__greeting {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.dashboard__dday-strip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 1.25rem;
+  scrollbar-width: none;
+}
+
+.dashboard__dday-strip::-webkit-scrollbar { display: none; }
+
+.dashboard__dday-chip {
+  flex-shrink: 0;
+  background-color: var(--color-accent);
+  border: 1.5px solid var(--color-accent-strong);
+  border-radius: var(--radius-pill);
+  padding: 5px 14px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-outline);
+  white-space: nowrap;
+}
+
+.dashboard__dday-chip--urgent {
+  background-color: #fff0f5;
+  border-color: var(--color-streak);
+  color: #8a1a55;
+}
+
+/* ── Background ── */
+.dashboard__scene-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ── Main layout ── */
+.dashboard__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* LEFT — Chintu sticky so he stays visible while right side scrolls */
+.dashboard__chintu-side {
+  position: sticky;
+  top: 1rem;
+  height: 63vh;
+}
+
+.dashboard__companion-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.dashboard__companion-wrap .companion-float {
+  height: 100%;
+}
+
+.dashboard__companion-wrap .companion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.dashboard__wearable {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.4rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dashboard__wearable-img {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: auto;
+  max-width: 160px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* RIGHT — scrollable info column */
+.dashboard__info-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-bottom: 2rem;
+}
+
+/* ── Quote ── */
+.dashboard__quote {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Sections ── */
+.dashboard__section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dashboard__section-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Mood ── */
+.dashboard__mood-logged {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  color: #333;
+  border: 1.5px solid rgba(0,0,0,0.15);
+}
+
+.dashboard__mood-row {
+  display: flex;
+  gap: 8px;
+}
+
+.dashboard__mood-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s;
+}
+
+.dashboard__mood-btn:hover {
+  transform: scale(1.15);
+}
+
+/* ── Next up ── */
+.dashboard__next-slot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+}
+
+.dashboard__next-time {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+}
+
+.dashboard__next-subject {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+/* ── Today's plan ── */
+.dashboard__plan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dashboard__plan-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 2px solid transparent;
+}
+
+.dashboard__plan-empty {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-faint);
+  margin: 0;
+}
+
+/* ── To-do ── */
+.dashboard__todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dashboard__todo-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+}
+
+.dashboard__todo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dashboard__todo-text {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text);
+  flex: 1;
+}
+
+.dashboard__todo-due {
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+/* ── Stats ── */
+.dashboard__stats-col {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.dashboard__stat-card {
+  flex: 1;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.dashboard__stat-value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  display: block;
+}
+
+.dashboard__stat-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.68rem;
+  color: var(--color-text-secondary);
+  display: block;
+  margin-top: 2px;
+}
+
+.dashboard__mood-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dashboard__mood-slider {
+  flex: 1;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.dashboard__mood-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--color-primary);
+  cursor: pointer;
+}
+
+.dashboard__mood-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--color-primary);
+  cursor: pointer;
+}
+
+.dashboard__mood-slider-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 56px;
+  transition: color 0.2s;
+  background: var(--color-surface);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  color: var(--color-text) !important;
+  border: 1.5px solid rgba(0,0,0,0.1);
+}

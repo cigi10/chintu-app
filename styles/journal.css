@@ -1,0 +1,18 @@
+.journal { max-width: 480px; margin: 0 auto; }
+.journal__companion-wrap { display: flex; justify-content: center; margin-bottom: 1rem; }
+.journal__textarea {
+  width: 100%; padding: 14px; border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border); background: var(--color-bg-card);
+  font-family: var(--font-body); font-size: 0.95rem; color: var(--color-text-primary);
+  resize: vertical; box-sizing: border-box; margin-bottom: 10px;
+}
+.journal__save-btn {
+  padding: 9px 22px; border: none; border-radius: var(--radius-pill);
+  background: var(--color-accent); color: #fff; font-weight: 800; cursor: pointer; font-family: var(--font-body);
+}
+.journal__save-btn:hover { background: var(--color-accent-hover); }
+.journal__past { margin-top: 1.75rem; }
+.journal__past-title { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 0.75rem; }
+.journal__past-entry { border-bottom: 1px solid var(--color-border); padding: 10px 0; }
+.journal__past-date { font-size: 0.72rem; font-weight: 700; color: var(--color-text-secondary); margin-bottom: 2px; }
+.journal__past-content { font-size: 0.88rem; color: var(--color-text-primary); }

@@ -1,0 +1,262 @@
+.onboarding {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  text-align: center;
+  box-sizing: border-box;                     /* add this */
+  overflow-x: hidden;
+  overflow-y: auto;        /* add this */
+
+}
+
+body {
+  background-image: url('/companion/indoor-bg.PNG');
+  background-size: cover;
+  background-position: center;
+}
+
+.onboarding__container {
+  max-width: 440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;   /* add this so top isn't clipped */
+
+}
+
+/* Progress dots */
+.onboarding__progress {
+  display: flex;
+  gap: 6px;
+  margin-bottom: var(--space-sm);
+}
+
+.onboarding__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-border-strong);
+  transition: background-color var(--transition-base);
+}
+
+.onboarding__dot--active {
+  background-color: var(--color-accent);
+  width: 22px;
+  border-radius: var(--radius-pill);
+}
+
+/* Companion display */
+.onboarding__companion {
+  margin: var(--space-sm) 0;
+  max-width: 180px;  /* add this */
+  width: 100%;       /* add this */
+}
+
+/* Headings */
+.onboarding__title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.onboarding__subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 320px;
+}
+
+/* Step wrapper */
+.onboarding__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+/* Exam pack grid */
+.onboarding__exam-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.onboarding__exam-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background-color: var(--color-bg-card);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  width: 100%;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.onboarding__exam-btn:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+}
+
+.onboarding__exam-btn--selected {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+}
+
+.onboarding__exam-name {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  display: block;
+}
+
+.onboarding__exam-desc {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  display: block;
+}
+
+/* Text input */
+.onboarding__input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-card);
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.onboarding__input:focus {
+  border-color: var(--color-accent);
+}
+
+.onboarding__input::placeholder {
+  color: var(--color-text-faint);
+  font-weight: 600;
+}
+
+/* Name chips */
+.onboarding__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+}
+
+.onboarding__chip {
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent-soft);
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.onboarding__chip:hover {
+  background-color: var(--color-blueberry);
+  color: #ffffff;
+}
+
+.onboarding__chip--selected {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent-deep);
+}
+
+/* D-Day date input row */
+.onboarding__dday-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.onboarding__dday-row input[type="date"],
+.onboarding__dday-row input[type="text"] {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Action button — uses .btn .btn--primary .btn--full from button.css
+   This wrapper just provides spacing context */
+.onboarding__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+/* Skip / secondary link */
+.onboarding__skip {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 4px;
+}
+
+.onboarding__skip:hover {
+  color: var(--color-accent);
+}
+
+.onboarding__cta {
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.onboarding__cta:hover {
+  background-color: var(--color-accent-deep);
+}
+
+.onboarding__cta:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

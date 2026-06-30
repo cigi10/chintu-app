@@ -1,0 +1,292 @@
+.timetable__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding: 0 0.25rem;
+}
+
+.timetable__nav-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-border);
+  background-color: var(--color-bg-card);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--color-accent);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.timetable__nav-btn:disabled {
+  color: var(--color-text-disabled);
+  border-color: var(--color-border);
+  cursor: not-allowed;
+}
+
+.timetable__nav-btn:not(:disabled):hover {
+  background-color: var(--color-accent-soft);
+}
+
+.timetable__nav-range {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+/* Grid scroll wrapper */
+.timetable__scroll {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.timetable__table {
+  width: 100%;
+  min-width: 360px;
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+
+.timetable__th {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  text-align: center;
+  padding: 6px 4px;
+  letter-spacing: 0.03em;
+}
+
+.timetable__time-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.68rem;
+  color: var(--color-text-faint);
+  text-align: right;
+  padding-right: 8px;
+  white-space: nowrap;
+  vertical-align: middle;
+  width: 48px;
+}
+
+.timetable__cell {
+  border-radius: 10px;
+  padding: 6px 4px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), background-color var(--transition-fast);
+  height: 44px;
+}
+
+.timetable__cell--empty {
+  background-color: var(--color-bg-card);
+  border: 1.5px dashed var(--color-border-dashed);
+}
+
+.timetable__cell--empty:hover {
+  background-color: var(--color-accent-soft);
+}
+
+.timetable__cell--filled:hover {
+  opacity: 0.85;
+}
+
+.timetable__cell-plus {
+  font-size: 1.1rem;
+  color: var(--color-text-disabled);
+  transition: color var(--transition-fast);
+  line-height: 1;
+}
+
+.timetable__cell--empty:hover .timetable__cell-plus {
+  color: var(--color-accent);
+}
+
+.timetable__cell-subject {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.68rem;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  line-height: 1.3;
+}
+
+/* Color swatches — locked Part 9 palette only */
+.timetable__fill-badge {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+  background-color: var(--color-accent-soft);
+  border-radius: var(--radius-pill);
+  padding: 2px 8px;
+}
+
+.timetable__companion-corner {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+}
+
+/* Modal */
+.slot-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(36, 31, 61, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.slot-modal {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  width: 100%;
+  max-width: 360px;
+  border: var(--border-card);
+  font-family: var(--font-body);
+  box-sizing: border-box;
+}
+
+.slot-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.slot-modal__day-slot {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.slot-modal__title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin: 2px 0 0;
+}
+
+.slot-modal__close {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  line-height: 1;
+  padding: 0;
+}
+
+.slot-modal__label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.slot-modal__label-optional {
+  font-weight: 400;
+  color: var(--color-text-faint);
+}
+
+.slot-modal__input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-card-soft);
+  outline: none;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.slot-modal__input:focus {
+  border-color: var(--color-accent);
+}
+
+/* Color swatches — Part 9 palette */
+.slot-modal__colors {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.slot-modal__color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  outline: none;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.slot-modal__color-swatch--active {
+  border-color: var(--color-accent);
+  transform: scale(1.2);
+}
+
+.slot-modal__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.slot-modal__save-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  border: none;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.slot-modal__save-btn:disabled {
+  background-color: var(--color-accent-soft);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
+
+.slot-modal__clear-btn {
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-danger-border);
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+}

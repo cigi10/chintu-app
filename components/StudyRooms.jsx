@@ -1,44 +1,46 @@
 "use client";
-// components/StudyRooms.jsx
-// Anonymous realtime "study with me" rooms using Supabase Presence.
-// No chat, no names — just a live headcount per room.
-
+import "@/styles/rooms.css";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/supabase";
 import StudyTimer from "@/components/StudyTimer";
 
 const ROOMS = [
-  { id: "jee-grind",      name: "JEE Grind",      tag: "📐 JEE" },
-  { id: "neet-focus",     name: "NEET Focus",     tag: "🧬 NEET" },
-  { id: "placement-prep", name: "Placement Prep", tag: "💻 Placements" },
-  { id: "free-study",     name: "Free Study",     tag: "📖 Open" },
+  { id: "jee-grind",      name: "JEE Grind",     tag: "JEE"        },
+  { id: "neet-focus",     name: "NEET Focus",     tag: "NEET"       },
+  { id: "placement-prep", name: "Placement Prep", tag: "Placements" },
+  { id: "free-study",     name: "Free Study",     tag: "Open"       },
 ];
 
 function anonId() {
-  return `anon-${Math.random().toString(36).slice(2, 10)}`;
+  try {
+    const stored = localStorage.getItem("chintu-anon-id");
+    if (stored) return stored;
+    const id = `anon-${Math.random().toString(36).slice(2, 10)}`;
+    localStorage.setItem("chintu-anon-id", id);
+    return id;
+  } catch {
+    return `anon-${Math.random().toString(36).slice(2, 10)}`;
+  }
 }
 
 export default function StudyRooms() {
-  const [counts, setCounts] = useState({});
+  const [counts, setCounts]         = useState({});
   const [joinedRoom, setJoinedRoom] = useState(null);
-  const channelsRef = useRef({});
-  const joinedChannelRef = useRef(null);
-  const myIdRef = useRef(anonId());
+  const channelsRef                 = useRef({});
+  const joinedChannelRef            = useRef(null);
+  const myId                        = useRef(anonId());
 
   useEffect(() => {
     ROOMS.forEach(room => {
-      const channel = supabase.channel(`room:${room.id}`, {
-        config: { presence: { key: myIdRef.current } },
+      const ch = supabase.channel(`room:${room.id}`, {
+        config: { presence: { key: myId.current } },
       });
-      channel
-        .on("presence", { event: "sync" }, () => {
-          const state = channel.presenceState();
-          setCounts(prev => ({ ...prev, [room.id]: Object.keys(state).length }));
-        })
-        .subscribe();
-      channelsRef.current[room.id] = channel;
+      ch.on("presence", { event: "sync" }, () => {
+        const state = ch.presenceState();
+        setCounts(prev => ({ ...prev, [room.id]: Object.keys(state).length }));
+      }).subscribe();
+      channelsRef.current[room.id] = ch;
     });
-
     return () => {
       Object.values(channelsRef.current).forEach(ch => supabase.removeChannel(ch));
       channelsRef.current = {};
@@ -46,10 +48,10 @@ export default function StudyRooms() {
   }, []);
 
   function joinRoom(roomId) {
-    const channel = channelsRef.current[roomId];
-    if (channel) {
-      channel.track({ joinedAt: Date.now() });
-      joinedChannelRef.current = channel;
+    const ch = channelsRef.current[roomId];
+    if (ch) {
+      ch.track({ joinedAt: Date.now() });
+      joinedChannelRef.current = ch;
     }
     setJoinedRoom(roomId);
   }
@@ -61,57 +63,54 @@ export default function StudyRooms() {
   }
 
   useEffect(() => {
-    return () => { if (joinedChannelRef.current) joinedChannelRef.current.untrack(); };
+    return () => {
+      if (joinedChannelRef.current) joinedChannelRef.current.untrack();
+    };
   }, []);
 
   if (joinedRoom) {
-    const room = ROOMS.find(r => r.id === joinedRoom);
-    const othersCount = Math.max((counts[joinedRoom] || 1) - 1, 0);
+    const room        = ROOMS.find(r => r.id === joinedRoom);
+    const count       = counts[joinedRoom] || 1;
+    const othersCount = Math.max(count - 1, 0);
+
     return (
-      <div style={{ textAlign: "center" }}>
-        <button
-          onClick={leaveRoom}
-          style={{ marginBottom: "1rem", fontWeight: 700, fontSize: "0.8rem", color: "#92400E", background: "none", border: "2px solid #FEF3C7", borderRadius: "999px", padding: "6px 16px", cursor: "pointer" }}
-        >
-          ← Leave {room.name}
-        </button>
-
-        <p style={{ fontWeight: 700, fontSize: "0.85rem", color: "#92400E", backgroundColor: "#FEF3C7", borderRadius: "999px", padding: "6px 16px", display: "inline-block", marginBottom: "1rem" }}>
-          {othersCount > 0 ? `${othersCount} others studying with you 🌿` : "You're early — more will join soon 🌅"}
-        </p>
-
-        <StudyTimer />
+      <div className="rooms__session">
+        <div className="rooms__session-header">
+          <button className="rooms__leave-btn" onClick={leaveRoom}>
+            Leave {room.name}
+          </button>
+          <p className="rooms__presence-count">
+            {othersCount > 0
+              ? `${othersCount} other${othersCount > 1 ? "s" : ""} studying with you`
+              : "You're the only one here right now"}
+          </p>
+        </div>
+        <StudyTimer roomName={room.name} />
       </div>
     );
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+    <div className="rooms__list">
       {ROOMS.map(room => {
         const count = counts[room.id] || 0;
         return (
-          <div key={room.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#FFFBF5", border: "2px solid #FEF3C7", borderRadius: "16px", padding: "16px 20px" }}>
-            <div>
-              <div style={{ fontWeight: 800, fontSize: "1rem" }}>{room.name}</div>
-              <div style={{ fontWeight: 600, fontSize: "0.78rem", color: "#92400E" }}>{room.tag}</div>
+          <div key={room.id} className="rooms__card">
+            <div className="rooms__card-info">
+              <div className="rooms__card-name">{room.name}</div>
+              <div className="rooms__card-tag">{room.tag}</div>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-              <span style={{ fontWeight: 800, fontSize: "0.85rem", color: count > 0 ? "#F97316" : "#A8A29E", animation: count > 10 ? "pulse-glow 1.6s ease-in-out infinite" : "none" }}>
-                {count > 0 ? `${count} studying now` : "Be the first today 🌅"}
+            <div className="rooms__card-right">
+              <span className={`rooms__count${count > 0 ? " rooms__count--active" : ""}`}>
+                {count > 0 ? `${count} studying now` : "No one here yet"}
               </span>
-              <button
-                onClick={() => joinRoom(room.id)}
-                style={{ padding: "8px 18px", borderRadius: "999px", border: "none", backgroundColor: "#F97316", color: "#fff", fontWeight: 800, fontSize: "0.8rem", cursor: "pointer", whiteSpace: "nowrap" }}
-              >
-                Join Room
+              <button className="rooms__join-btn" onClick={() => joinRoom(room.id)}>
+                Join
               </button>
             </div>
           </div>
         );
       })}
-      <style>{`
-        @keyframes pulse-glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-      `}</style>
     </div>
   );
 }

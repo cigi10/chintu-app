@@ -1,54 +1,80 @@
 "use client";
-// components/Navbar.jsx
-
+import "@/styles/navbar.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
-const ITEMS = [
-  { href: "/dashboard", icon: "🏠", label: "Home" },
-  { href: "/timetable",  icon: "📅", label: "Timetable" },
-  { href: "/timer",      icon: "⏱️", label: "Timer" },
-  { href: "/tracker",    icon: "📚", label: "Tracker" },
-  { href: "/shop",       icon: "🛍️", label: "Shop" },
+const PRIMARY_ITEMS = [
+  { href: "/dashboard",  label: "Home"      },
+  { href: "/timer",      label: "Timer"     },
+  { href: "/rooms",      label: "Rooms"     },
+  { href: "/timetable",  label: "Timetable" },
+  { href: "/tracker",    label: "Tracker"   },
+  { href: "/revisions",  label: "Revisions" },
+  { href: "/mocktests",  label: "Mocks"     },
+  { href: "/todo",       label: "To-do"     },
+  { href: "/stats",      label: "Stats"     },
+  { href: "/journal",    label: "Journal"   },
+  { href: "/mood",       label: "Mood"      },
+  { href: "/digest",     label: "Digest"    },
+  { href: "/shop",       label: "Shop"      },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [coins, setCoins] = useState(0);
+  const [coins, setCoins]     = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     try { setCoins(parseInt(localStorage.getItem("chintu-coins") || "0", 10)); } catch {}
   }, [pathname]);
 
   return (
-    <>
-      <style>{`
-        .chintu-desktop-nav { display: none; gap: 4px; }
-        @media (min-width: 641px) { .chintu-desktop-nav { display: flex; } }
-      `}</style>
-      <nav style={{ backgroundColor: "#FFFFFF", borderBottom: "2px solid #FEF3C7", boxShadow: "0 2px 8px rgba(249, 115, 22, 0.08)", width: "100%", padding: "1rem 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 50, boxSizing: "border-box", gap: "1rem", flexWrap: "wrap" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 800, fontSize: "1.5rem", color: "#F97316", letterSpacing: "-0.5px" }}>Chintu 🐿️</span>
-          <span style={{ fontFamily: "'Nunito', sans-serif", fontSize: "0.7rem", fontWeight: 700, color: "#F97316", backgroundColor: "#FEF3C7", borderRadius: "999px", padding: "2px 8px", letterSpacing: "0.05em" }}>BETA</span>
+    <nav className="navbar">
+      <div className="navbar__inner">
+        <Link href="/dashboard" className="navbar__brand">Chintu</Link>
+
+        {/* Desktop links */}
+        <div className="navbar__links">
+          {PRIMARY_ITEMS.map(item => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`navbar__link${pathname === item.href ? " navbar__link--active" : ""}`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
 
-        <div className="chintu-desktop-nav">
-          {ITEMS.map(item => {
-            const active = pathname === item.href;
-            return (
-              <Link key={item.href} href={item.href} style={{ textDecoration: "none", padding: "8px 14px", borderRadius: "999px", fontFamily: "'Nunito', sans-serif", fontWeight: 700, fontSize: "0.85rem", color: active ? "#FFFFFF" : "#92400E", backgroundColor: active ? "#F97316" : "transparent", transition: "background-color 0.2s" }}>
-                {item.icon} {item.label}
-              </Link>
-            );
-          })}
+        <div className="navbar__right">
+          <span className="navbar__coins">{coins} coins</span>
+          {/* Mobile hamburger */}
+          <button
+            className="navbar__hamburger"
+            onClick={() => setMenuOpen(v => !v)}
+            aria-label="Open menu"
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
         </div>
+      </div>
 
-        <div style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 700, fontSize: "1rem", color: "#1C1917", backgroundColor: "#FEF3C7", border: "2px solid #FDE68A", borderRadius: "999px", padding: "6px 16px", display: "flex", alignItems: "center", gap: "6px" }}>
-          <span style={{ fontSize: "1.1rem" }}>🪙</span>
-          <span>{coins}</span>
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className="navbar__mobile-menu">
+          {PRIMARY_ITEMS.map(item => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`navbar__mobile-link${pathname === item.href ? " navbar__mobile-link--active" : ""}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
-      </nav>
-    </>
+      )}
+    </nav>
   );
 }

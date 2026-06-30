@@ -1,0 +1,137 @@
+"use client";
+import "@/styles/onboarding.css";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Companion from "@/components/Companion";
+
+const PACK_OPTIONS = [
+  { key: "JEE",        desc: "Physics, Chemistry, Maths" },
+  { key: "NEET",       desc: "Physics, Chemistry, Biology" },
+  { key: "SAT/ACT",    desc: "Math, Reading & Writing" },
+  { key: "A-Levels",   desc: "Pick 3-4 subjects" },
+  { key: "GCSEs",      desc: "Pick your subjects" },
+  { key: "Gaokao",     desc: "Maths, Chinese, English" },
+  { key: "GRE/GMAT",   desc: "Quant, Verbal" },
+  { key: "Placements", desc: "CS, ECE, DSA, Aptitude" },
+  { key: "Custom",     desc: "Build your own list" },
+];
+
+const NAME_CHIPS = ["Pip", "Mochi", "Tofu", "Walnut", "Biscuit", "Bun"];
+
+export default function Onboarding() {
+  const router = useRouter();
+  const [step, setStep] = useState(0);
+  const [pack, setPack] = useState("");
+  const [name, setName] = useState("");
+  const [dday, setDday] = useState("");
+
+  function pickPack(key) { setPack(key); setStep(1); }
+
+  function confirmName() {
+    if (!name.trim()) return;
+    localStorage.setItem("chintu-exam-pack", pack);
+    localStorage.setItem("chintu-companion-name", name.trim());
+    setStep(2);
+  }
+
+  function finish() {
+    if (dday) {
+      const existing = JSON.parse(localStorage.getItem("chintu-ddays") || "[]");
+      existing.push({ label: pack + " Exam", date: dday });
+      localStorage.setItem("chintu-ddays", JSON.stringify(existing));
+    }
+    localStorage.setItem("chintu-onboarded", "true");
+    router.push("/dashboard");
+  }
+
+  return (
+    <div className="onboarding">
+      <div className="onboarding__container">
+
+        {step === 0 && (
+          <>
+            <div className="onboarding__companion">
+              <Companion mood="curious" />
+            </div>
+            <h1 className="onboarding__title">What are you preparing for?</h1>
+            <p className="onboarding__subtitle">Pick your exam pack to get started</p>
+            <div className="onboarding__exam-grid">
+              {PACK_OPTIONS.map(p => (
+                <button key={p.key} className="onboarding__exam-btn" onClick={() => pickPack(p.key)}>
+                  <div>
+                    <span className="onboarding__exam-name">{p.key}</span>
+                    <span className="onboarding__exam-desc">{p.desc}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+
+        {step === 1 && (
+          <>
+            <div className="onboarding__companion">
+              <Companion mood="waiting" />
+            </div>
+            <h1 className="onboarding__title">Name your companion</h1>
+            <p className="onboarding__subtitle">What should we call this little one?</p>
+            <div className="onboarding__step">
+              <input
+                className="onboarding__input"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                onKeyDown={e => e.key === "Enter" && confirmName()}
+                placeholder="Type a name..."
+                autoFocus
+              />
+              <div className="onboarding__chips">
+                {NAME_CHIPS.map(c => (
+                  <button
+                    key={c}
+                    className={`onboarding__chip${name === c ? " onboarding__chip--selected" : ""}`}
+                    onClick={() => setName(c)}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+              <div className="onboarding__actions">
+                <button
+                  className="onboarding__cta"
+                  onClick={confirmName}
+                  disabled={!name.trim()}
+                >
+                  That's the name
+                </button>
+              </div>
+            </div>
+          </>
+        )}
+
+        {step === 2 && (
+          <>
+            <div className="onboarding__companion">
+              <Companion mood="happy" />
+            </div>
+            <h1 className="onboarding__title">When is your exam?</h1>
+            <p className="onboarding__subtitle">Optional — you can add this later too</p>
+            <div className="onboarding__step">
+              <input
+                className="onboarding__input"
+                type="date"
+                value={dday}
+                onChange={e => setDday(e.target.value)}
+              />
+              <div className="onboarding__actions">
+                <button className="onboarding__cta" onClick={finish}>
+                  {dday ? "Start studying" : "Skip for now"}
+                </button>
+              </div>
+            </div>
+          </>
+        )}
+
+      </div>
+    </div>
+  );
+}

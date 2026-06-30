@@ -1,0 +1,16 @@
+.mood__picker { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 1.5rem; }
+.mood__option {
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--mood-color, var(--color-border));
+  background: transparent;
+  color: var(--color-text-primary);
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+.mood__option--selected { background: var(--mood-color); color: var(--color-navy); }
+.mood__saved { text-align: center; font-weight: 700; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+.mood__history-title { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 0.75rem; }
+.mood__history-grid { display: flex; gap: 6px; flex-wrap: wrap; }
+.mood__history-dot { width: 18px; height: 18px; border-radius: 50%; }

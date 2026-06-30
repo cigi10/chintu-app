@@ -1,0 +1,56 @@
+/* ============================================
+   LAYOUT — page structure shells
+============================================ */
+
+.page-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.page-main {
+  flex: 1;
+  max-width: var(--content-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 6rem;
+  box-sizing: border-box;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.page-header p {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Adds breathing room for bottom nav on mobile */
+.page-transition {
+  min-height: 100vh;
+  padding-bottom: var(--bottomnav-height);
+}
+
+@media (min-width: 641px) {
+  .page-main {
+    padding: 2rem 2rem 3rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .page-main {
+    padding: 2.5rem 3rem 3rem;
+  }
+}

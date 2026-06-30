@@ -1,0 +1,135 @@
+/* ============================================
+   BUTTONS — single unified system
+   Class convention: .btn + .btn--{variant} + .btn--{size}
+   All components must use this file only.
+============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 11px 22px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn:disabled,
+.btn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ---- Sizes ---- */
+.btn--sm {
+  font-size: 0.78rem;
+  padding: 7px 16px;
+}
+
+.btn--md {
+  font-size: 0.9rem;
+  padding: 11px 22px;
+}
+
+.btn--lg {
+  font-size: 1.05rem;
+  padding: 14px 32px;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* ---- Variants ---- */
+
+/* Primary — Deep Plum */
+.btn--primary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  box-shadow: var(--shadow-primary-btn);
+  border: none;
+}
+.btn--primary:hover:not(:disabled) {
+  background-color: var(--color-accent-hover);
+}
+.btn--primary:focus-visible {
+  outline: 3px solid var(--color-accent-soft);
+  outline-offset: 2px;
+}
+
+/* Soft — Lilac surface, dark text */
+.btn--soft {
+  background-color: var(--color-accent-soft);
+  color: var(--color-navy);
+  border: none;
+}
+.btn--soft:hover:not(:disabled) {
+  background-color: #d8a8f0;
+}
+
+/* Ghost — outlined */
+.btn--ghost {
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+.btn--ghost:hover:not(:disabled) {
+  background-color: var(--color-accent-soft);
+}
+
+/* Lemon — energy / Focus Mode */
+.btn--lemon {
+  background-color: var(--color-lemon);
+  color: var(--color-navy);
+  border: none;
+}
+.btn--lemon:hover:not(:disabled) {
+  background-color: #d6d46b;
+}
+
+/* Done / positive */
+.btn--done {
+  background-color: var(--color-done);
+  color: var(--color-navy);
+  border: none;
+}
+.btn--done:hover:not(:disabled) {
+  background-color: #63b088;
+}
+
+/* Danger */
+.btn--danger {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 2px solid var(--color-danger-border);
+}
+.btn--danger:hover:not(:disabled) {
+  background-color: #fbc9d9;
+}
+
+/* Secondary — outlined in accent-soft */
+.btn--secondary {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 2px solid var(--color-border-strong);
+}
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-accent-soft);
+}

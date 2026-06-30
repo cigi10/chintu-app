@@ -1,12 +1,10 @@
 "use client";
-// components/CoinShop.jsx
-// Chintu's room (equipped items) + the coin shop (buy/equip).
-
+import "@/styles/shop.css";
 import { useState, useEffect } from "react";
-import Chintu from "@/components/Chintu";
+import Companion from "@/components/Companion";
 
 const COIN_KEY = "chintu-coins";
-const SHOP_KEY = "chintu-shop"; // { owned: [ids], equipped: { desk, wall, wearable } }
+const SHOP_KEY = "chintu-shop";
 
 const ITEMS = [
   { id: "chai",       name: "Chai cup",             emoji: "🍵", cost: 50,  slot: "desk" },
@@ -31,101 +29,85 @@ const CATEGORIES = [
 
 function loadCoins() { try { return parseInt(localStorage.getItem(COIN_KEY) || "0", 10); } catch { return 0; } }
 function saveCoins(n) { try { localStorage.setItem(COIN_KEY, String(n)); } catch {} }
-function loadShop() {
-  try {
-    const raw = localStorage.getItem(SHOP_KEY);
-    return raw ? JSON.parse(raw) : { owned: [], equipped: {} };
-  } catch { return { owned: [], equipped: {} }; }
-}
+function loadShop() { try { const r = localStorage.getItem(SHOP_KEY); return r ? JSON.parse(r) : { owned: [], equipped: {} }; } catch { return { owned: [], equipped: {} }; } }
 function saveShop(s) { try { localStorage.setItem(SHOP_KEY, JSON.stringify(s)); } catch {} }
 
 export default function CoinShop() {
   const [coins, setCoins] = useState(0);
-  const [shop, setShop] = useState({ owned: [], equipped: {} });
+  const [shop, setShop]   = useState({ owned: [], equipped: {} });
 
-  useEffect(() => {
-    setCoins(loadCoins());
-    setShop(loadShop());
-  }, []);
+  useEffect(() => { setCoins(loadCoins()); setShop(loadShop()); }, []);
 
   function buy(item) {
     if (coins < item.cost || shop.owned.includes(item.id)) return;
     const newCoins = coins - item.cost;
-    const newShop = { ...shop, owned: [...shop.owned, item.id] };
-    setCoins(newCoins);
-    setShop(newShop);
-    saveCoins(newCoins);
-    saveShop(newShop);
+    const newShop  = { ...shop, owned: [...shop.owned, item.id] };
+    setCoins(newCoins); setShop(newShop); saveCoins(newCoins); saveShop(newShop);
   }
 
   function toggleEquip(item) {
     const isEquipped = shop.equipped[item.slot] === item.id;
     const newEquipped = { ...shop.equipped };
-    if (isEquipped) delete newEquipped[item.slot];
-    else newEquipped[item.slot] = item.id;
+    if (isEquipped) delete newEquipped[item.slot]; else newEquipped[item.slot] = item.id;
     const newShop = { ...shop, equipped: newEquipped };
-    setShop(newShop);
-    saveShop(newShop);
+    setShop(newShop); saveShop(newShop);
   }
 
   const itemById = id => ITEMS.find(i => i.id === id);
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}>
-        <div style={{ fontWeight: 800, fontSize: "1rem", color: "#1C1917", backgroundColor: "#FEF3C7", border: "2px solid #FDE68A", borderRadius: "999px", padding: "6px 16px" }}>
-          🪙 {coins}
-        </div>
+      <div className="shop__coin-bar">
+        <div className="shop__coin-badge">🪙 {coins}</div>
       </div>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem" }}>
-        <div style={{ flex: "1 1 260px", backgroundColor: "#FFFBF5", border: "2px solid #FEF3C7", borderRadius: "20px", padding: "1.5rem", textAlign: "center", position: "relative", minHeight: "320px" }}>
-          <h2 style={{ fontWeight: 800, fontSize: "1.05rem", margin: "0 0 1rem" }}>Chintu's Room</h2>
-
-          <div style={{ fontSize: "1.6rem", marginBottom: "0.5rem", height: "1.6rem" }}>
+      <div className="shop__layout">
+        {/* Room preview */}
+        <div className="shop__room">
+          <h2 className="shop__room-title">Your Room</h2>
+          <div className="shop__room-wall-item">
             {shop.equipped.wall ? itemById(shop.equipped.wall)?.emoji : ""}
           </div>
-
-          <div style={{ position: "relative", display: "inline-block", transform: "scale(0.6)" }}>
-            <Chintu mood="studying" />
+          <div className="shop__room-companion-wrap">
+            <Companion mood="studying" />
             {shop.equipped.wearable && (
-              <span style={{ position: "absolute", top: "10%", left: "50%", transform: "translateX(-50%)", fontSize: "2.4rem" }}>
+              <span className="shop__room-wearable">
                 {itemById(shop.equipped.wearable)?.emoji}
               </span>
             )}
           </div>
-
-          <div style={{ fontSize: "1.6rem", marginTop: "-0.5rem" }}>
+          <div className="shop__room-desk-item">
             {shop.equipped.desk ? itemById(shop.equipped.desk)?.emoji : "🪑"}
           </div>
         </div>
 
-        <div style={{ flex: "2 1 320px" }}>
+        {/* Catalog */}
+        <div className="shop__catalog">
           {CATEGORIES.map(cat => (
-            <div key={cat.slot} style={{ marginBottom: "1.5rem" }}>
-              <h3 style={{ fontWeight: 800, fontSize: "0.95rem", color: "#92400E", marginBottom: "0.6rem" }}>{cat.label}</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "10px" }}>
+            <div key={cat.slot} className="shop__category">
+              <h3 className="shop__category-title">{cat.label}</h3>
+              <div className="shop__item-grid">
                 {ITEMS.filter(i => i.slot === cat.slot).map(item => {
-                  const owned = shop.owned.includes(item.id);
+                  const owned    = shop.owned.includes(item.id);
                   const equipped = shop.equipped[item.slot] === item.id;
                   const affordable = coins >= item.cost;
                   return (
-                    <div key={item.id} style={{ backgroundColor: "#FFFBF5", border: `2px solid ${equipped ? "#F97316" : "#FEF3C7"}`, borderRadius: "14px", padding: "12px", textAlign: "center" }}>
-                      <div style={{ fontSize: "1.8rem", marginBottom: "4px" }}>{item.emoji}</div>
-                      <div style={{ fontWeight: 700, fontSize: "0.78rem", marginBottom: "2px" }}>{item.name}</div>
-                      <div style={{ fontWeight: 700, fontSize: "0.72rem", color: "#92400E", marginBottom: "8px" }}>{item.cost} 🪙</div>
+                    <div key={item.id} className={`shop__item-card${equipped ? " shop__item-card--equipped" : ""}`}>
+                      <div className="shop__item-emoji">{item.emoji}</div>
+                      <div className="shop__item-name">{item.name}</div>
+                      <div className="shop__item-cost">{item.cost} 🪙</div>
                       {!owned ? (
                         <button
-                          onClick={() => buy(item)}
+                          className="shop__item-buy-btn"
                           disabled={!affordable}
-                          style={{ width: "100%", padding: "6px", borderRadius: "999px", border: "none", backgroundColor: affordable ? "#F97316" : "#FED7AA", color: "#fff", fontWeight: 800, fontSize: "0.72rem", cursor: affordable ? "pointer" : "not-allowed" }}
+                          onClick={() => buy(item)}
                         >
                           {affordable ? "Buy" : "🔒 Locked"}
                         </button>
                       ) : (
                         <button
+                          className={`shop__item-equip-btn${equipped ? " shop__item-equip-btn--active" : ""}`}
                           onClick={() => toggleEquip(item)}
-                          style={{ width: "100%", padding: "6px", borderRadius: "999px", border: "2px solid #F97316", backgroundColor: equipped ? "#F97316" : "transparent", color: equipped ? "#fff" : "#F97316", fontWeight: 800, fontSize: "0.72rem", cursor: "pointer" }}
                         >
                           {equipped ? "Unequip" : "Equip"}
                         </button>
