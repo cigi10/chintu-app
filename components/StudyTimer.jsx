@@ -5,10 +5,13 @@ import { useSearchParams } from "next/navigation";
 import Companion from "@/components/Companion";
 import Button from "@/components/Button";
 import { recordStudySession } from "@/lib/streakLogic";
+import { localDateStr } from "@/lib/date";
+import { setGoalDone } from "@/lib/goals";
 
 const COIN_KEY        = "chintu-coins";
 const SESSION_KEY     = "chintu-sessions";
 const SESSION_LOG_KEY = "chintu-session-log";
+const BONUS_LOG_KEY   = "chintu-bonus-log";
 const RADIUS          = 88;
 const CIRCUMFERENCE   = 2 * Math.PI * RADIUS;
 
@@ -30,16 +33,14 @@ function fmt(secs) {
   return `${m}:${s}`;
 }
 
-function isAfter10pm() {
-  return new Date().getHours() >= 22;
-}
+function isAfter10pm() { return new Date().getHours() >= 22; }
 
 function logSession(modeKey, durationSeconds, coinsEarned, subject) {
   try {
     const raw = localStorage.getItem(SESSION_LOG_KEY);
     const log = raw ? JSON.parse(raw) : [];
     log.push({
-      date: new Date().toISOString().slice(0, 10),
+      date: localDateStr(),
       mode: modeKey,
       durationMinutes: Math.round(durationSeconds / 60),
       coinsEarned,
@@ -47,6 +48,41 @@ function logSession(modeKey, durationSeconds, coinsEarned, subject) {
     });
     localStorage.setItem(SESSION_LOG_KEY, JSON.stringify(log));
   } catch {}
+}
+
+function getWeekStartKey() {
+  const d = new Date();
+  const day = d.getDay();
+  const diff = (day === 0 ? 6 : day - 1);
+  d.setDate(d.getDate() - diff);
+  return localDateStr(d);
+}
+
+function getFirstSessionBonuses() {
+  const today = localDateStr();
+  const weekKey = getWeekStartKey();
+
+  try {
+    const raw = localStorage.getItem(BONUS_LOG_KEY);
+    const bonusLog = raw ? JSON.parse(raw) : {};
+
+    let dailyBonus = 0;
+    let weeklyBonus = 0;
+
+    if (!bonusLog.daily || bonusLog.daily !== today) {
+      dailyBonus = 5;
+      bonusLog.daily = today;
+    }
+    if (!bonusLog.weekly || bonusLog.weekly !== weekKey) {
+      weeklyBonus = 10;
+      bonusLog.weekly = weekKey;
+    }
+
+    localStorage.setItem(BONUS_LOG_KEY, JSON.stringify(bonusLog));
+    return { dailyBonus, weeklyBonus };
+  } catch {
+    return { dailyBonus: 5, weeklyBonus: 10 };
+  }
 }
 
 function CoinBurst({ amount, onDone }) {
@@ -59,38 +95,42 @@ function CoinBurst({ amount, onDone }) {
 }
 
 const PRESET_MODES = {
-  study:      { label: "Study",       duration: 0.25 * 60, mood: "studying"  },
-  shortBreak: { label: "Short break", duration:  0.15 * 60, mood: "happy"     },
-  longBreak:  { label: "Long break",  duration: 0.15 * 60, mood: "sleepy"    },
+  study:      { label: "Study",       duration: 25 * 60, mood: "studying"  },
+  shortBreak: { label: "Short break", duration:  5 * 60, mood: "happy"     },
+  longBreak:  { label: "Long break",  duration: 15 * 60, mood: "sleepy"    },
 };
 
 export default function StudyTimer({ roomName = null }) {
-  const searchParams  = useSearchParams();
-  const roomFromParam = searchParams?.get("room") || roomName;
+  const searchParams     = useSearchParams();
+  const roomFromParam    = searchParams?.get("room") || roomName;
+  const subjectFromParam = searchParams?.get("subject") || "";
+  const durationFromParam = searchParams?.get("duration");
+  const goalIdFromParam   = searchParams?.get("goalId") || null;
 
-  const [mode, setMode]               = useState("study");
-  const [timeLeft, setTimeLeft]       = useState(PRESET_MODES.study.duration);
-  const [totalDuration, setTotalDuration] = useState(PRESET_MODES.study.duration);
+  const initialDuration = durationFromParam ? Math.max(60, parseInt(durationFromParam, 10) * 60) : PRESET_MODES.study.duration;
+  const initialMode = durationFromParam ? "custom" : "study";
+
+  const [mode, setMode]               = useState(initialMode);
+  const [timeLeft, setTimeLeft]       = useState(initialDuration);
+  const [totalDuration, setTotalDuration] = useState(initialDuration);
   const [running, setRunning]         = useState(false);
   const [sessions, setSessions]       = useState(0);
   const [coins, setCoins]             = useState(0);
   const [burst, setBurst]             = useState(null);
   const [done, setDone]               = useState(false);
+  const [lastEarned, setLastEarned]   = useState(0);
 
-  // Custom time inputs
   const [showCustom, setShowCustom]   = useState(false);
   const [customMins, setCustomMins]   = useState("45");
   const [customSecs, setCustomSecs]   = useState("00");
-  const [subject, setSubject]         = useState("");
+  const [subject, setSubject]         = useState(subjectFromParam);
 
   const intervalRef = useRef(null);
 
   useEffect(() => { setCoins(loadCoins()); setSessions(loadSessions()); }, []);
 
   useEffect(() => {
-    document.title = running
-      ? `${fmt(timeLeft)} — Chintu`
-      : "Chintu — Timer";
+    document.title = running ? `${fmt(timeLeft)} — Chintu` : "Chintu — Timer";
     return () => { document.title = "Chintu"; };
   }, [timeLeft, running]);
 
@@ -116,19 +156,28 @@ export default function StudyTimer({ roomName = null }) {
     if (modeKey === "shortBreak") return 2;
     if (modeKey === "longBreak")  return 5;
     if (modeKey === "study")      return 10;
-    // custom: +1 per 3 minutes
     return Math.floor(durationSecs / 180);
   }
 
   function handleSessionComplete() {
     setRunning(false);
     setDone(true);
-    const earned   = coinsForSession(mode, totalDuration);
-    const newCoins = loadCoins() + earned;
+
+    let baseEarned = coinsForSession(mode, totalDuration);
+    const { dailyBonus, weeklyBonus } = getFirstSessionBonuses();
+    const totalEarned = baseEarned + dailyBonus + weeklyBonus;
+
+    const newCoins = loadCoins() + totalEarned;
     saveCoins(newCoins);
     setCoins(newCoins);
-    setBurst(earned);
-    logSession(mode, totalDuration, earned, subject);
+    setBurst(totalEarned);
+    setLastEarned(totalEarned);
+    logSession(mode, totalDuration, totalEarned, subject);
+
+    if (goalIdFromParam) {
+      setGoalDone(goalIdFromParam, localDateStr(), true);
+    }
+
     if (mode === "study" || mode === "custom") {
       recordStudySession();
       const ns = loadSessions() + 1;
@@ -197,12 +246,15 @@ export default function StudyTimer({ roomName = null }) {
 
       <div className="timer">
         {roomFromParam && (
-          <div className="timer__room-banner">
-            Studying in: {roomFromParam}
+          <div className="timer__room-banner">Studying in: {roomFromParam}</div>
+        )}
+
+        {goalIdFromParam && subjectFromParam && (
+          <div className="timer__goal-banner">
+            Goal: {subjectFromParam} · {Math.round(initialDuration / 60)} min
           </div>
         )}
 
-        {/* Mode tabs */}
         <div className="timer__mode-bar">
           {Object.entries(PRESET_MODES).map(([key, val]) => (
             <button
@@ -221,7 +273,6 @@ export default function StudyTimer({ roomName = null }) {
           </button>
         </div>
 
-        {/* Custom time picker */}
         {showCustom && (
           <div className="timer__custom-row">
             <input
@@ -247,7 +298,6 @@ export default function StudyTimer({ roomName = null }) {
           </div>
         )}
 
-        {/* Subject input */}
         <div className="timer__subject-row">
           <input
             className="timer__subject-input"
@@ -257,7 +307,6 @@ export default function StudyTimer({ roomName = null }) {
           />
         </div>
 
-        {/* Ring */}
         <div className="timer__ring-wrap">
           <svg width="220" height="220" className="timer__svg">
             <circle cx="110" cy="110" r={RADIUS} className="timer__ring-bg" />
@@ -276,13 +325,11 @@ export default function StudyTimer({ roomName = null }) {
           </div>
         </div>
 
-        {/* Companion */}
         <Companion mood={chintuMood} />
 
-        {/* Message */}
         <p className="timer__message">
           {done
-            ? `+${coinsForSession(mode, totalDuration)} coins earned`
+            ? `+${lastEarned} coins earned`
             : running && (mode === "study" || mode === "custom")
               ? "Stay focused"
               : running
@@ -290,7 +337,6 @@ export default function StudyTimer({ roomName = null }) {
                 : "Press start when ready"}
         </p>
 
-        {/* Buttons */}
         <div className="timer__btn-row">
           <Button onClick={handleStartPause} variant={running ? "secondary" : "primary"} size="lg">
             {done ? "Again" : running ? "Pause" : "Start"}
@@ -298,7 +344,6 @@ export default function StudyTimer({ roomName = null }) {
           <Button onClick={handleReset} variant="secondary" size="lg">Reset</Button>
         </div>
 
-        {/* Stats */}
         <div className="timer__stats-row">
           <div className="timer__stat-card">
             <div className="timer__stat-value">{sessions}</div>

@@ -1,0 +1,119 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.landing {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  overflow: hidden;
+}
+
+.landing__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+}
+
+.landing__hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing__title {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #3A2E52;
+  margin: 0 0 6px;
+}
+
+.landing__tagline {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6E6688;
+  margin: 0 0 10px;
+}
+
+.landing__subtext {
+  font-size: 0.9rem;
+  color: #6E6688;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  max-width: 480px;
+}
+
+.landing__cta {
+  padding: 10px 28px;
+  border-radius: 999px;
+  border: none;
+  background: #9B6FD4;
+  color: #FBF3FF;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.landing__cta:hover {
+  transform: translateY(-2px);
+}
+
+.landing__hero-companion {
+  margin-top: 12px;
+  max-height: 30vh;
+}
+
+.landing__hero-companion svg,
+.landing__hero-companion img {
+  max-height: 28vh;
+  width: auto;
+}
+
+.landing__features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin-top: 20px;
+}
+
+.landing__feature-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  padding: 12px 14px;
+  width: 190px;
+  text-align: left;
+}
+
+.landing__feature-title {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 0.95rem;
+  color: #9B6FD4;
+  margin: 0 0 4px;
+}
+
+.landing__feature-desc {
+  font-size: 0.8rem;
+  color: #6E6688;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.landing__footer-note {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: #8B8399;
+}

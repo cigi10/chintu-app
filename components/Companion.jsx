@@ -14,16 +14,18 @@ const MOOD_IMAGES = {
   surprised:        "/companion/mood-surprised.PNG",
   thoughtful:       "/companion/mood-thoughtful.PNG",
   cozy:             "/companion/mood-cozy.PNG",
-  celebrating:      "/companion/mood-celebrating-big1.PNG",  // use 1 as default
-  celebrating2:     "/companion/mood-celebrating-big2.PNG",  // alternate for variety
+  celebrating:      "/companion/mood-celebrating-big1.PNG",
+  celebrating2:     "/companion/mood-celebrating-big2.PNG",
+  proud:            "/companion/mood-proud.PNG",
 };
 
 const MOOD_FALLBACK_COLORS = {
-  studying: "#9B6FD4", // Deep Plum
-  happy:    "#7EC8A0", // Done/positive green
-  sleepy:   "#93ABD9", // Blueberry Milk
-  waiting:  "#E7BEF8", // Soft Lilac
-  sad:      "#6E6688", // Secondary text navy-grey
+  studying: "#9B6FD4",
+  happy:    "#7EC8A0",
+  sleepy:   "#93ABD9",
+  waiting:  "#E7BEF8",
+  sad:      "#6E6688",
+  proud:    "#F2619C",
 };
 
 export default function Companion({ mood = "studying" }) {

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
 
 const PACK_OPTIONS = [
+  { key: "Custom",     desc: "Build your own subject and topic list" },
   { key: "JEE",        desc: "Physics, Chemistry, Maths" },
   { key: "NEET",       desc: "Physics, Chemistry, Biology" },
   { key: "SAT/ACT",    desc: "Math, Reading & Writing" },
@@ -13,7 +14,6 @@ const PACK_OPTIONS = [
   { key: "Gaokao",     desc: "Maths, Chinese, English" },
   { key: "GRE/GMAT",   desc: "Quant, Verbal" },
   { key: "Placements", desc: "CS, ECE, DSA, Aptitude" },
-  { key: "Custom",     desc: "Build your own list" },
 ];
 
 const NAME_CHIPS = ["Pip", "Mochi", "Tofu", "Walnut", "Biscuit", "Bun"];
@@ -54,10 +54,16 @@ export default function Onboarding() {
               <Companion mood="curious" />
             </div>
             <h1 className="onboarding__title">What are you preparing for?</h1>
-            <p className="onboarding__subtitle">Pick your exam pack to get started</p>
+            <p className="onboarding__subtitle">
+              Pick a pack to get pre-loaded topics, or choose Custom to build your own list from scratch.
+            </p>
             <div className="onboarding__exam-grid">
               {PACK_OPTIONS.map(p => (
-                <button key={p.key} className="onboarding__exam-btn" onClick={() => pickPack(p.key)}>
+                <button
+                  key={p.key}
+                  className={`onboarding__exam-btn${p.key === "Custom" ? " onboarding__exam-btn--custom" : ""}`}
+                  onClick={() => pickPack(p.key)}
+                >
                   <div>
                     <span className="onboarding__exam-name">{p.key}</span>
                     <span className="onboarding__exam-desc">{p.desc}</span>
@@ -74,16 +80,19 @@ export default function Onboarding() {
               <Companion mood="waiting" />
             </div>
             <h1 className="onboarding__title">Name your companion</h1>
-            <p className="onboarding__subtitle">What should we call this little one?</p>
+            <p className="onboarding__subtitle">
+              Type any name you like — it doesn't have to be one of the suggestions below.
+            </p>
             <div className="onboarding__step">
               <input
                 className="onboarding__input"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 onKeyDown={e => e.key === "Enter" && confirmName()}
-                placeholder="Type a name..."
+                placeholder="Type your own name here..."
                 autoFocus
               />
+              <p className="onboarding__chips-label">Need inspiration? Try one of these:</p>
               <div className="onboarding__chips">
                 {NAME_CHIPS.map(c => (
                   <button

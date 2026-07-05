@@ -6,7 +6,7 @@ import PageTransition from "@/components/PageTransition";
 import type { ReactNode } from "react";
 
 export const metadata = {
-  title: "Chintu — Your Study Companion",
+  title: "Your Study Companion",
   description: "Study smarter with Chintu by your side.",
 };
 

@@ -6,7 +6,7 @@ export default function RootPage() {
   const router = useRouter();
   useEffect(() => {
     const onboarded = localStorage.getItem("chintu-onboarded");
-    router.replace(onboarded ? "/dashboard" : "/onboarding");
+    router.replace(onboarded ? "/dashboard" : "/landing");
   }, []);
   return null;
 }

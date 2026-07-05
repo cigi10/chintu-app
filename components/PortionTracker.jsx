@@ -1,8 +1,10 @@
 "use client";
 import "@/styles/tracker.css";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
 
+const SESSION_LOG_KEY = "chintu-session-log";
 const STATUS_ORDER = ["not-started", "in-progress", "done", "needs-revision"];
 const STATUS_META = {
   "not-started":    { icon: "○", label: "Not started" },
@@ -10,6 +12,19 @@ const STATUS_META = {
   "done":           { icon: "●", label: "Done" },
   "needs-revision": { icon: "↺", label: "Needs revision" },
 };
+
+function loadSessionLog() {
+  try { return JSON.parse(localStorage.getItem(SESSION_LOG_KEY) || "[]"); } catch { return []; }
+}
+function minutesForTopic(log, topicName) {
+  return log.filter(s => (s.subject || "").toLowerCase() === topicName.toLowerCase())
+             .reduce((sum, s) => sum + (s.durationMinutes || 0), 0);
+}
+function formatMinutes(total) {
+  if (!total) return "0m logged";
+  const h = Math.floor(total / 60), m = total % 60;
+  return h > 0 ? `${h}h ${m}m logged` : `${m}m logged`;
+}
 
 function nextStatus(current) {
   const i = STATUS_ORDER.indexOf(current);
@@ -107,6 +122,7 @@ function addCoins(amount) {
 
 function ExamPicker({ onPick }) {
   const DESC = {
+    Custom: "Build your own topic list",
     JEE: "Physics, Chemistry, Maths",
     NEET: "Physics, Chemistry, Biology",
     "SAT/ACT": "Math, Reading & Writing",
@@ -115,9 +131,8 @@ function ExamPicker({ onPick }) {
     Gaokao: "Maths, Chinese, English",
     "GRE/GMAT": "Quant, Verbal",
     Placements: "CS, ECE, DSA, Aptitude",
-    Custom: "Build your own topic list",
   };
-  const options = [...PACK_NAMES, "Custom"];
+  const options = ["Custom", ...PACK_NAMES];
   return (
     <div className="exam-picker">
       <p className="exam-picker__prompt">Which exam are you preparing for?</p>
@@ -134,15 +149,21 @@ function ExamPicker({ onPick }) {
 }
 
 export default function PortionTracker() {
+  const router = useRouter();
   const [examType, setExamType]       = useState(null);
   const [subjects, setSubjects]       = useState({});
-  const [newTopic, setNewTopic]       = useState("");
-  const [newSubject, setNewSubject]   = useState("");
+  const [sessionLog, setSessionLog]   = useState([]);
+  const [newTopicMap, setNewTopicMap] = useState({});      // per-subject "add topic" inputs
   const [newSubtopic, setNewSubtopic] = useState({});
   const [expanded, setExpanded]       = useState({});
   const [celebrating, setCelebrating] = useState(false);
   const [celebratingSubject, setCelebratingSubject] = useState("");
   const [pendingSwitch, setPendingSwitch] = useState(false);
+
+  // New-subject form state
+  const [showNewSubjectForm, setShowNewSubjectForm] = useState(false);
+  const [newSubjectName, setNewSubjectName]   = useState("");
+  const [newSubjectTopic, setNewSubjectTopic] = useState("");
 
   useEffect(() => {
     try {
@@ -162,6 +183,26 @@ export default function PortionTracker() {
       localStorage.setItem("chintu-subjects", JSON.stringify(subjects));
     } catch {}
   }, [examType, subjects]);
+
+  useEffect(() => {
+    if (!examType) return;
+    const log = loadSessionLog();
+    setSessionLog(log);
+    setSubjects(prev => {
+      let changed = false;
+      const updated = {};
+      for (const [subj, topics] of Object.entries(prev)) {
+        updated[subj] = topics.map(t => {
+          if (t.status === "not-started" && minutesForTopic(log, t.name) > 0) {
+            changed = true;
+            return { ...t, status: "in-progress" };
+          }
+          return t;
+        });
+      }
+      return changed ? updated : prev;
+    });
+  }, [examType]);
 
   function pickExam(packName) {
     setExamType(packName);
@@ -218,17 +259,31 @@ export default function PortionTracker() {
     setNewSubtopic(prev => ({ ...prev, [topicId]: "" }));
   }
 
-  function addTopic() {
-    if (!newTopic.trim()) return;
-    const subjectKey = newSubject.trim() || "Custom Topics";
-    setSubjects(prev => {
-      const existing = prev[subjectKey] || [];
-      return {
-        ...prev,
-        [subjectKey]: [...existing, { id: `${newTopic}-${Date.now()}`, name: newTopic.trim(), status: "not-started", subtopics: [] }],
-      };
-    });
-    setNewTopic("");
+  // Adds a topic directly into an EXISTING subject
+  function addTopicToSubject(subject) {
+    const text = (newTopicMap[subject] || "").trim();
+    if (!text) return;
+    setSubjects(prev => ({
+      ...prev,
+      [subject]: [...(prev[subject] || []), { id: `${text}-${Date.now()}`, name: text, status: "not-started", subtopics: [] }],
+    }));
+    setNewTopicMap(prev => ({ ...prev, [subject]: "" }));
+  }
+
+  // Creates a brand NEW subject with its first topic
+  function createNewSubject() {
+    const subjName = newSubjectName.trim();
+    const topicName = newSubjectTopic.trim();
+    if (!subjName) return;
+    setSubjects(prev => ({
+      ...prev,
+      [subjName]: topicName
+        ? [{ id: `${topicName}-${Date.now()}`, name: topicName, status: "not-started", subtopics: [] }]
+        : [],
+    }));
+    setNewSubjectName("");
+    setNewSubjectTopic("");
+    setShowNewSubjectForm(false);
   }
 
   function removeTopic(subject, topicId) {
@@ -243,6 +298,7 @@ export default function PortionTracker() {
 
   const overall = overallProgress(subjects);
   const mood = celebrating ? "celebrating" : moodFromProgress(overall);
+  const subjectEntries = Object.entries(subjects);
 
   return (
     <div style={{ paddingBottom: "2rem" }}>
@@ -273,13 +329,11 @@ export default function PortionTracker() {
         <Companion mood={mood} />
       </div>
 
-      <div className="tracker__add-row">
-        <input className="tracker__add-input" value={newSubject} onChange={e => setNewSubject(e.target.value)} placeholder="Subject (optional)" />
-        <input className="tracker__add-input" value={newTopic} onChange={e => setNewTopic(e.target.value)} onKeyDown={e => e.key === "Enter" && addTopic()} placeholder="Add a custom topic..." />
-        <button className="tracker__add-btn" onClick={addTopic}>Add</button>
-      </div>
+      {subjectEntries.length === 0 && !showNewSubjectForm && (
+        <p className="tracker__empty-hint">No subjects yet — add your first one below.</p>
+      )}
 
-      {Object.entries(subjects).map(([subject, topics]) => (
+      {subjectEntries.map(([subject, topics]) => (
         <div key={subject} className="tracker__subject">
           <div className="tracker__subject-header">
             <h3 className="tracker__subject-name">{subject}</h3>
@@ -295,6 +349,13 @@ export default function PortionTracker() {
                   <button className="tracker__topic-btn" onClick={() => cycleStatus(subject, t.id)}>
                     <span className="tracker__topic-icon">{STATUS_META[t.status].icon}</span>
                     <span className="tracker__topic-name">{t.name}</span>
+                  </button>
+                  <span className="tracker__topic-time">{formatMinutes(minutesForTopic(sessionLog, t.name))}</span>
+                  <button
+                    className="tracker__topic-study-btn"
+                    onClick={() => router.push(`/timer?subject=${encodeURIComponent(t.name)}`)}
+                  >
+                    Study
                   </button>
                   <button className="tracker__topic-expand" onClick={() => toggleExpand(t.id)}>
                     {expanded[t.id] ? "−" : "+"}
@@ -327,8 +388,55 @@ export default function PortionTracker() {
               </div>
             ))}
           </div>
+
+          {/* Add a topic directly into THIS subject */}
+          <div className="tracker__add-topic-row">
+            <input
+              className="tracker__add-input"
+              value={newTopicMap[subject] || ""}
+              onChange={e => setNewTopicMap(prev => ({ ...prev, [subject]: e.target.value }))}
+              onKeyDown={e => e.key === "Enter" && addTopicToSubject(subject)}
+              placeholder={`Add a topic to ${subject}...`}
+            />
+            <button className="tracker__add-btn" onClick={() => addTopicToSubject(subject)}>Add</button>
+          </div>
         </div>
       ))}
+
+      {/* Clearly separate action: create a whole new subject */}
+      <div className="tracker__new-subject-block">
+        {!showNewSubjectForm ? (
+          <button className="tracker__new-subject-btn" onClick={() => setShowNewSubjectForm(true)}>
+            + Add a new subject
+          </button>
+        ) : (
+          <div className="tracker__new-subject-form">
+            <p className="tracker__new-subject-title">New subject</p>
+            <input
+              className="tracker__add-input"
+              value={newSubjectName}
+              onChange={e => setNewSubjectName(e.target.value)}
+              placeholder="Subject name (e.g. Economics)"
+              autoFocus
+            />
+            <input
+              className="tracker__add-input"
+              value={newSubjectTopic}
+              onChange={e => setNewSubjectTopic(e.target.value)}
+              onKeyDown={e => e.key === "Enter" && createNewSubject()}
+              placeholder="First topic (optional)"
+            />
+            <div className="tracker__new-subject-actions">
+              <button className="tracker__add-btn" onClick={createNewSubject} disabled={!newSubjectName.trim()}>
+                Create subject
+              </button>
+              <button className="tracker__new-subject-cancel" onClick={() => { setShowNewSubjectForm(false); setNewSubjectName(""); setNewSubjectTopic(""); }}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

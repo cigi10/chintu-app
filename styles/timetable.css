@@ -1,86 +1,147 @@
-.timetable__nav {
+.timetable__wrap {
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.timetable__header-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
-  padding: 0 0.25rem;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
 }
 
-.timetable__nav-btn {
-  padding: 6px 14px;
+/* dashboard-style solid pill button */
+.timetable__pill-btn {
+  padding: 8px 18px;
   border-radius: var(--radius-pill);
-  border: 2px solid var(--color-border);
-  background-color: var(--color-bg-card);
+  border: none;
+  background-color: #9B6FD4;
+  color: #ffffff;
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: 1rem;
-  color: var(--color-accent);
+  font-size: 0.85rem;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
+.timetable__pill-btn:hover { opacity: 0.9; }
+.timetable__pill-btn:active { transform: scale(0.97); }
 
-.timetable__nav-btn:disabled {
-  color: var(--color-text-disabled);
-  border-color: var(--color-border);
-  cursor: not-allowed;
-}
-
-.timetable__nav-btn:not(:disabled):hover {
-  background-color: var(--color-accent-soft);
-}
-
-.timetable__nav-range {
+.timetable__fill-badge {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--color-text-secondary);
+  font-size: 0.68rem;
+  color: #6E6688;
+  background-color: #E7BEF8;
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  white-space: nowrap;
 }
 
-/* Grid scroll wrapper */
+.timetable__today-goals {
+  margin-bottom: 0.6rem;
+}
+.timetable__today-goals-label {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.timetable__today-goals-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.timetable__today-goal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg-card);
+  border: 1.5px solid var(--color-border);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--color-text-primary);
+}
+
+.timetable__scroll-hint {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin: 0 0 6px;
+}
+
+/* No background — page gradient shows through, only cells/headers have their own card bg */
 .timetable__scroll {
   overflow-x: auto;
-  border-radius: var(--radius-lg);
-  max-width: 100%;
   -webkit-overflow-scrolling: touch;
+  background: none;
+  padding: 4px 0;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .timetable__table {
-  width: 100%;
-  min-width: 360px;
   border-collapse: separate;
   border-spacing: 4px;
+  width: max-content;
+  min-width: 100%;
+}
+
+.timetable__table col.timetable__time-col {
+  width: 52px;
+}
+.timetable__table col:not(.timetable__time-col) {
+  width: 92px;
 }
 
 .timetable__th {
   font-family: var(--font-body);
   font-weight: 800;
   font-size: 0.8rem;
-  color: var(--color-accent);
+  color: var(--color-text-primary);
   text-align: center;
-  padding: 6px 4px;
+  padding: 8px 4px;
   letter-spacing: 0.03em;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.timetable__th--today {
+  background-color: #9B6FD4;
+  color: #FBF3FF;
 }
 
 .timetable__time-label {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.68rem;
-  color: var(--color-text-faint);
+  font-size: 0.66rem;
+  color: var(--color-text-secondary);
   text-align: right;
   padding-right: 8px;
   white-space: nowrap;
   vertical-align: middle;
-  width: 48px;
 }
+
 
 .timetable__cell {
   border-radius: 10px;
-  padding: 6px 4px;
+  padding: 4px 4px;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  transition: opacity var(--transition-fast), background-color var(--transition-fast);
-  height: 44px;
+  transition: opacity var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  height: 32px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .timetable__cell--empty {
@@ -88,8 +149,13 @@
   border: 1.5px dashed var(--color-border-dashed);
 }
 
+.timetable__cell--today.timetable__cell--empty {
+  border-color: #9B6FD4;
+}
+
 .timetable__cell--empty:hover {
-  background-color: var(--color-accent-soft);
+  background-color: #F3E3FB;
+  border-color: #9B6FD4;
 }
 
 .timetable__cell--filled:hover {
@@ -97,48 +163,27 @@
 }
 
 .timetable__cell-plus {
-  font-size: 1.1rem;
-  color: var(--color-text-disabled);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
   transition: color var(--transition-fast);
   line-height: 1;
 }
 
 .timetable__cell--empty:hover .timetable__cell-plus {
-  color: var(--color-accent);
+  color: #9B6FD4;
 }
 
 .timetable__cell-subject {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 100%;
   line-height: 1.3;
-}
-
-/* Color swatches — locked Part 9 palette only */
-.timetable__fill-badge {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.65rem;
-  color: var(--color-text-secondary);
-  background-color: var(--color-accent-soft);
-  border-radius: var(--radius-pill);
-  padding: 2px 8px;
-}
-
-.timetable__companion-corner {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  z-index: 10;
 }
 
 /* Modal */
@@ -155,6 +200,7 @@
 }
 
 .slot-modal {
+  position: relative;
   background-color: var(--color-bg-card);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
@@ -165,11 +211,27 @@
   box-sizing: border-box;
 }
 
-.slot-modal__header {
+.slot-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-bg-card-soft);
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+.slot-modal__close:hover {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
 }
 
 .slot-modal__day-slot {
@@ -178,24 +240,14 @@
   color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin: 0;
+  margin: 0 1.75rem 0 0;
 }
 
 .slot-modal__title {
   font-size: 1.05rem;
   font-weight: 800;
   color: var(--color-text-primary);
-  margin: 2px 0 0;
-}
-
-.slot-modal__close {
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: var(--color-text-secondary);
-  line-height: 1;
-  padding: 0;
+  margin: 2px 0 1.25rem;
 }
 
 .slot-modal__label {
@@ -231,7 +283,6 @@
   border-color: var(--color-accent);
 }
 
-/* Color swatches — Part 9 palette */
 .slot-modal__colors {
   display: flex;
   gap: 8px;
@@ -250,7 +301,7 @@
 }
 
 .slot-modal__color-swatch--active {
-  border-color: var(--color-accent);
+  border-color: #9B6FD4;
   transform: scale(1.2);
 }
 
@@ -289,4 +340,70 @@
   font-weight: 700;
   font-size: 0.88rem;
   cursor: pointer;
+}
+
+.timetable__th-goals { display: flex; justify-content: center; gap: 3px; margin-top: 4px; }
+.timetable__goal-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+
+@media (max-width: 640px) {
+  .timetable__wrap { padding: 0 0.6rem; }
+  .timetable__cell { height: 30px; }
+  .timetable__th { font-size: 0.72rem; padding: 6px 2px; }
+  .timetable__time-label { font-size: 0.6rem; }
+}
+
+@media (min-width: 768px) {
+  .timetable__scroll-hint {
+    display: none;
+  }
+
+  .timetable__scroll {
+    overflow-x: visible;
+  }
+
+  .timetable__table {
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 3px;
+  }
+
+  .timetable__table col.timetable__time-col {
+    width: 70px;
+  }
+  .timetable__table col:not(.timetable__time-col) {
+    width: auto;
+  }
+
+  .timetable__th {
+    font-size: 0.85rem;
+    padding: 10px 4px;
+  }
+
+  .timetable__time-label {
+    font-size: 0.72rem;
+  }
+
+  .timetable__cell {
+    height: 36px;
+  }
+
+  .timetable__cell-subject {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .timetable__wrap {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .timetable__cell {
+    height: 42px;
+  }
+
+  .timetable__cell-subject {
+    font-size: 0.75rem;
+  }
 }

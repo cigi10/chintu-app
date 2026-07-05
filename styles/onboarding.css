@@ -260,3 +260,10 @@ body {
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+.onboarding__chips-label {
+  font-size: 0.8rem;
+  color: #6E6688;
+  margin: 12px 0 6px;
+  text-align: center;
+}
