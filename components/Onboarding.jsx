@@ -5,18 +5,24 @@ import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
 
 const PACK_OPTIONS = [
-  { key: "Custom",     desc: "Build your own subject and topic list" },
-  { key: "JEE",        desc: "Physics, Chemistry, Maths" },
-  { key: "NEET",       desc: "Physics, Chemistry, Biology" },
-  { key: "SAT/ACT",    desc: "Math, Reading & Writing" },
-  { key: "A-Levels",   desc: "Pick 3-4 subjects" },
-  { key: "GCSEs",      desc: "Pick your subjects" },
-  { key: "Gaokao",     desc: "Maths, Chinese, English" },
-  { key: "GRE/GMAT",   desc: "Quant, Verbal" },
-  { key: "Placements", desc: "CS, ECE, DSA, Aptitude" },
+  { key: "Custom",     icon: "CU", desc: "Build your own subject and topic list" },
+  { key: "JEE",        icon: "JE", desc: "Physics, Chemistry, Maths" },
+  { key: "NEET",       icon: "NE", desc: "Physics, Chemistry, Biology" },
+  { key: "SAT/ACT",    icon: "SA", desc: "Math, Reading & Writing" },
+  { key: "A-Levels",   icon: "AL", desc: "Pick 3-4 subjects" },
+  { key: "GCSEs",      icon: "GC", desc: "Pick your subjects" },
+  { key: "Gaokao",     icon: "GK", desc: "Maths, Chinese, English" },
+  { key: "GRE/GMAT",   icon: "GR", desc: "Quant, Verbal" },
+  { key: "Placements", icon: "PL", desc: "CS, ECE, DSA, Aptitude" },
 ];
 
-const NAME_CHIPS = ["Pip", "Mochi", "Tofu", "Walnut", "Biscuit", "Bun"];
+const NAME_CHIPS = [
+  "Pip", "Mochi", "Tofu", "Walnut", "Biscuit", "Bun",
+  "Kiwi", "Sushi", "Coco", "Pepper", "Noodle", "Waffle",
+  "Peanut", "Mango", "Olive", "Sprout",
+];
+
+const STEP_LABELS = ["Pack", "Name", "Exam date"];
 
 export default function Onboarding() {
   const router = useRouter();
@@ -48,6 +54,17 @@ export default function Onboarding() {
     <div className="onboarding">
       <div className="onboarding__container">
 
+        <div className="onboarding__progress">
+          {STEP_LABELS.map((label, i) => (
+            <div
+              key={label}
+              className={`onboarding__dot${
+                i === step ? " onboarding__dot--active" : i < step ? " onboarding__dot--done" : ""
+              }`}
+            />
+          ))}
+        </div>
+
         {step === 0 && (
           <>
             <div className="onboarding__companion">
@@ -64,10 +81,11 @@ export default function Onboarding() {
                   className={`onboarding__exam-btn${p.key === "Custom" ? " onboarding__exam-btn--custom" : ""}`}
                   onClick={() => pickPack(p.key)}
                 >
-                  <div>
+                  <span className="onboarding__exam-icon">{p.icon}</span>
+                  <span className="onboarding__exam-text">
                     <span className="onboarding__exam-name">{p.key}</span>
                     <span className="onboarding__exam-desc">{p.desc}</span>
-                  </div>
+                  </span>
                 </button>
               ))}
             </div>
@@ -81,7 +99,7 @@ export default function Onboarding() {
             </div>
             <h1 className="onboarding__title">Name your companion</h1>
             <p className="onboarding__subtitle">
-              Type any name you like — it doesn't have to be one of the suggestions below.
+              Type any name you like: it doesn't have to be one of the suggestions below.
             </p>
             <div className="onboarding__step">
               <input
@@ -92,17 +110,19 @@ export default function Onboarding() {
                 placeholder="Type your own name here..."
                 autoFocus
               />
-              <p className="onboarding__chips-label">Need inspiration? Try one of these:</p>
-              <div className="onboarding__chips">
-                {NAME_CHIPS.map(c => (
-                  <button
-                    key={c}
-                    className={`onboarding__chip${name === c ? " onboarding__chip--selected" : ""}`}
-                    onClick={() => setName(c)}
-                  >
-                    {c}
-                  </button>
-                ))}
+              <div className="onboarding__chips-panel">
+                <p className="onboarding__chips-label">Need inspiration? Try one of these:</p>
+                <div className="onboarding__chips">
+                  {NAME_CHIPS.map(c => (
+                    <button
+                      key={c}
+                      className={`onboarding__chip${name === c ? " onboarding__chip--selected" : ""}`}
+                      onClick={() => setName(c)}
+                    >
+                      {c}
+                    </button>
+                  ))}
+                </div>
               </div>
               <div className="onboarding__actions">
                 <button
@@ -123,7 +143,7 @@ export default function Onboarding() {
               <Companion mood="happy" />
             </div>
             <h1 className="onboarding__title">When is your exam?</h1>
-            <p className="onboarding__subtitle">Optional — you can add this later too</p>
+            <p className="onboarding__subtitle">Optional: you can add this later too</p>
             <div className="onboarding__step">
               <input
                 className="onboarding__input"

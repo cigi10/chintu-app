@@ -6,10 +6,9 @@
   justify-content: center;
   padding: var(--space-lg);
   text-align: center;
-  box-sizing: border-box;                     /* add this */
+  box-sizing: border-box;
   overflow-x: hidden;
-  overflow-y: auto;        /* add this */
-
+  overflow-y: auto;
 }
 
 body {
@@ -19,14 +18,13 @@ body {
 }
 
 .onboarding__container {
-  max-width: 440px;
+  max-width: 560px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-md) 0;   /* add this so top isn't clipped */
-
+  padding: var(--space-md) 0;
 }
 
 /* Progress dots */
@@ -40,21 +38,25 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--color-border-strong);
-  transition: background-color var(--transition-base);
+  background-color: rgba(155, 111, 212, 0.3);
+  transition: all var(--transition-base);
 }
 
 .onboarding__dot--active {
-  background-color: var(--color-accent);
+  background-color: #9B6FD4;
   width: 22px;
   border-radius: var(--radius-pill);
+}
+
+.onboarding__dot--done {
+  background-color: rgba(155, 111, 212, 0.6);
 }
 
 /* Companion display */
 .onboarding__companion {
   margin: var(--space-sm) 0;
-  max-width: 180px;  /* add this */
-  width: 100%;       /* add this */
+  max-width: 160px;
+  width: 100%;
 }
 
 /* Headings */
@@ -73,7 +75,7 @@ body {
   font-weight: 600;
   color: var(--color-text-secondary);
   margin: 0;
-  max-width: 320px;
+  max-width: 380px;
 }
 
 /* Step wrapper */
@@ -84,74 +86,124 @@ body {
   width: 100%;
 }
 
-/* Exam pack grid */
+/* ===== Exam pack grid — glass style, 2 columns ===== */
 .onboarding__exam-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   width: 100%;
 }
 
 .onboarding__exam-btn {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 13px 16px;
-  border-radius: var(--radius-md);
-  border: 2px solid var(--color-border);
-  background-color: var(--color-bg-card);
+  gap: 10px;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1.5px solid rgba(155, 111, 212, 0.3);
+  background: rgba(155, 111, 212, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(155, 111, 212, 0.1);
   cursor: pointer;
   text-align: left;
   font-family: var(--font-body);
   width: 100%;
+  min-height: 68px;
+  box-sizing: border-box;
   transition:
     border-color var(--transition-fast),
-    background-color var(--transition-fast);
-  box-sizing: border-box;
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .onboarding__exam-btn:hover {
-  border-color: var(--color-accent);
-  background-color: var(--color-accent-soft);
+  border-color: #9B6FD4;
+  background: rgba(155, 111, 212, 0.2);
+  transform: translateY(-2px);
 }
 
 .onboarding__exam-btn--selected {
-  border-color: var(--color-accent);
-  background-color: var(--color-accent-soft);
+  border-color: #9B6FD4;
+  background: rgba(155, 111, 212, 0.28);
+}
+
+/* Custom is the escape hatch — full width, visually distinct */
+.onboarding__exam-btn--custom {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px dashed rgba(155, 111, 212, 0.45);
+  box-shadow: none;
+}
+
+.onboarding__exam-btn--custom:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: #9B6FD4;
+}
+
+.onboarding__exam-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: #7A4FBF;
+}
+
+.onboarding__exam-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .onboarding__exam-name {
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-text-primary);
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .onboarding__exam-desc {
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--color-text-secondary);
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Text input */
+/* Text input — glass */
 .onboarding__input {
   width: 100%;
   padding: 13px 16px;
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(155, 111, 212, 0.3);
+  border-radius: 16px;
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 600;
   color: var(--color-text-primary);
-  background-color: var(--color-bg-card);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-sizing: border-box;
   outline: none;
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .onboarding__input:focus {
-  border-color: var(--color-accent);
+  border-color: #9B6FD4;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .onboarding__input::placeholder {
@@ -159,7 +211,19 @@ body {
   font-weight: 600;
 }
 
-/* Name chips */
+/* Name chips — glass container */
+.onboarding__chips-panel {
+  width: 100%;
+  border-radius: 16px;
+  border: 1.5px solid rgba(155, 111, 212, 0.25);
+  background: rgba(155, 111, 212, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(155, 111, 212, 0.1);
+  padding: 14px;
+  box-sizing: border-box;
+}
+
 .onboarding__chips {
   display: flex;
   flex-wrap: wrap;
@@ -171,12 +235,12 @@ body {
 .onboarding__chip {
   padding: 7px 16px;
   border-radius: var(--radius-pill);
-  background-color: var(--color-accent-soft);
-  color: var(--color-navy);
+  background: rgba(255, 255, 255, 0.4);
+  color: #7A4FBF;
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 700;
-  border: 2px solid transparent;
+  border: 1.5px solid rgba(155, 111, 212, 0.35);
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
@@ -185,14 +249,13 @@ body {
 }
 
 .onboarding__chip:hover {
-  background-color: var(--color-blueberry);
-  color: #ffffff;
+  background: rgba(155, 111, 212, 0.25);
 }
 
 .onboarding__chip--selected {
-  background-color: var(--color-accent);
+  background: #9B6FD4;
   color: #ffffff;
-  border-color: var(--color-accent-deep);
+  border-color: #7A4FBF;
 }
 
 /* D-Day date input row */
@@ -210,8 +273,6 @@ body {
   min-width: 0;
 }
 
-/* Action button — uses .btn .btn--primary .btn--full from button.css
-   This wrapper just provides spacing context */
 .onboarding__actions {
   display: flex;
   flex-direction: column;
@@ -220,7 +281,6 @@ body {
   margin-top: var(--space-sm);
 }
 
-/* Skip / secondary link */
 .onboarding__skip {
   background: none;
   border: none;
@@ -235,35 +295,45 @@ body {
 }
 
 .onboarding__skip:hover {
-  color: var(--color-accent);
+  color: #9B6FD4;
 }
 
 .onboarding__cta {
   width: 100%;
   padding: 14px 24px;
   border-radius: var(--radius-pill);
-  background-color: var(--color-accent);
+  background-color: #9B6FD4;
   color: #ffffff;
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 700;
   border: none;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(155, 111, 212, 0.35);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .onboarding__cta:hover {
-  background-color: var(--color-accent-deep);
+  background-color: #7A4FBF;
+  transform: translateY(-1px);
 }
 
 .onboarding__cta:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+  transform: none;
 }
 
 .onboarding__chips-label {
   font-size: 0.8rem;
   color: #6E6688;
-  margin: 12px 0 6px;
+  margin: 0 0 6px;
   text-align: center;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .onboarding__exam-grid {
+    grid-template-columns: 1fr;
+  }
 }

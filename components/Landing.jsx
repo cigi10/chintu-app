@@ -6,7 +6,7 @@ import Companion from "@/components/Companion";
 const FEATURES = [
   { title: "A timer that keeps you company",  desc: "Study sessions, breaks, and a companion who sits with you through both." },
   { title: "No shame, ever",                  desc: "Miss a day and nothing breaks. Your companion just waits for you to come back." },
-  { title: "Everything in one place",         desc: "Timetable, syllabus tracker, revision queue, mock scores, and to-dos — all connected." },
+  { title: "Everything in one place",         desc: "Timetable, syllabus tracker, revision queue, mock scores, and to-dos: all connected." },
   { title: "Built for real exam prep",        desc: "JEE, NEET, SAT/ACT, A-Levels, GCSEs, Gaokao, GRE/GMAT, placements, or your own custom plan." },
 ];
 

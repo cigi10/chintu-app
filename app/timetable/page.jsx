@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import TimetableGrid from "@/components/TimetableGrid";
 
 export const metadata = {
-  title: "Study app — Timetable",
+  title: "Study app: Timetable",
   description: "Plan your weekly study schedule.",
 };
 

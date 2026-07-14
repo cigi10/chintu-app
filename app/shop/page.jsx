@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import CoinShop from "@/components/CoinShop";
 
 export const metadata = {
-  title: "Study app — Shop",
+  title: "Study app: Shop",
   description: "Spend your coins on Chintu's room and outfits.",
 };
 

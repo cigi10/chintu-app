@@ -19,7 +19,7 @@ export default function StreakBanner() {
   return (
     <div className="streak-banner">
       <p className="streak-banner__pill">
-        {info.streakCount} day{info.streakCount === 1 ? "" : "s"} — keep going
+        {info.streakCount} day{info.streakCount === 1 ? "" : "s"} : keep going
       </p>
 
       {info.message && (

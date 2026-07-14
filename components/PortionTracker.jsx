@@ -3,15 +3,32 @@ import "@/styles/tracker.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
+import { getGoalsForDate } from "@/lib/goals";
 
 const SESSION_LOG_KEY = "chintu-session-log";
-const STATUS_ORDER = ["not-started", "in-progress", "done", "needs-revision"];
-const STATUS_META = {
-  "not-started":    { icon: "○", label: "Not started" },
-  "in-progress":    { icon: "◑", label: "In progress" },
-  "done":           { icon: "●", label: "Done" },
-  "needs-revision": { icon: "↺", label: "Needs revision" },
+
+const STATUS_ORDER = ["not-started", "in-progress", "done", "migrated", "cancelled", "question"];
+const STATUS_LABEL = {
+  "not-started": "Not started",
+  "in-progress": "In progress",
+  "done":        "Done",
+  "migrated":    "Migrated",
+  "cancelled":   "Cancelled",
+  "question":    "Unclear",
 };
+const BULLET_CONTENT = {
+  "not-started": "",
+  "in-progress": "",
+  "done":        "✓",
+  "migrated":    "→",
+  "cancelled":   "✕",
+  "question":    "?",
+};
+
+function nextStatus(current) {
+  const i = STATUS_ORDER.indexOf(current);
+  return STATUS_ORDER[(i + 1) % STATUS_ORDER.length];
+}
 
 function loadSessionLog() {
   try { return JSON.parse(localStorage.getItem(SESSION_LOG_KEY) || "[]"); } catch { return []; }
@@ -20,15 +37,15 @@ function minutesForTopic(log, topicName) {
   return log.filter(s => (s.subject || "").toLowerCase() === topicName.toLowerCase())
              .reduce((sum, s) => sum + (s.durationMinutes || 0), 0);
 }
+function minutesForSubject(log, topics) {
+  const names = topics.map(t => t.name.toLowerCase());
+  return log.filter(s => names.includes((s.subject || "").toLowerCase()))
+             .reduce((sum, s) => sum + (s.durationMinutes || 0), 0);
+}
 function formatMinutes(total) {
   if (!total) return "0m logged";
   const h = Math.floor(total / 60), m = total % 60;
   return h > 0 ? `${h}h ${m}m logged` : `${m}m logged`;
-}
-
-function nextStatus(current) {
-  const i = STATUS_ORDER.indexOf(current);
-  return STATUS_ORDER[(i + 1) % STATUS_ORDER.length];
 }
 
 function makeTopics(names) {
@@ -153,14 +170,14 @@ export default function PortionTracker() {
   const [examType, setExamType]       = useState(null);
   const [subjects, setSubjects]       = useState({});
   const [sessionLog, setSessionLog]   = useState([]);
-  const [newTopicMap, setNewTopicMap] = useState({});      // per-subject "add topic" inputs
+  const [newTopicMap, setNewTopicMap] = useState({});
   const [newSubtopic, setNewSubtopic] = useState({});
   const [expanded, setExpanded]       = useState({});
   const [celebrating, setCelebrating] = useState(false);
   const [celebratingSubject, setCelebratingSubject] = useState("");
   const [pendingSwitch, setPendingSwitch] = useState(false);
+  const [todayGoals, setTodayGoals]   = useState([]);
 
-  // New-subject form state
   const [showNewSubjectForm, setShowNewSubjectForm] = useState(false);
   const [newSubjectName, setNewSubjectName]   = useState("");
   const [newSubjectTopic, setNewSubjectTopic] = useState("");
@@ -204,19 +221,23 @@ export default function PortionTracker() {
     });
   }, [examType]);
 
+  useEffect(() => {
+    setTodayGoals(getGoalsForDate(new Date()));
+  }, []);
+
   function pickExam(packName) {
     setExamType(packName);
     setSubjects(buildFreshSubjects(packName));
   }
 
-  function cycleStatus(subject, topicId) {
+  function cycleTopicStatus(subject, topicId) {
     setSubjects(prev => {
       const wasFullyDone = subjectProgress(prev[subject]) === 100;
       const topics = prev[subject].map(t => {
         if (t.id !== topicId) return t;
-        const newStat = nextStatus(t.status);
-        if (newStat === "done" && t.status !== "done") addCoins(5);
-        return { ...t, status: newStat };
+        const newStatus = nextStatus(t.status);
+        if (newStatus === "done" && t.status !== "done") addCoins(5);
+        return { ...t, status: newStatus };
       });
       const isNowFullyDone = subjectProgress(topics) === 100;
       if (!wasFullyDone && isNowFullyDone) {
@@ -233,10 +254,9 @@ export default function PortionTracker() {
     setSubjects(prev => {
       const topics = prev[subject].map(t => {
         if (t.id !== topicId) return t;
-        const subtopics = (t.subtopics || []).map(s => {
-          if (s.id !== subtopicId) return s;
-          return { ...s, status: nextStatus(s.status) };
-        });
+        const subtopics = (t.subtopics || []).map(s =>
+          s.id !== subtopicId ? s : { ...s, status: nextStatus(s.status) }
+        );
         return { ...t, subtopics };
       });
       return { ...prev, [subject]: topics };
@@ -259,7 +279,6 @@ export default function PortionTracker() {
     setNewSubtopic(prev => ({ ...prev, [topicId]: "" }));
   }
 
-  // Adds a topic directly into an EXISTING subject
   function addTopicToSubject(subject) {
     const text = (newTopicMap[subject] || "").trim();
     if (!text) return;
@@ -270,7 +289,6 @@ export default function PortionTracker() {
     setNewTopicMap(prev => ({ ...prev, [subject]: "" }));
   }
 
-  // Creates a brand NEW subject with its first topic
   function createNewSubject() {
     const subjName = newSubjectName.trim();
     const topicName = newSubjectTopic.trim();
@@ -315,6 +333,18 @@ export default function PortionTracker() {
         <button className="tracker__switch-btn" onClick={() => setPendingSwitch(true)}>Switch exam</button>
       </div>
 
+      <div className="tracker__quicklinks">
+        <button className="tracker__quicklink-btn" onClick={() => router.push("/timer")}>
+          Open Timer
+        </button>
+        <button className="tracker__quicklink-btn" onClick={() => router.push("/timetable")}>
+          View this week's plan
+        </button>
+        <button className="tracker__quicklink-btn" onClick={() => router.push("/dashboard")}>
+          Back to Home
+        </button>
+      </div>
+
       {pendingSwitch && (
         <div className="tracker__warning">
           <p>Switching packs will reset your current progress. Are you sure?</p>
@@ -329,67 +359,132 @@ export default function PortionTracker() {
         <Companion mood={mood} />
       </div>
 
+      {todayGoals.length > 0 && (
+        <div className="tracker__today-goals">
+          <span className="tracker__today-goals-label">Today's goals</span>
+          <div className="tracker__today-goals-list">
+            {todayGoals.map(g => (
+              <button
+                key={g.id}
+                className="tracker__today-goal-chip"
+                onClick={() => router.push(`/timer?subject=${encodeURIComponent(g.subject)}&duration=${g.durationMinutes}&goalId=${g.id}`)}
+                title={`Study ${g.subject} for ${g.durationMinutes}m`}
+              >
+                <span className="tracker__goal-dot" style={{ backgroundColor: g.color }} />
+                {g.subject}
+                <span className="tracker__today-goal-mins">{g.durationMinutes}m</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {subjectEntries.length === 0 && !showNewSubjectForm && (
-        <p className="tracker__empty-hint">No subjects yet — add your first one below.</p>
+        <p className="tracker__empty-hint">No subjects yet: add your first one below.</p>
       )}
 
       {subjectEntries.map(([subject, topics]) => (
         <div key={subject} className="tracker__subject">
           <div className="tracker__subject-header">
-            <h3 className="tracker__subject-name">{subject}</h3>
-            <span className="tracker__subject-pct">{subjectProgress(topics)}%</span>
+            <div className="tracker__subject-name-row">
+              <h3 className="tracker__subject-name">{subject}</h3>
+              <button
+                className="tracker__subject-study-btn"
+                onClick={() => router.push(`/timer?subject=${encodeURIComponent(subject)}`)}
+              >
+                Study
+              </button>
+            </div>
+            <span className="tracker__subject-pct">
+              {subjectProgress(topics)}% · {formatMinutes(minutesForSubject(sessionLog, topics))}
+            </span>
           </div>
           <div className="tracker__progress-bar-bg">
             <div className="tracker__progress-bar-fill" style={{ width: `${subjectProgress(topics)}%` }} />
           </div>
-          <div className="tracker__topic-list">
-            {topics.map(t => (
-              <div key={t.id} className="tracker__topic-block">
-                <div className="tracker__topic-row">
-                  <button className="tracker__topic-btn" onClick={() => cycleStatus(subject, t.id)}>
-                    <span className="tracker__topic-icon">{STATUS_META[t.status].icon}</span>
-                    <span className="tracker__topic-name">{t.name}</span>
-                  </button>
-                  <span className="tracker__topic-time">{formatMinutes(minutesForTopic(sessionLog, t.name))}</span>
-                  <button
-                    className="tracker__topic-study-btn"
-                    onClick={() => router.push(`/timer?subject=${encodeURIComponent(t.name)}`)}
-                  >
-                    Study
-                  </button>
-                  <button className="tracker__topic-expand" onClick={() => toggleExpand(t.id)}>
-                    {expanded[t.id] ? "−" : "+"}
-                  </button>
-                  <button className="tracker__topic-remove" onClick={() => removeTopic(subject, t.id)}>×</button>
-                </div>
 
-                {expanded[t.id] && (
-                  <div className="tracker__subtopic-block">
-                    {(t.subtopics || []).map(s => (
-                      <div key={s.id} className="tracker__subtopic-row">
-                        <button className="tracker__subtopic-btn" onClick={() => cycleSubtopicStatus(subject, t.id, s.id)}>
-                          <span className="tracker__topic-icon">{STATUS_META[s.status].icon}</span>
-                          <span className="tracker__topic-name">{s.name}</span>
-                        </button>
-                      </div>
-                    ))}
-                    <div className="tracker__subtopic-add-row">
-                      <input
-                        className="tracker__add-input tracker__add-input--small"
-                        value={newSubtopic[t.id] || ""}
-                        onChange={e => setNewSubtopic(prev => ({ ...prev, [t.id]: e.target.value }))}
-                        onKeyDown={e => e.key === "Enter" && addSubtopic(subject, t.id)}
-                        placeholder="Add subtopic..."
-                      />
-                      <button className="tracker__add-btn" onClick={() => addSubtopic(subject, t.id)}>Add</button>
+          <div className="tracker__topic-list">
+            {topics.map(t => {
+              const isCancelled = t.status === "cancelled";
+              return (
+                <div key={t.id} className="tracker__topic-block">
+                  <div className="tracker__topic-row">
+                    <button
+                      className={`tracker__bullet tracker__bullet--${t.status}`}
+                      onClick={() => cycleTopicStatus(subject, t.id)}
+                      aria-label={STATUS_LABEL[t.status]}
+                      title={STATUS_LABEL[t.status]}
+                    >
+                      {BULLET_CONTENT[t.status]}
+                    </button>
+
+                    <div className="tracker__topic-name-wrap">
+                      <span className={`tracker__topic-name${isCancelled ? " tracker__topic-name--cancelled" : ""}`}>
+                        {t.name}
+                      </span>
+                      {t.status !== "not-started" && (
+                        <span className={`tracker__status-pill tracker__status-pill--${t.status}`}>
+                          {STATUS_LABEL[t.status]}
+                        </span>
+                      )}
                     </div>
+
+                    <span className="tracker__topic-time">{formatMinutes(minutesForTopic(sessionLog, t.name))}</span>
+                    <button
+                      className="tracker__topic-study-btn"
+                      onClick={() => router.push(`/timer?subject=${encodeURIComponent(t.name)}`)}
+                    >
+                      Study
+                    </button>
+                    <button className="tracker__topic-expand" onClick={() => toggleExpand(t.id)}>
+                      {expanded[t.id] ? "−" : "+"}
+                    </button>
+                    <button className="tracker__topic-remove" onClick={() => removeTopic(subject, t.id)}>×</button>
                   </div>
-                )}
-              </div>
-            ))}
+
+                  {expanded[t.id] && (
+                    <div className="tracker__subtopic-block">
+                      {(t.subtopics || []).map(s => (
+                        <div key={s.id} className="tracker__subtopic-row">
+                          <button className="tracker__subtopic-btn" onClick={() => cycleSubtopicStatus(subject, t.id, s.id)}>
+                            <span
+                              className={`tracker__bullet tracker__bullet--sub tracker__bullet--${s.status}`}
+                              title={STATUS_LABEL[s.status]}
+                            >
+                              {BULLET_CONTENT[s.status]}
+                            </span>
+                            <span className={`tracker__topic-name${s.status === "cancelled" ? " tracker__topic-name--cancelled" : ""}`}>
+                              {s.name}
+                            </span>
+                          </button>
+                          {/* Same wiring as topics: pushes subject to Timer so it logs to
+                              session history and shows up in stats. */}
+                          <span className="tracker__subtopic-time">{formatMinutes(minutesForTopic(sessionLog, s.name))}</span>
+                          <button
+                            className="tracker__subtopic-study-btn"
+                            onClick={() => router.push(`/timer?subject=${encodeURIComponent(s.name)}`)}
+                          >
+                            Study
+                          </button>
+                        </div>
+                      ))}
+                      <div className="tracker__subtopic-add-row">
+                        <input
+                          className="tracker__add-input tracker__add-input--small"
+                          value={newSubtopic[t.id] || ""}
+                          onChange={e => setNewSubtopic(prev => ({ ...prev, [t.id]: e.target.value }))}
+                          onKeyDown={e => e.key === "Enter" && addSubtopic(subject, t.id)}
+                          placeholder="Add subtopic..."
+                        />
+                        <button className="tracker__add-btn" onClick={() => addSubtopic(subject, t.id)}>Add</button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
-          {/* Add a topic directly into THIS subject */}
           <div className="tracker__add-topic-row">
             <input
               className="tracker__add-input"
@@ -403,7 +498,6 @@ export default function PortionTracker() {
         </div>
       ))}
 
-      {/* Clearly separate action: create a whole new subject */}
       <div className="tracker__new-subject-block">
         {!showNewSubjectForm ? (
           <button className="tracker__new-subject-btn" onClick={() => setShowNewSubjectForm(true)}>

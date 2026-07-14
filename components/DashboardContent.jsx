@@ -309,7 +309,7 @@ export default function DashboardContent() {
       <div className="dashboard__dday-strip">
         {ddays.length === 0 && !showAddDday && (
           <button className="dashboard__dday-empty-btn" onClick={() => setShowAddDday(true)}>
-            No exam dates set — add one
+            No exam dates set: add one
           </button>
         )}
 
@@ -382,7 +382,7 @@ export default function DashboardContent() {
                 <button className="dashboard__subject-go" onClick={() => startStudying(customSubject)}>Go</button>
               </div>
               <button className="dashboard__subject-skip" onClick={() => startStudying(null)}>
-                Skip — just start
+                Skip: just start
               </button>
             </div>
           )}
@@ -405,7 +405,7 @@ export default function DashboardContent() {
 
             {goalsToday.length === 0 && !showAddGoal && (
               <p className="dashboard__plan-empty">
-                No goals set for today. Add one — it can repeat automatically too.
+                No goals set for today. Add one: it can repeat automatically too.
               </p>
             )}
 
@@ -630,7 +630,7 @@ export default function DashboardContent() {
           <div className="dashboard__section">
             <h2 className="dashboard__section-heading">Today's plan</h2>
             {todaySlots.length === 0 ? (
-              <p className="dashboard__plan-empty">Nothing scheduled — add slots in your timetable.</p>
+              <p className="dashboard__plan-empty">Nothing scheduled: add slots in your timetable.</p>
             ) : (
               <div className="dashboard__plan-list">
                 {todaySlots.map((slot, i) => (

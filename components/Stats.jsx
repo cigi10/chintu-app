@@ -62,7 +62,7 @@ export default function Stats() {
         </div>
       </div>
 
-      <h2 className="stats__section-title">Study time — last 7 days</h2>
+      <h2 className="stats__section-title">Study time: last 7 days</h2>
       <div className="stats__bar-chart">
         {days.map(day => {
           const mins = minutesByDay[day] || 0;

@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import PortionTracker from "@/components/PortionTracker";
 
 export const metadata = {
-  title: "Study app — Tracker",
+  title: "Study app: Tracker",
   description: "Track your syllabus progress for JEE, NEET, or Placements.",
 };
 
