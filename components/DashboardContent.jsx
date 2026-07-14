@@ -289,7 +289,7 @@ export default function DashboardContent() {
 
   function getCompanionMood() {
     const hour = new Date().getHours();
-    if (hour >= 22) return "sleepy";
+    if (hour >= 24) return "sleepy";
     if (todayStats.minutes > 0) return "happy";
     return "waiting";
   }

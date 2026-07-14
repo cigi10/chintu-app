@@ -84,7 +84,7 @@ function fmtHistoryDuration(mins) {
   return `${mins} min`;
 }
 
-function isAfter10pm() { return new Date().getHours() >= 22; }
+function isAfter10pm() { return new Date().getHours() >= 24; }
 
 function logSession(modeKey, durationSeconds, coinsEarned, subject) {
   try {
