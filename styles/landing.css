@@ -1,119 +1,354 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
+}
+
+body {
+  background-image: url("/companion/indoor-bg.PNG");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .landing {
-  height: 100vh;
   width: 100%;
+  min-height: 100dvh;
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
+
+  padding:
+    calc(env(safe-area-inset-top) + 24px)
+    18px
+    calc(env(safe-area-inset-bottom) + 40px);
+
   font-family: "Nunito", sans-serif;
-  overflow: hidden;
 }
 
+/* ---------------- HERO ---------------- */
+
 .landing__hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 600px;
+  width: 100%;
+  max-width: 650px;
 }
 
 .landing__hero-text {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .landing__title {
+  margin: 0;
+
   font-family: "Baloo 2", sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 800;
+
   color: #3A2E52;
-  margin: 0 0 6px;
 }
 
 .landing__tagline {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #6E6688;
-  margin: 0 0 10px;
-}
+  margin: 6px 0 0;
 
-.landing__subtext {
-  font-size: 0.9rem;
-  color: #6E6688;
-  line-height: 1.5;
-  margin: 0 0 16px;
-  max-width: 480px;
-}
-
-.landing__cta {
-  padding: 10px 28px;
-  border-radius: 999px;
-  border: none;
-  background: #9B6FD4;
-  color: #FBF3FF;
-  font-family: "Baloo 2", sans-serif;
+  font-size: 1.05rem;
   font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-}
 
-.landing__cta:hover {
-  transform: translateY(-2px);
+  color: #6E6688;
 }
 
 .landing__hero-companion {
-  margin-top: 12px;
-  max-height: 30vh;
+  margin: 22px 0;
 }
 
 .landing__hero-companion svg,
 .landing__hero-companion img {
-  max-height: 28vh;
-  width: auto;
+  width: 190px;
+  height: auto;
+
+  display: block;
 }
 
+.landing__subtext {
+  max-width: 520px;
+
+  margin: 0;
+
+  font-size: .96rem;
+  line-height: 1.7;
+
+  color: #6E6688;
+}
+
+.landing__cta {
+  margin-top: 28px;
+
+  padding: 14px 36px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #9B6FD4;
+
+  color: white;
+
+  font-family: "Baloo 2", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(155,111,212,.28);
+
+  transition: .2s;
+}
+
+.landing__cta:hover {
+  background: #8455c8;
+  transform: translateY(-2px);
+}
+
+/* ---------------- FEATURES ---------------- */
+
 .landing__features {
+  width: 100%;
+  max-width: 650px;
+
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  max-width: 900px;
-  margin-top: 20px;
+  flex-direction: column;
+
+  gap: 18px;
+
+  margin-top: 56px;
 }
 
 .landing__feature-card {
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 14px;
-  padding: 12px 14px;
-  width: 190px;
-  text-align: left;
+
+  padding: 20px;
+
+  border-radius: 20px;
+
+  background: rgba(155,111,212,.12);
+
+  border: 1.5px solid rgba(155,111,212,.22);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 8px 26px rgba(155,111,212,.08);
+
+  transition: .2s;
+}
+
+.landing__feature-card:hover {
+
+  transform: translateY(-2px);
+
+  border-color: rgba(155,111,212,.45);
+
+  background: rgba(155,111,212,.18);
+
 }
 
 .landing__feature-title {
+
+  margin: 0 0 10px;
+
   font-family: "Baloo 2", sans-serif;
-  font-size: 0.95rem;
-  color: #9B6FD4;
-  margin: 0 0 4px;
+
+  font-size: 1.08rem;
+
+  color: #7A4FBF;
+
 }
 
 .landing__feature-desc {
-  font-size: 0.8rem;
-  color: #6E6688;
-  line-height: 1.4;
+
   margin: 0;
+
+  color: #6E6688;
+
+  line-height: 1.65;
+
+  font-size: .92rem;
+
+}
+
+/* ---------------- FOOTER ---------------- */
+
+.landing__footer {
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
 }
 
 .landing__footer-note {
-  margin-top: 16px;
-  font-size: 0.78rem;
+
+  margin-top: 34px;
+
   color: #8B8399;
+
+  font-size: .82rem;
+
+}
+
+/* ===================================================== */
+/* =================== TABLETS ========================== */
+/* ===================================================== */
+
+@media (min-width: 700px) {
+
+  .landing {
+
+    padding-left: 32px;
+    padding-right: 32px;
+
+  }
+
+  .landing__title {
+
+    font-size: 3.7rem;
+
+  }
+
+  .landing__hero-companion svg,
+  .landing__hero-companion img {
+
+    width: 240px;
+
+  }
+
+  .landing__features {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+  }
+
+}
+
+/* ===================================================== */
+/* =================== DESKTOP ========================== */
+/* ===================================================== */
+
+@media (min-width: 1050px) {
+
+  .landing {
+
+    padding-left: 56px;
+    padding-right: 56px;
+
+  }
+
+  .landing__hero {
+
+    max-width: 1150px;
+
+  }
+
+  .landing__hero-text {
+
+    display: grid;
+
+    grid-template-columns: 1.1fr .9fr;
+
+    grid-template-areas:
+
+      "title companion"
+      "tagline companion"
+      "text companion"
+      "button companion";
+
+    align-items: center;
+
+    column-gap: 60px;
+
+    text-align: left;
+
+  }
+
+  .landing__title {
+
+    grid-area: title;
+
+    justify-self: start;
+
+    font-size: 5rem;
+
+  }
+
+  .landing__tagline {
+
+    grid-area: tagline;
+
+    justify-self: start;
+
+    font-size: 1.45rem;
+
+    margin: 10px 0 18px;
+
+  }
+
+  .landing__subtext {
+
+    grid-area: text;
+
+    justify-self: start;
+
+    max-width: 520px;
+
+    font-size: 1.05rem;
+
+  }
+
+  .landing__cta {
+
+    grid-area: button;
+
+    justify-self: start;
+
+  }
+
+  .landing__hero-companion {
+
+    grid-area: companion;
+
+    margin: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+  }
+
+  .landing__hero-companion svg,
+  .landing__hero-companion img {
+
+    width: 330px;
+
+  }
+
+  .landing__features {
+
+    max-width: 1150px;
+
+    margin-top: 72px;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 22px;
+
+  }
+
 }
