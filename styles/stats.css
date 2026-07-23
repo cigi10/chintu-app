@@ -11,36 +11,37 @@
 .stats__view-toggle {
   display: flex;
   gap: 6px;
-  background-color: var(--color-bg-card);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-pill);
+  background: rgba(155, 111, 212, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(155, 111, 212, 0.3);
+  border-radius: 999px;
   padding: 4px;
   margin-bottom: 1.5rem;
   width: fit-content;
+  box-shadow: 0 4px 16px rgba(155, 111, 212, 0.1);
 }
 
 .stats__view-btn {
   padding: 7px 18px;
-  border-radius: var(--radius-pill);
+  border-radius: 999px;
   border: none;
-  font-family: var(--font-body);
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 0.82rem;
-  color: var(--color-text-secondary);
+  color: #6E6688;
   background-color: transparent;
   cursor: pointer;
-  transition:
-    background-color var(--transition-fast),
-    color var(--transition-fast);
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .stats__view-btn--active {
-  background-color: var(--color-accent);
+  background-color: #9B6FD4;
   color: #ffffff;
 }
 
 .stats__view-btn:hover:not(.stats__view-btn--active) {
-  background-color: var(--color-accent-soft);
+  background-color: rgba(155, 111, 212, 0.15);
 }
 
 /* Summary row */
@@ -53,27 +54,30 @@
 
 .stats__summary-card {
   flex: 1 1 100px;
-  background-color: var(--color-bg-card);
-  border: var(--border-card);
-  border-radius: var(--radius-md);
+  background: rgba(155, 111, 212, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(155, 111, 212, 0.25);
+  border-radius: 14px;
   padding: 14px 12px;
   text-align: center;
+  box-shadow: 0 4px 14px rgba(155, 111, 212, 0.1);
 }
 
 .stats__summary-value {
-  font-family: var(--font-heading);
+  font-family: "Baloo 2", sans-serif;
   font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--color-accent);
+  font-weight: 800;
+  color: #7A4FBF;
   display: block;
   line-height: 1;
 }
 
 .stats__summary-label {
-  font-family: var(--font-body);
+  font-family: "Nunito", sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
-  color: var(--color-text-secondary);
+  color: #5B4E78;
   display: block;
   margin-top: 4px;
 }
@@ -84,10 +88,10 @@
 }
 
 .stats__section-title {
-  font-family: var(--font-heading);
+  font-family: "Baloo 2", sans-serif;
   font-weight: 700;
-  font-size: 1rem;
-  color: var(--color-text-primary);
+  font-size: 1.05rem;
+  color: #241F3D;
   margin-bottom: 0.75rem;
 }
 
@@ -112,8 +116,8 @@
 
 .stats__bar {
   width: 100%;
-  background-color: var(--color-accent);
-  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, #B58FE8, #9B6FD4);
+  border-radius: 6px 6px 2px 2px;
   min-height: 4px;
   transition: height 0.4s ease;
   opacity: 0.85;
@@ -121,7 +125,6 @@
 
 .stats__bar--today {
   opacity: 1;
-  background-color: var(--color-accent);
 }
 
 .stats__bar--past {
@@ -129,10 +132,10 @@
 }
 
 .stats__bar-label {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.68rem;
   font-weight: 700;
-  color: var(--color-text-faint);
+  color: #6E6688;
   white-space: nowrap;
 }
 
@@ -150,85 +153,91 @@
 }
 
 .stats__subject-name {
-  font-family: var(--font-body);
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 0.88rem;
-  color: var(--color-text-primary);
+  color: #241F3D;
   min-width: 80px;
 }
 
 .stats__subject-bar-bg {
   flex: 1;
   height: 8px;
-  background-color: var(--color-accent-soft);
-  border-radius: var(--radius-pill);
+  background: rgba(155, 111, 212, 0.15);
+  border-radius: 999px;
   overflow: hidden;
 }
 
 .stats__subject-bar-fill {
   height: 100%;
-  border-radius: var(--radius-pill);
-  background-color: var(--color-accent);
+  border-radius: 999px;
+  background: linear-gradient(90deg, #B58FE8, #9B6FD4);
   transition: width 0.4s ease;
 }
 
 .stats__subject-hrs {
-  font-family: var(--font-body);
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 0.78rem;
-  color: var(--color-text-secondary);
+  color: #5B4E78;
   min-width: 40px;
   text-align: right;
 }
 
 /* Mock score trend */
 .stats__mock-trend {
-  background-color: var(--color-bg-card);
-  border: var(--border-card);
-  border-radius: var(--radius-lg);
+  background: rgba(155, 111, 212, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(155, 111, 212, 0.25);
+  border-radius: 16px;
   padding: 1rem 1.1rem;
+  box-shadow: 0 4px 16px rgba(155, 111, 212, 0.1);
 }
 
 .stats__mock-empty {
-  font-family: var(--font-body);
+  font-family: "Nunito", sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-text-faint);
+  color: #6E6688;
   text-align: center;
   padding: 1.5rem 0;
 }
 
 /* Streak card */
 .stats__streak-card {
-  background-color: var(--color-bg-card);
-  border: var(--border-card);
-  border-radius: var(--radius-lg);
+  background: rgba(155, 111, 212, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(155, 111, 212, 0.3);
+  border-radius: 16px;
   padding: 1.25rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  box-shadow: 0 4px 16px rgba(155, 111, 212, 0.1);
 }
 
 .stats__streak-number {
-  font-family: var(--font-heading);
+  font-family: "Baloo 2", sans-serif;
   font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--color-streak);
+  font-weight: 800;
+  color: #F2A65A;
   line-height: 1;
   flex-shrink: 0;
 }
 
 .stats__streak-label {
-  font-family: var(--font-body);
+  font-family: "Nunito", sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
-  color: var(--color-text-primary);
+  color: #241F3D;
 }
 
 .stats__streak-sub {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: #6E6688;
   display: block;
   margin-top: 2px;
 }
@@ -244,32 +253,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-bg-card);
-  border: var(--border-card);
-  border-radius: var(--radius-sm);
+  background: rgba(155, 111, 212, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(155, 111, 212, 0.2);
+  border-radius: 12px;
   padding: 10px 14px;
 }
 
 .stats__log-subject {
-  font-family: var(--font-body);
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 0.88rem;
-  color: var(--color-text-primary);
+  color: #241F3D;
 }
 
 .stats__log-meta {
-  font-family: var(--font-body);
+  font-family: "Nunito", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: #6E6688;
   text-align: right;
 }
 
 .stats__empty {
   text-align: center;
   padding: 3rem 1rem;
-  font-family: var(--font-body);
+  font-family: "Nunito", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--color-text-faint);
+  color: #6E6688;
 }

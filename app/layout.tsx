@@ -1,7 +1,7 @@
 import "@/styles/variables.css";
 import "@/styles/globals.css";
 import "@/styles/layout.css";
-import BottomNav from "@/components/BottomNav";
+import ConditionalNav from "@/components/ConditionalNav";
 import PageTransition from "@/components/PageTransition";
 import type { ReactNode } from "react";
 
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <PageTransition>
           {children}
         </PageTransition>
-        <BottomNav />
+        <ConditionalNav />
       </body>
     </html>
   );

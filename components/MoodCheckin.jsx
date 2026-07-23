@@ -13,12 +13,21 @@ const MOODS = [
   { key: "low",     label: "Low",     color: "#9A8C7A" },
 ];
 
-function todayStr() { return new Date().toISOString().slice(0, 10); }
+function todayStr(offsetDays = 0) {
+  const d = new Date();
+  d.setDate(d.getDate() + offsetDays);
+  return d.toISOString().slice(0, 10);
+}
+
+function moodInfo(key) {
+  return MOODS.find(m => m.key === key) || null;
+}
 
 export default function MoodCheckin() {
-  const [log, setLog]       = useState([]);
+  const [log, setLog] = useState([]);
   const [todayMood, setTodayMood] = useState(null);
   const today = todayStr();
+  const yesterday = todayStr(-1);
 
   useEffect(() => {
     try {
@@ -37,10 +46,42 @@ export default function MoodCheckin() {
     try { localStorage.setItem(MOOD_KEY, JSON.stringify(updated)); } catch {}
   }
 
-  const past = log.filter(e => e.date !== today).slice(0, 14);
+  const yesterdayEntry = log.find(e => e.date === yesterday);
+  const yesterdayMood  = yesterdayEntry ? moodInfo(yesterdayEntry.mood) : null;
+
+  // Streak: consecutive days (including today, if logged) with an entry
+  function computeStreak() {
+    let streak = 0;
+    let cursor = todayMood ? 0 : -1; // start from today if logged, else yesterday
+    if (cursor === -1 && !yesterdayEntry) return 0;
+    while (true) {
+      const dateStr = todayStr(cursor);
+      const entry = log.find(e => e.date === dateStr);
+      if (!entry) break;
+      streak += 1;
+      cursor -= 1;
+    }
+    return streak;
+  }
+  const streak = computeStreak();
+
+  // Last 14 days including today, oldest first, for the grid
+  const days = Array.from({ length: 14 }, (_, i) => todayStr(-(13 - i)));
 
   return (
     <div className="mood">
+      {yesterdayMood ? (
+        <div className="mood__yesterday" style={{ "--mood-color": yesterdayMood.color }}>
+          <span className="mood__yesterday-label">Yesterday</span>
+          <span className="mood__yesterday-value">{yesterdayMood.label}</span>
+        </div>
+      ) : (
+        <div className="mood__yesterday mood__yesterday--empty">
+          <span className="mood__yesterday-label">Yesterday</span>
+          <span className="mood__yesterday-value">No check-in</span>
+        </div>
+      )}
+
       <div className="mood__picker">
         {MOODS.map(m => (
           <button
@@ -54,21 +95,30 @@ export default function MoodCheckin() {
         ))}
       </div>
 
-      {todayMood && <p className="mood__saved">Logged for today.</p>}
-
-      {past.length > 0 && (
-        <div className="mood__history">
-          <h2 className="mood__history-title">Last 14 days</h2>
-          <div className="mood__history-grid">
-            {past.map(e => {
-              const m = MOODS.find(m => m.key === e.mood);
-              return (
-                <div key={e.date} className="mood__history-dot" style={{ background: m?.color || "#ccc" }} title={`${e.date}: ${m?.label}`} />
-              );
-            })}
-          </div>
-        </div>
+      {todayMood && (
+        <p className="mood__saved">
+          Logged for today.{streak > 1 ? ` ${streak}-day streak 🔥` : ""}
+        </p>
       )}
+
+      <div className="mood__history">
+        <h2 className="mood__history-title">Last 14 days</h2>
+        <div className="mood__history-grid">
+          {days.map(date => {
+            const entry = log.find(e => e.date === date);
+            const m = entry ? moodInfo(entry.mood) : null;
+            const isToday = date === today;
+            return (
+              <div
+                key={date}
+                className={`mood__history-dot${isToday ? " mood__history-dot--today" : ""}${!m ? " mood__history-dot--empty" : ""}`}
+                style={m ? { background: m.color } : undefined}
+                title={m ? `${date}: ${m.label}` : `${date}: no entry`}
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

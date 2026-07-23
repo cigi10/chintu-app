@@ -3,6 +3,7 @@ import "@/styles/onboarding.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
+import { setProfile, setData } from "@/lib/storage";
 
 const PACK_OPTIONS = [
   { key: "Custom",     icon: "CU", desc: "Build your own subject and topic list" },
@@ -30,23 +31,43 @@ export default function Onboarding() {
   const [pack, setPack] = useState("");
   const [name, setName] = useState("");
   const [dday, setDday] = useState("");
+  const [saving, setSaving] = useState(false);
 
   function pickPack(key) { setPack(key); setStep(1); }
 
-  function confirmName() {
+  async function confirmName() {
     if (!name.trim()) return;
+    setSaving(true);
     localStorage.setItem("chintu-exam-pack", pack);
     localStorage.setItem("chintu-companion-name", name.trim());
+    try {
+      await setProfile({ exam_pack: pack, companion_name: name.trim() });
+    } catch (err) {
+      console.error("setProfile failed (confirmName):", err);
+    }
+    setSaving(false);
     setStep(2);
   }
 
-  function finish() {
+  async function finish() {
+    setSaving(true);
     if (dday) {
       const existing = JSON.parse(localStorage.getItem("chintu-ddays") || "[]");
       existing.push({ label: pack + " Exam", date: dday });
       localStorage.setItem("chintu-ddays", JSON.stringify(existing));
+      try {
+        await setData("ddays", existing);
+      } catch (err) {
+        console.error("setData failed (ddays):", err);
+      }
     }
     localStorage.setItem("chintu-onboarded", "true");
+    try {
+      await setProfile({ onboarded: true });
+    } catch (err) {
+      console.error("setProfile failed (finish):", err);
+    }
+    setSaving(false);
     router.push("/dashboard");
   }
 
@@ -128,9 +149,9 @@ export default function Onboarding() {
                 <button
                   className="onboarding__cta"
                   onClick={confirmName}
-                  disabled={!name.trim()}
+                  disabled={!name.trim() || saving}
                 >
-                  That's the name
+                  {saving ? "Saving..." : "That's the name"}
                 </button>
               </div>
             </div>
@@ -152,8 +173,8 @@ export default function Onboarding() {
                 onChange={e => setDday(e.target.value)}
               />
               <div className="onboarding__actions">
-                <button className="onboarding__cta" onClick={finish}>
-                  {dday ? "Start studying" : "Skip for now"}
+                <button className="onboarding__cta" onClick={finish} disabled={saving}>
+                  {saving ? "Saving..." : dday ? "Start studying" : "Skip for now"}
                 </button>
               </div>
             </div>

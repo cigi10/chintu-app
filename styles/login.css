@@ -1,0 +1,246 @@
+/* login.css */
+
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh; /* handles mobile browser address-bar resizing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: rgba(155, 111, 212, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(155, 111, 212, 0.25);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(155, 111, 212, 0.15);
+  text-align: center;
+}
+
+.login-card h1 {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 1.6rem;
+  color: #241F3D;
+  margin-bottom: 24px;
+}
+
+.login-card p {
+  font-family: "Nunito", sans-serif;
+  color: #241F3D;
+  font-size: 1rem;
+}
+
+.btn-google {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(155, 111, 212, 0.35);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #241F3D;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-google:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  color: #6E6688;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.82rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(155, 111, 212, 0.25);
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-card input[type="email"] {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(155, 111, 212, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+  font-family: "Nunito", sans-serif;
+  font-size: 16px; /* keep at 16px minimum — iOS Safari auto-zooms on focus below this */
+  color: #241F3D;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.login-card input[type="email"]::placeholder {
+  color: #9B8FB5;
+}
+
+.login-card input[type="email"]:focus {
+  border-color: rgba(155, 111, 212, 0.6);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.login-card form button[type="submit"] {
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(155, 111, 212, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FBF3FF;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(155, 111, 212, 0.35);
+  transition: transform 0.15s ease;
+}
+
+.login-card form button[type="submit"]:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.login-card form button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 768px) {
+  .login-card {
+    max-width: 420px;
+    padding: 28px 24px;
+  }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 480px) {
+  .login-page {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 15vh;
+  }
+
+  .login-card {
+    max-width: 100%;
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .login-card h1 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .btn-google,
+  .login-card form button[type="submit"] {
+    padding: 13px 20px;
+    font-size: 0.9rem;
+  }
+
+  .login-card input[type="email"] {
+    padding: 13px 14px;
+  }
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 340px) {
+  .login-page {
+    padding: 12px;
+    padding-top: 10vh;
+  }
+
+  .login-card {
+    padding: 20px 16px;
+  }
+
+  .login-card h1 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ---------- Large screens ---------- */
+@media (min-width: 1440px) {
+  .login-card {
+    max-width: 420px;
+    padding: 40px 36px;
+  }
+
+  .login-card h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  z-index: 10;
+}
+
+.site-header__logo {
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #7A4FBF;
+  text-decoration: none;
+}
+
+.site-header__logo:hover {
+  color: #6A3FC4;
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    top: 16px;
+    left: 20px;
+  }
+  .site-header__logo {
+    font-size: 1.1rem;
+  }
+}
+
+.login-card__companion {
+  width: 120px;
+  margin: 0 auto 16px;
+}
+
+.login-card__companion img,
+.login-card__companion svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .login-card__companion {
+    width: 90px;
+    margin-bottom: 12px;
+  }
+}
