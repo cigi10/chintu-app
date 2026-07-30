@@ -6,12 +6,25 @@
   justify-content: center;
 }
 
-.companion-img {
+.companion-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.companion-img,
+.companion-accessory-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: bottom center;
   display: block;
+}
+
+.companion-accessory-img {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
 /* Fallback while art assets aren't ready */

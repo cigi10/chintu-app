@@ -422,14 +422,16 @@ export default function PortionTracker() {
                       <span className={`tracker__topic-name${isCancelled ? " tracker__topic-name--cancelled" : ""}`}>
                         {t.name}
                       </span>
-                      {t.status !== "not-started" && (
-                        <span className={`tracker__status-pill tracker__status-pill--${t.status}`}>
-                          {STATUS_LABEL[t.status]}
-                        </span>
-                      )}
+                      <div className="tracker__topic-meta">
+                        {t.status !== "not-started" && (
+                          <span className={`tracker__status-pill tracker__status-pill--${t.status}`}>
+                            {STATUS_LABEL[t.status]}
+                          </span>
+                        )}
+                        <span className="tracker__topic-time">{formatMinutes(minutesForTopic(sessionLog, t.name))}</span>
+                      </div>
                     </div>
 
-                    <span className="tracker__topic-time">{formatMinutes(minutesForTopic(sessionLog, t.name))}</span>
                     <button
                       className="tracker__topic-study-btn"
                       onClick={() => router.push(`/timer?subject=${encodeURIComponent(t.name)}`)}
