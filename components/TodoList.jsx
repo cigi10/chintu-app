@@ -3,12 +3,11 @@ import "@/styles/todo.css";
 import { useState, useEffect } from "react";
 import Companion from "@/components/Companion";
 import { addCoins } from "@/lib/coins";
+import { hydrateTodos, saveTodos as persistTodos } from "@/lib/todos";
 
-const TODO_KEY  = "chintu-todos";
 const PRIORITY  = { high: "#F2619C", medium: "#F9C060", low: "#7EC8A0" };
 
-function load() { try { return JSON.parse(localStorage.getItem(TODO_KEY) || "[]"); } catch { return []; } }
-function save(d) { try { localStorage.setItem(TODO_KEY, JSON.stringify(d)); } catch {} }
+function save(d) { persistTodos(d); }
 
 export default function TodoList() {
   const [tasks, setTasks]       = useState([]);
@@ -18,7 +17,7 @@ export default function TodoList() {
   const [expandedId, setExpandedId] = useState(null);
   const [subtextMap, setSubtextMap] = useState({});
 
-  useEffect(() => { setTasks(load()); }, []);
+  useEffect(() => { hydrateTodos().then(setTasks); }, []);
 
   function addTask() {
     if (!text.trim()) return;

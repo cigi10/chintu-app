@@ -1,8 +1,7 @@
 "use client";
 import "@/styles/mood.css";
 import { useState, useEffect } from "react";
-
-const MOOD_KEY = "chintu-mood-log";
+import { hydrateMoodLog, saveMoodLog } from "@/lib/mood";
 
 const MOODS = [
   { key: "great",   label: "Great",   color: "#7EC8A0" },
@@ -30,12 +29,11 @@ export default function MoodCheckin() {
   const yesterday = todayStr(-1);
 
   useEffect(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem(MOOD_KEY) || "[]");
+    hydrateMoodLog().then(saved => {
       setLog(saved);
       const todayEntry = saved.find(e => e.date === today);
       if (todayEntry) setTodayMood(todayEntry.mood);
-    } catch {}
+    });
   }, []);
 
   function pickMood(moodKey) {
@@ -43,7 +41,7 @@ export default function MoodCheckin() {
     const updated  = [{ date: today, mood: moodKey }, ...filtered];
     setLog(updated);
     setTodayMood(moodKey);
-    try { localStorage.setItem(MOOD_KEY, JSON.stringify(updated)); } catch {}
+    saveMoodLog(updated);
   }
 
   const yesterdayEntry = log.find(e => e.date === yesterday);

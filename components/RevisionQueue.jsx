@@ -4,11 +4,15 @@ import { useState, useEffect, useMemo } from "react";
 import Companion from "@/components/Companion";
 import { getSubjectColor } from "@/lib/subjectColors";
 import { addCoins } from "@/lib/coins";
+import { getSubjects, hydrateTracker } from "@/lib/tracker";
+import {
+  getLocalRevisionSchedule as getRevisionSchedule,
+  hydrateRevisionSchedule,
+  saveRevisionSchedule,
+} from "@/lib/revisions";
 
-const REVISION_KEY = "chintu-revisions";
 const SEEN_KEY      = "chintu-revisions-seen";
 const MASTERED_KEY  = "chintu-revisions-mastered";
-const SUBJECTS_KEY  = "chintu-subjects";
 
 // Suggested spaced-repetition ladder — used only to highlight a recommended
 // pill when re-reviewing. The user can always pick a different interval, or
@@ -28,13 +32,6 @@ const REVIEW_OPTIONS = [
 const FALLBACK_PALETTE = ["#9B6FD4", "#E8A445", "#4FA8D8", "#5FBF8F", "#E06C8C", "#7C6CE8"];
 
 /* ---------- storage helpers ---------- */
-
-function getRevisionSchedule() {
-  try { return JSON.parse(localStorage.getItem(REVISION_KEY) || "[]"); } catch { return []; }
-}
-function saveRevisionSchedule(data) {
-  try { localStorage.setItem(REVISION_KEY, JSON.stringify(data)); } catch {}
-}
 function getSeen() {
   try { return JSON.parse(localStorage.getItem(SEEN_KEY) || "[]"); } catch { return []; }
 }
@@ -52,10 +49,6 @@ function getMasteredCount() {
 function bumpMasteredCount() {
   try { localStorage.setItem(MASTERED_KEY, String(getMasteredCount() + 1)); } catch {}
 }
-function loadTrackerSubjects() {
-  try { return JSON.parse(localStorage.getItem(SUBJECTS_KEY) || "{}"); } catch { return {}; }
-}
-
 /* ---------- date helpers ---------- */
 
 function todayStr() { return new Date().toISOString().slice(0, 10); }
@@ -78,7 +71,7 @@ function formatDueLabel(dateStr, today) {
 /* ---------- derived data from the tracker ---------- */
 
 function getDoneTopicsFromTracker() {
-  const subjects = loadTrackerSubjects();
+  const subjects = getSubjects();
   const out = [];
   for (const [subject, topics] of Object.entries(subjects)) {
     for (const t of topics || []) {
@@ -143,10 +136,10 @@ export default function RevisionQueue() {
   const [reviewingId, setReviewingId] = useState(null);
 
   useEffect(() => {
-    setSchedule(getRevisionSchedule());
+    hydrateRevisionSchedule().then(setSchedule);
     setSeen(getSeen());
     setMastered(getMasteredCount());
-    setTrackerDone(getDoneTopicsFromTracker());
+    hydrateTracker().then(() => setTrackerDone(getDoneTopicsFromTracker()));
   }, []);
 
   function persist(updated) {

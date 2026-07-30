@@ -8,16 +8,15 @@ import { localDateStr as todayStr } from "@/lib/date";
 import {
   loadGoals, saveGoals, deleteGoal,
   getGoalsForDate, getDoneMap, setGoalDone,
-  GOAL_COLORS, WEEK_DAYS,
+  GOAL_COLORS, WEEK_DAYS, hydrateGoals,
 } from "@/lib/goals";
+import { hydrateTimetable } from "@/lib/timetable";
+import { hydrateTracker, getSessionLog, getSubjects } from "@/lib/tracker";
+import { hydrateTodos } from "@/lib/todos";
+import { hydrateMoodLog, saveMoodLog } from "@/lib/mood";
+import { hydrateRevisionSchedule } from "@/lib/revisions";
+import { hydrateDdays, saveDdays } from "@/lib/ddays";
 
-const TIMETABLE_KEY   = "chintu-timetable";
-const SESSION_LOG_KEY = "chintu-session-log";
-const TODO_KEY        = "chintu-todos";
-const MOOD_KEY        = "chintu-mood-log";
-const REVISION_KEY    = "chintu-revisions";
-const SUBJECTS_KEY    = "chintu-subjects";
-const DDAY_KEY        = "chintu-ddays";
 const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const MOODS = [
@@ -139,76 +138,80 @@ export default function DashboardContent() {
   const [newGoalEndDate, setNewGoalEndDate]   = useState("");
 
   useEffect(() => {
-    // Timetable
-    const timetable = loadJSON(TIMETABLE_KEY, {});
-    const today = DAYS[new Date().getDay()];
-    const slots = Object.entries(timetable)
-      .filter(([key]) => key.startsWith(`${today}-`))
-      .map(([key, val]) => ({ time: key.split("-")[1], ...val }))
-      .sort((a, b) => a.time.localeCompare(b.time));
-    setTodaySlots(slots);
+    Promise.all([
+      hydrateTimetable(),
+      hydrateTracker(),
+      hydrateTodos(),
+      hydrateMoodLog(),
+      hydrateRevisionSchedule(),
+      hydrateDdays(),
+      hydrateGoals(),
+    ]).then(([timetable, , allTodos, moodLog, revisions, savedDdays]) => {
+      // Timetable
+      const today = DAYS[new Date().getDay()];
+      const slots = Object.entries(timetable)
+        .filter(([key]) => key.startsWith(`${today}-`))
+        .map(([key, val]) => ({ time: key.split("-")[1], ...val }))
+        .sort((a, b) => a.time.localeCompare(b.time));
+      setTodaySlots(slots);
 
-    const nowHour = new Date().getHours();
-    const nowMin  = new Date().getMinutes();
-    const upcoming = slots.find(s => {
-      const parts = s.time.split(" ");
-      const [h, mn = 0] = parts[0].split(":").map(Number);
-      const period = parts[1];
-      let hr = h;
-      if (period === "PM" && hr !== 12) hr += 12;
-      if (period === "AM" && hr === 12) hr = 0;
-      return hr > nowHour || (hr === nowHour && mn > nowMin);
+      const nowHour = new Date().getHours();
+      const nowMin  = new Date().getMinutes();
+      const upcoming = slots.find(s => {
+        const parts = s.time.split(" ");
+        const [h, mn = 0] = parts[0].split(":").map(Number);
+        const period = parts[1];
+        let hr = h;
+        if (period === "PM" && hr !== 12) hr += 12;
+        if (period === "AM" && hr === 12) hr = 0;
+        return hr > nowHour || (hr === nowHour && mn > nowMin);
+      });
+      setNextSlot(upcoming || null);
+
+      // Session log + weekly report
+      const log = getSessionLog();
+      const todays = log.filter(s => s.date === todayStr());
+      setTodayStats({
+        minutes: todays.reduce((sum, s) => sum + (s.durationMinutes || 0), 0),
+        coins:   todays.reduce((sum, s) => sum + (s.coinsEarned || 0), 0),
+      });
+      setReport(computeWeeklyReport(log));
+
+      // Todos
+      setTodos(allTodos.filter(t => !t.done).slice(0, 4));
+
+      // Mood
+      const todayMoodEntry = moodLog.find(e => e.date === todayStr());
+      if (todayMoodEntry) setTodayMood(todayMoodEntry.mood);
+
+      // Revisions
+      setRevisionsDue(revisions.filter(r => r.dueDate <= todayStr()).slice(0, 3));
+
+      // D-Days
+      setDdays(savedDdays.slice().sort((a, b) => a.date.localeCompare(b.date)));
+
+      // Today's Goals
+      setGoalsToday(getGoalsForDate(new Date()));
+      setDoneMap(getDoneMap(todayStr()));
+
+      // Subject options — subjects, tracker topic names, and timetable slots
+      const subjects = getSubjects();
+      const subjectNames = new Set(Object.keys(subjects));
+      Object.values(subjects).forEach(topics => {
+        (topics || []).forEach(t => subjectNames.add(t.name));
+      });
+      Object.values(timetable).forEach(slot => {
+        if (slot.subject) subjectNames.add(slot.subject);
+      });
+      setSubjectOptions([...subjectNames]);
     });
-    setNextSlot(upcoming || null);
-
-    // Session log + weekly report
-    const log = loadJSON(SESSION_LOG_KEY, []);
-    const todays = log.filter(s => s.date === todayStr());
-    setTodayStats({
-      minutes: todays.reduce((sum, s) => sum + (s.durationMinutes || 0), 0),
-      coins:   todays.reduce((sum, s) => sum + (s.coinsEarned || 0), 0),
-    });
-    setReport(computeWeeklyReport(log));
-
-    // Todos
-    const allTodos = loadJSON(TODO_KEY, []);
-    setTodos(allTodos.filter(t => !t.done).slice(0, 4));
-
-    // Mood
-    const moodLog = loadJSON(MOOD_KEY, []);
-    const todayMoodEntry = moodLog.find(e => e.date === todayStr());
-    if (todayMoodEntry) setTodayMood(todayMoodEntry.mood);
-
-    // Revisions
-    const revisions = loadJSON(REVISION_KEY, []);
-    setRevisionsDue(revisions.filter(r => r.dueDate <= todayStr()).slice(0, 3));
-
-    // D-Days
-    const savedDdays = loadJSON(DDAY_KEY, []);
-    setDdays(savedDdays.sort((a, b) => a.date.localeCompare(b.date)));
-
-    // Today's Goals
-    setGoalsToday(getGoalsForDate(new Date()));
-    setDoneMap(getDoneMap(todayStr()));
-
-    // Subject options — subjects, tracker topic names, and timetable slots
-    const subjects = loadJSON(SUBJECTS_KEY, {});
-    const subjectNames = new Set(Object.keys(subjects));
-    Object.values(subjects).forEach(topics => {
-      (topics || []).forEach(t => subjectNames.add(t.name));
-    });
-    Object.values(timetable).forEach(slot => {
-      if (slot.subject) subjectNames.add(slot.subject);
-    });
-    setSubjectOptions([...subjectNames]);
   }, []);
 
   function logMood(moodKey) {
-    const moodLog = loadJSON(MOOD_KEY, []);
-    const filtered = moodLog.filter(e => e.date !== todayStr());
+    const filtered = loadJSON("mood_log", []).filter(e => e.date !== todayStr());
     const updated = [{ date: todayStr(), mood: moodKey }, ...filtered];
     setTodayMood(moodKey);
-    try { localStorage.setItem(MOOD_KEY, JSON.stringify(updated)); } catch {}
+    saveMoodLog(updated);
   }
 
   function addDday() {
@@ -216,14 +219,14 @@ export default function DashboardContent() {
     const updated = [...ddays, { label: newDdayLabel.trim(), date: newDdayDate }]
       .sort((a, b) => a.date.localeCompare(b.date));
     setDdays(updated);
-    try { localStorage.setItem(DDAY_KEY, JSON.stringify(updated)); } catch {}
+    saveDdays(updated);
     setNewDdayLabel(""); setNewDdayDate(""); setShowAddDday(false);
   }
 
   function removeDday(index) {
     const updated = ddays.filter((_, i) => i !== index);
     setDdays(updated);
-    try { localStorage.setItem(DDAY_KEY, JSON.stringify(updated)); } catch {}
+    saveDdays(updated);
   }
 
   // ---- Goals ----

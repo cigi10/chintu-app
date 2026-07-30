@@ -2,16 +2,7 @@
 import "@/styles/stats.css";
 import { useState, useEffect } from "react";
 import { getStreakInfo, hydrateStreak } from "@/lib/streakLogic";
-
-const LOG_KEY = "chintu-session-log";
-
-function loadLog() {
-  try {
-    return JSON.parse(localStorage.getItem(LOG_KEY) || "[]");
-  } catch {
-    return [];
-  }
-}
+import { hydrateTracker, getSessionLog } from "@/lib/tracker";
 
 function getLast7Days() {
   return Array.from({ length: 7 }, (_, i) => {
@@ -29,8 +20,8 @@ export default function Stats() {
   const [view, setView] = useState("week"); // "week" | "month"
 
   useEffect(() => {
-    setLog(loadLog());
     let cancelled = false;
+    hydrateTracker().then(() => { if (!cancelled) setLog(getSessionLog()); });
     hydrateStreak().then(() => { if (!cancelled) setStreak(getStreakInfo().streakCount); });
     return () => { cancelled = true; };
   }, []);

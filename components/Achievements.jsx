@@ -10,6 +10,8 @@ import {
   getOverallStats,
   moodFromUnlockRatio,
 } from "@/lib/achievements";
+import { hydrateTracker } from "@/lib/tracker";
+import { hydrateStreak } from "@/lib/streakLogic";
 
 const CATEGORY_ORDER = ["Sessions", "Streak", "Focus Time", "Coins Earned", "Subjects", "Portions", "Goals"];
 
@@ -17,7 +19,9 @@ export default function Achievements() {
   const [ctx, setCtx] = useState(null);
 
   useEffect(() => {
-    setCtx(getAchievementsContext());
+    Promise.all([hydrateTracker(), hydrateStreak()]).then(() => {
+      setCtx(getAchievementsContext());
+    });
   }, []);
 
   if (!ctx) {

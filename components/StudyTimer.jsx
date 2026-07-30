@@ -8,15 +8,14 @@ import { recordStudySession } from "@/lib/streakLogic";
 import { localDateStr } from "@/lib/date";
 import { setGoalDone } from "@/lib/goals";
 import { getLocalCoins, hydrateCoins, addCoins } from "@/lib/coins";
+import { getLocalTodos, hydrateTodos, saveTodos as persistTodos } from "@/lib/todos";
+import { hydrateTracker, getSessionLog, appendSessionLogEntry, getBonusLog, saveBonusLog } from "@/lib/tracker";
 
 const SESSION_KEY       = "chintu-sessions";
-const SESSION_LOG_KEY   = "chintu-session-log";
-const BONUS_LOG_KEY     = "chintu-bonus-log";
 const TIMER_STATE_KEY   = "chintu-timer-state";   // persists a running/paused session across navigation
 const AUTOCYCLE_KEY     = "chintu-autocycle";     // on/off preference
 const AUTOCYCLE_COUNT_KEY = "chintu-autocycle-count"; // how many study blocks completed in the current cycle
 const SOUND_PREF_KEY    = "chintu-sound-pref";    // { on, type }
-const TODO_KEY           = "chintu-todos";
 const RADIUS            = 82;
 const CIRCUMFERENCE     = 2 * Math.PI * RADIUS;
 
@@ -35,8 +34,6 @@ const SOUND_TYPES = [
 
 const PRIORITY_DOT = { high: "#F2619C", medium: "#F9C060", low: "#7EC8A0" };
 
-function loadTodos() { try { return JSON.parse(localStorage.getItem(TODO_KEY) || "[]"); } catch { return []; } }
-function saveTodos(list) { try { localStorage.setItem(TODO_KEY, JSON.stringify(list)); } catch {} }
 // Same "today" rule used on the Timetable page: overdue, due today, or undated.
 function todaysTasks(todos) {
   const today = localDateStr();
@@ -64,11 +61,7 @@ function loadSoundPref() {
 function saveSoundPref(pref) { try { localStorage.setItem(SOUND_PREF_KEY, JSON.stringify(pref)); } catch {} }
 
 function loadHistory() {
-  try {
-    const raw = localStorage.getItem(SESSION_LOG_KEY);
-    const log = raw ? JSON.parse(raw) : [];
-    return log.slice(-6).reverse();
-  } catch { return []; }
+  return getSessionLog().slice(-6).reverse();
 }
 
 function fmt(secs) {
@@ -85,18 +78,13 @@ function fmtHistoryDuration(mins) {
 function isAfter10pm() { return new Date().getHours() >= 24; }
 
 function logSession(modeKey, durationSeconds, coinsEarned, subject) {
-  try {
-    const raw = localStorage.getItem(SESSION_LOG_KEY);
-    const log = raw ? JSON.parse(raw) : [];
-    log.push({
-      date: localDateStr(),
-      mode: modeKey,
-      durationMinutes: Math.round(durationSeconds / 60),
-      coinsEarned,
-      subject: subject || null,
-    });
-    localStorage.setItem(SESSION_LOG_KEY, JSON.stringify(log));
-  } catch {}
+  appendSessionLogEntry({
+    date: localDateStr(),
+    mode: modeKey,
+    durationMinutes: Math.round(durationSeconds / 60),
+    coinsEarned,
+    subject: subject || null,
+  });
 }
 
 function getWeekStartKey() {
@@ -111,27 +99,21 @@ function getFirstSessionBonuses() {
   const today = localDateStr();
   const weekKey = getWeekStartKey();
 
-  try {
-    const raw = localStorage.getItem(BONUS_LOG_KEY);
-    const bonusLog = raw ? JSON.parse(raw) : {};
+  const bonusLog = getBonusLog();
+  let dailyBonus = 0;
+  let weeklyBonus = 0;
 
-    let dailyBonus = 0;
-    let weeklyBonus = 0;
-
-    if (!bonusLog.daily || bonusLog.daily !== today) {
-      dailyBonus = 5;
-      bonusLog.daily = today;
-    }
-    if (!bonusLog.weekly || bonusLog.weekly !== weekKey) {
-      weeklyBonus = 10;
-      bonusLog.weekly = weekKey;
-    }
-
-    localStorage.setItem(BONUS_LOG_KEY, JSON.stringify(bonusLog));
-    return { dailyBonus, weeklyBonus };
-  } catch {
-    return { dailyBonus: 5, weeklyBonus: 10 };
+  if (!bonusLog.daily || bonusLog.daily !== today) {
+    dailyBonus = 5;
+    bonusLog.daily = today;
   }
+  if (!bonusLog.weekly || bonusLog.weekly !== weekKey) {
+    weeklyBonus = 10;
+    bonusLog.weekly = weekKey;
+  }
+
+  saveBonusLog(bonusLog);
+  return { dailyBonus, weeklyBonus };
 }
 
 function CoinBurst({ amount, onDone }) {
@@ -201,8 +183,8 @@ export default function StudyTimer({ roomName = null }) {
   useEffect(() => {
     hydrateCoins().then(setCoins);
     setSessions(loadSessions());
-    setHistory(loadHistory());
-    setTasks(todaysTasks(loadTodos()));
+    hydrateTracker().then(() => setHistory(loadHistory()));
+    hydrateTodos().then(todos => setTasks(todaysTasks(todos)));
     setAutoCycle(loadAutoCycle());
     autoCycleCountRef.current = loadAutoCycleCount();
     const pref = loadSoundPref();
@@ -423,9 +405,9 @@ export default function StudyTimer({ roomName = null }) {
   }
 
   function completeTask(taskId) {
-    const all = loadTodos();
+    const all = getLocalTodos();
     const updated = all.map(t => t.id === taskId ? { ...t, done: true } : t);
-    saveTodos(updated);
+    persistTodos(updated);
     setTasks(todaysTasks(updated));
     const newCoins = getLocalCoins() + 2;
     addCoins(2);

@@ -6,6 +6,10 @@ import { getGoalsForWeek, getGoalsForDate } from "@/lib/goals";
 import { localDateStr } from "@/lib/date";
 import { getSubjectColor, setSubjectColor } from "@/lib/subjectColors";
 import { getAllTrackerTopicNames } from "@/lib/trackerTopics";
+import { getLocalTodos, hydrateTodos, saveTodos as persistTodos } from "@/lib/todos";
+import { hydrateGoals } from "@/lib/goals";
+import { hydrateTracker, getSessionLog } from "@/lib/tracker";
+import { hydrateTimetable, saveTimetable } from "@/lib/timetable";
 
 const DAYS  = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const SLOTS = [
@@ -16,9 +20,6 @@ const SLOTS = [
   "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30",
   "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30",
 ];
-const STORAGE_KEY     = "chintu-timetable";
-const TODO_KEY         = "chintu-todos";
-const SESSION_LOG_KEY  = "chintu-session-log";
 
 // 7 presets + a custom color picker in the modal.
 const PRESET_COLORS = [
@@ -74,26 +75,13 @@ function weekDateStrs() {
 
 function cellKey(day, slot) { return `${day}-${slot}`; }
 
-function loadFromStorage() {
-  try { const raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : {}; }
-  catch { return {}; }
-}
-function saveToStorage(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+function saveToStorage(data) { saveTimetable(data); }
 
-function loadTodos() {
-  try { return JSON.parse(localStorage.getItem(TODO_KEY) || "[]"); } catch { return []; }
-}
-function saveTodos(list) {
-  try { localStorage.setItem(TODO_KEY, JSON.stringify(list)); } catch {}
-}
 function todaysTasks(todos) {
   const today = localDateStr(new Date());
   return todos.filter(t => !t.done && (!t.due || t.due <= today));
 }
 
-function loadSessionLog() {
-  try { return JSON.parse(localStorage.getItem(SESSION_LOG_KEY) || "[]"); } catch { return []; }
-}
 function buildMinutesIndex(log) {
   const idx = {};
   for (const s of log) {
@@ -311,15 +299,20 @@ export default function TimetableGrid() {
   const dayRefs   = useRef({});
 
   useEffect(() => {
-    setTimetable(loadFromStorage());
-    setGoalsByDay(getGoalsForWeek());
-    setTodaysGoals(getGoalsForDate(new Date()));
-    const todos = loadTodos();
-    setTasks(todaysTasks(todos));
-    setTasksByDay(buildTasksByDay(todos));
-    const log = loadSessionLog();
-    setSessionLog(log);
-    setMinutesIndex(buildMinutesIndex(log));
+    hydrateTimetable().then(setTimetable);
+    hydrateGoals().then(() => {
+      setGoalsByDay(getGoalsForWeek());
+      setTodaysGoals(getGoalsForDate(new Date()));
+    });
+    hydrateTodos().then(todos => {
+      setTasks(todaysTasks(todos));
+      setTasksByDay(buildTasksByDay(todos));
+    });
+    hydrateTracker().then(() => {
+      const log = getSessionLog();
+      setSessionLog(log);
+      setMinutesIndex(buildMinutesIndex(log));
+    });
   }, []);
 
   function buildTasksByDay(todos) {
@@ -428,9 +421,9 @@ export default function TimetableGrid() {
   }
 
   function completeTask(taskId) {
-    const all = loadTodos();
+    const all = getLocalTodos();
     const updated = all.map(t => t.id === taskId ? { ...t, done: true } : t);
-    saveTodos(updated);
+    persistTodos(updated);
     setTasks(todaysTasks(updated));
     setTasksByDay(buildTasksByDay(updated));
   }

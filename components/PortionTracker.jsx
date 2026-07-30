@@ -3,10 +3,9 @@ import "@/styles/tracker.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
-import { getGoalsForDate } from "@/lib/goals";
+import { getGoalsForDate, hydrateGoals } from "@/lib/goals";
 import { addCoins } from "@/lib/coins";
-
-const SESSION_LOG_KEY = "chintu-session-log";
+import { hydrateTracker, getSessionLog, saveExamPackAndSubjects } from "@/lib/tracker";
 
 const STATUS_ORDER = ["not-started", "in-progress", "done", "migrated", "cancelled", "question"];
 const STATUS_LABEL = {
@@ -31,9 +30,6 @@ function nextStatus(current) {
   return STATUS_ORDER[(i + 1) % STATUS_ORDER.length];
 }
 
-function loadSessionLog() {
-  try { return JSON.parse(localStorage.getItem(SESSION_LOG_KEY) || "[]"); } catch { return []; }
-}
 function minutesForTopic(log, topicName) {
   return log.filter(s => (s.subject || "").toLowerCase() === topicName.toLowerCase())
              .reduce((sum, s) => sum + (s.durationMinutes || 0), 0);
@@ -177,27 +173,22 @@ export default function PortionTracker() {
   const [newSubjectTopic, setNewSubjectTopic] = useState("");
 
   useEffect(() => {
-    try {
-      const savedPack     = localStorage.getItem("chintu-exam-pack");
-      const savedSubjects = localStorage.getItem("chintu-subjects");
-      if (savedPack) {
-        setExamType(savedPack);
-        setSubjects(savedSubjects ? JSON.parse(savedSubjects) : buildFreshSubjects(savedPack));
+    hydrateTracker().then(({ examPack, subjects: savedSubjects }) => {
+      if (examPack) {
+        setExamType(examPack);
+        setSubjects(Object.keys(savedSubjects).length ? savedSubjects : buildFreshSubjects(examPack));
       }
-    } catch {}
+    });
   }, []);
 
   useEffect(() => {
     if (!examType) return;
-    try {
-      localStorage.setItem("chintu-exam-pack", examType);
-      localStorage.setItem("chintu-subjects", JSON.stringify(subjects));
-    } catch {}
+    saveExamPackAndSubjects(examType, subjects);
   }, [examType, subjects]);
 
   useEffect(() => {
     if (!examType) return;
-    const log = loadSessionLog();
+    const log = getSessionLog();
     setSessionLog(log);
     setSubjects(prev => {
       let changed = false;
@@ -216,7 +207,7 @@ export default function PortionTracker() {
   }, [examType]);
 
   useEffect(() => {
-    setTodayGoals(getGoalsForDate(new Date()));
+    hydrateGoals().then(() => setTodayGoals(getGoalsForDate(new Date())));
   }, []);
 
   function pickExam(packName) {

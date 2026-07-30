@@ -2,12 +2,11 @@
 import "@/styles/digest.css";
 import { useState, useEffect } from "react";
 import { localDateStr as todayStr } from "@/lib/date";
-import { getGoalsForDate, getDoneMap } from "@/lib/goals";
-
-const SESSION_LOG_KEY = "chintu-session-log";
-const MOOD_KEY        = "chintu-mood-log";
-const REVISION_KEY    = "chintu-revisions";
-const DDAY_KEY        = "chintu-ddays";
+import { getGoalsForDate, getDoneMap, hydrateGoals } from "@/lib/goals";
+import { hydrateTracker, getSessionLog } from "@/lib/tracker";
+import { hydrateMoodLog, getLocalMoodLog } from "@/lib/mood";
+import { hydrateRevisionSchedule, getLocalRevisionSchedule } from "@/lib/revisions";
+import { hydrateDdays, getLocalDdays } from "@/lib/ddays";
 
 const MOODS = [
   { key: "great",    label: "Great",    color: "#7EC8A0" },
@@ -17,11 +16,6 @@ const MOODS = [
   { key: "stressed", label: "Stressed", color: "#F9C060" },
   { key: "low",      label: "Low",      color: "#9A8C7A" },
 ];
-
-function loadJSON(key, fallback) {
-  try { const r = localStorage.getItem(key); return r ? JSON.parse(r) : fallback; }
-  catch { return fallback; }
-}
 
 function daysAgo(n) {
   const d = new Date();
@@ -44,10 +38,10 @@ function daysUntil(dateStr) {
 }
 
 function buildDigest() {
-  const log = loadJSON(SESSION_LOG_KEY, []);
-  const moodLog = loadJSON(MOOD_KEY, []);
-  const revisions = loadJSON(REVISION_KEY, []);
-  const ddays = loadJSON(DDAY_KEY, []);
+  const log = getSessionLog();
+  const moodLog = getLocalMoodLog();
+  const revisions = getLocalRevisionSchedule();
+  const ddays = getLocalDdays();
 
   const minutesByDate = {};
   log.forEach(s => {
@@ -142,7 +136,9 @@ export default function WeeklyDigest() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    setData(buildDigest());
+    Promise.all([
+      hydrateTracker(), hydrateMoodLog(), hydrateRevisionSchedule(), hydrateDdays(), hydrateGoals(),
+    ]).then(() => setData(buildDigest()));
   }, []);
 
   if (!data) {

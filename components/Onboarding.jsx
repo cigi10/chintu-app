@@ -3,7 +3,9 @@ import "@/styles/onboarding.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
-import { setProfile, setData } from "@/lib/storage";
+import { setProfile } from "@/lib/storage";
+import { saveExamPackAndSubjects, getSubjects } from "@/lib/tracker";
+import { getLocalDdays, saveDdays } from "@/lib/ddays";
 
 const PACK_OPTIONS = [
   { key: "Custom",     icon: "CU", desc: "Build your own subject and topic list" },
@@ -38,7 +40,7 @@ export default function Onboarding() {
   async function confirmName() {
     if (!name.trim()) return;
     setSaving(true);
-    localStorage.setItem("chintu-exam-pack", pack);
+    saveExamPackAndSubjects(pack, getSubjects());
     localStorage.setItem("chintu-companion-name", name.trim());
     try {
       await setProfile({ exam_pack: pack, companion_name: name.trim() });
@@ -52,13 +54,12 @@ export default function Onboarding() {
   async function finish() {
     setSaving(true);
     if (dday) {
-      const existing = JSON.parse(localStorage.getItem("chintu-ddays") || "[]");
+      const existing = getLocalDdays();
       existing.push({ label: pack + " Exam", date: dday });
-      localStorage.setItem("chintu-ddays", JSON.stringify(existing));
       try {
-        await setData("ddays", existing);
+        await saveDdays(existing);
       } catch (err) {
-        console.error("setData failed (ddays):", err);
+        console.error("saveDdays failed:", err);
       }
     }
     localStorage.setItem("chintu-onboarded", "true");
