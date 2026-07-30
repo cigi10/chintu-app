@@ -55,6 +55,11 @@
   background: rgba(155, 111, 212, 0.1);
 }
 
+.navbar__signout-btn {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
 .navbar__link--active {
   background: rgba(155, 111, 212, 0.22);
   backdrop-filter: blur(6px);

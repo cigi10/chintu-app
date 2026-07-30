@@ -1,8 +1,9 @@
 "use client";
 import "@/styles/navbar.css";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
+import { createClient } from "@/lib/supabase/client";
 
 const DIRECT_ITEMS = [
   { href: "/dashboard",     label: "Home"         },
@@ -22,6 +23,7 @@ const GROUPS = [
       { href: "/mocktests", label: "Mocks"      },
       { href: "/stats",     label: "Stats"      },
       { href: "/rooms",     label: "Rooms"      },
+      { href: "/shop",      label: "Shop"       },
     ],
   },
   {
@@ -36,11 +38,29 @@ const GROUPS = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [coins, setCoins]                 = useState(0);
   const [coinPulse, setCoinPulse]         = useState(false);
   const [moreOpen, setMoreOpen]           = useState(false);
   const [companionName, setCompanionName] = useState("Chintu");
+  const [userEmail, setUserEmail]         = useState(null);
   const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => setUserEmail(data.user?.email || null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserEmail(session?.user?.email || null);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
+
+  async function handleSignOut() {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.push("/login");
+    router.refresh();
+  }
 
   useEffect(() => {
     try {
@@ -123,6 +143,19 @@ export default function Navbar() {
         <div className={`navbar__coins${coinPulse ? " navbar__coins--pulse" : ""}`}>
           {coins} coins
         </div>
+
+        {userEmail ? (
+          <button
+            type="button"
+            className="navbar__link navbar__signout-btn"
+            onClick={handleSignOut}
+            title={userEmail}
+          >
+            Sign out
+          </button>
+        ) : (
+          <Link href="/login" className="navbar__link">Log in</Link>
+        )}
       </div>
     </nav>
   );

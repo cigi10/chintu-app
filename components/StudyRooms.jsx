@@ -1,8 +1,10 @@
 "use client";
 import "@/styles/rooms.css";
 import { Suspense, useState, useEffect, useRef } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import StudyTimer from "@/components/StudyTimer";
+
+const supabase = createClient();
 
 // Tags are optional labels layered on top of ambient presence — never a
 // gate you have to pick a side of. Soft, mood-based names on purpose.
