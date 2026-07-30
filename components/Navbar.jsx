@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { getLocalCoins, hydrateCoins } from "@/lib/coins";
 
 const DIRECT_ITEMS = [
   { href: "/dashboard",     label: "Home"         },
@@ -55,6 +56,13 @@ export default function Navbar() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
+  // Pull the cloud coin balance down once per session — after this,
+  // localStorage is up to date and the pathname-triggered read below is
+  // enough to stay in sync as the user navigates.
+  useEffect(() => {
+    hydrateCoins().then(setCoins);
+  }, []);
+
   async function handleSignOut() {
     const supabase = createClient();
     await supabase.auth.signOut();
@@ -64,7 +72,7 @@ export default function Navbar() {
 
   useEffect(() => {
     try {
-      const c = parseInt(localStorage.getItem("chintu-coins") || "0", 10);
+      const c = getLocalCoins();
       setCoins(prev => {
         if (c !== prev) {
           setCoinPulse(true);

@@ -1,9 +1,9 @@
 "use client";
 import "@/styles/stats.css";
 import { useState, useEffect } from "react";
+import { getStreakInfo, hydrateStreak } from "@/lib/streakLogic";
 
 const LOG_KEY = "chintu-session-log";
-const STREAK_KEY = "chintu-streak";
 
 function loadLog() {
   try {
@@ -11,21 +11,6 @@ function loadLog() {
   } catch {
     return [];
   }
-}
-
-function loadStreak() {
-  const raw = localStorage.getItem(STREAK_KEY);
-  if (raw == null) return 0;
-  // Handles both a plain number string ("5") and a JSON-stringified
-  // value ('"5"' or '5') so parseInt never chokes on a stray quote.
-  let n;
-  try {
-    const parsed = JSON.parse(raw);
-    n = typeof parsed === "number" ? parsed : parseInt(String(parsed), 10);
-  } catch {
-    n = parseInt(raw, 10);
-  }
-  return Number.isFinite(n) ? n : 0;
 }
 
 function getLast7Days() {
@@ -45,7 +30,9 @@ export default function Stats() {
 
   useEffect(() => {
     setLog(loadLog());
-    setStreak(loadStreak());
+    let cancelled = false;
+    hydrateStreak().then(() => { if (!cancelled) setStreak(getStreakInfo().streakCount); });
+    return () => { cancelled = true; };
   }, []);
 
   const days = getLast7Days();

@@ -3,12 +3,12 @@ import "@/styles/revisions.css";
 import { useState, useEffect, useMemo } from "react";
 import Companion from "@/components/Companion";
 import { getSubjectColor } from "@/lib/subjectColors";
+import { addCoins } from "@/lib/coins";
 
 const REVISION_KEY = "chintu-revisions";
 const SEEN_KEY      = "chintu-revisions-seen";
 const MASTERED_KEY  = "chintu-revisions-mastered";
 const SUBJECTS_KEY  = "chintu-subjects";
-const COINS_KEY     = "chintu-coins";
 
 // Suggested spaced-repetition ladder — used only to highlight a recommended
 // pill when re-reviewing. The user can always pick a different interval, or
@@ -51,12 +51,6 @@ function getMasteredCount() {
 }
 function bumpMasteredCount() {
   try { localStorage.setItem(MASTERED_KEY, String(getMasteredCount() + 1)); } catch {}
-}
-function addCoins(amount) {
-  try {
-    const current = parseInt(localStorage.getItem(COINS_KEY) || "0", 10);
-    localStorage.setItem(COINS_KEY, String(current + amount));
-  } catch {}
 }
 function loadTrackerSubjects() {
   try { return JSON.parse(localStorage.getItem(SUBJECTS_KEY) || "{}"); } catch { return {}; }

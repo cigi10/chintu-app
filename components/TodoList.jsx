@@ -2,14 +2,13 @@
 import "@/styles/todo.css";
 import { useState, useEffect } from "react";
 import Companion from "@/components/Companion";
+import { addCoins } from "@/lib/coins";
 
 const TODO_KEY  = "chintu-todos";
-const COIN_KEY  = "chintu-coins";
 const PRIORITY  = { high: "#F2619C", medium: "#F9C060", low: "#7EC8A0" };
 
 function load() { try { return JSON.parse(localStorage.getItem(TODO_KEY) || "[]"); } catch { return []; } }
 function save(d) { try { localStorage.setItem(TODO_KEY, JSON.stringify(d)); } catch {} }
-function addCoins(n) { try { localStorage.setItem(COIN_KEY, String(parseInt(localStorage.getItem(COIN_KEY) || "0") + n)); } catch {} }
 
 export default function TodoList() {
   const [tasks, setTasks]       = useState([]);

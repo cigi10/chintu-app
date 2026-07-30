@@ -1,13 +1,17 @@
 "use client";
 import "@/styles/streak.css";
 import { useState, useEffect } from "react";
-import { getStreakInfo, clearCheckIn } from "@/lib/streakLogic";
+import { getStreakInfo, clearCheckIn, hydrateStreak } from "@/lib/streakLogic";
 
 export default function StreakBanner() {
   const [info, setInfo] = useState(null);
   const [checkInAnswer, setCheckInAnswer] = useState(null);
 
-  useEffect(() => { setInfo(getStreakInfo()); }, []);
+  useEffect(() => {
+    let cancelled = false;
+    hydrateStreak().then(() => { if (!cancelled) setInfo(getStreakInfo()); });
+    return () => { cancelled = true; };
+  }, []);
 
   if (!info) return null;
 

@@ -2,12 +2,13 @@
 import "@/styles/companion.css";
 import { useState, useEffect } from "react";
 
-const SHOP_KEY = "chintu-shop";
+const SHOP_KEY = "shop_ownership";
+const LEGACY_SHOP_KEY = "chintu-shop"; // pre-cloud-sync key name
 const SHOP_CHANGE_EVENT = "chintu-shop-change";
 
 function readEquippedAccessories() {
   try {
-    const raw = localStorage.getItem(SHOP_KEY);
+    const raw = localStorage.getItem(SHOP_KEY) ?? localStorage.getItem(LEGACY_SHOP_KEY);
     const wearable = raw ? JSON.parse(raw)?.equipped?.wearable : null;
     return wearable ? [wearable] : [];
   } catch {

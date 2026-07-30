@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
 import { getGoalsForDate } from "@/lib/goals";
+import { addCoins } from "@/lib/coins";
 
 const SESSION_LOG_KEY = "chintu-session-log";
 
@@ -128,13 +129,6 @@ function moodFromProgress(pct) {
   if (pct >= 40) return "studying";
   if (pct > 0)   return "waiting";
   return "worried";
-}
-
-function addCoins(amount) {
-  try {
-    const current = parseInt(localStorage.getItem("chintu-coins") || "0", 10);
-    localStorage.setItem("chintu-coins", String(current + amount));
-  } catch {}
 }
 
 function ExamPicker({ onPick }) {

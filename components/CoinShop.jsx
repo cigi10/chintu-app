@@ -2,9 +2,11 @@
 import "@/styles/shop.css";
 import { useState, useEffect } from "react";
 import Companion from "@/components/Companion";
+import { getData, setData } from "@/lib/storage";
+import { hydrateCoins, setCoins as persistCoins } from "@/lib/coins";
 
-const COIN_KEY = "chintu-coins";
-const SHOP_KEY = "chintu-shop";
+const SHOP_KEY = "shop_ownership";
+const LEGACY_SHOP_KEY = "chintu-shop"; // pre-cloud-sync key name
 
 // Item icons use the same accessory art worn by the companion elsewhere in
 // the app — no art yet for desk/wall items, so those just show name + cost.
@@ -38,11 +40,16 @@ const CATEGORIES = [
   { slot: "wearable", label: "Wearables" },
 ];
 
-function loadCoins() { try { return parseInt(localStorage.getItem(COIN_KEY) || "0", 10); } catch { return 0; } }
-function saveCoins(n) { try { localStorage.setItem(COIN_KEY, String(n)); } catch {} }
-function loadShop() { try { const r = localStorage.getItem(SHOP_KEY); return r ? JSON.parse(r) : { owned: [], equipped: {} }; } catch { return { owned: [], equipped: {} }; } }
-function saveShop(s) {
-  try { localStorage.setItem(SHOP_KEY, JSON.stringify(s)); } catch {}
+function loadLocalShop() {
+  try {
+    const raw = localStorage.getItem(SHOP_KEY) ?? localStorage.getItem(LEGACY_SHOP_KEY);
+    return raw ? JSON.parse(raw) : { owned: [], equipped: {} };
+  } catch {
+    return { owned: [], equipped: {} };
+  }
+}
+async function saveShop(s) {
+  await setData(SHOP_KEY, s);
   window.dispatchEvent(new Event("chintu-shop-change"));
 }
 
@@ -50,13 +57,29 @@ export default function CoinShop() {
   const [coins, setCoins] = useState(0);
   const [shop, setShop]   = useState({ owned: [], equipped: {} });
 
-  useEffect(() => { setCoins(loadCoins()); setShop(loadShop()); }, []);
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      // Pull the cloud balance/inventory down so a returning signed-in
+      // user doesn't see a stale or empty state on a new device.
+      const [cloudCoins, cloudShop] = await Promise.all([
+        hydrateCoins(),
+        getData(SHOP_KEY, loadLocalShop()),
+      ]);
+      if (cancelled) return;
+      setCoins(cloudCoins);
+      setShop(cloudShop || { owned: [], equipped: {} });
+      try { localStorage.setItem(SHOP_KEY, JSON.stringify(cloudShop || { owned: [], equipped: {} })); } catch {}
+    })();
+    return () => { cancelled = true; };
+  }, []);
 
   function buy(item) {
     if (coins < item.cost || shop.owned.includes(item.id)) return;
     const newCoins = coins - item.cost;
     const newShop  = { ...shop, owned: [...shop.owned, item.id] };
-    setCoins(newCoins); setShop(newShop); saveCoins(newCoins); saveShop(newShop);
+    setCoins(newCoins); setShop(newShop);
+    persistCoins(newCoins); saveShop(newShop);
   }
 
   function toggleEquip(item) {

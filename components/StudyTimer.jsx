@@ -7,8 +7,8 @@ import Button from "@/components/Button";
 import { recordStudySession } from "@/lib/streakLogic";
 import { localDateStr } from "@/lib/date";
 import { setGoalDone } from "@/lib/goals";
+import { getLocalCoins, hydrateCoins, addCoins } from "@/lib/coins";
 
-const COIN_KEY          = "chintu-coins";
 const SESSION_KEY       = "chintu-sessions";
 const SESSION_LOG_KEY   = "chintu-session-log";
 const BONUS_LOG_KEY     = "chintu-bonus-log";
@@ -43,8 +43,6 @@ function todaysTasks(todos) {
   return todos.filter(t => !t.done && (!t.due || t.due <= today));
 }
 
-function loadCoins()     { try { return parseInt(localStorage.getItem(COIN_KEY) || "0", 10); } catch { return 0; } }
-function saveCoins(n)    { try { localStorage.setItem(COIN_KEY, String(n)); } catch {} }
 function loadSessions()  { try { return parseInt(localStorage.getItem(SESSION_KEY) || "0", 10); } catch { return 0; } }
 function saveSessions(n) { try { localStorage.setItem(SESSION_KEY, String(n)); } catch {} }
 
@@ -201,7 +199,7 @@ export default function StudyTimer({ roomName = null }) {
   useEffect(() => { autoCycleRef.current = autoCycle; }, [autoCycle]);
 
   useEffect(() => {
-    setCoins(loadCoins());
+    hydrateCoins().then(setCoins);
     setSessions(loadSessions());
     setHistory(loadHistory());
     setTasks(todaysTasks(loadTodos()));
@@ -335,8 +333,8 @@ export default function StudyTimer({ roomName = null }) {
     const { dailyBonus, weeklyBonus } = getFirstSessionBonuses();
     const totalEarned = baseEarned + dailyBonus + weeklyBonus;
 
-    const newCoins = loadCoins() + totalEarned;
-    saveCoins(newCoins);
+    const newCoins = getLocalCoins() + totalEarned;
+    addCoins(totalEarned);
     setCoins(newCoins);
     setBurst(totalEarned);
     setLastEarned(totalEarned);
@@ -429,8 +427,8 @@ export default function StudyTimer({ roomName = null }) {
     const updated = all.map(t => t.id === taskId ? { ...t, done: true } : t);
     saveTodos(updated);
     setTasks(todaysTasks(updated));
-    const newCoins = loadCoins() + 2;
-    saveCoins(newCoins);
+    const newCoins = getLocalCoins() + 2;
+    addCoins(2);
     setCoins(newCoins);
   }
 
