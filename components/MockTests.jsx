@@ -1,11 +1,7 @@
 "use client";
 import "@/styles/mocktests.css";
 import { useState, useEffect } from "react";
-
-const MOCK_KEY = "chintu-mock-scores";
-
-function loadScores() { try { return JSON.parse(localStorage.getItem(MOCK_KEY) || "[]"); } catch { return []; } }
-function saveScores(s) { try { localStorage.setItem(MOCK_KEY, JSON.stringify(s)); } catch {} }
+import { hydrateMockScores, saveMockScores } from "@/lib/mocktests";
 
 const SUBJECTS = ["Physics", "Chemistry", "Maths", "Biology", "Reading & Writing", "Verbal", "Quant", "DSA", "Other"];
 
@@ -17,21 +13,21 @@ export default function MockTests() {
   const [date, setDate]       = useState(new Date().toISOString().slice(0, 10));
   const [notes, setNotes]     = useState("");
 
-  useEffect(() => { setScores(loadScores()); }, []);
+  useEffect(() => { hydrateMockScores().then(setScores); }, []);
 
   function addEntry() {
     if (!score.trim()) return;
     const entry = { id: Date.now(), subject, score: parseFloat(score), scoreType, date, notes: notes.trim() };
     const updated = [entry, ...scores];
     setScores(updated);
-    saveScores(updated);
+    saveMockScores(updated);
     setScore(""); setNotes("");
   }
 
   function removeEntry(id) {
     const updated = scores.filter(s => s.id !== id);
     setScores(updated);
-    saveScores(updated);
+    saveMockScores(updated);
   }
 
   // Group by subject for charts

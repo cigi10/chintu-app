@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { getGoalsForWeek, getGoalsForDate } from "@/lib/goals";
 import { localDateStr } from "@/lib/date";
-import { getSubjectColor, setSubjectColor } from "@/lib/subjectColors";
+import { getSubjectColor, setSubjectColor, hydrateSubjectColors } from "@/lib/subjectColors";
 import { getAllTrackerTopicNames } from "@/lib/trackerTopics";
 import { getLocalTodos, hydrateTodos, saveTodos as persistTodos } from "@/lib/todos";
 import { hydrateGoals } from "@/lib/goals";
@@ -299,6 +299,7 @@ export default function TimetableGrid() {
   const dayRefs   = useRef({});
 
   useEffect(() => {
+    hydrateSubjectColors();
     hydrateTimetable().then(setTimetable);
     hydrateGoals().then(() => {
       setGoalsByDay(getGoalsForWeek());

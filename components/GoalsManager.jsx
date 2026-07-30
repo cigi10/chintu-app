@@ -3,7 +3,7 @@ import "@/styles/goals.css";
 import { useState, useEffect } from "react";
 import Companion from "@/components/Companion";
 import { loadGoals, saveGoals, getGoalsForWeek, hydrateGoals } from "@/lib/goals";
-import { setSubjectColor } from "@/lib/subjectColors";
+import { setSubjectColor, hydrateSubjectColors } from "@/lib/subjectColors";
 import { weeklyMinutesFor, fmtWeeklyMinutes, moodFromGoalCount } from "@/lib/goalHelpers";
 import GoalForm from "./GoalForm";
 import GoalCard from "./GoalCard";
@@ -17,6 +17,7 @@ export default function GoalsManager() {
   const [goalsByDay, setGoalsByDay] = useState({});
 
   useEffect(() => {
+    hydrateSubjectColors();
     hydrateGoals().then(() => {
       setGoals(loadGoals());
       setGoalsByDay(getGoalsForWeek());

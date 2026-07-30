@@ -2,7 +2,7 @@
 import "@/styles/revisions.css";
 import { useState, useEffect, useMemo } from "react";
 import Companion from "@/components/Companion";
-import { getSubjectColor } from "@/lib/subjectColors";
+import { getSubjectColor, hydrateSubjectColors } from "@/lib/subjectColors";
 import { addCoins } from "@/lib/coins";
 import { getSubjects, hydrateTracker } from "@/lib/tracker";
 import {
@@ -136,6 +136,7 @@ export default function RevisionQueue() {
   const [reviewingId, setReviewingId] = useState(null);
 
   useEffect(() => {
+    hydrateSubjectColors();
     hydrateRevisionSchedule().then(setSchedule);
     setSeen(getSeen());
     setMastered(getMasteredCount());

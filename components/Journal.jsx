@@ -2,8 +2,7 @@
 import "@/styles/journal.css";
 import { useState, useEffect, useMemo, useRef } from "react";
 import Companion from "@/components/Companion";
-
-const JOURNAL_KEY = "chintu-journal";
+import { hydrateJournal, saveJournal } from "@/lib/journal";
 
 const MOODS = [
   { key: "great", label: "Great", color: "#4F9D6E" },
@@ -54,14 +53,6 @@ function normalizeEntries(raw) {
   return out;
 }
 
-function loadEntries() {
-  try {
-    return normalizeEntries(JSON.parse(localStorage.getItem(JOURNAL_KEY) || "{}"));
-  } catch {
-    return {};
-  }
-}
-
 export default function Journal() {
   const [entries, setEntries] = useState({});
   const [selectedDate, setSelectedDate] = useState(todayStr());
@@ -76,12 +67,14 @@ export default function Journal() {
   const today = todayStr();
 
   useEffect(() => {
-    const saved = loadEntries();
-    setEntries(saved);
-    const entry = saved[today] || { text: "", mood: null };
-    setText(entry.text);
-    setMood(entry.mood);
-    setSavedSnapshot(entry);
+    hydrateJournal().then(raw => {
+      const saved = normalizeEntries(raw);
+      setEntries(saved);
+      const entry = saved[today] || { text: "", mood: null };
+      setText(entry.text);
+      setMood(entry.mood);
+      setSavedSnapshot(entry);
+    });
   }, []);
 
   useEffect(() => () => saveTimeoutRef.current && clearTimeout(saveTimeoutRef.current), []);
@@ -91,9 +84,7 @@ export default function Journal() {
 
   function persist(updated) {
     setEntries(updated);
-    try {
-      localStorage.setItem(JOURNAL_KEY, JSON.stringify(updated));
-    } catch {}
+    saveJournal(updated);
   }
 
   function save() {
