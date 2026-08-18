@@ -15,6 +15,7 @@ const ART_THUMBS = {
   scarf:      "/companion/icons/scarf.PNG",
   bowtie:     "/companion/icons/bowtie.PNG",
   headphones: "/companion/icons/headphones.PNG",
+  socks:      "/companion/icons/socks.PNG",
 };
 
 const ITEMS = [
@@ -29,6 +30,7 @@ const ITEMS = [
   { id: "scarf",      name: "Tiny scarf",            cost: 100, slot: "wearable", art: "scarf"      },
   { id: "bowtie",     name: "Dapper bowtie",         cost: 90,  slot: "wearable", art: "bowtie"     },
   { id: "headphones", name: "Study headphones",      cost: 140, slot: "wearable", art: "headphones" },
+  { id: "socks",      name: "Cozy socks",            cost: 70,  slot: "wearable", art: "socks"      },
   { id: "gradcap",    name: "Graduate cap",          cost: 180, slot: "wearable" },
   { id: "diwali",     name: "Diwali lights",         cost: 250, slot: "wearable" },
   { id: "headband",   name: "Exam warrior headband", cost: 300, slot: "wearable" },

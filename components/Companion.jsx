@@ -49,6 +49,7 @@ const ACCESSORY_IMAGES = {
   glasses:    "/companion/glasses.PNG",
   scarf:      "/companion/scarf.PNG",
   headphones: "/companion/headphones.PNG",
+  socks:      "/companion/socks.PNG",
   book:       "/companion/book.PNG",
 };
 
