@@ -9,6 +9,7 @@ import { getLocalCoins, hydrateCoins } from "@/lib/coins";
 const DIRECT_ITEMS = [
   { href: "/dashboard",     label: "Home"         },
   { href: "/timer",         label: "Timer"        },
+  { href: "/todo",          label: "To-do"        },
   { href: "/timetable",     label: "Timetable"    },
   { href: "/tracker",       label: "Tracker"      },
   { href: "/achievements",  label: "Achievements" },
@@ -20,7 +21,6 @@ const GROUPS = [
     items: [
       { href: "/goals",     label: "Goals"     },
       { href: "/revisions", label: "Revisions" },
-      { href: "/todo",      label: "To-do"      },
       { href: "/mocktests", label: "Mocks"      },
       { href: "/stats",     label: "Stats"      },
       { href: "/rooms",     label: "Rooms"      },
@@ -33,6 +33,7 @@ const GROUPS = [
       { href: "/journal", label: "Journal" },
       { href: "/mood",    label: "Mood"    },
       { href: "/digest",  label: "Digest"  },
+      { href: "/profile", label: "Profile" },
     ],
   },
 ];
