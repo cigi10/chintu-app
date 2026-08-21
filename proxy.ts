@@ -1,6 +1,14 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+const PUBLIC_PATHS = [
+  '/login',
+  '/landing',
+  '/auth/callback',
+  '/forgot-password',
+  '/reset-password',
+]
+
 export async function proxy(request: NextRequest) {
   let response = NextResponse.next({ request })
 
@@ -22,7 +30,16 @@ export async function proxy(request: NextRequest) {
   )
 
   // this refreshes the session cookie if it's expiring — must be called
-  await supabase.auth.getUser()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  const pathname = request.nextUrl.pathname
+  const isPublic = PUBLIC_PATHS.some(path => pathname.startsWith(path))
+  const isRoot = pathname === '/'
+
+  if (!user && !isPublic && !isRoot) {
+    const redirectUrl = new URL('/login', request.url)
+    return NextResponse.redirect(redirectUrl)
+  }
 
   return response
 }

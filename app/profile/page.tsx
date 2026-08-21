@@ -34,12 +34,12 @@ export default function ProfilePage() {
     });
   }, []);
 
-  async function handleSignOut() {
-    await supabase.auth.signOut();
-    router.push("/login");
-    router.refresh();
-  }
-
+async function handleSignOut() {
+  await supabase.auth.signOut();
+  try { localStorage.clear(); } catch {}
+  router.push("/login");
+  router.refresh();
+}
   if (loading) return <div className="profile profile--loading">Loading...</div>;
 
   if (!email) {
