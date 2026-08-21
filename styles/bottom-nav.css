@@ -175,3 +175,9 @@
   border: 1px solid rgba(155, 111, 212, 0.45);
   color: #5B3A94;
 }
+
+.bottom-sheet__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

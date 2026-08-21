@@ -1,129 +1,19 @@
-/* rooms.css */
+.rooms { display: flex; flex-direction: column; gap: 20px; }
+.rooms__hero { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 28px 20px; border-radius: 20px; background: var(--color-surface-alt); border: 1.5px solid var(--color-border); box-shadow: var(--shadow-card); text-align: center; }
+.rooms__hero-text { font-family: var(--font-body); font-size: 0.92rem; font-weight: 600; color: var(--color-text-secondary); }
 
-.rooms {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+.rooms__orbs { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 40px; flex-wrap: wrap; }
+.rooms__orbs--pending .rooms__orb { opacity: 0.35; animation-play-state: paused; }
+.rooms__orb { width: 30px; height: 30px; border-radius: 50%; background: var(--color-accent-strong); box-shadow: 0 3px 10px var(--color-accent); animation: rooms-orb-float 3.2s ease-in-out infinite; }
+.rooms__orb-overflow { font-family: var(--font-heading); font-weight: 800; font-size: 0.95rem; color: var(--color-accent-strong); margin-left: 2px; }
+@keyframes rooms-orb-float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-6px) scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .rooms__orb { animation: none; } }
 
-/* Hero — the orb cluster IS the "everyone" room indicator */
-.rooms__hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 28px 20px;
-  border-radius: 20px;
-  background: rgba(155, 111, 212, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(155, 111, 212, 0.25);
-  box-shadow: 0 4px 16px rgba(155, 111, 212, 0.1);
-  text-align: center;
-}
-
-.rooms__hero-text {
-  font-family: "Nunito", sans-serif;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: #5B4E78;
-}
-
-/* Orb cluster */
-.rooms__orbs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 40px;
-  flex-wrap: wrap;
-}
-
-.rooms__orbs--pending .rooms__orb {
-  opacity: 0.35;
-  animation-play-state: paused;
-}
-
-.rooms__orb {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  box-shadow: 0 3px 10px rgba(155, 111, 212, 0.3);
-  animation: rooms-orb-float 3.2s ease-in-out infinite;
-}
-
-.rooms__orb-overflow {
-  font-family: "Baloo 2", sans-serif;
-  font-weight: 800;
-  font-size: 0.95rem;
-  color: #7A4FBF;
-  margin-left: 2px;
-}
-
-@keyframes rooms-orb-float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50%      { transform: translateY(-6px) scale(1.06); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rooms__orb { animation: none; }
-}
-
-/* Optional tags */
-.rooms__tags-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 16px 18px;
-  border-radius: 16px;
-  background: rgba(155, 111, 212, 0.06);
-  border: 1.5px solid rgba(155, 111, 212, 0.18);
-}
-
-.rooms__tags-label {
-  font-family: "Nunito", sans-serif;
-  font-size: 0.78rem;
-  color: #6E6688;
-  font-weight: 600;
-}
-
-.rooms__tags-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.rooms__tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 16px;
-  border-radius: 999px;
-  border: 1.5px solid rgba(155, 111, 212, 0.4);
-  background: rgba(255, 255, 255, 0.4);
-  color: #7A4FBF;
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
-  font-size: 0.82rem;
-  cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
-}
-
+.rooms__tags-section { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; border-radius: 16px; background: var(--color-surface-alt); border: 1.5px solid var(--color-border); }
+.rooms__tags-label { font-family: var(--font-body); font-size: 0.78rem; color: var(--color-text-secondary); font-weight: 600; }
+.rooms__tags-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.rooms__tag { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 999px; border: 1.5px solid var(--color-border); background: var(--color-surface); color: var(--color-accent-strong); font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; cursor: pointer; transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease; }
 .rooms__tag:hover { transform: translateY(-1px); }
-
-.rooms__tag:focus-visible {
-  outline: 2px solid #9B6FD4;
-  outline-offset: 2px;
-}
-
-.rooms__tag--active {
-  background: #9B6FD4;
-  color: #fff;
-  border-color: #9B6FD4;
-}
-
-.rooms__tag-count {
-  font-size: 0.72rem;
-  font-weight: 800;
-  opacity: 0.85;
-}
+.rooms__tag:focus-visible { outline: 2px solid var(--color-accent-strong); outline-offset: 2px; }
+.rooms__tag--active { background: var(--color-accent-strong); color: #fff; border-color: var(--color-accent-strong); }
+.rooms__tag-count { font-size: 0.72rem; font-weight: 800; opacity: 0.85; }

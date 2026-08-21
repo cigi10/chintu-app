@@ -1,0 +1,17 @@
+.profile { position: relative; min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; padding: 24px; padding-top: 90px; }
+.profile--loading { justify-content: center; font-family: var(--font-body); color: var(--color-text-secondary); font-size: 1rem; }
+.profile__companion { width: 100px; margin-bottom: 12px; }
+.profile__companion img, .profile__companion svg { display: block; width: 100%; height: auto; }
+.profile__avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--color-accent-strong); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; margin-bottom: 14px; box-shadow: var(--shadow-primary-btn); }
+.profile__title { font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-text); margin-bottom: 20px; }
+.profile__card { width: 100%; max-width: 380px; background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: 20px; padding: 20px 24px; box-shadow: var(--shadow-card); margin-bottom: 20px; }
+.profile__row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--color-border); }
+.profile__row:last-child { border-bottom: none; }
+.profile__label { font-family: var(--font-body); font-size: 0.8rem; color: var(--color-text-secondary); font-weight: 700; }
+.profile__value { font-family: var(--font-body); font-size: 0.9rem; color: var(--color-text); font-weight: 700; word-break: break-all; text-align: right; margin-left: 12px; }
+.profile__signout-btn { min-width: 160px; }
+@media (max-width: 480px) { .profile { padding: 16px; padding-top: 70px; } .profile__companion { width: 80px; } .profile__avatar { width: 64px; height: 64px; font-size: 1.5rem; } .profile__title { font-size: 1.4rem; } .profile__card { padding: 16px 18px; } }
+.site-header { position: absolute; top: 24px; left: 32px; z-index: 10; }
+.site-header__logo { font-family: var(--font-heading); font-weight: 800; font-size: 1.3rem; color: var(--color-accent-strong); text-decoration: none; }
+.site-header__logo:hover { filter: brightness(0.85); }
+@media (max-width: 480px) { .site-header { top: 16px; left: 20px; } .site-header__logo { font-size: 1.1rem; } }

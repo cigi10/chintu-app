@@ -303,7 +303,7 @@ export default function DashboardContent() {
 
   return (
     <div className="dashboard">
-      <img src="/companion/indoor-bg.PNG" alt="" className="dashboard__scene-bg" />
+      
 
       <h1 className="dashboard__greeting">{greeting()}</h1>
       <StreakBanner />

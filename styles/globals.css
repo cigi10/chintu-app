@@ -1,159 +1,150 @@
-/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { max-width: 100vw; overflow-x: hidden; }
+
+:root {
+  --font-heading: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: ui-monospace, 'Courier New', monospace;
+  --radius-sm: 8px; --radius-md: 14px; --radius-lg: 20px; --radius-pill: 999px;
+}
+:root,
+[data-theme="sunset"] {
+  --bg-image: url('/companion/indoor-bg.PNG');
+  --color-primary: #9B6FD4; --color-primary-muted: #E7BEF8; --color-secondary: #93ABD9; --color-energy: #EDE986;
+  --color-done: #7EC8A0; --color-in-progress: #93ABD9; --color-needs-revision: #F9C060; --color-streak: #F2619C;
+  --color-bg: #FBF3FF; --color-bg-evening: #F5DDF7; --color-surface: #FFFFFF; --color-surface-alt: #F5DDF7;
+  --color-accent: #E7BEF8; --color-accent-strong: #9B6FD4; --color-border: #E7BEF8; --color-border-dashed: #E7BEF8;
+  --color-text: #241F3D; --color-text-secondary: #6E6688; --color-text-muted: #6E6688; --color-text-faint: #93ABD9; --color-text-disabled: #C9BFE0; --color-outline: #2E2A4A;
+  --color-success: #7EC8A0; --color-danger: #991B1B; --color-danger-bg: #FFF5F5; --color-danger-border: #FECACA;
+  --ring-study: #9B6FD4; --ring-short-break: #7EC8A0; --ring-long-break: #93ABD9;
+  --coin-burst-text: #2E2A4A; --coin-burst-bg: #EDE986; --coin-burst-border: #9B6FD4;
+  --shadow-navbar: 0 2px 8px rgba(155,111,212,0.12); --shadow-primary-btn: 0 4px 12px rgba(155,111,212,0.35); --shadow-card: 0 4px 16px rgba(155,111,212,0.10);
+}
+
+[data-theme="azure"] {
+  --bg-image: none;
+  --color-primary: #367ADF; --color-primary-muted: #AED5F5; --color-secondary: #4FACE5; --color-energy: #EDE986;
+  --color-done: #7EC8A0; --color-in-progress: #4FACE5; --color-needs-revision: #F9C060; --color-streak: #394988;
+  --color-bg: #AED5F5; --color-bg-evening: #9CC9F0; --color-surface: #FFFFFF; --color-surface-alt: #DBEEFB;
+  --color-accent: #CFE6F9; --color-accent-strong: #367ADF; --color-border: #7FBFEE; --color-border-dashed: #7FBFEE;
+  --color-text: #1E2A3D; --color-text-secondary: #3C4C5E; --color-text-muted: #3C4C5E; --color-text-faint: #6B7C8E; --color-text-disabled: #A8B8C6; --color-outline: #1E2A3D;
+  --color-success: #7EC8A0; --color-danger: #991B1B; --color-danger-bg: #FFF5F5; --color-danger-border: #FECACA;
+  --ring-study: #367ADF; --ring-short-break: #7EC8A0; --ring-long-break: #4FACE5;
+  --coin-burst-text: #1E2A3D; --coin-burst-bg: #EDE986; --coin-burst-border: #367ADF;
+  --shadow-navbar: 0 2px 8px rgba(54,122,223,0.18); --shadow-primary-btn: 0 4px 12px rgba(54,122,223,0.35); --shadow-card: 0 4px 16px rgba(54,122,223,0.14);
+}
+
+[data-theme="strawberry"] {
+  --bg-image: none;
+  --color-primary: #D5306D; --color-primary-muted: #FBE0E0; --color-secondary: #FF92C1; --color-energy: #EFD47A;
+  --color-done: #7EC8A0; --color-in-progress: #FF92C1; --color-needs-revision: #EEB17D; --color-streak: #D5306D;
+  --color-bg: #FBE0E0; --color-bg-evening: #F7CFCF; --color-surface: #FFFFFF; --color-surface-alt: #FDEDED;
+  --color-accent: #F7CBD6; --color-accent-strong: #D5306D; --color-border: #F0B9C3; --color-border-dashed: #F0B9C3;
+  --color-text: #4A2530; --color-text-secondary: #7A4E5A; --color-text-muted: #7A4E5A; --color-text-faint: #A8828C; --color-text-disabled: #DCC1C7; --color-outline: #4A2530;
+  --color-success: #7EC8A0; --color-danger: #991B1B; --color-danger-bg: #FFF5F5; --color-danger-border: #FECACA;
+  --ring-study: #D5306D; --ring-short-break: #7EC8A0; --ring-long-break: #FF92C1;
+  --coin-burst-text: #4A2530; --coin-burst-bg: #EFD47A; --coin-burst-border: #D5306D;
+  --shadow-navbar: 0 2px 8px rgba(213,48,109,0.18); --shadow-primary-btn: 0 4px 12px rgba(213,48,109,0.35); --shadow-card: 0 4px 16px rgba(213,48,109,0.14);
+}
+
+[data-theme="periwinkle"] {
+  --bg-image: none;
+  --color-primary: #4A69CE; --color-primary-muted: #BCA4F5; --color-secondary: #81CFFF; --color-energy: #ECFFBE;
+  --color-done: #7EC8A0; --color-in-progress: #81CFFF; --color-needs-revision: #F9C060; --color-streak: #BCA4F5;
+  --color-bg: #E5F8F0; --color-bg-evening: #D3F2E5; --color-surface: #FFFFFF; --color-surface-alt: #EFFAF4;
+  --color-accent: #D7EFE4; --color-accent-strong: #4A69CE; --color-border: #BFE7D6; --color-border-dashed: #BFE7D6;
+  --color-text: #1E3A32; --color-text-secondary: #4A6459; --color-text-muted: #4A6459; --color-text-faint: #7C9389; --color-text-disabled: #C0D2C9; --color-outline: #1E3A32;
+  --color-success: #7EC8A0; --color-danger: #991B1B; --color-danger-bg: #FFF5F5; --color-danger-border: #FECACA;
+  --ring-study: #4A69CE; --ring-short-break: #7EC8A0; --ring-long-break: #81CFFF;
+  --coin-burst-text: #1E3A32; --coin-burst-bg: #ECFFBE; --coin-burst-border: #4A69CE;
+  --shadow-navbar: 0 2px 8px rgba(74,105,206,0.18); --shadow-primary-btn: 0 4px 12px rgba(74,105,206,0.35); --shadow-card: 0 4px 16px rgba(74,105,206,0.14);
+}
+
+[data-theme="matcha"] {
+  --bg-image: none;
+  --color-primary: #84D175; --color-primary-muted: #E6FBDA; --color-secondary: #3E5BA3; --color-energy: #FFF8D2;
+  --color-done: #84D175; --color-in-progress: #3E5BA3; --color-needs-revision: #F9C060; --color-streak: #D98A6B;
+  --color-bg: #FFF8D2; --color-bg-evening: #FFF1B0; --color-surface: #FFFFFF; --color-surface-alt: #FFFBE4;
+  --color-accent: #E6FBDA; --color-accent-strong: #84D175; --color-border: #F5E7A0; --color-border-dashed: #F5E7A0;
+  --color-text: #2E2C10; --color-text-secondary: #5C5934; --color-text-muted: #5C5934; --color-text-faint: #928C60; --color-text-disabled: #D3CDA0; --color-outline: #2E2C10;
+  --color-success: #84D175; --color-danger: #991B1B; --color-danger-bg: #FFF5F5; --color-danger-border: #FECACA;
+  --ring-study: #84D175; --ring-short-break: #3E5BA3; --ring-long-break: #A8B899;
+  --coin-burst-text: #2E2C10; --coin-burst-bg: #FFF8D2; --coin-burst-border: #84D175;
+  --shadow-navbar: 0 2px 8px rgba(132,209,117,0.18); --shadow-primary-btn: 0 4px 12px rgba(132,209,117,0.35); --shadow-card: 0 4px 16px rgba(132,209,117,0.14);
+}
+
+[data-theme="forest"] {
+  --bg-image: none;
+  --color-primary: #65743A; --color-primary-muted: #EFDD8D; --color-secondary: #394F49; --color-energy: #F4FDAF;
+  --color-done: #65743A; --color-in-progress: #394F49; --color-needs-revision: #EFDD8D; --color-streak: #6B2E6E;
+  --color-bg: #F4FDAF; --color-bg-evening: #E9F98A; --color-surface: #FFFFFF; --color-surface-alt: #F8FDCB;
+  --color-accent: #EAF3AE; --color-accent-strong: #65743A; --color-border: #DCEB8E; --color-border-dashed: #DCEB8E;
+  --color-text: #24280F; --color-text-secondary: #4E5630; --color-text-muted: #4E5630; --color-text-faint: #838C5F; --color-text-disabled: #C7CDA5; --color-outline: #24280F;
+  --color-success: #65743A; --color-danger: #991B1B; --color-danger-bg: #FFF5F5; --color-danger-border: #FECACA;
+  --ring-study: #65743A; --ring-short-break: #394F49; --ring-long-break: #EFDD8D;
+  --coin-burst-text: #24280F; --coin-burst-bg: #F4FDAF; --coin-burst-border: #65743A;
+  --shadow-navbar: 0 2px 8px rgba(101,116,58,0.18); --shadow-primary-btn: 0 4px 12px rgba(101,116,58,0.35); --shadow-card: 0 4px 16px rgba(101,116,58,0.14);
+}
+
+[data-theme="majorelle"] {
+  --bg-image: none;
+  --color-primary: #6E44FF; --color-primary-muted: #BB92FF; --color-secondary: #FF90B3; --color-energy: #EDE986;
+  --color-done: #7EC8A0; --color-in-progress: #BB92FF; --color-needs-revision: #FF90B3; --color-streak: #EF7A85;
+  --color-bg: #FFC2E2; --color-bg-evening: #FFACD4; --color-surface: #FFFFFF; --color-surface-alt: #FFDCED;
+  --color-accent: #F0D6E7; --color-accent-strong: #6E44FF; --color-border: #F5B8D9; --color-border-dashed: #F5B8D9;
+  --color-text: #3D1A34; --color-text-secondary: #6E4E66; --color-text-muted: #6E4E66; --color-text-faint: #A182A0; --color-text-disabled: #DEC6D8; --color-outline: #3D1A34;
+  --color-success: #7EC8A0; --color-danger: #991B1B; --color-danger-bg: #FFF5F5; --color-danger-border: #FECACA;
+  --ring-study: #6E44FF; --ring-short-break: #7EC8A0; --ring-long-break: #BB92FF;
+  --coin-burst-text: #3D1A34; --coin-burst-bg: #EDE986; --coin-burst-border: #6E44FF;
+  --shadow-navbar: 0 2px 8px rgba(110,68,255,0.18); --shadow-primary-btn: 0 4px 12px rgba(110,68,255,0.35); --shadow-card: 0 4px 16px rgba(110,68,255,0.14);
+}
+
+[data-theme="slate"] {
+  --bg-image: none;
+  --color-primary: #4F5D75; --color-primary-muted: #FDECEF; --color-secondary: #395756; --color-energy: #EDE986;
+  --color-done: #1B3022; --color-in-progress: #395756; --color-needs-revision: #F9C060; --color-streak: #D9507E;
+  --color-bg: #FDECEF; --color-bg-evening: #F9D9DF; --color-surface: #FFFFFF; --color-surface-alt: #FDF3F5;
+  --color-accent: #E9DDE0; --color-accent-strong: #4F5D75; --color-border: #E5CDD3; --color-border-dashed: #E5CDD3;
+  --color-text: #2C2528; --color-text-secondary: #594E52; --color-text-muted: #594E52; --color-text-faint: #8C7F83; --color-text-disabled: #D2C4C8; --color-outline: #2C2528;
+  --color-success: #1B3022; --color-danger: #991B1B; --color-danger-bg: #FFF5F5; --color-danger-border: #FECACA;
+  --ring-study: #4F5D75; --ring-short-break: #395756; --ring-long-break: #1B3022;
+  --coin-burst-text: #2C2528; --coin-burst-bg: #EDE986; --coin-burst-border: #4F5D75;
+  --shadow-navbar: 0 2px 8px rgba(0,0,0,0.10); --shadow-primary-btn: 0 4px 12px rgba(79,93,117,0.30); --shadow-card: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+[data-theme="cocoa"] {
+  --bg-image: none;
+  --color-primary: #F1DABF; --color-primary-muted: #92817A; --color-secondary: #92817A; --color-energy: #F1DABF;
+  --color-done: #7A9B6E; --color-in-progress: #92817A; --color-needs-revision: #C9A876; --color-streak: #C46B5A;
+  --color-bg: #000500; --color-bg-evening: #0A0906; --color-surface: #221812; --color-surface-alt: #362417;
+  --color-accent: #4A382C; --color-accent-strong: #F1DABF; --color-border: #4A382C; --color-border-dashed: #4A382C;
+  --color-text: #FFFBFF; --color-text-secondary: #C9BFB5; --color-text-muted: #C9BFB5; --color-text-faint: #92817A; --color-text-disabled: #5C5044; --color-outline: #FFFBFF;
+  --color-success: #7A9B6E; --color-danger: #C46B5A; --color-danger-bg: #2E1F1A; --color-danger-border: #5C3D33;
+  --ring-study: #F1DABF; --ring-short-break: #7A9B6E; --ring-long-break: #92817A;
+  --coin-burst-text: #000500; --coin-burst-bg: #F1DABF; --coin-burst-border: #F1DABF;
+  --shadow-navbar: 0 2px 8px rgba(0,0,0,0.5); --shadow-primary-btn: 0 4px 12px rgba(241,218,191,0.30); --shadow-card: 0 4px 16px rgba(0,0,0,0.45);
+}
+
+:root {
+  --cat-cream: #EEDBB5; --cat-ochre: #C98A4B; --cat-grey-brown: #9A8C7A; --cat-belly: #FAF1DD; --cat-blush: #F2A6B8;
+  --sky-day: #D4EEFF; --sky-sunset: #FFB8D0; --sky-night: #2A1E4A; --grass-day: #B8E0A0; --grass-evening: #7AB860; --grass-night: #1A3A20; --soil: #C4956A;
+}
+
 body {
-  background-image: url('/companion/indoor-bg.PNG');
+  background-image: var(--bg-image);
   background-size: cover;
   background-position: center;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-/* ── Fonts ── */
-:root {
-  --font-heading: 'Baloo 2', sans-serif;
-  --font-body: 'Nunito', sans-serif;
-  --font-mono: ui-monospace, 'Courier New', monospace;
-}
-
-/* ── Color tokens (Section 9 palette) ── */
-:root {
-  /* Brand */
-  --color-primary:        #9B6FD4; /* Deep Plum */
-  --color-primary-muted:  #E7BEF8; /* Soft Lilac */
-
-  /* Secondary / info */
-  --color-secondary:      #93ABD9; /* Blueberry Milk */
-
-  /* Energy / reward accent */
-  --color-energy:         #EDE986; /* Lemon Cream */
-
-  /* Status */
-  --color-done:           #7EC8A0;
-  --color-in-progress:    #93ABD9;
-  --color-needs-revision: #F9C060;
-  --color-streak:         #F2619C; /* only place pink appears */
-
-  /* Surface / background (day) */
-  --color-bg:             #FBF3FF; /* Day */
-  --color-bg-evening:     #F5DDF7; /* Evening */
-  --color-bg-night:       #1E1428; /* Night — warm dark plum, never cold black */
-  --color-surface:        #FFFFFF;
-  --color-surface-alt:    #F5DDF7;
-
-  /* Borders / accents */
-  --color-accent:         #E7BEF8;
-  --color-accent-strong:  #9B6FD4;
-  --color-border:         #E7BEF8;
-  --color-border-dashed:  #E7BEF8;
-
-  /* Text (navy replaces black — Section 9.4) */
-  --color-text:           #241F3D; /* Primary text, day */
-  --color-text-night:     #EDE8FB; /* Primary text, night */
-  --color-text-secondary: #6E6688;
-  --color-text-muted:     #6E6688;
-  --color-text-faint:     #93ABD9;
-  --color-text-disabled:  #C9BFE0;
-  --color-outline:        #2E2A4A; /* replaces black everywhere, no exceptions */
-
-  /* Feedback */
-  --color-success:        #7EC8A0;
-  --color-danger:         #991B1B;
-  --color-danger-bg:      #FFF5F5;
-  --color-danger-border:  #FECACA;
-
-  /* Timer rings */
-  --ring-study:           #9B6FD4;
-  --ring-short-break:     #7EC8A0;
-  --ring-long-break:      #93ABD9;
-
-  /* Coin / reward burst */
-  --coin-burst-text:      #2E2A4A;
-  --coin-burst-bg:        #EDE986;
-  --coin-burst-border:    #9B6FD4;
-
-  /* Chintu calico (flat, no shading — Section 9.3) */
-  --cat-cream:            #EEDBB5;
-  --cat-ochre:            #C98A4B;
-  --cat-grey-brown:       #9A8C7A;
-  --cat-belly:            #FAF1DD;
-  --cat-blush:            #F2A6B8;
-
-  /* Outdoor scene colors (Section 9.5) */
-  --sky-day:              #D4EEFF;
-  --sky-sunset:           #FFB8D0;
-  --sky-night:            #2A1E4A;
-  --grass-day:            #B8E0A0;
-  --grass-evening:        #7AB860;
-  --grass-night:          #1A3A20;
-  --soil:                 #C4956A;
-
-  /* Radius */
-  --radius-sm:   8px;
-  --radius-md:   14px;
-  --radius-lg:   20px;
-  --radius-pill: 999px;
-
-  /* Shadows */
-  --shadow-navbar:      0 2px 8px rgba(155,111,212,0.12);
-  --shadow-primary-btn: 0 4px 12px rgba(155,111,212,0.35);
-  --shadow-card:        0 4px 16px rgba(155,111,212,0.10);
-}
-
-body {
-  font-family: var(--font-body);
   background-color: var(--color-bg);
+  font-family: var(--font-body);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-}
-
-/* ── Day / Night switch (Section 9.7) ── */
-/* 6am = day, 6pm = night, 400ms crossfade, applied via a class
-   toggled by a shared time-of-day module, not per-component logic. */
-body, .scene-bg {
   transition: background-color 400ms ease, color 400ms ease;
 }
 
-body.is-night {
-  background-color: var(--color-bg-night);
-  color: var(--color-text-night);
-}
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
 
-/* ── Animations ── */
-@keyframes chintu-fade-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes chintu-bob {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-6px); }
-}
-
-@keyframes coinpop {
-  0%   { opacity: 0; transform: translateY(0) scale(0.8); }
-  20%  { opacity: 1; transform: translateY(-20px) scale(1.1); }
-  80%  { opacity: 1; transform: translateY(-30px) scale(1); }
-  100% { opacity: 0; transform: translateY(-50px) scale(0.9); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.5; }
-}
-
-@keyframes sparkle-pop {
-  0%, 100% { opacity: 0.4; transform: scale(0.8); }
-  50%       { opacity: 1;   transform: scale(1.3); }
-}
+@keyframes chintu-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes chintu-bob { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
+@keyframes coinpop { 0% { opacity: 0; transform: translateY(0) scale(0.8); } 20% { opacity: 1; transform: translateY(-20px) scale(1.1); } 80% { opacity: 1; transform: translateY(-30px) scale(1); } 100% { opacity: 0; transform: translateY(-50px) scale(0.9); } }
+@keyframes pulse-glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes sparkle-pop { 0%, 100% { opacity: 0.4; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.3); } }

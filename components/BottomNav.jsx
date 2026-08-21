@@ -3,6 +3,8 @@ import "@/styles/bottom-nav.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { createClient } from "@/lib/supabase/client";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const BOTTOM_ITEMS = [
   { href: "/dashboard", label: "Home"   },
@@ -10,43 +12,59 @@ const BOTTOM_ITEMS = [
   { href: "/tracker",   label: "Tracker" },
 ];
 
-const MORE_GROUPS = [
-  {
-    label: "Study",
-    items: [
-      { href: "/timetable",    label: "Timetable"    },
-      { href: "/revisions",    label: "Revisions"    },
-      { href: "/todo",         label: "To-do"        },
-      { href: "/mocktests",    label: "Mocks"        },
-      { href: "/stats",        label: "Stats"        },
-      { href: "/rooms",        label: "Rooms"        },
-      { href: "/achievements", label: "Achievements" },
-    ],
-  },
-  {
-    label: "You",
-    items: [
-      { href: "/journal", label: "Journal" },
-      { href: "/mood",    label: "Mood"    },
-      { href: "/digest",  label: "Digest"  },
-    ],
-  },
+const STUDY_GROUP = {
+  label: "Study",
+  items: [
+    { href: "/timetable",    label: "Timetable"    },
+    { href: "/revisions",    label: "Revisions"    },
+    { href: "/todo",         label: "To-do"        },
+    { href: "/mocktests",    label: "Mocks"        },
+    { href: "/stats",        label: "Stats"        },
+    { href: "/rooms",        label: "Rooms"        },
+    { href: "/achievements", label: "Achievements" },
+  ],
+};
+
+const YOU_GROUP_BASE = [
+  { href: "/journal", label: "Journal" },
+  { href: "/mood",    label: "Mood"    },
+  { href: "/digest",  label: "Digest"  },
 ];
 
 export default function BottomNav() {
   const pathname = usePathname();
   const [moreOpen, setMoreOpen] = useState(false);
+  const [userEmail, setUserEmail] = useState(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => setUserEmail(data.user?.email || null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserEmail(session?.user?.email || null);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
 
   const hide = pathname === "/onboarding";
 
-  // Close the sheet whenever the route changes
   useEffect(() => {
     setMoreOpen(false);
   }, [pathname]);
 
   if (hide) return null;
 
-  const isInMoreGroup = MORE_GROUPS.some(g => g.items.some(i => i.href === pathname));
+  const youGroup = {
+    label: "You",
+    items: [
+      ...YOU_GROUP_BASE,
+      userEmail
+        ? { href: "/profile", label: "Profile" }
+        : { href: "/login", label: "Log in" },
+    ],
+  };
+
+  const moreGroups = [STUDY_GROUP, youGroup];
+  const isInMoreGroup = moreGroups.some(g => g.items.some(i => i.href === pathname));
 
   return (
     <>
@@ -79,18 +97,21 @@ export default function BottomNav() {
             <div className="bottom-sheet__handle" />
             <div className="bottom-sheet__header">
               <span className="bottom-sheet__title">More</span>
-              <button
-                type="button"
-                className="bottom-sheet__close"
-                onClick={() => setMoreOpen(false)}
-                aria-label="Close"
-              >
-                ×
-              </button>
+              <div className="bottom-sheet__header-actions">
+                <ThemeSwitcher />
+                <button
+                  type="button"
+                  className="bottom-sheet__close"
+                  onClick={() => setMoreOpen(false)}
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+              </div>
             </div>
 
             <div className="bottom-sheet__content">
-              {MORE_GROUPS.map(group => (
+              {moreGroups.map(group => (
                 <div key={group.label} className="bottom-sheet__group">
                   <p className="bottom-sheet__group-label">{group.label}</p>
                   <div className="bottom-sheet__grid">

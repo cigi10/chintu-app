@@ -158,9 +158,9 @@ export default function StudyTimer({ roomName = null }) {
   const [lastEarned, setLastEarned]   = useState(0);
   const [hydrated, setHydrated]       = useState(false);
 
-  const [showCustom, setShowCustom]   = useState(false);
-  const [customMins, setCustomMins]   = useState("45");
-  const [customSecs, setCustomSecs]   = useState("00");
+const [showCustom, setShowCustom]   = useState(!!durationFromParam);
+const [customMins, setCustomMins]   = useState(durationFromParam ? durationFromParam : "45");
+const [customSecs, setCustomSecs]   = useState("00");
   const [subject, setSubject]         = useState(subjectFromParam);
 
   const [autoCycle, setAutoCycle]     = useState(false);

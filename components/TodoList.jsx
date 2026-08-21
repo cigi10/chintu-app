@@ -1,6 +1,7 @@
 "use client";
 import "@/styles/todo.css";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
 import { addCoins } from "@/lib/coins";
 import { hydrateTodos, saveTodos as persistTodos } from "@/lib/todos";
@@ -10,10 +11,12 @@ const PRIORITY  = { high: "#F2619C", medium: "#F9C060", low: "#7EC8A0" };
 function save(d) { persistTodos(d); }
 
 export default function TodoList() {
+  const router = useRouter();
   const [tasks, setTasks]       = useState([]);
   const [text, setText]         = useState("");
   const [priority, setPriority] = useState("medium");
   const [due, setDue]           = useState("");
+  const [duration, setDuration] = useState("");
   const [expandedId, setExpandedId] = useState(null);
   const [subtextMap, setSubtextMap] = useState({});
 
@@ -21,9 +24,17 @@ export default function TodoList() {
 
   function addTask() {
     if (!text.trim()) return;
-    const task = { id: Date.now(), text: text.trim(), priority, due, done: false, subtasks: [] };
+    const task = {
+      id: Date.now(),
+      text: text.trim(),
+      priority,
+      due,
+      durationMinutes: duration ? parseInt(duration, 10) : null,
+      done: false,
+      subtasks: [],
+    };
     const updated = [task, ...tasks];
-    setTasks(updated); save(updated); setText(""); setDue("");
+    setTasks(updated); save(updated); setText(""); setDue(""); setDuration("");
   }
 
   function toggleDone(id) {
@@ -59,6 +70,12 @@ export default function TodoList() {
     setTasks(updated); save(updated);
   }
 
+  function startTaskInTimer(task) {
+    const params = new URLSearchParams({ subject: task.text });
+    if (task.durationMinutes) params.set("duration", String(task.durationMinutes));
+    router.push(`/timer?${params.toString()}`);
+  }
+
   const allDone = tasks.length > 0 && tasks.every(t => t.done);
   const pending = tasks.filter(t => !t.done);
   const done    = tasks.filter(t => t.done);
@@ -80,6 +97,15 @@ export default function TodoList() {
           <option value="low">Low</option>
         </select>
         <input className="todo__date" type="date" value={due} onChange={e => setDue(e.target.value)} />
+        <input
+          className="todo__duration-input"
+          type="number"
+          min="1"
+          max="300"
+          value={duration}
+          onChange={e => setDuration(e.target.value)}
+          placeholder="min"
+        />
         <button className="todo__add-btn" onClick={addTask}>Add</button>
       </div>
 
@@ -90,7 +116,11 @@ export default function TodoList() {
               <span className="todo__priority-dot" style={{ background: PRIORITY[task.priority] }} />
               <button className="todo__check" onClick={() => toggleDone(task.id)}>○</button>
               <span className="todo__task-text">{task.text}</span>
+              {task.durationMinutes && <span className="todo__duration-pill">{task.durationMinutes}m</span>}
               {task.due && <span className="todo__due">{task.due}</span>}
+              <button className="todo__study-btn" onClick={() => startTaskInTimer(task)} title="Start in timer">
+                Study
+              </button>
               <button className="todo__expand-btn" onClick={() => setExpandedId(expandedId === task.id ? null : task.id)}>
                 {expandedId === task.id ? "−" : "+"}
               </button>

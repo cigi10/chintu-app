@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { getLocalCoins, hydrateCoins } from "@/lib/coins";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const DIRECT_ITEMS = [
   { href: "/dashboard",     label: "Home"         },
@@ -57,19 +58,9 @@ export default function Navbar() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  // Pull the cloud coin balance down once per session — after this,
-  // localStorage is up to date and the pathname-triggered read below is
-  // enough to stay in sync as the user navigates.
   useEffect(() => {
     hydrateCoins().then(setCoins);
   }, []);
-
-  async function handleSignOut() {
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    router.push("/login");
-    router.refresh();
-  }
 
   useEffect(() => {
     try {
@@ -153,15 +144,12 @@ export default function Navbar() {
           {coins} coins
         </div>
 
+        <ThemeSwitcher />
+
         {userEmail ? (
-          <button
-            type="button"
-            className="navbar__link navbar__signout-btn"
-            onClick={handleSignOut}
-            title={userEmail}
-          >
-            Sign out
-          </button>
+          <Link href="/profile" className="navbar__avatar" title={userEmail}>
+            {userEmail[0].toUpperCase()}
+          </Link>
         ) : (
           <Link href="/login" className="navbar__link">Log in</Link>
         )}

@@ -45,27 +45,18 @@ function LoginForm() {
     if (mode === 'signup') {
       const { data, error } = await supabase.auth.signUp({
         email, password,
-        // routes the confirmation-link click through the same profile
-        // creation + onboarding check the OAuth flow already gets
         options: { emailRedirectTo: `${location.origin}/auth/callback` },
       })
       setLoading(false)
       if (error) { setError(error.message); return }
       if (data.user && !data.session) {
-        // email confirmation required before they can log in
         setSignupSent(true)
       }
-      // if data.session exists, Supabase confirmed instantly and the
-      // middleware/session cookie is already set — just send them onward
       if (data.session) window.location.href = '/onboarding'
     } else {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) { setLoading(false); setError(error.message); return }
 
-      // new users (or accounts created outside this form) may not have a
-      // profile row yet, and existing users who never finished onboarding
-      // shouldn't skip straight to the dashboard — mirror the check
-      // app/auth/callback/route.ts does for the OAuth path
       const { data: profile } = await supabase
         .from('profiles')
         .select('onboarded')
