@@ -12,12 +12,15 @@ import { getLocalTodos, hydrateTodos, saveTodos as persistTodos } from "@/lib/to
 import { hydrateTracker, getSessionLog, appendSessionLogEntry, getBonusLog, saveBonusLog } from "@/lib/tracker";
 
 const SESSION_KEY       = "chintu-sessions";
-const TIMER_STATE_KEY   = "chintu-timer-state";   // persists a running/paused session across navigation
-const AUTOCYCLE_KEY     = "chintu-autocycle";     // on/off preference
-const AUTOCYCLE_COUNT_KEY = "chintu-autocycle-count"; // how many study blocks completed in the current cycle
-const SOUND_PREF_KEY    = "chintu-sound-pref";    // { on, type }
+const TIMER_STATE_KEY   = "chintu-timer-state";
+const AUTOCYCLE_KEY     = "chintu-autocycle";
+const AUTOCYCLE_COUNT_KEY = "chintu-autocycle-count";
+const SOUND_PREF_KEY    = "chintu-sound-pref";
 const RADIUS            = 82;
 const CIRCUMFERENCE     = 2 * Math.PI * RADIUS;
+// Below this, finishing early earns nothing — avoids gaming the coin system
+// with a tap-and-immediately-finish loop.
+const MIN_EARLY_FINISH_SECONDS = 60;
 
 const RING_COLORS = {
   study:      "var(--ring-study)",
@@ -34,7 +37,6 @@ const SOUND_TYPES = [
 
 const PRIORITY_DOT = { high: "#F2619C", medium: "#F9C060", low: "#7EC8A0" };
 
-// Same "today" rule used on the Timetable page: overdue, due today, or undated.
 function todaysTasks(todos) {
   const today = localDateStr();
   return todos.filter(t => !t.done && (!t.due || t.due <= today));
@@ -131,10 +133,7 @@ const PRESET_MODES = {
   longBreak:  { label: "Long break",  duration: 15 * 60, mood: "sleepy"    },
 };
 
-// Minimum length for a custom timer — kept short so pure-seconds timers are allowed.
 const MIN_CUSTOM_SECONDS = 5;
-// Delay between a segment finishing and the next auto-cycled segment starting,
-// so the coin burst / "Done" state is visible before it moves on.
 const AUTO_CYCLE_DELAY_MS = 1500;
 
 export default function StudyTimer({ roomName = null }) {
@@ -158,9 +157,9 @@ export default function StudyTimer({ roomName = null }) {
   const [lastEarned, setLastEarned]   = useState(0);
   const [hydrated, setHydrated]       = useState(false);
 
-const [showCustom, setShowCustom]   = useState(!!durationFromParam);
-const [customMins, setCustomMins]   = useState(durationFromParam ? durationFromParam : "45");
-const [customSecs, setCustomSecs]   = useState("00");
+  const [showCustom, setShowCustom]   = useState(!!durationFromParam);
+  const [customMins, setCustomMins]   = useState(durationFromParam ? durationFromParam : "45");
+  const [customSecs, setCustomSecs]   = useState("00");
   const [subject, setSubject]         = useState(subjectFromParam);
 
   const [autoCycle, setAutoCycle]     = useState(false);
@@ -188,7 +187,7 @@ const [customSecs, setCustomSecs]   = useState("00");
     setAutoCycle(loadAutoCycle());
     autoCycleCountRef.current = loadAutoCycleCount();
     const pref = loadSoundPref();
-    setSoundOn(false); // never resume audio without a fresh user gesture
+    setSoundOn(false);
     setSoundType(pref.type || "white");
   }, []);
 
@@ -197,16 +196,6 @@ const [customSecs, setCustomSecs]   = useState("00");
     return () => { document.title = "Chintu"; };
   }, [timeLeft, running]);
 
-  // --- Restore any in-progress session on mount, so leaving/returning to this
-  // page (or coming back after the tab was in the background) doesn't lose progress.
-  //
-  // IMPORTANT: if the user just navigated here with a `subject` (and/or `goalId`)
-  // in the URL — e.g. clicking "Study" from the Tracker — that's an explicit,
-  // fresh intent and must win over whatever was last saved to localStorage.
-  // Previously this used `saved.subject ?? subjectFromParam`, which only falls
-  // back when saved.subject is null/undefined — but a prior session with no
-  // subject typed in saves subject as "" (empty string, not nullish), so it
-  // silently overwrote the new subject from the URL. Same bug applied to goalId.
   useEffect(() => {
     const saved = loadTimerState();
     if (saved) {
@@ -234,9 +223,6 @@ const [customSecs, setCustomSecs]   = useState("00");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // --- Keep the persisted session in sync. We track a real end-timestamp
-  // (not just a tick counter), so the countdown stays accurate even if the
-  // interval gets throttled in a background tab or the component remounts.
   useEffect(() => {
     if (!hydrated) return;
 
@@ -271,8 +257,6 @@ const [customSecs, setCustomSecs]   = useState("00");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [running, hydrated]);
 
-  // --- Keyboard shortcuts: space = start/pause, R = reset, 1/2/3 = modes.
-  // Ignored while typing in a text field.
   useEffect(() => {
     function onKeyDown(e) {
       const tag = document.activeElement?.tagName;
@@ -296,7 +280,6 @@ const [customSecs, setCustomSecs]   = useState("00");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [running, done, totalDuration, mode]);
 
-  // --- Focus sound cleanup on unmount.
   useEffect(() => () => stopSound(), []);
 
   function coinsForSession(modeKey, durationSecs) {
@@ -306,12 +289,19 @@ const [customSecs, setCustomSecs]   = useState("00");
     return Math.floor(durationSecs / 180);
   }
 
-  function completeSession(modeKey, durationSecs, subj, goalId) {
+  // Partial credit for a session ended early: same "1 coin per 3 minutes"
+  // rate custom timers already use, so leaving after 10 minutes of a 25-minute
+  // study block earns roughly what a 10-minute custom timer would.
+  function coinsForEarlyFinish(durationSecs) {
+    return Math.max(1, Math.floor(durationSecs / 180));
+  }
+
+  function completeSession(modeKey, durationSecs, subj, goalId, isEarly = false) {
     setRunning(false);
     setDone(true);
     setTimeLeft(0);
 
-    let baseEarned = coinsForSession(modeKey, durationSecs);
+    let baseEarned = isEarly ? coinsForEarlyFinish(durationSecs) : coinsForSession(modeKey, durationSecs);
     const { dailyBonus, weeklyBonus } = getFirstSessionBonuses();
     const totalEarned = baseEarned + dailyBonus + weeklyBonus;
 
@@ -336,7 +326,7 @@ const [customSecs, setCustomSecs]   = useState("00");
 
     clearTimerState();
 
-    if (autoCycleRef.current && modeKey !== "custom") {
+    if (!isEarly && autoCycleRef.current && modeKey !== "custom") {
       let nextMode;
       if (modeKey === "study") {
         const newCount = autoCycleCountRef.current + 1;
@@ -348,6 +338,22 @@ const [customSecs, setCustomSecs]   = useState("00");
       }
       setTimeout(() => startModeAuto(nextMode), AUTO_CYCLE_DELAY_MS);
     }
+  }
+
+  // Ends the session now instead of waiting for the countdown to hit zero,
+  // awarding partial coins for whatever time actually elapsed. Below
+  // MIN_EARLY_FINISH_SECONDS this just resets — too short to be worth logging.
+  function handleFinishEarly() {
+    const elapsed = totalDuration - timeLeft;
+    clearInterval(intervalRef.current);
+    if (elapsed < MIN_EARLY_FINISH_SECONDS) {
+      setRunning(false);
+      setTimeLeft(totalDuration);
+      setDone(false);
+      clearTimerState();
+      return;
+    }
+    completeSession(mode, elapsed, subjectRef.current, goalIdFromParam, true);
   }
 
   function startModeAuto(newMode) {
@@ -424,7 +430,6 @@ const [customSecs, setCustomSecs]   = useState("00");
     }
   }
 
-  // --- Focus sound: lightweight synthesized noise (no external audio files needed).
   function stopSound() {
     if (noiseNodesRef.current) {
       try { noiseNodesRef.current.source.stop(); } catch {}
@@ -511,6 +516,9 @@ const [customSecs, setCustomSecs]   = useState("00");
   }
 
   const chintuMood = getChintuMood();
+  // Show Finish whenever there's real progress to bank — running, or paused
+  // partway through — but not before starting or after it's already done.
+  const hasProgress = !done && timeLeft < totalDuration;
 
   return (
     <>
@@ -649,6 +657,11 @@ const [customSecs, setCustomSecs]   = useState("00");
               <Button onClick={handleStartPause} variant={running ? "secondary" : "primary"} size="lg">
                 {done ? "Again" : running ? "Pause" : "Start"}
               </Button>
+              {hasProgress && (
+                <Button onClick={handleFinishEarly} variant="done" size="lg">
+                  Finish
+                </Button>
+              )}
               <Button onClick={handleReset} variant="secondary" size="lg">Reset</Button>
             </div>
 

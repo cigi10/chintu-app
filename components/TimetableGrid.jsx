@@ -12,6 +12,7 @@ import { hydrateTracker, getSessionLog } from "@/lib/tracker";
 import { hydrateTimetable, saveTimetable } from "@/lib/timetable";
 
 const DAYS  = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
 const SLOTS = [
   "00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30",
   "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30",
@@ -21,21 +22,62 @@ const SLOTS = [
   "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30",
 ];
 
-// 7 presets + a custom color picker in the modal.
-const PRESET_COLORS = [
-  { label: "Plum",      value: "#E9D9F7", text: "#5B3A85" },
-  { label: "Lilac",     value: "#F3E3FB", text: "#7A4FA0" },
-  { label: "Blueberry", value: "#DCE6F7", text: "#33507A" },
-  { label: "Lemon",     value: "#FBF6C9", text: "#7A6E1E" },
-  { label: "Mint",      value: "#DCF2E5", text: "#2E7A55" },
-  { label: "Blush",     value: "#FBDCE7", text: "#A33E68" },
-  { label: "Sky",       value: "#D6EFFB", text: "#2B6E8C" },
+const VIEW_MODES = [
+  { key: "0.5", label: "30 min", slotsPerRow: 1 },
+  { key: "1",   label: "1 hr",   slotsPerRow: 2 },
+  { key: "2",   label: "2 hr",   slotsPerRow: 4 },
 ];
+const VIEW_MODE_KEY = "chintu-timetable-view";
+
+function loadViewMode() {
+  try {
+    const saved = localStorage.getItem(VIEW_MODE_KEY);
+    return VIEW_MODES.some(m => m.key === saved) ? saved : "0.5";
+  } catch { return "0.5"; }
+}
+function saveViewMode(mode) {
+  try { localStorage.setItem(VIEW_MODE_KEY, mode); } catch {}
+}
+
+function buildDisplayRows(modeKey) {
+  const mode = VIEW_MODES.find(m => m.key === modeKey) || VIEW_MODES[0];
+  const rows = [];
+  for (let i = 0; i < SLOTS.length; i += mode.slotsPerRow) {
+    const covered = SLOTS.slice(i, i + mode.slotsPerRow);
+    if (covered.length === 0) continue;
+    rows.push({ startIdx: i, covered, label: covered[0] });
+  }
+  return rows;
+}
+
+// Same idea as GOAL_COLOR_SETS in lib/goals.js — each theme gets its own
+// pastel-leaning preset row for the slot color picker, so this modal
+// feels native to whatever theme is active instead of one fixed set.
+const SLOT_COLOR_SETS = {
+  sunset:     [ { label: "Plum",   value: "#E9D9F7", text: "#5B3A85" }, { label: "Lilac",  value: "#F3E3FB", text: "#7A4FA0" }, { label: "Blueberry", value: "#DCE6F7", text: "#33507A" }, { label: "Lemon",  value: "#FBF6C9", text: "#7A6E1E" }, { label: "Mint",   value: "#DCF2E5", text: "#2E7A55" }, { label: "Blush",  value: "#FBDCE7", text: "#A33E68" }, { label: "Sky",    value: "#D6EFFB", text: "#2B6E8C" } ],
+  azure:      [ { label: "Sky",    value: "#DBEEFB", text: "#1E2A3D" }, { label: "Blue",   value: "#AED5F5", text: "#1E2A3D" }, { label: "Teal",   value: "#CFE6F9", text: "#1E2A3D" }, { label: "Cream",  value: "#F1F8FE", text: "#1E2A3D" }, { label: "Mint",   value: "#DCF2E5", text: "#1E2A3D" }, { label: "Gold",   value: "#FBF6C9", text: "#1E2A3D" }, { label: "Navy",   value: "#C7D6EE", text: "#1E2A3D" } ],
+  strawberry: [ { label: "Blush",  value: "#FBE0E0", text: "#4A2530" }, { label: "Pink",   value: "#F7CBD6", text: "#4A2530" }, { label: "Rose",   value: "#F0B9C3", text: "#4A2530" }, { label: "Cream",  value: "#FDEDED", text: "#4A2530" }, { label: "Peach",  value: "#FBE6D3", text: "#4A2530" }, { label: "Mint",   value: "#DCF2E5", text: "#1D5C3E" }, { label: "Gold",   value: "#FBF3D0", text: "#4A2530" } ],
+  periwinkle: [ { label: "Mint",   value: "#E5F8F0", text: "#1E3A32" }, { label: "Sage",   value: "#D7EFE4", text: "#1E3A32" }, { label: "Mauve",  value: "#E0D8FA", text: "#2A2A45" }, { label: "Sky",    value: "#D6EFFB", text: "#1E3A32" }, { label: "Cream",  value: "#EFFAF4", text: "#1E3A32" }, { label: "Lemon",  value: "#F3FBDA", text: "#1E3A32" }, { label: "Blue",   value: "#C9DAF5", text: "#1E3A32" } ],
+  matcha:     [ { label: "Mint",   value: "#E6FBDA", text: "#0C2D45" }, { label: "Cream",  value: "#FFFBE4", text: "#0C2D45" }, { label: "Sage",   value: "#EAF5E2", text: "#0C2D45" }, { label: "Lemon",  value: "#FFF8D2", text: "#0C2D45" }, { label: "Sky",    value: "#DCE6F7", text: "#0C2D45" }, { label: "Blush",  value: "#FBDCE7", text: "#0C2D45" }, { label: "Gold",   value: "#F5E7A0", text: "#0C2D45" } ],
+  forest:     [ { label: "Lime",   value: "#F4FDAF", text: "#210124" }, { label: "Cream",  value: "#F8FDCB", text: "#210124" }, { label: "Gold",   value: "#EFE3B8", text: "#210124" }, { label: "Sage",   value: "#DCEB8E", text: "#210124" }, { label: "Mint",   value: "#EAF3AE", text: "#210124" }, { label: "Blush",  value: "#F5D9E4", text: "#210124" }, { label: "Sky",    value: "#DCE6F7", text: "#210124" } ],
+  majorelle:  [ { label: "Blush",  value: "#FFDCED", text: "#3D1A34" }, { label: "Lilac",  value: "#F0D6E7", text: "#3D1A34" }, { label: "Pink",   value: "#F5B8D9", text: "#3D1A34" }, { label: "Cream",  value: "#FFF0F7", text: "#3D1A34" }, { label: "Mauve",  value: "#E4D6FF", text: "#2E1A4A" }, { label: "Mint",   value: "#DCF2E5", text: "#3D1A34" }, { label: "Gold",   value: "#FBF6C9", text: "#3D1A34" } ],
+  slate:      [ { label: "Blush",  value: "#FDECEF", text: "#2C2528" }, { label: "Rose",   value: "#F9D9DF", text: "#2C2528" }, { label: "Cream",  value: "#FDF3F5", text: "#2C2528" }, { label: "Mauve",  value: "#E9DDE0", text: "#2C2528" }, { label: "Sage",   value: "#E5CDD3", text: "#2C2528" }, { label: "Sky",    value: "#DCE6F7", text: "#2C2528" }, { label: "Gold",   value: "#FBF6C9", text: "#2C2528" } ],
+  cocoa:      [ { label: "Cream",  value: "#F1DABF", text: "#17120D" }, { label: "Taupe",  value: "#DCC9B8", text: "#17120D" }, { label: "Sage",   value: "#C9D4BF", text: "#17120D" }, { label: "Gold",   value: "#E8D4A6", text: "#17120D" }, { label: "Rose",   value: "#E5C6BC", text: "#17120D" }, { label: "Sky",    value: "#C9D6E0", text: "#17120D" }, { label: "Amber",  value: "#E8C69A", text: "#17120D" } ],
+};
+
+function getSlotColors() {
+  try {
+    const theme = document.documentElement.getAttribute("data-theme") || "sunset";
+    return SLOT_COLOR_SETS[theme] || SLOT_COLOR_SETS.sunset;
+  } catch {
+    return SLOT_COLOR_SETS.sunset;
+  }
+}
+
 const DEFAULT_CUSTOM_COLOR = "#C9A6E8";
 
 const PRIORITY_DOT = { high: "#F2619C", medium: "#F9C060", low: "#7EC8A0" };
 
-// Computes readable text color for ANY hex, used for custom (non-preset) colors.
 function getContrastText(hex) {
   if (!hex || hex[0] !== "#" || hex.length < 7) return "#241F3D";
   const r = parseInt(hex.slice(1, 3), 16);
@@ -44,12 +86,11 @@ function getContrastText(hex) {
   const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
   return luminance > 0.6 ? "#241F3D" : "#FBF3FF";
 }
-function textColorFor(hex) {
-  const preset = PRESET_COLORS.find(c => c.value === hex);
+function textColorFor(hex, presetColors) {
+  const preset = presetColors.find(c => c.value === hex);
   return preset ? preset.text : getContrastText(hex);
 }
 
-// JS getDay(): 0=Sun..6=Sat. Our DAYS array starts at Mon, so shift by 6.
 function todayIndex() { return (new Date().getDay() + 6) % 7; }
 function nowSlotIndex() {
   const d = new Date();
@@ -99,14 +140,14 @@ function getFillPercent(t) {
   return (Object.keys(t).length / (DAYS.length * SLOTS.length)) * 100;
 }
 
-function SlotModal({ day, slot, rangeSlots, existing, rangeHasFilled, suggestions, onSave, onClear, onClearRange, onClose }) {
+function SlotModal({ day, rangeLabel, rangeSlots, existing, rangeHasFilled, suggestions, presetColors, onSave, onClear, onClearRange, onClose }) {
   const [subject, setSubject] = useState(existing?.subject || "");
-  const [color, setColor]     = useState(existing?.color   || PRESET_COLORS[0].value);
+  const [color, setColor]     = useState(existing?.color   || presetColors[0].value);
   const [note, setNote]       = useState(existing?.note    || "");
 
   const isRange = rangeSlots && rangeSlots.length > 1;
-  const dayLabel = isRange ? `${day} · ${rangeSlots[0]}–${rangeSlots[rangeSlots.length - 1]}` : `${day} · ${slot}`;
-  const isPresetColor = PRESET_COLORS.some(c => c.value === color);
+  const dayLabel = `${day} · ${rangeLabel}`;
+  const isPresetColor = presetColors.some(c => c.value === color);
 
   useEffect(() => {
     if (existing) return;
@@ -134,15 +175,13 @@ function SlotModal({ day, slot, rangeSlots, existing, rangeHasFilled, suggestion
           list="tt-subject-suggestions"
           onKeyDown={e => e.key === "Enter" && subject.trim() && onSave({ subject, color, note })}
         />
-        {/* Pulled live from the Tracker's topics/subtopics — deleting one there
-            removes it from this list automatically, nothing else to sync. */}
         <datalist id="tt-subject-suggestions">
           {suggestions.map(s => <option key={s} value={s} />)}
         </datalist>
 
         <label className="slot-modal__label">Color</label>
         <div className="slot-modal__colors">
-          {PRESET_COLORS.map(c => (
+          {presetColors.map(c => (
             <button
               key={c.value}
               onClick={() => setColor(c.value)}
@@ -279,6 +318,7 @@ function WeekInsights({ timetable, sessionLog }) {
 export default function TimetableGrid() {
   const router = useRouter();
   const [timetable, setTimetable]     = useState({});
+  const [viewMode, setViewMode]       = useState("0.5");
   const [modal, setModal]             = useState(null);
   const [copySourceDay, setCopySourceDay] = useState(null);
   const [goalsByDay, setGoalsByDay]   = useState({});
@@ -288,10 +328,11 @@ export default function TimetableGrid() {
   const [sessionLog, setSessionLog]   = useState([]);
   const [minutesIndex, setMinutesIndex] = useState({});
   const [nowTick, setNowTick]         = useState(0);
+  const [presetColors] = useState(() => getSlotColors());
 
   const [dragDay, setDragDay]         = useState(null);
-  const [dragStartIdx, setDragStartIdx] = useState(null);
-  const [dragEndIdx, setDragEndIdx]   = useState(null);
+  const [dragStartRow, setDragStartRow] = useState(null);
+  const [dragEndRow, setDragEndRow]   = useState(null);
   const draggingRef = useRef(false);
   const dragMovedRef = useRef(false);
 
@@ -299,6 +340,7 @@ export default function TimetableGrid() {
   const dayRefs   = useRef({});
 
   useEffect(() => {
+    setViewMode(loadViewMode());
     hydrateSubjectColors();
     hydrateTimetable().then(setTimetable);
     hydrateGoals().then(() => {
@@ -316,6 +358,11 @@ export default function TimetableGrid() {
     });
   }, []);
 
+  function changeViewMode(mode) {
+    setViewMode(mode);
+    saveViewMode(mode);
+  }
+
   function buildTasksByDay(todos) {
     const dateStrs = weekDateStrs();
     const byDay = {};
@@ -332,65 +379,76 @@ export default function TimetableGrid() {
     return () => clearInterval(id);
   }, []);
 
+  const displayRows = buildDisplayRows(viewMode);
+
   useEffect(() => {
     function onUp() {
       if (!draggingRef.current) return;
       draggingRef.current = false;
-      if (dragMovedRef.current && dragDay != null && dragStartIdx != null && dragEndIdx != null && dragStartIdx !== dragEndIdx) {
-        const lo = Math.min(dragStartIdx, dragEndIdx);
-        const hi = Math.max(dragStartIdx, dragEndIdx);
-        const rangeSlots = SLOTS.slice(lo, hi + 1);
+      if (dragMovedRef.current && dragDay != null && dragStartRow != null && dragEndRow != null && dragStartRow !== dragEndRow) {
+        const lo = Math.min(dragStartRow, dragEndRow);
+        const hi = Math.max(dragStartRow, dragEndRow);
+        const rangeSlots = displayRows.slice(lo, hi + 1).flatMap(r => r.covered);
         const rangeHasFilled = rangeSlots.some(s => timetable[cellKey(dragDay, s)]);
         setModal({
-          day: dragDay, slot: SLOTS[lo], rangeSlots, existing: null, rangeHasFilled,
+          day: dragDay, rangeLabel: displayRows[lo].label, rangeSlots, existing: null, rangeHasFilled,
           suggestions: getAllTrackerTopicNames(),
         });
       }
       setTimeout(() => {
         setDragDay(null);
-        setDragStartIdx(null);
-        setDragEndIdx(null);
+        setDragStartRow(null);
+        setDragEndRow(null);
       }, 0);
     }
     window.addEventListener("mouseup", onUp);
     return () => window.removeEventListener("mouseup", onUp);
-  }, [dragDay, dragStartIdx, dragEndIdx, timetable]);
+  }, [dragDay, dragStartRow, dragEndRow, timetable, displayRows]);
 
-  function handleCellMouseDown(day, idx) {
+  function handleCellMouseDown(day, rowIdx) {
     draggingRef.current = true;
     dragMovedRef.current = false;
     setDragDay(day);
-    setDragStartIdx(idx);
-    setDragEndIdx(idx);
+    setDragStartRow(rowIdx);
+    setDragEndRow(rowIdx);
   }
-  function handleCellMouseEnter(day, idx) {
+  function handleCellMouseEnter(day, rowIdx) {
     if (!draggingRef.current || day !== dragDay) return;
     dragMovedRef.current = true;
-    setDragEndIdx(idx);
+    setDragEndRow(rowIdx);
   }
-  function handleCellClick(day, slot) {
+
+  function entryForRow(day, row) {
+    for (const slot of row.covered) {
+      const e = timetable[cellKey(day, slot)];
+      if (e) return e;
+    }
+    return null;
+  }
+
+  function handleCellClick(day, row) {
     if (dragMovedRef.current) { dragMovedRef.current = false; return; }
-    const entry = timetable[cellKey(day, slot)];
+    const entry = entryForRow(day, row);
     if (entry) {
       router.push(`/timer?subject=${encodeURIComponent(entry.subject)}`);
     } else {
       setModal({
-        day, slot, rangeSlots: null, existing: null, rangeHasFilled: false,
+        day, rangeLabel: row.label, rangeSlots: row.covered, existing: null, rangeHasFilled: false,
         suggestions: getAllTrackerTopicNames(),
       });
     }
   }
-  function handleEditClick(e, day, slot) {
+  function handleEditClick(e, day, row) {
     e.stopPropagation();
     setModal({
-      day, slot, rangeSlots: null, existing: timetable[cellKey(day, slot)] || null, rangeHasFilled: false,
+      day, rangeLabel: row.label, rangeSlots: row.covered, existing: entryForRow(day, row), rangeHasFilled: false,
       suggestions: getAllTrackerTopicNames(),
     });
   }
 
   function handleSave(data) {
     if (!modal) return;
-    const slots = modal.rangeSlots && modal.rangeSlots.length > 0 ? modal.rangeSlots : [modal.slot];
+    const slots = modal.rangeSlots && modal.rangeSlots.length > 0 ? modal.rangeSlots : [];
     const updated = { ...timetable };
     for (const s of slots) updated[cellKey(modal.day, s)] = data;
     setTimetable(updated); saveToStorage(updated); setModal(null);
@@ -399,7 +457,7 @@ export default function TimetableGrid() {
   function handleClear() {
     if (!modal) return;
     const updated = { ...timetable };
-    delete updated[cellKey(modal.day, modal.slot)];
+    for (const s of modal.rangeSlots) delete updated[cellKey(modal.day, s)];
     setTimetable(updated); saveToStorage(updated); setModal(null);
   }
   function handleClearRange() {
@@ -441,13 +499,24 @@ export default function TimetableGrid() {
   const isEmpty = Object.keys(timetable).length === 0;
   const dateStrs = weekDateStrs();
 
-  const selLo = dragStartIdx != null && dragEndIdx != null ? Math.min(dragStartIdx, dragEndIdx) : null;
-  const selHi = dragStartIdx != null && dragEndIdx != null ? Math.max(dragStartIdx, dragEndIdx) : null;
+  const selLo = dragStartRow != null && dragEndRow != null ? Math.min(dragStartRow, dragEndRow) : null;
+  const selHi = dragStartRow != null && dragEndRow != null ? Math.max(dragStartRow, dragEndRow) : null;
 
   return (
     <div className="timetable__wrap">
       <div className="timetable__header-bar">
         <button className="timetable__pill-btn" onClick={scrollToToday}>Today</button>
+        <div className="timetable__mode-switch">
+          {VIEW_MODES.map(m => (
+            <button
+              key={m.key}
+              className={`timetable__mode-btn${viewMode === m.key ? " timetable__mode-btn--active" : ""}`}
+              onClick={() => changeViewMode(m.key)}
+            >
+              {m.label}
+            </button>
+          ))}
+        </div>
         <span className="timetable__fill-badge">{Math.round(fillPercent)}% filled</span>
       </div>
 
@@ -507,7 +576,7 @@ export default function TimetableGrid() {
           </colgroup>
           <thead>
             <tr>
-              <th className="timetable__corner" style={{ width: "52px" }} />
+              <th className="timetable__corner" style={{ width: "70px" }} />
               {DAYS.map((day, i) => (
                 <th
                   key={day}
@@ -550,60 +619,62 @@ export default function TimetableGrid() {
             </tr>
           </thead>
           <tbody>
-            {SLOTS.map((slot, slotIdx) => (
-              <tr key={slot}>
-                <td className="timetable__time-label">{slot}</td>
-                {DAYS.map((day, i) => {
-                  const key = cellKey(day, slot);
-                  const entry = timetable[key];
-                  const textColor = entry ? textColorFor(entry.color) : undefined;
-                  const isToday = i === todayIdx;
-                  const isNow = isToday && slotIdx === nowIdx;
-                  const isSelecting = dragDay === day && selLo != null && slotIdx >= selLo && slotIdx <= selHi;
-                  const studiedMinutes = entry
-                    ? (minutesIndex[`${dateStrs[i]}|${entry.subject.toLowerCase()}`] || 0)
-                    : 0;
+            {displayRows.map((row, rowIdx) => {
+              const rowStartsAtNow = row.startIdx <= nowIdx && nowIdx < row.startIdx + row.covered.length;
+              return (
+                <tr key={row.label}>
+                  <td className="timetable__time-label">{row.label}</td>
+                  {DAYS.map((day, i) => {
+                    const entry = entryForRow(day, row);
+                    const textColor = entry ? textColorFor(entry.color, presetColors) : undefined;
+                    const isToday = i === todayIdx;
+                    const isNow = isToday && rowStartsAtNow;
+                    const isSelecting = dragDay === day && selLo != null && rowIdx >= selLo && rowIdx <= selHi;
+                    const studiedMinutes = entry
+                      ? (minutesIndex[`${dateStrs[i]}|${entry.subject.toLowerCase()}`] || 0)
+                      : 0;
 
-                  return (
-                    <td
-                      key={key}
-                      className={
-                        `timetable__cell ${entry ? "timetable__cell--filled" : "timetable__cell--empty"}` +
-                        `${isToday ? " timetable__cell--today" : ""}` +
-                        `${isNow ? " timetable__cell--now" : ""}` +
-                        `${isSelecting ? " timetable__cell--selecting" : ""}`
-                      }
-                      style={{ backgroundColor: entry && !isSelecting ? entry.color : undefined }}
-                      onMouseDown={() => handleCellMouseDown(day, slotIdx)}
-                      onMouseEnter={() => handleCellMouseEnter(day, slotIdx)}
-                      onClick={() => handleCellClick(day, slot)}
-                      title={entry ? `${entry.subject}${entry.note ? " — " + entry.note : ""} (tap to study)` : `Add ${day} ${slot}`}
-                    >
-                      {entry ? (
-                        <span className="timetable__cell-subject" style={{ color: textColor }}>
-                          {entry.subject}
-                        </span>
-                      ) : (
-                        <span className="timetable__cell-plus">+</span>
-                      )}
-                      {entry && (
-                        <button
-                          className="timetable__cell-edit"
-                          style={{ color: textColor }}
-                          onMouseDown={e => e.stopPropagation()}
-                          onClick={e => handleEditClick(e, day, slot)}
-                        >
-                          Edit
-                        </button>
-                      )}
-                      {entry && studiedMinutes > 0 && (
-                        <span className="timetable__cell-progress-dot" title={`${studiedMinutes}m actually studied`} />
-                      )}
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
+                    return (
+                      <td
+                        key={`${day}-${row.label}`}
+                        className={
+                          `timetable__cell ${entry ? "timetable__cell--filled" : "timetable__cell--empty"}` +
+                          `${isToday ? " timetable__cell--today" : ""}` +
+                          `${isNow ? " timetable__cell--now" : ""}` +
+                          `${isSelecting ? " timetable__cell--selecting" : ""}`
+                        }
+                        style={{ backgroundColor: entry && !isSelecting ? entry.color : undefined }}
+                        onMouseDown={() => handleCellMouseDown(day, rowIdx)}
+                        onMouseEnter={() => handleCellMouseEnter(day, rowIdx)}
+                        onClick={() => handleCellClick(day, row)}
+                        title={entry ? `${entry.subject}${entry.note ? " — " + entry.note : ""} (tap to study)` : `Add ${day} ${row.label}`}
+                      >
+                        {entry ? (
+                          <span className="timetable__cell-subject" style={{ color: textColor }}>
+                            {entry.subject}
+                          </span>
+                        ) : (
+                          <span className="timetable__cell-plus">+</span>
+                        )}
+                        {entry && (
+                          <button
+                            className="timetable__cell-edit"
+                            style={{ color: textColor }}
+                            onMouseDown={e => e.stopPropagation()}
+                            onClick={e => handleEditClick(e, day, row)}
+                          >
+                            Edit
+                          </button>
+                        )}
+                        {entry && studiedMinutes > 0 && (
+                          <span className="timetable__cell-progress-dot" title={`${studiedMinutes}m actually studied`} />
+                        )}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -611,11 +682,12 @@ export default function TimetableGrid() {
       {modal && (
         <SlotModal
           day={modal.day}
-          slot={modal.slot}
+          rangeLabel={modal.rangeLabel}
           rangeSlots={modal.rangeSlots}
           existing={modal.existing}
           rangeHasFilled={modal.rangeHasFilled}
           suggestions={modal.suggestions}
+          presetColors={presetColors}
           onSave={handleSave}
           onClear={handleClear}
           onClearRange={handleClearRange}

@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import { GOAL_COLORS, WEEK_DAYS } from "@/lib/goals";
+import { getGoalColors, WEEK_DAYS } from "@/lib/goals";
 import { getSubjectColor } from "@/lib/subjectColors";
 import { newGoalId } from "@/lib/goalHelpers";
 
 export default function GoalForm({ existing, onSave, onDelete, onCancel }) {
+  const [goalColors] = useState(() => getGoalColors());
   const [subject, setSubject] = useState(existing?.subject || "");
-  const [color, setColor]     = useState(existing?.color || GOAL_COLORS[0].value);
+  const [color, setColor]     = useState(existing?.color || goalColors[0].value);
   const [repeatType, setRepeatType] = useState(existing?.repeat?.type || "weekly");
   const [days, setDays]       = useState(existing?.repeat?.days || []);
   const [durationMinutes, setDurationMinutes] = useState(existing?.durationMinutes || 30);
@@ -52,7 +53,7 @@ export default function GoalForm({ existing, onSave, onDelete, onCancel }) {
 
       <label className="goals__form-label">Color</label>
       <div className="goals__form-colors">
-        {GOAL_COLORS.map(c => (
+        {goalColors.map(c => (
           <button
             key={c.value}
             onClick={() => setColor(c.value)}

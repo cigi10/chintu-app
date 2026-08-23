@@ -15,6 +15,7 @@ const BOTTOM_ITEMS = [
 const STUDY_GROUP = {
   label: "Study",
   items: [
+    { href: "/goals",        label: "Goals"        },
     { href: "/timetable",    label: "Timetable"    },
     { href: "/revisions",    label: "Revisions"    },
     { href: "/todo",         label: "To-do"        },
