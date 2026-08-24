@@ -18,9 +18,13 @@ const AUTOCYCLE_COUNT_KEY = "chintu-autocycle-count";
 const SOUND_PREF_KEY    = "chintu-sound-pref";
 const RADIUS            = 82;
 const CIRCUMFERENCE     = 2 * Math.PI * RADIUS;
-// Below this, finishing early earns nothing — avoids gaming the coin system
-// with a tap-and-immediately-finish loop.
 const MIN_EARLY_FINISH_SECONDS = 60;
+
+// Target total minutes of study before a long break kicks in — this is
+// what makes the cycle length scale with session duration: a 25-minute
+// study block gets ~4 reps before a long break, a 45-minute block gets ~2,
+// same idea as Windows' Focus Sessions.
+const LONG_BREAK_TARGET_MINUTES = 100;
 
 const RING_COLORS = {
   study:      "var(--ring-study)",
@@ -118,6 +122,20 @@ function getFirstSessionBonuses() {
   return { dailyBonus, weeklyBonus };
 }
 
+// Scales break length and how many sessions before a long break off the
+// study duration itself — a 25-min session behaves like classic Pomodoro
+// (5min short / 15min long every 4th), a 45-min session gets fewer, longer
+// breaks. Rounds to the nearest 5 minutes so numbers feel intentional.
+function roundTo5(n) { return Math.max(5, Math.round(n / 5) * 5); }
+function computeBreakMinutes(studyMinutes) {
+  const short = roundTo5(studyMinutes * 0.2);
+  const long  = roundTo5(studyMinutes * 0.6);
+  return { short, long };
+}
+function computeLongBreakEvery(studyMinutes) {
+  return Math.max(2, Math.min(4, Math.round(LONG_BREAK_TARGET_MINUTES / studyMinutes)));
+}
+
 function CoinBurst({ amount, onDone }) {
   useEffect(() => { const t = setTimeout(onDone, 1800); return () => clearTimeout(t); }, [onDone]);
   return (
@@ -173,6 +191,11 @@ export default function StudyTimer({ roomName = null }) {
   const subjectRef        = useRef(subject);
   const autoCycleRef      = useRef(false);
   const autoCycleCountRef = useRef(0);
+  // Remembers the mode/duration of the last *study-type* session (study or
+  // custom), so that after an auto-cycled break, the next study segment
+  // resumes at the same length instead of snapping back to the 25-min default.
+  const lastStudyModeRef     = useRef("study");
+  const lastStudyDurationRef = useRef(PRESET_MODES.study.duration);
   const audioCtxRef       = useRef(null);
   const noiseNodesRef     = useRef(null);
 
@@ -289,9 +312,6 @@ export default function StudyTimer({ roomName = null }) {
     return Math.floor(durationSecs / 180);
   }
 
-  // Partial credit for a session ended early: same "1 coin per 3 minutes"
-  // rate custom timers already use, so leaving after 10 minutes of a 25-minute
-  // study block earns roughly what a 10-minute custom timer would.
   function coinsForEarlyFinish(durationSecs) {
     return Math.max(1, Math.floor(durationSecs / 180));
   }
@@ -300,6 +320,12 @@ export default function StudyTimer({ roomName = null }) {
     setRunning(false);
     setDone(true);
     setTimeLeft(0);
+
+    const isStudyType = modeKey === "study" || modeKey === "custom";
+    if (isStudyType) {
+      lastStudyModeRef.current = modeKey;
+      lastStudyDurationRef.current = durationSecs;
+    }
 
     let baseEarned = isEarly ? coinsForEarlyFinish(durationSecs) : coinsForSession(modeKey, durationSecs);
     const { dailyBonus, weeklyBonus } = getFirstSessionBonuses();
@@ -317,7 +343,7 @@ export default function StudyTimer({ roomName = null }) {
       setGoalDone(goalId, localDateStr(), true);
     }
 
-    if (modeKey === "study" || modeKey === "custom") {
+    if (isStudyType) {
       recordStudySession();
       const ns = loadSessions() + 1;
       saveSessions(ns);
@@ -326,23 +352,33 @@ export default function StudyTimer({ roomName = null }) {
 
     clearTimerState();
 
-    if (!isEarly && autoCycleRef.current && modeKey !== "custom") {
+    if (!isEarly && autoCycleRef.current) {
       let nextMode;
-      if (modeKey === "study") {
+      let nextDurationSec;
+
+      if (isStudyType) {
+        const studyMinutes = Math.max(1, Math.round(durationSecs / 60));
+        const { short, long } = computeBreakMinutes(studyMinutes);
+        const longBreakEvery = computeLongBreakEvery(studyMinutes);
+
         const newCount = autoCycleCountRef.current + 1;
         autoCycleCountRef.current = newCount;
         saveAutoCycleCount(newCount);
-        nextMode = newCount % 4 === 0 ? "longBreak" : "shortBreak";
+
+        const isLongBreak = newCount % longBreakEvery === 0;
+        nextMode = isLongBreak ? "longBreak" : "shortBreak";
+        nextDurationSec = (isLongBreak ? long : short) * 60;
       } else {
-        nextMode = "study";
+        // Coming off a break — resume study at the same mode/length as
+        // whatever study session started this cycle.
+        nextMode = lastStudyModeRef.current;
+        nextDurationSec = lastStudyDurationRef.current;
       }
-      setTimeout(() => startModeAuto(nextMode), AUTO_CYCLE_DELAY_MS);
+
+      setTimeout(() => startModeAuto(nextMode, nextDurationSec), AUTO_CYCLE_DELAY_MS);
     }
   }
 
-  // Ends the session now instead of waiting for the countdown to hit zero,
-  // awarding partial coins for whatever time actually elapsed. Below
-  // MIN_EARLY_FINISH_SECONDS this just resets — too short to be worth logging.
   function handleFinishEarly() {
     const elapsed = totalDuration - timeLeft;
     clearInterval(intervalRef.current);
@@ -356,9 +392,9 @@ export default function StudyTimer({ roomName = null }) {
     completeSession(mode, elapsed, subjectRef.current, goalIdFromParam, true);
   }
 
-  function startModeAuto(newMode) {
+  function startModeAuto(newMode, durationSecOverride) {
     clearTimerState();
-    const dur = PRESET_MODES[newMode].duration;
+    const dur = durationSecOverride != null ? durationSecOverride : PRESET_MODES[newMode].duration;
     setMode(newMode);
     setTimeLeft(dur);
     setTotalDuration(dur);
@@ -516,8 +552,6 @@ export default function StudyTimer({ roomName = null }) {
   }
 
   const chintuMood = getChintuMood();
-  // Show Finish whenever there's real progress to bank — running, or paused
-  // partway through — but not before starting or after it's already done.
   const hasProgress = !done && timeLeft < totalDuration;
 
   return (
@@ -599,7 +633,7 @@ export default function StudyTimer({ roomName = null }) {
               <button
                 className={`timer__toggle-chip${autoCycle ? " timer__toggle-chip--active" : ""}`}
                 onClick={toggleAutoCycle}
-                title="Automatically move from study to break and back"
+                title="Automatically move from study to break and back, with break length matched to your study duration"
               >
                 Auto-cycle
               </button>
