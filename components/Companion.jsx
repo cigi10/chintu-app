@@ -53,7 +53,7 @@ const ACCESSORY_IMAGES = {
   book:       "/companion/book.PNG",
 };
 
-export default function Companion({ mood = "studying", accessories = null }) {
+export default function Companion({ mood = "studying", accessories = null, extraAccessories = [] }) {
   const [imgError, setImgError] = useState(false);
   const [equipped, setEquipped] = useState([]);
 
@@ -72,7 +72,7 @@ export default function Companion({ mood = "studying", accessories = null }) {
     };
   }, [accessories]);
 
-  const activeAccessories = accessories || equipped;
+  const activeAccessories = [...new Set([...(accessories || equipped), ...extraAccessories])];
   const src = MOOD_IMAGES[mood] || MOOD_IMAGES.studying;
   const fallbackBg = MOOD_FALLBACK_COLORS[mood] || "#9B6FD4";
 

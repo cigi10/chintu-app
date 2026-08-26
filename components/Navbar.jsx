@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { getLocalCoins, hydrateCoins } from "@/lib/coins";
+import { hydrateCompanionName } from "@/lib/companion";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const DIRECT_ITEMS = [
@@ -60,6 +61,7 @@ export default function Navbar() {
 
   useEffect(() => {
     hydrateCoins().then(setCoins);
+    hydrateCompanionName().then(setCompanionName);
   }, []);
 
   useEffect(() => {
@@ -72,7 +74,7 @@ export default function Navbar() {
         }
         return c;
       });
-      const n = localStorage.getItem("chintu-companion-name");
+      const n = localStorage.getItem("companion-name") || localStorage.getItem("chintu-companion-name");
       if (n) setCompanionName(n);
     } catch {}
   }, [pathname]);

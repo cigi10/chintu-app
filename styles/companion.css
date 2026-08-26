@@ -27,24 +27,23 @@
   pointer-events: none;
 }
 
-/* Fallback while art assets aren't ready */
 .companion-fallback {
   width: 200px;
   height: 200px;
   max-width: 100%;
   border-radius: 50%;
-  background-color: var(--color-accent-soft);
+  background-color: var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid var(--color-accent);
+  border: 3px solid var(--color-accent-strong);
 }
 
 .companion-fallback__text {
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
 }
 
 .onboarding__companion img {

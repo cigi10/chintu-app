@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
 import { setProfile } from "@/lib/storage";
+import { setCompanionName } from "@/lib/companion";
 import { saveExamPackAndSubjects, getSubjects } from "@/lib/tracker";
 import { getLocalDdays, saveDdays } from "@/lib/ddays";
 
@@ -41,7 +42,7 @@ export default function Onboarding() {
     if (!name.trim()) return;
     setSaving(true);
     saveExamPackAndSubjects(pack, getSubjects());
-    localStorage.setItem("chintu-companion-name", name.trim());
+    setCompanionName(name.trim());
     try {
       await setProfile({ exam_pack: pack, companion_name: name.trim() });
     } catch (err) {

@@ -1,5 +1,6 @@
 /* ============================================
-   LAYOUT — page structure shells
+   BASE — page shell, typography, utility
+   Buttons are in button.css.
 ============================================ */
 
 .page-root {
@@ -10,47 +11,185 @@
   overflow-x: hidden;
 }
 
+.page-shell {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 400ms ease, color 400ms ease;
+  overflow-x: hidden;
+}
+
 .page-main {
   flex: 1;
-  max-width: var(--content-max-width);
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
   padding: 1.5rem 1.25rem 6rem;
-  box-sizing: border-box;
 }
 
 .page-header {
   margin-bottom: 1.5rem;
 }
 
-.page-header h1 {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: var(--color-text-primary);
-  margin-bottom: 4px;
+.page-header--centered {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.page-header p {
+.page-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--color-text);
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.875rem;
   color: var(--color-text-secondary);
+  margin: 0;
 }
 
-/* Adds breathing room for bottom nav on mobile */
-.page-transition {
-  min-height: 100vh;
-  padding-bottom: var(--bottomnav-height);
+h1 { font-size: 2rem;   font-weight: 700; margin: 0 0 0.5rem; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 0 0 0.5rem; }
+h3 { font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem; }
+h4 { font-size: 1rem;   font-weight: 600; margin: 0 0 0.5rem; }
+
+p {
+  font-family: var(--font-body);
+  margin: 0 0 0.75rem;
+  color: var(--color-text);
 }
 
-@media (min-width: 641px) {
+.text-secondary {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.pill-done     { background: var(--color-done); color: var(--color-text); }
+.pill-progress { background: var(--color-in-progress); color: var(--color-text); }
+.pill-revision { background: var(--color-needs-revision); color: var(--color-text); }
+.pill-new      { background: var(--color-accent); color: var(--color-accent-strong); }
+.pill-streak   { background: var(--color-streak); color: var(--color-text); }
+
+.card {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 4px;
+}
+
+.card-sub {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.coin-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--coin-burst-bg);
+  color: var(--coin-burst-text);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.streak-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-streak);
+  color: var(--color-text);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.streak-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-streak);
+  flex-shrink: 0;
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+  margin: 1rem 0;
+}
+
+.icall-footer {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.icall-footer a {
+  color: var(--color-accent-strong);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 481px) {
   .page-main {
-    padding: 2rem 2rem 3rem;
+    padding: 2rem 2rem 6rem;
   }
+  .page-title { font-size: 1.9rem; }
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.75rem; }
 }
 
 @media (min-width: 1025px) {
   .page-main {
-    padding: 2.5rem 3rem 3rem;
+    padding: 2.5rem 2rem 3rem;
   }
+  .page-title { font-size: 2.2rem; }
+  h1 { font-size: 2.8rem; }
 }

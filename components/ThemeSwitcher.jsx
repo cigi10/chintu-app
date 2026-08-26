@@ -1,7 +1,7 @@
 "use client";
 import "@/styles/theme-switcher.css";
 import { useState, useEffect, useRef } from "react";
-import { Sparkles, Droplet, Cherry, CloudMoon, Leaf, Trees, Wand2, Waves, Coffee } from "lucide-react";
+import { Sparkles, Droplet, Cherry, CloudMoon, Leaf, Trees, Wand2, Waves, Coffee, Moon, Flower2, Star, Mountain } from "lucide-react";
 import { THEMES, getStoredTheme, applyTheme } from "@/lib/theme";
 
 const THEME_ICONS = {
@@ -14,6 +14,10 @@ const THEME_ICONS = {
   majorelle: Wand2,
   slate: Waves,
   cocoa: Coffee,
+  "starry-nights": Moon,
+  "rose-noir": Flower2,
+  "midnight-blue": Star,
+  "twilight-forest": Mountain,
 };
 
 const THEME_SWATCH_COLORS = {
@@ -26,6 +30,10 @@ const THEME_SWATCH_COLORS = {
   majorelle: "#6E44FF",
   slate: "#4F5D75",
   cocoa: "#F1DABF",
+  "starry-nights": "#F2E199",
+  "rose-noir": "#F10291",
+  "midnight-blue": "#7692FF",
+  "twilight-forest": "#A4E3A4",
 };
 
 export default function ThemeSwitcher() {

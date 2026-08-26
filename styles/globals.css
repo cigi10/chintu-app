@@ -2,11 +2,12 @@
 html, body { max-width: 100vw; overflow-x: hidden; }
 
 :root {
-  --font-heading: 'Fraunces', serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, 'Courier New', monospace;
   --radius-sm: 8px; --radius-md: 14px; --radius-lg: 20px; --radius-pill: 999px;
 }
+
 :root,
 [data-theme="sunset"] {
   --bg-image: url('/companion/indoor-bg.PNG');
@@ -123,6 +124,58 @@ html, body { max-width: 100vw; overflow-x: hidden; }
   --ring-study: #F1DABF; --ring-short-break: #7A9B6E; --ring-long-break: #92817A;
   --coin-burst-text: #000500; --coin-burst-bg: #F1DABF; --coin-burst-border: #F1DABF;
   --shadow-navbar: 0 2px 8px rgba(0,0,0,0.5); --shadow-primary-btn: 0 4px 12px rgba(241,218,191,0.30); --shadow-card: 0 4px 16px rgba(0,0,0,0.45);
+}
+
+[data-theme="starry-nights"] {
+  --bg-image: none;
+  --color-primary: #6FB8E6; --color-primary-muted: #1B3A68; --color-secondary: #ECB44D; --color-energy: #F2E199;
+  --color-done: #7EC8A0; --color-in-progress: #6FB8E6; --color-needs-revision: #ECB44D; --color-streak: #F2619C;
+  --color-bg: #191939; --color-bg-evening: #12122B; --color-surface: #1B3A68; --color-surface-alt: #22447A;
+  --color-accent: #2C4F87; --color-accent-strong: #F2E199; --color-border: #2C4F87; --color-border-dashed: #2C4F87;
+  --color-text: #F2E199; --color-text-secondary: #C9D6EE; --color-text-muted: #C9D6EE; --color-text-faint: #7E8FB5; --color-text-disabled: #4A5578; --color-outline: #F2E199;
+  --color-success: #7EC8A0; --color-danger: #E86B6B; --color-danger-bg: #3A1F1F; --color-danger-border: #5C3333;
+  --ring-study: #F2E199; --ring-short-break: #7EC8A0; --ring-long-break: #6FB8E6;
+  --coin-burst-text: #191939; --coin-burst-bg: #F2E199; --coin-burst-border: #F2E199;
+  --shadow-navbar: 0 2px 8px rgba(0,0,0,0.5); --shadow-primary-btn: 0 4px 12px rgba(242,225,153,0.3); --shadow-card: 0 4px 16px rgba(0,0,0,0.45);
+}
+
+[data-theme="rose-noir"] {
+  --bg-image: none;
+  --color-primary: #F10291; --color-primary-muted: #89235B; --color-secondary: #FFCAE4; --color-energy: #FFF3F2;
+  --color-done: #7EC8A0; --color-in-progress: #FFCAE4; --color-needs-revision: #C9A876; --color-streak: #F10291;
+  --color-bg: #250209; --color-bg-evening: #1A0206; --color-surface: #89235B; --color-surface-alt: #A22C6C;
+  --color-accent: #6E1D4A; --color-accent-strong: #F10291; --color-border: #6E1D4A; --color-border-dashed: #6E1D4A;
+  --color-text: #FFF3F2; --color-text-secondary: #EBC7D8; --color-text-muted: #EBC7D8; --color-text-faint: #B98CA0; --color-text-disabled: #6E4A58; --color-outline: #FFF3F2;
+  --color-success: #7EC8A0; --color-danger: #FF6B6B; --color-danger-bg: #3A1414; --color-danger-border: #5C2626;
+  --ring-study: #F10291; --ring-short-break: #7EC8A0; --ring-long-break: #FFCAE4;
+  --coin-burst-text: #250209; --coin-burst-bg: #FFCAE4; --coin-burst-border: #F10291;
+  --shadow-navbar: 0 2px 8px rgba(0,0,0,0.5); --shadow-primary-btn: 0 4px 12px rgba(241,2,145,0.35); --shadow-card: 0 4px 16px rgba(0,0,0,0.45);
+}
+
+[data-theme="midnight-blue"] {
+  --bg-image: none;
+  --color-primary: #7692FF; --color-primary-muted: #3D518C; --color-secondary: #ABD2FA; --color-energy: #ABD2FA;
+  --color-done: #7EC8A0; --color-in-progress: #7692FF; --color-needs-revision: #C9A876; --color-streak: #1B2CC1;
+  --color-bg: #091540; --color-bg-evening: #060F30; --color-surface: #1B2CC1; --color-surface-alt: #26379C;
+  --color-accent: #2A3B7A; --color-accent-strong: #7692FF; --color-border: #2A3B7A; --color-border-dashed: #2A3B7A;
+  --color-text: #ABD2FA; --color-text-secondary: #C3D6F0; --color-text-muted: #C3D6F0; --color-text-faint: #7C93BC; --color-text-disabled: #47547A; --color-outline: #ABD2FA;
+  --color-success: #7EC8A0; --color-danger: #FF6B6B; --color-danger-bg: #2A1414; --color-danger-border: #4C2626;
+  --ring-study: #7692FF; --ring-short-break: #7EC8A0; --ring-long-break: #ABD2FA;
+  --coin-burst-text: #091540; --coin-burst-bg: #ABD2FA; --coin-burst-border: #7692FF;
+  --shadow-navbar: 0 2px 8px rgba(0,0,0,0.5); --shadow-primary-btn: 0 4px 12px rgba(118,146,255,0.3); --shadow-card: 0 4px 16px rgba(0,0,0,0.45);
+}
+
+[data-theme="twilight-forest"] {
+  --bg-image: none;
+  --color-primary: #A4E3A4; --color-primary-muted: #337738; --color-secondary: #B4D44D; --color-energy: #E6F5E2;
+  --color-done: #A4E3A4; --color-in-progress: #B4D44D; --color-needs-revision: #C9A876; --color-streak: #F2619C;
+  --color-bg: #282900; --color-bg-evening: #1D1E00; --color-surface: #337738; --color-surface-alt: #3D8A44;
+  --color-accent: #2C5A30; --color-accent-strong: #A4E3A4; --color-border: #2C5A30; --color-border-dashed: #2C5A30;
+  --color-text: #E6F5E2; --color-text-secondary: #C6DABF; --color-text-muted: #C6DABF; --color-text-faint: #8AA184; --color-text-disabled: #4E5C48; --color-outline: #E6F5E2;
+  --color-success: #A4E3A4; --color-danger: #FF6B6B; --color-danger-bg: #2A1414; --color-danger-border: #4C2626;
+  --ring-study: #A4E3A4; --ring-short-break: #B4D44D; --ring-long-break: #337738;
+  --coin-burst-text: #282900; --coin-burst-bg: #E6F5E2; --coin-burst-border: #A4E3A4;
+  --shadow-navbar: 0 2px 8px rgba(0,0,0,0.5); --shadow-primary-btn: 0 4px 12px rgba(164,227,164,0.3); --shadow-card: 0 4px 16px rgba(0,0,0,0.45);
 }
 
 :root {

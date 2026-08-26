@@ -3,7 +3,7 @@ import "@/styles/timer.css";
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Companion from "@/components/Companion";
-import Button from "@/components/Button";
+import KeycapButton from "@/components/KeycapButton";
 import { recordStudySession } from "@/lib/streakLogic";
 import { localDateStr } from "@/lib/date";
 import { setGoalDone } from "@/lib/goals";
@@ -20,10 +20,6 @@ const RADIUS            = 82;
 const CIRCUMFERENCE     = 2 * Math.PI * RADIUS;
 const MIN_EARLY_FINISH_SECONDS = 60;
 
-// Target total minutes of study before a long break kicks in — this is
-// what makes the cycle length scale with session duration: a 25-minute
-// study block gets ~4 reps before a long break, a 45-minute block gets ~2,
-// same idea as Windows' Focus Sessions.
 const LONG_BREAK_TARGET_MINUTES = 100;
 
 const RING_COLORS = {
@@ -83,6 +79,16 @@ function fmtHistoryDuration(mins) {
 
 function isAfter10pm() { return new Date().getHours() >= 24; }
 
+// Idle expressions cycled through while actively studying, so Chintu isn't
+// frozen in one static pose for the whole session — reuses existing mood
+// art (no new assets), just swapping frames like a sprite animation rather
+// than a single fixed "studying" image. Uses the book-less pose as the base
+// frame and layers the "book" accessory on top of all of them (same way
+// bowtie/glasses/etc. layer over any mood in Companion.jsx), so the book
+// stays put across every frame instead of popping in/out with the pose.
+const STUDY_IDLE_POSES = ["studying_wo_book", "thoughtful", "curious", "determined"];
+const STUDY_IDLE_FRAME_MS = 1000;
+
 function logSession(modeKey, durationSeconds, coinsEarned, subject) {
   appendSessionLogEntry({
     date: localDateStr(),
@@ -122,10 +128,6 @@ function getFirstSessionBonuses() {
   return { dailyBonus, weeklyBonus };
 }
 
-// Scales break length and how many sessions before a long break off the
-// study duration itself — a 25-min session behaves like classic Pomodoro
-// (5min short / 15min long every 4th), a 45-min session gets fewer, longer
-// breaks. Rounds to the nearest 5 minutes so numbers feel intentional.
 function roundTo5(n) { return Math.max(5, Math.round(n / 5) * 5); }
 function computeBreakMinutes(studyMinutes) {
   const short = roundTo5(studyMinutes * 0.2);
@@ -185,15 +187,13 @@ export default function StudyTimer({ roomName = null }) {
   const [soundType, setSoundType]     = useState("white");
   const [history, setHistory]         = useState([]);
   const [tasks, setTasks]             = useState([]);
+  const [idlePoseIndex, setIdlePoseIndex] = useState(0);
 
   const intervalRef      = useRef(null);
   const endAtRef          = useRef(null);
   const subjectRef        = useRef(subject);
   const autoCycleRef      = useRef(false);
   const autoCycleCountRef = useRef(0);
-  // Remembers the mode/duration of the last *study-type* session (study or
-  // custom), so that after an auto-cycled break, the next study segment
-  // resumes at the same length instead of snapping back to the 25-min default.
   const lastStudyModeRef     = useRef("study");
   const lastStudyDurationRef = useRef(PRESET_MODES.study.duration);
   const audioCtxRef       = useRef(null);
@@ -280,6 +280,31 @@ export default function StudyTimer({ roomName = null }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [running, hydrated]);
 
+  // Watches for the URL params actually changing (e.g. clicking a different
+  // "Study" button while already on this page) — Next.js doesn't remount
+  // the component for a same-route navigation, so without this the mount-only
+  // logic above never re-runs and the old subject/duration sticks around.
+  const prevParamsRef = useRef({ subject: subjectFromParam, duration: durationFromParam, goalId: goalIdFromParam });
+  useEffect(() => {
+    if (!hydrated) return;
+    const prev = prevParamsRef.current;
+    const changed = prev.subject !== subjectFromParam || prev.duration !== durationFromParam || prev.goalId !== goalIdFromParam;
+    prevParamsRef.current = { subject: subjectFromParam, duration: durationFromParam, goalId: goalIdFromParam };
+    if (!changed || !subjectFromParam) return;
+
+    clearInterval(intervalRef.current);
+    clearTimerState();
+    const newDuration = durationFromParam ? Math.max(60, parseInt(durationFromParam, 10) * 60) : PRESET_MODES.study.duration;
+    const newMode = durationFromParam ? "custom" : "study";
+    setMode(newMode);
+    setTimeLeft(newDuration);
+    setTotalDuration(newDuration);
+    setSubject(subjectFromParam);
+    setRunning(false);
+    setDone(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [subjectFromParam, durationFromParam, goalIdFromParam, hydrated]);
+
   useEffect(() => {
     function onKeyDown(e) {
       const tag = document.activeElement?.tagName;
@@ -304,6 +329,21 @@ export default function StudyTimer({ roomName = null }) {
   }, [running, done, totalDuration, mode]);
 
   useEffect(() => () => stopSound(), []);
+
+  // Cycle the companion's expression once per second while actively
+  // studying (running, in study/custom mode, not done) — a simple
+  // frame-swap through STUDY_IDLE_POSES rather than a smooth transition.
+  useEffect(() => {
+    const isActivelyStudying = running && !done && (mode === "study" || mode === "custom");
+    if (!isActivelyStudying) {
+      setIdlePoseIndex(0);
+      return;
+    }
+    const id = setInterval(() => {
+      setIdlePoseIndex(i => (i + 1) % STUDY_IDLE_POSES.length);
+    }, STUDY_IDLE_FRAME_MS);
+    return () => clearInterval(id);
+  }, [running, done, mode]);
 
   function coinsForSession(modeKey, durationSecs) {
     if (modeKey === "shortBreak") return 2;
@@ -369,8 +409,6 @@ export default function StudyTimer({ roomName = null }) {
         nextMode = isLongBreak ? "longBreak" : "shortBreak";
         nextDurationSec = (isLongBreak ? long : short) * 60;
       } else {
-        // Coming off a break — resume study at the same mode/length as
-        // whatever study session started this cycle.
         nextMode = lastStudyModeRef.current;
         nextDurationSec = lastStudyDurationRef.current;
       }
@@ -547,11 +585,15 @@ export default function StudyTimer({ roomName = null }) {
   function getChintuMood() {
     if (done) return "happy";
     if (isAfter10pm()) return "sleepy";
-    if (running) return PRESET_MODES[mode]?.mood || "studying";
+    if (running) {
+      if (mode === "study" || mode === "custom") return STUDY_IDLE_POSES[idlePoseIndex];
+      return PRESET_MODES[mode]?.mood || "studying";
+    }
     return "waiting";
   }
 
   const chintuMood = getChintuMood();
+  const isActivelyStudying = running && !done && (mode === "study" || mode === "custom");
   const hasProgress = !done && timeLeft < totalDuration;
 
   return (
@@ -571,7 +613,7 @@ export default function StudyTimer({ roomName = null }) {
 
         <div className="timer__layout">
           <div className="timer__companion-col">
-            <Companion mood={chintuMood} />
+            <Companion mood={chintuMood} extraAccessories={isActivelyStudying ? ["book"] : []} />
             <p className="timer__message">
               {done
                 ? `+${lastEarned} coins earned`
@@ -688,15 +730,13 @@ export default function StudyTimer({ roomName = null }) {
             </div>
 
             <div className="timer__btn-row">
-              <Button onClick={handleStartPause} variant={running ? "secondary" : "primary"} size="lg">
+              <KeycapButton onClick={handleStartPause}>
                 {done ? "Again" : running ? "Pause" : "Start"}
-              </Button>
+              </KeycapButton>
               {hasProgress && (
-                <Button onClick={handleFinishEarly} variant="done" size="lg">
-                  Finish
-                </Button>
+                <KeycapButton onClick={handleFinishEarly}>Finish</KeycapButton>
               )}
-              <Button onClick={handleReset} variant="secondary" size="lg">Reset</Button>
+              <KeycapButton onClick={handleReset}>Reset</KeycapButton>
             </div>
 
             <p className="timer__kbd-hint">

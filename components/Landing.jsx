@@ -33,7 +33,7 @@ export default function Landing() {
         <div className="landing__hero-text">
 
           <h1 className="landing__title">
-            Chintu
+            Studyloaf
           </h1>
 
           <p className="landing__tagline">
@@ -46,17 +46,21 @@ export default function Landing() {
 
           <p className="landing__subtext">
             Preparing for a big exam can feel lonely.
-            Chintu quietly studies alongside you, remembers the small things,
+            Your companion quietly studies alongside you, remembers the small things,
             keeps track of the boring logistics, and never makes you feel bad
             for having an off day.
           </p>
 
           <button
             className="landing__cta"
-            onClick={() => router.push("/onboarding")}
+            onClick={() => router.push("/login")}
           >
-            Get started
+            Sign in to get started
           </button>
+
+          <p className="landing__cta-note">
+            Takes 10 seconds with Google. Your progress syncs across devices.
+          </p>
 
         </div>
 
@@ -83,7 +87,7 @@ export default function Landing() {
 
       <footer className="landing__footer">
         <p className="landing__footer-note">
-          Free to use. No account required to get started.
+          Free to use. Sign in with Google to save your progress.
         </p>
       </footer>
     </div>

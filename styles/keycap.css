@@ -1,0 +1,40 @@
+.keycap {
+  position: relative;
+  display: inline-flex;
+  width: 92px;
+  height: 52px;
+  vertical-align: middle;
+}
+
+.keycap__cover {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-strong);
+  box-shadow: 0 1px 1px 1px var(--color-border);
+}
+
+.keycap__button {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 0;
+  bottom: 5px;
+  border: none;
+  border-bottom: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 0 0.2px color-mix(in srgb, var(--color-accent-strong) 45%, transparent);
+  transition: 80ms;
+}
+
+.keycap__button:active {
+  box-shadow: 0 4px 0 0.2px transparent;
+  transform: translateY(4px);
+  transition: 80ms;
+}
