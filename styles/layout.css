@@ -38,8 +38,8 @@
 
 .page-title {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.6rem;
+  font-weight: 800;
+  font-size: 2rem;
   color: var(--color-text);
   margin: 0 0 4px;
   line-height: 1.2;
@@ -53,10 +53,10 @@
   margin: 0;
 }
 
-h1 { font-size: 2rem;   font-weight: 700; margin: 0 0 0.5rem; }
-h2 { font-size: 1.5rem; font-weight: 600; margin: 0 0 0.5rem; }
-h3 { font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem; }
-h4 { font-size: 1rem;   font-weight: 600; margin: 0 0 0.5rem; }
+h1 { font-size: 2.5rem; font-weight: 800; margin: 0 0 0.5rem; }
+h2 { font-size: 2rem;   font-weight: 800; margin: 0 0 0.5rem; }
+h3 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.5rem; }
+h4 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
 
 p {
   font-family: var(--font-body);
@@ -181,15 +181,15 @@ p {
   .page-main {
     padding: 2rem 2rem 6rem;
   }
-  .page-title { font-size: 1.9rem; }
-  h1 { font-size: 2.4rem; }
-  h2 { font-size: 1.75rem; }
+  .page-title { font-size: 2.3rem; }
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.3rem; }
 }
 
 @media (min-width: 1025px) {
   .page-main {
     padding: 2.5rem 2rem 3rem;
   }
-  .page-title { font-size: 2.2rem; }
-  h1 { font-size: 2.8rem; }
+  .page-title { font-size: 2.6rem; }
+  h1 { font-size: 3.4rem; }
 }

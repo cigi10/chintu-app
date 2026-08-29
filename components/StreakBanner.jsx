@@ -35,7 +35,7 @@ export default function StreakBanner() {
           <p className="streak-banner__checkin-title">Hey, everything okay?</p>
           <div className="streak-banner__checkin-btns">
             <button className="streak-banner__checkin-ok" onClick={() => handleCheckIn("okay")}>
-              I'm okay, let's study
+              I&apos;m okay, let&apos;s study
             </button>
             <button className="streak-banner__checkin-nope" onClick={() => handleCheckIn("not_really")}>
               Not really
@@ -46,7 +46,7 @@ export default function StreakBanner() {
 
       {checkInAnswer === "not_really" && (
         <p className="streak-banner__support-card">
-          That's okay. iCall is free, confidential, and just for talking:{" "}
+          That&apos;s okay. iCall is free, confidential, and just for talking:{" "}
           <strong>9152987821</strong>
         </p>
       )}

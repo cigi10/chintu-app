@@ -1,5 +1,11 @@
 import Navbar from "@/components/Navbar";
 import MoodCheckin from "@/components/MoodCheckin";
+
+export const metadata = {
+  title: "Studyloaf: Mood",
+  description: "A quick mood check, no pressure.",
+};
+
 export default function MoodPage() {
   return (
     <div className="page-root">

@@ -253,7 +253,7 @@ export default function RevisionQueue() {
       <div className="revisions__header">
         <div>
           <h1 className="revisions__title">Revision Queue</h1>
-          <p className="revisions__subtitle">Spaced review for what you've already learned</p>
+          <p className="revisions__subtitle">Spaced review for what you&apos;ve already learned</p>
         </div>
         <div className="revisions__companion-mini">
           <div className="revisions__companion-img">
@@ -342,7 +342,7 @@ export default function RevisionQueue() {
                           <button className="revisions__mastered-btn" onClick={() => markMastered(r.id)}>
                             Mastered
                           </button>
-                          <button className="revisions__remove-btn" onClick={() => removeItem(r.id)} title="Remove from queue">
+                          <button className="revisions__remove-btn" onClick={() => removeItem(r.id)} title="Remove from queue" aria-label="Remove from queue">
                             ×
                           </button>
                         </div>

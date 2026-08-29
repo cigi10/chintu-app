@@ -1,6 +1,7 @@
 "use client";
 import "@/styles/shop.css";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Companion from "@/components/Companion";
 import { getData, setData } from "@/lib/storage";
 import { hydrateCoins, setCoins as persistCoins } from "@/lib/coins";
@@ -125,7 +126,7 @@ export default function CoinShop() {
                   return (
                     <div key={item.id} className={`shop__item-card${equipped ? " shop__item-card--equipped" : ""}`}>
                       <div className="shop__item-icon">
-                        <img src={ART_THUMBS[item.art]} alt="" className="shop__item-icon-img" />
+                        <Image src={ART_THUMBS[item.art]} alt="" className="shop__item-icon-img" fill sizes="48px" />
                       </div>
                       <div className="shop__item-name">{item.name}</div>
                       <div className="shop__item-cost">{item.cost} coins</div>

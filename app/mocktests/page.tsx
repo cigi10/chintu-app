@@ -1,5 +1,11 @@
 import Navbar from "@/components/Navbar";
 import MockTests from "@/components/MockTests";
+
+export const metadata = {
+  title: "Studyloaf: Mock Tests",
+  description: "Track your practice test scores over time.",
+};
+
 export default function MockTestsPage() {
   return (
     <div className="page-root">

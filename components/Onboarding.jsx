@@ -7,18 +7,16 @@ import { setProfile } from "@/lib/storage";
 import { setCompanionName } from "@/lib/companion";
 import { saveExamPackAndSubjects, getSubjects } from "@/lib/tracker";
 import { getLocalDdays, saveDdays } from "@/lib/ddays";
+import { PACK_NAMES, PACK_DESC, PACK_ICON, examPackLabel } from "@/lib/examPacks";
+import { COUNTRIES, packsForCountry } from "@/lib/examRegions";
 
-const PACK_OPTIONS = [
-  { key: "Custom",     icon: "CU", desc: "Build your own subject and topic list" },
-  { key: "JEE",        icon: "JE", desc: "Physics, Chemistry, Maths" },
-  { key: "NEET",       icon: "NE", desc: "Physics, Chemistry, Biology" },
-  { key: "SAT/ACT",    icon: "SA", desc: "Math, Reading & Writing" },
-  { key: "A-Levels",   icon: "AL", desc: "Pick 3-4 subjects" },
-  { key: "GCSEs",      icon: "GC", desc: "Pick your subjects" },
-  { key: "Gaokao",     icon: "GK", desc: "Maths, Chinese, English" },
-  { key: "GRE/GMAT",   icon: "GR", desc: "Quant, Verbal" },
-  { key: "Placements", icon: "PL", desc: "CS, ECE, DSA, Aptitude" },
-];
+// "Custom" first, then every pack from lib/examPacks — always in sync with
+// the Portion Tracker's RAW_PACKS, no separate hardcoded list to drift.
+const ALL_PACK_OPTIONS = ["Custom", ...PACK_NAMES].map(key => ({
+  key,
+  icon: PACK_ICON[key],
+  desc: PACK_DESC[key],
+}));
 
 const NAME_CHIPS = [
   "Pip", "Mochi", "Tofu", "Walnut", "Biscuit", "Bun",
@@ -26,17 +24,23 @@ const NAME_CHIPS = [
   "Peanut", "Mango", "Olive", "Sprout",
 ];
 
-const STEP_LABELS = ["Pack", "Name", "Exam date"];
+const STEP_LABELS = ["Region", "Pack", "Name", "Exam date"];
 
 export default function Onboarding() {
   const router = useRouter();
   const [step, setStep] = useState(0);
+  const [country, setCountry] = useState("");
   const [pack, setPack] = useState("");
   const [name, setName] = useState("");
   const [dday, setDday] = useState("");
   const [saving, setSaving] = useState(false);
 
-  function pickPack(key) { setPack(key); setStep(1); }
+  function pickCountry(key) { setCountry(key); setStep(1); }
+  function pickPack(key) { setPack(key); setStep(2); }
+
+  const packOptions = ALL_PACK_OPTIONS.filter(p =>
+    p.key === "Custom" || packsForCountry(country, [p.key]).length > 0
+  );
 
   async function confirmName() {
     if (!name.trim()) return;
@@ -49,7 +53,7 @@ export default function Onboarding() {
       console.error("setProfile failed (confirmName):", err);
     }
     setSaving(false);
-    setStep(2);
+    setStep(3);
   }
 
   async function finish() {
@@ -93,21 +97,21 @@ export default function Onboarding() {
             <div className="onboarding__companion">
               <Companion mood="curious" />
             </div>
-            <h1 className="onboarding__title">What are you preparing for?</h1>
+            <h1 className="onboarding__title">Where are you studying from?</h1>
             <p className="onboarding__subtitle">
-              Pick a pack to get pre-loaded topics, or choose Custom to build your own list from scratch.
+              This narrows the exam list to what's actually relevant to you.
             </p>
             <div className="onboarding__exam-grid">
-              {PACK_OPTIONS.map(p => (
+              {COUNTRIES.map(c => (
                 <button
-                  key={p.key}
-                  className={`onboarding__exam-btn${p.key === "Custom" ? " onboarding__exam-btn--custom" : ""}`}
-                  onClick={() => pickPack(p.key)}
+                  key={c.key}
+                  className="onboarding__exam-btn"
+                  onClick={() => pickCountry(c.key)}
                 >
-                  <span className="onboarding__exam-icon">{p.icon}</span>
+                  <span className="onboarding__exam-icon">{c.icon}</span>
                   <span className="onboarding__exam-text">
-                    <span className="onboarding__exam-name">{p.key}</span>
-                    <span className="onboarding__exam-desc">{p.desc}</span>
+                    <span className="onboarding__exam-name">{c.key}</span>
+                    <span className="onboarding__exam-desc">{c.desc}</span>
                   </span>
                 </button>
               ))}
@@ -118,11 +122,46 @@ export default function Onboarding() {
         {step === 1 && (
           <>
             <div className="onboarding__companion">
+              <Companion mood="curious" />
+            </div>
+            <h1 className="onboarding__title">What are you preparing for?</h1>
+            <p className="onboarding__subtitle">
+              Pick a pack to get pre-loaded topics, or choose Custom to build your own list from scratch.
+            </p>
+            <a
+              className="onboarding__tour-link"
+              href="/tutorial"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              New to study apps? Take a 1-minute tour →
+            </a>
+            <div className="onboarding__exam-grid">
+              {packOptions.map(p => (
+                <button
+                  key={p.key}
+                  className={`onboarding__exam-btn${p.key === "Custom" ? " onboarding__exam-btn--custom" : ""}`}
+                  onClick={() => pickPack(p.key)}
+                >
+                  <span className="onboarding__exam-icon">{p.icon}</span>
+                  <span className="onboarding__exam-text">
+                    <span className="onboarding__exam-name">{examPackLabel(p.key)}</span>
+                    <span className="onboarding__exam-desc">{p.desc}</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+
+        {step === 2 && (
+          <>
+            <div className="onboarding__companion">
               <Companion mood="waiting" />
             </div>
             <h1 className="onboarding__title">Name your companion</h1>
             <p className="onboarding__subtitle">
-              Type any name you like: it doesn't have to be one of the suggestions below.
+              Type any name you like: it doesn&apos;t have to be one of the suggestions below.
             </p>
             <div className="onboarding__step">
               <input
@@ -160,7 +199,7 @@ export default function Onboarding() {
           </>
         )}
 
-        {step === 2 && (
+        {step === 3 && (
           <>
             <div className="onboarding__companion">
               <Companion mood="happy" />

@@ -130,7 +130,7 @@ export default function Journal() {
   function toggleExpand(date) {
     setExpanded((prev) => {
       const next = new Set(prev);
-      next.has(date) ? next.delete(date) : next.add(date);
+      if (next.has(date)) next.delete(date); else next.add(date);
       return next;
     });
   }
@@ -150,7 +150,10 @@ export default function Journal() {
 
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
 
-  const allDates = Object.keys(entries).sort((a, b) => b.localeCompare(a));
+  const allDates = useMemo(
+    () => Object.keys(entries).sort((a, b) => b.localeCompare(a)),
+    [entries]
+  );
 
   const totalEntries = allDates.length;
   const totalWords = Object.values(entries).reduce(
@@ -169,13 +172,16 @@ export default function Journal() {
       cursor.setDate(cursor.getDate() - 1);
     }
     return count;
-  }, [allDates.join(","), today]);
+  }, [allDates, today]);
 
-  const filteredDates = allDates.filter((date) => {
-    if (date === today) return false;
-    if (!search.trim()) return true;
-    return entries[date].text.toLowerCase().includes(search.toLowerCase());
-  });
+  const filteredDates = useMemo(
+    () => allDates.filter((date) => {
+      if (date === today) return false;
+      if (!search.trim()) return true;
+      return entries[date].text.toLowerCase().includes(search.toLowerCase());
+    }),
+    [allDates, today, search, entries]
+  );
 
   const groupedByMonth = useMemo(() => {
     const groups = {};
@@ -185,7 +191,7 @@ export default function Journal() {
       groups[key].push(date);
     });
     return Object.entries(groups); // already in descending date order per group + insertion order
-  }, [filteredDates.join(",")]);
+  }, [filteredDates]);
 
   const companionMood = mood === "rough" ? "sad" : mood === "tired" ? "sleepy" : wordCount > 0 ? "thoughtful" : "idle";
 

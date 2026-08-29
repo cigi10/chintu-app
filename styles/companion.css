@@ -9,7 +9,11 @@
 .companion-stage {
   position: relative;
   width: 100%;
-  height: 100%;
+  /* Every mood/accessory PNG is a square 2048x2048 canvas. next/image's
+     `fill` mode positions images absolutely (they no longer contribute to
+     an auto-height ancestor's size the way a plain <img> did), so this
+     needs its own definite height instead of inheriting one. */
+  aspect-ratio: 1 / 1;
 }
 
 .companion-img,

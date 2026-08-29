@@ -3,7 +3,7 @@
 .shop__layout { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 .shop__room { flex: 1 1 260px; text-align: center; position: relative; min-height: 300px; }
 .shop__room-title { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; margin-bottom: 1rem; color: var(--color-text); }
-.shop__room-companion-wrap { position: relative; display: inline-block; }
+.shop__room-companion-wrap { position: relative; display: inline-block; width: 100%; max-width: 220px; }
 .shop__catalog { flex: 2 1 320px; }
 .shop__category-title { font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 0.6rem; letter-spacing: 0.02em; }
 .shop__category { margin-bottom: 1.5rem; }
@@ -11,7 +11,7 @@
 .shop__item-card { background-color: var(--color-surface); border: 1.5px solid var(--color-border); border-radius: var(--radius-md); padding: 12px; text-align: center; transition: border-color 0.15s ease; }
 .shop__item-card:hover { border-color: var(--color-accent-strong); }
 .shop__item-card--equipped { border-color: var(--color-accent-strong); background-color: var(--color-accent); }
-.shop__item-icon { width: 48px; height: 48px; margin: 0 auto 4px; }
+.shop__item-icon { position: relative; width: 48px; height: 48px; margin: 0 auto 4px; }
 .shop__item-icon-img { width: 100%; height: 100%; object-fit: contain; }
 .shop__item-name { font-family: var(--font-body); font-weight: 700; font-size: 0.78rem; margin-bottom: 2px; color: var(--color-text); }
 .shop__item-cost { font-family: var(--font-body); font-weight: 700; font-size: 0.72rem; color: var(--color-text-secondary); margin-bottom: 8px; }

@@ -12,8 +12,8 @@ export default function ShopPage() {
       <Navbar />
       <main className="page-main">
         <div className="page-header" style={{ textAlign: "center" }}>
-          <h1>Chintu's Room </h1>
-          <p>Spend coins to decorate Chintu's space</p>
+          <h1>Chintu&apos;s Room </h1>
+          <p>Spend coins to decorate Chintu&apos;s space</p>
         </div>
         <CoinShop />
       </main>

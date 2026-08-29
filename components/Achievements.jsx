@@ -53,7 +53,7 @@ export default function Achievements() {
           <p className="achievements__hero-label">milestones unlocked</p>
           {unlockedTiers === 0 && (
             <p className="achievements__hero-hint">
-              Nothing logged yet: start a session on the Timer page and your first milestone won't be far off.
+              Nothing logged yet: start a session on the Timer page and your first milestone won&apos;t be far off.
             </p>
           )}
         </div>
@@ -86,7 +86,7 @@ export default function Achievements() {
                           <div
                             key={tier.name}
                             className={`achievements__tier-chip${unlocked ? " achievements__tier-chip--unlocked" : ""}`}
-                            title={`${tier.name} — ${tier.threshold} ${a.unitPlural}`}
+                            title={`${tier.name} · ${tier.threshold} ${a.unitPlural}`}
                           >
                             {tier.name}
                           </div>

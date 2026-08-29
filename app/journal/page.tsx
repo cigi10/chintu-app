@@ -1,6 +1,12 @@
 import Navbar from "@/components/Navbar";
 
 import Journal from "@/components/Journal";
+
+export const metadata = {
+  title: "Studyloaf: Journal",
+  description: "Jot down how a study session went.",
+};
+
 export default function JournalPage() {
   return (
     <div className="page-root">

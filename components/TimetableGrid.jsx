@@ -242,7 +242,7 @@ function CopyDayModal({ sourceDay, onCopy, onClose }) {
     <div className="slot-modal-backdrop" onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="slot-modal">
         <button className="slot-modal__close" onClick={onClose} aria-label="Close">×</button>
-        <p className="slot-modal__day-slot">Copy {sourceDay}'s plan</p>
+        <p className="slot-modal__day-slot">Copy {sourceDay}&apos;s plan</p>
         <h2 className="slot-modal__title">Which days should get it?</h2>
         <p className="timetable__copy-day-note">This replaces whatever is already on the days you pick.</p>
         <div className="timetable__copy-day-list">
@@ -327,7 +327,10 @@ export default function TimetableGrid() {
   const [tasksByDay, setTasksByDay]   = useState({});
   const [sessionLog, setSessionLog]   = useState([]);
   const [minutesIndex, setMinutesIndex] = useState({});
-  const [nowTick, setNowTick]         = useState(0);
+  // Value itself is never read — bumping it every minute (below) just
+  // forces a re-render so isNow/rowStartsAtNow re-evaluate against the
+  // clock without the user needing to interact with anything.
+  const [, setNowTick]                = useState(0);
   const [presetColors] = useState(() => getSlotColors());
 
   const [dragDay, setDragDay]         = useState(null);
@@ -524,7 +527,7 @@ export default function TimetableGrid() {
         <div className="timetable__today-panels">
           {todaysGoals.length > 0 && (
             <div className="timetable__today-goals">
-              <span className="timetable__today-goals-label">Today's goals</span>
+              <span className="timetable__today-goals-label">Today&apos;s goals</span>
               <div className="timetable__today-goals-list">
                 {todaysGoals.map(g => (
                   <button
@@ -543,7 +546,7 @@ export default function TimetableGrid() {
 
           {tasks.length > 0 && (
             <div className="timetable__today-goals">
-              <span className="timetable__today-goals-label">Today's tasks</span>
+              <span className="timetable__today-goals-label">Today&apos;s tasks</span>
               <div className="timetable__today-goals-list">
                 {tasks.map(t => (
                   <button
@@ -591,7 +594,7 @@ export default function TimetableGrid() {
                           key={g.id}
                           className="timetable__goal-dot"
                           style={{ backgroundColor: g.color }}
-                          title={`${g.subject} — ${g.durationMinutes}m`}
+                          title={`${g.subject} · ${g.durationMinutes}m`}
                         />
                       ))}
                     </div>
@@ -647,7 +650,7 @@ export default function TimetableGrid() {
                         onMouseDown={() => handleCellMouseDown(day, rowIdx)}
                         onMouseEnter={() => handleCellMouseEnter(day, rowIdx)}
                         onClick={() => handleCellClick(day, row)}
-                        title={entry ? `${entry.subject}${entry.note ? " — " + entry.note : ""} (tap to study)` : `Add ${day} ${row.label}`}
+                        title={entry ? `${entry.subject}${entry.note ? " · " + entry.note : ""} (tap to study)` : `Add ${day} ${row.label}`}
                       >
                         {entry ? (
                           <span className="timetable__cell-subject" style={{ color: textColor }}>

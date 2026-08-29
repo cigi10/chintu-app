@@ -1,5 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Stats from "@/components/Stats";
+
+export const metadata = {
+  title: "Studyloaf: Stats",
+  description: "Charts of your study time and progress over the long term.",
+};
+
 export default function StatsPage() {
   return (
     <div className="page-root">

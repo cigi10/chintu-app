@@ -73,6 +73,16 @@ body {
   display: block;
 }
 
+/* Companion's mood image now renders via next/image `fill`, which sizes
+   itself off its own root box (.companion-float) rather than an intrinsic
+   img width — so that root needs an explicit size here directly, without
+   touching .landing__hero-companion's own box (it does its own
+   flex-centering at the desktop breakpoint below). */
+.landing__hero-companion .companion-float {
+  width: 190px;
+  aspect-ratio: 1 / 1;
+}
+
 .landing__subtext {
   max-width: 520px;
 
@@ -226,6 +236,10 @@ body {
 
   }
 
+  .landing__hero-companion .companion-float {
+    width: 240px;
+  }
+
   .landing__features {
 
     display: grid;
@@ -337,6 +351,10 @@ body {
 
     width: 330px;
 
+  }
+
+  .landing__hero-companion .companion-float {
+    width: 330px;
   }
 
   .landing__features {

@@ -2,7 +2,7 @@ import Landing from "@/components/Landing";
 
 export const metadata = {
   title: "Studyloaf: Your Study Companion",
-  description: "A calm, guilt-free study companion for exam prep.",
+  description: "A calm study companion for exam prep, without the guilt.",
 };
 
 export default function LandingPage() {

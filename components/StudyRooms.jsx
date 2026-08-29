@@ -144,7 +144,7 @@ export default function StudyRooms() {
 
       <div className="rooms__tags-section">
         <p className="rooms__tags-label">
-          Optional: quietly tag what you're working on. It's just for you.
+          Optional: quietly tag what you&apos;re working on. It&apos;s just for you.
         </p>
 
         <div className="rooms__tags-row">

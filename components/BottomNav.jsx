@@ -4,33 +4,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { NAV } from "@/lib/navItems";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 
-const BOTTOM_ITEMS = [
-  { href: "/dashboard", label: "Home"   },
-  { href: "/timer",     label: "Timer"  },
-  { href: "/tracker",   label: "Tracker" },
-];
+const BOTTOM_ITEMS = [NAV.home, NAV.timer, NAV.tracker, NAV.shop];
 
 const STUDY_GROUP = {
   label: "Study",
-  items: [
-    { href: "/goals",        label: "Goals"        },
-    { href: "/timetable",    label: "Timetable"    },
-    { href: "/revisions",    label: "Revisions"    },
-    { href: "/todo",         label: "To-do"        },
-    { href: "/mocktests",    label: "Mocks"        },
-    { href: "/stats",        label: "Stats"        },
-    { href: "/rooms",        label: "Rooms"        },
-    { href: "/achievements", label: "Achievements" },
-  ],
+  items: [NAV.goals, NAV.timetable, NAV.revisions, NAV.todo, NAV.mocktests, NAV.stats, NAV.rooms, NAV.achievements],
 };
 
-const YOU_GROUP_BASE = [
-  { href: "/journal", label: "Journal" },
-  { href: "/mood",    label: "Mood"    },
-  { href: "/digest",  label: "Digest"  },
-];
+const YOU_GROUP_BASE = [NAV.journal, NAV.mood, NAV.digest, NAV.tutorial];
 
 export default function BottomNav() {
   const pathname = usePathname();
@@ -58,9 +42,7 @@ export default function BottomNav() {
     label: "You",
     items: [
       ...YOU_GROUP_BASE,
-      userEmail
-        ? { href: "/profile", label: "Profile" }
-        : { href: "/login", label: "Log in" },
+      userEmail ? NAV.profile : NAV.login,
     ],
   };
 

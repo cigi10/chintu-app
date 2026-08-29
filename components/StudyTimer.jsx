@@ -10,6 +10,7 @@ import { setGoalDone } from "@/lib/goals";
 import { getLocalCoins, hydrateCoins, addCoins } from "@/lib/coins";
 import { getLocalTodos, hydrateTodos, saveTodos as persistTodos } from "@/lib/todos";
 import { hydrateTracker, getSessionLog, appendSessionLogEntry, getBonusLog, saveBonusLog } from "@/lib/tracker";
+import { getRandomQuote } from "@/lib/quotes";
 
 const SESSION_KEY       = "chintu-sessions";
 const TIMER_STATE_KEY   = "chintu-timer-state";
@@ -31,9 +32,23 @@ const RING_COLORS = {
 
 const SOUND_TYPES = [
   { key: "white", label: "White" },
+  { key: "pink",  label: "Pink"  },
   { key: "brown", label: "Brown" },
   { key: "rain",  label: "Rain"  },
+  { key: "ocean", label: "Ocean" },
 ];
+
+const YOUTUBE_PREF_KEY = "chintu-youtube-pref";
+const YOUTUBE_ID_RE = /(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/;
+
+function extractYoutubeId(url) {
+  if (!url) return null;
+  const match = url.match(YOUTUBE_ID_RE);
+  return match ? match[1] : null;
+}
+
+function loadYoutubePref()  { try { return localStorage.getItem(YOUTUBE_PREF_KEY) || ""; } catch { return ""; } }
+function saveYoutubePref(v) { try { localStorage.setItem(YOUTUBE_PREF_KEY, v); } catch {} }
 
 const PRIORITY_DOT = { high: "#F2619C", medium: "#F9C060", low: "#7EC8A0" };
 
@@ -155,6 +170,7 @@ const PRESET_MODES = {
 
 const MIN_CUSTOM_SECONDS = 5;
 const AUTO_CYCLE_DELAY_MS = 1500;
+const QUOTE_ROTATE_MS = 3.5 * 60 * 1000; // rotate motivational quote every ~3.5 min
 
 export default function StudyTimer({ roomName = null }) {
   const searchParams     = useSearchParams();
@@ -185,11 +201,16 @@ export default function StudyTimer({ roomName = null }) {
   const [autoCycle, setAutoCycle]     = useState(false);
   const [soundOn, setSoundOn]         = useState(false);
   const [soundType, setSoundType]     = useState("white");
+  const [showYoutube, setShowYoutube] = useState(false);
+  const [youtubeUrl, setYoutubeUrl]   = useState("");
+  const [youtubeVideoId, setYoutubeVideoId] = useState(null);
   const [history, setHistory]         = useState([]);
   const [tasks, setTasks]             = useState([]);
   const [idlePoseIndex, setIdlePoseIndex] = useState(0);
+  const [quote, setQuote]             = useState("");
 
   const intervalRef      = useRef(null);
+  const quoteIntervalRef  = useRef(null);
   const endAtRef          = useRef(null);
   const subjectRef        = useRef(subject);
   const autoCycleRef      = useRef(false);
@@ -212,6 +233,7 @@ export default function StudyTimer({ roomName = null }) {
     const pref = loadSoundPref();
     setSoundOn(false);
     setSoundType(pref.type || "white");
+    setYoutubeUrl(loadYoutubePref());
   }, []);
 
   useEffect(() => {
@@ -261,11 +283,20 @@ export default function StudyTimer({ roomName = null }) {
         setTimeLeft(remaining);
         if (remaining <= 0) {
           clearInterval(intervalRef.current);
+          clearInterval(quoteIntervalRef.current);
           completeSession(mode, totalDuration, subjectRef.current, goalIdFromParam);
         }
       }, 250);
+
+      if (mode === "study" || mode === "custom") {
+        setQuote(getRandomQuote());
+        quoteIntervalRef.current = setInterval(() => {
+          setQuote(prev => getRandomQuote(prev));
+        }, QUOTE_ROTATE_MS);
+      }
     } else {
       clearInterval(intervalRef.current);
+      clearInterval(quoteIntervalRef.current);
       if (!done) {
         saveTimerState({
           mode, totalDuration, subject: subjectRef.current,
@@ -276,7 +307,10 @@ export default function StudyTimer({ roomName = null }) {
       }
     }
 
-    return () => clearInterval(intervalRef.current);
+    return () => {
+      clearInterval(intervalRef.current);
+      clearInterval(quoteIntervalRef.current);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [running, hydrated]);
 
@@ -302,7 +336,6 @@ export default function StudyTimer({ roomName = null }) {
     setSubject(subjectFromParam);
     setRunning(false);
     setDone(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subjectFromParam, durationFromParam, goalIdFromParam, hydrated]);
 
   useEffect(() => {
@@ -329,6 +362,7 @@ export default function StudyTimer({ roomName = null }) {
   }, [running, done, totalDuration, mode]);
 
   useEffect(() => () => stopSound(), []);
+  useEffect(() => () => clearInterval(quoteIntervalRef.current), []);
 
   // Cycle the companion's expression once per second while actively
   // studying (running, in study/custom mode, not done) — a simple
@@ -420,6 +454,7 @@ export default function StudyTimer({ roomName = null }) {
   function handleFinishEarly() {
     const elapsed = totalDuration - timeLeft;
     clearInterval(intervalRef.current);
+    clearInterval(quoteIntervalRef.current);
     if (elapsed < MIN_EARLY_FINISH_SECONDS) {
       setRunning(false);
       setTimeLeft(totalDuration);
@@ -442,6 +477,7 @@ export default function StudyTimer({ roomName = null }) {
 
   function switchMode(newMode) {
     clearInterval(intervalRef.current);
+    clearInterval(quoteIntervalRef.current);
     clearTimerState();
     const dur = PRESET_MODES[newMode].duration;
     setMode(newMode);
@@ -458,6 +494,7 @@ export default function StudyTimer({ roomName = null }) {
     const total = m * 60 + s;
     if (total < MIN_CUSTOM_SECONDS) return;
     clearInterval(intervalRef.current);
+    clearInterval(quoteIntervalRef.current);
     clearTimerState();
     setMode("custom");
     setTimeLeft(total);
@@ -479,6 +516,7 @@ export default function StudyTimer({ roomName = null }) {
 
   function handleReset() {
     clearInterval(intervalRef.current);
+    clearInterval(quoteIntervalRef.current);
     setTimeLeft(totalDuration);
     setRunning(false);
     setDone(false);
@@ -530,12 +568,32 @@ export default function StudyTimer({ roomName = null }) {
       const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
       const data = buffer.getChannelData(0);
 
-      if (type === "brown") {
+      if (type === "brown" || type === "ocean") {
         let last = 0;
         for (let i = 0; i < bufferSize; i++) {
           const white = Math.random() * 2 - 1;
           last = (last + 0.02 * white) / 1.02;
           data[i] = last * 3.5;
+        }
+        if (type === "ocean") {
+          // Slow amplitude swell over an integer number of cycles so the
+          // 2s buffer loops without a click at the seam, giving the brown
+          // noise base a wave-like rise and fall.
+          const cycles = 3;
+          for (let i = 0; i < bufferSize; i++) {
+            const envelope = 0.55 + 0.45 * Math.sin((2 * Math.PI * cycles * i) / bufferSize);
+            data[i] *= envelope;
+          }
+        }
+      } else if (type === "pink") {
+        // Paul Kellet's economy pink-noise filter.
+        let b0 = 0, b1 = 0, b2 = 0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          b0 = 0.99886 * b0 + white * 0.0555179;
+          b1 = 0.99332 * b1 + white * 0.0750759;
+          b2 = 0.96900 * b2 + white * 0.1538520;
+          data[i] = (b0 + b1 + b2 + white * 0.1848) * 0.11;
         }
       } else {
         for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
@@ -556,6 +614,13 @@ export default function StudyTimer({ roomName = null }) {
         filter.Q.value = 0.5;
         source.connect(filter);
         filter.connect(gain);
+      } else if (type === "ocean") {
+        filter = ctx.createBiquadFilter();
+        filter.type = "lowpass";
+        filter.frequency.value = 700;
+        filter.Q.value = 0.4;
+        source.connect(filter);
+        filter.connect(gain);
       } else {
         source.connect(gain);
       }
@@ -570,13 +635,31 @@ export default function StudyTimer({ roomName = null }) {
     const next = !soundOn;
     setSoundOn(next);
     saveSoundPref({ on: next, type: soundType });
-    if (next) startSound(soundType); else stopSound();
+    if (next) {
+      setYoutubeVideoId(null);
+      startSound(soundType);
+    } else {
+      stopSound();
+    }
   }
 
   function changeSoundType(type) {
     setSoundType(type);
     saveSoundPref({ on: soundOn, type });
     if (soundOn) startSound(type);
+  }
+
+  function playYoutube() {
+    const id = extractYoutubeId(youtubeUrl.trim());
+    if (!id) return;
+    stopSound();
+    setSoundOn(false);
+    setYoutubeVideoId(id);
+    saveYoutubePref(youtubeUrl.trim());
+  }
+
+  function stopYoutube() {
+    setYoutubeVideoId(null);
   }
 
   const progress    = totalDuration > 0 ? timeLeft / totalDuration : 0;
@@ -618,7 +701,7 @@ export default function StudyTimer({ roomName = null }) {
               {done
                 ? `+${lastEarned} coins earned`
                 : running && (mode === "study" || mode === "custom")
-                  ? "Stay focused"
+                  ? (quote || "Stay focused")
                   : running
                     ? "Rest up, you earned it"
                     : "Press start when ready"}
@@ -686,6 +769,13 @@ export default function StudyTimer({ roomName = null }) {
               >
                 Focus sound
               </button>
+              <button
+                className={`timer__toggle-chip${showYoutube ? " timer__toggle-chip--active" : ""}`}
+                onClick={() => setShowYoutube(v => !v)}
+                title="Play music from a YouTube link"
+              >
+                YouTube
+              </button>
             </div>
 
             {soundOn && (
@@ -699,6 +789,36 @@ export default function StudyTimer({ roomName = null }) {
                     {t.label}
                   </button>
                 ))}
+              </div>
+            )}
+
+            {showYoutube && (
+              <div className="timer__youtube-panel">
+                <div className="timer__youtube-input-row">
+                  <input
+                    className="timer__youtube-input"
+                    value={youtubeUrl}
+                    onChange={e => setYoutubeUrl(e.target.value)}
+                    onKeyDown={e => e.key === "Enter" && playYoutube()}
+                    placeholder="Paste a YouTube link…"
+                  />
+                  <button className="timer__youtube-play-btn" onClick={playYoutube}>
+                    {youtubeVideoId ? "Change" : "Play"}
+                  </button>
+                  {youtubeVideoId && (
+                    <button className="timer__youtube-stop-btn" onClick={stopYoutube} title="Stop" aria-label="Stop YouTube playback">×</button>
+                  )}
+                </div>
+                {youtubeVideoId && (
+                  <div className="timer__youtube-player">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&loop=1&playlist=${youtubeVideoId}`}
+                      title="YouTube music player"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                    />
+                  </div>
+                )}
               </div>
             )}
 
@@ -758,7 +878,7 @@ export default function StudyTimer({ roomName = null }) {
 
         {tasks.length > 0 && (
           <div className="timer__todo-panel">
-            <div className="timer__history-title">Today's tasks</div>
+            <div className="timer__history-title">Today&apos;s tasks</div>
             <div className="timer__todo-list">
               {tasks.map(t => (
                 <button key={t.id} className="timer__todo-chip" onClick={() => completeTask(t.id)} title="Mark as done">

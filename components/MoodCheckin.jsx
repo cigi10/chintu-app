@@ -76,7 +76,7 @@ export default function MoodCheckin() {
       ) : (
         <div className="mood__yesterday mood__yesterday--empty">
           <span className="mood__yesterday-label">Yesterday</span>
-          <span className="mood__yesterday-value">No check-in</span>
+          <span className="mood__yesterday-value">No check in</span>
         </div>
       )}
 

@@ -3,6 +3,7 @@ import "@/styles/dashboard.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
+import KeycapButton from "@/components/KeycapButton";
 import StreakBanner from "@/components/StreakBanner";
 import { localDateStr as todayStr } from "@/lib/date";
 import {
@@ -27,6 +28,15 @@ const MOODS = [
   { key: "stressed", label: "Stressed", color: "#F9C060" },
   { key: "low",      label: "Low",      color: "#9A8C7A" },
 ];
+
+// Idle expressions cycled through on the dashboard so Chintu isn't frozen
+// in one static pose, same sprite-swap approach StudyTimer.jsx uses while
+// actively studying — reuses existing mood art, no new assets.
+const IDLE_POSES = {
+  happy:   ["happy", "cozy", "curious"],
+  waiting: ["waiting", "curious", "thoughtful"],
+};
+const IDLE_FRAME_MS = 2500;
 
 const DURATION_PRESETS = [15, 25, 45, 60, 90];
 const PRIORITY_COLOR = { high: "#F2619C", medium: "#F9C060", low: "#7EC8A0" };
@@ -76,7 +86,7 @@ function daysUntil(dateStr) {
 
 function repeatSummary(r) {
   if (!r) return "";
-  if (r.type === "once")   return "One-time";
+  if (r.type === "once")   return "One time";
   if (r.type === "daily")  return "Every day";
   if (r.type === "weekly") return (r.days || []).length ? r.days.join(", ") : "Weekly";
   return "";
@@ -107,6 +117,7 @@ function computeWeeklyReport(log) {
 export default function DashboardContent() {
   const router = useRouter();
 
+  const [idlePoseIndex, setIdlePoseIndex] = useState(0);
   const [todaySlots, setTodaySlots]     = useState([]);
   const [todayStats, setTodayStats]     = useState({ minutes: 0, coins: 0 });
   const [todos, setTodos]               = useState([]);
@@ -290,11 +301,33 @@ export default function DashboardContent() {
     router.push(`/timer${q}`);
   }
 
-  function getCompanionMood() {
+  function getCompanionBaseMood() {
     const hour = new Date().getHours();
     if (hour >= 24) return "sleepy";
     if (todayStats.minutes > 0) return "happy";
     return "waiting";
+  }
+
+  const companionBaseMood = getCompanionBaseMood();
+
+  // Cycle through a small set of related poses for the base mood, so the
+  // companion feels alive on the dashboard instead of static. Sleepy stays
+  // put — no idle set defined for it, matching the timer's late-night state.
+  useEffect(() => {
+    const poses = IDLE_POSES[companionBaseMood];
+    if (!poses) {
+      setIdlePoseIndex(0);
+      return;
+    }
+    const id = setInterval(() => {
+      setIdlePoseIndex(i => (i + 1) % poses.length);
+    }, IDLE_FRAME_MS);
+    return () => clearInterval(id);
+  }, [companionBaseMood]);
+
+  function getCompanionMood() {
+    const poses = IDLE_POSES[companionBaseMood];
+    return poses ? poses[idlePoseIndex % poses.length] : companionBaseMood;
   }
 
   const todayMoodObj = MOODS.find(m => m.key === todayMood);
@@ -320,7 +353,7 @@ export default function DashboardContent() {
           const remaining = daysUntil(d.date);
           return (
             <div key={i} className="dashboard__dday-card">
-              <button className="dashboard__dday-remove" onClick={() => removeDday(i)}>×</button>
+              <button className="dashboard__dday-remove" onClick={() => removeDday(i)} aria-label="Remove exam date">×</button>
               <div className="dashboard__dday-number">
                 {remaining > 0 ? remaining : remaining === 0 ? "Today" : "Past"}
               </div>
@@ -361,9 +394,9 @@ export default function DashboardContent() {
           </div>
 
           {!showSubjectPicker ? (
-            <button className="dashboard__start-btn" onClick={() => setShowSubjectPicker(true)}>
+            <KeycapButton className="keycap--wide" onClick={() => setShowSubjectPicker(true)}>
               Start studying
-            </button>
+            </KeycapButton>
           ) : (
             <div className="dashboard__subject-picker">
               <p className="dashboard__subject-picker-title">What are you studying?</p>
@@ -393,12 +426,12 @@ export default function DashboardContent() {
 
         <div className="dashboard__info-side">
 
-          <p className="dashboard__quote">"{getDailyQuote()}"</p>
+          <p className="dashboard__quote">&quot;{getDailyQuote()}&quot;</p>
 
           {/* Today's Goals */}
           <div className="dashboard__section">
             <h2 className="dashboard__section-heading">
-              Today's goals
+              Today&apos;s goals
               {goalsToday.length > 0 && (
                 <span className="dashboard__goal-progress-pill">
                   {goalsDoneCount}/{goalsToday.length} done
@@ -441,7 +474,7 @@ export default function DashboardContent() {
                             Start
                           </button>
                         )}
-                        <button className="dashboard__goal-remove" onClick={() => removeGoal(g.id)} title="Delete goal (all days)">×</button>
+                        <button className="dashboard__goal-remove" onClick={() => removeGoal(g.id)} title="Delete goal (all days)" aria-label="Delete goal (all days)">×</button>
                       </div>
                     </div>
                   );
@@ -631,7 +664,7 @@ export default function DashboardContent() {
           )}
 
           <div className="dashboard__section">
-            <h2 className="dashboard__section-heading">Today's plan</h2>
+            <h2 className="dashboard__section-heading">Today&apos;s plan</h2>
             {todaySlots.length === 0 ? (
               <p className="dashboard__plan-empty">Nothing scheduled: add slots in your timetable.</p>
             ) : (
@@ -647,7 +680,7 @@ export default function DashboardContent() {
           </div>
 
           <div className="dashboard__section">
-            <h2 className="dashboard__section-heading">To-do</h2>
+            <h2 className="dashboard__section-heading">Todo</h2>
             {todos.length === 0 ? (
               <p className="dashboard__plan-empty">No pending tasks.</p>
             ) : (
@@ -670,7 +703,7 @@ export default function DashboardContent() {
                 {revisionsDue.map(r => (
                   <div key={r.id} className="dashboard__todo-item">
                     <span className="dashboard__todo-dot" style={{ background: "#93ABD9" }} />
-                    <span className="dashboard__todo-text">{r.subject} — {r.topic}</span>
+                    <span className="dashboard__todo-text">{r.subject} · {r.topic}</span>
                     <span className="dashboard__todo-due">{r.dueDate}</span>
                   </div>
                 ))}

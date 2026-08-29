@@ -1,6 +1,13 @@
 "use client";
 import "@/styles/companion.css";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+
+// Every mood/accessory PNG is drawn on the same 2048x2048 canvas, and the
+// component never renders wider than a few hundred px anywhere in the app —
+// this keeps next/image from assuming full-viewport width (100vw) and
+// downloading a needlessly large generated image.
+const COMPANION_IMAGE_SIZES = "(max-width: 640px) 220px, 340px";
 
 const SHOP_KEY = "shop_ownership";
 const LEGACY_SHOP_KEY = "chintu-shop"; // pre-cloud-sync key name
@@ -30,7 +37,6 @@ const MOOD_IMAGES = {
   cozy:             "/companion/mood-cozy.PNG",
   celebrating:      "/companion/mood-celebrating-big1.PNG",
   celebrating2:     "/companion/mood-celebrating-big2.PNG",
-  proud:            "/companion/mood-proud.PNG",
 };
 
 const MOOD_FALLBACK_COLORS = {
@@ -39,7 +45,6 @@ const MOOD_FALLBACK_COLORS = {
   sleepy:   "#93ABD9",
   waiting:  "#E7BEF8",
   sad:      "#6E6688",
-  proud:    "#F2619C",
 };
 
 // Drawn on the same 2048x2048 canvas as the mood art above, so they line up
@@ -80,18 +85,22 @@ export default function Companion({ mood = "studying", accessories = null, extra
     <div className="companion-float">
       {!imgError ? (
         <div className="companion-stage">
-          <img
+          <Image
             src={src}
             alt={`Companion is ${mood}`}
             onError={() => setImgError(true)}
             className="companion-img"
+            fill
+            sizes={COMPANION_IMAGE_SIZES}
           />
           {activeAccessories.filter(key => ACCESSORY_IMAGES[key]).map(key => (
-            <img
+            <Image
               key={key}
               src={ACCESSORY_IMAGES[key]}
               alt=""
               className="companion-accessory-img"
+              fill
+              sizes={COMPANION_IMAGE_SIZES}
             />
           ))}
         </div>

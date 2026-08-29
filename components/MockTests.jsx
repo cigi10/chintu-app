@@ -65,7 +65,7 @@ export default function MockTests() {
           <div key={subj} className="mocktests__subject-block">
             <h3 className="mocktests__subject-title">{subj}</h3>
             <div className="mocktests__chart">
-              {sorted.map((e, i) => (
+              {sorted.map((e) => (
                 <div key={e.id} className="mocktests__bar-col">
                   <div className="mocktests__bar-value">{e.score}</div>
                   <div className="mocktests__bar" style={{ height: `${(e.score / max) * 100}px` }} />
@@ -79,7 +79,7 @@ export default function MockTests() {
                   <span>{e.date}</span>
                   <span>{e.score} {e.scoreType === "percentile" ? "%" : "pts"}</span>
                   {e.notes && <span className="mocktests__entry-notes">{e.notes}</span>}
-                  <button className="mocktests__remove-btn" onClick={() => removeEntry(e.id)}>×</button>
+                  <button className="mocktests__remove-btn" onClick={() => removeEntry(e.id)} aria-label="Delete entry">×</button>
                 </div>
               ))}
             </div>

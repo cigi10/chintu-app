@@ -1,12 +1,10 @@
-"use client";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import RootRedirect from "@/components/RootRedirect";
+
+export const metadata = {
+  title: "Studyloaf",
+  description: "Study smarter with your companion by your side.",
+};
 
 export default function RootPage() {
-  const router = useRouter();
-  useEffect(() => {
-    const onboarded = localStorage.getItem("chintu-onboarded");
-    router.replace(onboarded ? "/dashboard" : "/landing");
-  }, []);
-  return null;
+  return <RootRedirect />;
 }

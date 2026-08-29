@@ -1,5 +1,11 @@
 import Navbar from "@/components/Navbar";
 import RevisionQueue from "@/components/RevisionQueue";
+
+export const metadata = {
+  title: "Studyloaf: Revisions",
+  description: "Topics due for spaced repetition review today.",
+};
+
 export default function RevisionsPage() {
   return (
     <div className="page-root">

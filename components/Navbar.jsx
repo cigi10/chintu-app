@@ -1,48 +1,29 @@
 "use client";
 import "@/styles/navbar.css";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { getLocalCoins, hydrateCoins } from "@/lib/coins";
 import { hydrateCompanionName } from "@/lib/companion";
+import { NAV } from "@/lib/navItems";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 
-const DIRECT_ITEMS = [
-  { href: "/dashboard",     label: "Home"         },
-  { href: "/timer",         label: "Timer"        },
-  { href: "/todo",          label: "To-do"        },
-  { href: "/timetable",     label: "Timetable"    },
-  { href: "/tracker",       label: "Tracker"      },
-  { href: "/achievements",  label: "Achievements" },
-];
+const DIRECT_ITEMS = [NAV.home, NAV.timer, NAV.todo, NAV.timetable, NAV.tracker, NAV.achievements];
 
 const GROUPS = [
   {
     label: "Study",
-    items: [
-      { href: "/goals",     label: "Goals"     },
-      { href: "/revisions", label: "Revisions" },
-      { href: "/mocktests", label: "Mocks"      },
-      { href: "/stats",     label: "Stats"      },
-      { href: "/rooms",     label: "Rooms"      },
-      { href: "/shop",      label: "Shop"       },
-    ],
+    items: [NAV.goals, NAV.revisions, NAV.mocktests, NAV.stats, NAV.rooms, NAV.shop],
   },
   {
     label: "You",
-    items: [
-      { href: "/journal", label: "Journal" },
-      { href: "/mood",    label: "Mood"    },
-      { href: "/digest",  label: "Digest"  },
-      { href: "/profile", label: "Profile" },
-    ],
+    items: [NAV.journal, NAV.mood, NAV.digest, NAV.profile, NAV.tutorial],
   },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
   const [coins, setCoins]                 = useState(0);
   const [coinPulse, setCoinPulse]         = useState(false);
   const [moreOpen, setMoreOpen]           = useState(false);

@@ -89,7 +89,7 @@ export default function GoalsManager() {
         <div className="goals__empty-state">
           <p className="goals__empty">No goals yet: a goal is just a subject you want to hit regularly.</p>
           <p className="goals__empty-hint">
-            Try something like "Maths, 30 minutes, every weekday": it'll show up on your Timetable and Tracker automatically.
+            Try something like &quot;Maths, 30 minutes, every weekday&quot;: it&apos;ll show up on your Timetable and Tracker automatically.
           </p>
         </div>
       ) : (

@@ -6,6 +6,8 @@ import Companion from "@/components/Companion";
 import { getGoalsForDate, hydrateGoals } from "@/lib/goals";
 import { addCoins } from "@/lib/coins";
 import { hydrateTracker, getSessionLog, saveExamPackAndSubjects } from "@/lib/tracker";
+import { RAW_PACKS, PACK_NAMES, PACK_DESC, examPackLabel } from "@/lib/examPacks";
+import { COUNTRIES, packsForCountry } from "@/lib/examRegions";
 
 const STATUS_ORDER = ["not-started", "in-progress", "done", "migrated", "cancelled", "question"];
 const STATUS_LABEL = {
@@ -54,50 +56,6 @@ function makeTopics(names) {
   }));
 }
 
-const RAW_PACKS = {
-  JEE: {
-    Physics:   ["Kinematics", "Laws of Motion", "Work, Energy & Power", "Rotational Motion", "Gravitation", "Thermodynamics", "Electrostatics", "Current Electricity", "Magnetism", "Optics", "Modern Physics"],
-    Chemistry: ["Mole Concept", "Atomic Structure", "Chemical Bonding", "States of Matter", "Thermodynamics", "Equilibrium", "Electrochemistry", "Organic Basics", "Hydrocarbons", "Coordination Compounds", "Periodic Table"],
-    Maths:     ["Sets & Functions", "Quadratic Equations", "Sequences & Series", "Trigonometry", "Coordinate Geometry", "Limits & Derivatives", "Integration", "Vectors", "Probability", "Matrices & Determinants"],
-  },
-  NEET: {
-    Physics:   ["Kinematics", "Laws of Motion", "Work & Energy", "Gravitation", "Thermodynamics", "Electrostatics", "Current Electricity", "Optics", "Modern Physics"],
-    Chemistry: ["Mole Concept", "Chemical Bonding", "Equilibrium", "Organic Basics", "Biomolecules", "Coordination Compounds", "Electrochemistry"],
-    Biology:   ["Cell Structure", "Genetics", "Human Physiology", "Plant Physiology", "Ecology", "Evolution", "Reproduction", "Biotechnology", "Human Health & Disease"],
-  },
-  "SAT/ACT": {
-    Math:               ["Heart of Algebra", "Problem Solving & Data", "Passport to Advanced Math", "Geometry & Trig", "Statistics Basics"],
-    "Reading & Writing": ["Reading Comprehension", "Grammar & Usage", "Vocabulary in Context", "Essay/Writing Skills", "Rhetorical Analysis"],
-  },
-  "A-Levels": {
-    Maths:     ["Pure Maths 1", "Pure Maths 2", "Statistics", "Mechanics"],
-    Physics:   ["Mechanics", "Electricity", "Waves", "Thermal Physics", "Nuclear Physics"],
-    Chemistry: ["Atomic Structure", "Bonding", "Organic Chemistry", "Energetics", "Equilibria"],
-  },
-  GCSEs: {
-    Maths:   ["Number", "Algebra", "Geometry & Measures", "Statistics", "Probability"],
-    English: ["Reading Skills", "Creative Writing", "Persuasive Writing", "Poetry Analysis", "Shakespeare"],
-    Science: ["Biology Basics", "Chemistry Basics", "Physics Basics", "Working Scientifically"],
-  },
-  Gaokao: {
-    Maths:   ["Functions", "Sequences", "Trigonometry", "Solid Geometry", "Probability & Statistics", "Conic Sections"],
-    Chinese: ["Classical Texts", "Modern Prose", "Composition Writing", "Poetry Appreciation"],
-    English: ["Reading Comprehension", "Cloze Test", "Grammar", "Writing Task"],
-  },
-  "GRE/GMAT": {
-    Quant:  ["Arithmetic", "Algebra", "Geometry", "Data Interpretation", "Word Problems"],
-    Verbal: ["Reading Comprehension", "Critical Reasoning", "Sentence Correction", "Text Completion", "Vocabulary"],
-  },
-  Placements: {
-    DSA:             ["Arrays & Strings", "Linked Lists", "Stacks & Queues", "Trees", "Graphs", "Dynamic Programming", "Greedy Algorithms", "Sorting & Searching"],
-    "CS Core":       ["Operating Systems", "DBMS", "Computer Networks", "OOP Concepts", "System Design Basics"],
-    "ECE Core":      ["Analog Electronics", "Digital Electronics", "Signals & Systems", "Communication Systems", "Microprocessors", "VLSI Basics", "Control Systems"],
-    "Aptitude & HR": ["Quantitative Aptitude", "Logical Reasoning", "Verbal Ability", "HR Interview Prep", "Resume & Projects"],
-  },
-};
-
-const PACK_NAMES = Object.keys(RAW_PACKS);
-
 function buildFreshSubjects(packName) {
   if (packName === "Custom") return {};
   const subjects = {};
@@ -128,29 +86,37 @@ function moodFromProgress(pct) {
 }
 
 function ExamPicker({ onPick }) {
-  const DESC = {
-    Custom: "Build your own topic list",
-    JEE: "Physics, Chemistry, Maths",
-    NEET: "Physics, Chemistry, Biology",
-    "SAT/ACT": "Math, Reading & Writing",
-    "A-Levels": "Maths, Physics, Chemistry",
-    GCSEs: "Maths, English, Science",
-    Gaokao: "Maths, Chinese, English",
-    "GRE/GMAT": "Quant, Verbal",
-    Placements: "CS, ECE, DSA, Aptitude",
-  };
-  const options = ["Custom", ...PACK_NAMES];
+  const [country, setCountry] = useState(null);
+
+  if (!country) {
+    return (
+      <div className="exam-picker">
+        <p className="exam-picker__prompt">Where are you studying from?</p>
+        <div className="exam-picker__list">
+          {COUNTRIES.map(c => (
+            <button key={c.key} className="exam-picker__btn" onClick={() => setCountry(c.key)}>
+              <div className="exam-picker__btn-name">{c.key}</div>
+              <div className="exam-picker__btn-desc">{c.desc}</div>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  const options = ["Custom", ...packsForCountry(country, PACK_NAMES)];
   return (
     <div className="exam-picker">
       <p className="exam-picker__prompt">Which exam are you preparing for?</p>
       <div className="exam-picker__list">
         {options.map(key => (
           <button key={key} className="exam-picker__btn" onClick={() => onPick(key)}>
-            <div className="exam-picker__btn-name">{key}</div>
-            <div className="exam-picker__btn-desc">{DESC[key]}</div>
+            <div className="exam-picker__btn-name">{examPackLabel(key)}</div>
+            <div className="exam-picker__btn-desc">{PACK_DESC[key]}</div>
           </button>
         ))}
       </div>
+      <button className="exam-picker__back" onClick={() => setCountry(null)}>← Change region</button>
     </div>
   );
 }
@@ -314,7 +280,7 @@ export default function PortionTracker() {
       )}
 
       <div className="tracker__top-bar">
-        <div className="tracker__exam-badge">{examType} — {overall}% complete</div>
+        <div className="tracker__exam-badge">{examPackLabel(examType)} · {overall}% complete</div>
         <button className="tracker__switch-btn" onClick={() => setPendingSwitch(true)}>Switch exam</button>
       </div>
 
@@ -323,7 +289,7 @@ export default function PortionTracker() {
           Open Timer
         </button>
         <button className="tracker__quicklink-btn" onClick={() => router.push("/timetable")}>
-          View this week's plan
+          View this week&apos;s plan
         </button>
         <button className="tracker__quicklink-btn" onClick={() => router.push("/dashboard")}>
           Back to Home
@@ -346,7 +312,7 @@ export default function PortionTracker() {
 
       {todayGoals.length > 0 && (
         <div className="tracker__today-goals">
-          <span className="tracker__today-goals-label">Today's goals</span>
+          <span className="tracker__today-goals-label">Today&apos;s goals</span>
           <div className="tracker__today-goals-list">
             {todayGoals.map(g => (
               <button
@@ -423,10 +389,14 @@ export default function PortionTracker() {
                     >
                       Study
                     </button>
-                    <button className="tracker__topic-expand" onClick={() => toggleExpand(t.id)}>
+                    <button
+                      className="tracker__topic-expand"
+                      onClick={() => toggleExpand(t.id)}
+                      aria-label={expanded[t.id] ? "Collapse topic" : "Expand topic"}
+                    >
                       {expanded[t.id] ? "−" : "+"}
                     </button>
-                    <button className="tracker__topic-remove" onClick={() => removeTopic(subject, t.id)}>×</button>
+                    <button className="tracker__topic-remove" onClick={() => removeTopic(subject, t.id)} aria-label="Remove topic">×</button>
                   </div>
 
                   {expanded[t.id] && (

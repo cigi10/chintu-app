@@ -6,6 +6,10 @@
   vertical-align: middle;
 }
 
+.keycap--wide {
+  width: 220px;
+}
+
 .keycap__cover {
   position: absolute;
   inset: 0;

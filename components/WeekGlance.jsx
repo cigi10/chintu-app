@@ -11,14 +11,14 @@ export default function WeekGlance({ goalsByDay }) {
             <span className="goals__week-glance-day-label">{day}</span>
             <div className="goals__week-glance-dots">
               {(goalsByDay[day] || []).length === 0 ? (
-                <span className="goals__week-glance-empty">—</span>
+                <span className="goals__week-glance-empty">·</span>
               ) : (
                 goalsByDay[day].map(g => (
                   <span
                     key={g.id}
                     className="goals__week-glance-dot"
                     style={{ backgroundColor: g.color }}
-                    title={`${g.subject} — ${g.durationMinutes}m`}
+                    title={`${g.subject} · ${g.durationMinutes}m`}
                   />
                 ))
               )}

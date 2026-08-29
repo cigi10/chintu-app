@@ -1,8 +1,11 @@
 "use client";
 
 import "@/styles/landing.css";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
+
+const THEME_KEY = "chintu-theme";
 
 const FEATURES = [
   {
@@ -15,16 +18,31 @@ const FEATURES = [
   },
   {
     title: "Everything in one place",
-    desc: "Timetable, syllabus tracker, revision queue, mock scores, and to-dos, all connected.",
+    desc: "Timetable, syllabus tracker, revision queue, mock scores, and tasks, all connected.",
   },
   {
     title: "Built for real exam prep",
-    desc: "JEE, NEET, SAT, ACT, A-Levels, GCSEs, Gaokao, GRE, GMAT, placements, or your own custom plan.",
+    desc: "JEE, NEET, SAT, ACT, A Levels, GCSEs, Gaokao, GRE, GMAT, placements, or your own custom plan.",
   },
 ];
 
 export default function Landing() {
   const router = useRouter();
+
+  useEffect(() => {
+    let storedTheme = null;
+    try {
+      storedTheme = localStorage.getItem(THEME_KEY);
+    } catch {}
+
+    document.documentElement.setAttribute("data-theme", "cocoa");
+
+    return () => {
+      try {
+        document.documentElement.setAttribute("data-theme", storedTheme || "sunset");
+      } catch {}
+    };
+  }, []);
 
   return (
     <div className="landing">

@@ -34,8 +34,6 @@ export default function Stats() {
     minutesByDay[s.date] = (minutesByDay[s.date] || 0) + mins;
   });
 
-  const maxMinutes = Math.max(...days.map((d) => minutesByDay[d] || 0), 1);
-
   const totalMinutes = log.reduce((sum, s) => sum + (Number(s.durationMinutes) || 0), 0);
   const totalSessions = log.length;
 
@@ -85,7 +83,7 @@ export default function Stats() {
     return (
       <div className="stats">
         <div className="stats__empty">
-          No study sessions logged yet — start a session to see your stats here.
+          No study sessions logged yet. Start a session to see your stats here.
         </div>
       </div>
     );
@@ -127,7 +125,7 @@ export default function Stats() {
         <span className="stats__streak-number">{streak}</span>
         <div>
           <span className="stats__streak-label">Day streak</span>
-          <span className="stats__streak-sub">Keep it going — study today to extend it.</span>
+          <span className="stats__streak-sub">Keep it going. Study today to extend it.</span>
         </div>
       </div>
 
