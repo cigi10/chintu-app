@@ -1,11 +1,18 @@
 "use client";
 
 import "@/styles/landing.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
 
 const THEME_KEY = "chintu-theme";
+
+// Cycled in the hero via a plain sprite swap - same approach as the
+// dashboard's IDLE_POSES and StudyTimer's mood art, no transition/remount.
+// Kept to inviting/curious moods on purpose — no "worried" or "sleepy"
+// here, this is the first thing a new visitor sees.
+const HERO_MOODS = ["waiting", "curious", "happy", "thoughtful", "surprised", "celebrating"];
+const HERO_MOOD_INTERVAL_MS = 3200;
 
 const FEATURES = [
   {
@@ -28,6 +35,7 @@ const FEATURES = [
 
 export default function Landing() {
   const router = useRouter();
+  const [heroMood, setHeroMood] = useState(HERO_MOODS[0]);
 
   useEffect(() => {
     let storedTheme = null;
@@ -35,13 +43,28 @@ export default function Landing() {
       storedTheme = localStorage.getItem(THEME_KEY);
     } catch {}
 
-    document.documentElement.setAttribute("data-theme", "cocoa");
+    // Matches the palette landing.css already hardcodes (same lavender
+    // primary, same indoor-bg.PNG), so a flash before the background image
+    // paints is soft near-white instead of another theme's near-black.
+    document.documentElement.setAttribute("data-theme", "sunset");
 
     return () => {
       try {
         document.documentElement.setAttribute("data-theme", storedTheme || "sunset");
       } catch {}
     };
+  }, []);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    let i = 0;
+    const id = setInterval(() => {
+      i = (i + 1) % HERO_MOODS.length;
+      setHeroMood(HERO_MOODS[i]);
+    }, HERO_MOOD_INTERVAL_MS);
+    return () => clearInterval(id);
   }, []);
 
   return (
@@ -59,7 +82,7 @@ export default function Landing() {
           </p>
 
           <div className="landing__hero-companion">
-            <Companion mood="waiting" />
+            <Companion mood={heroMood} />
           </div>
 
           <p className="landing__subtext">
@@ -75,10 +98,6 @@ export default function Landing() {
           >
             Sign in to get started
           </button>
-
-          <p className="landing__cta-note">
-            Takes 10 seconds with Google. Your progress syncs across devices.
-          </p>
 
         </div>
 
@@ -105,7 +124,7 @@ export default function Landing() {
 
       <footer className="landing__footer">
         <p className="landing__footer-note">
-          Free to use. Sign in with Google to save your progress.
+          Free to use. Takes 10 seconds with Google, your progress syncs across every device.
         </p>
       </footer>
     </div>
