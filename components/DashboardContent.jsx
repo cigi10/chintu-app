@@ -33,8 +33,8 @@ const MOODS = [
 // in one static pose, same sprite-swap approach StudyTimer.jsx uses while
 // actively studying — reuses existing mood art, no new assets.
 const IDLE_POSES = {
-  happy:   ["happy", "cozy", "curious"],
-  waiting: ["waiting", "curious", "thoughtful"],
+  happy:   ["happy", "cozy", "curious", "determined", "surprised", "celebrating"],
+  waiting: ["waiting", "curious", "thoughtful", "cozy"],
 };
 const IDLE_FRAME_MS = 2500;
 
