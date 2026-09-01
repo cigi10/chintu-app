@@ -83,8 +83,8 @@ export default function PrivacyPage() {
       <h2 className="legal-heading">Contact</h2>
       <p className="legal-p">
         Questions about this policy or your data? Reach out at{" "}
-        <a href="mailto:contact@studyloaf.com" className="legal-link">
-          contact@studyloaf.com
+        <a href="mailto:contactvachmi@gmail.com" className="legal-link">
+          contactvachmi@gmail.com
         </a>
         .
       </p>
