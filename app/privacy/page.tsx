@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import "@/styles/legal.css";
 
 export const metadata = {
@@ -7,7 +8,9 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="legal-shell">
+    <>
+      <Navbar />
+      <div className="legal-shell">
       <h1 className="legal-title">Privacy Policy</h1>
       <p className="legal-updated">Last updated: September 1, 2026</p>
 
@@ -74,30 +77,48 @@ export default function PrivacyPage() {
         third-party advertising or tracking cookies.
       </p>
 
-      <h2 className="legal-heading">5. Third-party service providers</h2>
+      <h2 className="legal-heading">5. Google user data</h2>
+      <p className="legal-p">
+        If you sign in to Studyloaf using &quot;Continue with Google,&quot; Studyloaf receives the
+        following information from your Google account through Google&apos;s OAuth sign-in
+        process: your name, email address, profile picture, and a unique identifier used to
+        recognize your account on future visits. Studyloaf does not request or receive access to
+        your Gmail, Google Drive, Google Calendar, contacts, or any other Google product or data
+        beyond this basic profile information.
+      </p>
+      <p className="legal-p">
+        This information is used solely to create and authenticate your Studyloaf account, and to
+        personalize your experience (for example, displaying your name). It is stored securely in
+        our Supabase database and is not shared with any third party except the service providers
+        listed below, who process it only as necessary to operate Studyloaf. We do not use data
+        obtained through Google sign-in for advertising, and we do not transfer it to any AI model
+        training process.
+      </p>
+
+      <h2 className="legal-heading">6. Third-party service providers</h2>
       <p className="legal-p">
         We rely on the following third-party services to operate Studyloaf. Each processes a
         limited set of data on our behalf, under their own security and privacy practices:
       </p>
       <ul className="legal-list">
         <li>
-          <strong>Supabase</strong> = provides authentication and database storage for your
+          <strong>Supabase</strong> — provides authentication and database storage for your
           account and study data.
         </li>
         <li>
-          <strong>Google OAuth</strong> = used if you choose to sign in with your Google account,
+          <strong>Google OAuth</strong> — used if you choose to sign in with your Google account,
           to verify your identity without Studyloaf ever seeing your Google password.
         </li>
         <li>
-          <strong>Resend</strong> = sends transactional emails on our behalf, such as sign-up
+          <strong>Resend</strong> — sends transactional emails on our behalf, such as sign-up
           confirmations and password resets.
         </li>
         <li>
-          <strong>Vercel</strong> = hosts the Studyloaf website and application infrastructure.
+          <strong>Vercel</strong> — hosts the Studyloaf website and application infrastructure.
         </li>
       </ul>
 
-      <h2 className="legal-heading">6. Data security</h2>
+      <h2 className="legal-heading">7. Data security</h2>
       <p className="legal-p">
         We take reasonable technical and organizational measures to protect your information,
         including encrypted connections (HTTPS) between your browser and our servers, and
@@ -106,7 +127,7 @@ export default function PrivacyPage() {
         appropriate for an app of this scale.
       </p>
 
-      <h2 className="legal-heading">7. Data retention</h2>
+      <h2 className="legal-heading">8. Data retention</h2>
       <p className="legal-p">
         We retain your account and study data for as long as your account remains active, so that
         your progress and settings are preserved across sessions. If you delete your account or
@@ -115,7 +136,7 @@ export default function PrivacyPage() {
         reasons (such as backup rotation).
       </p>
 
-      <h2 className="legal-heading">8. Your rights and choices</h2>
+      <h2 className="legal-heading">9. Your rights and choices</h2>
       <p className="legal-p">You can, at any time:</p>
       <ul className="legal-list">
         <li>Request a copy of the personal data we hold about you</li>
@@ -128,7 +149,7 @@ export default function PrivacyPage() {
         within a reasonable timeframe.
       </p>
 
-      <h2 className="legal-heading">9. International users</h2>
+      <h2 className="legal-heading">10. International users</h2>
       <p className="legal-p">
         Studyloaf is used by students in multiple countries. Your information may be processed
         and stored on servers located outside your own country, including in regions where our
@@ -136,7 +157,7 @@ export default function PrivacyPage() {
         consent to this transfer and processing.
       </p>
 
-      <h2 className="legal-heading">10. Children&apos;s privacy</h2>
+      <h2 className="legal-heading">11. Children&apos;s privacy</h2>
       <p className="legal-p">
         Studyloaf is intended for students generally preparing for secondary school, standardized
         tests, or higher-education entrance exams. We do not knowingly collect personal
@@ -145,22 +166,23 @@ export default function PrivacyPage() {
         remove it.
       </p>
 
-      <h2 className="legal-heading">11. Changes to this policy</h2>
+      <h2 className="legal-heading">12. Changes to this policy</h2>
       <p className="legal-p">
         We may update this Privacy Policy as Studyloaf&apos;s features evolve. If we make material
         changes, we will update the &quot;Last updated&quot; date at the top of this page, and
         where appropriate, notify users through the app or by email.
       </p>
 
-      <h2 className="legal-heading">12. Contact us</h2>
+      <h2 className="legal-heading">13. Contact us</h2>
       <p className="legal-p">
         If you have questions about this Privacy Policy or how your data is handled, contact us
         at{" "}
-        <a href="mailto:contact@studyloaf.com" className="legal-link">
-          contact@studyloaf.com
+        <a href="mailto:contactvachmi@gmail.com" className="legal-link">
+          contactvachmi@gmail.com
         </a>
         .
       </p>
-    </div>
+      </div>
+    </>
   );
 }

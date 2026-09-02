@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import "@/styles/legal.css";
 
 export const metadata = {
@@ -7,7 +8,9 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="legal-shell">
+    <>
+      <Navbar />
+      <div className="legal-shell">
       <h1 className="legal-title">Terms of Service</h1>
       <p className="legal-updated">Last updated: September 1, 2026</p>
 
@@ -78,6 +81,7 @@ export default function TermsPage() {
         </a>
         .
       </p>
-    </div>
+      </div>
+    </>
   );
 }
