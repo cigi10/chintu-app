@@ -14,7 +14,7 @@ const STUDY_GROUP = {
   items: [NAV.goals, NAV.timetable, NAV.revisions, NAV.todo, NAV.mocktests, NAV.stats, NAV.rooms, NAV.achievements],
 };
 
-const YOU_GROUP_BASE = [NAV.journal, NAV.mood, NAV.digest, NAV.tutorial, NAV.privacy, NAV.terms];
+const YOU_GROUP_BASE = [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.privacy, NAV.terms];
 
 export default function BottomNav() {
   const pathname = usePathname();

@@ -1,9 +1,17 @@
 /* legal.css */
 
 .legal-shell {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 48px 24px 80px;
+  max-width: 820px;
+  margin: 40px auto 80px;
+  padding: 0 24px;
+}
+
+.legal-card {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  padding: 40px clamp(24px, 5vw, 56px) 56px;
   color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.65;

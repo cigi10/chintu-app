@@ -57,6 +57,14 @@
   padding-top: 0.5rem;
 }
 
+.tutorial__cta-link {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-accent-strong);
+  text-decoration: underline;
+}
+
 @media (max-width: 480px) {
   .tutorial__basics-grid,
   .tutorial__features-grid {

@@ -2,6 +2,7 @@
 import "@/styles/dashboard.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Companion from "@/components/Companion";
 import KeycapButton from "@/components/KeycapButton";
 import StreakBanner from "@/components/StreakBanner";
@@ -339,6 +340,7 @@ export default function DashboardContent() {
       
 
       <h1 className="dashboard__greeting">{greeting()}</h1>
+      <Link href="/tutorial" className="dashboard__tour-link">New here? Take a 1-minute tour →</Link>
       <StreakBanner />
 
       {/* D-Day strip */}

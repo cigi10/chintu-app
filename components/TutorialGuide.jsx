@@ -145,8 +145,8 @@ export default function TutorialGuide() {
       </section>
 
       <section className="tutorial__cta">
-        <Link href="/dashboard" className="btn btn--primary btn--lg">
-          Got it, take me to my dashboard
+        <Link href="/dashboard" className="tutorial__cta-link">
+          Got it, take me to my dashboard →
         </Link>
       </section>
     </div>

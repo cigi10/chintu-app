@@ -18,6 +18,16 @@
   margin-bottom: 8px;
 }
 
+.dashboard__tour-link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent-strong);
+  text-decoration: underline;
+  margin-bottom: 16px;
+}
+
 /* D-Day strip */
 .dashboard__dday-strip { display: flex; gap: 10px; overflow-x: auto; margin: 16px 0; padding-bottom: 4px; }
 

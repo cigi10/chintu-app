@@ -18,7 +18,7 @@ const GROUPS = [
   },
   {
     label: "You",
-    items: [NAV.journal, NAV.mood, NAV.digest, NAV.profile, NAV.tutorial, NAV.privacy, NAV.terms],
+    items: [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.profile, NAV.privacy, NAV.terms],
   },
 ];
 
