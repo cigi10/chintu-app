@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Companion from "@/components/Companion";
 import KeycapButton from "@/components/KeycapButton";
 import { recordStudySession } from "@/lib/streakLogic";
+import { bakeSliceForToday } from "@/lib/loafSlices";
 import { localDateStr } from "@/lib/date";
 import { setGoalDone } from "@/lib/goals";
 import { getLocalCoins, hydrateCoins, addCoins } from "@/lib/coins";
@@ -419,6 +420,7 @@ export default function StudyTimer({ roomName = null }) {
 
     if (isStudyType) {
       recordStudySession();
+      bakeSliceForToday();
       const ns = loadSessions() + 1;
       saveSessions(ns);
       setSessions(ns);
