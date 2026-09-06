@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import { BLOG_POSTS } from "@/lib/blogPosts";
+import { getAllBlogPosts } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -9,6 +9,8 @@ export const metadata = {
 };
 
 export default function BlogIndexPage() {
+  const posts = getAllBlogPosts();
+
   return (
     <>
       <Navbar />
@@ -19,7 +21,7 @@ export default function BlogIndexPage() {
         </div>
 
         <div className="blog-list">
-          {BLOG_POSTS.map(post => (
+          {posts.map(post => (
             <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card">
               <h2 className="blog-card-title">{post.title}</h2>
               <p className="blog-card-desc">{post.description}</p>

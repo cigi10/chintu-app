@@ -114,3 +114,18 @@
   font-size: 0.95rem;
   color: var(--color-text);
 }
+
+.blog-post-list {
+  margin: 0;
+  padding-left: 1.25em;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.blog-post-list li {
+  margin-bottom: 6px;
+}
+
+.blog-post-list li:last-child {
+  margin-bottom: 0;
+}

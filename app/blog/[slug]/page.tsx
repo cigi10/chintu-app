@@ -7,6 +7,14 @@ type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+// A content section has either a `body` string or a `list` of strings,
+// never both.
+type BlogPostSection = {
+  heading: string | null;
+  body?: string;
+  list?: string[];
+};
+
 // Pre-render every known post at build time; anything else 404s.
 export function generateStaticParams() {
   return getBlogSlugs().map(slug => ({ slug }));
@@ -49,10 +57,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <span>{post.readingTime}</span>
           </div>
 
-          {post.content.map((section, i) => (
+          {(post.content as BlogPostSection[]).map((section, i) => (
             <div key={i} className="blog-post-section">
               {section.heading && <h2 className="blog-post-heading">{section.heading}</h2>}
-              <p className="blog-post-p">{section.body}</p>
+              {section.list ? (
+                <ul className="blog-post-list">
+                  {section.list.map((item, j) => (
+                    <li key={j}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="blog-post-p">{section.body}</p>
+              )}
             </div>
           ))}
         </article>
