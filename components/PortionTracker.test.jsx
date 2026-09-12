@@ -28,7 +28,16 @@ vi.mock("@/lib/tracker", () => ({
   saveExamPackAndSubjects: vi.fn(),
   getAllTags: vi.fn(() => ["JEE", "Placements"]),
   addCustomTag: vi.fn(),
-  setTopicTags: vi.fn(),
+  // Mirrors the real lib/tracker.js#setTopicTags return shape ({ subjects })
+  // rather than an empty mock — the component reads `.subjects` off the
+  // return value, so a bare vi.fn() here would throw on click and mask a
+  // real production return value with a false-passing test.
+  setTopicTags: vi.fn((subject, topicId, tags) => ({
+    subjects: {
+      ...trackerState.subjects,
+      [subject]: trackerState.subjects[subject].map(t => (t.id === topicId ? { ...t, tags } : t)),
+    },
+  })),
   importPackTopics: vi.fn(),
 }));
 
@@ -37,6 +46,7 @@ vi.mock("@/lib/todos", () => ({
 }));
 
 import { upsertTodoForTopic } from "@/lib/todos";
+import { addCustomTag, setTopicTags } from "@/lib/tracker";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -80,5 +90,21 @@ describe("PortionTracker — tag filtering", () => {
     fireEvent.click(screen.getByText("All"));
 
     expect(screen.getByText("Kinematics")).toBeInTheDocument();
+  });
+});
+
+describe("PortionTracker — custom tags via UI", () => {
+  it("lets a user create a brand-new custom tag from the per-topic tag editor, not just from an imported pack", async () => {
+    render(<PortionTracker />);
+    await waitFor(() => expect(screen.getByText("Kinematics")).toBeInTheDocument());
+
+    fireEvent.click(screen.getByRole("button", { name: "Edit tags" }));
+
+    const tagInput = screen.getByPlaceholderText("New tag...");
+    fireEvent.change(tagInput, { target: { value: "Personal Project" } });
+    fireEvent.click(tagInput.closest(".tracker__tag-editor-new").querySelector(".tracker__add-btn"));
+
+    expect(addCustomTag).toHaveBeenCalledWith("Personal Project");
+    expect(setTopicTags).toHaveBeenCalledWith("Physics", "p1", ["JEE", "Personal Project"]);
   });
 });
