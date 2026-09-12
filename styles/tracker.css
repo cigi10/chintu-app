@@ -88,6 +88,7 @@
 .tracker__warning-cancel { padding: 8px 16px; border-radius: var(--radius-pill); border: 1.5px solid var(--color-border); background: none; color: var(--color-text-secondary); font-weight: 700; font-size: 0.82rem; cursor: pointer; font-family: var(--font-body); }
 
 .tracker__empty-hint { color: var(--color-text-secondary); text-align: center; margin: 24px 0; }
+.tracker__empty-hint--inline { margin: 8px 0; font-size: 0.82rem; }
 .tracker__add-topic-row { display: flex; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--color-border-dashed); }
 
 .tracker__new-subject-block { margin-top: 20px; }
@@ -108,3 +109,22 @@
 
 .tracker__celebration-banner { background: var(--color-accent-strong); color: #fff; text-align: center; border-radius: var(--radius-pill); padding: 8px 16px; margin-bottom: 12px; font-weight: 800; font-size: 0.85rem; box-shadow: var(--shadow-primary-btn); }
 .tracker__celebration-text { margin: 0; }
+
+/* Tags — filter chips, per-topic pills, and the inline tag editor. */
+.tracker__tag-filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.tracker__tag-filter-chip { padding: 6px 14px; border-radius: var(--radius-pill); border: 1.5px solid var(--color-border); background: var(--color-surface); color: var(--color-text-secondary); font-family: var(--font-body); font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
+.tracker__tag-filter-chip:hover { background: var(--color-accent); }
+.tracker__tag-filter-chip--active { background: var(--color-accent-strong); border-color: var(--color-accent-strong); color: #fff; }
+
+.tracker__tag-pill { border: 1px solid var(--color-border); background: var(--color-surface-alt); color: var(--color-text-secondary); font-family: var(--font-body); font-weight: 700; font-size: 0.62rem; padding: 2px 8px; border-radius: var(--radius-pill); }
+
+.tracker__topic-tag-btn { background: none; border: none; cursor: pointer; font-size: 0.85rem; padding: 4px; opacity: 0.7; }
+.tracker__topic-tag-btn:hover { opacity: 1; }
+
+.tracker__tag-editor { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 8px 0 4px 34px; }
+.tracker__tag-chip { padding: 4px 11px; border-radius: var(--radius-pill); border: 1.5px solid var(--color-border); background: var(--color-surface); color: var(--color-text-secondary); font-family: var(--font-body); font-weight: 700; font-size: 0.72rem; cursor: pointer; }
+.tracker__tag-chip--active { background: var(--color-accent-strong); border-color: var(--color-accent-strong); color: #fff; }
+.tracker__tag-editor-new { display: flex; gap: 6px; }
+
+.tracker__bottom-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.tracker__bottom-actions .tracker__new-subject-btn { flex: 1 1 220px; }

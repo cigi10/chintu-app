@@ -5,7 +5,15 @@ import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
 import { getGoalsForDate, hydrateGoals } from "@/lib/goals";
 import { addCoins } from "@/lib/coins";
-import { hydrateTracker, getSessionLog, saveExamPackAndSubjects } from "@/lib/tracker";
+import {
+  hydrateTracker,
+  getSessionLog,
+  saveExamPackAndSubjects,
+  getAllTags,
+  addCustomTag,
+  setTopicTags,
+  importPackTopics,
+} from "@/lib/tracker";
 import { upsertTodoForTopic } from "@/lib/todos";
 import { RAW_PACKS, PACK_NAMES, PACK_DESC, examPackLabel } from "@/lib/examPacks";
 import { COUNTRIES, packsForCountry } from "@/lib/examRegions";
@@ -139,6 +147,15 @@ export default function PortionTracker() {
   const [newSubjectName, setNewSubjectName]   = useState("");
   const [newSubjectTopic, setNewSubjectTopic] = useState("");
 
+  // Tags: a topic can carry several ("GATE CS", "Placements", "Personal"),
+  // so several overlapping goals live in one merged list instead of one
+  // pack at a time. See lib/tracker.js for the tag/import data model.
+  const [allTags, setAllTags]           = useState([]);
+  const [activeTag, setActiveTag]       = useState("All");
+  const [editingTagsFor, setEditingTagsFor] = useState(null); // topic id
+  const [newTagInput, setNewTagInput]   = useState("");
+  const [showImportPicker, setShowImportPicker] = useState(false);
+
   useEffect(() => {
     hydrateTracker().then(({ examPack, subjects: savedSubjects }) => {
       if (examPack) {
@@ -177,9 +194,41 @@ export default function PortionTracker() {
     hydrateGoals().then(() => setTodayGoals(getGoalsForDate(new Date())));
   }, []);
 
+  // Keeps the filter-chip list in sync with whatever tags actually exist
+  // (custom tags, imported packs, or tags picked up from subjects state).
+  useEffect(() => {
+    setAllTags(getAllTags());
+  }, [subjects]);
+
   function pickExam(packName) {
     setExamType(packName);
     setSubjects(buildFreshSubjects(packName));
+  }
+
+  function handleImportPack(packName) {
+    const updated = importPackTopics(packName);
+    setSubjects(updated.subjects);
+    setShowImportPicker(false);
+  }
+
+  function toggleTopicTag(subject, topic, tag) {
+    const current = topic.tags || [];
+    const next = current.includes(tag) ? current.filter(t => t !== tag) : [...current, tag];
+    const updated = setTopicTags(subject, topic.id, next);
+    setSubjects(updated.subjects);
+  }
+
+  function createAndApplyTag(subject, topic) {
+    const name = newTagInput.trim();
+    if (!name) return;
+    addCustomTag(name);
+    const current = topic.tags || [];
+    const updated = current.some(t => t.toLowerCase() === name.toLowerCase())
+      ? { subjects }
+      : setTopicTags(subject, topic.id, [...current, name]);
+    setSubjects(updated.subjects);
+    setNewTagInput("");
+    setAllTags(getAllTags());
   }
 
   function cycleTopicStatus(subject, topicId) {
@@ -234,9 +283,13 @@ export default function PortionTracker() {
   function addTopicToSubject(subject) {
     const text = (newTopicMap[subject] || "").trim();
     if (!text) return;
+    // Adding while a specific tag filter is active tags the new topic
+    // with it, matching what you're currently looking at; "All" leaves
+    // it untagged since there's no single obvious tag to pick.
+    const tags = activeTag !== "All" ? [activeTag] : [];
     setSubjects(prev => ({
       ...prev,
-      [subject]: [...(prev[subject] || []), { id: `${text}-${Date.now()}`, name: text, status: "not-started", subtopics: [] }],
+      [subject]: [...(prev[subject] || []), { id: `${text}-${Date.now()}`, name: text, status: "not-started", subtopics: [], tags }],
     }));
     setNewTopicMap(prev => ({ ...prev, [subject]: "" }));
     upsertTodoForTopic(text, subject);
@@ -246,10 +299,11 @@ export default function PortionTracker() {
     const subjName = newSubjectName.trim();
     const topicName = newSubjectTopic.trim();
     if (!subjName) return;
+    const tags = activeTag !== "All" ? [activeTag] : [];
     setSubjects(prev => ({
       ...prev,
       [subjName]: topicName
-        ? [{ id: `${topicName}-${Date.now()}`, name: topicName, status: "not-started", subtopics: [] }]
+        ? [{ id: `${topicName}-${Date.now()}`, name: topicName, status: "not-started", subtopics: [], tags }]
         : [],
     }));
     setNewSubjectName("");
@@ -270,7 +324,17 @@ export default function PortionTracker() {
 
   const overall = overallProgress(subjects);
   const mood = celebrating ? "celebrating" : moodFromProgress(overall);
-  const subjectEntries = Object.entries(subjects);
+  // Filtering is topic-level and display-only: subjectProgress/overall
+  // above still reflect every topic regardless of the active tag filter.
+  // Every subject still renders (header, progress bar, and — importantly
+  // — the "add a topic" form) even when nothing in it matches the active
+  // filter, so you can add a first topic under a tag to a subject that
+  // doesn't have one yet instead of the subject just disappearing.
+  const subjectEntries = Object.entries(subjects).map(([subject, topics]) => [
+    subject,
+    topics,
+    activeTag === "All" ? topics : topics.filter(t => (t.tags || []).includes(activeTag)),
+  ]);
 
   return (
     <div style={{ paddingBottom: "2rem" }}>
@@ -333,11 +397,31 @@ export default function PortionTracker() {
         </div>
       )}
 
+      {allTags.length > 0 && (
+        <div className="tracker__tag-filter-row">
+          <button
+            className={`tracker__tag-filter-chip${activeTag === "All" ? " tracker__tag-filter-chip--active" : ""}`}
+            onClick={() => setActiveTag("All")}
+          >
+            All
+          </button>
+          {allTags.map(tag => (
+            <button
+              key={tag}
+              className={`tracker__tag-filter-chip${activeTag === tag ? " tracker__tag-filter-chip--active" : ""}`}
+              onClick={() => setActiveTag(tag)}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      )}
+
       {subjectEntries.length === 0 && !showNewSubjectForm && (
         <p className="tracker__empty-hint">No subjects yet: add your first one below.</p>
       )}
 
-      {subjectEntries.map(([subject, topics]) => (
+      {subjectEntries.map(([subject, topics, visibleTopics]) => (
         <div key={subject} className="tracker__subject">
           <div className="tracker__subject-header">
             <div className="tracker__subject-name-row">
@@ -358,7 +442,12 @@ export default function PortionTracker() {
           </div>
 
           <div className="tracker__topic-list">
-            {topics.map(t => {
+            {activeTag !== "All" && visibleTopics.length === 0 && (
+              <p className="tracker__empty-hint tracker__empty-hint--inline">
+                Nothing tagged &quot;{activeTag}&quot; in {subject} yet — add one below.
+              </p>
+            )}
+            {visibleTopics.map(t => {
               const isCancelled = t.status === "cancelled";
               return (
                 <div key={t.id} className="tracker__topic-block">
@@ -383,6 +472,9 @@ export default function PortionTracker() {
                           </span>
                         )}
                         <span className="tracker__topic-time">{formatMinutes(minutesForTopic(sessionLog, t.name))}</span>
+                        {(t.tags || []).map(tag => (
+                          <span key={tag} className="tracker__tag-pill">{tag}</span>
+                        ))}
                       </div>
                     </div>
 
@@ -393,6 +485,14 @@ export default function PortionTracker() {
                       Study
                     </button>
                     <button
+                      className="tracker__topic-tag-btn"
+                      onClick={() => setEditingTagsFor(prev => prev === t.id ? null : t.id)}
+                      aria-label="Edit tags"
+                      title="Edit tags"
+                    >
+                      🏷
+                    </button>
+                    <button
                       className="tracker__topic-expand"
                       onClick={() => toggleExpand(t.id)}
                       aria-label={expanded[t.id] ? "Collapse topic" : "Expand topic"}
@@ -401,6 +501,33 @@ export default function PortionTracker() {
                     </button>
                     <button className="tracker__topic-remove" onClick={() => removeTopic(subject, t.id)} aria-label="Remove topic">×</button>
                   </div>
+
+                  {editingTagsFor === t.id && (
+                    <div className="tracker__tag-editor">
+                      {allTags.map(tag => {
+                        const active = (t.tags || []).includes(tag);
+                        return (
+                          <button
+                            key={tag}
+                            className={`tracker__tag-chip${active ? " tracker__tag-chip--active" : ""}`}
+                            onClick={() => toggleTopicTag(subject, t, tag)}
+                          >
+                            {tag}
+                          </button>
+                        );
+                      })}
+                      <div className="tracker__tag-editor-new">
+                        <input
+                          className="tracker__add-input tracker__add-input--small"
+                          value={newTagInput}
+                          onChange={e => setNewTagInput(e.target.value)}
+                          onKeyDown={e => e.key === "Enter" && createAndApplyTag(subject, t)}
+                          placeholder="New tag..."
+                        />
+                        <button className="tracker__add-btn" onClick={() => createAndApplyTag(subject, t)}>Add</button>
+                      </div>
+                    </div>
+                  )}
 
                   {expanded[t.id] && (
                     <div className="tracker__subtopic-block">
@@ -460,9 +587,14 @@ export default function PortionTracker() {
 
       <div className="tracker__new-subject-block">
         {!showNewSubjectForm ? (
-          <button className="tracker__new-subject-btn" onClick={() => setShowNewSubjectForm(true)}>
-            + Add a new subject
-          </button>
+          <div className="tracker__bottom-actions">
+            <button className="tracker__new-subject-btn" onClick={() => setShowNewSubjectForm(true)}>
+              + Add a new subject
+            </button>
+            <button className="tracker__new-subject-btn" onClick={() => setShowImportPicker(true)}>
+              + Import another exam pack
+            </button>
+          </div>
         ) : (
           <div className="tracker__new-subject-form">
             <p className="tracker__new-subject-title">New subject</p>
@@ -491,6 +623,17 @@ export default function PortionTracker() {
           </div>
         )}
       </div>
+
+      {showImportPicker && (
+        <div className="tracker__warning">
+          <p>
+            Import a pack&apos;s topics into your current list — subjects merge together, and a topic
+            already in your list gets tagged with both instead of being duplicated.
+          </p>
+          <ExamPicker onPick={handleImportPack} />
+          <button className="tracker__warning-cancel" onClick={() => setShowImportPicker(false)}>Cancel</button>
+        </div>
+      )}
     </div>
   );
 }
