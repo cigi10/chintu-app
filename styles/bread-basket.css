@@ -1,0 +1,125 @@
+/* bread-basket.css — "Bread Basket" weekly streak tracker. Pure
+   accumulation: a bun is added per day studied, and there is no
+   empty/missed visual state — a day simply doesn't add one. No red, no
+   crossed-out state, ever. */
+
+.bread-basket__subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 12px;
+}
+
+.bread-basket__basket {
+  margin-bottom: 4px;
+}
+
+/* Placeholder for basket-empty.png / basket-full.png — plain, natural
+   bread/basket tones with no color treatment of their own, so any
+   celebratory effect has to come from a CSS overlay (below), not the art. */
+.bread-basket__basket-art {
+  position: relative;
+  min-height: 96px;
+  border-radius: 16px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+}
+
+.bread-basket__buns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 100%;
+}
+
+/* Placeholder for bun-plain.png. */
+.bread-basket__bun {
+  width: 22px;
+  height: 22px;
+  border-radius: 50% 50% 45% 45%;
+  background: var(--color-needs-revision);
+  flex-shrink: 0;
+}
+
+/* Theme-aware celebration overlay for a full basket (7/7 this week) —
+   glow + a couple of sparkle points, built entirely from the app's
+   accent variables (the same pair StreakBanner/the tracker's subject-
+   complete banner use for celebratory moments) rather than a fixed
+   color, so it reads correctly across all themes. Reuses the existing
+   pulse-glow / sparkle-pop keyframes from globals.css. */
+.bread-basket__celebration {
+  position: absolute;
+  inset: -6px;
+  border-radius: 20px;
+  pointer-events: none;
+  box-shadow: 0 0 22px 6px var(--color-accent-strong);
+  animation: pulse-glow 1.6s ease-in-out infinite;
+}
+.bread-basket__celebration::before,
+.bread-basket__celebration::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent-strong);
+  animation: sparkle-pop 1.4s ease-in-out infinite;
+}
+.bread-basket__celebration::before { top: -4px; left: 22%; animation-delay: 0.2s; }
+.bread-basket__celebration::after { bottom: -4px; right: 22%; animation-delay: 0.7s; }
+
+/* Bakery shelf — horizontally scrollable history of past weeks' baskets.
+   No week is ever flagged bad; each past basket is just "packed away"
+   as a small icon and its final bun count. */
+.bread-basket__shelf-wrap {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.bread-basket__shelf-label {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.bread-basket__shelf {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.bread-basket__shelf-item {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 56px;
+}
+
+/* Placeholder for mini-basket-icon.png. */
+.bread-basket__mini-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--color-surface-alt);
+  border: 1.5px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.bread-basket__shelf-range {
+  font-size: 0.72rem;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}

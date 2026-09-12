@@ -5,6 +5,7 @@ import Image from "next/image";
 import Companion from "@/components/Companion";
 import { getData, setData } from "@/lib/storage";
 import { hydrateCoins, setCoins as persistCoins } from "@/lib/coins";
+import { ITEMS, CATEGORIES, itemById, migrateEquippedSlots } from "@/lib/shopItems";
 
 const SHOP_KEY = "shop_ownership";
 const LEGACY_SHOP_KEY = "chintu-shop"; // pre-cloud-sync key name
@@ -23,30 +24,13 @@ const ART_THUMBS = {
   sweater_red:   "/companion/icons/sweater_red.PNG",
 };
 
-const ITEMS = [
-  { id: "glasses",        name: "Little glasses",   cost: 75,  slot: "wearable", art: "glasses"        },
-  { id: "scarf",          name: "Tiny scarf",       cost: 100, slot: "wearable", art: "scarf"          },
-  { id: "bowtie",         name: "Dapper bowtie",    cost: 90,  slot: "wearable", art: "bowtie"         },
-  { id: "headphones",     name: "Study headphones", cost: 140, slot: "wearable", art: "headphones"     },
-  { id: "socks",          name: "Cozy socks",       cost: 70,  slot: "wearable", art: "socks"          },
-  { id: "flowers_yellow", name: "Flower crown",     cost: 90,  slot: "wearable", art: "flowers_yellow" },
-  { id: "leaves",         name: "Falling leaves",   cost: 80,  slot: "wearable", art: "leaves"         },
-  { id: "necktie_pink",   name: "Pink bow",         cost: 95,  slot: "wearable", art: "necktie_pink"   },
-  { id: "pearls",         name: "Pearl necklace",   cost: 120, slot: "wearable", art: "pearls"         },
-  { id: "sweater_red",    name: "Red sweater",      cost: 130, slot: "wearable", art: "sweater_red"    },
-];
-
-const CATEGORIES = [
-  { slot: "wearable", label: "Wearables" },
-];
-
 function loadLocalShop() {
   try {
     const raw = localStorage.getItem(SHOP_KEY) ?? localStorage.getItem(LEGACY_SHOP_KEY);
     const parsed = raw ? JSON.parse(raw) : null;
     return {
       owned: Array.isArray(parsed?.owned) ? parsed.owned : [],
-      equipped: (parsed?.equipped && typeof parsed.equipped === "object") ? parsed.equipped : {},
+      equipped: migrateEquippedSlots(parsed?.equipped),
     };
   } catch {
     return { owned: [], equipped: {} };
@@ -57,7 +41,7 @@ function sanitizeShop(raw) {
   if (!raw || typeof raw !== "object") return DEFAULT_SHOP;
   return {
     owned: Array.isArray(raw.owned) ? raw.owned : [],
-    equipped: (raw.equipped && typeof raw.equipped === "object") ? raw.equipped : {},
+    equipped: migrateEquippedSlots(raw.equipped),
   };
 }
 
@@ -130,10 +114,17 @@ export default function CoinShop() {
     });
   }
 
-  const itemById = id => ITEMS.find(i => i.id === id);
-  const equippedWearable = shop.equipped.wearable ? itemById(shop.equipped.wearable) : null;
-  const previewWearable  = preview.wearable ? itemById(preview.wearable) : null;
-  const displayWearable  = previewWearable || equippedWearable;
+  // One display item per slot: whatever's being previewed in that slot
+  // wins over what's actually equipped there, same as the old singular
+  // logic — just applied per-slot instead of to one shared slot, so
+  // trying on a hat doesn't hide an already-equipped pair of glasses.
+  const allSlots = [...new Set([...Object.keys(shop.equipped), ...Object.keys(preview)])];
+  const displayItemsBySlot = allSlots
+    .map(slot => itemById(preview[slot] || shop.equipped[slot]))
+    .filter(Boolean);
+  const previewItems = Object.values(preview)
+    .map(id => itemById(id))
+    .filter(Boolean);
 
   return (
     <div>
@@ -148,20 +139,20 @@ export default function CoinShop() {
           <div className="shop__room-companion-wrap">
             <Companion
               mood="happy"
-              accessories={displayWearable?.art ? [displayWearable.art] : []}
+              accessories={displayItemsBySlot.map(item => item.art)}
             />
           </div>
-          {previewWearable && (
-            <div className="shop__preview-banner">
-              Trying on {previewWearable.name}
+          {previewItems.map(item => (
+            <div key={item.slot} className="shop__preview-banner">
+              Trying on {item.name}
               <button
                 className="shop__preview-banner-clear"
-                onClick={() => clearPreview(previewWearable.slot)}
+                onClick={() => clearPreview(item.slot)}
               >
                 Clear
               </button>
             </div>
-          )}
+          ))}
         </div>
 
         {/* Catalog */}

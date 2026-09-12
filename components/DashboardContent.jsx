@@ -6,7 +6,7 @@ import Link from "next/link";
 import Companion from "@/components/Companion";
 import KeycapButton from "@/components/KeycapButton";
 import StreakBanner from "@/components/StreakBanner";
-import LoafSlices from "@/components/LoafSlices";
+import BreadBasket from "@/components/BreadBasket";
 import { localDateStr as todayStr } from "@/lib/date";
 import {
   loadGoals, saveGoals, deleteGoal,
@@ -601,7 +601,7 @@ export default function DashboardContent() {
             )}
           </div>
 
-          <LoafSlices />
+          <BreadBasket />
 
           {/* Weekly report */}
           <div className="dashboard__section">

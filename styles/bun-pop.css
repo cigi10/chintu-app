@@ -1,0 +1,28 @@
+/* bun-pop.css — brief, reusable "a bun appeared" flourish. Decorative
+   only; see components/BunPopAnimation.jsx. */
+.bun-pop-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+/* Placeholder for bun-plain.png. */
+.bun-pop-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50% 50% 45% 45%;
+  background: var(--color-needs-revision);
+  border: 3px solid var(--color-accent-strong);
+  animation: bunpop 1.2s ease-out forwards;
+}
+
+@keyframes bunpop {
+  0%   { transform: scale(0.3); opacity: 0; }
+  30%  { transform: scale(1.15); opacity: 1; }
+  60%  { transform: scale(1); opacity: 1; }
+  100% { transform: translateY(-40px) scale(0.9); opacity: 0; }
+}

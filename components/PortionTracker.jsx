@@ -6,6 +6,7 @@ import Companion from "@/components/Companion";
 import { getGoalsForDate, hydrateGoals } from "@/lib/goals";
 import { addCoins } from "@/lib/coins";
 import { hydrateTracker, getSessionLog, saveExamPackAndSubjects } from "@/lib/tracker";
+import { upsertTodoForTopic } from "@/lib/todos";
 import { RAW_PACKS, PACK_NAMES, PACK_DESC, examPackLabel } from "@/lib/examPacks";
 import { COUNTRIES, packsForCountry } from "@/lib/examRegions";
 
@@ -238,6 +239,7 @@ export default function PortionTracker() {
       [subject]: [...(prev[subject] || []), { id: `${text}-${Date.now()}`, name: text, status: "not-started", subtopics: [] }],
     }));
     setNewTopicMap(prev => ({ ...prev, [subject]: "" }));
+    upsertTodoForTopic(text, subject);
   }
 
   function createNewSubject() {
@@ -253,6 +255,7 @@ export default function PortionTracker() {
     setNewSubjectName("");
     setNewSubjectTopic("");
     setShowNewSubjectForm(false);
+    if (topicName) upsertTodoForTopic(topicName, subjName);
   }
 
   function removeTopic(subject, topicId) {

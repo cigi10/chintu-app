@@ -4,8 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Companion from "@/components/Companion";
 import KeycapButton from "@/components/KeycapButton";
+import BunPopAnimation from "@/components/BunPopAnimation";
 import { recordStudySession } from "@/lib/streakLogic";
-import { bakeSliceForToday } from "@/lib/loafSlices";
+import { addBunForToday } from "@/lib/breadBasket";
 import { localDateStr } from "@/lib/date";
 import { setGoalDone } from "@/lib/goals";
 import { getLocalCoins, hydrateCoins, addCoins } from "@/lib/coins";
@@ -190,6 +191,7 @@ export default function StudyTimer({ roomName = null }) {
   const [sessions, setSessions]       = useState(0);
   const [coins, setCoins]             = useState(0);
   const [burst, setBurst]             = useState(null);
+  const [bunPop, setBunPop]           = useState(false);
   const [done, setDone]               = useState(false);
   const [lastEarned, setLastEarned]   = useState(0);
   const [hydrated, setHydrated]       = useState(false);
@@ -420,7 +422,11 @@ export default function StudyTimer({ roomName = null }) {
 
     if (isStudyType) {
       recordStudySession();
-      bakeSliceForToday();
+      addBunForToday();
+      // Decorative only — fires every completed study session regardless
+      // of whether today's bun was already counted (addBunForToday above
+      // is what's actually idempotent).
+      setBunPop(true);
       const ns = loadSessions() + 1;
       saveSessions(ns);
       setSessions(ns);
@@ -684,6 +690,7 @@ export default function StudyTimer({ roomName = null }) {
   return (
     <>
       {burst !== null && <CoinBurst amount={burst} onDone={() => setBurst(null)} />}
+      {bunPop && <BunPopAnimation onDone={() => setBunPop(false)} />}
 
       <div className="timer">
         {roomFromParam && (

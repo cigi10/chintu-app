@@ -2,6 +2,7 @@
 import "@/styles/companion.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { migrateEquippedSlots } from "@/lib/shopItems";
 
 // Every mood/accessory PNG is drawn on the same 2048x2048 canvas, and the
 // component never renders wider than a few hundred px anywhere in the app —
@@ -13,11 +14,15 @@ const SHOP_KEY = "shop_ownership";
 const LEGACY_SHOP_KEY = "chintu-shop"; // pre-cloud-sync key name
 const SHOP_CHANGE_EVENT = "chintu-shop-change";
 
+// Returns every currently-equipped item's id across all slots (head,
+// face, neck, body, feet, ambient, ...) — one per slot at most, but all
+// of them at once, so the companion shows a hat AND glasses AND a scarf
+// simultaneously rather than just whichever was equipped last.
 function readEquippedAccessories() {
   try {
     const raw = localStorage.getItem(SHOP_KEY) ?? localStorage.getItem(LEGACY_SHOP_KEY);
-    const wearable = raw ? JSON.parse(raw)?.equipped?.wearable : null;
-    return wearable ? [wearable] : [];
+    const equipped = migrateEquippedSlots(raw ? JSON.parse(raw)?.equipped : null);
+    return Object.values(equipped).filter(Boolean);
   } catch {
     return [];
   }
