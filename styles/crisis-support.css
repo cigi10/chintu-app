@@ -1,0 +1,11 @@
+/* Calm, non-alarming support card shown when free text matches a crisis
+   signal (lib/crisisDetection.js). Deliberately reuses the same soft
+   surface/accent tokens as the rest of the app instead of red/warning
+   colors — see chintu-full-build-plan.md Part 3. */
+.crisis-support { background-color: var(--color-accent); border-radius: var(--radius-md); padding: 14px 16px; margin: 10px 0; max-width: 480px; }
+.crisis-support__line { font-weight: 600; font-size: 0.9rem; color: var(--color-text); margin: 0 0 10px; line-height: 1.4; }
+.crisis-support__resource { font-weight: 600; font-size: 0.85rem; color: var(--color-text); margin: 0 0 6px; line-height: 1.4; }
+.crisis-support__resource strong { color: var(--color-accent-strong); }
+.crisis-support__resource a { color: var(--color-accent-strong); text-decoration: underline; }
+.crisis-support__resource--secondary { color: var(--color-text-secondary); font-size: 0.8rem; }
+.crisis-support__dismiss { margin-top: 4px; padding: 7px 14px; border-radius: var(--radius-pill); border: 2px solid var(--color-accent-strong); background-color: transparent; color: var(--color-text); font-weight: 700; font-size: 0.78rem; cursor: pointer; font-family: var(--font-body); }

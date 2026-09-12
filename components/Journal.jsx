@@ -3,6 +3,8 @@ import "@/styles/journal.css";
 import { useState, useEffect, useMemo, useRef } from "react";
 import Companion from "@/components/Companion";
 import { hydrateJournal, saveJournal } from "@/lib/journal";
+import { containsCrisisSignal } from "@/lib/crisisDetection";
+import CrisisSupportNotice from "@/components/CrisisSupportNotice";
 
 const MOODS = [
   { key: "great", label: "Great", color: "#4F9D6E" },
@@ -63,7 +65,15 @@ export default function Journal() {
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState(new Set());
   const [promptText, setPromptText] = useState(null);
+  const [showCrisisNotice, setShowCrisisNotice] = useState(false);
   const saveTimeoutRef = useRef(null);
+  // Tracks whether the user has already closed the support notice for the
+  // entry currently open, so it doesn't reappear on every keystroke while
+  // they keep typing — it re-arms when they switch entries or clear the
+  // box. This is UI-only state: the crisis check itself never gets
+  // persisted anywhere (see lib/crisisDetection.js).
+  const crisisDismissedRef = useRef(false);
+  const crisisCheckTimeoutRef = useRef(null);
   const today = todayStr();
 
   useEffect(() => {
@@ -78,6 +88,37 @@ export default function Journal() {
   }, []);
 
   useEffect(() => () => saveTimeoutRef.current && clearTimeout(saveTimeoutRef.current), []);
+
+  // Deterministic, rule-based crisis-signal check — no AI/LLM involved.
+  // Debounced so it doesn't run on literally every keystroke; still fast
+  // enough to catch a flagged phrase without waiting for a manual Save.
+  useEffect(() => {
+    if (crisisCheckTimeoutRef.current) clearTimeout(crisisCheckTimeoutRef.current);
+    crisisCheckTimeoutRef.current = setTimeout(() => {
+      if (!text.trim()) {
+        crisisDismissedRef.current = false;
+        setShowCrisisNotice(false);
+        return;
+      }
+      if (!crisisDismissedRef.current && containsCrisisSignal(text)) {
+        setShowCrisisNotice(true);
+      }
+    }, 400);
+    return () => crisisCheckTimeoutRef.current && clearTimeout(crisisCheckTimeoutRef.current);
+  }, [text]);
+
+  // Re-arm the notice when switching to a different entry, so dismissing
+  // it while editing today's entry doesn't silently suppress it on a
+  // past/future entry that also happens to match.
+  useEffect(() => {
+    crisisDismissedRef.current = false;
+    setShowCrisisNotice(false);
+  }, [selectedDate]);
+
+  function dismissCrisisNotice() {
+    crisisDismissedRef.current = true;
+    setShowCrisisNotice(false);
+  }
 
   const isDirty = text !== savedSnapshot.text || mood !== savedSnapshot.mood;
   const isToday = selectedDate === today;
@@ -248,6 +289,8 @@ export default function Journal() {
               </button>
             ))}
           </div>
+
+          {showCrisisNotice && <CrisisSupportNotice onClose={dismissCrisisNotice} />}
 
           <textarea
             className="journal__textarea"
