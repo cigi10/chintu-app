@@ -60,7 +60,9 @@ export default function LoginForm() {
       }
 
       setLoading(false)
-      window.location.href = profile?.onboarded ? '/dashboard' : '/onboarding'
+      const next = searchParams.get('next')
+      const safeNext = next && next.startsWith('/') && !next.startsWith('//') ? next : null
+      window.location.href = !profile?.onboarded ? '/onboarding' : safeNext || '/dashboard'
     }
   }
 

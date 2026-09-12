@@ -3,6 +3,7 @@ import "@/styles/layout.css";
 import { JetBrains_Mono, Roboto } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import ConditionalNav from "@/components/ConditionalNav";
+import GuestModeBanner from "@/components/GuestModeBanner";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
 import type { ReactNode } from "react";
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
+        <GuestModeBanner />
         <PageTransition>
           {children}
         </PageTransition>

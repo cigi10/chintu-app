@@ -1,0 +1,7 @@
+/* Non-intrusive guest-mode nudge — reuses the same calm surface/accent
+   tokens as StreakBanner's support card rather than an alarming banner. */
+.guest-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background-color: var(--color-accent); border-radius: var(--radius-md); padding: 10px 16px; margin: 0 0 1.25rem; }
+.guest-banner__text { font-weight: 600; font-size: 0.85rem; color: var(--color-text); }
+.guest-banner__actions { display: flex; align-items: center; gap: 12px; }
+.guest-banner__link { font-weight: 700; font-size: 0.82rem; color: var(--color-accent-strong); text-decoration: underline; white-space: nowrap; }
+.guest-banner__dismiss { border: none; background: none; color: var(--color-text-secondary); font-size: 1.1rem; line-height: 1; cursor: pointer; padding: 0 2px; }
