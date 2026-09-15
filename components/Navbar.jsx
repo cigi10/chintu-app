@@ -14,11 +14,11 @@ const DIRECT_ITEMS = [NAV.home, NAV.timer, NAV.todo, NAV.timetable, NAV.tracker,
 const GROUPS = [
   {
     label: "Study",
-    items: [NAV.goals, NAV.revisions, NAV.mocktests, NAV.stats, NAV.rooms, NAV.shop],
+    items: [NAV.goals, NAV.revisions, NAV.mocktests, NAV.quiz, NAV.stats, NAV.rooms, NAV.shop],
   },
   {
     label: "You",
-    items: [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.profile, NAV.blog, NAV.privacy, NAV.terms],
+    items: [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.profile, NAV.blog, NAV.resources, NAV.privacy, NAV.terms],
   },
 ];
 

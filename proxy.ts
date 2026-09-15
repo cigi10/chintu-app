@@ -6,7 +6,7 @@ import { isGatedPath } from '@/lib/routeAccess'
 // (shared with GuestModeBanner so both agree on the same list). Everything
 // else is public — including guest/local-only use of the core study
 // toolkit (dashboard, timer, timetable, tracker, todo, goals, stats,
-// mocktests, revisions, digest, tutorial, onboarding) per the original
+// mocktests, quiz, revisions, digest, tutorial, onboarding) per the original
 // design intent that account creation should never block first use.
 // lib/storage.js's getData/setData already fall back to localStorage when
 // there's no session, so those routes work fully logged-out — the data

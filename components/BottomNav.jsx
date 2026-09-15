@@ -11,10 +11,10 @@ const BOTTOM_ITEMS = [NAV.home, NAV.timer, NAV.tracker, NAV.shop];
 
 const STUDY_GROUP = {
   label: "Study",
-  items: [NAV.goals, NAV.timetable, NAV.revisions, NAV.todo, NAV.mocktests, NAV.stats, NAV.rooms, NAV.achievements],
+  items: [NAV.goals, NAV.timetable, NAV.revisions, NAV.todo, NAV.mocktests, NAV.quiz, NAV.stats, NAV.rooms, NAV.achievements],
 };
 
-const YOU_GROUP_BASE = [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.blog, NAV.privacy, NAV.terms];
+const YOU_GROUP_BASE = [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.blog, NAV.resources, NAV.privacy, NAV.terms];
 
 export default function BottomNav() {
   const pathname = usePathname();

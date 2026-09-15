@@ -1,0 +1,62 @@
+[
+  {
+    "question": "In a purely resistive AC circuit, the voltage across the resistor and the current through it are",
+    "options": ["In phase with each other", "90 degrees out of phase, current leading", "90 degrees out of phase, current lagging", "180 degrees out of phase"],
+    "correctIndex": 0,
+    "explanation": "For a pure resistor, voltage and current reach their peak and zero values at the same instant, so there is no phase difference between them."
+  },
+  {
+    "question": "The typical forward voltage drop of a silicon p-n junction diode at room temperature is approximately",
+    "options": ["0.2 V", "0.7 V", "1.2 V", "3.0 V"],
+    "correctIndex": 1,
+    "explanation": "Silicon diodes have a forward drop of about 0.7 V at room temperature, compared to roughly 0.3 V for germanium diodes."
+  },
+  {
+    "question": "An ideal operational amplifier has",
+    "options": ["Infinite input impedance and zero output impedance", "Zero input impedance and infinite output impedance", "Finite, equal input and output impedance", "Zero input and output impedance"],
+    "correctIndex": 0,
+    "explanation": "An ideal op-amp draws no input current because its input impedance is infinite, and it can drive any load since its output impedance is zero."
+  },
+  {
+    "question": "What is the minimum number of flip-flops required to design a MOD-6 counter?",
+    "options": ["2", "3", "4", "6"],
+    "correctIndex": 1,
+    "explanation": "Two flip-flops give only 4 states, which is not enough for 6, so 3 flip-flops are needed since they provide up to 8 states."
+  },
+  {
+    "question": "The Laplace transform of the unit step function u(t) is",
+    "options": ["1/s", "1/s^2", "s", "1"],
+    "correctIndex": 0,
+    "explanation": "Applying the defining integral of the Laplace transform to u(t) gives 1/s for Re(s) greater than 0."
+  },
+  {
+    "question": "A linear time invariant system is said to be BIBO stable if",
+    "options": ["Every bounded input produces a bounded output", "Every input produces a bounded output", "Every bounded input produces an unbounded output", "The system has no poles"],
+    "correctIndex": 0,
+    "explanation": "BIBO stability means a bounded input always produces a bounded output, which for an LTI system corresponds to all poles lying in the left half of the s-plane."
+  },
+  {
+    "question": "In amplitude modulation, if the modulation index exceeds 1, the result is called",
+    "options": ["Over-modulation", "Under-modulation", "Critical modulation", "Perfect modulation"],
+    "correctIndex": 0,
+    "explanation": "A modulation index greater than 1 distorts the envelope of the AM signal, a condition known as over-modulation."
+  },
+  {
+    "question": "According to Gauss's law, the total electric flux through a closed surface is proportional to",
+    "options": ["The net charge enclosed by the surface", "The total charge in the universe", "The surface area of the closed surface", "The electric field magnitude at the surface"],
+    "correctIndex": 0,
+    "explanation": "Gauss's law states that the total flux through a closed surface equals the enclosed charge divided by the permittivity of free space."
+  },
+  {
+    "question": "The eigenvalues of a real symmetric matrix are always",
+    "options": ["Real", "Complex", "Equal to zero", "Negative"],
+    "correctIndex": 0,
+    "explanation": "A real symmetric matrix is a special case of a Hermitian matrix, and Hermitian matrices always have real eigenvalues."
+  },
+  {
+    "question": "A train travels 300 km in 5 hours at a constant speed. What is its average speed?",
+    "options": ["50 km/h", "60 km/h", "65 km/h", "75 km/h"],
+    "correctIndex": 1,
+    "explanation": "Average speed is total distance divided by total time, so 300 km divided by 5 hours works out to 60 km/h."
+  }
+]

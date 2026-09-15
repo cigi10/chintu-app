@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Which cell organelle is known as the powerhouse of the cell?",
+    "options": ["Mitochondria", "Ribosome", "Golgi apparatus", "Lysosome"],
+    "correctIndex": 0,
+    "explanation": "Mitochondria generate ATP through cellular respiration, supplying most of the cell's usable energy."
+  },
+  {
+    "question": "According to Mendel's law of segregation, the two alleles for a trait separate during",
+    "options": ["Gamete formation", "Fertilization", "Mitosis", "Cell wall formation"],
+    "correctIndex": 0,
+    "explanation": "The law of segregation states that allele pairs separate during gamete formation, so each gamete carries only one allele for a gene."
+  },
+  {
+    "question": "Which chamber of the human heart receives oxygenated blood coming from the lungs?",
+    "options": ["Left atrium", "Right atrium", "Left ventricle", "Right ventricle"],
+    "correctIndex": 0,
+    "explanation": "Oxygenated blood returns from the lungs through the pulmonary veins and enters the left atrium before passing to the left ventricle."
+  },
+  {
+    "question": "Which pigment is primarily responsible for absorbing light energy during photosynthesis?",
+    "options": ["Chlorophyll", "Carotene", "Xanthophyll", "Anthocyanin"],
+    "correctIndex": 0,
+    "explanation": "Chlorophyll is the main photosynthetic pigment, absorbing light mainly in the red and blue regions to drive the light reactions."
+  },
+  {
+    "question": "In an ecological pyramid of energy, the trophic level with the greatest amount of energy is",
+    "options": ["Producers", "Primary consumers", "Secondary consumers", "Tertiary consumers"],
+    "correctIndex": 0,
+    "explanation": "Energy decreases at each successive trophic level, so producers at the base of the pyramid always hold the greatest amount of energy."
+  },
+  {
+    "question": "Darwin's theory of evolution is primarily based on the concept of",
+    "options": ["Natural selection", "Use and disuse of organs", "Inheritance of acquired characters", "Mutation alone"],
+    "correctIndex": 0,
+    "explanation": "Darwin proposed that organisms with favorable variations survive and reproduce more successfully, a process he called natural selection."
+  },
+  {
+    "question": "In humans, fertilization normally takes place in the",
+    "options": ["Fallopian tube", "Uterus", "Ovary", "Vagina"],
+    "correctIndex": 0,
+    "explanation": "Sperm meets the egg in the ampulla region of the fallopian tube, where fertilization normally occurs."
+  },
+  {
+    "question": "Which enzyme is used to cut DNA at specific sequences during genetic engineering?",
+    "options": ["Restriction endonuclease", "DNA ligase", "DNA polymerase", "RNA polymerase"],
+    "correctIndex": 0,
+    "explanation": "Restriction endonucleases recognize specific DNA sequences and cut the strand there, allowing genes to be isolated for cloning."
+  },
+  {
+    "question": "Which of the following diseases is caused by a virus?",
+    "options": ["AIDS", "Typhoid", "Malaria", "Amoebiasis"],
+    "correctIndex": 0,
+    "explanation": "AIDS is caused by the human immunodeficiency virus, HIV, while the other three listed diseases are caused by bacteria or protozoa."
+  },
+  {
+    "question": "The binomial nomenclature system for naming organisms was given by",
+    "options": ["Carl Linnaeus", "Charles Darwin", "Gregor Mendel", "Robert Hooke"],
+    "correctIndex": 0,
+    "explanation": "Carl Linnaeus introduced binomial nomenclature, giving each species a two part Latin name made of genus and species."
+  }
+]

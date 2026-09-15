@@ -1,0 +1,62 @@
+[
+  {
+    "question": "A ball is thrown vertically upward. At the highest point of its trajectory,",
+    "options": ["Its velocity and acceleration are both zero", "Its velocity is zero but its acceleration is g, directed downward", "Its velocity is maximum and acceleration is zero", "Its velocity equals g and acceleration is zero"],
+    "correctIndex": 1,
+    "explanation": "At the highest point the vertical velocity momentarily becomes zero, but gravity keeps acting, so the acceleration stays at g, directed downward."
+  },
+  {
+    "question": "Newton's third law of motion states that for every action there is",
+    "options": ["An equal and opposite reaction acting on a different body", "An equal reaction acting on the same body", "A smaller reaction in the opposite direction", "No reaction, since action alone determines motion"],
+    "correctIndex": 0,
+    "explanation": "Newton's third law states that when one body exerts a force on a second body, the second body exerts an equal and opposite force back on the first."
+  },
+  {
+    "question": "The work-energy theorem states that the net work done on an object equals",
+    "options": ["The change in its kinetic energy", "The change in its potential energy", "The change in its momentum", "The change in its velocity"],
+    "correctIndex": 0,
+    "explanation": "The work-energy theorem directly relates the net work done on an object to the resulting change in its kinetic energy."
+  },
+  {
+    "question": "The moment of inertia of a uniform solid sphere about an axis through its diameter is",
+    "options": ["(2/5) M R^2", "(2/3) M R^2", "(1/2) M R^2", "M R^2"],
+    "correctIndex": 0,
+    "explanation": "Integrating the mass distribution of a uniform solid sphere about a diameter gives the standard result of two fifths M R squared."
+  },
+  {
+    "question": "According to Kepler's third law, the square of a planet's orbital period is proportional to",
+    "options": ["The cube of the semi-major axis of its orbit", "The square of the semi-major axis of its orbit", "The planet's mass", "The planet's orbital speed"],
+    "correctIndex": 0,
+    "explanation": "Kepler's third law states that the square of the orbital period is proportional to the cube of the orbit's semi-major axis."
+  },
+  {
+    "question": "According to the kinetic theory of gases, the average kinetic energy of a gas molecule depends only on",
+    "options": ["The absolute temperature of the gas", "The pressure of the gas", "The volume of the container", "The molar mass of the gas"],
+    "correctIndex": 0,
+    "explanation": "Kinetic theory shows that the average kinetic energy per molecule is directly proportional to the absolute temperature, regardless of the gas."
+  },
+  {
+    "question": "The time period of a simple pendulum undergoing small oscillations is independent of",
+    "options": ["The mass of the bob", "The length of the pendulum", "The acceleration due to gravity", "All of the above"],
+    "correctIndex": 0,
+    "explanation": "For small oscillations, the time period depends only on the pendulum's length and the local acceleration due to gravity, not on the mass of the bob."
+  },
+  {
+    "question": "Coulomb's law states that the electrostatic force between two point charges is",
+    "options": ["Directly proportional to the product of the charges and inversely proportional to the square of the distance between them", "Directly proportional to the distance between them", "Independent of the distance between them", "Inversely proportional to the product of the charges"],
+    "correctIndex": 0,
+    "explanation": "Coulomb's law gives the force as proportional to the product of the two charges and inversely proportional to the square of the separation between them."
+  },
+  {
+    "question": "The magnetic field inside a long, ideal solenoid carrying a steady current is",
+    "options": ["Nearly uniform and directed along its axis", "Zero everywhere inside", "Maximum near the ends and zero at the center", "Directed radially outward"],
+    "correctIndex": 0,
+    "explanation": "Inside a long ideal solenoid the magnetic field is nearly uniform and parallel to the axis, while it is negligible just outside the solenoid."
+  },
+  {
+    "question": "In a p-n junction diode, the depletion region is formed mainly due to",
+    "options": ["Diffusion of majority charge carriers across the junction", "An externally applied voltage", "Thermal generation of carriers far from the junction", "Recombination occurring outside the junction"],
+    "correctIndex": 0,
+    "explanation": "When a p-n junction forms, majority carriers diffuse across it and recombine, leaving behind immobile ions that create the depletion region."
+  }
+]

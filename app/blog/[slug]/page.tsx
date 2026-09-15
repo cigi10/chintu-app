@@ -28,6 +28,10 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   return {
     title: `${post.title} - Studyloaf Blog`,
     description: post.description,
+    openGraph: {
+      title: `${post.title} - Studyloaf Blog`,
+      description: post.description,
+    },
   };
 }
 
