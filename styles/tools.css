@@ -1,0 +1,150 @@
+/* tools.css: shared styling for standalone public tools (timetable
+   generator, countdown pages) that don't have their own dedicated
+   stylesheet yet. */
+
+.tool-panel {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  padding: 28px clamp(20px, 4vw, 32px);
+}
+
+.tool-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tool-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.tool-input,
+.tool-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.tool-input:focus,
+.tool-textarea:focus {
+  border-color: var(--color-accent-strong);
+}
+
+.tool-textarea {
+  resize: vertical;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.tool-result {
+  margin-top: 24px;
+  border-top: 1.5px solid var(--color-border);
+  padding-top: 24px;
+}
+
+.tool-result-meta {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tool-day-card {
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.tool-day-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.tool-day-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.tool-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tool-cta {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  background: var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.tool-cta a {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.countdown-grid {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  min-width: 90px;
+}
+
+.countdown-value {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--color-accent-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}

@@ -10,6 +10,7 @@ export default function Footer() {
           <Link href="/blog" className="site-footer__link">Blog</Link>
           <Link href="/privacy" className="site-footer__link">Privacy Policy</Link>
           <Link href="/terms" className="site-footer__link">Terms of Service</Link>
+          <a href="tel:9152987821" className="site-footer__link">Need to talk? iCall: 9152987821</a>
         </div>
       </div>
     </footer>

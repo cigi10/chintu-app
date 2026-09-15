@@ -14,6 +14,11 @@ const STUDY_GROUP = {
   items: [NAV.goals, NAV.timetable, NAV.revisions, NAV.todo, NAV.mocktests, NAV.quiz, NAV.stats, NAV.rooms, NAV.achievements],
 };
 
+const FREE_TOOLS_GROUP = {
+  label: "Free Tools",
+  items: [NAV.freeTimer, NAV.timetableGenerator, NAV.countdown],
+};
+
 const YOU_GROUP_BASE = [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.blog, NAV.resources, NAV.privacy, NAV.terms];
 
 export default function BottomNav() {
@@ -46,7 +51,7 @@ export default function BottomNav() {
     ],
   };
 
-  const moreGroups = [STUDY_GROUP, youGroup];
+  const moreGroups = [STUDY_GROUP, FREE_TOOLS_GROUP, youGroup];
   const isInMoreGroup = moreGroups.some(g => g.items.some(i => i.href === pathname));
 
   return (

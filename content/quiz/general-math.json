@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What is 15% of 200?",
+    "options": ["20", "25", "30", "35"],
+    "correctIndex": 2,
+    "explanation": "15% of 200 is calculated as (15/100) times 200, which equals 30."
+  },
+  {
+    "question": "A shirt priced at 800 rupees is discounted by 25%. What is the discounted price?",
+    "options": ["550", "600", "650", "700"],
+    "correctIndex": 1,
+    "explanation": "A 25% discount removes one quarter of the price, so 800 minus 200, which is 25% of 800, equals 600."
+  },
+  {
+    "question": "The ratio of boys to girls in a class is 3:2. If there are 15 boys, how many girls are there?",
+    "options": ["8", "9", "10", "12"],
+    "correctIndex": 2,
+    "explanation": "Since 15 boys correspond to 3 parts of the ratio, each part equals 5, so the 2 parts representing girls equal 10."
+  },
+  {
+    "question": "Solve for x: 2x + 5 = 15",
+    "options": ["3", "5", "7", "10"],
+    "correctIndex": 1,
+    "explanation": "Subtracting 5 from both sides gives 2x = 10, and dividing by 2 gives x = 5."
+  },
+  {
+    "question": "What is 7 multiplied by 8?",
+    "options": ["54", "56", "58", "64"],
+    "correctIndex": 1,
+    "explanation": "7 multiplied by 8 equals 56."
+  },
+  {
+    "question": "40 is what percent of 200?",
+    "options": ["10%", "20%", "25%", "40%"],
+    "correctIndex": 1,
+    "explanation": "Dividing 40 by 200 gives 0.2, which as a percentage is 20%."
+  },
+  {
+    "question": "If 3x = 27, what is the value of x?",
+    "options": ["6", "8", "9", "12"],
+    "correctIndex": 2,
+    "explanation": "Dividing both sides of the equation by 3 gives x = 9."
+  },
+  {
+    "question": "Simplify the ratio 12:18 to its lowest terms.",
+    "options": ["2:3", "3:4", "4:6", "6:9"],
+    "correctIndex": 0,
+    "explanation": "Both 12 and 18 share a greatest common factor of 6, so dividing both by 6 gives the simplified ratio 2:3."
+  },
+  {
+    "question": "What is the value of 6 + 4 x 2?",
+    "options": ["20", "14", "16", "12"],
+    "correctIndex": 1,
+    "explanation": "Following the order of operations, multiplication happens before addition, so 4 times 2 equals 8, and 6 plus 8 equals 14."
+  },
+  {
+    "question": "A quantity increases from 50 to 60. What is the percentage increase?",
+    "options": ["10%", "15%", "20%", "25%"],
+    "correctIndex": 2,
+    "explanation": "The increase of 10 divided by the original value of 50 gives 0.2, which is a 20% increase."
+  }
+]

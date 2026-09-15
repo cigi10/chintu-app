@@ -2,10 +2,11 @@ import type { MetadataRoute } from "next";
 import { getAllBlogPosts } from "@/lib/blogPosts";
 import { getResourceSlugs } from "@/lib/resources";
 import { getQuizCategorySlugs } from "@/lib/quiz";
+import { getExamSlugs } from "@/lib/examDates";
 
 const BASE_URL = "https://studyloaf.com";
 
-const STATIC_ROUTES = ["/", "/blog", "/quiz", "/resources", "/privacy", "/terms"];
+const STATIC_ROUTES = ["/", "/blog", "/quiz", "/resources", "/privacy", "/terms", "/timer/free", "/tools/timetable-generator", "/countdown"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = STATIC_ROUTES.map(path => ({
@@ -28,5 +29,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/quiz/${category}/practice`, lastModified: new Date() },
   ]);
 
-  return [...staticEntries, ...blogEntries, ...resourceEntries, ...quizEntries];
+  const countdownEntries = getExamSlugs().map(exam => ({
+    url: `${BASE_URL}/countdown/${exam}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticEntries, ...blogEntries, ...resourceEntries, ...quizEntries, ...countdownEntries];
 }

@@ -17,6 +17,10 @@ const GROUPS = [
     items: [NAV.goals, NAV.revisions, NAV.mocktests, NAV.quiz, NAV.stats, NAV.rooms, NAV.shop],
   },
   {
+    label: "Free Tools",
+    items: [NAV.freeTimer, NAV.timetableGenerator, NAV.countdown],
+  },
+  {
     label: "You",
     items: [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.profile, NAV.blog, NAV.resources, NAV.privacy, NAV.terms],
   },

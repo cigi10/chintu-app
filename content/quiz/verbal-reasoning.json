@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Choose the word most similar in meaning to 'ample'.",
+    "options": ["Scarce", "Plentiful", "Tiny", "Brief"],
+    "correctIndex": 1,
+    "explanation": "\"Ample\" means more than enough, which is closest in meaning to \"plentiful\"."
+  },
+  {
+    "question": "Choose the word most opposite in meaning to 'benevolent'.",
+    "options": ["Kind", "Generous", "Malicious", "Cheerful"],
+    "correctIndex": 2,
+    "explanation": "\"Benevolent\" means kind and well meaning, so its opposite is \"malicious\", meaning intending harm."
+  },
+  {
+    "question": "Hot is to Cold as Up is to ____.",
+    "options": ["Down", "Left", "Side", "High"],
+    "correctIndex": 0,
+    "explanation": "\"Hot\" and \"Cold\" are opposites, and the matching opposite of \"Up\" is \"Down\"."
+  },
+  {
+    "question": "Doctor is to Hospital as Teacher is to ____.",
+    "options": ["Hospital", "School", "Book", "Student"],
+    "correctIndex": 1,
+    "explanation": "A doctor typically works in a hospital, and in the same way a teacher typically works in a school."
+  },
+  {
+    "question": "Choose the word most similar in meaning to 'candid'.",
+    "options": ["Secretive", "Honest", "Confused", "Angry"],
+    "correctIndex": 1,
+    "explanation": "\"Candid\" means being open and truthful, which is closest in meaning to \"honest\"."
+  },
+  {
+    "question": "Maria arrived at the station ten minutes early, but her train was delayed by half an hour. How long did she wait from the time she arrived until the train actually departed?",
+    "options": ["10 minutes", "20 minutes", "30 minutes", "40 minutes"],
+    "correctIndex": 3,
+    "explanation": "Maria arrived 10 minutes before the scheduled time, and the train was then delayed another 30 minutes, adding up to a 40 minute wait from her arrival."
+  },
+  {
+    "question": "Author is to Book as Composer is to ____.",
+    "options": ["Song", "Reader", "Paper", "Instrument"],
+    "correctIndex": 0,
+    "explanation": "An author creates a book, and in the same relationship a composer creates a song or piece of music."
+  },
+  {
+    "question": "Choose the word most similar in meaning to 'concise'.",
+    "options": ["Lengthy", "Brief", "Vague", "Loud"],
+    "correctIndex": 1,
+    "explanation": "\"Concise\" means expressing much in few words, which is closest in meaning to \"brief\"."
+  },
+  {
+    "question": "All the students in Room 5 completed their homework except Sam, who forgot his notebook at home. Why didn't Sam complete his homework?",
+    "options": ["He was absent", "He forgot his notebook", "He did not understand the assignment", "He finished it early"],
+    "correctIndex": 1,
+    "explanation": "The passage states directly that Sam forgot his notebook at home, which is given as the reason he did not complete the homework."
+  },
+  {
+    "question": "Fish is to Water as Bird is to ____.",
+    "options": ["Nest", "Air", "Tree", "Wing"],
+    "correctIndex": 1,
+    "explanation": "A fish's natural environment is water, and in the same way a bird's natural environment is the air."
+  }
+]
