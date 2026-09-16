@@ -25,28 +25,27 @@ function bunCount(days) {
   return BASKET_DAYS.filter(day => days[day]).length;
 }
 
-// One image per bun count (0 through 7), under public/bread-basket/. A
-// full basket (every day this week) also gets a theme-aware celebration
-// overlay on top, since the art itself is plain, uncolored bread/basket
-// tones with no color treatment of its own.
-function basketImageSrc(count) {
-  return count === 0
-    ? "/bread-basket/bread-basket-empty.PNG"
-    : `/bread-basket/bread-basket${count}.PNG`;
-}
-
+// Pure accumulation, no empty/missed slots: renders exactly one bun per
+// day studied so far this week, nothing standing in for the rest. A full
+// basket (every day this week) gets a theme-aware celebration overlay —
+// see styles/bread-basket.css — instead of anything baked into the PNG,
+// since the art itself is plain, uncolored bread/basket tones.
 function Basket({ days, size = "regular" }) {
   const count = bunCount(days || {});
   const isFull = count >= BASKET_DAYS.length;
   return (
     <div className={`bread-basket__basket bread-basket__basket--${size}`}>
+      {/* Placeholder for basket-empty.png / basket-full.png until the
+          real assets are wired in — see the asset note below. */}
       <div className={`bread-basket__basket-art${isFull ? " bread-basket__basket-art--full" : ""}`}>
         {isFull && <div className="bread-basket__celebration" aria-hidden="true" />}
-        <img
-          src={basketImageSrc(count)}
-          alt={count === 0 ? "Empty bread basket" : `Bread basket with ${count} bun${count === 1 ? "" : "s"}`}
-          className="bread-basket__image"
-        />
+        <div className="bread-basket__buns">
+          {Array.from({ length: count }).map((_, i) => (
+            // Placeholder for bun-plain.png — a plain colored dot stands
+            // in until the real asset path is provided.
+            <div key={i} className="bread-basket__bun" aria-hidden="true" />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -74,7 +73,7 @@ export default function BreadBasket() {
         <span className="dashboard__goal-progress-pill">{count}/7 this week</span>
       </h2>
       <p className="bread-basket__subtitle">
-        Finish a focus session to add a bun to the basket. Missed days just don&apos;t add one, nothing to lose.
+        Finish a focus session to add a bun to the basket. Missed days just don&apos;t add one — nothing to lose.
       </p>
 
       <Basket days={currentWeek.days} />

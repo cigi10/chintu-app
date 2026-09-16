@@ -60,7 +60,7 @@ export default function GuestModeBanner() {
   return (
     <div className="guest-banner">
       <span className="guest-banner__text">
-        You&apos;re using Studyloaf as a guest. Progress is only saved on this device.
+        You&apos;re using Studyloaf as a guest — progress is only saved on this device.
       </span>
       <div className="guest-banner__actions">
         <Link href="/login" className="guest-banner__link">Sign in to save across devices</Link>

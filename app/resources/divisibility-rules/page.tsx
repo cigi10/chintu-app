@@ -1,7 +1,4 @@
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import { getResourceBySlug } from "@/lib/resources";
-import { getBlogPost } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -14,9 +11,6 @@ export const metadata = {
 };
 
 export default function DivisibilityRulesPage() {
-  const resource = getResourceBySlug("divisibility-rules");
-  const relatedPost = resource?.relatedBlogSlug ? getBlogPost(resource.relatedBlogSlug) : null;
-
   return (
     <>
       <Navbar />
@@ -158,15 +152,6 @@ export default function DivisibilityRulesPage() {
               08, are a multiple of 4. So 408 is divisible by 12.
             </p>
           </div>
-
-          {relatedPost && (
-            <div className="blog-post-section resource-related">
-              <p className="blog-post-p">
-                Related reading:{" "}
-                <Link href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</Link>
-              </p>
-            </div>
-          )}
         </article>
       </div>
     </>

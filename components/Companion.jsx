@@ -55,17 +55,17 @@ const MOOD_FALLBACK_COLORS = {
 // Drawn on the same 2048x2048 canvas as the mood art above, so they line up
 // automatically as long as they share the same object-fit/object-position.
 const ACCESSORY_IMAGES = {
-  bowtie:         "/shop-items/bowtie.PNG",
-  glasses:        "/shop-items/glasses.PNG",
-  scarf:          "/shop-items/scarf.PNG",
-  headphones:     "/shop-items/headphones.PNG",
-  socks:          "/shop-items/socks.PNG",
-  book:           "/shop-items/book.PNG",
-  flowers_yellow: "/shop-items/flowers_yellow.PNG",
-  leaves:         "/shop-items/leaves.PNG",
-  necktie_pink:   "/shop-items/necktie_pink.PNG",
-  pearls:         "/shop-items/pearls.PNG",
-  sweater_red:    "/shop-items/sweater_red.PNG",
+  bowtie:         "/companion/bowtie.PNG",
+  glasses:        "/companion/glasses.PNG",
+  scarf:          "/companion/scarf.PNG",
+  headphones:     "/companion/headphones.PNG",
+  socks:          "/companion/socks.PNG",
+  book:           "/companion/book.PNG",
+  flowers_yellow: "/companion/flowers_yellow.PNG",
+  leaves:         "/companion/leaves.PNG",
+  necktie_pink:   "/companion/necktie_pink.PNG",
+  pearls:         "/companion/pearls.PNG",
+  sweater_red:    "/companion/sweater_red.PNG",
 };
 
 export default function Companion({ mood = "studying", accessories = null, extraAccessories = [] }) {

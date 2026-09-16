@@ -4,10 +4,7 @@ import { useEffect } from 'react'
 import BottomNav from '@/components/BottomNav'
 import { claimGuestDataForAccount } from '@/lib/claimGuestData'
 
-// Shared with components/Sidebar.jsx, which needs the same "which routes
-// get site chrome" check but has to live earlier in the DOM (before page
-// content) for its flex layout to place it on the left correctly.
-export const CHROME_HIDDEN_ON = ['/login', '/landing', '/onboarding', '/forgot-password', '/reset-password']
+const HIDDEN_ON = ['/login', '/landing', '/onboarding', '/forgot-password', '/reset-password']
 
 export default function ConditionalNav() {
   const pathname = usePathname()
@@ -23,7 +20,7 @@ export default function ConditionalNav() {
     claimGuestDataForAccount()
   }, [])
 
-  const shouldHide = CHROME_HIDDEN_ON.some((path) => pathname?.startsWith(path))
+  const shouldHide = HIDDEN_ON.some((path) => pathname?.startsWith(path))
   if (shouldHide) return null
   return <BottomNav />
 }

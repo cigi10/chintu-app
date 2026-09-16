@@ -3,27 +3,56 @@ import "@/styles/bottom-nav.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { NAV, NAV_GROUPS } from "@/lib/navItems";
+import { createClient } from "@/lib/supabase/client";
+import { NAV } from "@/lib/navItems";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const BOTTOM_ITEMS = [NAV.home, NAV.timer, NAV.tracker, NAV.shop];
 
-// Mobile bottom bar: the 4 core icons stay fixed, plus a hamburger that
-// opens the same NAV_GROUPS sectioned list the desktop Sidebar shows, as
-// a slide-in side panel (dismissible by tapping the backdrop or the X)
-// rather than the old bottom sheet.
+const STUDY_GROUP = {
+  label: "Study",
+  items: [NAV.goals, NAV.timetable, NAV.revisions, NAV.todo, NAV.mocktests, NAV.quiz, NAV.stats, NAV.rooms, NAV.achievements],
+};
+
+const FREE_TOOLS_GROUP = {
+  label: "Free Tools",
+  items: [NAV.freeTimer, NAV.timetableGenerator, NAV.countdown],
+};
+
+const YOU_GROUP_BASE = [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.blog, NAV.resources, NAV.privacy, NAV.terms];
+
 export default function BottomNav() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [userEmail, setUserEmail] = useState(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => setUserEmail(data.user?.email || null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserEmail(session?.user?.email || null);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
 
   const hide = pathname === "/onboarding";
 
   useEffect(() => {
-    setMenuOpen(false);
+    setMoreOpen(false);
   }, [pathname]);
 
   if (hide) return null;
 
-  const isInMenu = NAV_GROUPS.some(g => g.items.some(i => i.href === pathname));
+  const youGroup = {
+    label: "You",
+    items: [
+      ...YOU_GROUP_BASE,
+      userEmail ? NAV.profile : NAV.login,
+    ],
+  };
+
+  const moreGroups = [STUDY_GROUP, FREE_TOOLS_GROUP, youGroup];
+  const isInMoreGroup = moreGroups.some(g => g.items.some(i => i.href === pathname));
 
   return (
     <>
@@ -40,48 +69,51 @@ export default function BottomNav() {
 
         <button
           type="button"
-          className={`bottom-nav__item bottom-nav__hamburger-btn${isInMenu ? " bottom-nav__item--active" : ""}`}
-          onClick={() => setMenuOpen(true)}
-          aria-label="Open menu"
+          className={`bottom-nav__item bottom-nav__more-btn${isInMoreGroup ? " bottom-nav__item--active" : ""}`}
+          onClick={() => setMoreOpen(true)}
         >
-          <span className="bottom-nav__hamburger-icon" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
-          Menu
+          More
         </button>
       </nav>
 
-      {menuOpen && (
-        <div className="nav-overlay" onClick={() => setMenuOpen(false)}>
-          <div className="nav-panel" onClick={e => e.stopPropagation()}>
-            <div className="nav-panel__header">
-              <span className="nav-panel__title">Menu</span>
-              <button
-                type="button"
-                className="nav-panel__close"
-                onClick={() => setMenuOpen(false)}
-                aria-label="Close menu"
-              >
-                ×
-              </button>
+      {moreOpen && (
+        <div className="bottom-sheet-overlay" onClick={() => setMoreOpen(false)}>
+          <div
+            className="bottom-sheet"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="bottom-sheet__handle" />
+            <div className="bottom-sheet__header">
+              <span className="bottom-sheet__title">More</span>
+              <div className="bottom-sheet__header-actions">
+                <ThemeSwitcher />
+                <button
+                  type="button"
+                  className="bottom-sheet__close"
+                  onClick={() => setMoreOpen(false)}
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+              </div>
             </div>
 
-            <div className="nav-panel__scroll">
-              {NAV_GROUPS.map(group => (
-                <div key={group.label} className="nav-panel__group">
-                  <p className="nav-panel__group-label">{group.label}</p>
-                  {group.items.map(item => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={`nav-panel__item${pathname === item.href ? " nav-panel__item--active" : ""}`}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+            <div className="bottom-sheet__content">
+              {moreGroups.map(group => (
+                <div key={group.label} className="bottom-sheet__group">
+                  <p className="bottom-sheet__group-label">{group.label}</p>
+                  <div className="bottom-sheet__grid">
+                    {group.items.map(item => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`bottom-sheet__item${pathname === item.href ? " bottom-sheet__item--active" : ""}`}
+                        onClick={() => setMoreOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>

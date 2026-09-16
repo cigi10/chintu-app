@@ -3,7 +3,6 @@ import "@/styles/layout.css";
 import { JetBrains_Mono, Roboto } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import ConditionalNav from "@/components/ConditionalNav";
-import Sidebar from "@/components/Sidebar";
 import GuestModeBanner from "@/components/GuestModeBanner";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
@@ -49,16 +48,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body>
         <GuestModeBanner />
-        <div className="app-shell">
-          <Sidebar />
-          <div className="app-shell__content">
-            <PageTransition>
-              {children}
-            </PageTransition>
-            <Footer />
-          </div>
-        </div>
+        <PageTransition>
+          {children}
+        </PageTransition>
         <ConditionalNav />
+        <Footer />
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}

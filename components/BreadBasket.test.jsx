@@ -21,13 +21,6 @@ afterEach(() => {
 });
 
 describe("BreadBasket", () => {
-  it("shows the empty basket image when no day this week has a bun yet", async () => {
-    const { container } = render(<BreadBasket />);
-
-    await waitFor(() => expect(screen.getByText("0/7 this week")).toBeInTheDocument());
-    expect(container.querySelector(".bread-basket__image").getAttribute("src")).toBe("/bread-basket/bread-basket-empty.PNG");
-  });
-
   it("renders one bun per day studied so far, no placeholder for missing days", async () => {
     localStorage.setItem("loaf_slices", JSON.stringify({
       weeks: { "2026-09-07": { Mon: true, Tue: true, Wed: false, Thu: false, Fri: false, Sat: false, Sun: false } },
@@ -36,7 +29,7 @@ describe("BreadBasket", () => {
     const { container } = render(<BreadBasket />);
 
     await waitFor(() => expect(screen.getByText("2/7 this week")).toBeInTheDocument());
-    expect(container.querySelector(".bread-basket__image").getAttribute("src")).toBe("/bread-basket/bread-basket2.PNG");
+    expect(container.querySelectorAll(".bread-basket__bun")).toHaveLength(2);
     expect(container.querySelector(".bread-basket__basket-art--full")).toBeFalsy();
   });
 
@@ -48,7 +41,7 @@ describe("BreadBasket", () => {
     const { container } = render(<BreadBasket />);
 
     await waitFor(() => expect(screen.getByText("7/7 this week")).toBeInTheDocument());
-    expect(container.querySelector(".bread-basket__image").getAttribute("src")).toBe("/bread-basket/bread-basket7.PNG");
+    expect(container.querySelectorAll(".bread-basket__bun")).toHaveLength(7);
     expect(container.querySelector(".bread-basket__basket-art--full")).toBeTruthy();
     expect(container.querySelector(".bread-basket__celebration")).toBeTruthy();
   });

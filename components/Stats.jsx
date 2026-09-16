@@ -3,7 +3,6 @@ import "@/styles/stats.css";
 import { useState, useEffect } from "react";
 import { getStreakInfo, hydrateStreak } from "@/lib/streakLogic";
 import { hydrateTracker, getSessionLog } from "@/lib/tracker";
-import { SubjectPieChart, DaySubjectGrid, ConsistencyHeatmap } from "@/components/StatsCharts";
 
 function getLast7Days() {
   return Array.from({ length: 7 }, (_, i) => {
@@ -76,21 +75,6 @@ export default function Stats() {
 
   const chartMax = Math.max(...chartData.map((c) => c.mins), 1);
 
-  const avgSessionMins = totalSessions > 0 ? Math.round(totalMinutes / totalSessions) : 0;
-
-  // Which day of the week has the most study time logged, across all
-  // history (not just this week) — genuinely derived from each session's
-  // real date, not a guess.
-  const minutesByWeekday = [0, 0, 0, 0, 0, 0, 0];
-  log.forEach((s) => {
-    const day = new Date(`${s.date}T00:00:00`).getDay();
-    minutesByWeekday[day] += Number(s.durationMinutes) || 0;
-  });
-  const hasWeekdayData = minutesByWeekday.some((m) => m > 0);
-  const bestWeekdayLabel = hasWeekdayData
-    ? DAY_LABELS[minutesByWeekday.indexOf(Math.max(...minutesByWeekday))]
-    : null;
-
   const recentSessions = [...log]
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .slice(0, 8);
@@ -145,19 +129,6 @@ export default function Stats() {
         </div>
       </div>
 
-      <div className="stats__summary-row">
-        <div className="stats__summary-card">
-          <span className="stats__summary-value">{avgSessionMins}m</span>
-          <span className="stats__summary-label">Avg. session</span>
-        </div>
-        {bestWeekdayLabel && (
-          <div className="stats__summary-card">
-            <span className="stats__summary-value">{bestWeekdayLabel}</span>
-            <span className="stats__summary-label">Best day</span>
-          </div>
-        )}
-      </div>
-
       <div className="stats__section">
         <h2 className="stats__section-title">
           Study time: {view === "week" ? "last 7 days" : "last 5 weeks"}
@@ -202,23 +173,6 @@ export default function Stats() {
           </div>
         </div>
       )}
-
-      {Object.keys(subjectMinutes).length > 0 && (
-        <div className="stats__section">
-          <h2 className="stats__section-title">Time distribution</h2>
-          <SubjectPieChart subjectMinutes={subjectMinutes} totalMinutes={totalMinutes} />
-        </div>
-      )}
-
-      <div className="stats__section">
-        <h2 className="stats__section-title">Subjects by day: last 7 days</h2>
-        <DaySubjectGrid log={log} days={days} dayLabels={days.map(d => DAY_LABELS[new Date(`${d}T00:00:00`).getDay()])} />
-      </div>
-
-      <div className="stats__section">
-        <h2 className="stats__section-title">Consistency: last 10 weeks</h2>
-        <ConsistencyHeatmap log={log} weeks={10} />
-      </div>
 
       <div className="stats__section">
         <h2 className="stats__section-title">Mock score trend</h2>

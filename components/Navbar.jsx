@@ -2,23 +2,38 @@
 import "@/styles/navbar.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { getLocalCoins, hydrateCoins } from "@/lib/coins";
 import { hydrateCompanionName } from "@/lib/companion";
+import { NAV } from "@/lib/navItems";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 
-// Slim top bar: brand, coin balance, theme switcher, and login/profile
-// avatar, shown on every screen size. Navigation itself now lives in
-// components/Sidebar.jsx (desktop) and the hamburger overlay in
-// components/BottomNav.jsx (mobile) — this component no longer renders
-// any nav links or the old "More" dropdown.
+const DIRECT_ITEMS = [NAV.home, NAV.timer, NAV.todo, NAV.timetable, NAV.tracker, NAV.achievements];
+
+const GROUPS = [
+  {
+    label: "Study",
+    items: [NAV.goals, NAV.revisions, NAV.mocktests, NAV.quiz, NAV.stats, NAV.rooms, NAV.shop],
+  },
+  {
+    label: "Free Tools",
+    items: [NAV.freeTimer, NAV.timetableGenerator, NAV.countdown],
+  },
+  {
+    label: "You",
+    items: [NAV.tutorial, NAV.journal, NAV.mood, NAV.digest, NAV.profile, NAV.blog, NAV.resources, NAV.privacy, NAV.terms],
+  },
+];
+
 export default function Navbar() {
   const pathname = usePathname();
   const [coins, setCoins]                 = useState(0);
   const [coinPulse, setCoinPulse]         = useState(false);
+  const [moreOpen, setMoreOpen]           = useState(false);
   const [companionName, setCompanionName] = useState("Chintu");
   const [userEmail, setUserEmail]         = useState(null);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const supabase = createClient();
@@ -49,12 +64,68 @@ export default function Navbar() {
     } catch {}
   }, [pathname]);
 
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setMoreOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const isInMoreGroup = GROUPS.some(g => g.items.some(i => i.href === pathname));
+
   return (
     <nav className="navbar">
       <div className="navbar__inner">
         <Link href="/dashboard" className="navbar__brand">{companionName}</Link>
 
-        <div className="navbar__spacer" />
+        <div className="navbar__links">
+          {DIRECT_ITEMS.map(item => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`navbar__link${active ? " navbar__link--active" : ""}`}
+              >
+                {item.label}
+                {active && <span className="navbar__dot" />}
+              </Link>
+            );
+          })}
+
+          <div className="navbar__dropdown-wrap" ref={dropdownRef}>
+            <button
+              className={`navbar__link navbar__more-btn${isInMoreGroup ? " navbar__link--active" : ""}${moreOpen ? " navbar__more-btn--open" : ""}`}
+              onClick={() => setMoreOpen(v => !v)}
+            >
+              More <span className="navbar__more-caret">▾</span>
+              {isInMoreGroup && <span className="navbar__dot" />}
+            </button>
+
+            {moreOpen && (
+              <div className="navbar__dropdown">
+                {GROUPS.map(group => (
+                  <div key={group.label} className="navbar__dropdown-group">
+                    <p className="navbar__dropdown-group-label">{group.label}</p>
+                    {group.items.map(item => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`navbar__dropdown-item${pathname === item.href ? " navbar__dropdown-item--active" : ""}`}
+                        onClick={() => setMoreOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
 
         <div className={`navbar__coins${coinPulse ? " navbar__coins--pulse" : ""}`}>
           {coins} coins

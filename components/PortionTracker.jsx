@@ -444,7 +444,7 @@ export default function PortionTracker() {
           <div className="tracker__topic-list">
             {activeTag !== "All" && visibleTopics.length === 0 && (
               <p className="tracker__empty-hint tracker__empty-hint--inline">
-                Nothing tagged &quot;{activeTag}&quot; in {subject} yet. Add one below.
+                Nothing tagged &quot;{activeTag}&quot; in {subject} yet — add one below.
               </p>
             )}
             {visibleTopics.map(t => {
@@ -627,7 +627,7 @@ export default function PortionTracker() {
       {showImportPicker && (
         <div className="tracker__warning">
           <p>
-            Import a pack&apos;s topics into your current list. Subjects merge together, and a topic
+            Import a pack&apos;s topics into your current list — subjects merge together, and a topic
             already in your list gets tagged with both instead of being duplicated.
           </p>
           <ExamPicker onPick={handleImportPack} />

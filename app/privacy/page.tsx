@@ -103,19 +103,19 @@ export default function PrivacyPage() {
           </p>
           <ul className="legal-list">
             <li>
-              <strong>Supabase</strong>: provides authentication and database storage for your
+              <strong>Supabase</strong> — provides authentication and database storage for your
               account and study data.
             </li>
             <li>
-              <strong>Google OAuth</strong>: used if you choose to sign in with your Google account,
+              <strong>Google OAuth</strong> — used if you choose to sign in with your Google account,
               to verify your identity without Studyloaf ever seeing your Google password.
             </li>
             <li>
-              <strong>Resend</strong>: sends transactional emails on our behalf, such as sign-up
+              <strong>Resend</strong> — sends transactional emails on our behalf, such as sign-up
               confirmations and password resets.
             </li>
             <li>
-              <strong>Vercel</strong>: hosts the Studyloaf website and application infrastructure.
+              <strong>Vercel</strong> — hosts the Studyloaf website and application infrastructure.
             </li>
           </ul>
 

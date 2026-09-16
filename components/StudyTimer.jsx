@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Companion from "@/components/Companion";
 import KeycapButton from "@/components/KeycapButton";
-import ToastProgress from "@/components/ToastProgress";
 import BunPopAnimation from "@/components/BunPopAnimation";
 import { recordStudySession } from "@/lib/streakLogic";
 import { addBunForToday } from "@/lib/breadBasket";
@@ -687,7 +686,6 @@ export default function StudyTimer({ roomName = null }) {
   const chintuMood = getChintuMood();
   const isActivelyStudying = running && !done && (mode === "study" || mode === "custom");
   const hasProgress = !done && timeLeft < totalDuration;
-  const isStudySession = mode === "study" || mode === "custom";
 
   return (
     <>
@@ -859,8 +857,6 @@ export default function StudyTimer({ roomName = null }) {
                 </span>
               </div>
             </div>
-
-            {isStudySession && <ToastProgress progress={1 - progress} done={done} />}
 
             <div className="timer__btn-row">
               <KeycapButton onClick={handleStartPause}>

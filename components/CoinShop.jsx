@@ -12,16 +12,16 @@ const LEGACY_SHOP_KEY = "chintu-shop"; // pre-cloud-sync key name
 const DEFAULT_SHOP = { owned: [], equipped: {} };
 
 const ART_THUMBS = {
-  glasses:       "/shop-items/glasses.PNG",
-  scarf:         "/shop-items/scarf.PNG",
-  bowtie:        "/shop-items/bowtie.PNG",
-  headphones:    "/shop-items/headphones.PNG",
-  socks:         "/shop-items/socks.PNG",
-  flowers_yellow:"/shop-items/flowers_yellow.PNG",
-  leaves:        "/shop-items/leaves.PNG",
-  necktie_pink:  "/shop-items/necktie_pink.PNG",
-  pearls:        "/shop-items/pearls.PNG",
-  sweater_red:   "/shop-items/sweater_red.PNG",
+  glasses:       "/companion/icons/glasses.PNG",
+  scarf:         "/companion/icons/scarf.PNG",
+  bowtie:        "/companion/icons/bowtie.PNG",
+  headphones:    "/companion/icons/headphones.PNG",
+  socks:         "/companion/icons/socks.PNG",
+  flowers_yellow:"/companion/icons/flowers_yellow.PNG",
+  leaves:        "/companion/icons/leaves.PNG",
+  necktie_pink:  "/companion/icons/necktie_pink.PNG",
+  pearls:        "/companion/icons/pearls.PNG",
+  sweater_red:   "/companion/icons/sweater_red.PNG",
 };
 
 function loadLocalShop() {
