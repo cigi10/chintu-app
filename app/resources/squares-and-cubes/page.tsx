@@ -1,4 +1,7 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { getResourceBySlug } from "@/lib/resources";
+import { getBlogPost } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 import "@/styles/resources.css";
 
@@ -17,6 +20,9 @@ const squares = Array.from({ length: 30 }, (_, i) => i + 1).map(n => ({ n, value
 const cubes = Array.from({ length: 20 }, (_, i) => i + 1).map(n => ({ n, value: n * n * n }));
 
 export default function SquaresAndCubesPage() {
+  const resource = getResourceBySlug("squares-and-cubes");
+  const relatedPost = resource?.relatedBlogSlug ? getBlogPost(resource.relatedBlogSlug) : null;
+
   return (
     <>
       <Navbar />
@@ -49,6 +55,15 @@ export default function SquaresAndCubesPage() {
               ))}
             </div>
           </div>
+
+          {relatedPost && (
+            <div className="blog-post-section resource-related">
+              <p className="blog-post-p">
+                Related reading:{" "}
+                <Link href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</Link>
+              </p>
+            </div>
+          )}
         </article>
       </div>
     </>

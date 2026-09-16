@@ -1,38 +1,41 @@
 "use client";
 import "@/styles/tools.css";
 import "@/styles/button.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Button from "@/components/Button";
 
 // Standalone, no-login timetable generator for the public
 // /tools/timetable-generator page. lib/timetable.js only stores a
 // manually-built grid (components/TimetableGrid.jsx); there is no
 // existing rule-based generator to reuse, so this implements a simple
-// one: split each day's available hours evenly across the given
-// subjects. Nothing here reads or writes lib/timetable.js or any other
-// storage, cloud or local.
+// one: each subject's daily time is proportional to its priority weight
+// out of the total. Nothing here reads or writes lib/timetable.js or any
+// other storage, cloud or local.
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const MIN_HOURS_PER_DAY = 0.5;
 const MAX_HOURS_PER_DAY = 16;
+
+const PRIORITY_WEIGHTS = { low: 1, medium: 2, high: 3 };
+const PRIORITY_LABELS = { low: "Low", medium: "Medium", high: "High" };
+const PRIORITY_ORDER = ["high", "medium", "low"];
 
 function roundToQuarterHour(n) {
   return Math.round(n * 4) / 4;
 }
 
 function buildTimetable(subjects, hoursPerDay) {
-  const perSubject = roundToQuarterHour(hoursPerDay / subjects.length);
+  const totalWeight = subjects.reduce((sum, s) => sum + PRIORITY_WEIGHTS[s.priority], 0);
+  const rounded = subjects.map(s => roundToQuarterHour((PRIORITY_WEIGHTS[s.priority] / totalWeight) * hoursPerDay));
   // Rounding to the nearest quarter hour can drift the day's total off by
   // a few minutes, so the last subject absorbs whatever is left, keeping
   // each day's total exactly equal to hoursPerDay.
-  const baseTotal = perSubject * (subjects.length - 1);
+  const baseTotal = rounded.slice(0, -1).reduce((a, b) => a + b, 0);
   const lastHours = roundToQuarterHour(hoursPerDay - baseTotal);
+  const hoursList = [...rounded.slice(0, -1), lastHours];
 
   return DAYS.map(day => ({
     day,
-    blocks: subjects.map((subject, i) => ({
-      subject,
-      hours: i === subjects.length - 1 ? lastHours : perSubject,
-    })),
+    blocks: subjects.map((s, i) => ({ subject: s.name, priority: s.priority, hours: hoursList[i] })),
   }));
 }
 
@@ -53,7 +56,7 @@ function daysUntil(dateStr) {
 }
 
 function timetableToText(timetable, examDate, daysRemaining) {
-  const lines = ["Studyloaf Weekly Timetable"];
+  const lines = ["Studyloaf Weekly Timetable", "Priority weights: High : Medium : Low = 3 : 2 : 1"];
   if (examDate && daysRemaining != null) {
     lines.push(
       daysRemaining >= 0
@@ -64,29 +67,53 @@ function timetableToText(timetable, examDate, daysRemaining) {
   lines.push("");
   timetable.forEach(({ day, blocks }) => {
     lines.push(day);
-    blocks.forEach(b => lines.push(`  ${b.subject}: ${formatHours(b.hours)}`));
+    blocks.forEach(b => lines.push(`  ${b.subject} (${PRIORITY_LABELS[b.priority]}): ${formatHours(b.hours)}`));
     lines.push("");
   });
   return lines.join("\n");
 }
 
+function makeEmptySubject(id) {
+  return { id, name: "", priority: "medium" };
+}
+
 export default function TimetableGenerator() {
-  const [subjectsInput, setSubjectsInput] = useState("");
+  const nextId = useRef(3);
+  const [subjects, setSubjects] = useState([
+    makeEmptySubject(0), makeEmptySubject(1), makeEmptySubject(2),
+  ]);
   const [hoursPerDay, setHoursPerDay] = useState("4");
   const [examDate, setExamDate] = useState("");
   const [timetable, setTimetable] = useState(null);
   const [resultExamDate, setResultExamDate] = useState("");
   const [copied, setCopied] = useState(false);
 
+  function updateSubject(id, field, value) {
+    setSubjects(prev => prev.map(s => (s.id === id ? { ...s, [field]: value } : s)));
+  }
+
+  function addSubject() {
+    setSubjects(prev => [...prev, makeEmptySubject(nextId.current++)]);
+  }
+
+  function removeSubject(id) {
+    setSubjects(prev => (prev.length > 1 ? prev.filter(s => s.id !== id) : prev));
+  }
+
   function handleGenerate(e) {
     e.preventDefault();
-    const subjects = [...new Set(
-      subjectsInput.split(/[,\n]/).map(s => s.trim()).filter(Boolean)
-    )];
-    if (subjects.length === 0) return;
+    const seen = new Set();
+    const cleaned = [];
+    for (const s of subjects) {
+      const name = s.name.trim();
+      if (!name || seen.has(name)) continue;
+      seen.add(name);
+      cleaned.push({ name, priority: s.priority });
+    }
+    if (cleaned.length === 0) return;
 
     const hours = Math.max(MIN_HOURS_PER_DAY, Math.min(MAX_HOURS_PER_DAY, parseFloat(hoursPerDay) || 0));
-    setTimetable(buildTimetable(subjects, hours));
+    setTimetable(buildTimetable(cleaned, hours));
     setResultExamDate(examDate);
     setCopied(false);
   }
@@ -117,16 +144,43 @@ export default function TimetableGenerator() {
   return (
     <div className="tool-panel">
       <form onSubmit={handleGenerate} className="tool-form">
-        <label className="tool-label">
-          Subjects (comma or new line separated)
-          <textarea
-            className="tool-textarea"
-            value={subjectsInput}
-            onChange={e => setSubjectsInput(e.target.value)}
-            placeholder={"Physics\nChemistry\nMaths"}
-            rows={4}
-          />
-        </label>
+        <div className="tool-label">
+          Subjects and priority
+          <div className="tool-subject-rows">
+            {subjects.map(s => (
+              <div key={s.id} className="tool-subject-row">
+                <input
+                  className="tool-input tool-subject-name"
+                  value={s.name}
+                  onChange={e => updateSubject(s.id, "name", e.target.value)}
+                  placeholder="Subject name"
+                />
+                <select
+                  className="tool-input tool-subject-priority"
+                  value={s.priority}
+                  onChange={e => updateSubject(s.id, "priority", e.target.value)}
+                >
+                  {PRIORITY_ORDER.map(p => (
+                    <option key={p} value={p}>{PRIORITY_LABELS[p]}</option>
+                  ))}
+                </select>
+                <button
+                  type="button"
+                  className="tool-subject-remove"
+                  onClick={() => removeSubject(s.id)}
+                  disabled={subjects.length <= 1}
+                  aria-label="Remove subject"
+                >
+                  &times;
+                </button>
+              </div>
+            ))}
+          </div>
+          <button type="button" className="tool-add-subject-btn" onClick={addSubject}>
+            + Add subject
+          </button>
+          <p className="tool-hint">Priority weights: High : Medium : Low = 3 : 2 : 1</p>
+        </div>
 
         <label className="tool-label">
           Hours available per day
@@ -170,7 +224,7 @@ export default function TimetableGenerator() {
                 <h3 className="tool-day-title">{day}</h3>
                 <ul className="tool-day-list">
                   {blocks.map((b, i) => (
-                    <li key={i}>{b.subject}: {formatHours(b.hours)}</li>
+                    <li key={i}>{b.subject} ({PRIORITY_LABELS[b.priority]}): {formatHours(b.hours)}</li>
                   ))}
                 </ul>
               </div>

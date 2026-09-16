@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { getBlogPost, getBlogSlugs } from "@/lib/blogPosts";
+import { getResourceBySlug } from "@/lib/resources";
 import "@/styles/blog.css";
 
 type BlogPostPageProps = {
@@ -41,6 +43,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) notFound();
 
+  const relatedResource = post.relatedResourceSlug ? getResourceBySlug(post.relatedResourceSlug) : null;
+
   return (
     <>
       <Navbar />
@@ -75,6 +79,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
             </div>
           ))}
+
+          {relatedResource && (
+            <div className="blog-post-section blog-post-related">
+              <p className="blog-post-p">
+                Related resource:{" "}
+                <Link href={`/resources/${relatedResource.slug}`}>{relatedResource.title}</Link>
+              </p>
+            </div>
+          )}
         </article>
       </div>
     </>

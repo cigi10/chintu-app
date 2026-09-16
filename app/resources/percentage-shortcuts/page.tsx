@@ -1,4 +1,7 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { getResourceBySlug } from "@/lib/resources";
+import { getBlogPost } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -17,6 +20,9 @@ function round2(n: number) {
 }
 
 export default function PercentageShortcutsPage() {
+  const resource = getResourceBySlug("percentage-shortcuts");
+  const relatedPost = resource?.relatedBlogSlug ? getBlogPost(resource.relatedBlogSlug) : null;
+
   return (
     <>
       <Navbar />
@@ -106,6 +112,15 @@ export default function PercentageShortcutsPage() {
               multiplying by 100 gives {round2((45 / 60) * 100)}%.
             </p>
           </div>
+
+          {relatedPost && (
+            <div className="blog-post-section resource-related">
+              <p className="blog-post-p">
+                Related reading:{" "}
+                <Link href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</Link>
+              </p>
+            </div>
+          )}
         </article>
       </div>
     </>

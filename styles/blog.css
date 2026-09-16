@@ -129,3 +129,16 @@
 .blog-post-list li:last-child {
   margin-bottom: 0;
 }
+
+.blog-post-related {
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.blog-post-related a,
+.resource-related a {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+  text-decoration: underline;
+}

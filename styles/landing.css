@@ -95,6 +95,7 @@ body {
 }
 
 .landing__cta {
+  display: inline-block;
   margin-top: 28px;
 
   padding: 14px 36px;
@@ -105,6 +106,7 @@ body {
   background: #9B6FD4;
 
   color: white;
+  text-decoration: none;
 
   font-family: var(--font-heading);
   font-size: 1rem;
@@ -120,6 +122,20 @@ body {
 .landing__cta:hover {
   background: #8455c8;
   transform: translateY(-2px);
+  color: white;
+}
+
+.landing__cta--secondary {
+  background: transparent;
+  border: 2px solid #9B6FD4;
+  color: #7A4FBF;
+  box-shadow: none;
+  margin-top: 20px;
+}
+
+.landing__cta--secondary:hover {
+  background: rgba(155,111,212,.12);
+  color: #7A4FBF;
 }
 
 /* ---------------- FEATURES ---------------- */
@@ -188,26 +204,69 @@ body {
 
 }
 
-/* ---------------- FOOTER ---------------- */
+/* ---------------- TRY IT NOW / BLOG SECTIONS ---------------- */
+/* The site's regular Footer (components/Footer.jsx) already renders
+   globally below this page's content — no custom footer needed here. */
 
-.landing__footer {
-
+.landing__section {
   width: 100%;
-
-  display: flex;
-
-  justify-content: center;
-
+  max-width: 650px;
+  margin-top: 56px;
 }
 
-.landing__footer-note {
+.landing__section-heading {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #3A2E52;
+  text-align: center;
+  margin: 0 0 20px;
+}
 
-  margin-top: 34px;
+.landing__more-intro {
+  text-align: center;
+  margin: 0 auto 24px;
+}
 
-  color: #8B8399;
+.landing__tools-grid,
+.landing__blog-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-  font-size: .82rem;
+.landing__tool-card,
+.landing__blog-card {
+  display: block;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(155,111,212,.12);
+  border: 1.5px solid rgba(155,111,212,.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 26px rgba(155,111,212,.08);
+  text-decoration: none;
+  transition: .2s;
+}
 
+.landing__tool-card:hover,
+.landing__blog-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(155,111,212,.45);
+  background: rgba(155,111,212,.18);
+}
+
+.landing__tool-title {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  color: #7A4FBF;
+}
+
+.landing__tool-desc {
+  margin: 0;
+  color: #6E6688;
+  line-height: 1.6;
+  font-size: .88rem;
 }
 
 /* ===================================================== */
@@ -246,6 +305,16 @@ body {
 
     grid-template-columns: repeat(2,1fr);
 
+  }
+
+  .landing__tools-grid,
+  .landing__blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .landing__section {
+    max-width: 700px;
   }
 
 }
@@ -367,6 +436,16 @@ body {
 
     gap: 22px;
 
+  }
+
+  .landing__section {
+    max-width: 1150px;
+  }
+
+  .landing__tools-grid,
+  .landing__blog-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
   }
 
 }

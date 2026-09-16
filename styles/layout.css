@@ -3,6 +3,22 @@
    Buttons are in button.css.
 ============================================ */
 
+/* Outer app shell: Sidebar (components/Sidebar.jsx) sits to the left of
+   everything else on desktop, sticky and independently scrollable; on
+   mobile it renders nothing (see styles/sidebar.css), so this collapses
+   to a single column automatically. */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-shell__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .page-root {
   display: flex;
   flex-direction: column;
