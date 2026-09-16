@@ -13,7 +13,10 @@ import {
 import { hydrateTracker } from "@/lib/tracker";
 import { hydrateStreak } from "@/lib/streakLogic";
 
-const CATEGORY_ORDER = ["Sessions", "Streak", "Focus Time", "Coins Earned", "Subjects", "Portions", "Goals"];
+const CATEGORY_ORDER = [
+  "Sessions", "Streak", "Focus Time", "Coins Earned", "Subjects", "Portions", "Goals",
+  "Quiz", "Bread Basket", "Mock Tests", "Revisions",
+];
 
 export default function Achievements() {
   const [ctx, setCtx] = useState(null);

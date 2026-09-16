@@ -6,7 +6,12 @@
 .goals__add-btn:hover { filter: brightness(0.9); }
 .goals__add-btn:active { transform: scale(0.97); }
 
-.goals__companion-wrap { display: flex; justify-content: center; margin: 0.5rem 0 1rem; }
+/* .companion-float (Companion.jsx's own root) is width:100% of its
+   parent, so this wrapper needs an explicit size cap — without one it
+   silently inherits the full page-main width and renders enormous. Same
+   240px cap as .dashboard__companion-wrap so the cat is the same size on
+   both pages. */
+.goals__companion-wrap { width: 100%; max-width: 240px; margin: 0.5rem auto 1rem; }
 .goals__stats-row { display: flex; gap: 12px; margin-bottom: 1.25rem; }
 .goals__stat-card { flex: 1; text-align: center; background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: var(--radius-md); padding: 10px 14px; }
 .goals__stat-value { display: block; font-family: var(--font-heading); font-weight: 900; font-size: 1.4rem; color: var(--color-accent-strong); }

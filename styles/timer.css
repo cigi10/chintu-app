@@ -1,26 +1,37 @@
 .timer { display: flex; flex-direction: column; align-items: center; gap: 0.85rem; padding: 0.75rem 1.25rem 1.5rem; font-family: var(--font-body); box-sizing: border-box; max-width: 720px; margin: 0 auto; width: 100%; }
 .timer__layout { display: flex; align-items: center; justify-content: center; gap: clamp(1.25rem, 4vw, 2.5rem); width: 100%; }
-.timer__companion-col { flex: 0 0 auto; width: clamp(240px, 30vw, 340px); display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
-.timer__companion-col > *:first-child { width: 100%; max-width: 100%; }
-.timer__companion-col svg, .timer__companion-col img { width: 100%; height: auto; max-width: 100%; }
+/* Visual hierarchy: the ring (with the toast inside it) is the hero
+   element — largest, most central. The companion is deliberately small
+   and secondary now (.timer__companion-row), sized independently of the
+   ring so shrinking/growing one never affects the other. */
+.timer__visual-col { flex: 0 0 auto; width: clamp(360px, 36vw, 400px); display: flex; flex-direction: column; align-items: center; gap: 0.85rem; }
+.timer__companion-row { display: flex; align-items: center; gap: 12px; }
+.timer__companion-wrap { width: 72px; flex-shrink: 0; }
+.timer__companion-wrap svg, .timer__companion-wrap img { width: 100%; height: auto; }
 .timer__info-col { flex: 0 1 380px; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; min-width: 0; }
-@media (max-width: 640px) { .timer__layout { flex-direction: column; } .timer__companion-col { width: clamp(180px, 55vw, 240px); } .timer__info-col { width: 100%; } }
+@media (max-width: 640px) {
+  .timer__layout { flex-direction: column; }
+  .timer__visual-col { width: clamp(240px, 80vw, 320px); }
+  .timer__companion-row { flex-direction: column; gap: 6px; }
+  .timer__info-col { width: 100%; }
+}
 
 .timer__mode-bar { display: flex; gap: 6px; background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: var(--radius-pill); padding: 4px; box-shadow: var(--shadow-card); }
 .timer__mode-btn { padding: 7px 16px; border-radius: var(--radius-pill); border: none; font-family: var(--font-body); font-weight: 700; font-size: 0.8rem; color: var(--color-text-secondary); background-color: transparent; cursor: pointer; white-space: nowrap; transition: background-color 0.15s ease, color 0.15s ease; }
 .timer__mode-btn--active { color: #fff; background: var(--color-accent-strong); }
 .timer__mode-btn:hover:not(.timer__mode-btn--active) { background: var(--color-accent); }
 
-.timer__ring-wrap { position: relative; width: 200px; height: 200px; flex-shrink: 0; }
-.timer__svg { transform: rotate(-90deg); position: absolute; top: 0; left: 0; }
-.timer__ring-bg { fill: none; stroke: var(--color-accent); stroke-width: 10; }
-.timer__ring-progress { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 0.9s ease, stroke 0.4s ease; }
+.timer__ring-wrap { position: relative; width: 350px; max-width: 100%; aspect-ratio: 1 / 1; flex-shrink: 0; }
+.timer__svg { transform: rotate(-90deg); position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.timer__ring-bg { fill: none; stroke: var(--color-accent); stroke-width: 18; }
+.timer__ring-progress { fill: none; stroke-width: 18; stroke-linecap: round; transition: stroke-dashoffset 0.9s ease, stroke 0.4s ease; }
 .timer__ring-inner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .timer__time { font-size: 2.4rem; font-weight: 900; color: var(--color-text); letter-spacing: -1px; transition: color 0.3s; font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+.timer__time-below { display: block; font-size: 2.8rem; }
 .timer__time--done { color: var(--color-done); }
 .timer__done-label { font-size: 0.75rem; font-weight: 700; color: var(--color-done); margin-top: 2px; font-family: var(--font-body); }
 
-.timer__message { font-family: var(--font-body); font-weight: 700; font-size: 0.88rem; color: var(--color-text-secondary); background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: var(--radius-md); padding: 8px 18px; text-align: center; max-width: 220px; box-shadow: var(--shadow-card); }
+.timer__message { font-family: var(--font-body); font-weight: 700; font-size: 0.8rem; color: var(--color-text-secondary); background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: var(--radius-md); padding: 6px 14px; text-align: center; max-width: 200px; box-shadow: var(--shadow-card); }
 .timer__btn-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .timer__stats-row { display: flex; gap: 12px; width: 100%; justify-content: center; }
 .timer__stat-card { flex: 1; text-align: center; background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: var(--radius-md); padding: 8px 16px; box-shadow: var(--shadow-card); }

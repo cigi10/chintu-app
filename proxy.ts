@@ -14,10 +14,10 @@ import { isGatedPath } from '@/lib/routeAccess'
 // lib/claimGuestData.js for how that local data gets folded into their
 // account once they do).
 //
-// A separate set of routes (timer/free, tools/timetable-generator,
-// countdown, resources) are also public but, unlike the toolkit above,
-// carry no account coupling at all, not even the localStorage fallback.
-// They're standalone marketing/SEO pages with nothing to sync, ever.
+// A separate set of routes (tools/timetable-generator, countdown,
+// resources) are also public but, unlike the toolkit above, carry no
+// account coupling at all, not even the localStorage fallback. They're
+// standalone marketing/SEO pages with nothing to sync, ever.
 //
 // Kept gated, and why (see lib/routeAccess.js):
 //   /rooms         — Study Rooms' live presence needs an identity, not
@@ -65,5 +65,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon\\.ico|companion/).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon\\.ico|companion/|shop-items/|bread-basket/|toast-nutella-banana-strawberry-blueberry/).*)'],
 }

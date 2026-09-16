@@ -1,20 +1,17 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-image: url("/companion/indoor-bg.PNG");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
 .landing {
   width: 100%;
   min-height: 100dvh;
   box-sizing: border-box;
+
+  /* Scoped to .landing, not body — this stylesheet is a global CSS import
+     (Next.js doesn't unload it on client-side navigation away from this
+     page), so a bare `body { background-image: ... }` rule here used to
+     leak this page's background onto every other page for the rest of
+     the session once you'd visited /landing once. */
+  background-image: url("/companion/indoor-bg.PNG");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 
   display: flex;
   flex-direction: column;
@@ -42,14 +39,52 @@ body {
   text-align: center;
 }
 
+.landing__topbar {
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.landing__topbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #3A2E52;
+}
+
+.landing__topbar-login {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #7A4FBF;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(155,111,212,.35);
+}
+
+.landing__topbar-login:hover {
+  background: rgba(155,111,212,.12);
+}
+
 .landing__title {
   margin: 0;
 
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 2.1rem;
   font-weight: 800;
+  line-height: 1.15;
 
   color: #3A2E52;
+}
+
+.landing__cta-note {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+  color: #8B8399;
 }
 
 .landing__tagline {
@@ -188,6 +223,134 @@ body {
 
 }
 
+/* ---------------- SECTION TITLE (shared) ---------------- */
+
+.landing__section-title {
+  margin: 0 0 18px;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #3A2E52;
+  text-align: center;
+}
+
+/* ---------------- TRY IT NOW ---------------- */
+
+.landing__try-it {
+  width: 100%;
+  max-width: 650px;
+  margin-top: 48px;
+}
+
+.landing__try-it-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.landing__try-it-card {
+  display: block;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.55);
+  border: 1.5px solid rgba(155,111,212,.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-decoration: none;
+  transition: .2s;
+}
+
+.landing__try-it-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(155,111,212,.45);
+  background: rgba(255,255,255,.75);
+}
+
+.landing__try-it-title {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: #7A4FBF;
+}
+
+.landing__try-it-desc {
+  margin: 0;
+  font-size: .88rem;
+  color: #6E6688;
+  line-height: 1.5;
+}
+
+/* ---------------- FROM THE BLOG ---------------- */
+
+.landing__blog {
+  width: 100%;
+  max-width: 650px;
+  margin-top: 56px;
+}
+
+.landing__blog-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.landing__blog-card {
+  display: block;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(155,111,212,.12);
+  border: 1.5px solid rgba(155,111,212,.22);
+  text-decoration: none;
+  transition: .2s;
+}
+
+.landing__blog-card:hover {
+  border-color: rgba(155,111,212,.45);
+  background: rgba(155,111,212,.18);
+}
+
+.landing__blog-card-title {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  color: #7A4FBF;
+}
+
+.landing__blog-card-desc {
+  margin: 0;
+  font-size: .88rem;
+  color: #6E6688;
+  line-height: 1.6;
+}
+
+/* ---------------- FULLER EXPERIENCE ---------------- */
+
+.landing__fuller {
+  width: 100%;
+  max-width: 560px;
+  margin-top: 56px;
+  text-align: center;
+}
+
+.landing__fuller-text {
+  margin: 0 0 14px;
+  font-size: .92rem;
+  line-height: 1.65;
+  color: #6E6688;
+}
+
+.landing__fuller-link {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .92rem;
+  color: #7A4FBF;
+  text-decoration: none;
+}
+
+.landing__fuller-link:hover {
+  text-decoration: underline;
+}
+
 /* ---------------- FOOTER ---------------- */
 
 .landing__footer {
@@ -225,7 +388,7 @@ body {
 
   .landing__title {
 
-    font-size: 3.7rem;
+    font-size: 2.7rem;
 
   }
 
@@ -246,6 +409,12 @@ body {
 
     grid-template-columns: repeat(2,1fr);
 
+  }
+
+  .landing__try-it-grid,
+  .landing__blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
   }
 
 }
@@ -296,7 +465,7 @@ body {
 
     justify-self: start;
 
-    font-size: 5rem;
+    font-size: 3.4rem;
 
   }
 
@@ -367,6 +536,23 @@ body {
 
     gap: 22px;
 
+  }
+
+  .landing__topbar {
+    max-width: 1150px;
+  }
+
+  .landing__try-it,
+  .landing__blog {
+    max-width: 1150px;
+  }
+
+  .landing__try-it-grid {
+    grid-template-columns: repeat(4,1fr);
+  }
+
+  .landing__blog-grid {
+    grid-template-columns: repeat(3,1fr);
   }
 
 }

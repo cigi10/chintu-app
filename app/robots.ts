@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://studyloaf.com";
+const BASE_URL = "https://www.studyloaf.com";
 
 // Either behind the real-session gate (see lib/routeAccess.js) or, like
 // /dashboard, a personalized app view rather than public content, so

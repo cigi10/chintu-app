@@ -3,6 +3,7 @@ import "@/styles/timer.css";
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Companion from "@/components/Companion";
+import ToastProgress from "@/components/ToastProgress";
 import KeycapButton from "@/components/KeycapButton";
 import BunPopAnimation from "@/components/BunPopAnimation";
 import { recordStudySession } from "@/lib/streakLogic";
@@ -19,7 +20,11 @@ const TIMER_STATE_KEY   = "chintu-timer-state";
 const AUTOCYCLE_KEY     = "chintu-autocycle";
 const AUTOCYCLE_COUNT_KEY = "chintu-autocycle-count";
 const SOUND_PREF_KEY    = "chintu-sound-pref";
-const RADIUS            = 82;
+// The ring (with the toast inside it) is the hero element of the timer
+// page — sized well above the companion's now-secondary footprint (see
+// .timer__companion-wrap in timer.css) so it's unambiguously the primary
+// focus during a session.
+const RADIUS            = 148;
 const CIRCUMFERENCE     = 2 * Math.PI * RADIUS;
 const MIN_EARLY_FINISH_SECONDS = 60;
 
@@ -195,6 +200,11 @@ export default function StudyTimer({ roomName = null }) {
   const [done, setDone]               = useState(false);
   const [lastEarned, setLastEarned]   = useState(0);
   const [hydrated, setHydrated]       = useState(false);
+  // Bumped whenever the toast should snap back to bread.PNG — an explicit
+  // "start over" (Reset, switching modes, setting a new custom time, or
+  // restarting after Done), as opposed to merely pausing mid-session
+  // (which should freeze the toast on its current frame instead).
+  const [toastResetKey, setToastResetKey] = useState(0);
 
   const [showCustom, setShowCustom]   = useState(!!durationFromParam);
   const [customMins, setCustomMins]   = useState(durationFromParam ? durationFromParam : "45");
@@ -494,6 +504,7 @@ export default function StudyTimer({ roomName = null }) {
     setRunning(false);
     setDone(false);
     setShowCustom(false);
+    setToastResetKey(k => k + 1);
   }
 
   function applyCustomTime() {
@@ -510,6 +521,7 @@ export default function StudyTimer({ roomName = null }) {
     setRunning(false);
     setDone(false);
     setShowCustom(false);
+    setToastResetKey(k => k + 1);
   }
 
   function handleStartPause() {
@@ -517,6 +529,7 @@ export default function StudyTimer({ roomName = null }) {
       setTimeLeft(totalDuration);
       setDone(false);
       setRunning(true);
+      setToastResetKey(k => k + 1);
     } else {
       setRunning(r => !r);
     }
@@ -528,6 +541,7 @@ export default function StudyTimer({ roomName = null }) {
     setTimeLeft(totalDuration);
     setRunning(false);
     setDone(false);
+    setToastResetKey(k => k + 1);
   }
 
   function completeTask(taskId) {
@@ -704,17 +718,47 @@ export default function StudyTimer({ roomName = null }) {
         )}
 
         <div className="timer__layout">
-          <div className="timer__companion-col">
-            <Companion mood={chintuMood} extraAccessories={isActivelyStudying ? ["book"] : []} />
-            <p className="timer__message">
-              {done
-                ? `+${lastEarned} coins earned`
-                : running && (mode === "study" || mode === "custom")
-                  ? (quote || "Stay focused")
-                  : running
-                    ? "Rest up, you earned it"
-                    : "Press start when ready"}
-            </p>
+          <div className="timer__visual-col">
+            {/* Secondary: a small, still-reactive companion + status line,
+                deliberately not competing in size with the ring below. */}
+            <div className="timer__companion-row">
+              <div className="timer__companion-wrap">
+                <Companion mood={chintuMood} extraAccessories={isActivelyStudying ? ["book"] : []} />
+              </div>
+              <p className="timer__message">
+                {done
+                  ? `+${lastEarned} coins earned`
+                  : running && (mode === "study" || mode === "custom")
+                    ? (quote || "Stay focused")
+                    : running
+                      ? "Rest up, you earned it"
+                      : "Press start when ready"}
+              </p>
+            </div>
+
+            {/* Primary: the countdown ring with the toast inside it — the
+                largest, most visually central element on the page. */}
+            <div className="timer__ring-wrap">
+              <svg width="350" height="350" viewBox="0 0 350 350" className="timer__svg">
+                <circle cx="175" cy="175" r={RADIUS} className="timer__ring-bg" />
+                <circle
+                  cx="175" cy="175" r={RADIUS}
+                  className="timer__ring-progress"
+                  stroke={RING_COLORS[mode] || RING_COLORS.study}
+                  strokeDasharray={CIRCUMFERENCE}
+                  strokeDashoffset={dashOffset}
+                />
+              </svg>
+              {/* Toast lives inside the ring now — it replaces the digits,
+                  which moved to .timer__time-below just underneath. */}
+              <div className="timer__ring-inner">
+                <ToastProgress running={running} resetKey={toastResetKey} />
+              </div>
+            </div>
+
+            <span className={`timer__time timer__time-below${done ? " timer__time--done" : ""}`}>
+              {done ? "Done" : fmt(timeLeft)}
+            </span>
           </div>
 
           <div className="timer__info-col">
@@ -838,24 +882,6 @@ export default function StudyTimer({ roomName = null }) {
                 onChange={e => setSubject(e.target.value)}
                 placeholder="What are you studying? (optional)"
               />
-            </div>
-
-            <div className="timer__ring-wrap">
-              <svg width="200" height="200" className="timer__svg">
-                <circle cx="100" cy="100" r={RADIUS} className="timer__ring-bg" />
-                <circle
-                  cx="100" cy="100" r={RADIUS}
-                  className="timer__ring-progress"
-                  stroke={RING_COLORS[mode] || RING_COLORS.study}
-                  strokeDasharray={CIRCUMFERENCE}
-                  strokeDashoffset={dashOffset}
-                />
-              </svg>
-              <div className="timer__ring-inner">
-                <span className={`timer__time${done ? " timer__time--done" : ""}`}>
-                  {done ? "Done" : fmt(timeLeft)}
-                </span>
-              </div>
             </div>
 
             <div className="timer__btn-row">

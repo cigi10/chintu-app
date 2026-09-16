@@ -1,4 +1,4 @@
-.stats { max-width: 640px; margin: 0 auto; }
+.stats { max-width: 720px; margin: 0 auto; }
 .stats__view-toggle { display: flex; gap: 6px; background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: 999px; padding: 4px; margin-bottom: 1.5rem; width: fit-content; box-shadow: var(--shadow-card); }
 .stats__view-btn { padding: 7px 18px; border-radius: 999px; border: none; font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; color: var(--color-text-secondary); background-color: transparent; cursor: pointer; transition: background-color 0.15s ease, color 0.15s ease; }
 .stats__view-btn--active { background-color: var(--color-accent-strong); color: #ffffff; }
@@ -21,8 +21,38 @@
 .stats__subject-bar-bg { flex: 1; height: 8px; background: var(--color-accent); border-radius: 999px; overflow: hidden; }
 .stats__subject-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--color-primary), var(--color-accent-strong)); transition: width 0.4s ease; }
 .stats__subject-hrs { font-family: var(--font-body); font-weight: 700; font-size: 0.78rem; color: var(--color-text-secondary); min-width: 40px; text-align: right; }
-.stats__mock-trend { background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: 16px; padding: 1rem 1.1rem; box-shadow: var(--shadow-card); }
-.stats__mock-empty { font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--color-text-secondary); text-align: center; padding: 1.5rem 0; }
+/* ============================================
+   StatsCharts.jsx — pie chart, day/subject grid,
+   weekly trend line, consistency heatmap, mock trend.
+   All plain SVG/CSS, no charting library.
+============================================ */
+.stats-chart__empty { font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--color-text-secondary); text-align: center; padding: 1.5rem 0; }
+
+.stats-chart__pie-wrap { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: 16px; padding: 1rem 1.1rem; box-shadow: var(--shadow-card); }
+.stats-chart__pie { flex-shrink: 0; }
+.stats-chart__pie-legend { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 140px; }
+.stats-chart__legend-row { display: flex; align-items: center; gap: 8px; }
+.stats-chart__legend-swatch { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.stats-chart__legend-name { font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; color: var(--color-text); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stats-chart__legend-pct { font-family: var(--font-body); font-weight: 700; font-size: 0.78rem; color: var(--color-text-secondary); }
+
+.stats-chart__grid-wrap { background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: 16px; padding: 1rem 1.1rem; box-shadow: var(--shadow-card); overflow-x: auto; }
+.stats-chart__grid { display: grid; gap: 4px; align-items: center; min-width: 340px; }
+.stats-chart__grid-corner { min-width: 70px; }
+.stats-chart__grid-day-label { font-family: var(--font-body); font-size: 0.68rem; font-weight: 700; color: var(--color-text-secondary); text-align: center; }
+.stats-chart__grid-subject-label { font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; color: var(--color-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 90px; padding-right: 6px; }
+.stats-chart__grid-cell { aspect-ratio: 1; border-radius: 5px; background: var(--color-surface); border: 1px solid var(--color-border); position: relative; min-width: 22px; }
+.stats-chart__grid-cell-fill { position: absolute; inset: 0; border-radius: 4px; background: var(--color-accent-strong); }
+
+.stats-chart__trend-wrap { background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: 16px; padding: 1rem 1.1rem 0.5rem; box-shadow: var(--shadow-card); }
+.stats-chart__trend { display: block; }
+.stats-chart__trend-labels { display: flex; justify-content: space-between; font-family: var(--font-body); font-size: 0.68rem; font-weight: 700; color: var(--color-text-secondary); padding: 0 4px 8px; }
+
+.stats-chart__heatmap-wrap { background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: 16px; padding: 1rem 1.1rem; box-shadow: var(--shadow-card); overflow-x: auto; }
+.stats-chart__heatmap { display: grid; gap: 3px; min-width: 260px; }
+.stats-chart__heatmap-col { display: flex; flex-direction: column; gap: 3px; }
+.stats-chart__heatmap-cell { aspect-ratio: 1; border-radius: 3px; background: var(--color-surface); border: 1px solid var(--color-border); position: relative; min-width: 14px; }
+.stats-chart__heatmap-cell-fill { position: absolute; inset: 0; border-radius: 2px; background: var(--color-streak); }
 .stats__streak-card { background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: 16px; padding: 1.25rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-card); }
 .stats__streak-number { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; color: var(--color-needs-revision); line-height: 1; flex-shrink: 0; }
 .stats__streak-label { font-family: var(--font-body); font-size: 0.88rem; font-weight: 700; color: var(--color-text); }

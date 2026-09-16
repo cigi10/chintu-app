@@ -16,14 +16,6 @@ const TAGS = [
 ];
 
 const EVERYONE_ID = "everyone";
-const ORB_COLORS = [
-  "#9B6FD4",
-  "#F2619C",
-  "#F9C060",
-  "#7EC8A0",
-  "#6FB7D4",
-  "#B58FE8",
-];
 
 function anonId() {
   try {
@@ -120,7 +112,6 @@ export default function StudyRooms() {
   }
 
   const everyoneCount = counts[EVERYONE_ID] || 1;
-  const othersCount = Math.max(everyoneCount - 1, 0);
 
   const activeTagName = activeTag
     ? TAGS.find((t) => t.id === activeTag)?.name
@@ -129,17 +120,14 @@ export default function StudyRooms() {
   return (
     <div className="rooms">
       <div className="rooms__hero">
-        <OrbCluster count={everyoneCount} settled={settled} />
-
-        <p className="rooms__hero-text" aria-live="polite">
-          {!settled
-            ? "Gathering the room…"
-            : othersCount > 0
-            ? `Studying alongside ${othersCount} other${
-                othersCount > 1 ? "s" : ""
-              } right now`
-            : "You're here first: others will join as they start studying"}
-        </p>
+        {!settled ? (
+          <p className="rooms__hero-text" aria-live="polite">Gathering the room…</p>
+        ) : (
+          <div className="rooms__headcount" aria-live="polite">
+            <span className="rooms__headcount-number">{everyoneCount}</span>
+            <span className="rooms__headcount-label">studying now</span>
+          </div>
+        )}
       </div>
 
       <div className="rooms__tags-section">
@@ -176,36 +164,6 @@ export default function StudyRooms() {
       <Suspense fallback={null}>
         <StudyTimer roomName={activeTagName} />
       </Suspense>
-    </div>
-  );
-}
-
-function OrbCluster({ count, settled }) {
-  const visible = Math.min(count, 6);
-  const overflow = count - visible;
-
-  return (
-    <div
-      className={`rooms__orbs${
-        settled ? "" : " rooms__orbs--pending"
-      }`}
-    >
-      {Array.from({ length: visible }).map((_, i) => (
-        <span
-          key={i}
-          className="rooms__orb"
-          style={{
-            background: `radial-gradient(circle at 35% 30%, ${
-              ORB_COLORS[i % ORB_COLORS.length]
-            }dd, ${ORB_COLORS[i % ORB_COLORS.length]}88)`,
-            animationDelay: `${i * 0.35}s`,
-          }}
-        />
-      ))}
-
-      {overflow > 0 && (
-        <span className="rooms__orb-overflow">+{overflow}</span>
-      )}
     </div>
   );
 }

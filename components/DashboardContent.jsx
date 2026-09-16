@@ -425,6 +425,8 @@ export default function DashboardContent() {
               </button>
             </div>
           )}
+
+          <BreadBasket />
         </div>
 
         <div className="dashboard__info-side">
@@ -600,8 +602,6 @@ export default function DashboardContent() {
               </div>
             )}
           </div>
-
-          <BreadBasket />
 
           {/* Weekly report */}
           <div className="dashboard__section">

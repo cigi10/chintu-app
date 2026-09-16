@@ -4,7 +4,10 @@ import { useEffect } from 'react'
 import BottomNav from '@/components/BottomNav'
 import { claimGuestDataForAccount } from '@/lib/claimGuestData'
 
-const HIDDEN_ON = ['/login', '/landing', '/onboarding', '/forgot-password', '/reset-password']
+// Exported so other places that need to know when the nav chrome (this
+// component's BottomNav, and each page's own <Navbar/>) is hidden can
+// agree on the same list, without duplicating it.
+export const CHROME_HIDDEN_ON = ['/login', '/landing', '/onboarding', '/forgot-password', '/reset-password']
 
 export default function ConditionalNav() {
   const pathname = usePathname()
@@ -20,7 +23,7 @@ export default function ConditionalNav() {
     claimGuestDataForAccount()
   }, [])
 
-  const shouldHide = HIDDEN_ON.some((path) => pathname?.startsWith(path))
+  const shouldHide = CHROME_HIDDEN_ON.some((path) => pathname?.startsWith(path))
   if (shouldHide) return null
   return <BottomNav />
 }

@@ -3,7 +3,9 @@
 import "@/styles/landing.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Companion from "@/components/Companion";
+import { NAV } from "@/lib/navItems";
 
 const THEME_KEY = "chintu-theme";
 
@@ -33,7 +35,16 @@ const FEATURES = [
   },
 ];
 
-export default function Landing() {
+// Free, no-signup tools — the guest-mode-first pitch: you can try the
+// actual product before ever creating an account.
+const TRY_IT_TOOLS = [
+  { href: NAV.timetableGenerator.href, title: "Timetable Generator", desc: "Build a study timetable in a couple of minutes." },
+  { href: NAV.countdown.href, title: "Exam Countdown", desc: "See exactly how many days are left until your exam." },
+  { href: NAV.quiz.href, title: "Daily Quiz", desc: "A quick daily challenge for JEE, NEET, and more." },
+  { href: NAV.resources.href, title: "Quick Resources", desc: "Formulas and shortcuts you keep having to look up." },
+];
+
+export default function Landing({ recentPosts = [] }) {
   const router = useRouter();
   const [heroMood, setHeroMood] = useState(HERO_MOODS[0]);
 
@@ -69,12 +80,19 @@ export default function Landing() {
 
   return (
     <div className="landing">
+      <div className="landing__topbar">
+        <span className="landing__topbar-brand">Studyloaf</span>
+        <Link href={NAV.login.href} className="landing__topbar-login">
+          Log in
+        </Link>
+      </div>
+
       <section className="landing__hero">
 
         <div className="landing__hero-text">
 
           <h1 className="landing__title">
-            Studyloaf
+            Your study bestie that doesn&apos;t guilt-trip you
           </h1>
 
           <p className="landing__tagline">
@@ -86,21 +104,33 @@ export default function Landing() {
           </div>
 
           <p className="landing__subtext">
-            Preparing for a big exam can feel lonely.
-            Your companion quietly studies alongside you, remembers the small things,
-            keeps track of the boring logistics, and never makes you feel bad
-            for having an off day.
+            Timers that keep you focused, portions of your syllabus you can actually
+            track, and zero guilt when a day slips. Your companion quietly studies
+            alongside you and never makes you feel bad for having an off day.
           </p>
 
           <button
             className="landing__cta"
-            onClick={() => router.push("/login")}
+            onClick={() => router.push(NAV.home.href)}
           >
-            Sign in to get started
+            Start studying free
           </button>
+          <p className="landing__cta-note">No account needed: your progress is saved on this device.</p>
 
         </div>
 
+      </section>
+
+      <section className="landing__try-it">
+        <h2 className="landing__section-title">Try it now, no sign-up</h2>
+        <div className="landing__try-it-grid">
+          {TRY_IT_TOOLS.map((tool) => (
+            <Link key={tool.href} href={tool.href} className="landing__try-it-card">
+              <h3 className="landing__try-it-title">{tool.title}</h3>
+              <p className="landing__try-it-desc">{tool.desc}</p>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="landing__features">
@@ -120,6 +150,31 @@ export default function Landing() {
           </article>
         ))}
 
+      </section>
+
+      {recentPosts.length > 0 && (
+        <section className="landing__blog">
+          <h2 className="landing__section-title">From the blog</h2>
+          <div className="landing__blog-grid">
+            {recentPosts.map((post) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="landing__blog-card">
+                <h3 className="landing__blog-card-title">{post.title}</h3>
+                <p className="landing__blog-card-desc">{post.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="landing__fuller">
+        <h2 className="landing__section-title">Want the fuller experience?</h2>
+        <p className="landing__fuller-text">
+          Sign in with Google and your timer sessions, tracker, goals, and achievements
+          sync across every device: still no shame system, still the same companion.
+        </p>
+        <Link href={NAV.login.href} className="landing__fuller-link">
+          Sign in to sync your progress →
+        </Link>
       </section>
 
       <footer className="landing__footer">

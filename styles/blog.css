@@ -28,6 +28,24 @@
   gap: 16px;
 }
 
+.blog-category-section {
+  margin-bottom: 36px;
+}
+
+.blog-category-section:last-child {
+  margin-bottom: 0;
+}
+
+.blog-category-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-accent-strong);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--color-border);
+}
+
 .blog-card {
   display: block;
   background: var(--color-surface);
@@ -128,4 +146,44 @@
 
 .blog-post-list li:last-child {
   margin-bottom: 0;
+}
+
+.blog-post-table-wrap {
+  overflow-x: auto;
+  margin: 14px 0;
+}
+
+.blog-post-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.blog-post-table th,
+.blog-post-table td {
+  border: 1px solid var(--color-border);
+  padding: 8px 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.blog-post-table th {
+  background: var(--color-surface-alt);
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* KaTeX-rendered math (components/Katex.jsx). katex.min.css supplies the
+   glyph/spacing rules themselves; this just places the block form as its
+   own centered line and lets it scroll horizontally rather than overflow
+   the page on a long equation at phone width. */
+.katex-block {
+  display: block;
+  margin: 14px 0;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.katex-inline {
+  display: inline-block;
 }

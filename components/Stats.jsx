@@ -3,6 +3,15 @@ import "@/styles/stats.css";
 import { useState, useEffect } from "react";
 import { getStreakInfo, hydrateStreak } from "@/lib/streakLogic";
 import { hydrateTracker, getSessionLog } from "@/lib/tracker";
+import { hydrateMockScores } from "@/lib/mocktests";
+import { getWeekStart, BASKET_DAYS } from "@/lib/breadBasket";
+import {
+  SubjectPieChart,
+  DaySubjectGrid,
+  WeeklyTrendLine,
+  ConsistencyHeatmap,
+  MockScoreTrend,
+} from "@/components/StatsCharts";
 
 function getLast7Days() {
   return Array.from({ length: 7 }, (_, i) => {
@@ -13,9 +22,29 @@ function getLast7Days() {
 }
 
 const DAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const TOP_SUBJECTS_FOR_GRID = 5;
+const TREND_WEEKS = 8;
+const HEATMAP_WEEKS = 10;
+
+function subjectOf(session) {
+  return session.subject || "General";
+}
+
+// Monday of the week containing `dateStr` (matches lib/breadBasket.js's
+// week bucketing so this and the Bread Basket agree on where a week
+// starts), as a plain YYYY-MM-DD string.
+function weekStartOf(dateStr) {
+  return getWeekStart(new Date(dateStr));
+}
+
+function formatWeekLabel(weekStartStr) {
+  const d = new Date(weekStartStr);
+  return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+}
 
 export default function Stats() {
   const [log, setLog] = useState([]);
+  const [mockScores, setMockScores] = useState([]);
   const [streak, setStreak] = useState(0);
   const [view, setView] = useState("week"); // "week" | "month"
 
@@ -23,6 +52,7 @@ export default function Stats() {
     let cancelled = false;
     hydrateTracker().then(() => { if (!cancelled) setLog(getSessionLog()); });
     hydrateStreak().then(() => { if (!cancelled) setStreak(getStreakInfo().streakCount); });
+    hydrateMockScores().then((scores) => { if (!cancelled) setMockScores(scores); });
     return () => { cancelled = true; };
   }, []);
 
@@ -36,12 +66,24 @@ export default function Stats() {
 
   const totalMinutes = log.reduce((sum, s) => sum + (Number(s.durationMinutes) || 0), 0);
   const totalSessions = log.length;
+  const avgSessionMinutes = totalSessions > 0 ? Math.round(totalMinutes / totalSessions) : 0;
 
   const subjectMinutes = {};
   log.forEach((s) => {
-    const subj = s.subject || "General";
-    subjectMinutes[subj] = (subjectMinutes[subj] || 0) + (Number(s.durationMinutes) || 0);
+    subjectMinutes[subjectOf(s)] = (subjectMinutes[subjectOf(s)] || 0) + (Number(s.durationMinutes) || 0);
   });
+
+  // Best weekday: which day of the week has earned the most study time,
+  // across the whole logged history (not just the last 7 days).
+  const minutesByWeekday = new Array(7).fill(0); // 0=Sun..6=Sat, matches Date#getDay()
+  log.forEach((s) => {
+    const dow = new Date(s.date).getDay();
+    minutesByWeekday[dow] += Number(s.durationMinutes) || 0;
+  });
+  const bestWeekdayIndex = minutesByWeekday.some((m) => m > 0)
+    ? minutesByWeekday.indexOf(Math.max(...minutesByWeekday))
+    : null;
+  const bestWeekdayLabel = bestWeekdayIndex != null ? DAY_LABELS[bestWeekdayIndex] : "—";
 
   // Monthly view: bucket the log into ISO weeks over the last ~5 weeks
   const weeklyBuckets = (() => {
@@ -78,6 +120,62 @@ export default function Stats() {
   const recentSessions = [...log]
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .slice(0, 8);
+
+  // ---- Chart data for StatsCharts.jsx ----
+
+  const topSubjects = Object.entries(subjectMinutes)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, TOP_SUBJECTS_FOR_GRID)
+    .map(([subject]) => subject);
+
+  const gridDays = days.map((key) => ({ key, label: DAY_LABELS[new Date(key).getDay()] }));
+
+  function minutesForSubjectOnDay(subject, dateKey) {
+    return log
+      .filter((s) => subjectOf(s) === subject && s.date === dateKey)
+      .reduce((sum, s) => sum + (Number(s.durationMinutes) || 0), 0);
+  }
+
+  // Weekly trend: total minutes per Monday-start week, over the last
+  // TREND_WEEKS weeks (including the current, in-progress one).
+  const trendWeeks = (() => {
+    const currentWeekStart = getWeekStart();
+    const starts = Array.from({ length: TREND_WEEKS }, (_, i) => {
+      const d = new Date(currentWeekStart);
+      d.setDate(d.getDate() - (TREND_WEEKS - 1 - i) * 7);
+      return d.toISOString().slice(0, 10);
+    });
+    const totals = Object.fromEntries(starts.map((s) => [s, 0]));
+    log.forEach((s) => {
+      const ws = weekStartOf(s.date);
+      if (ws in totals) totals[ws] += Number(s.durationMinutes) || 0;
+    });
+    return starts.map((weekStart) => ({
+      label: formatWeekLabel(weekStart),
+      mins: totals[weekStart],
+    }));
+  })();
+
+  // Consistency heatmap: minutes per weekday for each of the last
+  // HEATMAP_WEEKS Monday-start weeks.
+  const heatmapWeeks = (() => {
+    const currentWeekStart = getWeekStart();
+    const starts = Array.from({ length: HEATMAP_WEEKS }, (_, i) => {
+      const d = new Date(currentWeekStart);
+      d.setDate(d.getDate() - (HEATMAP_WEEKS - 1 - i) * 7);
+      return d.toISOString().slice(0, 10);
+    });
+    const weeks = Object.fromEntries(
+      starts.map((weekStart) => [weekStart, { weekStart, minutesByDay: {} }])
+    );
+    log.forEach((s) => {
+      const ws = weekStartOf(s.date);
+      if (!(ws in weeks)) return;
+      const dow = BASKET_DAYS[(new Date(s.date).getDay() + 6) % 7];
+      weeks[ws].minutesByDay[dow] = (weeks[ws].minutesByDay[dow] || 0) + (Number(s.durationMinutes) || 0);
+    });
+    return starts.map((weekStart) => weeks[weekStart]);
+  })();
 
   if (totalSessions === 0) {
     return (
@@ -118,6 +216,14 @@ export default function Stats() {
         <div className="stats__summary-card">
           <span className="stats__summary-value">{streak}</span>
           <span className="stats__summary-label">Day streak</span>
+        </div>
+        <div className="stats__summary-card">
+          <span className="stats__summary-value">{avgSessionMinutes}m</span>
+          <span className="stats__summary-label">Avg. session</span>
+        </div>
+        <div className="stats__summary-card">
+          <span className="stats__summary-value">{bestWeekdayLabel}</span>
+          <span className="stats__summary-label">Best weekday</span>
         </div>
       </div>
 
@@ -175,10 +281,28 @@ export default function Stats() {
       )}
 
       <div className="stats__section">
+        <h2 className="stats__section-title">Time by subject</h2>
+        <SubjectPieChart subjectMinutes={subjectMinutes} />
+      </div>
+
+      <div className="stats__section">
+        <h2 className="stats__section-title">Subjects by day: last 7 days</h2>
+        <DaySubjectGrid subjects={topSubjects} days={gridDays} minutesFor={minutesForSubjectOnDay} />
+      </div>
+
+      <div className="stats__section">
+        <h2 className="stats__section-title">Weekly trend: last {TREND_WEEKS} weeks</h2>
+        <WeeklyTrendLine weeks={trendWeeks} />
+      </div>
+
+      <div className="stats__section">
+        <h2 className="stats__section-title">Consistency: last {HEATMAP_WEEKS} weeks</h2>
+        <ConsistencyHeatmap weeks={heatmapWeeks} />
+      </div>
+
+      <div className="stats__section">
         <h2 className="stats__section-title">Mock score trend</h2>
-        <div className="stats__mock-trend">
-          <div className="stats__mock-empty">No mock scores logged yet.</div>
-        </div>
+        <MockScoreTrend scores={mockScores} />
       </div>
 
       <div className="stats__section">

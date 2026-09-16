@@ -1,0 +1,13 @@
+/* toast-progress.css — ambient toast visual, rendered inside the timer's
+   countdown ring (see .timer__ring-inner in timer.css) as the page's
+   hero element, replacing the spot the time digits used to occupy. Plain
+   image swap only: no glow, bounce, or scale animation, since this is a
+   fun decorative loop and not a progress indicator. Sized as a
+   percentage of the ring (not a fixed px value) so it scales down with
+   the ring on narrow screens instead of overflowing it. */
+
+.toast-progress__image {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+}

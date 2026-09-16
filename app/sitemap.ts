@@ -4,9 +4,9 @@ import { getResourceSlugs } from "@/lib/resources";
 import { getQuizCategorySlugs } from "@/lib/quiz";
 import { getExamSlugs } from "@/lib/examDates";
 
-const BASE_URL = "https://studyloaf.com";
+const BASE_URL = "https://www.studyloaf.com";
 
-const STATIC_ROUTES = ["/", "/blog", "/quiz", "/resources", "/privacy", "/terms", "/timer/free", "/tools/timetable-generator", "/countdown"];
+const STATIC_ROUTES = ["/", "/blog", "/quiz", "/resources", "/privacy", "/terms", "/tools/timetable-generator", "/countdown"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = STATIC_ROUTES.map(path => ({

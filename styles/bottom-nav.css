@@ -17,6 +17,8 @@
   z-index: 50;
 }
 
+/* Complementary to navbar.css's breakpoint (hidden below 640px) — one or
+   the other is always visible, never both, never neither. */
 @media (max-width: 640px) {
   .bottom-nav {
     display: flex;
@@ -50,12 +52,16 @@
   font-weight: 800;
 }
 
-.bottom-nav__more-btn {
+.bottom-nav__menu-btn {
   font-family: var(--font-body);
 }
 
 /* ============================= */
-/* More sheet */
+/* Menu sheet — sectioned Study / Free Tools / You, same groups as the
+   desktop navbar's mega-menu (see NAV_GROUPS in lib/navItems.js). Scroll
+   safety: .bottom-sheet itself is height-capped (max-height: 75vh) with
+   overflow-y: auto, so the sheet is always fully reachable no matter how
+   tall the section list gets or how short the viewport is. */
 /* ============================= */
 
 .bottom-sheet-overlay {

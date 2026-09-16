@@ -13,7 +13,7 @@
   margin-bottom: 4px;
 }
 
-/* Placeholder for basket-empty.png / basket-full.png — plain, natural
+/* One PNG per bun count (public/bread-basket/) — plain, natural
    bread/basket tones with no color treatment of their own, so any
    celebratory effect has to come from a CSS overlay (below), not the art. */
 .bread-basket__basket-art {
@@ -23,24 +23,15 @@
   background: var(--color-surface);
   border: 1.5px solid var(--color-border);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
 }
 
-.bread-basket__buns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  width: 100%;
-}
-
-/* Placeholder for bun-plain.png. */
-.bread-basket__bun {
-  width: 22px;
-  height: 22px;
-  border-radius: 50% 50% 45% 45%;
-  background: var(--color-needs-revision);
-  flex-shrink: 0;
+.bread-basket__image {
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
 }
 
 /* Theme-aware celebration overlay for a full basket (7/7 this week) —
