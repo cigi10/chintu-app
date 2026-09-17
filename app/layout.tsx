@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import "@/styles/layout.css";
 import { JetBrains_Mono, Roboto } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import ThirdPartyScripts from "@/components/ThirdPartyScripts";
 import ConditionalNav from "@/components/ConditionalNav";
 import GuestModeBanner from "@/components/GuestModeBanner";
 import PageTransition from "@/components/PageTransition";
@@ -45,6 +45,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             __html: `try{var t=localStorage.getItem('chintu-theme');var v=['sunset','azure','strawberry','periwinkle','matcha','forest','majorelle','slate','cocoa','starry-nights','rose-noir','midnight-blue','twilight-forest'];document.documentElement.setAttribute('data-theme',v.includes(t)?t:'sunset');}catch(e){}`,
           }}
         />
+        {/* Every third-party analytics/ads script (GA + AdSense) lives in
+            this one component, rendered once here so it's site-wide
+            automatically and never duplicated per page. */}
+        <ThirdPartyScripts />
       </head>
       <body>
         <GuestModeBanner />
@@ -53,9 +57,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </PageTransition>
         <ConditionalNav />
         <Footer />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        )}
       </body>
     </html>
   );
