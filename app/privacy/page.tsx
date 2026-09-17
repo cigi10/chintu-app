@@ -178,8 +178,8 @@ export default function PrivacyPage() {
           <p className="legal-p">
             If you have questions about this Privacy Policy or how your data is handled, contact us
             at{" "}
-            <a href="mailto:contactvachmi@gmail.com" className="legal-link">
-              contactvachmi@gmail.com
+            <a href="mailto:contact.studyloaf@gmail.com" className="legal-link">
+              contact.studyloaf@gmail.com
             </a>
             .
           </p>

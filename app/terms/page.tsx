@@ -77,8 +77,8 @@ export default function TermsPage() {
           <h2 className="legal-heading">Contact</h2>
           <p className="legal-p">
             Questions about these terms? Reach out at{" "}
-            <a href="mailto:contactvachmi@gmail.com" className="legal-link">
-              contactvachmi@gmail.com
+            <a href="mailto:contact.studyloaf@gmail.com" className="legal-link">
+              contact.studyloaf@gmail.com
             </a>
             .
           </p>
