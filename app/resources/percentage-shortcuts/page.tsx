@@ -1,4 +1,6 @@
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -20,7 +22,21 @@ export default function PercentageShortcutsPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Percentage Shortcuts",
+        description: "Common percentage calculation shortcuts and mental math tricks with worked examples.",
+        datePublished: "2026-09-15",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Percentage Shortcuts" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Percentage Shortcuts</h1>
 

@@ -1,4 +1,6 @@
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -14,7 +16,21 @@ export default function DivisibilityRulesPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Divisibility Rules",
+        description: "Quick tests to check whether a number is divisible by 2 through 12, with worked examples.",
+        datePublished: "2026-09-15",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Divisibility Rules" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Divisibility Rules</h1>
 

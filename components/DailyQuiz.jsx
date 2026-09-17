@@ -6,6 +6,8 @@ import Button from "@/components/Button";
 import { getDailyQuestion } from "@/lib/quiz";
 import { hydrateQuizStreak, getDailyStreakInfo, recordDailyPlayed } from "@/lib/quizStreak";
 
+const POINTS_FOR_CORRECT = 10;
+
 export default function DailyQuiz({ category }) {
   const question = getDailyQuestion(category.slug);
   const [selected, setSelected] = useState(null);
@@ -46,9 +48,11 @@ export default function DailyQuiz({ category }) {
     <div className="quiz-daily">
       <div className="quiz-daily-header">
         <h1 className="quiz-title">{category.label} Daily Challenge</h1>
-        <p className="quiz-streak">
-          Current streak: {streak.streakCount} day{streak.streakCount === 1 ? "" : "s"}
-        </p>
+        <div className="quiz-streak-card">
+          <span className="quiz-streak-flame" aria-hidden="true">🔥</span>
+          <span className="quiz-streak-count">{streak.streakCount}</span>
+          <span className="quiz-streak">day{streak.streakCount === 1 ? "" : "s"} streak</span>
+        </div>
       </div>
 
       <div className="quiz-question-card">
@@ -58,8 +62,8 @@ export default function DailyQuiz({ category }) {
           {question.options.map((option, i) => {
             let optionClass = "quiz-option";
             if (submitted) {
-              if (i === question.correctIndex) optionClass += " quiz-option--correct";
-              else if (i === selected) optionClass += " quiz-option--incorrect";
+              if (i === question.correctIndex) optionClass += " quiz-option--correct quiz-option--pop";
+              else if (i === selected) optionClass += " quiz-option--incorrect quiz-option--pop";
             } else if (i === selected) {
               optionClass += " quiz-option--selected";
             }
@@ -72,6 +76,12 @@ export default function DailyQuiz({ category }) {
                 onClick={() => setSelected(i)}
               >
                 {option}
+                {submitted && i === question.correctIndex && (
+                  <span className="quiz-option-icon quiz-option-icon--correct">✓</span>
+                )}
+                {submitted && i === selected && i !== question.correctIndex && (
+                  <span className="quiz-option-icon quiz-option-icon--incorrect">✗</span>
+                )}
               </button>
             );
           })}
@@ -81,6 +91,10 @@ export default function DailyQuiz({ category }) {
           <Button onClick={handleSubmit} disabled={selected == null} fullWidth>
             Submit answer
           </Button>
+        )}
+
+        {submitted && isCorrect && (
+          <p className="quiz-points-popup">+{POINTS_FOR_CORRECT} points!</p>
         )}
 
         {submitted && (

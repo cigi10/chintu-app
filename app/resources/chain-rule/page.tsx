@@ -1,5 +1,8 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -15,7 +18,21 @@ export default function ChainRulePage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Chain Rule",
+        description: "The chain rule for differentiating composite functions, with two worked derivative examples.",
+        datePublished: "2026-09-16",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Chain Rule" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Chain Rule</h1>
 
@@ -60,6 +77,17 @@ export default function ChainRulePage() {
             <Katex display>{"\\dfrac{du}{dx} = \\dfrac{1}{2\\sqrt{x}}, \\qquad \\dfrac{dv}{du} = \\sec^2(u), \\qquad \\dfrac{d}{dv}\\sec(v) = \\sec(v)\\tan(v)"}</Katex>
             <p className="blog-post-p">Multiplying the three pieces together (the chain rule again):</p>
             <Katex display>{"\\dfrac{1}{2\\sqrt{x}} \\cdot \\sec(\\tan(\\sqrt{x})) \\cdot \\tan(\\tan(\\sqrt{x})) \\cdot \\sec^2(\\sqrt{x})"}</Katex>
+          </div>
+
+          <div className="blog-post-related">
+            <h2 className="blog-post-heading">Continue learning</h2>
+            <p className="blog-post-p">
+              Many definite integrals are solved by spotting a chain-rule pattern in reverse, so the
+              two techniques are worth learning back to back.
+            </p>
+            <ul className="blog-post-related-list">
+              <li><Link href="/resources/definite-integrals">Definite Integrals</Link></li>
+            </ul>
           </div>
         </article>
       </div>

@@ -7,8 +7,6 @@ import Link from "next/link";
 import Companion from "@/components/Companion";
 import { NAV } from "@/lib/navItems";
 
-const THEME_KEY = "chintu-theme";
-
 // Cycled in the hero via a plain sprite swap - same approach as the
 // dashboard's IDLE_POSES and StudyTimer's mood art, no transition/remount.
 // Kept to inviting/curious moods on purpose — no "worried" or "sleepy"
@@ -47,24 +45,6 @@ const TRY_IT_TOOLS = [
 export default function Landing({ recentPosts = [] }) {
   const router = useRouter();
   const [heroMood, setHeroMood] = useState(HERO_MOODS[0]);
-
-  useEffect(() => {
-    let storedTheme = null;
-    try {
-      storedTheme = localStorage.getItem(THEME_KEY);
-    } catch {}
-
-    // Matches the palette landing.css already hardcodes (same lavender
-    // primary, same indoor-bg.PNG), so a flash before the background image
-    // paints is soft near-white instead of another theme's near-black.
-    document.documentElement.setAttribute("data-theme", "sunset");
-
-    return () => {
-      try {
-        document.documentElement.setAttribute("data-theme", storedTheme || "sunset");
-      } catch {}
-    };
-  }, []);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;

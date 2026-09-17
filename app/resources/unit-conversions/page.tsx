@@ -1,4 +1,6 @@
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 import "@/styles/resources.css";
 
@@ -15,7 +17,21 @@ export default function UnitConversionsPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Unit Conversions Reference",
+        description: "Common unit conversions for physics and chemistry: length, mass, time, energy, and SI prefixes.",
+        datePublished: "2026-09-15",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Other Subjects" },
+          { label: "Unit Conversions Reference" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Unit Conversions Reference</h1>
 

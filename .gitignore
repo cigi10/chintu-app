@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw vachmi source content (own git repo, only used to hand-author
+# app/resources/* — not part of this app's build or runtime)
+/vachmi/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

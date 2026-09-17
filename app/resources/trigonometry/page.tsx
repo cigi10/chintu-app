@@ -1,5 +1,8 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -15,7 +18,21 @@ export default function TrigonometryPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Trigonometry Basics",
+        description: "Sine, cosine, tangent and their reciprocals, standard angle values, and the core trigonometric identities.",
+        datePublished: "2026-09-16",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Trigonometry Basics" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Trigonometry Basics</h1>
 
@@ -161,6 +178,17 @@ export default function TrigonometryPage() {
               <li><Katex>{"\\sin 3\\theta = 3\\sin\\theta - 4\\sin^3\\theta"}</Katex></li>
               <li><Katex>{"\\cos 3\\theta = 4\\cos^3\\theta - 3\\cos\\theta"}</Katex></li>
               <li><Katex>{"\\tan 3\\theta = \\dfrac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}"}</Katex></li>
+            </ul>
+          </div>
+
+          <div className="blog-post-related">
+            <h2 className="blog-post-heading">Continue learning</h2>
+            <p className="blog-post-p">
+              Every trigonometric ratio here comes directly from the right-triangle relationship the
+              Pythagorean theorem describes.
+            </p>
+            <ul className="blog-post-related-list">
+              <li><Link href="/resources/pythagoras-theorem">Pythagoras Theorem</Link></li>
             </ul>
           </div>
         </article>

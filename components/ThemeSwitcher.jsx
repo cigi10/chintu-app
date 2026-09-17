@@ -37,7 +37,7 @@ const THEME_SWATCH_COLORS = {
 };
 
 export default function ThemeSwitcher() {
-  const [theme, setTheme] = useState("sunset");
+  const [theme, setTheme] = useState("cocoa");
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 

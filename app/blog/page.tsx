@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getAllBlogPosts } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
@@ -15,6 +16,10 @@ export default function BlogIndexPage() {
     <>
       <Navbar />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Blog" },
+        ]} />
         <div className="blog-header">
           <h1 className="blog-title">Studyloaf Blog</h1>
           <p className="blog-subtitle">Study tips, timetable guides, and exam prep advice.</p>

@@ -1,5 +1,8 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -15,7 +18,21 @@ export default function AdditionOfFractionsPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Addition of Fractions",
+        description: "Practice questions on adding fractions and mixed numbers, with worked solutions.",
+        datePublished: "2026-09-16",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Addition of Fractions" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Addition of Fractions</h1>
 
@@ -94,6 +111,17 @@ export default function AdditionOfFractionsPage() {
               <strong>Solution:</strong> Rearranging,{" "}
               <Katex>{"? = \\dfrac{1}{2} + \\dfrac{1}{5} = \\dfrac{5}{10} + \\dfrac{2}{10} = \\dfrac{7}{10}"}</Katex>.
             </p>
+          </div>
+
+          <div className="blog-post-related">
+            <h2 className="blog-post-heading">Continue learning</h2>
+            <p className="blog-post-p">
+              A percentage is just a fraction out of 100, so the same adding-fractions skills carry
+              straight over once you get to percentages.
+            </p>
+            <ul className="blog-post-related-list">
+              <li><Link href="/resources/percentage">Percentage</Link></li>
+            </ul>
           </div>
         </article>
       </div>

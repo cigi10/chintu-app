@@ -1,5 +1,8 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -15,7 +18,21 @@ export default function OperationsOnMatricesPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Operations on Matrices",
+        description: "How matrix addition and multiplication work, with a worked multiplication example.",
+        datePublished: "2026-09-16",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Operations on Matrices" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Operations on Matrices</h1>
 
@@ -51,6 +68,17 @@ export default function OperationsOnMatricesPage() {
             <Katex display>{"AB = \\begin{bmatrix} 13 & 14 & 12 \\\\ 8 & 10 & -6 \\\\ -8 & 7 & -9 \\end{bmatrix}"}</Katex>
             <p className="blog-post-p"><strong>AC:</strong> multiplying each row of A by the column C gives</p>
             <Katex display>{"AC = \\begin{bmatrix} 0(2) + 6(-2) + 7(3) \\\\ -6(2) + 0(-2) + 8(3) \\\\ 7(2) + -8(-2) + 0(3) \\end{bmatrix} = \\begin{bmatrix} 9 \\\\ 12 \\\\ 30 \\end{bmatrix}"}</Katex>
+          </div>
+
+          <div className="blog-post-related">
+            <h2 className="blog-post-heading">Continue learning</h2>
+            <p className="blog-post-p">
+              Matrices and quadratic equations are both core algebra topics worth having side by
+              side as you build up your algebra toolkit.
+            </p>
+            <ul className="blog-post-related-list">
+              <li><Link href="/resources/quadratic-equations">Quadratic Equations</Link></li>
+            </ul>
           </div>
         </article>
       </div>

@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import { getBlogPost, getBlogSlugs } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
@@ -44,7 +46,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date,
+        author: { "@type": "Person", name: post.author },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: post.title },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">{post.title}</h1>
           <div className="blog-post-meta">

@@ -1,5 +1,8 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -15,7 +18,21 @@ export default function QuadraticEquationsPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Quadratic Equations",
+        description: "What a quadratic equation is, solving by completing the square, the quadratic formula, and a real-life example.",
+        datePublished: "2026-09-16",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Quadratic Equations" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Quadratic Equations</h1>
 
@@ -159,6 +176,18 @@ export default function QuadraticEquationsPage() {
               <Katex>{"x \\approx -0.38"}</Katex>. The negative value has no physical meaning here, so
               the boat's speed in still water is about 10.38 km/hour.
             </p>
+          </div>
+
+          <div className="blog-post-related">
+            <h2 className="blog-post-heading">Continue learning</h2>
+            <p className="blog-post-p">
+              Quadratic equations lean heavily on recognizing squares quickly, so a fast reference for
+              them speeds up both solving and double-checking your roots.
+            </p>
+            <ul className="blog-post-related-list">
+              <li><Link href="/resources/squares-and-cubes">Squares and Cubes Reference</Link></li>
+              <li><Link href="/resources/operations-on-matrices">Operations on Matrices</Link></li>
+            </ul>
           </div>
         </article>
       </div>

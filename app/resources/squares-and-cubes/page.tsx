@@ -1,4 +1,6 @@
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 import "@/styles/resources.css";
 
@@ -20,7 +22,21 @@ export default function SquaresAndCubesPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Squares and Cubes Reference",
+        description: "A quick-reference table of squares from 1 to 30 and cubes from 1 to 20.",
+        datePublished: "2026-09-15",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Squares and Cubes Reference" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Squares and Cubes Reference</h1>
 

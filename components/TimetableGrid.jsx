@@ -67,8 +67,8 @@ const SLOT_COLOR_SETS = {
 
 function getSlotColors() {
   try {
-    const theme = document.documentElement.getAttribute("data-theme") || "sunset";
-    return SLOT_COLOR_SETS[theme] || SLOT_COLOR_SETS.sunset;
+    const theme = document.documentElement.getAttribute("data-theme") || "cocoa";
+    return SLOT_COLOR_SETS[theme] || SLOT_COLOR_SETS.cocoa;
   } catch {
     return SLOT_COLOR_SETS.sunset;
   }

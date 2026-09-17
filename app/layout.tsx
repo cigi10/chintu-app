@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem('chintu-theme');var v=['sunset','azure','strawberry','periwinkle','matcha','forest','majorelle','slate','cocoa','starry-nights','rose-noir','midnight-blue','twilight-forest'];document.documentElement.setAttribute('data-theme',v.includes(t)?t:'sunset');}catch(e){}`,
+            __html: `try{var t=localStorage.getItem('chintu-theme');var v=['sunset','azure','strawberry','periwinkle','matcha','forest','majorelle','slate','cocoa','starry-nights','rose-noir','midnight-blue','twilight-forest'];document.documentElement.setAttribute('data-theme',v.includes(t)?t:'cocoa');}catch(e){}`,
           }}
         />
         {/* Every third-party analytics/ads script (GA + AdSense) lives in

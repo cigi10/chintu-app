@@ -1,5 +1,8 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -15,7 +18,21 @@ export default function PercentagePage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Percentage",
+        description: "What percentage means, how to compute a combined percentage across subjects, with a worked example.",
+        datePublished: "2026-09-16",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Percentage" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Percentage</h1>
 
@@ -44,6 +61,19 @@ export default function PercentagePage() {
               percentage is
             </p>
             <Katex display>{"\\dfrac{200}{265} \\times 100 \\approx 75.47\\%"}</Katex>
+          </div>
+
+          <div className="blog-post-related">
+            <h2 className="blog-post-heading">Continue learning</h2>
+            <p className="blog-post-p">
+              A percentage is just a fraction out of 100, so it helps to be solid on fraction addition
+              first. Once the basics click, these shortcuts speed up percentage calculations in an
+              exam.
+            </p>
+            <ul className="blog-post-related-list">
+              <li><Link href="/resources/addition-of-fractions">Addition of Fractions</Link></li>
+              <li><Link href="/resources/percentage-shortcuts">Percentage Shortcuts</Link></li>
+            </ul>
           </div>
         </article>
       </div>

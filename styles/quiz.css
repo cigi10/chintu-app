@@ -74,6 +74,36 @@
   color: var(--color-text-secondary);
 }
 
+.quiz-progress-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.quiz-progress-points {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-accent-strong);
+}
+
+.quiz-progress-bar {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.quiz-progress-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent-strong));
+  transition: width 0.35s ease;
+}
+
 .quiz-question-card {
   background: var(--color-surface);
   border: 1.5px solid var(--color-border);
@@ -134,6 +164,73 @@
   cursor: default;
 }
 
+.quiz-option {
+  position: relative;
+}
+
+/* Answer-reveal: a quick pop rather than an instant flat color swap. */
+.quiz-option--pop {
+  animation: quiz-option-pop 0.3s ease;
+}
+
+@keyframes quiz-option-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.035); }
+  100% { transform: scale(1); }
+}
+
+.quiz-option-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin-left: 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  vertical-align: middle;
+  animation: quiz-icon-pop 0.35s ease;
+}
+
+.quiz-option-icon--correct {
+  background: #ffffff;
+  color: var(--color-success);
+}
+
+.quiz-option-icon--incorrect {
+  background: var(--color-danger);
+  color: #ffffff;
+}
+
+@keyframes quiz-icon-pop {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.quiz-points-popup {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--color-success);
+  text-align: center;
+  margin: -6px 0 14px;
+  animation: quiz-points-popup 0.5s ease;
+}
+
+@keyframes quiz-points-popup {
+  0%   { transform: translateY(6px); opacity: 0; }
+  40%  { transform: translateY(0); opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-option--pop, .quiz-option-icon, .quiz-points-popup {
+    animation: none;
+  }
+}
+
 .quiz-result {
   margin-top: 20px;
   border-top: 1.5px solid var(--color-border);
@@ -178,6 +275,77 @@
   font-size: 1.1rem;
   color: var(--color-text);
   margin-bottom: 24px;
+}
+
+.quiz-score-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(180deg, var(--color-surface-alt), var(--color-surface));
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 28px 20px;
+  margin-bottom: 20px;
+  animation: quiz-score-card-in 0.4s ease;
+}
+
+@keyframes quiz-score-card-in {
+  0%   { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.quiz-score-card-value {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-accent-strong);
+  line-height: 1;
+}
+
+.quiz-score-card-total {
+  font-size: 1.5rem;
+  color: var(--color-text-secondary);
+  font-weight: 700;
+}
+
+.quiz-score-card-points {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.quiz-tier-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-accent-strong);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.quiz-streak-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.quiz-streak-flame {
+  font-size: 1.3rem;
+}
+
+.quiz-streak-count {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-accent-strong);
 }
 
 .quiz-review-list {

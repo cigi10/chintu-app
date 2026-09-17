@@ -1,5 +1,8 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -15,7 +18,21 @@ export default function PythagorasTheoremPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: "Pythagoras Theorem",
+        description: "The Pythagorean theorem explained, with a worked real-world distance example.",
+        datePublished: "2026-09-16",
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
       <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "Math" },
+          { label: "Pythagoras Theorem" },
+        ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Pythagoras Theorem</h1>
 
@@ -49,6 +66,17 @@ export default function PythagorasTheoremPage() {
             <p className="blog-post-p">
               Total distance run: <Katex>{"60 + 91 + 109 = 260"}</Katex> meters.
             </p>
+          </div>
+
+          <div className="blog-post-related">
+            <h2 className="blog-post-heading">Continue learning</h2>
+            <p className="blog-post-p">
+              The Pythagorean theorem is the foundation trigonometry is built on: every sine, cosine,
+              and tangent ratio comes from the same right-triangle relationship.
+            </p>
+            <ul className="blog-post-related-list">
+              <li><Link href="/resources/trigonometry">Trigonometry Basics</Link></li>
+            </ul>
           </div>
         </article>
       </div>
