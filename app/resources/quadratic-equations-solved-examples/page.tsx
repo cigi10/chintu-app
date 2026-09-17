@@ -7,10 +7,10 @@ import "@/styles/blog.css";
 
 export const metadata = {
   title: "Quadratic Equations: Solved Examples - Studyloaf",
-  description: "Worked examples for checking whether an equation is quadratic, turning word problems into quadratic equations, and solving by factorization.",
+  description: "Worked examples for checking whether an equation is quadratic, solving by factorization or completing the square, and using the discriminant.",
   openGraph: {
     title: "Quadratic Equations: Solved Examples - Studyloaf",
-    description: "Worked examples for checking whether an equation is quadratic, turning word problems into quadratic equations, and solving by factorization.",
+    description: "Worked examples for checking whether an equation is quadratic, solving by factorization or completing the square, and using the discriminant.",
   },
 };
 
@@ -22,7 +22,7 @@ export default function QuadraticEquationsSolvedExamplesPage() {
         "@context": "https://schema.org",
         "@type": ["Article", "LearningResource"],
         headline: "Quadratic Equations: Solved Examples",
-        description: "Worked examples for checking whether an equation is quadratic, turning word problems into quadratic equations, and solving by factorization.",
+        description: "Worked examples for checking whether an equation is quadratic, solving by factorization or completing the square, and using the discriminant.",
         datePublished: "2026-09-17",
         author: { "@type": "Organization", name: "Studyloaf Team" },
       }} />
@@ -103,12 +103,48 @@ export default function QuadraticEquationsSolvedExamplesPage() {
             </p>
           </div>
 
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Solving by completing the square</h2>
+            <p className="blog-post-p">
+              Solve <Katex>{"2x^2 - 7x + 3 = 0"}</Katex> by completing the square.
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> Divide by 2, then move the constant to the right:
+            </p>
+            <Katex display>{"x^2 - \\dfrac{7}{2}x = -\\dfrac{3}{2}"}</Katex>
+            <p className="blog-post-p">
+              Add <Katex>{"\\left(\\dfrac{7}{4}\\right)^2 = \\dfrac{49}{16}"}</Katex> to both sides
+              to complete the square on the left:
+            </p>
+            <Katex display>{"\\left(x-\\dfrac{7}{4}\\right)^2 = \\dfrac{-24+49}{16} = \\dfrac{25}{16} \\;\\Rightarrow\\; x - \\dfrac{7}{4} = \\pm\\dfrac{5}{4}"}</Katex>
+            <p className="blog-post-p">
+              So <Katex>{"x = \\dfrac{12}{4} = 3"}</Katex> or <Katex>{"x = \\dfrac{2}{4} = \\dfrac{1}{2}"}</Katex>.
+            </p>
+          </div>
+
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">The nature of the roots</h2>
+            <p className="blog-post-p">
+              The discriminant <Katex>{"b^2-4ac"}</Katex> tells you what kind of roots to expect
+              before you even solve: positive means two distinct real roots, zero means one
+              repeated real root, and negative means no real roots at all.
+            </p>
+            <p className="blog-post-p">
+              For what value(s) of <Katex>{"k"}</Katex> does <Katex>{"2x^2+kx+3=0"}</Katex> have
+              two equal roots?
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> Equal roots require <Katex>{"b^2-4ac=0"}</Katex>:
+            </p>
+            <Katex display>{"k^2 - 4(2)(3) = 0 \\;\\Rightarrow\\; k^2 = 24 \\;\\Rightarrow\\; k = \\pm 2\\sqrt{6}"}</Katex>
+          </div>
+
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Every quadratic equation here has real roots because its discriminant is positive —
-              when the discriminant is negative instead, the roots become a conjugate pair of
-              complex numbers.
+              Every quadratic equation here has real roots because its discriminant is positive or
+              zero — when the discriminant is negative instead, the roots become a conjugate pair
+              of complex numbers.
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/quadratic-equations">Quadratic Equations</Link></li>

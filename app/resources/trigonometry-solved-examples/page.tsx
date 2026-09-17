@@ -7,10 +7,10 @@ import "@/styles/blog.css";
 
 export const metadata = {
   title: "Trigonometry: Solved Examples - Studyloaf",
-  description: "Worked examples finding trigonometric ratios from a triangle's sides, evaluating standard-angle expressions, and solving for unknown angles.",
+  description: "Worked examples finding trigonometric ratios, evaluating standard-angle expressions, proving identities, and using co-function identities.",
   openGraph: {
     title: "Trigonometry: Solved Examples - Studyloaf",
-    description: "Worked examples finding trigonometric ratios from a triangle's sides, evaluating standard-angle expressions, and solving for unknown angles.",
+    description: "Worked examples finding trigonometric ratios, evaluating standard-angle expressions, proving identities, and using co-function identities.",
   },
 };
 
@@ -22,7 +22,7 @@ export default function TrigonometrySolvedExamplesPage() {
         "@context": "https://schema.org",
         "@type": ["Article", "LearningResource"],
         headline: "Trigonometry: Solved Examples",
-        description: "Worked examples finding trigonometric ratios from a triangle's sides, evaluating standard-angle expressions, and solving for unknown angles.",
+        description: "Worked examples finding trigonometric ratios, evaluating standard-angle expressions, proving identities, and using co-function identities.",
         datePublished: "2026-09-17",
         author: { "@type": "Organization", name: "Studyloaf Team" },
       }} />
@@ -94,6 +94,50 @@ export default function TrigonometrySolvedExamplesPage() {
               the two equations gives <Katex>{"2A = 90^\\circ"}</Katex>, so{" "}
               <Katex>{"A = 45^\\circ"}</Katex> and <Katex>{"B = 15^\\circ"}</Katex>.
             </p>
+          </div>
+
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Co-function identities</h2>
+            <p className="blog-post-p">
+              Every trig ratio has a complementary partner: <Katex>{"\\sin(90^\\circ-\\theta)=\\cos\\theta"}</Katex>,{" "}
+              <Katex>{"\\tan(90^\\circ-\\theta)=\\cot\\theta"}</Katex>, and{" "}
+              <Katex>{"\\csc(90^\\circ-\\theta)=\\sec\\theta"}</Katex>. Rewriting one ratio in terms
+              of its complement often makes an expression collapse.
+            </p>
+            <p className="blog-post-p">
+              Evaluate <Katex>{"\\dfrac{\\sin 18^\\circ}{\\cos 72^\\circ}"}</Katex>.
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> Since <Katex>{"18^\\circ = 90^\\circ - 72^\\circ"}</Katex>,{" "}
+              <Katex>{"\\sin 18^\\circ = \\cos 72^\\circ"}</Katex>, so the ratio is{" "}
+              <Katex>{"\\dfrac{\\cos 72^\\circ}{\\cos 72^\\circ} = 1"}</Katex>.
+            </p>
+          </div>
+
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Proving an identity</h2>
+            <p className="blog-post-p">
+              Prove that <Katex>{"\\left(\\csc\\theta - \\cot\\theta\\right)^2 = \\dfrac{1-\\cos\\theta}{1+\\cos\\theta}"}</Katex>.
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> Write both terms on the left over a common denominator,
+              then simplify using the difference of squares:
+            </p>
+            <Katex display>{"\\left(\\dfrac{1}{\\sin\\theta} - \\dfrac{\\cos\\theta}{\\sin\\theta}\\right)^2 = \\dfrac{(1-\\cos\\theta)^2}{\\sin^2\\theta} = \\dfrac{(1-\\cos\\theta)^2}{(1-\\cos\\theta)(1+\\cos\\theta)} = \\dfrac{1-\\cos\\theta}{1+\\cos\\theta}"}</Katex>
+          </div>
+
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Worked example: a product-to-sum calculation</h2>
+            <p className="blog-post-p">
+              Calculate <Katex>{"\\sin 65^\\circ \\sin 25^\\circ"}</Katex>.
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> Since <Katex>{"25^\\circ = 90^\\circ - 65^\\circ"}</Katex>,{" "}
+              <Katex>{"\\sin 25^\\circ = \\cos 65^\\circ"}</Katex>, turning the product into{" "}
+              <Katex>{"\\sin 65^\\circ \\cos 65^\\circ"}</Katex>. Using the double-angle identity{" "}
+              <Katex>{"2\\sin\\theta\\cos\\theta = \\sin 2\\theta"}</Katex>:
+            </p>
+            <Katex display>{"\\sin 65^\\circ \\cos 65^\\circ = \\dfrac{1}{2}\\sin 130^\\circ = \\dfrac{1}{2}\\sin 50^\\circ"}</Katex>
           </div>
 
           <div className="blog-post-related">
