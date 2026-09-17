@@ -6,8 +6,10 @@ import { claimGuestDataForAccount } from '@/lib/claimGuestData'
 
 // Exported so other places that need to know when the nav chrome (this
 // component's BottomNav, and each page's own <Navbar/>) is hidden can
-// agree on the same list, without duplicating it.
-export const CHROME_HIDDEN_ON = ['/login', '/landing', '/onboarding', '/forgot-password', '/reset-password']
+// agree on the same list, without duplicating it. /landing renders the
+// standard Navbar/BottomNav like other public pages (Blog, Resources,
+// Privacy, Terms) — it's deliberately not in this list.
+export const CHROME_HIDDEN_ON = ['/login', '/onboarding', '/forgot-password', '/reset-password']
 
 export default function ConditionalNav() {
   const pathname = usePathname()

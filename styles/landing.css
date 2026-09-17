@@ -47,37 +47,6 @@
   text-align: center;
 }
 
-.landing__topbar {
-  width: 100%;
-  max-width: 650px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
-}
-
-.landing__topbar-brand {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.15rem;
-  color: var(--color-text);
-}
-
-.landing__topbar-login {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--color-accent-strong);
-  text-decoration: none;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1.5px solid var(--color-border);
-}
-
-.landing__topbar-login:hover {
-  background: var(--color-accent);
-}
-
 .landing__title {
   margin: 0;
 
@@ -544,10 +513,6 @@
 
     gap: 22px;
 
-  }
-
-  .landing__topbar {
-    max-width: 1150px;
   }
 
   .landing__try-it,

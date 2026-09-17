@@ -4,6 +4,7 @@ import "@/styles/landing.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 import Companion from "@/components/Companion";
 import { NAV } from "@/lib/navItems";
 
@@ -59,14 +60,9 @@ export default function Landing({ recentPosts = [] }) {
   }, []);
 
   return (
-    <div className="landing">
-      <div className="landing__topbar">
-        <span className="landing__topbar-brand">Studyloaf</span>
-        <Link href={NAV.login.href} className="landing__topbar-login">
-          Log in
-        </Link>
-      </div>
-
+    <>
+      <Navbar />
+      <div className="landing">
       <section className="landing__hero">
 
         <div className="landing__hero-text">
@@ -162,6 +158,7 @@ export default function Landing({ recentPosts = [] }) {
           Free to use. Takes 10 seconds with Google, your progress syncs across every device.
         </p>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
