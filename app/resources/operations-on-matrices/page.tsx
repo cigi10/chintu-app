@@ -31,7 +31,7 @@ export default function OperationsOnMatricesPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Operations on Matrices" },
+          { label: "Operations on Matrices", href: "/resources/operations-on-matrices" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Operations on Matrices</h1>
@@ -74,10 +74,13 @@ export default function OperationsOnMatricesPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               Matrices and quadratic equations are both core algebra topics worth having side by
-              side as you build up your algebra toolkit.
+              side as you build up your algebra toolkit. Recognizing special matrix shapes and
+              their properties builds directly on the addition and multiplication covered here.
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/quadratic-equations">Quadratic Equations</Link></li>
+              <li><Link href="/resources/special-types-of-matrices">Special Types of Matrices</Link></li>
+              <li><Link href="/resources/square-matrix">Square Matrix Properties</Link></li>
             </ul>
           </div>
         </article>
