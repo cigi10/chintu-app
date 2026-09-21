@@ -31,7 +31,7 @@ export default function IntegrationOfParticularFunctionsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Integration of Particular Functions" },
+          { label: "Integration of Particular Functions", href: "/resources/integration-of-particular-functions" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Integration of Particular Functions</h1>

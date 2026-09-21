@@ -31,7 +31,7 @@ export default function RealNumbersIrrationalPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Real Numbers: Irrational Numbers and Decimal Expansions" },
+          { label: "Real Numbers: Irrational Numbers and Decimal Expansions", href: "/resources/real-numbers-irrational-numbers" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Real Numbers: Irrational Numbers and Decimal Expansions</h1>

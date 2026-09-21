@@ -31,7 +31,7 @@ export default function PythagorasTheoremPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Pythagoras Theorem" },
+          { label: "Pythagoras Theorem", href: "/resources/pythagoras-theorem" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Pythagoras Theorem</h1>

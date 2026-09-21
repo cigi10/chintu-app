@@ -31,7 +31,7 @@ export default function IntegrationByPartsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Integration by Parts" },
+          { label: "Integration by Parts", href: "/resources/integration-by-parts" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Integration by Parts</h1>

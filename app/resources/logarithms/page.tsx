@@ -31,7 +31,7 @@ export default function LogarithmsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Logarithms" },
+          { label: "Logarithms", href: "/resources/logarithms" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Logarithms</h1>

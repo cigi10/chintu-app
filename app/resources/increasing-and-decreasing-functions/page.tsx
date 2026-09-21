@@ -31,7 +31,7 @@ export default function IncreasingDecreasingPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Increasing and Decreasing Functions" },
+          { label: "Increasing and Decreasing Functions", href: "/resources/increasing-and-decreasing-functions" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Increasing and Decreasing Functions</h1>

@@ -7,26 +7,27 @@ const SITE_URL = "https://www.studyloaf.com";
 // BreadcrumbList JSON-LD block (Google surfaces these directly in search
 // results). `items` is the full trail including "Home" and the current
 // page — the last item is rendered as plain text, not a link, since it's
-// the page you're already on.
+// the page you're already on, but it still needs its own `href` (that
+// page's own URL) passed in.
 //
-// Google requires every ListItem to have both `name` and `item` (a URL),
-// except the very last one, which may omit `item` since it represents
-// the current page. Some visible trails include a level with no real URL
-// of its own — e.g. a category label like "Math" that's just a grouping
-// on the /resources index, not a standalone page — so those levels are
+// Google's docs say `item` is optional on the last ListItem, but Search
+// Console's live validator flags "Missing field 'item'" as a sitewide
+// critical issue when it's omitted in practice — so every entry callers
+// pass a `href` for gets `item` in the schema, current page included.
+// Some visible trails include a level with no real URL of its own — e.g.
+// a category label like "Math" that's just a grouping on the /resources
+// index, not a standalone page — those levels have no `href` and are
 // included in the rendered <nav> for context but left out of the
 // structured data entirely, which keeps every schema ListItem valid
 // without inventing a URL for something that isn't actually a page.
 export default function Breadcrumbs({ items }) {
-  const lastItem = items[items.length - 1];
   const schemaItems = items.filter(item => item.href);
-  if (lastItem && !lastItem.href) schemaItems.push(lastItem);
 
   const listItems = schemaItems.map((item, i) => ({
     "@type": "ListItem",
     position: i + 1,
     name: item.label,
-    ...(item.href ? { item: `${SITE_URL}${item.href}` } : {}),
+    item: `${SITE_URL}${item.href}`,
   }));
 
   return (

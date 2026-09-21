@@ -31,7 +31,7 @@ export default function ArithmeticProgressionsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Arithmetic Progressions" },
+          { label: "Arithmetic Progressions", href: "/resources/arithmetic-progressions" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Arithmetic Progressions</h1>

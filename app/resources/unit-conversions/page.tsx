@@ -30,7 +30,7 @@ export default function UnitConversionsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Other Subjects" },
-          { label: "Unit Conversions Reference" },
+          { label: "Unit Conversions Reference", href: "/resources/unit-conversions" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Unit Conversions Reference</h1>

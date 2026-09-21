@@ -31,7 +31,7 @@ export default function IntegralExFPlusFPrimePage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Integral of e^x[f(x) + f'(x)]" },
+          { label: "Integral of e^x[f(x) + f'(x)]", href: "/resources/integral-of-ex-f-plus-fprime" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Integral of e<sup>x</sup>[f(x) + f&apos;(x)]</h1>

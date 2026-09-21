@@ -31,7 +31,7 @@ export default function RealNumbersHcfLcmPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Real Numbers: HCF and LCM" },
+          { label: "Real Numbers: HCF and LCM", href: "/resources/real-numbers-hcf-lcm" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Real Numbers: HCF and LCM</h1>

@@ -31,7 +31,7 @@ export default function QuadraticEquationsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Quadratic Equations" },
+          { label: "Quadratic Equations", href: "/resources/quadratic-equations" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Quadratic Equations</h1>

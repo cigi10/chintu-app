@@ -31,7 +31,7 @@ export default function PolynomialDivisionAlgorithmPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Polynomial Division Algorithm" },
+          { label: "Polynomial Division Algorithm", href: "/resources/polynomial-division-algorithm" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Polynomial Division Algorithm</h1>

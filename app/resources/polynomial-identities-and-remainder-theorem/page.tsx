@@ -31,7 +31,7 @@ export default function PolynomialIdentitiesPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Polynomial Identities and the Remainder Theorem" },
+          { label: "Polynomial Identities and the Remainder Theorem", href: "/resources/polynomial-identities-and-remainder-theorem" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Polynomial Identities and the Remainder Theorem</h1>

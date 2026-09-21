@@ -31,7 +31,7 @@ export default function QuotientRulePage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Quotient Rule" },
+          { label: "Quotient Rule", href: "/resources/quotient-rule" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Quotient Rule</h1>

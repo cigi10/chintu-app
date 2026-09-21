@@ -31,7 +31,7 @@ export default function SlopeOfTangentAndNormalPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Slope of Tangent and Normal" },
+          { label: "Slope of Tangent and Normal", href: "/resources/slope-of-tangent-and-normal" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Slope of Tangent and Normal</h1>

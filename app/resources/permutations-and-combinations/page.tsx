@@ -31,7 +31,7 @@ export default function PermutationsAndCombinationsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Permutations and Combinations" },
+          { label: "Permutations and Combinations", href: "/resources/permutations-and-combinations" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Permutations and Combinations</h1>

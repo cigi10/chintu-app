@@ -35,7 +35,7 @@ export default function SquaresAndCubesPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Squares and Cubes Reference" },
+          { label: "Squares and Cubes Reference", href: "/resources/squares-and-cubes" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Squares and Cubes Reference</h1>

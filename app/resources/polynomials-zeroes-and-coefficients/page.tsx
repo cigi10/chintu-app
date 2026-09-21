@@ -31,7 +31,7 @@ export default function PolynomialsZeroesPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Polynomials: Zeroes and Coefficients" },
+          { label: "Polynomials: Zeroes and Coefficients", href: "/resources/polynomials-zeroes-and-coefficients" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Polynomials: Zeroes and Coefficients</h1>

@@ -31,7 +31,7 @@ export default function PowerRulePage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Power Rule" },
+          { label: "Power Rule", href: "/resources/power-rule" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Power Rule</h1>

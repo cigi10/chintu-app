@@ -18,7 +18,7 @@ export default function BlogIndexPage() {
       <div className="blog-shell">
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
-          { label: "Blog" },
+          { label: "Blog", href: "/blog" },
         ]} />
         <div className="blog-header">
           <h1 className="blog-title">Studyloaf Blog</h1>

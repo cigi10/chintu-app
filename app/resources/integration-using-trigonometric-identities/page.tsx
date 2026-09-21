@@ -31,7 +31,7 @@ export default function IntegrationUsingTrigIdentitiesPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Integration Using Trigonometric Identities" },
+          { label: "Integration Using Trigonometric Identities", href: "/resources/integration-using-trigonometric-identities" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Integration Using Trigonometric Identities</h1>

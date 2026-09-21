@@ -31,7 +31,7 @@ export default function ProportionPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Proportion" },
+          { label: "Proportion", href: "/resources/proportion" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Proportion</h1>

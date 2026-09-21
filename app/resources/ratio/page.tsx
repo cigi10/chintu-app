@@ -31,7 +31,7 @@ export default function RatioPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Ratio" },
+          { label: "Ratio", href: "/resources/ratio" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Ratio</h1>

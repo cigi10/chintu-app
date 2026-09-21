@@ -29,7 +29,7 @@ export default function DivisibilityRulesPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Divisibility Rules" },
+          { label: "Divisibility Rules", href: "/resources/divisibility-rules" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Divisibility Rules</h1>

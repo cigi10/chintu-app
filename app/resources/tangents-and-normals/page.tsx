@@ -31,7 +31,7 @@ export default function TangentsAndNormalsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Tangents and Normals" },
+          { label: "Tangents and Normals", href: "/resources/tangents-and-normals" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Tangents and Normals</h1>

@@ -31,7 +31,7 @@ export default function LinearEquationsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Linear Equations" },
+          { label: "Linear Equations", href: "/resources/linear-equations" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Linear Equations</h1>

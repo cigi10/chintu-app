@@ -31,7 +31,7 @@ export default function MaximaAndMinimaPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Maxima and Minima" },
+          { label: "Maxima and Minima", href: "/resources/maxima-and-minima" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Maxima and Minima</h1>

@@ -31,7 +31,7 @@ export default function AreaBoundedByACurvePage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Finding the Area Bounded by a Curve" },
+          { label: "Finding the Area Bounded by a Curve", href: "/resources/area-bounded-by-a-curve" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Finding the Area Bounded by a Curve</h1>

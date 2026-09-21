@@ -31,7 +31,7 @@ export default function RollesTheoremPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Rolle's Theorem" },
+          { label: "Rolle's Theorem", href: "/resources/rolles-theorem" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Rolle&apos;s Theorem</h1>

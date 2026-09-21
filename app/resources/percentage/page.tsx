@@ -31,7 +31,7 @@ export default function PercentagePage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Percentage" },
+          { label: "Percentage", href: "/resources/percentage" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Percentage</h1>

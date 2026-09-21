@@ -31,7 +31,7 @@ export default function QuadraticEquationsSolvedExamplesPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Quadratic Equations: Solved Examples" },
+          { label: "Quadratic Equations: Solved Examples", href: "/resources/quadratic-equations-solved-examples" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Quadratic Equations: Solved Examples</h1>

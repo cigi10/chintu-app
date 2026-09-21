@@ -31,7 +31,7 @@ export default function ImplicitDifferentiationPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Implicit Differentiation" },
+          { label: "Implicit Differentiation", href: "/resources/implicit-differentiation" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Implicit Differentiation</h1>

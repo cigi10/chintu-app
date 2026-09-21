@@ -31,7 +31,7 @@ export default function ProductRulePage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Product Rule" },
+          { label: "Product Rule", href: "/resources/product-rule" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Product Rule</h1>

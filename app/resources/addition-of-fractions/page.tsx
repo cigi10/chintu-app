@@ -31,7 +31,7 @@ export default function AdditionOfFractionsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Addition of Fractions" },
+          { label: "Addition of Fractions", href: "/resources/addition-of-fractions" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Addition of Fractions</h1>

@@ -31,7 +31,7 @@ export default function TrigonometrySolvedExamplesPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Trigonometry: Solved Examples" },
+          { label: "Trigonometry: Solved Examples", href: "/resources/trigonometry-solved-examples" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Trigonometry: Solved Examples</h1>

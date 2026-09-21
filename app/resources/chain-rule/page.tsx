@@ -31,7 +31,7 @@ export default function ChainRulePage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Chain Rule" },
+          { label: "Chain Rule", href: "/resources/chain-rule" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Chain Rule</h1>

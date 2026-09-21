@@ -31,7 +31,7 @@ export default function ProfitAndLossPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Profit and Loss" },
+          { label: "Profit and Loss", href: "/resources/profit-and-loss" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Profit and Loss</h1>

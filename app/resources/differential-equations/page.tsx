@@ -31,7 +31,7 @@ export default function DifferentialEquationsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Differential Equations" },
+          { label: "Differential Equations", href: "/resources/differential-equations" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Differential Equations</h1>

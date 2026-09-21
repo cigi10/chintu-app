@@ -31,7 +31,7 @@ export default function IntegrationByPartialFractionsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Integration by Partial Fractions" },
+          { label: "Integration by Partial Fractions", href: "/resources/integration-by-partial-fractions" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Integration by Partial Fractions</h1>

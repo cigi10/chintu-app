@@ -31,7 +31,7 @@ export default function ContinuityPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Continuity" },
+          { label: "Continuity", href: "/resources/continuity" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Continuity</h1>

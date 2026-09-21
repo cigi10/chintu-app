@@ -31,7 +31,7 @@ export default function TrigonometryPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Trigonometry Basics" },
+          { label: "Trigonometry Basics", href: "/resources/trigonometry" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Trigonometry Basics</h1>

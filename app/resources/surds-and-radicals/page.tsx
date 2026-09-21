@@ -31,7 +31,7 @@ export default function SurdsAndRadicalsPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Surds and Radicals" },
+          { label: "Surds and Radicals", href: "/resources/surds-and-radicals" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Surds and Radicals</h1>

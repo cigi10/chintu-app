@@ -31,7 +31,7 @@ export default function ProbabilityPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Probability" },
+          { label: "Probability", href: "/resources/probability" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Probability</h1>

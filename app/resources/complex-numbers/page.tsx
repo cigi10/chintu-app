@@ -31,7 +31,7 @@ export default function ComplexNumbersPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Complex Numbers" },
+          { label: "Complex Numbers", href: "/resources/complex-numbers" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Complex Numbers</h1>

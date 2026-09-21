@@ -31,7 +31,7 @@ export default function ApplicationsOfDerivativesPage() {
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
           { label: "Math" },
-          { label: "Applications of Derivatives" },
+          { label: "Applications of Derivatives", href: "/resources/applications-of-derivatives" },
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Applications of Derivatives</h1>
