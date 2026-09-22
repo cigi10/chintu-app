@@ -7,10 +7,10 @@ import "@/styles/blog.css";
 
 export const metadata = {
   title: "Arithmetic Progressions - Studyloaf",
-  description: "What makes a sequence an arithmetic progression, and how to tell whether a real-world situation forms one, with worked examples.",
+  description: "What makes a sequence an arithmetic progression, how to tell whether a real-world situation forms one, and finding three terms in AP from their sum and product, with worked examples.",
   openGraph: {
     title: "Arithmetic Progressions - Studyloaf",
-    description: "What makes a sequence an arithmetic progression, and how to tell whether a real-world situation forms one, with worked examples.",
+    description: "What makes a sequence an arithmetic progression, how to tell whether a real-world situation forms one, and finding three terms in AP from their sum and product, with worked examples.",
   },
 };
 
@@ -22,7 +22,7 @@ export default function ArithmeticProgressionsPage() {
         "@context": "https://schema.org",
         "@type": ["Article", "LearningResource"],
         headline: "Arithmetic Progressions",
-        description: "What makes a sequence an arithmetic progression, and how to tell whether a real-world situation forms one, with worked examples.",
+        description: "What makes a sequence an arithmetic progression, how to tell whether a real-world situation forms one, and finding three terms in AP from their sum and product, with worked examples.",
         datePublished: "2026-09-17",
         author: { "@type": "Organization", name: "Studyloaf Team" },
       }} />
@@ -80,6 +80,28 @@ export default function ArithmeticProgressionsPage() {
               <strong>Compound interest:</strong> each year&apos;s amount is the previous amount times
               1.08, so it&apos;s growing by a shared ratio again, not a shared amount — the yearly
               increase itself keeps growing. This <strong>is not</strong> an AP.
+            </p>
+          </div>
+
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Worked example: three numbers in AP, given sum and product</h2>
+            <p className="blog-post-p">
+              Find three numbers in AP whose sum is 15 and whose product is 80.
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> Instead of calling the three numbers{" "}
+              <Katex>{"a, a+d, a+2d"}</Katex>, it&apos;s easier to center them around the middle
+              term: <Katex>{"a-d, \\; a, \\; a+d"}</Katex>. Their sum collapses nicely:
+            </p>
+            <Katex display>{"(a-d) + a + (a+d) = 3a = 15 \\;\\Rightarrow\\; a = 5"}</Katex>
+            <p className="blog-post-p">
+              The product is a difference of squares, <Katex>{"(a-d)(a+d) = a^2-d^2"}</Katex>,
+              times the middle term:
+            </p>
+            <Katex display>{"a(a^2-d^2) = 80 \\;\\Rightarrow\\; 5(25-d^2) = 80 \\;\\Rightarrow\\; 25-d^2 = 16 \\;\\Rightarrow\\; d^2=9 \\;\\Rightarrow\\; d=\\pm3"}</Katex>
+            <p className="blog-post-p">
+              Either sign gives the same three numbers, just in reverse order:{" "}
+              <Katex>{"2, \\; 5, \\; 8"}</Katex>.
             </p>
           </div>
 

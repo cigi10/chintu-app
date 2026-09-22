@@ -1,0 +1,62 @@
+{
+  "slug": "jee-neet-silly-mistakes-that-cost-marks",
+  "title": "The Silly Mistakes Actually Costing You Marks in JEE/NEET (and How to Fix Each One)",
+  "description": "\"Silly mistakes\" isn't one problem, it's several different ones wearing the same name. Here's how to tell which kind you're actually making, with a fix specific to each.",
+  "author": "Studyloaf Team",
+  "readingTime": "5 min read",
+  "date": "2026-09-22",
+  "content": [
+    {
+      "heading": null,
+      "body": "Every JEE/NEET student has said it after a mock: \"I knew that, it was just a silly mistake.\" The problem with that explanation is that it treats every wrong-but-you-knew-it answer as the same failure, when they're usually not. Below are the four most common categories, and each needs a genuinely different fix — \"be more careful\" doesn't actually address any of them."
+    },
+    {
+      "heading": "1. Sign and transcription errors",
+      "body": "You solve the problem correctly in your head or on scratch paper, then copy a number down wrong, drop a negative sign moving between lines, or transcribe the wrong option letter onto the OMR sheet. This isn't a conceptual gap at all — it's a copying error, and it happens more under time pressure."
+    },
+    {
+      "heading": null,
+      "list": [
+        "Fix: circle your final numeric answer on scratch paper before you look at the options, so you're matching a number to a number, not scanning options while still holding the calculation in your head",
+        "Fix: for OMR transfer, do it in small batches (every 5 questions) rather than one big transfer at the end, when fatigue and rushing both peak"
+      ]
+    },
+    {
+      "heading": "2. Misreading the question",
+      "body": "The question asks for the value that does NOT satisfy a condition, or asks for the number of incorrect statements, and you solve for the opposite. This is a reading-under-pressure problem, not a math problem, and it's genuinely common on negatively-phrased or multi-part questions."
+    },
+    {
+      "heading": null,
+      "list": [
+        "Fix: physically underline or circle negation words (\"not,\" \"except,\" \"false,\" \"incorrect\") the moment you read them, before starting any calculation",
+        "Fix: after solving, reread only the question stem (not your working) and check your answer actually addresses what was asked — a 5-second habit that catches this specific error"
+      ]
+    },
+    {
+      "heading": "3. Using a memorized formula in a case it doesn't apply to",
+      "body": "This one gets called \"silly\" but it's actually a conceptual gap wearing a silly-mistake costume. A common example: applying the standard quadratic formula setup to an equation where a coefficient is actually zero, making it linear, not quadratic — the formula still runs and spits out a wrong or undefined answer, and it feels like carelessness rather than the misunderstanding it actually is."
+    },
+    {
+      "heading": null,
+      "list": [
+        "Fix: before applying any formula, explicitly check its stated conditions (here's a quadratic requires a ≠ 0, for example) — this takes 3 seconds and catches an entire category of these",
+        "Fix: if this keeps happening on the same topic across multiple mocks, that's a signal to revisit the concept itself, not just \"be more careful\" next time"
+      ]
+    },
+    {
+      "heading": "4. Running out of time mid-calculation",
+      "body": "You had the right method and were on track, but rushed the last two steps because the clock was closing in, and made an arithmetic slip you wouldn't have made with time to spare. This is a pacing problem showing up disguised as a carelessness problem."
+    },
+    {
+      "heading": null,
+      "list": [
+        "Fix: this is the one category where the actual fix is upstream of the mistake itself — better time budgeting per question, not more carefulness on the last two lines of a rushed calculation",
+        "Fix: track which questions you're still solving in the final 20% of your allotted section time during practice; if it's consistently the same question types, that's what to speed up on, specifically"
+      ]
+    },
+    {
+      "heading": null,
+      "body": "The actual first step, before any of these fixes: go back through your last 2-3 mock tests and sort every wrong-but-you-knew-it answer into one of these four buckets. Most students find their \"silly mistakes\" cluster heavily into just one or two categories, not evenly across all four — and that tells you exactly which fix is worth your time. If pacing turns out to be your real bucket, timing your practice sections with Studyloaf's free timer (no account needed) makes it obvious which specific question types are eating your last-minute rush, instead of guessing."
+    }
+  ]
+}

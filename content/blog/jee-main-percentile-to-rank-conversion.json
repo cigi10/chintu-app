@@ -1,0 +1,45 @@
+{
+  "slug": "jee-main-percentile-to-rank-conversion",
+  "title": "How JEE Main Percentile Actually Converts to Rank",
+  "description": "JEE Main percentile isn't your marks and isn't your rank — it's a normalized score computed separately per shift. Here's the actual formula and how to estimate your rank from it.",
+  "author": "Studyloaf Team",
+  "readingTime": "5 min read",
+  "date": "2026-09-22",
+  "content": [
+    {
+      "heading": null,
+      "body": "JEE Main runs across multiple shifts and sessions, and every shift has a slightly different difficulty level by chance. NTA's fix for that isn't to rank everyone by raw marks — it's percentile, a normalized score computed separately within each shift, then merged across all shifts to build the final rank list. That's why two students with different marks can end up with the same percentile, and why the same marks in two different shifts can produce two different percentiles."
+    },
+    {
+      "heading": "The actual formula",
+      "body": "NTA's own definition, computed per shift:"
+    },
+    {
+      "heading": null,
+      "list": [
+        "Percentile = 100 × (number of candidates in your shift who scored equal to or less than you) ÷ (total number of candidates in that shift)",
+        "The topper of every shift gets exactly 100 percentile, regardless of their raw marks, since 100% of the shift scored equal to or less than them",
+        "NTA computes this to 7 decimal places specifically to avoid ties bunching a lot of students onto the same round number"
+      ]
+    },
+    {
+      "heading": "A worked example",
+      "body": "Say 60,000 students appear in your shift, and 51,000 of them score equal to or less than you. Your percentile is:"
+    },
+    {
+      "heading": null,
+      "list": [
+        "Percentile = 100 × (51,000 ÷ 60,000) = 85",
+        "That means roughly 15% of your shift, or about 9,000 students, scored higher than you — in that shift alone"
+      ]
+    },
+    {
+      "heading": "Going from percentile to an estimated rank",
+      "body": "Since JEE Main runs many shifts across multiple sessions, converting a percentile to an all-India rank isn't as simple as applying that same 15% figure to the total number of candidates nationwide, because the shifts get normalized and merged together, not just stacked. Still, for a rough estimate: if roughly 1 million students appear across all shifts and sessions, and your percentile corresponds to roughly the top 15% overall once everything is merged, that puts you in the neighborhood of rank 150,000 — a ballpark, not an exact figure, since the actual merge accounts for each shift's specific difficulty. Official rank lists always come from NTA directly; treat any percentile-to-rank estimate, including this one, as a rough sanity check rather than your actual result."
+    },
+    {
+      "heading": "Why this matters for how you track your own progress",
+      "body": "Because percentile resets per shift, comparing your percentile across two of your own past mock tests only means something if both mocks used a comparable-difficulty question set and a comparable pool of test-takers — otherwise you're comparing two different curves, not your own improvement. A cleaner way to track real progress mock to mock is your raw accuracy and your time per section, which don't get renormalized against anyone else. If you're logging that kind of data across practice sessions, Studyloaf's free timer lets you tag sessions by subject, so your own accuracy and pace trends stay visible independent of any single mock's percentile curve."
+    }
+  ]
+}

@@ -7,10 +7,10 @@ import "@/styles/blog.css";
 
 export const metadata = {
   title: "Quadratic Equations - Studyloaf",
-  description: "What a quadratic equation is, solving by completing the square, the quadratic formula, and a real-life example.",
+  description: "What a quadratic equation is, solving by factoring and by completing the square, the quadratic formula, and a real-life example.",
   openGraph: {
     title: "Quadratic Equations - Studyloaf",
-    description: "What a quadratic equation is, solving by completing the square, the quadratic formula, and a real-life example.",
+    description: "What a quadratic equation is, solving by factoring and by completing the square, the quadratic formula, and a real-life example.",
   },
 };
 
@@ -22,7 +22,7 @@ export default function QuadraticEquationsPage() {
         "@context": "https://schema.org",
         "@type": ["Article", "LearningResource"],
         headline: "Quadratic Equations",
-        description: "What a quadratic equation is, solving by completing the square, the quadratic formula, and a real-life example.",
+        description: "What a quadratic equation is, solving by factoring and by completing the square, the quadratic formula, and a real-life example.",
         datePublished: "2026-09-16",
         author: { "@type": "Organization", name: "Studyloaf Team" },
       }} />
@@ -66,6 +66,26 @@ export default function QuadraticEquationsPage() {
                 equal 0. These are called the <strong>roots</strong> of the equation.
               </li>
             </ul>
+          </div>
+
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Solving by factoring</h2>
+            <p className="blog-post-p">
+              When a quadratic factors neatly, splitting the middle term is often faster than
+              completing the square. Solve <Katex>{"\\sqrt{2}x^2 + 7x + 5\\sqrt{2} = 0"}</Katex>.
+            </p>
+            <p className="blog-post-p">
+              Multiply the outer coefficients: <Katex>{"\\sqrt{2} \\times 5\\sqrt{2} = 10"}</Katex>.
+              Find two numbers that multiply to 10 and add to 7 — that&apos;s 5 and 2. Split the
+              middle term using them, then factor by grouping:
+            </p>
+            <Katex display>{"\\sqrt{2}x^2 + 5x + 2x + 5\\sqrt{2} = 0"}</Katex>
+            <Katex display>{"x(\\sqrt{2}x + 5) + \\sqrt{2}(\\sqrt{2}x + 5) = 0"}</Katex>
+            <Katex display>{"(\\sqrt{2}x + 5)(x + \\sqrt{2}) = 0"}</Katex>
+            <p className="blog-post-p">
+              Each factor set to zero gives a root:{" "}
+              <Katex>{"x = -\\dfrac{5}{\\sqrt{2}}"}</Katex> or <Katex>{"x = -\\sqrt{2}"}</Katex>.
+            </p>
           </div>
 
           <div className="blog-post-section">

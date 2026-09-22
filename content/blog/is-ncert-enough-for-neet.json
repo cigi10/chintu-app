@@ -1,0 +1,38 @@
+{
+  "slug": "is-ncert-enough-for-neet",
+  "title": "Is NCERT Enough for NEET? What the Marks Split Actually Tells You",
+  "description": "\"Is NCERT enough for NEET\" gets asked constantly, and the honest answer is different for each subject. Here's what NEET's own marks weightage says about where NCERT carries you and where it doesn't.",
+  "author": "Studyloaf Team",
+  "readingTime": "5 min read",
+  "date": "2026-09-22",
+  "content": [
+    {
+      "heading": null,
+      "body": "\"Is NCERT enough for NEET\" isn't really one question — it's three, one per subject, and they don't have the same answer. NEET's syllabus is officially drawn from NCERT, but how far NCERT alone actually gets you depends heavily on the subject, and NEET's own marks split makes that difference concrete instead of a vague feeling."
+    },
+    {
+      "heading": "What the marks split actually is",
+      "body": "NEET runs 180 questions for 720 total marks, split as: Biology gets 90 questions (360 marks,50% of the paper), while Physics and Chemistry get 45 questions each (180 marks, 25% each). Biology alone is worth as much as Physics and Chemistry combined."
+    },
+    {
+      "heading": "Biology: NCERT is close to sufficient",
+      "body": "NEET Biology questions are famously close to NCERT's actual wording, including diagrams, footnotes, and the small factual asides many students skip on a first read. Because Biology is half your total score, thoroughness here has the highest leverage in the entire exam — a student who has genuinely internalized every line of NCERT Biology (not skimmed it once) is already competitive on the single largest chunk of the paper. The gap for most students isn't needing material beyond NCERT, it's not having actually covered all of NCERT closely enough — diagrams, exceptions, and the in-between sentences get skipped far more than the bolded definitions."
+    },
+    {
+      "heading": "Chemistry: NCERT gets you the base, not the full picture",
+      "body": "Inorganic and large parts of Physical Chemistry track NCERT closely and reward the same close-reading approach as Biology. Organic Chemistry is the exception — NCERT explains the underlying concepts, but NEET regularly tests reaction mechanisms and named reactions through applications and variations that need more worked practice than NCERT's own examples provide. For Chemistry, NCERT is necessary but the numerical/reaction practice has to come from solving problems beyond the textbook, not from rereading it more times."
+    },
+    {
+      "heading": "Physics: NCERT explains the concept, not the problem-solving",
+      "body": "This is where \"NCERT is enough\" breaks down the most. NCERT Physics builds genuine conceptual understanding, but NEET Physics questions are typically numerical, multi-step problems that look nothing like NCERT's own worked examples in difficulty or format. A student who has read NCERT Physics thoroughly but hasn't solved a large volume of numerical problems will understand the concepts and still struggle to finish this section under time pressure."
+    },
+    {
+      "heading": "Turning this into a study-time split",
+      "body": "Since Biology is worth as much as Physics and Chemistry combined, and NCERT alone gets you closer to exam-ready there, a reasonable allocation of \"beyond NCERT\" practice time skews away from Biology and toward Physics and Chemistry problem-solving — even though Biology still deserves real revision time given its 50% weight, that revision is mostly re-reading NCERT closely, not solving external problem sets the way Physics demands."
+    },
+    {
+      "heading": null,
+      "body": "If you're deciding how to split limited study hours across three subjects with genuinely different needs, Studyloaf's free timetable generator turns a plan like \"more numerical practice time for Physics and Chemistry, thorough NCERT re-reads for Biology\" into an actual weekly schedule from just your subjects, hours per day, and exam date — no account required."
+    }
+  ]
+}
