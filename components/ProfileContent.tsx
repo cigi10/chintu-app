@@ -6,12 +6,15 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Companion from "@/components/Companion";
 import Button from "@/components/Button";
+import RenameCompanion from "@/components/RenameCompanion";
+import { hydrateCompanionName, DEFAULT_NAME as DEFAULT_COMPANION_NAME } from "@/lib/companion";
 import "@/styles/profile.css";
 
 export default function ProfileContent() {
   const [email, setEmail] = useState<string | null>(null);
   const [joined, setJoined] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [companionName, setCompanionName] = useState(DEFAULT_COMPANION_NAME);
   const router = useRouter();
   const supabase = createClient();
 
@@ -29,6 +32,10 @@ export default function ProfileContent() {
         });
       }
     });
+  }, []);
+
+  useEffect(() => {
+    hydrateCompanionName().then(setCompanionName);
   }, []);
 
   async function handleSignOut() {
@@ -76,6 +83,7 @@ export default function ProfileContent() {
               </span>
             </div>
           )}
+          <RenameCompanion currentName={companionName} onRenamed={setCompanionName} />
         </div>
         <Button variant="secondary" className="profile__signout-btn" onClick={handleSignOut}>
           Sign out

@@ -26,15 +26,18 @@ vi.mock("@/lib/coins", () => ({
   hydrateCoins: vi.fn(async () => 0),
 }));
 
+let mockCompanionName = "Whiskers";
 vi.mock("@/lib/companion", () => ({
-  hydrateCompanionName: vi.fn(async () => "Whiskers"),
+  hydrateCompanionName: vi.fn(async () => mockCompanionName),
   DEFAULT_NAME: "Biscuit",
+  COMPANION_NAME_CHANGE_EVENT: "companion-name-change",
 }));
 
 beforeEach(() => {
   mockPathname = "/dashboard";
   mockUser = null;
   authStateCallback = null;
+  mockCompanionName = "Whiskers";
   localStorage.clear();
 });
 
@@ -50,6 +53,18 @@ describe("Navbar — brand text", () => {
     render(<Navbar />);
     await waitFor(() => expect(screen.getByText("Whiskers")).toBeInTheDocument());
     expect(screen.queryByText("Studyloaf")).not.toBeInTheDocument();
+  });
+
+  it("picks up a rename made elsewhere on the page via the companion-name-change event", async () => {
+    mockUser = { email: "test@example.com" };
+    render(<Navbar />);
+    await waitFor(() => expect(screen.getByText("Whiskers")).toBeInTheDocument());
+
+    mockCompanionName = "Sushi";
+    window.dispatchEvent(new Event("companion-name-change"));
+
+    await waitFor(() => expect(screen.getByText("Sushi")).toBeInTheDocument());
+    expect(screen.queryByText("Whiskers")).not.toBeInTheDocument();
   });
 });
 

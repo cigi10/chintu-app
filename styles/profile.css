@@ -10,6 +10,9 @@
 .profile__label { font-family: var(--font-body); font-size: 0.8rem; color: var(--color-text-secondary); font-weight: 700; }
 .profile__value { font-family: var(--font-body); font-size: 0.9rem; color: var(--color-text); font-weight: 700; word-break: break-all; text-align: right; margin-left: 12px; }
 .profile__signout-btn { min-width: 160px; }
+.profile__rename-link { background: none; border: none; padding: 0; color: var(--color-accent-strong); font-family: var(--font-body); font-size: 0.8rem; font-weight: 700; cursor: pointer; text-decoration: underline; }
+.profile__rename-panel { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.profile__rename-actions { display: flex; gap: 10px; justify-content: center; }
 @media (max-width: 480px) { .profile { padding: 16px; padding-top: 70px; } .profile__companion { width: 80px; } .profile__avatar { width: 64px; height: 64px; font-size: 1.5rem; } .profile__title { font-size: 1.4rem; } .profile__card { padding: 16px 18px; } }
 .site-header { position: absolute; top: 24px; left: 32px; z-index: 10; }
 .site-header__logo { font-family: var(--font-heading); font-weight: 800; font-size: 1.3rem; color: var(--color-accent-strong); text-decoration: none; }

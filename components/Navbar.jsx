@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { getLocalCoins, hydrateCoins } from "@/lib/coins";
-import { hydrateCompanionName, DEFAULT_NAME as DEFAULT_COMPANION_NAME } from "@/lib/companion";
+import { hydrateCompanionName, DEFAULT_NAME as DEFAULT_COMPANION_NAME, COMPANION_NAME_CHANGE_EVENT } from "@/lib/companion";
 import { NAV, NAV_GROUPS } from "@/lib/navItems";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import {
@@ -55,6 +55,21 @@ export default function Navbar() {
   useEffect(() => {
     hydrateCoins().then(setCoins);
     hydrateCompanionName().then(setCompanionName);
+  }, []);
+
+  // Picks up a rename made elsewhere on the same page (e.g. the profile
+  // page's "Rename your companion") without needing a navigation to
+  // trigger the pathname-keyed refresh below. "storage" alone wouldn't
+  // fire in this same tab, so setCompanionName also dispatches this
+  // event directly — see lib/companion.js.
+  useEffect(() => {
+    function handleRename() { hydrateCompanionName().then(setCompanionName); }
+    window.addEventListener(COMPANION_NAME_CHANGE_EVENT, handleRename);
+    window.addEventListener("storage", handleRename);
+    return () => {
+      window.removeEventListener(COMPANION_NAME_CHANGE_EVENT, handleRename);
+      window.removeEventListener("storage", handleRename);
+    };
   }, []);
 
   useEffect(() => {

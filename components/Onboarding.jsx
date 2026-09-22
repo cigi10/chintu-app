@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Companion from "@/components/Companion";
 import { setProfile } from "@/lib/storage";
-import { setCompanionName } from "@/lib/companion";
+import { setCompanionName, NAME_CHIPS } from "@/lib/companion";
 import { saveExamPackAndSubjects, getSubjects } from "@/lib/tracker";
 import { getLocalDdays, saveDdays } from "@/lib/ddays";
 import { PACK_NAMES, PACK_DESC, PACK_ICON, examPackLabel } from "@/lib/examPacks";
@@ -17,12 +17,6 @@ const ALL_PACK_OPTIONS = ["Custom", ...PACK_NAMES].map(key => ({
   icon: PACK_ICON[key],
   desc: PACK_DESC[key],
 }));
-
-const NAME_CHIPS = [
-  "Pip", "Mochi", "Tofu", "Walnut", "Biscuit", "Bun",
-  "Kiwi", "Sushi", "Coco", "Pepper", "Noodle", "Waffle",
-  "Peanut", "Mango", "Olive", "Sprout",
-];
 
 const STEP_LABELS = ["Region", "Pack", "Name", "Exam date"];
 
