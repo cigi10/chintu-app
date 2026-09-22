@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import StudyRooms from "@/components/StudyRooms";
 
 export const metadata = {
-  title: "Chintu: Study Rooms",
+  title: "Studyloaf: Study Rooms",
 };
 
 export default function RoomsPage() {

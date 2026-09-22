@@ -101,7 +101,7 @@ function fmtHistoryDuration(mins) {
 
 function isAfter10pm() { return new Date().getHours() >= 24; }
 
-// Idle expressions cycled through while actively studying, so Chintu isn't
+// Idle expressions cycled through while actively studying, so the companion isn't
 // frozen in one static pose for the whole session — reuses existing mood
 // art (no new assets), just swapping frames like a sprite animation rather
 // than a single fixed "studying" image. Uses the book-less pose as the base
@@ -250,8 +250,8 @@ export default function StudyTimer({ roomName = null }) {
   }, []);
 
   useEffect(() => {
-    document.title = running ? `${fmt(timeLeft)}: Chintu` : "Chintu: Timer";
-    return () => { document.title = "Chintu"; };
+    document.title = running ? `${fmt(timeLeft)}: Studyloaf` : "Studyloaf: Timer";
+    return () => { document.title = "Studyloaf"; };
   }, [timeLeft, running]);
 
   useEffect(() => {
@@ -687,7 +687,7 @@ export default function StudyTimer({ roomName = null }) {
   const progress    = totalDuration > 0 ? timeLeft / totalDuration : 0;
   const dashOffset  = CIRCUMFERENCE * (1 - progress);
 
-  function getChintuMood() {
+  function getCompanionMood() {
     if (done) return "happy";
     if (isAfter10pm()) return "sleepy";
     if (running) {
@@ -697,7 +697,7 @@ export default function StudyTimer({ roomName = null }) {
     return "waiting";
   }
 
-  const chintuMood = getChintuMood();
+  const companionMood = getCompanionMood();
   const isActivelyStudying = running && !done && (mode === "study" || mode === "custom");
   const hasProgress = !done && timeLeft < totalDuration;
 
@@ -723,7 +723,7 @@ export default function StudyTimer({ roomName = null }) {
                 deliberately not competing in size with the ring below. */}
             <div className="timer__companion-row">
               <div className="timer__companion-wrap">
-                <Companion mood={chintuMood} extraAccessories={isActivelyStudying ? ["book"] : []} />
+                <Companion mood={companionMood} extraAccessories={isActivelyStudying ? ["book"] : []} />
               </div>
               <p className="timer__message">
                 {done

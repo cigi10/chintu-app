@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   const { category: slug } = await params;
   const category = getQuizCategory(slug);
   if (!category) return {};
-  return { title: `Chintu: ${category.label} Daily Challenge` };
+  return { title: `Studyloaf: ${category.label} Daily Challenge` };
 }
 
 export default async function DailyQuizPage({ params }) {

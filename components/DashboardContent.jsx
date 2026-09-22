@@ -31,7 +31,7 @@ const MOODS = [
   { key: "low",      label: "Low",      color: "#9A8C7A" },
 ];
 
-// Idle expressions cycled through on the dashboard so Chintu isn't frozen
+// Idle expressions cycled through on the dashboard so the companion isn't frozen
 // in one static pose, same sprite-swap approach StudyTimer.jsx uses while
 // actively studying — reuses existing mood art, no new assets.
 const IDLE_POSES = {
@@ -391,7 +391,7 @@ export default function DashboardContent() {
 
       <div className="dashboard__main">
 
-        <div className="dashboard__chintu-side">
+        <div className="dashboard__companion-side">
           <div className="dashboard__companion-wrap">
             <Companion mood={getCompanionMood()} />
           </div>

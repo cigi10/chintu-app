@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <div className="notfound-shell">
       <p className="notfound-code">404</p>
-      <h1 className="notfound-title">Chintu couldn&apos;t find that page</h1>
+      <h1 className="notfound-title">Studyloaf couldn&apos;t find that page</h1>
       <p className="notfound-subtitle">
         The page you&apos;re looking for doesn&apos;t exist, or moved somewhere else. Let&apos;s get you back.
       </p>

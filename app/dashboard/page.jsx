@@ -3,7 +3,7 @@ import DashboardContent from "@/components/DashboardContent";
 
 export const metadata = {
   title: "Study app: Home",
-  description: "Your daily study dashboard with Chintu.",
+  description: "Your daily study dashboard with your study companion.",
 };
 
 export default function DashboardPage() {

@@ -3,7 +3,7 @@ import StudyTimer from "@/components/StudyTimer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Chintu: Timer",
+  title: "Studyloaf: Timer",
 };
 
 export default function TimerPage() {

@@ -28,6 +28,7 @@ vi.mock("@/lib/coins", () => ({
 
 vi.mock("@/lib/companion", () => ({
   hydrateCompanionName: vi.fn(async () => "Whiskers"),
+  DEFAULT_NAME: "Biscuit",
 }));
 
 beforeEach(() => {

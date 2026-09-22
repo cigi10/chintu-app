@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Achievements from "@/components/Achievements";
 
 export const metadata = {
-  title: "Chintu: Achievements",
+  title: "Studyloaf: Achievements",
   description: "Track your study milestones.",
 };
 

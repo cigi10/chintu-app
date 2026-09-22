@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   const { category: slug } = await params;
   const category = getQuizCategory(slug);
   if (!category) return {};
-  return { title: `Chintu: ${category.label} Practice Quiz` };
+  return { title: `Studyloaf: ${category.label} Practice Quiz` };
 }
 
 export default async function PracticeQuizPage({ params }) {

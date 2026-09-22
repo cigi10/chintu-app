@@ -5,10 +5,10 @@ import "@/styles/quiz.css";
 import "@/styles/button.css";
 
 export const metadata = {
-  title: "Chintu: Quiz",
+  title: "Studyloaf: Quiz",
   description: "Pick a subject, then play today's Daily Challenge or start a Practice Quiz anytime.",
   openGraph: {
-    title: "Chintu: Quiz",
+    title: "Studyloaf: Quiz",
     description: "Pick a subject, then play today's Daily Challenge or start a Practice Quiz anytime.",
   },
 };

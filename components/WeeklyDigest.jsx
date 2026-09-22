@@ -126,7 +126,7 @@ function buildDigest() {
 }
 
 function summaryLine(d) {
-  if (d.totalThisWeek === 0) return "No study sessions logged yet this week. Whenever you're ready, Chintu's waiting.";
+  if (d.totalThisWeek === 0) return "No study sessions logged yet this week. Whenever you're ready, your companion's waiting.";
   if (d.change > 10) return `Up ${d.change}% on last week. That's real momentum, keep riding it.`;
   if (d.change < -10) return `Down ${Math.abs(d.change)}% on last week. Slower weeks happen: pick one small session today.`;
   return "About the same pace as last week. Steady is good.";

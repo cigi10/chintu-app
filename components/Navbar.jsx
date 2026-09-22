@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { getLocalCoins, hydrateCoins } from "@/lib/coins";
-import { hydrateCompanionName } from "@/lib/companion";
+import { hydrateCompanionName, DEFAULT_NAME as DEFAULT_COMPANION_NAME } from "@/lib/companion";
 import { NAV, NAV_GROUPS } from "@/lib/navItems";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import {
@@ -39,7 +39,7 @@ export default function Navbar() {
   // Which group's dropdown is open, by label — null when all are closed.
   // Only one open at a time: opening one closes whichever else was open.
   const [openGroup, setOpenGroup]         = useState(null);
-  const [companionName, setCompanionName] = useState("Chintu");
+  const [companionName, setCompanionName] = useState(DEFAULT_COMPANION_NAME);
   const [userEmail, setUserEmail]         = useState(null);
   const menusRef = useRef(null);
 
@@ -90,10 +90,9 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar__inner">
         {/* Guests haven't created an account yet, so the brand spot should
-            identify the site, not a (possibly still-default "Chintu")
-            companion name that reads like the app's own name. Once
-            logged in, showing their actual companion name here is a nice
-            personal touch instead. */}
+            identify the site, not a still-default companion name that
+            reads like the app's own name. Once logged in, showing their
+            actual companion name here is a nice personal touch instead. */}
         <Link href={NAV.home.href} className="navbar__brand">
           {userEmail ? companionName : "Studyloaf"}
         </Link>
