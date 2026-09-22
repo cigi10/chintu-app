@@ -12,7 +12,11 @@
     },
     {
       "heading": "What the exam actually asks for, per chapter",
-      "body": "JEE Main Physics has 25 questions out of the 45 you need to attempt across all subjects combined, drawn from the full Class 11 and 12 Physics syllabus — roughly 20 chapters, depending on how they're grouped. That means most individual chapters contribute somewhere between 1 and 3 questions on any single attempt. This has a direct implication: for a chapter that typically yields 1 question, grinding through hundreds of numericals on it has sharply diminishing returns past a certain point, compared to spreading that same time across a chapter that consistently yields more."
+      "body": "JEE Main Physics carries 25 questions — 20 MCQs and 5 numerical-value questions, all 25 compulsory under the current pattern — drawn from the full Class 11 and 12 Physics syllabus, roughly 20 chapters depending on how they're grouped. That means most individual chapters contribute somewhere between 1 and 3 questions on any single attempt. This has a direct implication: for a chapter that typically yields 1 question, grinding through hundreds of numericals on it has sharply diminishing returns past a certain point, compared to spreading that same time across a chapter that consistently yields more."
+    },
+    {
+      "heading": "Why numerical questions specifically deserve fresh attention",
+      "body": "Numerical-value questions used to be the safer bet: earlier patterns carried no negative marking on them at all, so an educated guess cost nothing. That changed starting with the 2026 cycle, and current exam-pattern reporting describes it continuing into 2027 — numerical questions now carry the same -1 penalty as MCQs (worth confirming against the official information bulletin for your specific cycle, since this is exactly the kind of rule that's changed once already). A blind guess on a numerical, where you're not choosing from 4 options but producing an exact value from scratch, has a far lower chance of landing right than a blind MCQ guess, and now carries the same downside. That raises the bar specifically for numerical practice: the goal isn't just recognizing the method, it's finishing the calculation cleanly enough that you'd actually attempt it under the current stakes."
     },
     {
       "heading": "A volume target that scales with a chapter's actual weight",

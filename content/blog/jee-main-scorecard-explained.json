@@ -1,0 +1,34 @@
+{
+  "slug": "jee-main-scorecard-explained",
+  "title": "JEE Main Scorecard Explained: NTA Score, Percentile, and Rank Aren't Three Different Numbers",
+  "description": "Your scorecard shows numbers that look like they should be compared against each other. Two of them are actually the same thing wearing different names, and your raw marks aren't on there at all.",
+  "author": "Studyloaf Team",
+  "readingTime": "4 min read",
+  "date": "2026-09-23",
+  "content": [
+    {
+      "heading": null,
+      "body": "A lot of confusion after JEE Main results comes from treating \"NTA Score,\" \"percentile,\" and \"rank\" as three separate metrics worth comparing against each other. Two of them are the same number. Here's what's actually on your scorecard, and what each figure genuinely tells you."
+    },
+    {
+      "heading": "NTA Score and percentile are the same thing",
+      "body": "This is the single biggest source of confusion, and it's simpler than it looks: NTA Score is just the official name for your percentile score on the scorecard. They aren't calculated differently and they aren't two things to compare — a candidate with an NTA Score of 98.5 has a percentile of 98.5. If you see both terms used in different places describing your result, they're describing the identical number."
+    },
+    {
+      "heading": "Your raw marks aren't published at all",
+      "body": "NTA does not release the raw marks you scored out of 300 as part of your official result — only your normalized percentile (NTA Score) per subject and overall. This surprises students who expect to see \"you scored X out of 300\" somewhere on the scorecard; that figure simply isn't part of what gets published, because percentile is the number actually used for everything downstream."
+    },
+    {
+      "heading": "Why percentile exists instead of just using marks",
+      "body": "JEE Main runs across multiple shifts and sessions, and no two shifts have exactly the same difficulty by chance. Percentile is computed separately within each shift — the percentage of candidates in that specific shift who scored equal to or less than you — so a harder shift and an easier shift can be compared fairly on the same scale, instead of raw marks unfairly rewarding whoever happened to sit an easier paper."
+    },
+    {
+      "heading": "Rank is the one genuinely different number",
+      "body": "Rank is calculated afterward, by merging the normalized percentiles from every shift and session into one combined list and ordering everyone by it. This is why rank isn't available immediately alongside your percentile — it depends on how your percentile compares once every other shift's results are folded in, not just your own performance in isolation."
+    },
+    {
+      "heading": "Putting it together",
+      "body": "So there are really only two numbers behind everything you'll see: your percentile (which the scorecard also calls NTA Score — same figure, different label) and your rank, which comes from comparing that percentile against everyone else's, across every shift. Raw marks were part of the calculation behind the scenes, but they're not something NTA ever actually shows you."
+    }
+  ]
+}
