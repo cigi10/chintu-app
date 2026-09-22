@@ -7,10 +7,10 @@ import "@/styles/blog.css";
 
 export const metadata = {
   title: "Real Numbers: HCF and LCM - Studyloaf",
-  description: "Finding HCF using Euclid's division algorithm and prime factorization, plus verifying LCM x HCF = product of two numbers, with worked examples.",
+  description: "Finding HCF using Euclid's division algorithm and prime factorization, a division-lemma proof about odd integers, plus verifying LCM x HCF = product of two numbers, with worked examples.",
   openGraph: {
     title: "Real Numbers: HCF and LCM - Studyloaf",
-    description: "Finding HCF using Euclid's division algorithm and prime factorization, plus verifying LCM x HCF = product of two numbers, with worked examples.",
+    description: "Finding HCF using Euclid's division algorithm and prime factorization, a division-lemma proof about odd integers, plus verifying LCM x HCF = product of two numbers, with worked examples.",
   },
 };
 
@@ -22,7 +22,7 @@ export default function RealNumbersHcfLcmPage() {
         "@context": "https://schema.org",
         "@type": ["Article", "LearningResource"],
         headline: "Real Numbers: HCF and LCM",
-        description: "Finding HCF using Euclid's division algorithm and prime factorization, plus verifying LCM x HCF = product of two numbers, with worked examples.",
+        description: "Finding HCF using Euclid's division algorithm and prime factorization, a division-lemma proof about odd integers, plus verifying LCM x HCF = product of two numbers, with worked examples.",
         datePublished: "2026-09-17",
         author: { "@type": "Organization", name: "Studyloaf Team" },
       }} />
@@ -58,6 +58,27 @@ export default function RealNumbersHcfLcmPage() {
             <Katex display>{"102 = 51 \\times 2 + 0"}</Katex>
             <p className="blog-post-p">
               As the remainder is now 0, the HCF of 867 and 255 is <strong>51</strong>.
+            </p>
+          </div>
+
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Worked example: a proof using the division lemma</h2>
+            <p className="blog-post-p">
+              Show that any positive odd integer is of the form <Katex>{"6q+1"}</Katex>,{" "}
+              <Katex>{"6q+3"}</Katex>, or <Katex>{"6q+5"}</Katex>, for some integer{" "}
+              <Katex>{"q"}</Katex>.
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> Euclid&apos;s division lemma says any positive integer{" "}
+              <Katex>{"a"}</Katex> can be written as <Katex>{"a = 6q+r"}</Katex> for some{" "}
+              <Katex>{"q"}</Katex>, where <Katex>{"0 \\le r < 6"}</Katex> — so <Katex>{"a"}</Katex>{" "}
+              is one of <Katex>{"6q, 6q+1, 6q+2, 6q+3, 6q+4, 6q+5"}</Katex>.
+            </p>
+            <p className="blog-post-p">
+              Of these six forms, <Katex>{"6q"}</Katex>, <Katex>{"6q+2"}</Katex>, and{" "}
+              <Katex>{"6q+4"}</Katex> are all even, since every term is a multiple of 2. That
+              leaves exactly <Katex>{"6q+1"}</Katex>, <Katex>{"6q+3"}</Katex>, and{" "}
+              <Katex>{"6q+5"}</Katex> as the only forms an odd integer can take.
             </p>
           </div>
 

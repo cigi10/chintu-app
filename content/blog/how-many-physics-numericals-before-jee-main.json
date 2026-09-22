@@ -1,0 +1,42 @@
+{
+  "slug": "how-many-physics-numericals-before-jee-main",
+  "title": "How Many Physics Numericals You Actually Need to Solve Before JEE Main",
+  "description": "\"Solve as many numericals as possible\" isn't a plan. Here's how to size numerical practice per chapter using JEE Main's actual question count, instead of chasing an arbitrary big number.",
+  "author": "Studyloaf Team",
+  "readingTime": "4 min read",
+  "date": "2026-09-23",
+  "content": [
+    {
+      "heading": null,
+      "body": "\"Solve as many numericals as you can\" is technically true and practically useless as advice — it gives no way to know if you've done enough for a given chapter, or if you're overinvesting in one topic while under-preparing another. A more useful approach starts from what JEE Main actually tests, and works backward."
+    },
+    {
+      "heading": "What the exam actually asks for, per chapter",
+      "body": "JEE Main Physics has 25 questions out of the 45 you need to attempt across all subjects combined, drawn from the full Class 11 and 12 Physics syllabus — roughly 20 chapters, depending on how they're grouped. That means most individual chapters contribute somewhere between 1 and 3 questions on any single attempt. This has a direct implication: for a chapter that typically yields 1 question, grinding through hundreds of numericals on it has sharply diminishing returns past a certain point, compared to spreading that same time across a chapter that consistently yields more."
+    },
+    {
+      "heading": "A volume target that scales with a chapter's actual weight",
+      "body": "Instead of a flat number of problems per chapter, size your numerical practice to the chapter's typical question share:"
+    },
+    {
+      "heading": null,
+      "list": [
+        "High-weight chapters (regularly 2-3 questions, e.g. Mechanics, Electrostatics, Modern Physics): deserves the deepest problem-set — enough to have seen most of the standard variations NTA tends to reuse across sessions",
+        "Medium-weight chapters (typically 1-2 questions): a solid but smaller set, enough to be comfortable, not exhaustive",
+        "Low-weight chapters (rarely more than 1 question, sometimes skipped entirely in a given session): a light pass is enough — this is exactly where over-practicing steals time from a higher-yield chapter"
+      ]
+    },
+    {
+      "heading": "The real signal to track: are you still learning something new?",
+      "body": "A better stopping point than any fixed number: keep solving a chapter's numericals until new problems stop teaching you anything new about that chapter's mechanics — you start recognizing the setup within the first line and solving on autopilot. Once you hit that point, more volume on that specific chapter is mostly just repetition, not additional preparation, and your time is better spent elsewhere."
+    },
+    {
+      "heading": "The mistake this framework catches",
+      "body": "The most common numerical-practice mistake isn't solving too few problems overall — it's an uneven distribution: hundreds of problems on a comfortable, high-confidence chapter (because it feels productive) and almost none on a chapter you're avoiding because it's harder, even though that harder chapter carries equal or greater weight. If you've never actually counted how many numericals you've done per chapter, there's a good chance the distribution is more lopsided than it feels."
+    },
+    {
+      "heading": null,
+      "body": "Timing yourself per numerical while you practice, not just per full mock, is what actually reveals which chapters you've truly mastered versus which ones you're still solving slowly even when you get them right. Studyloaf's free timer works without an account and lets you tag each session by subject, so a pattern like \"still slow on Modern Physics despite high accuracy\" shows up in your own data instead of staying a vague impression."
+    }
+  ]
+}
