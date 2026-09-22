@@ -21,8 +21,9 @@ export default function DivisibilityRulesPage() {
         "@type": ["Article", "LearningResource"],
         headline: "Divisibility Rules",
         description: "Quick tests to check whether a number is divisible by 2 through 12, with worked examples.",
-        datePublished: "2026-09-15",
-        author: { "@type": "Organization", name: "Studyloaf Team" },
+        datePublished: "2026-09-15T00:00:00+05:30",
+        author: { "@type": "Organization", name: "Studyloaf Team", url: "https://www.studyloaf.com" },
+        image: "https://www.studyloaf.com/companion/website_icon.PNG",
       }} />
       <div className="blog-shell">
         <Breadcrumbs items={[

@@ -23,8 +23,9 @@ export default function RealNumbersHcfLcmPage() {
         "@type": ["Article", "LearningResource"],
         headline: "Real Numbers: HCF and LCM",
         description: "Finding HCF using Euclid's division algorithm and prime factorization, a division-lemma proof about odd integers, plus verifying LCM x HCF = product of two numbers, with worked examples.",
-        datePublished: "2026-09-17",
-        author: { "@type": "Organization", name: "Studyloaf Team" },
+        datePublished: "2026-09-17T00:00:00+05:30",
+        author: { "@type": "Organization", name: "Studyloaf Team", url: "https://www.studyloaf.com" },
+        image: "https://www.studyloaf.com/companion/website_icon.PNG",
       }} />
       <div className="blog-shell">
         <Breadcrumbs items={[

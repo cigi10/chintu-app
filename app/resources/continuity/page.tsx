@@ -23,8 +23,9 @@ export default function ContinuityPage() {
         "@type": ["Article", "LearningResource"],
         headline: "Continuity",
         description: "Left-hand and right-hand derivatives, spotting a point that's continuous but not differentiable, and finding a function's domain, with worked examples.",
-        datePublished: "2026-09-17",
-        author: { "@type": "Organization", name: "Studyloaf Team" },
+        datePublished: "2026-09-17T00:00:00+05:30",
+        author: { "@type": "Organization", name: "Studyloaf Team", url: "https://www.studyloaf.com" },
+        image: "https://www.studyloaf.com/companion/website_icon.PNG",
       }} />
       <div className="blog-shell">
         <Breadcrumbs items={[

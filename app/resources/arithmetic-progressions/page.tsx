@@ -23,8 +23,9 @@ export default function ArithmeticProgressionsPage() {
         "@type": ["Article", "LearningResource"],
         headline: "Arithmetic Progressions",
         description: "What makes a sequence an arithmetic progression, how to tell whether a real-world situation forms one, and finding three terms in AP from their sum and product, with worked examples.",
-        datePublished: "2026-09-17",
-        author: { "@type": "Organization", name: "Studyloaf Team" },
+        datePublished: "2026-09-17T00:00:00+05:30",
+        author: { "@type": "Organization", name: "Studyloaf Team", url: "https://www.studyloaf.com" },
+        image: "https://www.studyloaf.com/companion/website_icon.PNG",
       }} />
       <div className="blog-shell">
         <Breadcrumbs items={[

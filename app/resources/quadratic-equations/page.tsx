@@ -23,8 +23,9 @@ export default function QuadraticEquationsPage() {
         "@type": ["Article", "LearningResource"],
         headline: "Quadratic Equations",
         description: "What a quadratic equation is, solving by factoring and by completing the square, the quadratic formula, and a real-life example.",
-        datePublished: "2026-09-16",
-        author: { "@type": "Organization", name: "Studyloaf Team" },
+        datePublished: "2026-09-16T00:00:00+05:30",
+        author: { "@type": "Organization", name: "Studyloaf Team", url: "https://www.studyloaf.com" },
+        image: "https://www.studyloaf.com/companion/website_icon.PNG",
       }} />
       <div className="blog-shell">
         <Breadcrumbs items={[
