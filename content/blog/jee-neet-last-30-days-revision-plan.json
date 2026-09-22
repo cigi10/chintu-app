@@ -1,0 +1,38 @@
+{
+  "slug": "jee-neet-last-30-days-revision-plan",
+  "title": "How to Revise Your Entire JEE/NEET Syllabus in the Last 30 Days",
+  "description": "With 30 days left, there's no time to re-study everything at first-pass depth. Here's how to triage your syllabus by confidence level and allocate days by subject weight instead.",
+  "author": "Studyloaf Team",
+  "readingTime": "5 min read",
+  "date": "2026-09-22",
+  "content": [
+    {
+      "heading": null,
+      "body": "By the time you're 30 days out, you've already covered the syllabus once. The mistake most students make in this window is trying to re-study everything at the same depth as the first pass — rereading full chapters, redoing every example, as if there were still months left. There aren't. The last 30 days aren't for learning; they're for triage."
+    },
+    {
+      "heading": "Sort your syllabus into two piles, not one",
+      "body": "Every chapter you've covered falls into one of two categories right now: confident (you'd get most questions right with just a formula glance) or shaky (you'd need to actually work through logic, not just recall). Use your recent mock test performance to sort honestly, not how you feel about a chapter. A chapter you \"like\" isn't the same as a chapter you consistently score well on."
+    },
+    {
+      "heading": null,
+      "list": [
+        "Confident chapters: a single quick pass — formula sheet, key results, maybe one worked example to confirm the method hasn't gone stale",
+        "Shaky chapters: a full worked-example pass, the kind of practice you'd have done on a first study round",
+        "This split alone usually cuts your effective 30-day workload by close to half, since most students genuinely have more confident chapters than shaky ones by this point"
+      ]
+    },
+    {
+      "heading": "Allocate days by subject weight, not by chapter count",
+      "body": "If NEET Biology carries roughly half the total marks, it should get roughly half of your remaining revision days — not one-third, just because there are three subjects. A subject with more chapters but lower weight (like a low-mark topic list) shouldn't out-compete a heavier subject just because it has more items to check off. Count marks, not chapters, when splitting your 30 days."
+    },
+    {
+      "heading": "The mocks question everyone gets wrong",
+      "body": "Two opposite mistakes show up here equally often. One: stopping full mock tests entirely in the last month out of fear that a bad score this close to the exam will wreck your confidence. Two: cramming a mock in literally the day or two before the real exam, when there's no time left to act on what it reveals and it mostly just adds anxiety. The middle path: keep taking 1 full mock a week through most of the 30 days for pacing calibration, then stop 3 full days before the actual exam so your last stretch is review and rest, not another timed ordeal."
+    },
+    {
+      "heading": null,
+      "body": "Once you've decided how many days each subject gets, Studyloaf's free timetable generator can turn that into an actual weekly schedule from just your subjects, hours per day, and exam date — and the timer helps keep each day's revision blocks honest instead of quietly running long. Both work without needing an account, so there's no setup standing between you and actually starting."
+    }
+  ]
+}

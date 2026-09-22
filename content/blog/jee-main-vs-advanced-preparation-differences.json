@@ -1,0 +1,42 @@
+{
+  "slug": "jee-main-vs-advanced-preparation-differences",
+  "title": "JEE Main vs JEE Advanced: How Your Preparation Actually Needs to Change",
+  "description": "Clearing JEE Main and prepping for Advanced aren't the same skill scaled up. Here's what actually changes, with a worked example showing the difference in question style.",
+  "author": "Studyloaf Team",
+  "readingTime": "5 min read",
+  "date": "2026-09-22",
+  "content": [
+    {
+      "heading": null,
+      "body": "A lot of students clear JEE Main and keep doing exactly the same kind of practice for JEE Advanced, just more of it. That's a mistake, because Main and Advanced aren't testing the same thing at different difficulty levels — they're testing different skills. Main rewards speed and direct formula application across a huge number of questions. Advanced rewards depth: fewer questions, but each one often chains two or three concepts together and punishes a shaky middle step."
+    },
+    {
+      "heading": "The same topic, two different question styles",
+      "body": "Take quadratic equations, a topic both exams test constantly. A Main-style question is usually a direct application: given specific coefficients, find the roots, or use the discriminant to state how many real roots exist. You recognize the setup, apply the formula, done in under a minute."
+    },
+    {
+      "heading": null,
+      "body": "An Advanced-style question on the same topic is more likely to embed it inside something else entirely — for example, asking for the set of real values of a parameter for which a quadratic has roots satisfying some inequality, which means first treating the quadratic symbolically, then reasoning about where its roots fall relative to given bounds using the quadratic's graph, not just plugging into the formula. The underlying tool is identical. The number of steps between the question and the formula is not."
+    },
+    {
+      "heading": "What actually needs to change in your practice",
+      "body": "If your only skill is fast, formula-first problem solving, Advanced-style multi-concept questions will feel like a wall, not because the individual concepts are new, but because you haven't practiced stitching them together under exam pressure. A few concrete shifts:"
+    },
+    {
+      "heading": null,
+      "list": [
+        "Deliberately practice problems that combine two chapters (e.g. quadratic equations with inequalities, or calculus with coordinate geometry), not just single-chapter drills",
+        "Slow down on purpose during practice — Advanced rewards getting a harder question right over more attempts per hour, the opposite pacing instinct that Main trains",
+        "Practice the question formats unique to Advanced, especially multiple-correct-option MCQs, since the scoring for a partially correct selection works differently from Main's single-answer MCQs and catches people off guard if it's never been practiced"
+      ]
+    },
+    {
+      "heading": "The common mistake",
+      "body": "The biggest one: assuming that because a topic is \"done\" for Main, it doesn't need revisiting for Advanced. Every core topic gets tested again at Advanced, just wrapped in more layers. If you want a refresher on the underlying mechanics before layering complexity on top, Studyloaf's Quadratic Equations resource page covers the formula, completing the square, and the discriminant from first principles — worth a quick pass before jumping into Advanced-style multi-concept problems on the same topic."
+    },
+    {
+      "heading": null,
+      "body": "Whichever style you're drilling, using Studyloaf's free timer to enforce deliberately different pacing for Main practice versus Advanced practice (fast vs. unhurried) helps the switch between the two actually stick as a habit instead of defaulting back to whichever pace feels natural."
+    }
+  ]
+}

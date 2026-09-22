@@ -84,10 +84,12 @@ export default function ApplicationsOfDerivativesPage() {
             <p className="blog-post-p">
               Rate-of-change problems and optimization problems both start from the same
               derivative-as-rate idea — one asks how fast something changes, the other asks where
-              that rate hits zero.
+              that rate hits zero. The same derivative also drives approximating small changes
+              directly, instead of an exact rate.
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/maxima-and-minima">Maxima and Minima</Link></li>
+              <li><Link href="/resources/approximations">Approximations Using Differentials</Link></li>
             </ul>
           </div>
         </article>

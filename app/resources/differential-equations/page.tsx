@@ -7,10 +7,10 @@ import "@/styles/blog.css";
 
 export const metadata = {
   title: "Differential Equations - Studyloaf",
-  description: "How to form a differential equation from a family of curves, and how to solve one by separating variables, with worked examples.",
+  description: "Finding the order of a differential equation, forming one from a family of curves, and solving one by separating variables, with worked examples.",
   openGraph: {
     title: "Differential Equations - Studyloaf",
-    description: "How to form a differential equation from a family of curves, and how to solve one by separating variables, with worked examples.",
+    description: "Finding the order of a differential equation, forming one from a family of curves, and solving one by separating variables, with worked examples.",
   },
 };
 
@@ -22,7 +22,7 @@ export default function DifferentialEquationsPage() {
         "@context": "https://schema.org",
         "@type": ["Article", "LearningResource"],
         headline: "Differential Equations",
-        description: "How to form a differential equation from a family of curves, and how to solve one by separating variables, with worked examples.",
+        description: "Finding the order of a differential equation, forming one from a family of curves, and solving one by separating variables, with worked examples.",
         datePublished: "2026-09-17",
         author: { "@type": "Organization", name: "Studyloaf Team" },
       }} />
@@ -35,6 +35,22 @@ export default function DifferentialEquationsPage() {
         ]} />
         <article className="blog-post">
           <h1 className="blog-post-title">Differential Equations</h1>
+
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">The order of a differential equation</h2>
+            <p className="blog-post-p">
+              The <strong>order</strong> of a differential equation is simply the order of the
+              highest derivative appearing in it — no need to solve anything first.
+            </p>
+            <p className="blog-post-p">
+              What is the order of <Katex>{"2x^2\\dfrac{d^2y}{dx^2} - 3\\dfrac{dy}{dx} + y = 0"}</Katex>?
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> The highest derivative present is{" "}
+              <Katex>{"\\dfrac{d^2y}{dx^2}"}</Katex>, a second derivative — so the order is{" "}
+              <strong>2</strong>.
+            </p>
+          </div>
 
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Worked example: forming an equation from a family of curves</h2>
