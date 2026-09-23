@@ -90,10 +90,13 @@ export default function KirchhoffsLawsPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               Once a circuit is solved for its currents, the diode equation is what determines how
-              current actually flows through any non-linear component you add to it.
+              current actually flows through any non-linear component you add to it. And for a
+              circuit like this one, reducing everything except one branch down to a single
+              equivalent source is often faster than solving the whole loop system directly.
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/pn-junction-diode">PN Junction Diode: Forward and Reverse Bias</Link></li>
+              <li><Link href="/resources/thevenin-norton-theorems">Thevenin's and Norton's Theorems</Link></li>
             </ul>
           </div>
         </article>

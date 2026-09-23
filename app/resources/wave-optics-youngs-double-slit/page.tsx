@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -85,6 +86,17 @@ export default function WaveOpticsYoungsDoubleSlitPage() {
               from the centre, so the 3rd bright fringe is at:
             </p>
             <Katex display>{"y_3 = 3\\beta = 3\\text{ mm}"}</Katex>
+          </div>
+
+          <div className="blog-post-related">
+            <h2 className="blog-post-heading">Continue learning</h2>
+            <p className="blog-post-p">
+              A single slit, rather than two, produces a strikingly different pattern — its dark
+              fringes use the same-looking formula as these bright ones, for the opposite reason.
+            </p>
+            <ul className="blog-post-related-list">
+              <li><Link href="/resources/diffraction-single-slit-and-grating">Diffraction: Single Slit and Diffraction Grating</Link></li>
+            </ul>
           </div>
         </article>
       </div>

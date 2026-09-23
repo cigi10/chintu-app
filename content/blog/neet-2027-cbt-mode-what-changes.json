@@ -1,0 +1,43 @@
+{
+  "slug": "neet-2027-cbt-mode-what-changes",
+  "title": "NEET UG 2027 Goes Computer-Based: What Actually Changes (and How to Prepare)",
+  "description": "After years of OMR and pencils, NEET UG moves to computer-based testing starting 2027. Here's exactly what changes, why, and how to actually prepare for a format you've never sat before.",
+  "author": "Studyloaf Team",
+  "readingTime": "5 min read",
+  "date": "2026-09-25",
+  "content": [
+    {
+      "heading": null,
+      "body": "If you're prepping for NEET 2027, one thing about your exam day will be completely different from every NEET before it: NEET UG moves to fully computer-based testing (CBT), replacing the OMR sheet and pencil format used every year until now. The Union Education Minister confirmed the shift, and NTA has stated it to the Supreme Court — this isn't a rumor or a proposal, it's confirmed."
+    },
+    {
+      "heading": "Why this is happening",
+      "body": "The stated reason is specific: a government-appointed committee identified the paper-based OMR format as a major weak point behind repeated question paper leaks, including a Re-NEET exam that had to be conducted in 2026 after integrity concerns. The shift to CBT is meant to close that specific vulnerability, not to make the exam harder or easier academically."
+    },
+    {
+      "heading": "What's changing, and what isn't",
+      "body": "The mode of answering changes — mouse and keyboard instead of bubbling an OMR sheet with a pencil. You'll still travel to an assigned test centre as before; this isn't a from-home exam. The syllabus stays exactly the same: NCERT Class 11 and 12 Physics, Chemistry, and Biology, unchanged by this shift. The number of questions, subject-wise split, and marking scheme aren't part of this particular change either — this is specifically a change in exam *delivery*, not exam *content*."
+    },
+    {
+      "heading": "The interface you'll actually be using",
+      "body": "If you've never sat a computer-based exam before, the NTA interface has a specific structure worth getting familiar with ahead of time: a question palette showing every question's status at a glance, a \"Mark for Review\" button for questions you want to revisit, and a \"Clear Response\" button to unselect an answer. You'll also be able to jump directly between subjects — Physics to Biology to Chemistry — instead of moving through the paper in a fixed order, which is actually a meaningful advantage over the old fixed-sequence OMR format for students who want to attempt their strongest subject first."
+    },
+    {
+      "heading": "How to actually prepare for the format, not just the content",
+      "body": "This is the part most students will skip and shouldn't:"
+    },
+    {
+      "heading": null,
+      "list": [
+        "Take practice tests on a computer, not just on paper — reading comprehension and pacing genuinely differ on a screen versus a printed page, especially over a 3-hour exam",
+        "NTA's own free mock-test app (NTA Abhyas) runs practice tests in the actual CBT format — worth using specifically because it matches the real interface, not just a generic online quiz tool",
+        "Practice the palette and navigation until switching between marked-for-review questions and jumping across subjects takes zero mental effort — that's exactly the kind of friction you don't want discovering for the first time on exam day",
+        "If JEE Main is also on your radar, its testing interface is broadly the same one NTA already uses for CBT exams — genuinely useful cross-practice if you're preparing for both"
+      ]
+    },
+    {
+      "heading": null,
+      "body": "The underlying exam — syllabus, question count, marking scheme — hasn't changed. What's changed is the tool you'll be using to answer it, and that's worth a few dedicated practice sessions before exam day rather than discovering the interface cold."
+    }
+  ]
+}

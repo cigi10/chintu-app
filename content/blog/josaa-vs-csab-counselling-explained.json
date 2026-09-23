@@ -1,0 +1,30 @@
+{
+  "slug": "josaa-vs-csab-counselling-explained",
+  "title": "JoSAA vs CSAB: How JEE Counselling Actually Works",
+  "description": "Clearing JEE Main or Advanced doesn't hand you a seat — it hands you a counselling process most students only start learning about after results, which is exactly the wrong time.",
+  "author": "Studyloaf Team",
+  "readingTime": "4 min read",
+  "date": "2026-09-25",
+  "content": [
+    {
+      "heading": null,
+      "body": "JEE results get you a rank. Turning that rank into an actual engineering seat runs through a counselling system with two different bodies, running at different times, covering different sets of colleges. Most students only start learning this system after results are out — worth knowing the shape of it well before then."
+    },
+    {
+      "heading": "JoSAA runs first, and covers the most ground",
+      "body": "JoSAA (Joint Seat Allocation Authority) runs the main counselling process, covering IITs, NITs, IIITs, and GFTIs together in one system. It runs across 5-6 rounds, and after each round you choose to Freeze (accept and stop), Float (keep the seat but stay open to a better one in later rounds), Slide (stay within the same institute type but try for a better branch), or Withdraw entirely. The process itself: registration, choice filling and locking, a mock allotment (so you can preview how your choices would place before it's final), the actual allotment, fee payment, document verification, and reporting."
+    },
+    {
+      "heading": "CSAB runs after, and covers what's left",
+      "body": "CSAB (Central Seat Allocation Board) runs separately, after JoSAA's rounds are done, specifically to fill seats that stayed vacant at NITs, IIITs, and GFTIs. IITs don't participate in CSAB at all — if your target is an IIT, JoSAA is the entire process for you. CSAB typically runs just 2 special rounds, and choice filling there is based only on whatever seats are still vacant after JoSAA finished — a smaller, different pool, not a second shot at the same full seat matrix."
+    },
+    {
+      "heading": "The detail that catches people off guard",
+      "body": "Registering for JoSAA does not automatically register you for CSAB. They're run by different bodies, on different portals, and CSAB requires a fresh registration and a separate Special Round Enrollment Fee — even if you already went through the entire JoSAA process. Missing this second registration because you assumed it carried over is a completely avoidable way to lose access to seats that might otherwise have been available to you."
+    },
+    {
+      "heading": "What this means practically",
+      "body": "If NITs, IIITs, or GFTIs are anywhere in your realistic range, treat CSAB registration as its own separate task on your post-result checklist, not something JoSAA handles for you automatically. And because CSAB's timelines run tighter than JoSAA's, with less room to recover from a missed deadline, it's worth knowing the CSAB registration window in advance rather than discovering it exists only once you need it."
+    }
+  ]
+}
