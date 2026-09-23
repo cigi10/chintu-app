@@ -1,0 +1,45 @@
+.crumb-game { max-width: 480px; margin: 0 auto; padding: 24px 16px 60px; }
+.crumb-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.crumb-title { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-text); margin: 0; }
+.crumb-streak-card { display: flex; align-items: baseline; gap: 6px; background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: var(--radius-pill); padding: 6px 14px; }
+.crumb-streak-count { font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: var(--color-streak); }
+.crumb-streak-label { font-size: 0.78rem; color: var(--color-text-secondary); }
+
+.crumb-clue { font-family: var(--font-body); font-size: 0.95rem; color: var(--color-text-secondary); background: var(--color-surface-alt); border: 1px solid var(--color-border); border-radius: 14px; padding: 12px 16px; margin-bottom: 20px; }
+
+.crumb-grid { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+.crumb-row { display: grid; grid-template-columns: repeat(var(--crumb-cols), 1fr); gap: 6px; }
+.crumb-tile {
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(0.7rem, 3.5vw, 1.2rem);
+  color: var(--color-text);
+  background: var(--color-surface);
+  text-transform: uppercase;
+}
+.crumb-tile--correct { background: var(--color-success); border-color: var(--color-success); color: #fff; }
+.crumb-tile--present { background: var(--color-needs-revision); border-color: var(--color-needs-revision); color: var(--color-accent); }
+.crumb-tile--absent { background: var(--color-text-faint); border-color: var(--color-text-faint); color: #fff; opacity: 0.6; }
+
+.crumb-form { display: flex; gap: 8px; margin-bottom: 8px; }
+.crumb-input { flex: 1; padding: 11px 14px; border: 1.5px solid var(--color-border); border-radius: 12px; font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text); background: var(--color-surface); outline: none; }
+.crumb-input:focus { border-color: var(--color-accent-strong); }
+.crumb-error { color: var(--color-danger); font-size: 0.82rem; margin: 0 0 12px; }
+
+.crumb-result { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--color-border-dashed); }
+.crumb-result-banner { font-family: var(--font-heading); font-weight: 800; font-size: 1.05rem; margin: 0 0 8px; }
+.crumb-result-banner--won { color: var(--color-success); }
+.crumb-result-banner--lost { color: var(--color-danger); }
+.crumb-explanation { font-size: 0.9rem; color: var(--color-text-secondary); margin: 0 0 14px; }
+.crumb-share { display: flex; }
+
+.crumb-empty { text-align: center; padding: 60px 16px; color: var(--color-text-secondary); font-family: var(--font-body); }
+
+@media (max-width: 400px) {
+  .crumb-game { padding: 16px 10px 40px; }
+  .crumb-title { font-size: 1.25rem; }
+}

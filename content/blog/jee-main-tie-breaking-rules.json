@@ -8,7 +8,7 @@
   "content": [
     {
       "heading": null,
-      "body": "Two candidates can land on the exact same NTA percentile in JEE Main. When that happens, NTA doesn't just assign them the same rank and move on — there's a specific order of tie-breaking criteria applied before falling back to a shared rank. Knowing the order matters, because it changes how you might think about where to spend your last few weeks of prep if you're chasing every possible edge."
+      "body": "Two candidates can land on the exact same NTA percentile in JEE Main. When that happens, NTA doesn't just assign them the same rank and move on. There's a specific order of tie-breaking criteria applied before falling back to a shared rank. Knowing the order matters, because it changes how you might think about where to spend your last few weeks of prep if you're chasing every possible edge."
     },
     {
       "heading": "The actual order",
@@ -26,19 +26,19 @@
     },
     {
       "heading": "What changed recently, and what didn't",
-      "body": "As of 2025, age and application number were removed entirely as tie-breakers — ranking is now purely based on subject performance and accuracy, not who registered first or who's older. If you've seen older advice mentioning \"the younger candidate wins ties\" or similar, that's outdated."
+      "body": "As of 2025, age and application number were removed entirely as tie-breakers. Ranking is now purely based on subject performance and accuracy, not who registered first or who's older. If you've seen older advice mentioning \"the younger candidate wins ties\" or similar, that's outdated."
     },
     {
       "heading": "A worked example",
-      "body": "Say two candidates, A and B, land on the exact same overall percentile. A scored higher in Physics but lower in Math than B. B scored higher in Math. Since Mathematics is checked first, B wins the tie regardless of how Physics or Chemistry compare — the process never even reaches those subjects, because the tie was already resolved at step 1."
+      "body": "Say two candidates, A and B, land on the exact same overall percentile. A scored higher in Physics but lower in Math than B. B scored higher in Math. Since Mathematics is checked first, B wins the tie regardless of how Physics or Chemistry compare. The process never even reaches those subjects, because the tie was already resolved at step 1."
     },
     {
       "heading": "What this actually means for how you prepare",
-      "body": "This isn't a reason to suddenly neglect Physics or Chemistry — the tie-break only matters if you're already percentile-tied with someone else, a fairly narrow situation. But it is a genuine, if small, argument for not leaving Mathematics as your weakest of the three if you have any flexibility in how you allocate remaining practice time, since it's the first subject checked. The accuracy-ratio criterion (step 4) is also a quiet reminder that blind guessing on questions you have zero basis for can hurt you in a way that shows up specifically in a tie scenario, even if the overall expected-value math on a single question still favors an educated guess."
+      "body": "This isn't a reason to suddenly neglect Physics or Chemistry. The tie-break only matters if you're already percentile-tied with someone else, a fairly narrow situation. But it is a genuine, if small, argument for not leaving Mathematics as your weakest of the three if you have any flexibility in how you allocate remaining practice time, since it's the first subject checked. The accuracy-ratio criterion (step 4) is also a quiet reminder that blind guessing on questions you have zero basis for can hurt you in a way that shows up specifically in a tie scenario, even if the overall expected-value math on a single question still favors an educated guess."
     },
     {
       "heading": null,
-      "body": "If you want to see how your accuracy per subject is actually trending across practice sessions — since that's what step 4 is really about — Studyloaf's free timer lets you tag sessions by subject, no account needed, so you can check whether your negative-to-positive ratio in Math specifically is where you'd want it before exam day."
+      "body": "If you want to see how your accuracy per subject is actually trending across practice sessions (since that's what step 4 is really about), Studyloaf's free timer lets you tag sessions by subject, no account needed, so you can check whether your negative-to-positive ratio in Math specifically is where you'd want it before exam day."
     }
   ]
 }

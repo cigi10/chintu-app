@@ -24,7 +24,7 @@
     },
     {
       "heading": null,
-      "body": "A completely blind, uniformly random guess on a 4-option question is worth +0.25 marks on average — better than the 0 you get from leaving it blank. This surprises most students, because \"negative marking\" sounds like it should make blind guessing a loss. It doesn't, as long as you're genuinely picking among all 4 options with no bias."
+      "body": "A completely blind, uniformly random guess on a 4-option question is worth +0.25 marks on average, better than the 0 you get from leaving it blank. This surprises most students, because \"negative marking\" sounds like it should make blind guessing a loss. It doesn't, as long as you're genuinely picking among all 4 options with no bias."
     },
     {
       "heading": "Where the breakeven point actually is",
@@ -40,15 +40,15 @@
     },
     {
       "heading": null,
-      "body": "Above a 20% chance of being right, guessing has positive expected value. Below it, guessing costs you marks on average. A pure random guess among 4 options sits at 25%, just above breakeven — which is why it's technically worth it. But this is also why eliminating even one obviously wrong option matters so much: it pushes your odds from 25% to 33%, moving you well clear of the danger zone, not just marginally better."
+      "body": "Above a 20% chance of being right, guessing has positive expected value. Below it, guessing costs you marks on average. A pure random guess among 4 options sits at 25%, just above breakeven, which is why it's technically worth it. But this is also why eliminating even one obviously wrong option matters so much: it pushes your odds from 25% to 33%, moving you well clear of the danger zone, not just marginally better."
     },
     {
       "heading": "The common mistake this reveals",
-      "body": "The mistake isn't guessing too much. It's treating \"I've eliminated 1 of 4 options\" and \"I have absolutely no idea\" as the same situation. If you can rule out even one wrong option, you're at a 33% chance and the expected value jumps to (1/3 × 4) + (2/3 × -1) ≈ +0.67 — more than double a blind guess's +0.25. The advice to \"be careful with negative marking\" should really only apply to questions where your gut instinct is actively unreliable, for example a topic riddled with lookalike distractor options designed to trap a specific misconception. On those, your real chance of being right can drop below 20%, and that's the case where skipping is genuinely the better call."
+      "body": "The mistake isn't guessing too much. It's treating \"I've eliminated 1 of 4 options\" and \"I have absolutely no idea\" as the same situation. If you can rule out even one wrong option, you're at a 33% chance and the expected value jumps to (1/3 × 4) + (2/3 × -1) ≈ +0.67, more than double a blind guess's +0.25. The advice to \"be careful with negative marking\" should really only apply to questions where your gut instinct is actively unreliable, for example a topic riddled with lookalike distractor options designed to trap a specific misconception. On those, your real chance of being right can drop below 20%, and that's the case where skipping is genuinely the better call."
     },
     {
       "heading": "Turning this into exam behavior",
-      "body": "In practice: never leave a question blank once you've eliminated at least one option, always attempt questions you're even moderately confident about, and reserve blank answers for questions where you have truly no starting point at all — not just questions that feel unfamiliar at first glance. The only way to know which category a question actually falls into is to practice enough of them that your gut sense of \"do I know this\" gets calibrated against your real hit rate, not your confidence. If you're running timed practice sets to check that calibration, Studyloaf's free timer works without needing an account, so you can see exactly how your accuracy holds up under a real clock instead of guessing about your own guessing."
+      "body": "In practice: never leave a question blank once you've eliminated at least one option, always attempt questions you're even moderately confident about, and reserve blank answers for questions where you have truly no starting point at all, not just questions that feel unfamiliar at first glance. The only way to know which category a question actually falls into is to practice enough of them that your gut sense of \"do I know this\" gets calibrated against your real hit rate, not your confidence. If you're running timed practice sets to check that calibration, Studyloaf's free timer works without needing an account, so you can see exactly how your accuracy holds up under a real clock instead of guessing about your own guessing."
     }
   ]
 }

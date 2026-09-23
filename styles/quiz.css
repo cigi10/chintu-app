@@ -337,10 +337,6 @@
   margin-bottom: 4px;
 }
 
-.quiz-streak-flame {
-  font-size: 1.3rem;
-}
-
 .quiz-streak-count {
   font-family: var(--font-heading);
   font-size: 1.6rem;

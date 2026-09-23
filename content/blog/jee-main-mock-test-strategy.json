@@ -8,26 +8,26 @@
   "content": [
     {
       "heading": null,
-      "body": "\"How many mock tests before JEE Main\" gets asked constantly, and the honest answer isn't a number — it's a timing problem. Start full-length mocks before your syllabus is far enough along, and you get a string of discouraging scores that measure nothing except how much you haven't learned yet. Start too late, and you never build the actual skill mocks are for: pacing yourself against a clock, not just solving problems untimed at your own speed."
+      "body": "\"How many mock tests before JEE Main\" gets asked constantly, and the honest answer isn't a number. It's a timing problem. Start full-length mocks before your syllabus is far enough along, and you get a string of discouraging scores that measure nothing except how much you haven't learned yet. Start too late, and you never build the actual skill mocks are for: pacing yourself against a clock, not just solving problems untimed at your own speed."
     },
     {
       "heading": "When to start",
-      "body": "A reasonable rule of thumb: start full-length mocks once you've covered 60-70% of the syllabus, not 100%. Waiting for a fully complete syllabus before your first mock usually means starting with only a few weeks left, which isn't enough time to act on what the mocks reveal. Early mocks aren't about the score — they're a diagnostic for which chapters are actually weak once tested with mixed, timed questions instead of end-of-chapter practice sets."
+      "body": "A reasonable rule of thumb: start full-length mocks once you've covered 60-70% of the syllabus, not 100%. Waiting for a fully complete syllabus before your first mock usually means starting with only a few weeks left, which isn't enough time to act on what the mocks reveal. Early mocks aren't about the score. They're a diagnostic for which chapters are actually weak once tested with mixed, timed questions instead of end-of-chapter practice sets."
     },
     {
       "heading": "How many, how often",
-      "body": "One full mock a week is a sustainable pace for most students. That's roughly 12-16 mocks in the 3-4 months before the exam, which is enough repetition to build real pacing instincts without eating the study time you need to actually review what went wrong. Two mocks a week sounds more thorough, but in practice it usually means neither gets a proper post-mortem — reviewing mistakes matters more than the raw count of mocks taken."
+      "body": "One full mock a week is a sustainable pace for most students. That's roughly 12-16 mocks in the 3-4 months before the exam, which is enough repetition to build real pacing instincts without eating the study time you need to actually review what went wrong. Two mocks a week sounds more thorough, but in practice it usually means neither gets a proper post-mortem. Reviewing mistakes matters more than the raw count of mocks taken."
     },
     {
       "heading": "The pacing math",
-      "body": "JEE Main gives you 180 minutes for 75 questions — 25 per subject, all compulsory as of the current pattern (there's no more picking 5 of 10 numerical questions within a section). 180 minutes over 75 questions works out to 2.4 minutes per question on average — but you don't have to spread that evenly across all three subjects if your strengths aren't equal."
+      "body": "JEE Main gives you 180 minutes for 75 questions (25 per subject, all compulsory as of the current pattern, since there's no more picking 5 of 10 numerical questions within a section). 180 minutes over 75 questions works out to 2.4 minutes per question on average, but you don't have to spread that evenly across all three subjects if your strengths aren't equal."
     },
     {
       "heading": null,
       "list": [
         "A common starting split: roughly 55-60 minutes per subject, adjusted by how confident you are in each",
         "If Physics is consistently your slowest section, protect its time block rather than letting a hard Chemistry question eat into it",
-        "Track where your time actually goes in a mock, not where you assume it goes — most students are shocked to find one section eating 90 minutes instead of the 60 they planned"
+        "Track where your time actually goes in a mock, not where you assume it goes: most students are shocked to find one section eating 90 minutes instead of the 60 they planned"
       ]
     },
     {
@@ -36,7 +36,7 @@
     },
     {
       "heading": null,
-      "body": "If you want your mocks to actually feel like the real clock instead of an approximate one, Studyloaf's free timer runs without needing an account and lets you tag each session by subject — useful for timing a single subject's practice block on its own, so you can isolate exactly which one is quietly eating your pace."
+      "body": "If you want your mocks to actually feel like the real clock instead of an approximate one, Studyloaf's free timer runs without needing an account and lets you tag each session by subject, useful for timing a single subject's practice block on its own, so you can isolate exactly which one is quietly eating your pace."
     }
   ]
 }

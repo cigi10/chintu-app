@@ -8,15 +8,15 @@
   "content": [
     {
       "heading": null,
-      "body": "\"Solve as many numericals as you can\" is technically true and practically useless as advice — it gives no way to know if you've done enough for a given chapter, or if you're overinvesting in one topic while under-preparing another. A more useful approach starts from what JEE Main actually tests, and works backward."
+      "body": "\"Solve as many numericals as you can\" is technically true and practically useless as advice. It gives no way to know if you've done enough for a given chapter, or if you're overinvesting in one topic while under-preparing another. A more useful approach starts from what JEE Main actually tests, and works backward."
     },
     {
       "heading": "What the exam actually asks for, per chapter",
-      "body": "JEE Main Physics carries 25 questions — 20 MCQs and 5 numerical-value questions, all 25 compulsory under the current pattern — drawn from the full Class 11 and 12 Physics syllabus, roughly 20 chapters depending on how they're grouped. That means most individual chapters contribute somewhere between 1 and 3 questions on any single attempt. This has a direct implication: for a chapter that typically yields 1 question, grinding through hundreds of numericals on it has sharply diminishing returns past a certain point, compared to spreading that same time across a chapter that consistently yields more."
+      "body": "JEE Main Physics carries 25 questions (20 MCQs and 5 numerical-value questions, all 25 compulsory under the current pattern), drawn from the full Class 11 and 12 Physics syllabus, roughly 20 chapters depending on how they're grouped. That means most individual chapters contribute somewhere between 1 and 3 questions on any single attempt. This has a direct implication: for a chapter that typically yields 1 question, grinding through hundreds of numericals on it has sharply diminishing returns past a certain point, compared to spreading that same time across a chapter that consistently yields more."
     },
     {
       "heading": "Why numerical questions specifically deserve fresh attention",
-      "body": "Numerical-value questions used to be the safer bet: earlier patterns carried no negative marking on them at all, so an educated guess cost nothing. That changed starting with the 2026 cycle, and current exam-pattern reporting describes it continuing into 2027 — numerical questions now carry the same -1 penalty as MCQs (worth confirming against the official information bulletin for your specific cycle, since this is exactly the kind of rule that's changed once already). A blind guess on a numerical, where you're not choosing from 4 options but producing an exact value from scratch, has a far lower chance of landing right than a blind MCQ guess, and now carries the same downside. That raises the bar specifically for numerical practice: the goal isn't just recognizing the method, it's finishing the calculation cleanly enough that you'd actually attempt it under the current stakes."
+      "body": "Numerical-value questions used to be the safer bet: earlier patterns carried no negative marking on them at all, so an educated guess cost nothing. That changed starting with the 2026 cycle, and current exam-pattern reporting describes it continuing into 2027. Numerical questions now carry the same -1 penalty as MCQs (worth confirming against the official information bulletin for your specific cycle, since this is exactly the kind of rule that's changed once already). A blind guess on a numerical, where you're not choosing from 4 options but producing an exact value from scratch, has a far lower chance of landing right than a blind MCQ guess, and now carries the same downside. That raises the bar specifically for numerical practice: the goal isn't just recognizing the method, it's finishing the calculation cleanly enough that you'd actually attempt it under the current stakes."
     },
     {
       "heading": "A volume target that scales with a chapter's actual weight",
@@ -25,18 +25,18 @@
     {
       "heading": null,
       "list": [
-        "High-weight chapters (regularly 2-3 questions, e.g. Mechanics, Electrostatics, Modern Physics): deserves the deepest problem-set — enough to have seen most of the standard variations NTA tends to reuse across sessions",
+        "High-weight chapters (regularly 2-3 questions, e.g. Mechanics, Electrostatics, Modern Physics): deserves the deepest problem-set, enough to have seen most of the standard variations NTA tends to reuse across sessions",
         "Medium-weight chapters (typically 1-2 questions): a solid but smaller set, enough to be comfortable, not exhaustive",
-        "Low-weight chapters (rarely more than 1 question, sometimes skipped entirely in a given session): a light pass is enough — this is exactly where over-practicing steals time from a higher-yield chapter"
+        "Low-weight chapters (rarely more than 1 question, sometimes skipped entirely in a given session): a light pass is enough, since this is exactly where over-practicing steals time from a higher-yield chapter"
       ]
     },
     {
       "heading": "The real signal to track: are you still learning something new?",
-      "body": "A better stopping point than any fixed number: keep solving a chapter's numericals until new problems stop teaching you anything new about that chapter's mechanics — you start recognizing the setup within the first line and solving on autopilot. Once you hit that point, more volume on that specific chapter is mostly just repetition, not additional preparation, and your time is better spent elsewhere."
+      "body": "A better stopping point than any fixed number: keep solving a chapter's numericals until new problems stop teaching you anything new about that chapter's mechanics. You start recognizing the setup within the first line and solving on autopilot. Once you hit that point, more volume on that specific chapter is mostly just repetition, not additional preparation, and your time is better spent elsewhere."
     },
     {
       "heading": "The mistake this framework catches",
-      "body": "The most common numerical-practice mistake isn't solving too few problems overall — it's an uneven distribution: hundreds of problems on a comfortable, high-confidence chapter (because it feels productive) and almost none on a chapter you're avoiding because it's harder, even though that harder chapter carries equal or greater weight. If you've never actually counted how many numericals you've done per chapter, there's a good chance the distribution is more lopsided than it feels."
+      "body": "The most common numerical-practice mistake isn't solving too few problems overall. It's an uneven distribution: hundreds of problems on a comfortable, high-confidence chapter (because it feels productive) and almost none on a chapter you're avoiding because it's harder, even though that harder chapter carries equal or greater weight. If you've never actually counted how many numericals you've done per chapter, there's a good chance the distribution is more lopsided than it feels."
     },
     {
       "heading": null,

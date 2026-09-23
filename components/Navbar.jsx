@@ -11,7 +11,7 @@ import ThemeSwitcher from "@/components/ThemeSwitcher";
 import {
   Home, Clock, CheckSquare, Calendar, TrendingUp, Flag, RotateCcw, FileText,
   BarChart2, Trophy, Users, ShoppingBag, Wand2, Hourglass, Brain, BookOpen,
-  Newspaper, HelpCircle, NotebookPen, Smile, Mail, User,
+  Newspaper, HelpCircle, NotebookPen, Smile, Mail, User, Puzzle,
 } from "lucide-react";
 
 // One small icon per "More" menu item, purely decorative — keyed by the
@@ -21,7 +21,7 @@ const NAV_ICONS = {
   home: Home, timer: Clock, todo: CheckSquare, timetable: Calendar,
   tracker: TrendingUp, goals: Flag, revisions: RotateCcw, mocktests: FileText,
   stats: BarChart2, achievements: Trophy, rooms: Users, shop: ShoppingBag,
-  timetableGenerator: Wand2, countdown: Hourglass, quiz: Brain, resources: BookOpen,
+  timetableGenerator: Wand2, countdown: Hourglass, quiz: Brain, games: Puzzle, resources: BookOpen,
   blog: Newspaper, tutorial: HelpCircle, journal: NotebookPen, mood: Smile,
   digest: Mail, profile: User,
 };

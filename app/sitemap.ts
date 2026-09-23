@@ -2,11 +2,12 @@ import type { MetadataRoute } from "next";
 import { getAllBlogPosts } from "@/lib/blogPosts";
 import { getResourceSlugs } from "@/lib/resources";
 import { getQuizCategorySlugs } from "@/lib/quiz";
+import { getWordGameDomainSlugs } from "@/lib/wordGame";
 import { getExamSlugs } from "@/lib/examDates";
 
 const BASE_URL = "https://www.studyloaf.com";
 
-const STATIC_ROUTES = ["/", "/blog", "/quiz", "/resources", "/privacy", "/terms", "/tools/timetable-generator", "/countdown"];
+const STATIC_ROUTES = ["/", "/blog", "/quiz", "/games", "/resources", "/privacy", "/terms", "/tools/timetable-generator", "/countdown"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = STATIC_ROUTES.map(path => ({
@@ -34,5 +35,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticEntries, ...blogEntries, ...resourceEntries, ...quizEntries, ...countdownEntries];
+  const gameEntries = getWordGameDomainSlugs().map(domain => ({
+    url: `${BASE_URL}/games/${domain}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticEntries, ...blogEntries, ...resourceEntries, ...quizEntries, ...countdownEntries, ...gameEntries];
 }

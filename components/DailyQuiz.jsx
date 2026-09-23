@@ -49,7 +49,6 @@ export default function DailyQuiz({ category }) {
       <div className="quiz-daily-header">
         <h1 className="quiz-title">{category.label} Daily Challenge</h1>
         <div className="quiz-streak-card">
-          <span className="quiz-streak-flame" aria-hidden="true">🔥</span>
           <span className="quiz-streak-count">{streak.streakCount}</span>
           <span className="quiz-streak">day{streak.streakCount === 1 ? "" : "s"} streak</span>
         </div>

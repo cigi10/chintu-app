@@ -8,7 +8,7 @@
   "content": [
     {
       "heading": null,
-      "body": "By the time you're 30 days out, you've already covered the syllabus once. The mistake most students make in this window is trying to re-study everything at the same depth as the first pass — rereading full chapters, redoing every example, as if there were still months left. There aren't. The last 30 days aren't for learning; they're for triage."
+      "body": "By the time you're 30 days out, you've already covered the syllabus once. The mistake most students make in this window is trying to re-study everything at the same depth as the first pass: rereading full chapters, redoing every example, as if there were still months left. There aren't. The last 30 days aren't for learning; they're for triage."
     },
     {
       "heading": "Sort your syllabus into two piles, not one",
@@ -17,14 +17,14 @@
     {
       "heading": null,
       "list": [
-        "Confident chapters: a single quick pass — formula sheet, key results, maybe one worked example to confirm the method hasn't gone stale",
+        "Confident chapters: a single quick pass (formula sheet, key results, maybe one worked example) to confirm the method hasn't gone stale",
         "Shaky chapters: a full worked-example pass, the kind of practice you'd have done on a first study round",
         "This split alone usually cuts your effective 30-day workload by close to half, since most students genuinely have more confident chapters than shaky ones by this point"
       ]
     },
     {
       "heading": "Allocate days by subject weight, not by chapter count",
-      "body": "If NEET Biology carries roughly half the total marks, it should get roughly half of your remaining revision days — not one-third, just because there are three subjects. A subject with more chapters but lower weight (like a low-mark topic list) shouldn't out-compete a heavier subject just because it has more items to check off. Count marks, not chapters, when splitting your 30 days."
+      "body": "If NEET Biology carries roughly half the total marks, it should get roughly half of your remaining revision days, not one-third, just because there are three subjects. A subject with more chapters but lower weight (like a low-mark topic list) shouldn't out-compete a heavier subject just because it has more items to check off. Count marks, not chapters, when splitting your 30 days."
     },
     {
       "heading": "The mocks question everyone gets wrong",
@@ -32,7 +32,7 @@
     },
     {
       "heading": null,
-      "body": "Once you've decided how many days each subject gets, Studyloaf's free timetable generator can turn that into an actual weekly schedule from just your subjects, hours per day, and exam date — and the timer helps keep each day's revision blocks honest instead of quietly running long. Both work without needing an account, so there's no setup standing between you and actually starting."
+      "body": "Once you've decided how many days each subject gets, Studyloaf's free timetable generator can turn that into an actual weekly schedule from just your subjects, hours per day, and exam date, and the timer helps keep each day's revision blocks honest instead of quietly running long. Both work without needing an account, so there's no setup standing between you and actually starting."
     }
   ]
 }

@@ -12,23 +12,23 @@
     },
     {
       "heading": "The subjects rhyme with JEE, but the depth is different",
-      "body": "First-year engineering — across most AICTE/VTU-pattern colleges, regardless of branch — runs through Engineering Mathematics, Engineering Physics, and either Basic Electrical or Basic Electronics (sometimes both). These aren't unrelated to your JEE syllabus, but they go further in a specific direction: JEE tests you on solving a self-contained problem quickly; first-year engineering tests you on building up a full derivation and applying it to an open-ended situation, often with far less hand-holding about which formula to use."
+      "body": "First-year engineering (across most AICTE/VTU-pattern colleges, regardless of branch) runs through Engineering Mathematics, Engineering Physics, and either Basic Electrical or Basic Electronics (sometimes both). These aren't unrelated to your JEE syllabus, but they go further in a specific direction: JEE tests you on solving a self-contained problem quickly; first-year engineering tests you on building up a full derivation and applying it to an open-ended situation, often with far less hand-holding about which formula to use."
     },
     {
       "heading": "New tools you likely haven't used yet",
-      "body": "A few specific topics show up in nearly every first-year engineering math syllabus that JEE typically doesn't cover in the same depth: Laplace transforms and Fourier series (both about re-expressing a hard problem in a different, easier domain), eigenvalues and eigenvectors, and multivariable calculus tools like partial differentiation and vector calculus (gradient, divergence, curl). None of these are conceptually harder than JEE calculus — they're just genuinely new vocabulary and technique, which is exactly why the first exposure can feel disproportionately difficult even for someone who was comfortable with JEE math."
+      "body": "A few specific topics show up in nearly every first-year engineering math syllabus that JEE typically doesn't cover in the same depth: Laplace transforms and Fourier series (both about re-expressing a hard problem in a different, easier domain), eigenvalues and eigenvectors, and multivariable calculus tools like partial differentiation and vector calculus (gradient, divergence, curl). None of these are conceptually harder than JEE calculus. They're just genuinely new vocabulary and technique, which is exactly why the first exposure can feel disproportionately difficult even for someone who was comfortable with JEE math."
     },
     {
       "heading": "Physics and electronics get more device-specific",
-      "body": "JEE Physics stays fairly theoretical. First-year engineering physics and basic electronics start connecting theory to actual devices and circuits — how a diode's exponential current-voltage relationship works, how Kirchhoff's laws actually solve a multi-loop circuit, why a transistor needs a specific DC bias point before it can amplify anything. This is closer to how the concepts get used in practice, but it does mean memorized JEE formulas alone won't carry you the way they might have before."
+      "body": "JEE Physics stays fairly theoretical. First-year engineering physics and basic electronics start connecting theory to actual devices and circuits: how a diode's exponential current-voltage relationship works, how Kirchhoff's laws actually solve a multi-loop circuit, why a transistor needs a specific DC bias point before it can amplify anything. This is closer to how the concepts get used in practice, but it does mean memorized JEE formulas alone won't carry you the way they might have before."
     },
     {
       "heading": "The practical adjustment that actually helps",
-      "body": "The students who adjust fastest tend to treat first-year subjects the same way they treated JEE prep: work through the derivation yourself instead of just memorizing the final formula, and actually verify a worked example rather than trusting it on sight — substitute a solution back into the original equation, check a circuit's currents against both loop equations, confirm a result two independent ways when possible. That habit transfers directly and is arguably more valuable in a derivation-heavy first year than it was for JEE's faster-paced problem format."
+      "body": "The students who adjust fastest tend to treat first-year subjects the same way they treated JEE prep: work through the derivation yourself instead of just memorizing the final formula, and actually verify a worked example rather than trusting it on sight: substitute a solution back into the original equation, check a circuit's currents against both loop equations, confirm a result two independent ways when possible. That habit transfers directly and is arguably more valuable in a derivation-heavy first year than it was for JEE's faster-paced problem format."
     },
     {
       "heading": null,
-      "body": "If you're looking for a first pass at any of these topics — Laplace transforms, Fourier series, eigenvalues, vector calculus, Kirchhoff's laws, diodes, transistor biasing, op-amps — Studyloaf's Engineering Fundamentals resources cover the same core topics shared across most first-year AICTE/VTU-pattern programs, each with a fully worked, independently verified example."
+      "body": "If you're looking for a first pass at any of these topics (Laplace transforms, Fourier series, eigenvalues, vector calculus, Kirchhoff's laws, diodes, transistor biasing, op-amps), Studyloaf's Engineering Fundamentals resources cover the same core topics shared across most first-year AICTE/VTU-pattern programs, each with a fully worked, independently verified example."
     }
   ]
 }
