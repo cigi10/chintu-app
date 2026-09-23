@@ -180,6 +180,36 @@
   margin-bottom: 0;
 }
 
+.resource-tags-shell {
+  margin-top: -60px;
+  margin-bottom: 60px;
+}
+
+.tag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.tag-chip {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface-alt);
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.tag-chip:hover {
+  border-color: var(--color-accent-strong);
+  color: var(--color-text);
+}
+
 .blog-post-related {
   margin-top: 28px;
   padding-top: 20px;

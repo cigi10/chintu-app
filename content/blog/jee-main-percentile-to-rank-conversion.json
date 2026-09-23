@@ -41,5 +41,9 @@
       "heading": "Why this matters for how you track your own progress",
       "body": "Because percentile resets per shift, comparing your percentile across two of your own past mock tests only means something if both mocks used a comparable-difficulty question set and a comparable pool of test-takers, otherwise you're comparing two different curves, not your own improvement. A cleaner way to track real progress mock to mock is your raw accuracy and your time per section, which don't get renormalized against anyone else. If you're logging that kind of data across practice sessions, Studyloaf's free timer lets you tag sessions by subject, so your own accuracy and pace trends stay visible independent of any single mock's percentile curve."
     }
+  ],
+  "tags": [
+    "jee",
+    "percentile-and-rank"
   ]
 }

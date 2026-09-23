@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { getAllBlogPosts } from "@/lib/blogPosts";
-import { getResourceSlugs } from "@/lib/resources";
+import { getAllBlogPosts, getAllBlogTags } from "@/lib/blogPosts";
+import { getResourceSlugs, getAllResourceTags } from "@/lib/resources";
 import { getQuizCategorySlugs } from "@/lib/quiz";
 import { getWordGameDomainSlugs } from "@/lib/wordGame";
 import { getExamSlugs } from "@/lib/examDates";
@@ -20,8 +20,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.date),
   }));
 
+  const blogTagEntries = getAllBlogTags().map(tag => ({
+    url: `${BASE_URL}/blog/tag/${tag}`,
+    lastModified: new Date(),
+  }));
+
   const resourceEntries = getResourceSlugs().map(slug => ({
     url: `${BASE_URL}/resources/${slug}`,
+    lastModified: new Date(),
+  }));
+
+  const resourceTagEntries = getAllResourceTags().map(tag => ({
+    url: `${BASE_URL}/resources/tag/${tag}`,
     lastModified: new Date(),
   }));
 
@@ -40,5 +50,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticEntries, ...blogEntries, ...resourceEntries, ...quizEntries, ...countdownEntries, ...gameEntries];
+  return [...staticEntries, ...blogEntries, ...blogTagEntries, ...resourceEntries, ...resourceTagEntries, ...quizEntries, ...countdownEntries, ...gameEntries];
 }

@@ -30,5 +30,10 @@
       "heading": "Putting it together",
       "body": "So there are really only two numbers behind everything you'll see: your percentile (which the scorecard also calls NTA Score, same figure, different label) and your rank, which comes from comparing that percentile against everyone else's, across every shift. Raw marks were part of the calculation behind the scenes, but they're not something NTA ever actually shows you."
     }
+  ],
+  "tags": [
+    "jee",
+    "percentile-and-rank",
+    "scorecard"
   ]
 }

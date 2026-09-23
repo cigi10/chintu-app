@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
+import TagChips from "@/components/TagChips";
 import { getBlogPost, getBlogSlugs } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
@@ -99,6 +100,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
             </div>
           ))}
+
+          <TagChips tags={post.tags} basePath="/blog/tag" />
 
           {post.relatedLinks && (post.relatedLinks as BlogPostRelatedLink[]).length > 0 && (
             <div className="blog-post-related">

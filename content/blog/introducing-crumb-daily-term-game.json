@@ -32,9 +32,27 @@
     }
   ],
   "relatedLinks": [
-    { "label": "Play Crumb: NEET", "href": "/games/neet" },
-    { "label": "Play Crumb: CLAT", "href": "/games/clat" },
-    { "label": "Play Crumb: Board Exams", "href": "/games/board-exams" },
-    { "label": "See all Studyloaf games", "href": "/games" }
+    {
+      "label": "Play Crumb: NEET",
+      "href": "/games/neet"
+    },
+    {
+      "label": "Play Crumb: CLAT",
+      "href": "/games/clat"
+    },
+    {
+      "label": "Play Crumb: Board Exams",
+      "href": "/games/board-exams"
+    },
+    {
+      "label": "See all Studyloaf games",
+      "href": "/games"
+    }
+  ],
+  "tags": [
+    "games",
+    "neet",
+    "clat",
+    "board-exams"
   ]
 }

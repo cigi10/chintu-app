@@ -30,5 +30,9 @@
       "heading": null,
       "body": "If you're looking for a first pass at any of these topics (Laplace transforms, Fourier series, eigenvalues, vector calculus, Kirchhoff's laws, diodes, transistor biasing, op-amps), Studyloaf's Engineering Fundamentals resources cover the same core topics shared across most first-year AICTE/VTU-pattern programs, each with a fully worked, independently verified example."
     }
+  ],
+  "tags": [
+    "jee",
+    "engineering-fundamentals"
   ]
 }
