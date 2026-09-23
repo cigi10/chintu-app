@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
@@ -15,6 +16,14 @@ type BlogPostSection = {
   heading: string | null;
   body?: string;
   list?: string[];
+};
+
+// Optional: a post can point at one or more pages it's introducing (e.g. a
+// feature-announcement post linking to the feature itself), rendered as a
+// small link list after the content.
+type BlogPostRelatedLink = {
+  label: string;
+  href: string;
 };
 
 // Pre-render every known post at build time; anything else 404s.
@@ -90,6 +99,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
             </div>
           ))}
+
+          {post.relatedLinks && (post.relatedLinks as BlogPostRelatedLink[]).length > 0 && (
+            <div className="blog-post-related">
+              <strong>Try it yourself</strong>
+              <ul className="blog-post-related-list">
+                {(post.relatedLinks as BlogPostRelatedLink[]).map((link, i) => (
+                  <li key={i}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </article>
       </div>
     </>

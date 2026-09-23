@@ -1,0 +1,40 @@
+{
+  "slug": "introducing-crumb-daily-term-game",
+  "title": "Introducing Crumb: A Daily Term-Guessing Game for NEET, CLAT, and Board Exams",
+  "description": "Crumb is Studyloaf's new daily puzzle: guess a real subject term in 6 tries with colored letter feedback. One puzzle a day per domain, plus a shareable result grid.",
+  "author": "Studyloaf Team",
+  "readingTime": "3 min read",
+  "date": "2026-09-26",
+  "content": [
+    {
+      "heading": null,
+      "body": "We just added a new free tool to Studyloaf: Crumb, a daily term-guessing puzzle built specifically for exam prep instead of general vocabulary. Here's what it is and how to play."
+    },
+    {
+      "heading": "What Crumb actually is",
+      "body": "Crumb works like a letter-guessing puzzle you may have played before: guess a word in 6 tries, and after each guess, every letter gets colored feedback showing whether it's in the right spot, in the word but the wrong spot, or not in the word at all. The difference is what you're guessing. Every target word is a real, domain-specific technical term, pulled from an actual exam syllabus, not a common English word picked for letter variety. A clue (the term's definition) is shown throughout the puzzle, so the challenge is genuinely about knowing the term, not about guessing blind."
+    },
+    {
+      "heading": "Why a clue, when the original format doesn't have one",
+      "body": "A pure letter-frequency guessing game tests something different from subject knowledge: it rewards knowing which letters are statistically common in English, not knowing what a term means. For a word like ESTOPPEL or MITOCHONDRIA, guessing blind from zero information isn't a useful test of anything. Showing the clue up front shifts the challenge to where it belongs: can you connect a definition to the exact term, spelled correctly, under a limited number of guesses."
+    },
+    {
+      "heading": "Three domains, one puzzle a day each",
+      "body": "Crumb currently has three separate word banks, each with its own daily puzzle: NEET (Biology terminology), CLAT (legal terminology), and Board Exams (general Class 10-12 science and math terms). Each domain gets one attempt per day, and the target term changes daily, so it's a quick, low-effort habit rather than something that eats your study time."
+    },
+    {
+      "heading": "Why this actually helps exam prep",
+      "body": "Recognizing a term when you see it in a passage is a different skill from producing it from a definition alone, and the second skill is closer to what NEET, CLAT, and board exams actually test through fill-in-the-blank, matching, and short-answer questions. A minute a day spent retrieving a term from its definition, rather than just re-reading a glossary, is active recall in a genuinely low-stakes, low-time-cost form."
+    },
+    {
+      "heading": null,
+      "body": "Your streak and progress are saved automatically, and once you finish a puzzle, you can copy a shareable result grid (built from simple block characters, no account required to view or copy it) that shows your guess pattern without giving away the actual word. Head to the games hub to pick a domain and try today's puzzle."
+    }
+  ],
+  "relatedLinks": [
+    { "label": "Play Crumb: NEET", "href": "/games/neet" },
+    { "label": "Play Crumb: CLAT", "href": "/games/clat" },
+    { "label": "Play Crumb: Board Exams", "href": "/games/board-exams" },
+    { "label": "See all Studyloaf games", "href": "/games" }
+  ]
+}

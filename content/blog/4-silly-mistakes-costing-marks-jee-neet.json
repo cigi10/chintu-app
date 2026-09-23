@@ -1,6 +1,6 @@
 {
-  "slug": "jee-neet-silly-mistakes-that-cost-marks",
-  "title": "The Silly Mistakes Actually Costing You Marks in JEE/NEET (and How to Fix Each One)",
+  "slug": "4-silly-mistakes-costing-marks-jee-neet",
+  "title": "4 Silly Mistakes Costing You Marks in JEE/NEET (and How to Fix Each One)",
   "description": "\"Silly mistakes\" isn't one problem, it's several different ones wearing the same name. Here's how to tell which kind you're actually making, with a fix specific to each.",
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
@@ -8,11 +8,11 @@
   "content": [
     {
       "heading": null,
-      "body": "Every JEE/NEET student has said it after a mock: \"I knew that, it was just a silly mistake.\" The problem with that explanation is that it treats every wrong-but-you-knew-it answer as the same failure, when they're usually not. Below are the four most common categories, and each needs a genuinely different fix — \"be more careful\" doesn't actually address any of them."
+      "body": "Every JEE/NEET student has said it after a mock: \"I knew that, it was just a silly mistake.\" The problem with that explanation is that it treats every wrong-but-you-knew-it answer as the same failure, when they're usually not. Below are the four most common categories, and each needs a genuinely different fix. \"Be more careful\" doesn't actually address any of them."
     },
     {
       "heading": "1. Sign and transcription errors",
-      "body": "You solve the problem correctly in your head or on scratch paper, then copy a number down wrong, drop a negative sign moving between lines, or transcribe the wrong option letter onto the OMR sheet. This isn't a conceptual gap at all — it's a copying error, and it happens more under time pressure."
+      "body": "You solve the problem correctly in your head or on scratch paper, then copy a number down wrong, drop a negative sign moving between lines, or transcribe the wrong option letter onto the OMR sheet. This isn't a conceptual gap at all. It's a copying error, and it happens more under time pressure."
     },
     {
       "heading": null,
@@ -29,17 +29,17 @@
       "heading": null,
       "list": [
         "Fix: physically underline or circle negation words (\"not,\" \"except,\" \"false,\" \"incorrect\") the moment you read them, before starting any calculation",
-        "Fix: after solving, reread only the question stem (not your working) and check your answer actually addresses what was asked — a 5-second habit that catches this specific error"
+        "Fix: after solving, reread only the question stem (not your working) and check your answer actually addresses what was asked, a 5-second habit that catches this specific error"
       ]
     },
     {
       "heading": "3. Using a memorized formula in a case it doesn't apply to",
-      "body": "This one gets called \"silly\" but it's actually a conceptual gap wearing a silly-mistake costume. A common example: applying the standard quadratic formula setup to an equation where a coefficient is actually zero, making it linear, not quadratic — the formula still runs and spits out a wrong or undefined answer, and it feels like carelessness rather than the misunderstanding it actually is."
+      "body": "This one gets called \"silly\" but it's actually a conceptual gap wearing a silly-mistake costume. A common example: applying the standard quadratic formula setup to an equation where a coefficient is actually zero, making it linear, not quadratic. The formula still runs and spits out a wrong or undefined answer, and it feels like carelessness rather than the misunderstanding it actually is."
     },
     {
       "heading": null,
       "list": [
-        "Fix: before applying any formula, explicitly check its stated conditions (here's a quadratic requires a ≠ 0, for example) — this takes 3 seconds and catches an entire category of these",
+        "Fix: before applying any formula, explicitly check its stated conditions (here's a quadratic requires a ≠ 0, for example). This takes 3 seconds and catches an entire category of these",
         "Fix: if this keeps happening on the same topic across multiple mocks, that's a signal to revisit the concept itself, not just \"be more careful\" next time"
       ]
     },
@@ -50,13 +50,13 @@
     {
       "heading": null,
       "list": [
-        "Fix: this is the one category where the actual fix is upstream of the mistake itself — better time budgeting per question, not more carefulness on the last two lines of a rushed calculation",
+        "Fix: this is the one category where the actual fix is upstream of the mistake itself, better time budgeting per question, not more carefulness on the last two lines of a rushed calculation",
         "Fix: track which questions you're still solving in the final 20% of your allotted section time during practice; if it's consistently the same question types, that's what to speed up on, specifically"
       ]
     },
     {
       "heading": null,
-      "body": "The actual first step, before any of these fixes: go back through your last 2-3 mock tests and sort every wrong-but-you-knew-it answer into one of these four buckets. Most students find their \"silly mistakes\" cluster heavily into just one or two categories, not evenly across all four — and that tells you exactly which fix is worth your time. If pacing turns out to be your real bucket, timing your practice sections with Studyloaf's free timer (no account needed) makes it obvious which specific question types are eating your last-minute rush, instead of guessing."
+      "body": "The actual first step, before any of these fixes: go back through your last 2-3 mock tests and sort every wrong-but-you-knew-it answer into one of these four buckets. Most students find their \"silly mistakes\" cluster heavily into just one or two categories, not evenly across all four, and that tells you exactly which fix is worth your time. If pacing turns out to be your real bucket, timing your practice sections with Studyloaf's free timer (no account needed) makes it obvious which specific question types are eating your last-minute rush, instead of guessing."
     }
   ]
 }
