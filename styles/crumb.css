@@ -1,3 +1,19 @@
+.crumb-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; max-width: 480px; margin: 24px auto 0; padding: 0 16px; }
+.crumb-tab {
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.crumb-tab:hover { border-color: var(--color-accent-strong); color: var(--color-text); }
+.crumb-tab--active { background: var(--color-accent-strong); border-color: var(--color-accent-strong); color: #fff; }
+
 .crumb-game { max-width: 480px; margin: 0 auto; padding: 24px 16px 60px; }
 .crumb-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
 .crumb-title { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-text); margin: 0; }
@@ -24,11 +40,35 @@
 .crumb-tile--correct { background: var(--color-success); border-color: var(--color-success); color: #fff; }
 .crumb-tile--present { background: var(--color-needs-revision); border-color: var(--color-needs-revision); color: var(--color-accent); }
 .crumb-tile--absent { background: var(--color-text-faint); border-color: var(--color-text-faint); color: #fff; opacity: 0.6; }
+.crumb-tile--filled { border-color: var(--color-accent-strong); }
 
-.crumb-form { display: flex; gap: 8px; margin-bottom: 8px; }
-.crumb-input { flex: 1; padding: 11px 14px; border: 1.5px solid var(--color-border); border-radius: 12px; font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text); background: var(--color-surface); outline: none; }
-.crumb-input:focus { border-color: var(--color-accent-strong); }
 .crumb-error { color: var(--color-danger); font-size: 0.82rem; margin: 0 0 12px; }
+
+.crumb-keyboard { display: flex; flex-direction: column; gap: 8px; margin: 4px 0 8px; user-select: none; }
+.crumb-keyboard-row { display: flex; justify-content: center; gap: 6px; }
+.crumb-key {
+  flex: 1;
+  min-width: 0;
+  max-width: 40px;
+  height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.05s ease;
+}
+.crumb-key:active { transform: translateY(1px); }
+.crumb-key--wide { max-width: 56px; flex: 1.6; font-size: 0.68rem; }
+.crumb-key--correct { background: var(--color-success); color: #fff; }
+.crumb-key--present { background: var(--color-needs-revision); color: var(--color-accent); }
+.crumb-key--absent { background: var(--color-text-faint); color: #fff; opacity: 0.6; }
+.crumb-key:disabled { opacity: 0.5; cursor: default; }
 
 .crumb-result { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--color-border-dashed); }
 .crumb-result-banner { font-family: var(--font-heading); font-weight: 800; font-size: 1.05rem; margin: 0 0 8px; }
@@ -42,4 +82,7 @@
 @media (max-width: 400px) {
   .crumb-game { padding: 16px 10px 40px; }
   .crumb-title { font-size: 1.25rem; }
+  .crumb-keyboard-row { gap: 4px; }
+  .crumb-key { height: 42px; font-size: 0.72rem; }
+  .crumb-key--wide { font-size: 0.6rem; }
 }

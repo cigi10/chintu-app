@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Navbar from "@/components/Navbar";
 import CrumbGame from "@/components/CrumbGame";
 import { getWordGameDomain, getWordGameDomainSlugs } from "@/lib/wordGame";
 
@@ -22,12 +21,5 @@ export default async function WordGameDomainPage({ params }) {
   const domain = getWordGameDomain(slug);
   if (!domain) notFound();
 
-  return (
-    <div className="page-root">
-      <Navbar />
-      <main className="page-main">
-        <CrumbGame domain={domain} />
-      </main>
-    </div>
-  );
+  return <CrumbGame domain={domain} />;
 }

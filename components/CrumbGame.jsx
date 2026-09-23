@@ -3,14 +3,15 @@ import "@/styles/crumb.css";
 import "@/styles/button.css";
 import { useState, useEffect } from "react";
 import Button from "@/components/Button";
-import { getDailyTerm, scoreGuess, isWinningGuess, buildShareGrid, MAX_GUESSES } from "@/lib/wordGame";
+import CrumbKeyboard from "@/components/CrumbKeyboard";
+import { getDailyTerm, scoreGuess, computeKeyStatuses, buildShareGrid, MAX_GUESSES } from "@/lib/wordGame";
 import { hydrateWordGameProgress, getTodayProgress, getWordGameStreakInfo, recordGuess } from "@/lib/wordGameProgress";
 
 export default function CrumbGame({ domain }) {
   const term = getDailyTerm(domain.slug);
   const [progress, setProgress] = useState({ date: "", guesses: [], status: "playing" });
   const [streakCount, setStreakCount] = useState(0);
-  const [input, setInput] = useState("");
+  const [currentGuess, setCurrentGuess] = useState("");
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -24,24 +25,15 @@ export default function CrumbGame({ domain }) {
     return () => { active = false; };
   }, [domain.slug]);
 
-  if (!term) {
-    return <p className="crumb-empty">No terms are available for this domain yet.</p>;
-  }
-
-  const targetLength = term.term.length;
+  const targetLength = term ? term.term.length : 0;
   const done = progress.status !== "playing";
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function submitGuess() {
     if (done) return;
-    const guess = input.trim().toUpperCase();
+    const guess = currentGuess.trim().toUpperCase();
 
     if (guess.length !== targetLength) {
       setError(`Your guess needs to be exactly ${targetLength} letters.`);
-      return;
-    }
-    if (!/^[A-Z]+$/.test(guess)) {
-      setError("Letters only.");
       return;
     }
 
@@ -50,7 +42,44 @@ export default function CrumbGame({ domain }) {
     const result = recordGuess(domain.slug, guess, won);
     setProgress(result.today);
     setStreakCount(result.streakCount);
-    setInput("");
+    setCurrentGuess("");
+  }
+
+  function handleKey(key) {
+    if (done) return;
+    if (key === "ENTER") {
+      submitGuess();
+      return;
+    }
+    if (key === "BACKSPACE") {
+      setError("");
+      setCurrentGuess(g => g.slice(0, -1));
+      return;
+    }
+    setError("");
+    setCurrentGuess(g => (g.length < targetLength ? g + key : g));
+  }
+
+  // Physical keyboard support, alongside the on-screen one below - both
+  // funnel through the same handleKey so they can never fall out of sync.
+  // Re-subscribing whenever currentGuess/done change (cheap for a text
+  // listener) keeps the closure's view of state fresh without needing a
+  // ref.
+  useEffect(() => {
+    if (done || !term) return;
+    function onKeyDown(e) {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === "Enter") { handleKey("ENTER"); return; }
+      if (e.key === "Backspace") { handleKey("BACKSPACE"); return; }
+      if (/^[a-zA-Z]$/.test(e.key)) handleKey(e.key.toUpperCase());
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [done, currentGuess, targetLength, term]);
+
+  if (!term) {
+    return <p className="crumb-empty">No terms are available for this domain yet.</p>;
   }
 
   async function handleShare() {
@@ -63,6 +92,8 @@ export default function CrumbGame({ domain }) {
       setTimeout(() => setCopied(false), 2000);
     } catch {}
   }
+
+  const keyStatuses = computeKeyStatuses(progress.guesses, term.term);
 
   return (
     <div className="crumb-game">
@@ -78,17 +109,22 @@ export default function CrumbGame({ domain }) {
 
       <div className="crumb-grid" style={{ "--crumb-cols": targetLength }}>
         {Array.from({ length: MAX_GUESSES }).map((_, rowIndex) => {
-          const guess = progress.guesses[rowIndex];
-          const scores = guess ? scoreGuess(guess, term.term) : null;
-          const letters = guess ? guess.split("") : Array.from({ length: targetLength }).fill("");
+          const submittedGuess = progress.guesses[rowIndex];
+          const isActiveRow = !done && rowIndex === progress.guesses.length;
+          const scores = submittedGuess ? scoreGuess(submittedGuess, term.term) : null;
+          const letters = submittedGuess
+            ? submittedGuess.split("")
+            : isActiveRow
+              ? currentGuess.padEnd(targetLength, " ").split("")
+              : Array.from({ length: targetLength }).fill(" ");
           return (
             <div key={rowIndex} className="crumb-row">
               {letters.map((letter, i) => (
                 <span
                   key={i}
-                  className={`crumb-tile${scores ? ` crumb-tile--${scores[i]}` : ""}`}
+                  className={`crumb-tile${scores ? ` crumb-tile--${scores[i]}` : ""}${isActiveRow && letter.trim() ? " crumb-tile--filled" : ""}`}
                 >
-                  {letter}
+                  {letter.trim()}
                 </span>
               ))}
             </div>
@@ -96,20 +132,11 @@ export default function CrumbGame({ domain }) {
         })}
       </div>
 
-      {!done && (
-        <form className="crumb-form" onSubmit={handleSubmit}>
-          <input
-            className="crumb-input"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            placeholder={`Type a ${targetLength}-letter term...`}
-            maxLength={targetLength}
-            autoFocus
-          />
-          <Button type="submit" size="sm">Guess</Button>
-        </form>
-      )}
       {error && <p className="crumb-error">{error}</p>}
+
+      {!done && (
+        <CrumbKeyboard keyStatuses={keyStatuses} onKey={handleKey} disabled={done} />
+      )}
 
       {done && (
         <div className="crumb-result">
