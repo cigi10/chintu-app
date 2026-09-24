@@ -85,7 +85,7 @@ export default function CrumbGame({ domain }) {
   async function handleShare() {
     const grid = buildShareGrid(progress.guesses, term.term);
     const guessCount = progress.status === "won" ? progress.guesses.length : "X";
-    const shareText = `Crumb: ${domain.label} ${guessCount}/${MAX_GUESSES}\n${grid}\nstudyloaf.com/games/${domain.slug}`;
+    const shareText = `Crumb: ${domain.label} ${guessCount}/${MAX_GUESSES}\n${grid}\nstudyloaf.com/games/crumb/${domain.slug}`;
     try {
       await navigator.clipboard.writeText(shareText);
       setCopied(true);

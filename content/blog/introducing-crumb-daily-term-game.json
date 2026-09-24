@@ -34,15 +34,15 @@
   "relatedLinks": [
     {
       "label": "Play Crumb: NEET",
-      "href": "/games/neet"
+      "href": "/games/crumb/neet"
     },
     {
       "label": "Play Crumb: CLAT",
-      "href": "/games/clat"
+      "href": "/games/crumb/clat"
     },
     {
       "label": "Play Crumb: Board Exams",
-      "href": "/games/board-exams"
+      "href": "/games/crumb/board-exams"
     },
     {
       "label": "See all Studyloaf games",

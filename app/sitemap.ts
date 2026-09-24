@@ -7,7 +7,7 @@ import { getExamSlugs } from "@/lib/examDates";
 
 const BASE_URL = "https://www.studyloaf.com";
 
-const STATIC_ROUTES = ["/", "/blog", "/quiz", "/games", "/resources", "/privacy", "/terms", "/tools/timetable-generator", "/countdown"];
+const STATIC_ROUTES = ["/", "/blog", "/quiz", "/games", "/games/crumb", "/resources", "/privacy", "/terms", "/tools/timetable-generator", "/countdown"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = STATIC_ROUTES.map(path => ({
@@ -46,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const gameEntries = getWordGameDomainSlugs().map(domain => ({
-    url: `${BASE_URL}/games/${domain}`,
+    url: `${BASE_URL}/games/crumb/${domain}`,
     lastModified: new Date(),
   }));
 

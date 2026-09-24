@@ -16,10 +16,19 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function WordGameDomainPage({ params }) {
+export default async function CrumbDomainPage({ params }) {
   const { domain: slug } = await params;
   const domain = getWordGameDomain(slug);
   if (!domain) notFound();
 
-  return <CrumbGame domain={domain} />;
+  return (
+    <div className="crumb-domain-page">
+      {/* Today's puzzle. A future second game type for this domain (e.g.
+          an equation-guessing puzzle) would add its own sibling section
+          here rather than replacing this one. */}
+      <section className="crumb-domain-game-section">
+        <CrumbGame domain={domain} />
+      </section>
+    </div>
+  );
 }

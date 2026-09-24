@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import TagChips from "@/components/TagChips";
 import { getAllBlogPosts } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
@@ -27,15 +28,18 @@ export default function BlogIndexPage() {
 
         <div className="blog-list">
           {posts.map(post => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card">
-              <h2 className="blog-card-title">{post.title}</h2>
-              <p className="blog-card-desc">{post.description}</p>
-              <div className="blog-card-meta">
-                <span>{post.author}</span>
-                <span className="blog-card-meta-dot">•</span>
-                <span>{post.readingTime}</span>
-              </div>
-            </Link>
+            <div key={post.slug} className="blog-card">
+              <Link href={`/blog/${post.slug}`} className="blog-card-link">
+                <h2 className="blog-card-title">{post.title}</h2>
+                <p className="blog-card-desc">{post.description}</p>
+                <div className="blog-card-meta">
+                  <span>{post.author}</span>
+                  <span className="blog-card-meta-dot">•</span>
+                  <span>{post.readingTime}</span>
+                </div>
+              </Link>
+              <TagChips tags={post.tags} basePath="/blog/tag" />
+            </div>
           ))}
         </div>
       </div>
