@@ -40,7 +40,7 @@ export default function PolynomialIdentitiesPage() {
             <h2 className="blog-post-heading">The Remainder Theorem</h2>
             <p className="blog-post-p">
               When a polynomial <Katex>{"p(x)"}</Katex> is divided by <Katex>{"x-a"}</Katex>, the
-              remainder is just <Katex>{"p(a)"}</Katex> — no long division required.
+              remainder is just <Katex>{"p(a)"}</Katex>, no long division required.
             </p>
             <p className="blog-post-p">
               The polynomials <Katex>{"ax^3+3x^2-3"}</Katex> and <Katex>{"2x^3-5x+a"}</Katex> leave

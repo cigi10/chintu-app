@@ -42,7 +42,7 @@ export default function ApproximationsPage() {
             <p className="blog-post-p">
               Near a point where <Katex>{"f(x)"}</Katex> is already known, the differential{" "}
               <Katex>{"dy = f'(x)\\,dx"}</Katex> approximates how much <Katex>{"f"}</Katex> changes
-              for a small change <Katex>{"dx"}</Katex> — without needing the exact value:
+              for a small change <Katex>{"dx"}</Katex>, without needing the exact value:
             </p>
             <Katex display>{"f(x+dx) \\approx f(x) + f'(x)\\,dx"}</Katex>
           </div>

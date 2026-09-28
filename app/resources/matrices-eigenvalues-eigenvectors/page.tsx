@@ -42,13 +42,13 @@ export default function EigenvaluesEigenvectorsPage() {
             <p className="blog-post-p">
               For a square matrix <Katex>{"A"}</Katex>, an eigenvector is a nonzero vector{" "}
               <Katex>{"v"}</Katex> that <Katex>{"A"}</Katex> only stretches or shrinks, never
-              rotates off its own line — multiplying by <Katex>{"A"}</Katex> is the same as
+              rotates off its own line: multiplying by <Katex>{"A"}</Katex> is the same as
               multiplying by a plain number <Katex>{"\\lambda"}</Katex>, the eigenvalue:
             </p>
             <Katex display>{"Av = \\lambda v \\quad\\Longleftrightarrow\\quad (A-\\lambda I)v = 0"}</Katex>
             <p className="blog-post-p">
               Since <Katex>{"v \\ne 0"}</Katex>, this only has a solution when{" "}
-              <Katex>{"(A-\\lambda I)"}</Katex> is singular — giving the{" "}
+              <Katex>{"(A-\\lambda I)"}</Katex> is singular, giving the{" "}
               <strong>characteristic equation</strong> that pins down every eigenvalue:
             </p>
             <Katex display>{"\\det(A - \\lambda I) = 0"}</Katex>
@@ -80,8 +80,8 @@ export default function EigenvaluesEigenvectorsPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Checking the answer two ways</h2>
             <p className="blog-post-p">
-              <strong>By direct substitution:</strong> <Katex>{"A\\begin{bmatrix}1\\\\-1\\end{bmatrix} = \\begin{bmatrix}2-1\\\\1-2\\end{bmatrix} = \\begin{bmatrix}1\\\\-1\\end{bmatrix} = 1\\cdot\\begin{bmatrix}1\\\\-1\\end{bmatrix}"}</Katex>{" "}
-              — confirmed. <Katex>{"A\\begin{bmatrix}1\\\\1\\end{bmatrix} = \\begin{bmatrix}3\\\\3\\end{bmatrix} = 3\\cdot\\begin{bmatrix}1\\\\1\\end{bmatrix}"}</Katex> — confirmed.
+              <strong>By direct substitution:</strong> <Katex>{"A\\begin{bmatrix}1\\\\-1\\end{bmatrix} = \\begin{bmatrix}2-1\\\\1-2\\end{bmatrix} = \\begin{bmatrix}1\\\\-1\\end{bmatrix} = 1\\cdot\\begin{bmatrix}1\\\\-1\\end{bmatrix}"}</Katex>.
+              Confirmed. <Katex>{"A\\begin{bmatrix}1\\\\1\\end{bmatrix} = \\begin{bmatrix}3\\\\3\\end{bmatrix} = 3\\cdot\\begin{bmatrix}1\\\\1\\end{bmatrix}"}</Katex>. Confirmed.
             </p>
             <p className="blog-post-p">
               <strong>By trace and determinant:</strong> the sum of the eigenvalues always equals
@@ -90,7 +90,7 @@ export default function EigenvaluesEigenvectorsPage() {
             </p>
             <Katex display>{"\\lambda_1+\\lambda_2 = 1+3 = 4 = \\text{trace}(A) = 2+2, \\qquad \\lambda_1\\lambda_2 = 1\\times3 = 3 = \\det A = (2)(2)-(1)(1)"}</Katex>
             <p className="blog-post-p">
-              Both checks pass independently of the substitution check above — a fast way to catch
+              Both checks pass independently of the substitution check above, a fast way to catch
               an arithmetic slip in the characteristic equation itself.
             </p>
           </div>
@@ -98,8 +98,8 @@ export default function EigenvaluesEigenvectorsPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              The same partial derivatives used to build a Jacobian matrix are covered separately
-              — eigenvalues of a Jacobian are exactly how stability of a system is analyzed near an
+              The same partial derivatives used to build a Jacobian matrix are covered separately:
+              eigenvalues of a Jacobian are exactly how stability of a system is analyzed near an
               equilibrium point.
             </p>
             <ul className="blog-post-related-list">

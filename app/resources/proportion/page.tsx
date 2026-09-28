@@ -45,8 +45,8 @@ export default function ProportionPage() {
             </p>
             <Katex display>{"\\dfrac{a}{b} = \\dfrac{c}{d} \\iff a \\times d = b \\times c"}</Katex>
             <p className="blog-post-p">
-              That cross-multiplied form — the product of the outer (extreme) terms equals the
-              product of the inner (middle) terms — is the fastest way to test or solve a proportion.
+              That cross-multiplied form (the product of the outer (extreme) terms equals the
+              product of the inner (middle) terms) is the fastest way to test or solve a proportion.
             </p>
           </div>
 

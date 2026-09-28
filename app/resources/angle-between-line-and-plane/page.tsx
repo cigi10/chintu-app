@@ -41,7 +41,7 @@ export default function AngleBetweenLineAndPlanePage() {
             <p className="blog-post-p">
               The angle <Katex>{"\\theta"}</Katex> between a line with direction vector{" "}
               <Katex>{"\\vec{b}"}</Katex> and a plane with normal vector <Katex>{"\\vec{n}"}</Katex>{" "}
-              uses <Katex>{"\\sin"}</Katex>, not <Katex>{"\\cos"}</Katex> — because the angle is
+              uses <Katex>{"\\sin"}</Katex>, not <Katex>{"\\cos"}</Katex>, because the angle is
               measured from the plane itself, which is perpendicular to <Katex>{"\\vec{n}"}</Katex>:
             </p>
             <Katex display>{"\\sin\\theta = \\dfrac{|\\vec{b}\\cdot\\vec{n}|}{|\\vec{b}||\\vec{n}|}"}</Katex>

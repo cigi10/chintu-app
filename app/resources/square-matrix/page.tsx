@@ -61,7 +61,7 @@ export default function SquareMatrixPage() {
             </p>
             <Katex display>{"(I-A)^2 = I - 2A + A^2 = I - 2A + A = I - A"}</Katex>
             <p className="blog-post-p">
-              So squaring <Katex>{"(I-A)"}</Katex> gives back <Katex>{"(I-A)"}</Katex> itself —{" "}
+              So squaring <Katex>{"(I-A)"}</Katex> gives back <Katex>{"(I-A)"}</Katex> itself:{" "}
               <Katex>{"(I-A)"}</Katex> is idempotent too. That means:
             </p>
             <Katex display>{"(I-A)^3 = (I-A)^2(I-A) = (I-A)(I-A) = I-A"}</Katex>
@@ -89,7 +89,7 @@ export default function SquareMatrixPage() {
               For a matrix equation <Katex>{"AX=B"}</Katex> with square matrix{" "}
               <Katex>{"A"}</Katex>: if <Katex>{"|A|=0"}</Katex> (A is singular) and{" "}
               <Katex>{"(\\text{adj }A)B \\ne 0"}</Katex>, the system has{" "}
-              <strong>no solution</strong> at all — it&apos;s inconsistent. (If instead{" "}
+              <strong>no solution</strong> at all: it&apos;s inconsistent. (If instead{" "}
               <Katex>{"(\\text{adj }A)B = 0"}</Katex>, the system has infinitely many solutions.)
             </p>
           </div>

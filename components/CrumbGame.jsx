@@ -105,7 +105,7 @@ export default function CrumbGame({ domain }) {
         </div>
       </div>
 
-      <p className="crumb-clue">{term.clue}</p>
+      <p className="crumb-clue"><span className="crumb-clue-label">Topic:</span> {term.topic}</p>
 
       <div className="crumb-grid" style={{ "--crumb-cols": targetLength }}>
         {Array.from({ length: MAX_GUESSES }).map((_, rowIndex) => {

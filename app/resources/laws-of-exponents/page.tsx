@@ -41,17 +41,17 @@ export default function LawsOfExponentsPage() {
             <h2 className="blog-post-heading">The three core rules</h2>
             <ul className="blog-post-list">
               <li>
-                <strong>Same base, multiplying:</strong> add the exponents —{" "}
+                <strong>Same base, multiplying:</strong> add the exponents:{" "}
                 <Katex>{"x^m \\cdot x^n = x^{m+n}"}</Katex>. E.g.{" "}
                 <Katex>{"2^4 \\cdot 2^3 = 2^{7} = 128"}</Katex>.
               </li>
               <li>
-                <strong>A power raised to a power:</strong> multiply the exponents —{" "}
+                <strong>A power raised to a power:</strong> multiply the exponents:{" "}
                 <Katex>{"(x^m)^n = x^{mn}"}</Katex>. E.g.{" "}
                 <Katex>{"(3^2)^5 = 3^{10} = 59049"}</Katex>.
               </li>
               <li>
-                <strong>Negative exponent:</strong> take the reciprocal —{" "}
+                <strong>Negative exponent:</strong> take the reciprocal:{" "}
                 <Katex>{"x^{-m} = \\dfrac{1}{x^m}"}</Katex>. E.g.{" "}
                 <Katex>{"2^{-5} = \\dfrac{1}{32}"}</Katex>.
               </li>
@@ -77,8 +77,8 @@ export default function LawsOfExponentsPage() {
               computing any of these to the 8th power directly.
             </p>
             <p className="blog-post-p">
-              <strong>Solution:</strong> Notice <Katex>{"7 \\times 12 = 84 = 14 \\times 6"}</Katex>{" "}
-              — the numerator and denominator are built from the same product, just split
+              <strong>Solution:</strong> Notice <Katex>{"7 \\times 12 = 84 = 14 \\times 6"}</Katex>,
+              the numerator and denominator are built from the same product, just split
               differently. Since <Katex>{"a^n b^n = (ab)^n"}</Katex>:
             </p>
             <Katex display>{"\\dfrac{7^8 \\times 12^8}{14^8 \\times 6^8} = \\dfrac{(7\\times12)^8}{(14\\times6)^8} = \\dfrac{84^8}{84^8} = 1"}</Katex>
@@ -100,8 +100,8 @@ export default function LawsOfExponentsPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              These same rules are exactly what makes logarithms — the inverse operation of
-              exponentiation — behave the way they do.
+              These same rules are exactly what makes logarithms (the inverse operation of
+              exponentiation) behave the way they do.
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/logarithms">Logarithms</Link></li>

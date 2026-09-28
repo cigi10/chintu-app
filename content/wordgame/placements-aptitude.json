@@ -1,0 +1,37 @@
+[
+  {
+    "term": "SYLLOGISM",
+    "clue": "A form of deductive reasoning in which a conclusion is drawn from two given premises.",
+    "topic": "Logical Reasoning"
+  },
+  {
+    "term": "MENSURATION",
+    "clue": "The branch of mathematics concerned with measuring the length, area, and volume of geometric figures.",
+    "topic": "Quantitative Aptitude"
+  },
+  {
+    "term": "ANALOGY",
+    "clue": "A reasoning technique that compares two different things based on a shared underlying relationship.",
+    "topic": "Verbal Reasoning"
+  },
+  {
+    "term": "PROBABILITY",
+    "clue": "A numerical measure, between 0 and 1, of how likely an event is to occur.",
+    "topic": "Quantitative Aptitude"
+  },
+  {
+    "term": "AVERAGE",
+    "clue": "The sum of a set of values divided by the number of values, also called the mean.",
+    "topic": "Quantitative Aptitude"
+  },
+  {
+    "term": "DISCOUNT",
+    "clue": "A reduction from a product's usual or marked price.",
+    "topic": "Quantitative Aptitude"
+  },
+  {
+    "term": "PERCENTAGE",
+    "clue": "A number or ratio expressed as a fraction of 100.",
+    "topic": "Quantitative Aptitude"
+  }
+]

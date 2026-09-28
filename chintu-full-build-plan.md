@@ -47,7 +47,7 @@ This is the most important design decision in the product, and it doesn't change
 - Initial study-plan generation (exam date + syllabus → a starting schedule), once per student
 - Everything else — portion tracking, check-ins, streak logic, scheduling, mock-score trends, revision surfacing — is rule-based logic, not a language model. More features does not mean more AI surface area; it means more deterministic logic.
 
-**The mental health boundary, made concrete:** a persistent, quiet footer link to iCall (India: 9152987821, free and confidential) appears on every screen. If a student types something into any text input that contains a clear distress signal, the only response is one pre-written sentence: "This sounds hard. Please talk to someone who can actually help — iCall: 9152987821, free and confidential." Then nothing else.
+**The mental health boundary, made concrete:** a persistent, quiet footer link to findahelpline.com (free, confidential, works for any country) appears on every screen. If a student types something into any text input that contains a clear distress signal, the only response is one pre-written sentence pointing to that same resource. Then nothing else.
 
 ---
 
@@ -171,7 +171,7 @@ Every system below ships. They're grouped by what they're for, not by priority.
 - Miss 1 day: nothing changes visibly
 - Miss 2+ days and return: "{name} is happy you're back. Want to start with something small?" — one button, no mention of how long they were gone
 - Miss 5+ days: one extra line — "{name} saved your spot. 🌸" — still no day count mentioned
-- After 3 resets in 7 days with zero sessions: "Hey, everything okay?" — two options, "I'm okay, let's go" / "Not really." "Not really" quietly surfaces the iCall number, no alarm styling
+- After 3 resets in 7 days with zero sessions: "Hey, everything okay?" — two options, "I'm okay, let's go" / "Not really." "Not really" quietly surfaces a findahelpline.com link, no alarm styling
 - Streak Shield (earnable shop item, 150 coins, never purchasable with money): absorbs one missed day silently when equipped, then is consumed, with a small positive animation on activation
 - The phrase "streak broken" must never appear anywhere, in any context
 - Friend-paired streaks (4.12) follow the exact same guilt-free rules — a friend's missed day is never flagged or compared negatively

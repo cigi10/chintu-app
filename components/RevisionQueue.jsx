@@ -1,6 +1,7 @@
 "use client";
 import "@/styles/revisions.css";
 import { useState, useEffect, useMemo } from "react";
+import Button from "@/components/Button";
 import Companion from "@/components/Companion";
 import { getSubjectColor, hydrateSubjectColors } from "@/lib/subjectColors";
 import { addCoins } from "@/lib/coins";
@@ -297,9 +298,9 @@ export default function RevisionQueue() {
                       <span className="revisions__item-subject">{s.subject}</span>
                       <span className="revisions__item-topic">{s.topic}</span>
                     </div>
-                    <button className="revisions__suggest-btn" onClick={() => addSuggestion(s.subject, s.topic)}>
+                    <Button className="revisions__suggest-btn" variant="secondary" size="sm" onClick={() => addSuggestion(s.subject, s.topic)}>
                       Add to revisions
-                    </button>
+                    </Button>
                   </div>
                 ))}
               </div>
@@ -330,18 +331,18 @@ export default function RevisionQueue() {
                           </span>
                         </div>
                         <div className="revisions__item-actions">
-                          <button className="revisions__snooze-btn" onClick={() => snooze(r.id)} title="Push back 2 days">
+                          <Button variant="secondary" size="sm" onClick={() => snooze(r.id)} title="Push back 2 days">
                             Snooze
-                          </button>
-                          <button
-                            className="revisions__done-btn"
+                          </Button>
+                          <Button
+                            size="sm"
                             onClick={() => setReviewingId(isReviewing ? null : r.id)}
                           >
                             Revised {isReviewing ? "▴" : "▾"}
-                          </button>
-                          <button className="revisions__mastered-btn" onClick={() => markMastered(r.id)}>
+                          </Button>
+                          <Button variant="done" size="sm" onClick={() => markMastered(r.id)}>
                             Mastered
-                          </button>
+                          </Button>
                           <button className="revisions__remove-btn" onClick={() => removeItem(r.id)} title="Remove from queue" aria-label="Remove from queue">
                             ×
                           </button>
@@ -407,13 +408,13 @@ export default function RevisionQueue() {
                 </button>
               ))}
             </div>
-            <button
-              className="revisions__add-btn"
+            <Button
+              fullWidth
               disabled={!subjectInput.trim() || !topicInput.trim()}
               onClick={handleManualAdd}
             >
               Add to queue
-            </button>
+            </Button>
           </div>
 
           {upcoming.length > 0 && (

@@ -56,7 +56,7 @@ export default function PartialDifferentiationPage() {
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> Differentiating with respect to <Katex>{"x"}</Katex>{" "}
-              (holding <Katex>{"y"}</Katex> fixed — the chain rule on{" "}
+              (holding <Katex>{"y"}</Katex> fixed, the chain rule on{" "}
               <Katex>{"\\sin(xy)"}</Katex> picks up a factor of <Katex>{"y"}</Katex>, the
               derivative of <Katex>{"xy"}</Katex> with respect to <Katex>{"x"}</Katex>):
             </p>
@@ -85,7 +85,7 @@ export default function PartialDifferentiationPage() {
             </p>
             <Katex display>{"\\dfrac{\\partial^2 f}{\\partial x\\partial y} = 6x^2y + \\cos(xy) - xy\\sin(xy)"}</Katex>
             <p className="blog-post-p">
-              Both routes land on the exact same expression — confirming the mixed partials agree
+              Both routes land on the exact same expression, confirming the mixed partials agree
               for this <Katex>{"f"}</Katex>, not just asserting that they should.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function PartialDifferentiationPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              The gradient — one of the three core vector calculus operators — is built entirely
+              The gradient (one of the three core vector calculus operators) is built entirely
               out of the same first partial derivatives covered here.
             </p>
             <ul className="blog-post-related-list">

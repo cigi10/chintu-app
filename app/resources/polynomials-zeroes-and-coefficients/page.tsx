@@ -76,7 +76,7 @@ export default function PolynomialsZeroesPage() {
             <Katex display>{"x^2 - \\sqrt{2}x + \\dfrac{1}{3}"}</Katex>
             <p className="blog-post-p">
               Multiplying through by 3 to clear the fraction gives an equivalent polynomial,{" "}
-              <Katex>{"3x^2 - 3\\sqrt{2}x + 1"}</Katex> — any nonzero multiple of a valid answer is
+              <Katex>{"3x^2 - 3\\sqrt{2}x + 1"}</Katex>, any nonzero multiple of a valid answer is
               also valid.
             </p>
           </div>

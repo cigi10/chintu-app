@@ -44,13 +44,13 @@ export default function QuadraticEquationsSolvedExamplesPage() {
             </p>
             <p className="blog-post-p">
               <Katex>{"(x+1)^2 = 2(x-3)"}</Katex> expands to <Katex>{"x^2+2x+1=2x-6"}</Katex>, which
-              simplifies to <Katex>{"x^2 + 7 = 0"}</Katex> — degree 2, so this <strong>is</strong>{" "}
+              simplifies to <Katex>{"x^2 + 7 = 0"}</Katex>, degree 2, so this <strong>is</strong>{" "}
               a quadratic equation.
             </p>
             <p className="blog-post-p">
               <Katex>{"(x-2)(x+1) = (x-1)(x+3)"}</Katex> expands to{" "}
               <Katex>{"x^2 - x - 2 = x^2 + 2x - 3"}</Katex>, and the <Katex>{"x^2"}</Katex> terms
-              cancel, leaving <Katex>{"-3x + 1 = 0"}</Katex> — only degree 1, so this{" "}
+              cancel, leaving <Katex>{"-3x + 1 = 0"}</Katex>, only degree 1, so this{" "}
               <strong>is not</strong> a quadratic equation, despite looking like one before expanding.
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function QuadraticEquationsSolvedExamplesPage() {
             <Katex display>{"x^2 - 12x + 5x - 60 = 0 \\;\\Rightarrow\\; (x-12)(x+5) = 0 \\;\\Rightarrow\\; x = 12 \\text{ or } x = -5"}</Katex>
             <p className="blog-post-p">
               A side length can&apos;t be negative, so <Katex>{"x = 12"}</Katex>: the base is 12 cm and
-              the altitude is <Katex>{"12 - 7 = 5"}</Katex> cm — a 5-12-13 right triangle, and{" "}
+              the altitude is <Katex>{"12 - 7 = 5"}</Katex> cm, a 5-12-13 right triangle, and{" "}
               <Katex>{"5^2 + 12^2 = 13^2"}</Katex> checks out.
             </p>
           </div>
@@ -143,7 +143,7 @@ export default function QuadraticEquationsSolvedExamplesPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               Every quadratic equation here has real roots because its discriminant is positive or
-              zero — when the discriminant is negative instead, the roots become a conjugate pair
+              zero. When the discriminant is negative instead, the roots become a conjugate pair
               of complex numbers.
             </p>
             <ul className="blog-post-related-list">

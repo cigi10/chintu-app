@@ -54,7 +54,7 @@ export default function PermutationsAndCombinationsPage() {
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> Sort the letters alphabetically first: A, K, M, S. There are{" "}
-              <Katex>{"4! = 24"}</Katex> total arrangements. Group them by starting letter — each
+              <Katex>{"4! = 24"}</Katex> total arrangements. Group them by starting letter: each
               group has <Katex>{"3! = 6"}</Katex> words, since the remaining 3 letters can be arranged
               6 ways:
             </p>

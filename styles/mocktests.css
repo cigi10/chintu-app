@@ -3,8 +3,6 @@
 .mocktests__form-row { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
 .mocktests__select, .mocktests__input { flex: 1 1 100px; padding: 9px 12px; border-radius: var(--radius-sm); border: 1.5px solid var(--color-border); background: var(--color-surface); color: var(--color-text); font-family: var(--font-body); font-weight: 600; font-size: 0.88rem; }
 .mocktests__input--notes { flex: 2 1 160px; }
-.mocktests__add-btn { width: 100%; padding: 10px; border: none; border-radius: var(--radius-pill); background: var(--color-accent-strong); color: #fff; font-weight: 800; cursor: pointer; font-family: var(--font-body); transition: filter 0.15s ease; }
-.mocktests__add-btn:hover { filter: brightness(0.9); }
 .mocktests__subject-block { margin-bottom: 1.75rem; }
 .mocktests__subject-title { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 8px; color: var(--color-text); }
 .mocktests__chart { display: flex; align-items: flex-end; gap: 10px; height: 130px; margin-bottom: 1rem; }

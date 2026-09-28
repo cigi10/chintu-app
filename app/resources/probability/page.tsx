@@ -53,11 +53,11 @@ export default function ProbabilityPage() {
             <h2 className="blog-post-heading">Independent vs. dependent events</h2>
             <p className="blog-post-p">
               Two events are <strong>independent</strong> when one doesn&apos;t affect the other&apos;s
-              outcome — like tossing a coin and rolling a die together:
+              outcome, like tossing a coin and rolling a die together:
             </p>
             <Katex display>{"P(\\text{Head and 3}) = P(\\text{Head}) \\times P(3) = \\dfrac{1}{2}\\times\\dfrac{1}{6} = \\dfrac{1}{12}"}</Katex>
             <p className="blog-post-p">
-              Two events are <strong>dependent</strong> when one changes the odds of the other — like
+              Two events are <strong>dependent</strong> when one changes the odds of the other, like
               drawing two cards without replacement. Drawing a King, then a Queen from the remaining
               51 cards:
             </p>

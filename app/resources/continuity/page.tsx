@@ -60,7 +60,7 @@ export default function ContinuityPage() {
             <p className="blog-post-p">
               So the left-hand derivative at <Katex>{"x=0"}</Katex> is <strong>-1</strong>. (The
               right-hand derivative there is <Katex>{"+1"}</Katex>, since <Katex>{"f(x)=x"}</Katex> for{" "}
-              <Katex>{"x>0"}</Katex> — the two don&apos;t match, which is exactly why{" "}
+              <Katex>{"x>0"}</Katex>, the two don&apos;t match, which is exactly why{" "}
               <Katex>{"|x|"}</Katex> is continuous at 0 but has a sharp corner there instead of a
               smooth tangent.)
             </p>
@@ -70,7 +70,7 @@ export default function ContinuityPage() {
             <h2 className="blog-post-heading">A function can only be continuous where it's defined</h2>
             <p className="blog-post-p">
               Before asking whether a function is continuous at a point, it has to actually be
-              defined there — so finding a function&apos;s domain is usually the first step.
+              defined there, so finding a function&apos;s domain is usually the first step.
             </p>
             <p className="blog-post-p">
               Find the domain of <Katex>{"f(x) = \\sqrt{\\cos x}"}</Katex> over one full period,{" "}

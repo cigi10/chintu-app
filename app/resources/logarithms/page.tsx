@@ -66,7 +66,7 @@ export default function LogarithmsPage() {
             </p>
             <p className="blog-post-p">
               The <strong>binary logarithm</strong> uses base 2 and appears throughout computer
-              science — <Katex>{"\\log_2 16 = 4"}</Katex>, <Katex>{"\\log_2 8 = 3"}</Katex>.
+              science: <Katex>{"\\log_2 16 = 4"}</Katex>, <Katex>{"\\log_2 8 = 3"}</Katex>.
             </p>
             <p className="blog-post-p">
               A logarithm of a number between 0 and 1 is negative (e.g.{" "}

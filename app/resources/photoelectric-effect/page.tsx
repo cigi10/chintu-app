@@ -40,7 +40,7 @@ export default function PhotoelectricEffectPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Einstein&apos;s photoelectric equation</h2>
             <p className="blog-post-p">
-              When light hits a metal surface, each photon can knock out at most one electron —
+              When light hits a metal surface, each photon can knock out at most one electron,
               and only if the photon carries enough energy to first overcome the metal&apos;s{" "}
               <strong>work function</strong> <Katex>{"\\phi"}</Katex>, the minimum energy binding an
               electron to the surface. Whatever energy is left over becomes the electron&apos;s
@@ -51,7 +51,7 @@ export default function PhotoelectricEffectPage() {
               where <Katex>{"h\\nu"}</Katex> is the photon&apos;s energy (<Katex>{"h"}</Katex>{" "}
               is Planck&apos;s constant, <Katex>{"6.626\\times10^{-34}"}</Katex> J·s). Below the{" "}
               <strong>threshold frequency</strong> <Katex>{"\\nu_0 = \\phi/h"}</Katex>, no electrons
-              are emitted at all, no matter how intense the light is — a single low-energy photon
+              are emitted at all, no matter how intense the light is, a single low-energy photon
               still can&apos;t individually clear the work function.
             </p>
           </div>
@@ -72,7 +72,7 @@ export default function PhotoelectricEffectPage() {
             <p className="blog-post-p">Subtracting the work function gives the maximum kinetic energy:</p>
             <Katex display>{"KE_{max} = E - \\phi = 3.1 - 2.3 = 0.8\\text{ eV}"}</Katex>
             <p className="blog-post-p">
-              The threshold wavelength is where <Katex>{"KE_{max}=0"}</Katex> — the photon energy
+              The threshold wavelength is where <Katex>{"KE_{max}=0"}</Katex>: the photon energy
               exactly equals the work function:
             </p>
             <Katex display>{"\\lambda_0 = \\dfrac{hc}{\\phi} = \\dfrac{1240}{2.3} \\approx 539\\text{ nm}"}</Katex>

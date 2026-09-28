@@ -69,7 +69,7 @@ export default function LinearEquationsCrossMultiplicationPage() {
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> Neither equation is linear in <Katex>{"x"}</Katex> and{" "}
-              <Katex>{"y"}</Katex> — but substituting <Katex>{"p=\\tfrac{1}{x}"}</Katex> and{" "}
+              <Katex>{"y"}</Katex>, but substituting <Katex>{"p=\\tfrac{1}{x}"}</Katex> and{" "}
               <Katex>{"q=\\tfrac{1}{y}"}</Katex> makes them linear in <Katex>{"p"}</Katex> and{" "}
               <Katex>{"q"}</Katex>:
             </p>

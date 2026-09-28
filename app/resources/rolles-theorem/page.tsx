@@ -41,7 +41,7 @@ export default function RollesTheoremPage() {
             <p className="blog-post-p">
               If <Katex>{"f"}</Katex> is continuous on <Katex>{"[a,b]"}</Katex>, differentiable on{" "}
               <Katex>{"(a,b)"}</Katex>, and <Katex>{"f(a) = f(b)"}</Katex>, then there exists at
-              least one point <Katex>{"c \\in (a,b)"}</Katex> where <Katex>{"f'(c) = 0"}</Katex> —
+              least one point <Katex>{"c \\in (a,b)"}</Katex> where <Katex>{"f'(c) = 0"}</Katex>:
               intuitively, if a smooth curve starts and ends at the same height, it must have a flat
               point somewhere in between.
             </p>

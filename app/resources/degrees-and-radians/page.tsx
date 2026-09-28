@@ -39,15 +39,15 @@ export default function DegreesAndRadiansPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">What a radian actually is</h2>
             <p className="blog-post-p">
-              A degree is an arbitrary unit — 360 of them make a full circle, likely borrowed from
+              A degree is an arbitrary unit: 360 of them make a full circle, likely borrowed from
               the 360 days of an ancient calendar year. A <strong>radian</strong>, the SI unit for
               angles, is defined geometrically instead: it&apos;s the angle you sweep out when the
               arc length traveled equals the radius:
             </p>
             <Katex display>{"\\text{Radian} = \\dfrac{\\text{arc length}}{\\text{radius}}"}</Katex>
             <p className="blog-post-p">
-              A full circle&apos;s circumference is <Katex>{"2\\pi r"}</Katex> — exactly{" "}
-              <Katex>{"2\\pi"}</Katex> radius-lengths around — so a full <Katex>{"360^\\circ"}</Katex>{" "}
+              A full circle&apos;s circumference is <Katex>{"2\\pi r"}</Katex> (exactly{" "}
+              <Katex>{"2\\pi"}</Katex> radius-lengths around), so a full <Katex>{"360^\\circ"}</Katex>{" "}
               turn is exactly <Katex>{"2\\pi"}</Katex> radians.
             </p>
           </div>

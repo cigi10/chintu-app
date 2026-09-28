@@ -78,7 +78,7 @@ export default function MaximaAndMinimaPage() {
             <p className="blog-post-p">
               <Katex>{"f'(x) = 4x - 30 = 0"}</Katex> at <Katex>{"x = 7.5"}</Katex>, and{" "}
               <Katex>{"f''(x) = 4 > 0"}</Katex>, confirming a minimum. So the two numbers are{" "}
-              <Katex>{"x = 7.5"}</Katex> and <Katex>{"15 - x = 7.5"}</Katex> — split evenly.
+              <Katex>{"x = 7.5"}</Katex> and <Katex>{"15 - x = 7.5"}</Katex>, split evenly.
             </p>
           </div>
 

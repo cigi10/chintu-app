@@ -1,0 +1,37 @@
+[
+  {
+    "term": "MODULATION",
+    "clue": "The process of varying a carrier wave's amplitude, frequency, or phase to encode information for transmission.",
+    "topic": "Communication Systems"
+  },
+  {
+    "term": "IMPEDANCE",
+    "clue": "The total opposition a circuit offers to alternating current, combining resistance and reactance.",
+    "topic": "Circuit Theory"
+  },
+  {
+    "term": "RECTIFIER",
+    "clue": "A device that converts alternating current into direct current.",
+    "topic": "Analog Electronics"
+  },
+  {
+    "term": "OSCILLATOR",
+    "clue": "A circuit that produces a repetitive, periodic waveform without needing an external input signal.",
+    "topic": "Analog Electronics"
+  },
+  {
+    "term": "MULTIPLEXER",
+    "clue": "A combinational circuit that selects one of several input signals and forwards it to a single output line.",
+    "topic": "Digital Electronics"
+  },
+  {
+    "term": "WAVEGUIDE",
+    "clue": "A structure, such as a hollow metal tube, that guides electromagnetic waves from one point to another with minimal loss.",
+    "topic": "Electromagnetics"
+  },
+  {
+    "term": "ATTENUATION",
+    "clue": "The gradual loss of signal strength as it travels through a transmission medium.",
+    "topic": "Signal Transmission"
+  }
+]

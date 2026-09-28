@@ -67,7 +67,7 @@ export default function LinearEquationsPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Linear equations are the entry point before quadratic equations — the same
+              Linear equations are the entry point before quadratic equations, the same
               isolate-the-variable habit carries over once a squared term is involved.
             </p>
             <ul className="blog-post-related-list">

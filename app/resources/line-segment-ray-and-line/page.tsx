@@ -40,7 +40,7 @@ export default function LineSegmentRayLinePage() {
             <ul className="blog-post-list">
               <li>A <strong>line segment</strong> has two endpoints and a fixed, definite length.</li>
               <li>A <strong>ray</strong> has one endpoint and extends infinitely in a single direction, so it has no definite length.</li>
-              <li>A <strong>line</strong> has no endpoints at all — it extends infinitely in both directions, so a complete line can only be represented on paper (with arrowheads showing it continues), not fully drawn.</li>
+              <li>A <strong>line</strong> has no endpoints at all: it extends infinitely in both directions, so a complete line can only be represented on paper (with arrowheads showing it continues), not fully drawn.</li>
             </ul>
           </div>
 
@@ -56,11 +56,11 @@ export default function LineSegmentRayLinePage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Quick true/false check</h2>
             <p className="blog-post-p">
-              <strong>&quot;A ray has no end point.&quot;</strong> — False. A ray has exactly one
+              <strong>&quot;A ray has no end point.&quot;</strong>: False. A ray has exactly one
               endpoint (where it starts); it&apos;s only unbounded on the other end.
             </p>
             <p className="blog-post-p">
-              <strong>&quot;A line can be drawn on paper.&quot;</strong> — False, strictly speaking:
+              <strong>&quot;A line can be drawn on paper.&quot;</strong>: False, strictly speaking:
               since a line is infinite in both directions, what actually gets drawn is only a
               segment that <em>represents</em> the line.
             </p>

@@ -83,7 +83,7 @@ export default function Stats() {
   const bestWeekdayIndex = minutesByWeekday.some((m) => m > 0)
     ? minutesByWeekday.indexOf(Math.max(...minutesByWeekday))
     : null;
-  const bestWeekdayLabel = bestWeekdayIndex != null ? DAY_LABELS[bestWeekdayIndex] : "—";
+  const bestWeekdayLabel = bestWeekdayIndex != null ? DAY_LABELS[bestWeekdayIndex] : "None yet";
 
   // Monthly view: bucket the log into ISO weeks over the last ~5 weeks
   const weeklyBuckets = (() => {

@@ -41,7 +41,7 @@ export default function ApplicationsOfDerivativesPage() {
             <p className="blog-post-p">
               If <Katex>{"y"}</Katex> depends on <Katex>{"x"}</Katex>, then{" "}
               <Katex>{"\\dfrac{dy}{dx}"}</Katex> measures how fast <Katex>{"y"}</Katex> changes as{" "}
-              <Katex>{"x"}</Katex> changes — this is the idea behind every physical rate-of-change
+              <Katex>{"x"}</Katex> changes. This is the idea behind every physical rate-of-change
               problem, from growing areas to moving particles.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function ApplicationsOfDerivativesPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               Rate-of-change problems and optimization problems both start from the same
-              derivative-as-rate idea — one asks how fast something changes, the other asks where
+              derivative-as-rate idea: one asks how fast something changes, the other asks where
               that rate hits zero. The same derivative also drives approximating small changes
               directly, instead of an exact rate.
             </p>

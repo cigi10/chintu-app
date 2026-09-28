@@ -64,7 +64,7 @@ export default function PowerRulePage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              The power rule only differentiates a single power of x — once two functions are
+              The power rule only differentiates a single power of x, once two functions are
               multiplied or divided together, the product rule or quotient rule takes over.
             </p>
             <ul className="blog-post-related-list">

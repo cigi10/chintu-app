@@ -40,14 +40,14 @@ export default function DifferentialEquationsPage() {
             <h2 className="blog-post-heading">The order of a differential equation</h2>
             <p className="blog-post-p">
               The <strong>order</strong> of a differential equation is simply the order of the
-              highest derivative appearing in it — no need to solve anything first.
+              highest derivative appearing in it. No need to solve anything first.
             </p>
             <p className="blog-post-p">
               What is the order of <Katex>{"2x^2\\dfrac{d^2y}{dx^2} - 3\\dfrac{dy}{dx} + y = 0"}</Katex>?
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> The highest derivative present is{" "}
-              <Katex>{"\\dfrac{d^2y}{dx^2}"}</Katex>, a second derivative — so the order is{" "}
+              <Katex>{"\\dfrac{d^2y}{dx^2}"}</Katex>, a second derivative, so the order is{" "}
               <strong>2</strong>.
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function DifferentialEquationsPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Solving a differential equation almost always ends in integration — and separating
+              Solving a differential equation almost always ends in integration, and separating
               variables here works the same way integration by parts handles a trickier product.
             </p>
             <ul className="blog-post-related-list">

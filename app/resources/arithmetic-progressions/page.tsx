@@ -47,7 +47,7 @@ export default function ArithmeticProgressionsPage() {
             <Katex display>{"a,\\; a+d,\\; a+2d,\\; a+3d,\\; \\ldots"}</Katex>
             <p className="blog-post-p">
               A sequence only counts as an AP if <em>every</em> consecutive pair shares that same
-              difference — not just the first pair.
+              difference, not just the first pair.
             </p>
           </div>
 
@@ -64,22 +64,22 @@ export default function ArithmeticProgressionsPage() {
             </ul>
             <p className="blog-post-p"><strong>Solution:</strong></p>
             <p className="blog-post-p">
-              <strong>Taxi fare:</strong> ₹20, ₹28, ₹36, ₹44, … — each term is 8 more than the last.
+              <strong>Taxi fare:</strong> ₹20, ₹28, ₹36, ₹44, …. Each term is 8 more than the last.
               The difference is constant (<Katex>{"d = 8"}</Katex>), so this <strong>is</strong> an AP.
             </p>
             <p className="blog-post-p">
               <strong>Air in the cylinder:</strong> each step keeps <Katex>{"\\frac{3}{4}"}</Katex> of
               the previous amount, so the amounts shrink by a shared <em>ratio</em>, not a shared
-              difference — the gaps between consecutive terms keep getting smaller. This{" "}
+              difference. The gaps between consecutive terms keep getting smaller. This{" "}
               <strong>is not</strong> an AP (it&apos;s a geometric progression instead).
             </p>
             <p className="blog-post-p">
-              <strong>Well-digging cost:</strong> ₹150, ₹200, ₹250, ₹300, … — a constant difference
+              <strong>Well-digging cost:</strong> ₹150, ₹200, ₹250, ₹300, …. A constant difference
               of <Katex>{"d = 50"}</Katex>, so this <strong>is</strong> an AP.
             </p>
             <p className="blog-post-p">
               <strong>Compound interest:</strong> each year&apos;s amount is the previous amount times
-              1.08, so it&apos;s growing by a shared ratio again, not a shared amount — the yearly
+              1.08, so it&apos;s growing by a shared ratio again, not a shared amount. The yearly
               increase itself keeps growing. This <strong>is not</strong> an AP.
             </p>
           </div>

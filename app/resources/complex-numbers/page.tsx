@@ -85,7 +85,7 @@ export default function ComplexNumbersPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               Complex numbers are exactly what shows up when a quadratic equation&apos;s discriminant
-              is negative — the two roots become a conjugate pair like the ones above.
+              is negative. The two roots become a conjugate pair like the ones above.
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/quadratic-equations-solved-examples">Quadratic Equations: Solved Examples</Link></li>

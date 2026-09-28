@@ -45,9 +45,9 @@ export default function PolynomialsDefinitionsAndDegreePage() {
               expressions that otherwise look similar:
             </p>
             <ul className="blog-post-list">
-              <li><Katex>{"4x^2 - 15x + 9"}</Katex> is a polynomial (powers 2, 1, 0 — all non-negative whole numbers).</li>
-              <li><Katex>{"5x + 2y^{-1} - 120"}</Katex> is <em>not</em> a polynomial — <Katex>{"y"}</Katex> has a negative power.</li>
-              <li><Katex>{"y^{6/7} + 2z - \\tfrac{1}{2}"}</Katex> is <em>not</em> a polynomial — <Katex>{"6/7"}</Katex> isn&apos;t a whole number.</li>
+              <li><Katex>{"4x^2 - 15x + 9"}</Katex> is a polynomial (powers 2, 1, 0, all non-negative whole numbers).</li>
+              <li><Katex>{"5x + 2y^{-1} - 120"}</Katex> is <em>not</em> a polynomial: <Katex>{"y"}</Katex> has a negative power.</li>
+              <li><Katex>{"y^{6/7} + 2z - \\tfrac{1}{2}"}</Katex> is <em>not</em> a polynomial: <Katex>{"6/7"}</Katex> isn&apos;t a whole number.</li>
             </ul>
           </div>
 
@@ -58,9 +58,9 @@ export default function PolynomialsDefinitionsAndDegreePage() {
               are its <strong>terms</strong>. The number of terms names the expression:
             </p>
             <ul className="blog-post-list">
-              <li><strong>Monomial</strong> — one term, e.g. <Katex>{"5z"}</Katex> or <Katex>{"4x^2"}</Katex>.</li>
-              <li><strong>Binomial</strong> — two terms, e.g. <Katex>{"3p - 2q"}</Katex>.</li>
-              <li><strong>Trinomial</strong> — three terms, e.g. <Katex>{"4x^2 + 6x + 7"}</Katex>.</li>
+              <li><strong>Monomial</strong>: one term, e.g. <Katex>{"5z"}</Katex> or <Katex>{"4x^2"}</Katex>.</li>
+              <li><strong>Binomial</strong>: two terms, e.g. <Katex>{"3p - 2q"}</Katex>.</li>
+              <li><strong>Trinomial</strong>: three terms, e.g. <Katex>{"4x^2 + 6x + 7"}</Katex>.</li>
             </ul>
           </div>
 

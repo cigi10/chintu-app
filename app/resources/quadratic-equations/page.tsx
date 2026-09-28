@@ -77,7 +77,7 @@ export default function QuadraticEquationsPage() {
             </p>
             <p className="blog-post-p">
               Multiply the outer coefficients: <Katex>{"\\sqrt{2} \\times 5\\sqrt{2} = 10"}</Katex>.
-              Find two numbers that multiply to 10 and add to 7 — that&apos;s 5 and 2. Split the
+              Find two numbers that multiply to 10 and add to 7: that&apos;s 5 and 2. Split the
               middle term using them, then factor by grouping:
             </p>
             <Katex display>{"\\sqrt{2}x^2 + 5x + 2x + 5\\sqrt{2} = 0"}</Katex>

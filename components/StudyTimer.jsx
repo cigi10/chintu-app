@@ -2,6 +2,7 @@
 import "@/styles/timer.css";
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import Button from "@/components/Button";
 import Companion from "@/components/Companion";
 import ToastProgress from "@/components/ToastProgress";
 import KeycapButton from "@/components/KeycapButton";
@@ -801,9 +802,9 @@ export default function StudyTimer({ roomName = null }) {
                   onChange={e => setCustomSecs(e.target.value)}
                   placeholder="sec"
                 />
-                <button className="timer__custom-set-btn" onClick={applyCustomTime}>
+                <Button className="timer__custom-set-btn" size="sm" onClick={applyCustomTime}>
                   Set
-                </button>
+                </Button>
               </div>
             )}
 
@@ -855,9 +856,9 @@ export default function StudyTimer({ roomName = null }) {
                     onKeyDown={e => e.key === "Enter" && playYoutube()}
                     placeholder="Paste a YouTube link…"
                   />
-                  <button className="timer__youtube-play-btn" onClick={playYoutube}>
+                  <Button className="timer__youtube-play-btn" size="sm" onClick={playYoutube}>
                     {youtubeVideoId ? "Change" : "Play"}
-                  </button>
+                  </Button>
                   {youtubeVideoId && (
                     <button className="timer__youtube-stop-btn" onClick={stopYoutube} title="Stop" aria-label="Stop YouTube playback">×</button>
                   )}

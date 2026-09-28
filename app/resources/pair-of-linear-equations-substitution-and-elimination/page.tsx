@@ -65,7 +65,7 @@ export default function LinearEquationsSubstitutionEliminationPage() {
             <Katex display>{"9x - 3(3x-3) = 9 \\;\\Rightarrow\\; 9x - 9x + 9 = 9 \\;\\Rightarrow\\; 9 = 9"}</Katex>
             <p className="blog-post-p">
               Every variable canceled out, leaving a statement that&apos;s always true. That&apos;s
-              the signal that the second equation is just <Katex>{"3\\times"}</Katex> the first —
+              the signal that the second equation is just <Katex>{"3\\times"}</Katex> the first,
               the same line twice, with infinitely many solutions rather than one.
             </p>
           </div>

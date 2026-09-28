@@ -62,7 +62,7 @@ export default function RatioPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Ratio and proportion are the same NCERT chapter — proportion is simply two ratios set
+              Ratio and proportion are the same NCERT chapter: proportion is simply two ratios set
               equal to each other.
             </p>
             <ul className="blog-post-related-list">

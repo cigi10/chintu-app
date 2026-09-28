@@ -2,6 +2,7 @@
 import "@/styles/shop.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Button from "@/components/Button";
 import Companion from "@/components/Companion";
 import { getData, setData } from "@/lib/storage";
 import { hydrateCoins, setCoins as persistCoins } from "@/lib/coins";
@@ -184,21 +185,25 @@ export default function CoinShop() {
                           >
                             {previewing ? "Trying on" : "Try on"}
                           </button>
-                          <button
+                          <Button
                             className="shop__item-buy-btn"
+                            size="sm"
                             disabled={!affordable}
                             onClick={() => buy(item)}
                           >
                             {affordable ? "Buy" : "Locked"}
-                          </button>
+                          </Button>
                         </div>
                       ) : (
-                        <button
-                          className={`shop__item-equip-btn${equipped ? " shop__item-equip-btn--active" : ""}`}
+                        <Button
+                          className="shop__item-equip-btn"
+                          variant={equipped ? "primary" : "ghost"}
+                          size="sm"
+                          fullWidth
                           onClick={() => toggleEquip(item)}
                         >
                           {equipped ? "Unequip" : "Equip"}
-                        </button>
+                        </Button>
                       )}
                     </div>
                   );

@@ -94,7 +94,7 @@ export default function MathOlympiadGrade7Page() {
             </p>
             <Katex display>{"n + (n+1) + (n+2) = 333 \\;\\Rightarrow\\; 3n+3=333 \\;\\Rightarrow\\; n=110"}</Katex>
             <p className="blog-post-p">
-              The three integers are 110, 111, 112 — the largest is <strong>112</strong>.
+              The three integers are 110, 111, 112. The largest is <strong>112</strong>.
             </p>
           </div>
 

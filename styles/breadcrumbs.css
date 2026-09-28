@@ -1,0 +1,47 @@
+/* breadcrumbs.css
+   Imported directly by components/Breadcrumbs.jsx (not by each page) so
+   every usage is styled regardless of what stylesheets the host page
+   happens to import — this used to live in blog.css only, so any page
+   that didn't import blog.css (e.g. /games/crumb, /contact) rendered
+   completely unstyled breadcrumbs: default browser <a> colors (including
+   the classic purple once a link's been visited), no separator spacing,
+   no hover state. Every color below is a theme token so this holds up
+   across all 13 color themes automatically. */
+
+.breadcrumbs {
+  max-width: 820px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+.breadcrumbs__item {
+  display: inline;
+}
+
+/* Clickable crumbs: themed accent color, underline only on hover — same
+   convention as other in-content links (e.g. .blog-post-related-list a). */
+.breadcrumbs__link {
+  color: var(--color-accent-strong);
+  text-decoration: none;
+}
+
+.breadcrumbs__link:hover {
+  text-decoration: underline;
+}
+
+/* The current page: de-emphasized relative to the clickable trail above
+   (muted secondary text, not the bold primary foreground color) since
+   it's not something you can act on. */
+.breadcrumbs__current {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+/* Separator: quieter than both the links and the current-page label, with
+   even spacing on both sides so the trail doesn't run together. */
+.breadcrumbs__sep {
+  margin: 0 8px;
+  color: var(--color-text-faint);
+}

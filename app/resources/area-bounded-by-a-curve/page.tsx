@@ -39,7 +39,7 @@ export default function AreaBoundedByACurvePage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Area needs absolute value, not a signed integral</h2>
             <p className="blog-post-p">
-              A definite integral gives <em>signed</em> area — positive above the x-axis, negative
+              A definite integral gives <em>signed</em> area: positive above the x-axis, negative
               below it. To find the actual (unsigned) area enclosed by a curve that dips below the
               axis, integrate over each piece where the sign doesn&apos;t change, and add the
               absolute values together.
@@ -83,7 +83,7 @@ export default function AreaBoundedByACurvePage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Area calculations are a direct application of definite integrals — the same
+              Area calculations are a direct application of definite integrals, the same
               evaluate-the-antiderivative-at-the-limits process used here shows up in any definite
               integral.
             </p>

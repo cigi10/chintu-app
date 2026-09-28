@@ -2,9 +2,6 @@
 .goals__header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
 .goals__title { font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; color: var(--color-text); margin: 0; }
 .goals__subtitle { font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--color-text-secondary); margin: 4px 0 0; }
-.goals__add-btn { padding: 8px 18px; border-radius: var(--radius-pill); border: none; background: var(--color-accent-strong); color: #fff; font-family: var(--font-body); font-weight: 800; font-size: 0.85rem; cursor: pointer; white-space: nowrap; transition: filter 0.15s ease, transform 0.15s ease; }
-.goals__add-btn:hover { filter: brightness(0.9); }
-.goals__add-btn:active { transform: scale(0.97); }
 
 /* .companion-float (Companion.jsx's own root) is width:100% of its
    parent, so this wrapper needs an explicit size cap — without one it

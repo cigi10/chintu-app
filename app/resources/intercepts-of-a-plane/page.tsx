@@ -66,7 +66,7 @@ export default function InterceptsOfAPlanePage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Intercept form is just one way to write a plane&apos;s equation — worth comparing
+              Intercept form is just one way to write a plane&apos;s equation, worth comparing
               against the general form used elsewhere.
             </p>
             <ul className="blog-post-related-list">

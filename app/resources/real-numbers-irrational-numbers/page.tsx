@@ -53,7 +53,7 @@ export default function RealNumbersIrrationalPage() {
             </p>
             <Katex display>{"\\dfrac{a}{b} - 3 = 2\\sqrt{5} \\;\\Rightarrow\\; \\sqrt{5} = \\dfrac{a-3b}{2b}"}</Katex>
             <p className="blog-post-p">
-              The right side is a ratio of integers, so it&apos;s rational — but{" "}
+              The right side is a ratio of integers, so it&apos;s rational, but{" "}
               <Katex>{"\\sqrt{5}"}</Katex> is known to be irrational. That contradiction means the
               original assumption was false, so <Katex>{"3+2\\sqrt{5}"}</Katex> is irrational.
             </p>
@@ -71,7 +71,7 @@ export default function RealNumbersIrrationalPage() {
               <Katex>{"\\dfrac{29}{343}"}</Katex> terminate.
             </p>
             <p className="blog-post-p">
-              <strong>Solution:</strong> <Katex>{"1600 = 2^6 \\times 5^2"}</Katex> — only 2s and
+              <strong>Solution:</strong> <Katex>{"1600 = 2^6 \\times 5^2"}</Katex>, only 2s and
               5s, so <Katex>{"\\dfrac{15}{1600}"}</Katex> terminates (it equals{" "}
               <Katex>{"0.009375"}</Katex>). But <Katex>{"343 = 7^3"}</Katex>, which has a prime
               factor other than 2 or 5, so <Katex>{"\\dfrac{29}{343}"}</Katex> is non-terminating

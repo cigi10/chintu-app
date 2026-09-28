@@ -1,0 +1,37 @@
+[
+  {
+    "term": "ELECTROSTATICS",
+    "clue": "The branch of physics studying forces, fields, and potentials due to stationary electric charges.",
+    "topic": "Physics: Electricity & Magnetism"
+  },
+  {
+    "term": "THERMODYNAMICS",
+    "clue": "The branch of physics dealing with heat, work, temperature, and the transfer of energy between systems.",
+    "topic": "Physics: Heat & Energy"
+  },
+  {
+    "term": "ESTERIFICATION",
+    "clue": "The chemical reaction between an acid and an alcohol that produces an ester and water.",
+    "topic": "Chemistry: Organic Reactions"
+  },
+  {
+    "term": "HYBRIDIZATION",
+    "clue": "The mixing of atomic orbitals to form new, equivalent hybrid orbitals suited for chemical bonding, such as sp3.",
+    "topic": "Chemistry: Chemical Bonding"
+  },
+  {
+    "term": "PROJECTILE",
+    "clue": "An object given an initial velocity that then moves under gravity alone, tracing a parabolic path.",
+    "topic": "Physics: Mechanics"
+  },
+  {
+    "term": "PERMUTATION",
+    "clue": "An arrangement of a set of objects into a particular order, where the sequence matters.",
+    "topic": "Maths: Combinatorics"
+  },
+  {
+    "term": "STEREOISOMERISM",
+    "clue": "Isomerism where compounds share the same molecular formula and bond connectivity but differ in the spatial arrangement of atoms.",
+    "topic": "Chemistry: Organic Chemistry"
+  }
+]

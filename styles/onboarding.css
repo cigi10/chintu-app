@@ -32,8 +32,5 @@
 .onboarding__actions { display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: 8px; }
 .onboarding__skip { background: none; border: none; font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; color: var(--color-text-secondary); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; padding: 4px; }
 .onboarding__skip:hover { color: var(--color-accent-strong); }
-.onboarding__cta { width: 100%; padding: 14px 24px; border-radius: var(--radius-pill); background-color: var(--color-accent-strong); color: #ffffff; font-family: var(--font-body); font-size: 1rem; font-weight: 700; border: none; cursor: pointer; box-shadow: var(--shadow-primary-btn); transition: filter 0.15s ease, transform 0.15s ease; }
-.onboarding__cta:hover { filter: brightness(0.9); transform: translateY(-1px); }
-.onboarding__cta:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 .onboarding__chips-label { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0 0 6px; text-align: center; font-weight: 700; }
 @media (max-width: 480px) { .onboarding__exam-grid { grid-template-columns: 1fr; } }

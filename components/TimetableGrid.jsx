@@ -2,6 +2,7 @@
 import "@/styles/timetable.css";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import Button from "@/components/Button";
 import { getGoalsForWeek, getGoalsForDate } from "@/lib/goals";
 import { localDateStr } from "@/lib/date";
 import { getSubjectColor, setSubjectColor, hydrateSubjectColors } from "@/lib/subjectColors";
@@ -508,7 +509,7 @@ export default function TimetableGrid() {
   return (
     <div className="timetable__wrap">
       <div className="timetable__header-bar">
-        <button className="timetable__pill-btn" onClick={scrollToToday}>Today</button>
+        <Button size="sm" onClick={scrollToToday}>Today</Button>
         <div className="timetable__mode-switch">
           {VIEW_MODES.map(m => (
             <button

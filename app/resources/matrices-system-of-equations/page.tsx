@@ -43,7 +43,7 @@ export default function MatricesSystemOfEquationsPage() {
               <Katex>{"AX = B"}</Katex>, where <Katex>{"A"}</Katex> holds the coefficients,{" "}
               <Katex>{"X"}</Katex> the unknowns, and <Katex>{"B"}</Katex> the right-hand sides.
               Solving usually just means eliminating variables the same way you would without
-              matrix notation — the matrix is just a compact way to organize the equations.
+              matrix notation, the matrix is just a compact way to organize the equations.
             </p>
           </div>
 
@@ -73,7 +73,7 @@ export default function MatricesSystemOfEquationsPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               The matrix method only produces a unique solution when the coefficient matrix isn&apos;t
-              singular — checking that comes down to a basic square-matrix property.
+              singular, checking that comes down to a basic square-matrix property.
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/square-matrix">Square Matrix Properties</Link></li>

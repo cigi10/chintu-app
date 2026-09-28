@@ -46,8 +46,10 @@ export default function StreakBanner() {
 
       {checkInAnswer === "not_really" && (
         <p className="streak-banner__support-card">
-          That&apos;s okay. iCall is free, confidential, and just for talking:{" "}
-          <strong>9152987821</strong>
+          That&apos;s okay. Find a local helpline to talk to at{" "}
+          <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">
+            findahelpline.com
+          </a>
         </p>
       )}
     </div>

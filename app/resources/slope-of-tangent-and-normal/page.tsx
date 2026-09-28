@@ -40,7 +40,7 @@ export default function SlopeOfTangentAndNormalPage() {
             <h2 className="blog-post-heading">Two related slopes</h2>
             <p className="blog-post-p">
               At a point on a curve <Katex>{"y=f(x)"}</Katex>, the derivative{" "}
-              <Katex>{"f'(x)"}</Katex> gives the slope of the <strong>tangent</strong> line — the
+              <Katex>{"f'(x)"}</Katex> gives the slope of the <strong>tangent</strong> line, the
               line that just touches the curve there. The <strong>normal</strong> is perpendicular
               to the tangent at that same point, so its slope is the tangent slope&apos;s negative
               reciprocal:

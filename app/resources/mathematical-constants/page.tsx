@@ -40,7 +40,7 @@ export default function MathematicalConstantsPage() {
             <h2 className="blog-post-heading">Euler&apos;s number, e</h2>
             <p className="blog-post-p">
               <Katex>{"e \\approx 2.71828\\ldots"}</Katex> is an irrational number that shows up
-              constantly in growth and decay — including continuously compounded interest. One way
+              constantly in growth and decay, including continuously compounded interest. One way
               to define it is as an infinite sum:
             </p>
             <Katex display>{"e = \\sum_{n=0}^{\\infty} \\dfrac{1}{n!} = \\dfrac{1}{0!} + \\dfrac{1}{1!} + \\dfrac{1}{2!} + \\cdots"}</Katex>

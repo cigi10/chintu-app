@@ -41,7 +41,7 @@ export default function CompositionOfFunctionsPage() {
             <h2 className="blog-post-heading">Reading the notation</h2>
             <p className="blog-post-p">
               <Katex>{"gof"}</Katex> means &quot;first apply <Katex>{"f"}</Katex>, then apply{" "}
-              <Katex>{"g"}</Katex> to the result&quot; — read right to left:{" "}
+              <Katex>{"g"}</Katex> to the result&quot;, read right to left:{" "}
               <Katex>{"(g \\circ f)(x) = g(f(x))"}</Katex>. Likewise{" "}
               <Katex>{"fog(x) = f(g(x))"}</Katex>. There&apos;s no reason these have to match.
             </p>
@@ -55,7 +55,7 @@ export default function CompositionOfFunctionsPage() {
               <Katex>{"gof"}</Katex> and <Katex>{"fog"}</Katex>.
             </p>
             <p className="blog-post-p">
-              <strong>Solution — gof:</strong> substitute <Katex>{"f(x)"}</Katex> into{" "}
+              <strong>Solution, gof:</strong> substitute <Katex>{"f(x)"}</Katex> into{" "}
               <Katex>{"g"}</Katex>:
             </p>
             <Katex display>{"gof(x) = g(8x^3) = (8x^3)^{1/3} = 8^{1/3} \\cdot x = 2x"}</Katex>
@@ -64,7 +64,7 @@ export default function CompositionOfFunctionsPage() {
             </p>
             <Katex display>{"fog(x) = f(x^{1/3}) = 8(x^{1/3})^3 = 8x"}</Katex>
             <p className="blog-post-p">
-              So <Katex>{"gof(x) = 2x"}</Katex> but <Katex>{"fog(x) = 8x"}</Katex> — a clean
+              So <Katex>{"gof(x) = 2x"}</Katex> but <Katex>{"fog(x) = 8x"}</Katex>, a clean
               reminder that composition order matters.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function CompositionOfFunctionsPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               Composition is exactly how you&apos;d verify that a candidate inverse function
-              actually undoes the original — check that both compositions give back <Katex>{"x"}</Katex>.
+              actually undoes the original: check that both compositions give back <Katex>{"x"}</Katex>.
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/types-of-functions">Types of Functions</Link></li>

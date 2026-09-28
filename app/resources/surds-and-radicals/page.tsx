@@ -40,7 +40,7 @@ export default function SurdsAndRadicalsPage() {
             <h2 className="blog-post-heading">Rationalizing a denominator</h2>
             <p className="blog-post-p">
               To simplify a fraction with a surd in the denominator, multiply top and bottom by the
-              conjugate — this uses the difference-of-squares identity{" "}
+              conjugate: this uses the difference-of-squares identity{" "}
               <Katex>{"(a-b)(a+b) = a^2-b^2"}</Katex> to clear the square root from the bottom.
             </p>
           </div>

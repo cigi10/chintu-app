@@ -1,5 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import "@/styles/breadcrumbs.css";
 
 const SITE_URL = "https://www.studyloaf.com";
 

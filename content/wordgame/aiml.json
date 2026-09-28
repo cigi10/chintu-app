@@ -1,0 +1,37 @@
+[
+  {
+    "term": "PERCEPTRON",
+    "clue": "The simplest type of artificial neural network: a single-layer linear classifier that outputs a binary decision.",
+    "topic": "Neural Networks"
+  },
+  {
+    "term": "OVERFITTING",
+    "clue": "When a model learns the training data too closely, including its noise, and performs poorly on new, unseen data.",
+    "topic": "Model Evaluation"
+  },
+  {
+    "term": "BACKPROPAGATION",
+    "clue": "The algorithm that computes a neural network's loss gradient and propagates it backward to update weights.",
+    "topic": "Neural Networks"
+  },
+  {
+    "term": "REGRESSION",
+    "clue": "A supervised learning technique that predicts a continuous numerical output from one or more input features.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "term": "CLUSTERING",
+    "clue": "An unsupervised learning technique that groups similar data points together without using labeled outcomes.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "term": "GRADIENT",
+    "clue": "A vector of partial derivatives pointing in the direction of steepest increase of a function, used to update model weights.",
+    "topic": "Optimization"
+  },
+  {
+    "term": "EPOCH",
+    "clue": "One complete pass through the entire training dataset during a model's training process.",
+    "topic": "Model Training"
+  }
+]

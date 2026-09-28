@@ -12,11 +12,11 @@
     },
     {
       "heading": "What Crumb actually is",
-      "body": "Crumb works like a letter-guessing puzzle you may have played before: guess a word in 6 tries, and after each guess, every letter gets colored feedback showing whether it's in the right spot, in the word but the wrong spot, or not in the word at all. The difference is what you're guessing. Every target word is a real, domain-specific technical term, pulled from an actual exam syllabus, not a common English word picked for letter variety. A clue (the term's definition) is shown throughout the puzzle, so the challenge is genuinely about knowing the term, not about guessing blind."
+      "body": "Crumb works like a letter-guessing puzzle you may have played before: guess a word in 6 tries, and after each guess, every letter gets colored feedback showing whether it's in the right spot, in the word but the wrong spot, or not in the word at all. The difference is what you're guessing. Every target word is a real, domain-specific technical term, pulled from an actual exam syllabus, not a common English word picked for letter variety. A clue (the term's topic, e.g. \"Cell Division\" or \"Circuit Theory\") is shown throughout the puzzle, so the challenge is genuinely about knowing the term, not about guessing blind."
     },
     {
       "heading": "Why a clue, when the original format doesn't have one",
-      "body": "A pure letter-frequency guessing game tests something different from subject knowledge: it rewards knowing which letters are statistically common in English, not knowing what a term means. For a word like ESTOPPEL or MITOCHONDRIA, guessing blind from zero information isn't a useful test of anything. Showing the clue up front shifts the challenge to where it belongs: can you connect a definition to the exact term, spelled correctly, under a limited number of guesses."
+      "body": "A pure letter-frequency guessing game tests something different from subject knowledge: it rewards knowing which letters are statistically common in English, not knowing what a term means. For a word like ESTOPPEL or MITOCHONDRIA, guessing blind from zero information isn't a useful test of anything. Showing the topic up front shifts the challenge to where it belongs: once you know which corner of the syllabus it's from, can you land on the exact term, spelled correctly, under a limited number of guesses."
     },
     {
       "heading": "Three domains, one puzzle a day each",
@@ -24,7 +24,7 @@
     },
     {
       "heading": "Why this actually helps exam prep",
-      "body": "Recognizing a term when you see it in a passage is a different skill from producing it from a definition alone, and the second skill is closer to what NEET, CLAT, and board exams actually test through fill-in-the-blank, matching, and short-answer questions. A minute a day spent retrieving a term from its definition, rather than just re-reading a glossary, is active recall in a genuinely low-stakes, low-time-cost form."
+      "body": "Recognizing a term when you see it in a passage is a different skill from producing it once you're only told which topic it belongs to, and the second skill is closer to what NEET, CLAT, and board exams actually test through fill-in-the-blank, matching, and short-answer questions. A minute a day spent retrieving a term from just its subject area, rather than re-reading a glossary, is active recall in a genuinely low-stakes, low-time-cost form."
     },
     {
       "heading": null,

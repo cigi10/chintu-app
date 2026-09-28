@@ -61,7 +61,7 @@ export default function SimpleAndCompoundInterestPage() {
             <h2 className="blog-post-heading">Compound interest: interest on interest</h2>
             <p className="blog-post-p">
               Compound interest adds each period&apos;s interest back into the principal before
-              computing the next period&apos;s interest — so later interest is earned on more than
+              computing the next period&apos;s interest, so later interest is earned on more than
               just the original sum. Using the same numbers as above,{" "}
               <Katex>{"\\text{₹}25{,}000"}</Katex> at 9% annually, compounded once a year:
             </p>
@@ -69,7 +69,7 @@ export default function SimpleAndCompoundInterestPage() {
             <Katex display>{"I_2 = 27250 \\times \\dfrac{9}{100} = 2452.5 \\quad\\Rightarrow\\quad \\text{new principal} = 29{,}702.5"}</Katex>
             <Katex display>{"I_3 = 29702.5 \\times \\dfrac{9}{100} = 2673.225"}</Katex>
             <p className="blog-post-p">
-              Total interest over 3 years: <Katex>{"2250 + 2452.5 + 2673.225 = 7375.725"}</Katex> —
+              Total interest over 3 years: <Katex>{"2250 + 2452.5 + 2673.225 = 7375.725"}</Katex>,
               more than the <Katex>{"\\text{₹}6750"}</Katex> simple interest gave, even though the
               principal and rate are identical.
             </p>

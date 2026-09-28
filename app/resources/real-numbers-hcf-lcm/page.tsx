@@ -72,7 +72,7 @@ export default function RealNumbersHcfLcmPage() {
             <p className="blog-post-p">
               <strong>Solution:</strong> Euclid&apos;s division lemma says any positive integer{" "}
               <Katex>{"a"}</Katex> can be written as <Katex>{"a = 6q+r"}</Katex> for some{" "}
-              <Katex>{"q"}</Katex>, where <Katex>{"0 \\le r < 6"}</Katex> — so <Katex>{"a"}</Katex>{" "}
+              <Katex>{"q"}</Katex>, where <Katex>{"0 \\le r < 6"}</Katex>, so <Katex>{"a"}</Katex>{" "}
               is one of <Katex>{"6q, 6q+1, 6q+2, 6q+3, 6q+4, 6q+5"}</Katex>.
             </p>
             <p className="blog-post-p">

@@ -7,3 +7,4 @@
 .streak-banner__checkin-ok { padding: 8px 14px; border-radius: var(--radius-pill); border: none; background-color: var(--color-accent-strong); color: #fff; font-weight: 700; font-size: 0.8rem; cursor: pointer; font-family: var(--font-body); }
 .streak-banner__checkin-nope { padding: 8px 14px; border-radius: var(--radius-pill); border: 2px solid var(--color-accent-strong); background-color: transparent; color: var(--color-text); font-weight: 700; font-size: 0.8rem; cursor: pointer; font-family: var(--font-body); }
 .streak-banner__support-card { font-weight: 600; font-size: 0.85rem; color: var(--color-text); background-color: var(--color-accent); border-radius: var(--radius-md); padding: 12px 16px; max-width: 300px; margin: 0 auto; }
+.streak-banner__support-card a { color: var(--color-accent-strong); text-decoration: underline; }

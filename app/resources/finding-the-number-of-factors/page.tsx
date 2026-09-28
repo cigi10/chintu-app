@@ -43,7 +43,7 @@ export default function FindingTheNumberOfFactorsPage() {
               Write a number as a product of prime powers,{" "}
               <Katex>{"N = p_1^{a_1} p_2^{a_2} \\cdots p_k^{a_k}"}</Katex>. Every factor of{" "}
               <Katex>{"N"}</Katex> is built by independently choosing an exponent from{" "}
-              <Katex>{"0"}</Katex> to <Katex>{"a_i"}</Katex> for each prime — so the total count of
+              <Katex>{"0"}</Katex> to <Katex>{"a_i"}</Katex> for each prime, so the total count of
               factors (including 1 and <Katex>{"N"}</Katex> itself) is:
             </p>
             <Katex display>{"(a_1+1)(a_2+1)\\cdots(a_k+1)"}</Katex>

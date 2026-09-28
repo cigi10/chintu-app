@@ -43,7 +43,7 @@ export default function InverseTrigonometricFunctionsPage() {
               Since <Katex>{"\\sin"}</Katex>, <Katex>{"\\cos"}</Katex>, etc. repeat forever, their
               inverses are only defined by restricting to one <strong>principal value</strong>{" "}
               range. For <Katex>{"\\cot^{-1}x"}</Katex>, that range is the open interval{" "}
-              <Katex>{"(0,\\pi)"}</Katex> — note it&apos;s open, unlike <Katex>{"\\tan^{-1}"}</Katex>{" "}
+              <Katex>{"(0,\\pi)"}</Katex>: note it&apos;s open, unlike <Katex>{"\\tan^{-1}"}</Katex>{" "}
               which uses <Katex>{"\\left(-\\tfrac{\\pi}{2},\\tfrac{\\pi}{2}\\right)"}</Katex>.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function InverseTrigonometricFunctionsPage() {
             <p className="blog-post-p">
               <strong>Solution:</strong> Secant only takes values with{" "}
               <Katex>{"|\\sec\\theta| \\ge 1"}</Katex>, so its inverse can only accept inputs with{" "}
-              <Katex>{"|x|\\ge1"}</Katex>. The domain is <Katex>{"\\mathbb{R} - (-1,1)"}</Katex> —
+              <Katex>{"|x|\\ge1"}</Katex>. The domain is <Katex>{"\\mathbb{R} - (-1,1)"}</Katex>:
               every real number except the open interval strictly between <Katex>{"-1"}</Katex> and{" "}
               <Katex>{"1"}</Katex>.
             </p>

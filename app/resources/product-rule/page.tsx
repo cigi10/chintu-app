@@ -71,7 +71,7 @@ export default function ProductRulePage() {
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> Take the natural log of both sides:{" "}
-              <Katex>{"\\ln y = \\sin x \\ln x"}</Katex>. Differentiate both sides — the right side
+              <Katex>{"\\ln y = \\sin x \\ln x"}</Katex>. Differentiate both sides: the right side
               is now a product:
             </p>
             <Katex display>{"\\dfrac{y'}{y} = \\cos x \\ln x + \\sin x \\cdot \\dfrac{1}{x}"}</Katex>

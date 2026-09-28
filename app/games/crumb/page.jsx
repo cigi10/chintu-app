@@ -4,12 +4,17 @@ import { WORD_GAME_DOMAINS, getWordGameDomainSlugs } from "@/lib/wordGame";
 import "@/styles/quiz.css";
 import "@/styles/button.css";
 
+// Domain count is read from the actual data instead of hardcoded, so this
+// copy can't drift out of sync with lib/wordGame.js again the way it did
+// when this said "8 subject domains" while only 3 existed.
+const DOMAIN_COUNT = getWordGameDomainSlugs().length;
+
 export const metadata = {
   title: "Crumb - Studyloaf Games",
-  description: "Crumb, Studyloaf's daily term-guessing game: one real domain-specific term a day, colored letter feedback, across 8 subject domains.",
+  description: `Crumb, Studyloaf's daily term-guessing game: one real domain-specific term a day, colored letter feedback, across ${DOMAIN_COUNT} subject domains.`,
   openGraph: {
     title: "Crumb - Studyloaf Games",
-    description: "Crumb, Studyloaf's daily term-guessing game: one real domain-specific term a day, colored letter feedback, across 8 subject domains.",
+    description: `Crumb, Studyloaf's daily term-guessing game: one real domain-specific term a day, colored letter feedback, across ${DOMAIN_COUNT} subject domains.`,
   },
 };
 

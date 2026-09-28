@@ -73,7 +73,7 @@ export default function BinaryOperationPage() {
             <p className="blog-post-p">
               <strong>Commutative check:</strong> <Katex>{"a*b = 1+ab"}</Katex> and{" "}
               <Katex>{"b*a = 1+ba"}</Katex>. Since ordinary multiplication commutes,{" "}
-              <Katex>{"ab=ba"}</Katex>, so <Katex>{"a*b = b*a"}</Katex> — <strong>commutative</strong>.
+              <Katex>{"ab=ba"}</Katex>, so <Katex>{"a*b = b*a"}</Katex>, <strong>commutative</strong>.
             </p>
             <p className="blog-post-p">
               <strong>Associative check:</strong> compare <Katex>{"(a*b)*c"}</Katex> against{" "}
@@ -83,7 +83,7 @@ export default function BinaryOperationPage() {
             <Katex display>{"a*(b*c) = a*(1+bc) = 1+a(1+bc) = 1+a+abc"}</Katex>
             <p className="blog-post-p">
               These only agree when <Katex>{"a=c"}</Katex>, not for every choice of{" "}
-              <Katex>{"a,b,c"}</Katex> — so <Katex>{"*"}</Katex> is{" "}
+              <Katex>{"a,b,c"}</Katex>, so <Katex>{"*"}</Katex> is{" "}
               <strong>commutative but not associative</strong>.
             </p>
           </div>

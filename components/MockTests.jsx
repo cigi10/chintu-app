@@ -1,6 +1,7 @@
 "use client";
 import "@/styles/mocktests.css";
 import { useState, useEffect } from "react";
+import Button from "@/components/Button";
 import { hydrateMockScores, saveMockScores } from "@/lib/mocktests";
 
 const SUBJECTS = ["Physics", "Chemistry", "Maths", "Biology", "Reading & Writing", "Verbal", "Quant", "DSA", "Other"];
@@ -55,7 +56,7 @@ export default function MockTests() {
           <input className="mocktests__input" type="date" value={date} onChange={e => setDate(e.target.value)} />
           <input className="mocktests__input mocktests__input--notes" placeholder="Notes (optional)" value={notes} onChange={e => setNotes(e.target.value)} />
         </div>
-        <button className="mocktests__add-btn" onClick={addEntry}>Log score</button>
+        <Button fullWidth onClick={addEntry}>Log score</Button>
       </div>
 
       {Object.entries(bySubject).map(([subj, entries]) => {

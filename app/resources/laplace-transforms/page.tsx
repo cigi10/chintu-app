@@ -52,8 +52,8 @@ export default function LaplaceTransformsPage() {
             <Katex display>{"\\mathcal{L}\\{1\\} = \\dfrac{1}{s}, \\qquad \\mathcal{L}\\{t^n\\} = \\dfrac{n!}{s^{n+1}}, \\qquad \\mathcal{L}\\{e^{at}\\} = \\dfrac{1}{s-a}"}</Katex>
             <Katex display>{"\\mathcal{L}\\{\\sin at\\} = \\dfrac{a}{s^2+a^2}, \\qquad \\mathcal{L}\\{\\cos at\\} = \\dfrac{s}{s^2+a^2}"}</Katex>
             <p className="blog-post-p">
-              The transform is <strong>linear</strong> — the transform of a sum is the sum of the
-              transforms, and constants pull straight out — which is what makes it usable on
+              The transform is <strong>linear</strong>: the transform of a sum is the sum of the
+              transforms, and constants pull straight out, which is what makes it usable on
               multi-term expressions at all.
             </p>
           </div>

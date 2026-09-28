@@ -46,7 +46,7 @@ export default function OpAmpFundamentalsPage() {
             <ul className="blog-post-list">
               <li>No current flows into either input terminal (infinite input impedance).</li>
               <li>
-                The op-amp drives its output to force <Katex>{"V_+ = V_-"}</Katex> — the{" "}
+                The op-amp drives its output to force <Katex>{"V_+ = V_-"}</Katex>, the{" "}
                 <strong>virtual short</strong>, even though the two inputs aren&apos;t actually
                 connected.
               </li>
@@ -91,7 +91,7 @@ export default function OpAmpFundamentalsPage() {
             <Katex display>{"V_{out} = \\left(1+\\dfrac{9\\text{k}}{1\\text{k}}\\right) \\times 0.5 = 10 \\times 0.5 = 5\\text{V}"}</Katex>
             <p className="blog-post-p">
               Same resistor ratio magnitude as the inverting example above, but the output here is
-              positive and one unit of gain higher — a direct consequence of the{" "}
+              positive and one unit of gain higher, a direct consequence of the{" "}
               <Katex>{"+1"}</Katex> in the formula.
             </p>
           </div>

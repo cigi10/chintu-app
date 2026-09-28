@@ -41,13 +41,13 @@ export default function KirchhoffsLawsPage() {
             <h2 className="blog-post-heading">The two laws</h2>
             <p className="blog-post-p">
               <strong>Kirchhoff&apos;s Current Law (KCL)</strong> is just conservation of charge:
-              at any junction, the current flowing in must equal the current flowing out — charge
+              at any junction, the current flowing in must equal the current flowing out. Charge
               can&apos;t pile up at a point.
             </p>
             <p className="blog-post-p">
               <strong>Kirchhoff&apos;s Voltage Law (KVL)</strong> is conservation of energy: going
               all the way around any closed loop in a circuit, the total voltage gained (from
-              sources) equals the total voltage dropped (across resistors) — you end up back where
+              sources) equals the total voltage dropped (across resistors). You end up back where
               you started, at the same potential.
             </p>
           </div>

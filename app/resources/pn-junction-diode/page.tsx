@@ -43,7 +43,7 @@ export default function PnJunctionDiodePage() {
               A PN junction diode is formed where P-type semiconductor (extra positive charge
               carriers, or &quot;holes&quot;) meets N-type semiconductor (extra electrons). Right at the
               junction, electrons and holes diffuse across and cancel each other out, leaving a
-              thin <strong>depletion region</strong> with no free charge carriers — and a small
+              thin <strong>depletion region</strong> with no free charge carriers, and a small
               built-in electric field that opposes any further diffusion, holding the junction in
               equilibrium.
             </p>
@@ -60,7 +60,7 @@ export default function PnJunctionDiodePage() {
             <p className="blog-post-p">
               <strong>Reverse bias</strong> connects the positive terminal to the N-side instead.
               This widens the depletion region and reinforces the built-in field, blocking current
-              almost entirely — only a tiny leakage current flows, largely independent of voltage
+              almost entirely: only a tiny leakage current flows, largely independent of voltage
               until breakdown.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function PnJunctionDiodePage() {
             <p className="blog-post-p">
               where <Katex>{"I_0"}</Katex> is the small reverse saturation current,{" "}
               <Katex>{"\\eta"}</Katex> is an ideality factor (1 for an ideal diode), and{" "}
-              <Katex>{"V_T = kT/q"}</Katex> is the thermal voltage — about 26 mV at room
+              <Katex>{"V_T = kT/q"}</Katex> is the thermal voltage, about 26 mV at room
               temperature. Under forward bias, the exponential term dominates and the{" "}
               <Katex>{"-1"}</Katex> becomes negligible.
             </p>
@@ -93,7 +93,7 @@ export default function PnJunctionDiodePage() {
             </p>
             <Katex display>{"\\dfrac{I_2}{I_1} = e^{(V_2-V_1)/V_T} = e^{0.06/0.026} = e^{2.31}"}</Katex>
             <p className="blog-post-p">
-              which works out to about <strong>10</strong> — a 60 mV increase in forward voltage
+              which works out to about <strong>10</strong>, a 60 mV increase in forward voltage
               multiplies the current roughly tenfold. This is exactly why a diode&apos;s forward
               voltage barely moves even as the current through it changes by orders of magnitude:
               the relationship is logarithmic, not linear.
@@ -103,7 +103,7 @@ export default function PnJunctionDiodePage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              A diode is a non-linear component sitting inside an otherwise linear circuit —
+              A diode is a non-linear component sitting inside an otherwise linear circuit.
               Kirchhoff&apos;s laws still apply to the rest of the loop around it.
             </p>
             <ul className="blog-post-related-list">

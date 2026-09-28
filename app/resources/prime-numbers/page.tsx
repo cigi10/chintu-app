@@ -45,12 +45,12 @@ export default function PrimeNumbersPage() {
               <strong>composite</strong>.
             </p>
             <p className="blog-post-p">
-              <strong>0 is neither prime nor composite</strong> — every number times 0 is 0, so 0
+              <strong>0 is neither prime nor composite</strong>: every number times 0 is 0, so 0
               would have infinitely many factors, and primality requires a finite, specific set of
               divisors.
             </p>
             <p className="blog-post-p">
-              <strong>1 is also neither</strong> — a prime needs exactly two distinct divisors (1
+              <strong>1 is also neither</strong>: a prime needs exactly two distinct divisors (1
               and itself), but 1&apos;s only divisor is 1 itself, just one.
             </p>
           </div>
@@ -62,11 +62,11 @@ export default function PrimeNumbersPage() {
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> It&apos;s enough to test divisibility by every prime up to{" "}
-              <Katex>{"\\sqrt{91} \\approx 9.5"}</Katex> — 2, 3, 5, and 7 — since any factor larger
+              <Katex>{"\\sqrt{91} \\approx 9.5"}</Katex> (2, 3, 5, and 7), since any factor larger
               than the square root would have to pair with one smaller than it, already caught.{" "}
               <Katex>{"91"}</Katex> is odd (not divisible by 2), its digit sum 10 isn&apos;t
               divisible by 3, it doesn&apos;t end in 0 or 5 (not divisible by 5), but{" "}
-              <Katex>{"91 = 7 \\times 13"}</Katex> — so <strong>91 is composite</strong>, not
+              <Katex>{"91 = 7 \\times 13"}</Katex>, so <strong>91 is composite</strong>, not
               prime.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function PrimeNumbersPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Twin primes</h2>
             <p className="blog-post-p">
-              A pair of primes exactly 2 apart is called a <strong>twin prime</strong> pair — like{" "}
+              A pair of primes exactly 2 apart is called a <strong>twin prime</strong> pair, like{" "}
               <Katex>{"(17, 19)"}</Katex> or <Katex>{"(29, 31)"}</Katex>. The very first few pairs
               are <Katex>{"(3,5), (5,7), (11,13), (17,19), (29,31), (41,43)"}</Katex>.
             </p>

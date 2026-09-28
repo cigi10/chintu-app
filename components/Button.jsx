@@ -10,6 +10,7 @@ export default function Button({
   fullWidth = false,
   type = "button",
   className = "",
+  ...rest
 }) {
   const classes = [
     "btn",
@@ -20,7 +21,7 @@ export default function Button({
   ].filter(Boolean).join(" ");
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes} {...rest}>
       {children}
     </button>
   );

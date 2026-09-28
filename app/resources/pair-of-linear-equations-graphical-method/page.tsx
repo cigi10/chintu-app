@@ -58,7 +58,7 @@ export default function LinearEquationsGraphicalPage() {
             <Katex display>{"x + 3 = 3y + 9 \\;\\Rightarrow\\; x - 3y = 6"}</Katex>
             <p className="blog-post-p">
               Each condition becomes one linear equation in <Katex>{"x"}</Katex> and{" "}
-              <Katex>{"y"}</Katex> — turning the two equations into two lines and plotting them is
+              <Katex>{"y"}</Katex>, turning the two equations into two lines and plotting them is
               exactly the graphical method.
             </p>
           </div>
@@ -90,7 +90,7 @@ export default function LinearEquationsGraphicalPage() {
             <Katex display>{"\\dfrac{a_1}{a_2} = \\dfrac{5}{7}, \\qquad \\dfrac{b_1}{b_2} = \\dfrac{-4}{6} = -\\dfrac{2}{3}"}</Katex>
             <p className="blog-post-p">
               Since <Katex>{"\\tfrac{5}{7} \\ne -\\tfrac{2}{3}"}</Katex>, the lines intersect at
-              exactly one point — this pair has a unique solution.
+              exactly one point. This pair has a unique solution.
             </p>
           </div>
 
@@ -106,7 +106,7 @@ export default function LinearEquationsGraphicalPage() {
             </p>
             <Katex display>{"\\dfrac{a_1}{a_2} = \\dfrac{2}{4}=\\dfrac{1}{2}, \\quad \\dfrac{b_1}{b_2} = \\dfrac{3}{6}=\\dfrac{1}{2}, \\quad \\dfrac{c_1}{c_2} = \\dfrac{-6}{-12}=\\dfrac{1}{2}"}</Katex>
             <p className="blog-post-p">
-              All three ratios are equal, so the two equations describe the <em>same</em> line —
+              All three ratios are equal, so the two equations describe the <em>same</em> line:
               coincident, with infinitely many solutions.
             </p>
           </div>

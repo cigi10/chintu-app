@@ -54,7 +54,7 @@ export default function PositionVectorPage() {
               in the ratio 2:1, both internally and externally.
             </p>
             <p className="blog-post-p">
-              <strong>Solution — internally</strong> (<Katex>{"m=2, n=1"}</Katex>):
+              <strong>Solution, internally</strong> (<Katex>{"m=2, n=1"}</Katex>):
             </p>
             <Katex display>{"R = \\dfrac{2(-\\hat{i}+\\hat{j}+\\hat{k}) + 1(\\hat{i}+2\\hat{j}-\\hat{k})}{3} = \\dfrac{-\\hat{i}+4\\hat{j}+\\hat{k}}{3}"}</Katex>
             <p className="blog-post-p">
@@ -70,7 +70,7 @@ export default function PositionVectorPage() {
               <Katex>{"P(2,3,4)"}</Katex> and <Katex>{"Q(4,1,-2)"}</Katex>.
             </p>
             <p className="blog-post-p">
-              <strong>Solution:</strong> A midpoint is just the 1:1 case of the section formula —
+              <strong>Solution:</strong> A midpoint is just the 1:1 case of the section formula:
               average each coordinate:
             </p>
             <Katex display>{"\\left(\\dfrac{2+4}{2}, \\dfrac{3+1}{2}, \\dfrac{4-2}{2}\\right) = (3,2,1) = 3\\hat{i}+2\\hat{j}+\\hat{k}"}</Katex>

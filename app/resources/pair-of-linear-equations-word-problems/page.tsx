@@ -64,7 +64,7 @@ export default function LinearEquationsWordProblemsPage() {
             </p>
             <Katex display>{"3x = 63 \\;\\Rightarrow\\; x=21, \\quad y=21+3=24"}</Katex>
             <p className="blog-post-p">
-              Both <Katex>{"(19,16)"}</Katex> and <Katex>{"(21,24)"}</Katex> are valid — the
+              Both <Katex>{"(19,16)"}</Katex> and <Katex>{"(21,24)"}</Katex> are valid, the
               problem&apos;s wording alone doesn&apos;t rule either out.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function LinearEquationsWordProblemsPage() {
             <p className="blog-post-p">
               Substituting back: <Katex>{"40-2y=-300 \\;\\Rightarrow\\; y=170"}</Katex>. Checking
               the first condition: <Katex>{"40+100=140"}</Katex> and{" "}
-              <Katex>{"2(170-100)=140"}</Katex> — matches.
+              <Katex>{"2(170-100)=140"}</Katex>. Matches.
             </p>
           </div>
 
@@ -101,7 +101,7 @@ export default function LinearEquationsWordProblemsPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               Once a word problem gives you a pair of equations, any of the methods covered
-              separately — graphing, substitution, elimination, or cross-multiplication — solves it
+              separately (graphing, substitution, elimination, or cross-multiplication) solves it
               from there.
             </p>
             <ul className="blog-post-related-list">

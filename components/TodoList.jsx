@@ -2,6 +2,7 @@
 import "@/styles/todo.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Button from "@/components/Button";
 import Companion from "@/components/Companion";
 import { addCoins } from "@/lib/coins";
 import { hydrateTodos, saveTodos as persistTodos, getTaskStatus, STATUS } from "@/lib/todos";
@@ -170,7 +171,7 @@ export default function TodoList() {
           onChange={e => setDuration(e.target.value)}
           placeholder="min"
         />
-        <button className="todo__add-btn" onClick={addTask}>Add</button>
+        <Button size="sm" onClick={addTask}>Add</Button>
       </div>
 
       <div className="todo__board">
@@ -233,9 +234,9 @@ export default function TodoList() {
                         <option key={c.id} value={c.id}>{c.label}</option>
                       ))}
                     </select>
-                    <button className="todo__study-btn" onClick={() => startTaskInTimer(task)} title="Start in timer">
+                    <Button size="sm" onClick={() => startTaskInTimer(task)} title="Start in timer">
                       Study
-                    </button>
+                    </Button>
                     <button
                       className="todo__expand-btn"
                       onClick={() => setExpandedId(expandedId === task.id ? null : task.id)}
@@ -263,7 +264,7 @@ export default function TodoList() {
                           onKeyDown={e => e.key === "Enter" && addSubtask(task.id)}
                           placeholder="Add subtask..."
                         />
-                        <button className="todo__add-btn todo__add-btn--small" onClick={() => addSubtask(task.id)}>Add</button>
+                        <Button size="sm" onClick={() => addSubtask(task.id)}>Add</Button>
                       </div>
                     </div>
                   )}

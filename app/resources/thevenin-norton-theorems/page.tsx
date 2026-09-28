@@ -43,13 +43,13 @@ export default function TheveninNortonTheoremsPage() {
               <strong>Thevenin&apos;s theorem:</strong> any linear circuit, viewed from just two
               terminals, behaves exactly like a single voltage source{" "}
               <Katex>{"V_{th}"}</Katex> in series with a single resistor{" "}
-              <Katex>{"R_{th}"}</Katex> — no matter how complicated the actual network behind those
+              <Katex>{"R_{th}"}</Katex>, no matter how complicated the actual network behind those
               terminals is.
             </p>
             <p className="blog-post-p">
               <strong>Norton&apos;s theorem</strong> is the same idea with a current source instead:
               a current source <Katex>{"I_N"}</Katex> in <em>parallel</em> with{" "}
-              <Katex>{"R_N"}</Katex>. The two are directly related — same resistance, and:
+              <Katex>{"R_N"}</Katex>. The two are directly related, same resistance, and:
             </p>
             <Katex display>{"R_N = R_{th}, \\qquad I_N = \\dfrac{V_{th}}{R_{th}}"}</Katex>
             <p className="blog-post-p">
@@ -97,7 +97,7 @@ export default function TheveninNortonTheoremsPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               This same circuit could be solved directly with Kirchhoff&apos;s laws instead of
-              reducing it first — useful for checking a Thevenin/Norton reduction against a
+              reducing it first, useful for checking a Thevenin/Norton reduction against a
               from-scratch calculation.
             </p>
             <ul className="blog-post-related-list">

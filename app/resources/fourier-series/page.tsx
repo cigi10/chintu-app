@@ -54,7 +54,7 @@ export default function FourierSeriesPage() {
             <h2 className="blog-post-heading">A shortcut for odd and even functions</h2>
             <p className="blog-post-p">
               If <Katex>{"f(x)"}</Katex> is <strong>odd</strong> (symmetric about the origin),
-              every <Katex>{"a_n"}</Katex> — including <Katex>{"a_0"}</Katex> — is automatically
+              every <Katex>{"a_n"}</Katex> (including <Katex>{"a_0"}</Katex>) is automatically
               zero, since cosine is even and an odd-times-even integrand over a symmetric interval
               vanishes. Only the sine terms survive.
             </p>

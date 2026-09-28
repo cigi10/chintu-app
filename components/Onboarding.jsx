@@ -2,6 +2,7 @@
 import "@/styles/onboarding.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Button from "@/components/Button";
 import Companion from "@/components/Companion";
 import { setProfile } from "@/lib/storage";
 import { setCompanionName, NAME_CHIPS } from "@/lib/companion";
@@ -181,13 +182,9 @@ export default function Onboarding() {
                 </div>
               </div>
               <div className="onboarding__actions">
-                <button
-                  className="onboarding__cta"
-                  onClick={confirmName}
-                  disabled={!name.trim() || saving}
-                >
+                <Button onClick={confirmName} disabled={!name.trim() || saving} size="lg" fullWidth>
                   {saving ? "Saving..." : "That's the name"}
-                </button>
+                </Button>
               </div>
             </div>
           </>
@@ -208,9 +205,9 @@ export default function Onboarding() {
                 onChange={e => setDday(e.target.value)}
               />
               <div className="onboarding__actions">
-                <button className="onboarding__cta" onClick={finish} disabled={saving}>
+                <Button onClick={finish} disabled={saving} size="lg" fullWidth>
                   {saving ? "Saving..." : dday ? "Start studying" : "Skip for now"}
-                </button>
+                </Button>
               </div>
             </div>
           </>

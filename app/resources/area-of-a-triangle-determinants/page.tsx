@@ -47,7 +47,7 @@ export default function AreaOfATriangleDeterminantsPage() {
             <Katex display>{"\\text{Area} = \\dfrac{1}{2} \\left| \\begin{vmatrix} x_1 & y_1 & 1 \\\\ x_2 & y_2 & 1 \\\\ x_3 & y_3 & 1 \\end{vmatrix} \\right|"}</Katex>
             <p className="blog-post-p">
               The absolute value matters because the determinant itself can come out negative
-              depending on the order the vertices are listed in — area is never negative.
+              depending on the order the vertices are listed in. Area is never negative.
             </p>
           </div>
 

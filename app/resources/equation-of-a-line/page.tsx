@@ -62,7 +62,7 @@ export default function EquationOfALinePage() {
             <Katex display>{"\\dfrac{x-3}{0} = \\dfrac{y+2}{0} = \\dfrac{z+5}{11}"}</Katex>
             <p className="blog-post-p">
               The zeroes in the denominator just mean <Katex>{"x"}</Katex> and{" "}
-              <Katex>{"y"}</Katex> stay fixed at 3 and -2 while <Katex>{"z"}</Katex> varies —
+              <Katex>{"y"}</Katex> stay fixed at 3 and -2 while <Katex>{"z"}</Katex> varies,
               matching a line running straight along the <Katex>{"z"}</Katex>-direction.
             </p>
           </div>

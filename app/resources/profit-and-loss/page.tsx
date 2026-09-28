@@ -41,7 +41,7 @@ export default function ProfitAndLossPage() {
             <Katex display>{"\\text{Profit} = \\text{S.P.} - \\text{C.P.}, \\qquad \\text{Profit \\%} = \\dfrac{\\text{Profit}}{\\text{C.P.}} \\times 100"}</Katex>
             <p className="blog-post-p">
               (S.P. = selling price, C.P. = cost price.) When S.P. is less than C.P., the same
-              formula gives a loss instead — a negative &quot;profit&quot;.
+              formula gives a loss instead, a negative &quot;profit&quot;.
             </p>
           </div>
 

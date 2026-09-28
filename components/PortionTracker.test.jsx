@@ -93,6 +93,41 @@ describe("PortionTracker — tag filtering", () => {
   });
 });
 
+describe("PortionTracker — deleting a section", () => {
+  it("does not delete a subject on the first click, only after confirming", async () => {
+    render(<PortionTracker />);
+    await waitFor(() => expect(screen.getByText("Kinematics")).toBeInTheDocument());
+
+    fireEvent.click(screen.getByRole("button", { name: "Delete Physics" }));
+
+    // Still there — the click only opens the confirmation prompt.
+    expect(screen.getByText("Physics")).toBeInTheDocument();
+    expect(screen.getByText("Are you sure you want to delete this?")).toBeInTheDocument();
+  });
+
+  it("cancels without deleting when Cancel is clicked", async () => {
+    render(<PortionTracker />);
+    await waitFor(() => expect(screen.getByText("Kinematics")).toBeInTheDocument());
+
+    fireEvent.click(screen.getByRole("button", { name: "Delete Physics" }));
+    fireEvent.click(screen.getByText("Cancel"));
+
+    expect(screen.queryByText("Are you sure you want to delete this?")).not.toBeInTheDocument();
+    expect(screen.getByText("Physics")).toBeInTheDocument();
+  });
+
+  it("removes the whole subject once the deletion is confirmed", async () => {
+    render(<PortionTracker />);
+    await waitFor(() => expect(screen.getByText("Kinematics")).toBeInTheDocument());
+
+    fireEvent.click(screen.getByRole("button", { name: "Delete Physics" }));
+    fireEvent.click(screen.getByText("Yes, delete"));
+
+    expect(screen.queryByText("Physics")).not.toBeInTheDocument();
+    expect(screen.queryByText("Kinematics")).not.toBeInTheDocument();
+  });
+});
+
 describe("PortionTracker — custom tags via UI", () => {
   it("lets a user create a brand-new custom tag from the per-topic tag editor, not just from an imported pack", async () => {
     render(<PortionTracker />);

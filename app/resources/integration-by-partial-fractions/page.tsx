@@ -77,7 +77,7 @@ export default function IntegrationByPartialFractionsPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Partial fractions are one technique for a rational integrand — some standard rational
+              Partial fractions are one technique for a rational integrand: some standard rational
               forms have their own ready-made formulas instead.
             </p>
             <ul className="blog-post-related-list">

@@ -35,13 +35,11 @@ export default function CrisisSupportNotice({ onClose }) {
         It sounds like things are really hard right now. You don&apos;t have to handle this alone.
       </p>
       <p className="crisis-support__resource">
-        <strong>India, iCall:</strong> <a href="tel:9152987821">9152987821</a> (free, confidential)
-      </p>
-      <p className="crisis-support__resource crisis-support__resource--secondary">
-        Outside India? Find a local helpline at{" "}
+        Find a local helpline at{" "}
         <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">
           findahelpline.com
-        </a>
+        </a>{" "}
+        (free, confidential)
       </p>
       <button className="crisis-support__dismiss" onClick={onClose} type="button">
         Close

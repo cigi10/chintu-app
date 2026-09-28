@@ -43,7 +43,7 @@ export default function LinearProgrammingPage() {
               points satisfying every constraint at once, and a <strong>feasible solution</strong>{" "}
               is any point in it. The objective function <Katex>{"Z=ax+by"}</Katex> being linear
               means it can only reach its maximum or minimum at a{" "}
-              <strong>corner point</strong> of that region — never somewhere in the interior.
+              <strong>corner point</strong> of that region, never somewhere in the interior.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ export default function LinearProgrammingPage() {
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> The maximum can only be shared by two corners if{" "}
-              <Katex>{"Z"}</Katex> takes the <em>same</em> value at both — otherwise one would beat
+              <Katex>{"Z"}</Katex> takes the <em>same</em> value at both. Otherwise one would beat
               the other. Set them equal:
             </p>
             <Katex display>{"Z(3,4) = 3a+4b, \\qquad Z(0,5) = 5b"}</Katex>

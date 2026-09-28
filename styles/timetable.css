@@ -3,9 +3,6 @@
 
 .timetable__header-bar { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
 
-.timetable__pill-btn { padding: 8px 18px; border-radius: var(--radius-pill); border: 1px solid rgba(255, 255, 255, 0.5); background: var(--color-accent-strong); color: #fff; font-family: var(--font-body); font-weight: 800; font-size: 0.85rem; cursor: pointer; box-shadow: var(--shadow-primary-btn); transition: transform 0.15s ease, filter 0.15s ease; }
-.timetable__pill-btn:hover { transform: translateY(-2px) scale(1.03); filter: brightness(0.92); }
-.timetable__pill-btn:active { transform: scale(0.97); }
 
 .timetable__fill-badge { font-family: var(--font-body); font-weight: 800; font-size: 0.7rem; color: #fff; background: var(--color-primary); border: none; border-radius: var(--radius-pill); padding: 5px 12px; white-space: nowrap; box-shadow: var(--shadow-card); }
 

@@ -49,7 +49,7 @@ export default function SpecialTypesOfMatricesPage() {
             <h2 className="blog-post-heading">Scalar matrix</h2>
             <p className="blog-post-p">
               A <strong>scalar matrix</strong> is a diagonal matrix where every diagonal entry is
-              equal to the same number <Katex>{"k"}</Katex> — a stricter version of &quot;diagonal.&quot;
+              equal to the same number <Katex>{"k"}</Katex>, a stricter version of &quot;diagonal.&quot;
             </p>
             <Katex display>{"\\begin{bmatrix} 5 & 0 & 0 \\\\ 0 & 5 & 0 \\\\ 0 & 0 & 5 \\end{bmatrix}"}</Katex>
           </div>
@@ -58,7 +58,7 @@ export default function SpecialTypesOfMatricesPage() {
             <h2 className="blog-post-heading">Identity matrix</h2>
             <p className="blog-post-p">
               The <strong>identity matrix</strong>, written <Katex>{"I"}</Katex>, is the scalar
-              matrix where that repeated diagonal value is specifically 1 — the strictest of the
+              matrix where that repeated diagonal value is specifically 1, the strictest of the
               three. It behaves like the number 1 does in ordinary multiplication:{" "}
               <Katex>{"AI = IA = A"}</Katex> for any compatible matrix <Katex>{"A"}</Katex>.
             </p>

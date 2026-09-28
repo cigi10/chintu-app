@@ -44,7 +44,7 @@ export default function TypesOfFunctionsPage() {
               inputs always give different outputs, and <strong>onto</strong> (surjective) if every
               element of the codomain actually gets hit by something. A function that&apos;s{" "}
               <strong>both</strong> is called <strong>bijective</strong>. Bijective is exactly the
-              condition a function needs to be <strong>invertible</strong> — to have a genuine
+              condition a function needs to be <strong>invertible</strong>: to have a genuine
               inverse function that undoes it.
             </p>
           </div>
@@ -61,9 +61,9 @@ export default function TypesOfFunctionsPage() {
               <strong>Solution:</strong> Check a couple of small inputs:{" "}
               <Katex>{"f(1) = \\tfrac{1+1}{2} = 1"}</Katex> and{" "}
               <Katex>{"f(2) = \\tfrac{2}{2} = 1"}</Katex>. Two different inputs, <Katex>{"1"}</Katex>{" "}
-              and <Katex>{"2"}</Katex>, give the same output — so <Katex>{"f"}</Katex> is{" "}
+              and <Katex>{"2"}</Katex>, give the same output, so <Katex>{"f"}</Katex> is{" "}
               <strong>not one-one</strong>. But for any target <Katex>{"m \\in \\mathbb{N}"}</Katex>,
-              the even input <Katex>{"n=2m"}</Katex> gives <Katex>{"f(2m) = m"}</Katex> — so every
+              the even input <Katex>{"n=2m"}</Katex> gives <Katex>{"f(2m) = m"}</Katex>, so every
               output is reachable, and <Katex>{"f"}</Katex> <strong>is onto</strong>.
             </p>
           </div>
@@ -82,7 +82,7 @@ export default function TypesOfFunctionsPage() {
             <Katex display>{"y = 4x^2+12x+15 = 4\\left(x+\\dfrac{3}{2}\\right)^2 + 6"}</Katex>
             <p className="blog-post-p">
               Since <Katex>{"x \\in \\mathbb{N}"}</Katex> means <Katex>{"x+\\tfrac{3}{2} > 0"}</Katex>,
-              this squaring step is reversible — each <Katex>{"y"}</Katex> comes from exactly one{" "}
+              this squaring step is reversible: each <Katex>{"y"}</Katex> comes from exactly one{" "}
               <Katex>{"x"}</Katex>, so <Katex>{"f"}</Katex> is invertible on its range. Solving for{" "}
               <Katex>{"x"}</Katex>:
             </p>

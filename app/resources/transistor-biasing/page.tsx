@@ -40,7 +40,7 @@ export default function TransistorBiasingPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Why biasing comes first</h2>
             <p className="blog-post-p">
-              A transistor amplifies an AC signal by riding it on top of a steady DC current —
+              A transistor amplifies an AC signal by riding it on top of a steady DC current,
               without that DC baseline (the <strong>Q-point</strong>, or operating point), a signal
               that dips negative would just cut the transistor off instead of being amplified.
               Biasing circuitry exists purely to set that DC baseline before any signal is
@@ -84,7 +84,7 @@ export default function TransistorBiasingPage() {
             </p>
             <p className="blog-post-p">
               Fixed bias like this is simple but sensitive to <Katex>{"\\beta"}</Katex>, which
-              varies between individual transistors and with temperature — voltage-divider bias is
+              varies between individual transistors and with temperature. Voltage-divider bias is
               the more common practical alternative specifically because it holds the Q-point
               stable even when <Katex>{"\\beta"}</Katex> drifts.
             </p>
@@ -94,7 +94,7 @@ export default function TransistorBiasingPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               Once biased into its active region, a transistor becomes the building block behind
-              op-amp circuits — though an op-amp is normally analyzed as a single ideal component
+              op-amp circuits, though an op-amp is normally analyzed as a single ideal component
               rather than transistor by transistor.
             </p>
             <ul className="blog-post-related-list">

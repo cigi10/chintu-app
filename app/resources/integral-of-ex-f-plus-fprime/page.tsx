@@ -57,7 +57,7 @@ export default function IntegralExFPlusFPrimePage() {
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> Let <Katex>{"f(x) = \\dfrac{1}{x}"}</Katex>. Then{" "}
-              <Katex>{"f'(x) = -\\dfrac{1}{x^2}"}</Katex> — exactly matching the second term. So the
+              <Katex>{"f'(x) = -\\dfrac{1}{x^2}"}</Katex>, exactly matching the second term. So the
               integrand is <Katex>{"e^x[f(x)+f'(x)]"}</Katex>, and:
             </p>
             <Katex display>{"\\int e^x\\left(\\dfrac{1}{x} - \\dfrac{1}{x^2}\\right)dx = e^xf(x) + C = \\dfrac{e^x}{x} + C"}</Katex>
@@ -66,7 +66,7 @@ export default function IntegralExFPlusFPrimePage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              This trick is really integration by parts in disguise — recognizing the pattern
+              This trick is really integration by parts in disguise: recognizing the pattern
               upfront just skips having to run the parts formula.
             </p>
             <ul className="blog-post-related-list">

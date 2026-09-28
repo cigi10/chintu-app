@@ -1,0 +1,37 @@
+[
+  {
+    "term": "RECURSION",
+    "clue": "A programming technique where a function calls itself to solve smaller instances of the same problem.",
+    "topic": "Programming Fundamentals"
+  },
+  {
+    "term": "COMPILER",
+    "clue": "A program that translates source code written in a high-level language into machine code or another lower-level form.",
+    "topic": "Programming Languages"
+  },
+  {
+    "term": "POINTER",
+    "clue": "A variable that stores the memory address of another variable.",
+    "topic": "Memory Management"
+  },
+  {
+    "term": "HASHING",
+    "clue": "The process of mapping data of arbitrary size to a fixed-size value using a hash function, often for fast lookup.",
+    "topic": "Data Structures"
+  },
+  {
+    "term": "DEADLOCK",
+    "clue": "A state where two or more processes are each waiting for a resource held by the other, so none can proceed.",
+    "topic": "Operating Systems"
+  },
+  {
+    "term": "POLYMORPHISM",
+    "clue": "The ability of a single interface or method to take on multiple forms depending on the object calling it.",
+    "topic": "Object-Oriented Programming"
+  },
+  {
+    "term": "ALGORITHM",
+    "clue": "A finite, well-defined sequence of steps for solving a problem or performing a computation.",
+    "topic": "Problem Solving"
+  }
+]

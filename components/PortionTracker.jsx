@@ -2,6 +2,7 @@
 import "@/styles/tracker.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Button from "@/components/Button";
 import Companion from "@/components/Companion";
 import { getGoalsForDate, hydrateGoals } from "@/lib/goals";
 import { addCoins } from "@/lib/coins";
@@ -56,13 +57,30 @@ function formatMinutes(total) {
   return h > 0 ? `${h}h ${m}m logged` : `${m}m logged`;
 }
 
-function makeTopics(names) {
-  return names.map((name, i) => ({
-    id: `${name}-${i}`,
+function makeSubtopics(names, topicKey) {
+  return (names || []).map((name, i) => ({
+    id: `${topicKey}-${name}-${i}`,
     name,
     status: "not-started",
-    subtopics: [],
   }));
+}
+
+// Each entry in a pack's topic array is normally just a topic-name string
+// (every pack except the PES ones). A pack that needs pre-seeded
+// subtopics instead uses the richer { name, subtopics } shape, e.g. PES's
+// "Unit 1" topics each carrying their fixed PPT/Notes/QB/QA/MCQ/Self
+// Notes checklist. Both shapes can be mixed freely within the same pack.
+function makeTopics(entries) {
+  return entries.map((entry, i) => {
+    const name = typeof entry === "string" ? entry : entry.name;
+    const subtopicNames = typeof entry === "string" ? [] : entry.subtopics;
+    return {
+      id: `${name}-${i}`,
+      name,
+      status: "not-started",
+      subtopics: makeSubtopics(subtopicNames, `${name}-${i}`),
+    };
+  });
 }
 
 function buildFreshSubjects(packName) {
@@ -141,6 +159,7 @@ export default function PortionTracker() {
   const [celebrating, setCelebrating] = useState(false);
   const [celebratingSubject, setCelebratingSubject] = useState("");
   const [pendingSwitch, setPendingSwitch] = useState(false);
+  const [pendingDeleteSubject, setPendingDeleteSubject] = useState(null); // subject name awaiting delete confirmation
   const [todayGoals, setTodayGoals]   = useState([]);
 
   const [showNewSubjectForm, setShowNewSubjectForm] = useState(false);
@@ -316,6 +335,18 @@ export default function PortionTracker() {
     setSubjects(prev => ({ ...prev, [subject]: prev[subject].filter(t => t.id !== topicId) }));
   }
 
+  // Deletes an entire subject section (and everything under it). Only
+  // takes effect once confirmed via the pendingDeleteSubject prompt below
+  // — never on the initial click — since this can't be undone.
+  function confirmDeleteSubject() {
+    setSubjects(prev => {
+      const next = { ...prev };
+      delete next[pendingDeleteSubject];
+      return next;
+    });
+    setPendingDeleteSubject(null);
+  }
+
   function toggleExpand(topicId) {
     setExpanded(prev => ({ ...prev, [topicId]: !prev[topicId] }));
   }
@@ -348,19 +379,19 @@ export default function PortionTracker() {
 
       <div className="tracker__top-bar">
         <div className="tracker__exam-badge">{examPackLabel(examType)} · {overall}% complete</div>
-        <button className="tracker__switch-btn" onClick={() => setPendingSwitch(true)}>Switch exam</button>
+        <Button variant="secondary" size="sm" onClick={() => setPendingSwitch(true)}>Switch exam</Button>
       </div>
 
       <div className="tracker__quicklinks">
-        <button className="tracker__quicklink-btn" onClick={() => router.push("/timer")}>
+        <Button variant="ghost" size="sm" onClick={() => router.push("/timer")}>
           Open Timer
-        </button>
-        <button className="tracker__quicklink-btn" onClick={() => router.push("/timetable")}>
+        </Button>
+        <Button variant="ghost" size="sm" onClick={() => router.push("/timetable")}>
           View this week&apos;s plan
-        </button>
-        <button className="tracker__quicklink-btn" onClick={() => router.push("/dashboard")}>
+        </Button>
+        <Button variant="ghost" size="sm" onClick={() => router.push("/dashboard")}>
           Back to Home
-        </button>
+        </Button>
       </div>
 
       {pendingSwitch && (
@@ -426,17 +457,37 @@ export default function PortionTracker() {
           <div className="tracker__subject-header">
             <div className="tracker__subject-name-row">
               <h3 className="tracker__subject-name">{subject}</h3>
-              <button
-                className="tracker__subject-study-btn"
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => router.push(`/timer?subject=${encodeURIComponent(subject)}`)}
               >
                 Study
+              </Button>
+              <button
+                className="tracker__subject-remove"
+                onClick={() => setPendingDeleteSubject(subject)}
+                aria-label={`Delete ${subject}`}
+                title="Delete this section"
+              >
+                ×
               </button>
             </div>
             <span className="tracker__subject-pct">
               {subjectProgress(topics)}% · {formatMinutes(minutesForSubject(sessionLog, topics))}
             </span>
           </div>
+
+          {pendingDeleteSubject === subject && (
+            <div className="tracker__warning">
+              <p>Are you sure you want to delete this?</p>
+              <div className="tracker__warning-actions">
+                <button className="tracker__warning-confirm" onClick={confirmDeleteSubject}>Yes, delete</button>
+                <button className="tracker__warning-cancel" onClick={() => setPendingDeleteSubject(null)}>Cancel</button>
+              </div>
+            </div>
+          )}
+
           <div className="tracker__progress-bar-bg">
             <div className="tracker__progress-bar-fill" style={{ width: `${subjectProgress(topics)}%` }} />
           </div>
@@ -478,12 +529,14 @@ export default function PortionTracker() {
                       </div>
                     </div>
 
-                    <button
+                    <Button
                       className="tracker__topic-study-btn"
+                      variant="ghost"
+                      size="sm"
                       onClick={() => router.push(`/timer?subject=${encodeURIComponent(t.name)}`)}
                     >
                       Study
-                    </button>
+                    </Button>
                     <button
                       className="tracker__topic-tag-btn"
                       onClick={() => setEditingTagsFor(prev => prev === t.id ? null : t.id)}
@@ -524,7 +577,7 @@ export default function PortionTracker() {
                           onKeyDown={e => e.key === "Enter" && createAndApplyTag(subject, t)}
                           placeholder="New tag..."
                         />
-                        <button className="tracker__add-btn" onClick={() => createAndApplyTag(subject, t)}>Add</button>
+                        <Button className="tracker__add-btn" size="sm" onClick={() => createAndApplyTag(subject, t)}>Add</Button>
                       </div>
                     </div>
                   )}
@@ -547,12 +600,14 @@ export default function PortionTracker() {
                           {/* Same wiring as topics: pushes subject to Timer so it logs to
                               session history and shows up in stats. */}
                           <span className="tracker__subtopic-time">{formatMinutes(minutesForTopic(sessionLog, s.name))}</span>
-                          <button
+                          <Button
                             className="tracker__subtopic-study-btn"
+                            variant="ghost"
+                            size="sm"
                             onClick={() => router.push(`/timer?subject=${encodeURIComponent(s.name)}`)}
                           >
                             Study
-                          </button>
+                          </Button>
                         </div>
                       ))}
                       <div className="tracker__subtopic-add-row">
@@ -563,7 +618,7 @@ export default function PortionTracker() {
                           onKeyDown={e => e.key === "Enter" && addSubtopic(subject, t.id)}
                           placeholder="Add subtopic..."
                         />
-                        <button className="tracker__add-btn" onClick={() => addSubtopic(subject, t.id)}>Add</button>
+                        <Button className="tracker__add-btn" size="sm" onClick={() => addSubtopic(subject, t.id)}>Add</Button>
                       </div>
                     </div>
                   )}
@@ -580,7 +635,7 @@ export default function PortionTracker() {
               onKeyDown={e => e.key === "Enter" && addTopicToSubject(subject)}
               placeholder={`Add a topic to ${subject}...`}
             />
-            <button className="tracker__add-btn" onClick={() => addTopicToSubject(subject)}>Add</button>
+            <Button className="tracker__add-btn" size="sm" onClick={() => addTopicToSubject(subject)}>Add</Button>
           </div>
         </div>
       ))}
@@ -613,9 +668,9 @@ export default function PortionTracker() {
               placeholder="First topic (optional)"
             />
             <div className="tracker__new-subject-actions">
-              <button className="tracker__add-btn" onClick={createNewSubject} disabled={!newSubjectName.trim()}>
+              <Button className="tracker__add-btn" onClick={createNewSubject} disabled={!newSubjectName.trim()}>
                 Create subject
-              </button>
+              </Button>
               <button className="tracker__new-subject-cancel" onClick={() => { setShowNewSubjectForm(false); setNewSubjectName(""); setNewSubjectTopic(""); }}>
                 Cancel
               </button>

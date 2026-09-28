@@ -42,17 +42,17 @@ export default function DiffractionPage() {
             <p className="blog-post-p">
               This is the part that trips people up: for a single slit of width{" "}
               <Katex>{"a"}</Katex>, the condition <Katex>{"a\\sin\\theta = n\\lambda"}</Katex>{" "}
-              gives <strong>dark</strong> fringes — the opposite of the double-slit formula on{" "}
+              gives <strong>dark</strong> fringes, the opposite of the double-slit formula on{" "}
               <Link href="/resources/wave-optics-youngs-double-slit">Young&apos;s Double Slit</Link>,
               where the same-looking condition gives <em>bright</em> fringes. The reason: a single
-              slit isn&apos;t two point sources interfering — it&apos;s infinitely many point sources
+              slit isn&apos;t two point sources interfering: it&apos;s infinitely many point sources
               across the slit width interfering with <em>each other</em>, and at these specific
               angles they cancel out in pairs.
             </p>
             <Katex display>{"\\text{Single-slit minima: } a\\sin\\theta = n\\lambda \\qquad (n = \\pm1, \\pm2, \\ldots)"}</Katex>
             <p className="blog-post-p">
               The central band between the first minima on either side is the{" "}
-              <strong>central maximum</strong> — far brighter and wider than any of the side bands.
+              <strong>central maximum</strong>, far brighter and wider than any of the side bands.
             </p>
           </div>
 
@@ -77,7 +77,7 @@ export default function DiffractionPage() {
             <h2 className="blog-post-heading">Diffraction grating</h2>
             <p className="blog-post-p">
               A grating is many equally-spaced slits, spacing <Katex>{"d"}</Katex> apart. Unlike a
-              single slit, this produces sharp, bright <strong>principal maxima</strong> — the same
+              single slit, this produces sharp, bright <strong>principal maxima</strong>, the same
               form as the double-slit condition, just with far more slits reinforcing each other:
             </p>
             <Katex display>{"d\\sin\\theta = n\\lambda"}</Katex>

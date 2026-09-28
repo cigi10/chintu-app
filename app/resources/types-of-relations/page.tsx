@@ -47,7 +47,7 @@ export default function TypesOfRelationsPage() {
               <li><strong>Reflexive</strong> if <Katex>{"(a,a) \\in R"}</Katex> for every <Katex>{"a \\in A"}</Katex>.</li>
               <li><strong>Symmetric</strong> if <Katex>{"(a,b) \\in R"}</Katex> always forces <Katex>{"(b,a) \\in R"}</Katex> too.</li>
               <li><strong>Transitive</strong> if <Katex>{"(a,b) \\in R"}</Katex> and <Katex>{"(b,c) \\in R"}</Katex> together force <Katex>{"(a,c) \\in R"}</Katex>.</li>
-              <li>An <strong>equivalence relation</strong> if it&apos;s all three at once — reflexive, symmetric, and transitive.</li>
+              <li>An <strong>equivalence relation</strong> if it&apos;s all three at once: reflexive, symmetric, and transitive.</li>
             </ul>
           </div>
 
@@ -60,9 +60,9 @@ export default function TypesOfRelationsPage() {
             <p className="blog-post-p">
               <strong>Solution:</strong> <Katex>{"a \\le a"}</Katex> is always true, so{" "}
               <Katex>{"R"}</Katex> is reflexive. If <Katex>{"a \\le b"}</Katex> and{" "}
-              <Katex>{"b \\le c"}</Katex>, then <Katex>{"a \\le c"}</Katex> — so it&apos;s transitive
+              <Katex>{"b \\le c"}</Katex>, then <Katex>{"a \\le c"}</Katex>, so it&apos;s transitive
               too. But <Katex>{"a \\le b"}</Katex> doesn&apos;t force <Katex>{"b \\le a"}</Katex>{" "}
-              (e.g. <Katex>{"1 \\le 2"}</Katex>, but <Katex>{"2 \\le 1"}</Katex> is false) — so{" "}
+              (e.g. <Katex>{"1 \\le 2"}</Katex>, but <Katex>{"2 \\le 1"}</Katex> is false), so{" "}
               <Katex>{"R"}</Katex> is not symmetric, and therefore not an equivalence relation.
             </p>
           </div>
@@ -89,10 +89,10 @@ export default function TypesOfRelationsPage() {
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> Check each pair for its reverse: <Katex>{"(a,a)"}</Katex>{" "}
-              is its own reverse, fine. <Katex>{"(a,b)"}</Katex> needs <Katex>{"(b,a)"}</Katex> —
-              missing. <Katex>{"(a,c)"}</Katex> needs <Katex>{"(c,a)"}</Katex> — already there.{" "}
-              <Katex>{"(b,c)"}</Katex> needs <Katex>{"(c,b)"}</Katex> — missing.{" "}
-              <Katex>{"(c,a)"}</Katex> needs <Katex>{"(a,c)"}</Katex> — already there. So{" "}
+              is its own reverse, fine. <Katex>{"(a,b)"}</Katex> needs <Katex>{"(b,a)"}</Katex>:
+              missing. <Katex>{"(a,c)"}</Katex> needs <Katex>{"(c,a)"}</Katex>: already there.{" "}
+              <Katex>{"(b,c)"}</Katex> needs <Katex>{"(c,b)"}</Katex>: missing.{" "}
+              <Katex>{"(c,a)"}</Katex> needs <Katex>{"(a,c)"}</Katex>: already there. So{" "}
               <Katex>{"(b,a)"}</Katex> and <Katex>{"(c,b)"}</Katex> are exactly what&apos;s missing.
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function TypesOfRelationsPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Relations and functions are covered together in the same NCERT chapter — a function
+              Relations and functions are covered together in the same NCERT chapter: a function
               is really just a special kind of relation.
             </p>
             <ul className="blog-post-related-list">

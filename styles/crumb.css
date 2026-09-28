@@ -22,6 +22,7 @@
 .crumb-streak-label { font-size: 0.78rem; color: var(--color-text-secondary); }
 
 .crumb-clue { font-family: var(--font-body); font-size: 0.95rem; color: var(--color-text-secondary); background: var(--color-surface-alt); border: 1px solid var(--color-border); border-radius: 14px; padding: 12px 16px; margin-bottom: 20px; }
+.crumb-clue-label { font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.72rem; color: var(--color-text-faint); }
 
 .crumb-grid { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
 .crumb-row { display: grid; grid-template-columns: repeat(var(--crumb-cols), 1fr); gap: 6px; }

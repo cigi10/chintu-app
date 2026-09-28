@@ -40,13 +40,13 @@ export default function DeBroglieWavelengthPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Every moving particle has a wavelength</h2>
             <p className="blog-post-p">
-              If light — normally a wave — can behave like a stream of particles (photons), de
+              If light (normally a wave) can behave like a stream of particles (photons), de
               Broglie proposed the reverse should hold too: every moving particle has an associated
               wavelength, set by its momentum <Katex>{"p=mv"}</Katex>:
             </p>
             <Katex display>{"\\lambda = \\dfrac{h}{p} = \\dfrac{h}{mv}"}</Katex>
             <p className="blog-post-p">
-              For everyday objects this wavelength is absurdly small and unobservable — it only
+              For everyday objects this wavelength is absurdly small and unobservable. It only
               becomes significant for very light, fast particles like electrons, which is exactly
               why electron microscopes work.
             </p>
@@ -77,7 +77,7 @@ export default function DeBroglieWavelengthPage() {
             <p className="blog-post-p">For <Katex>{"V=100"}</Katex> V:</p>
             <Katex display>{"\\lambda \\approx \\dfrac{1.226}{\\sqrt{100}} = \\dfrac{1.226}{10} \\approx 0.1226\\text{ nm}"}</Katex>
             <p className="blog-post-p">
-              That&apos;s comparable to the spacing between atoms in a crystal — which is exactly
+              That&apos;s comparable to the spacing between atoms in a crystal, which is exactly
               why fast electrons diffract off crystal lattices the same way X-rays do.
             </p>
           </div>

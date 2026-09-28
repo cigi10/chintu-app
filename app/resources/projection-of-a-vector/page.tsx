@@ -41,7 +41,7 @@ export default function ProjectionOfAVectorPage() {
             <p className="blog-post-p">
               The projection of a vector <Katex>{"\\overrightarrow{AB}"}</Katex> onto a directed
               line <Katex>{"l"}</Katex> is how much of <Katex>{"\\overrightarrow{AB}"}</Katex>{" "}
-              points along <Katex>{"l"}</Katex>&apos;s direction — its &quot;shadow&quot; cast onto that
+              points along <Katex>{"l"}</Katex>&apos;s direction, its &quot;shadow&quot; cast onto that
               line, scaled by <Katex>{"\\cos\\theta"}</Katex> where <Katex>{"\\theta"}</Katex> is
               the angle between them.
             </p>
@@ -59,7 +59,7 @@ export default function ProjectionOfAVectorPage() {
               <Katex>{"\\overrightarrow{AB}"}</Katex> points exactly opposite to the direction of{" "}
               <Katex>{"l"}</Katex>. The projection is then a vector of the same length as{" "}
               <Katex>{"\\overrightarrow{AB}"}</Katex> but pointing the other way along{" "}
-              <Katex>{"l"}</Katex> — exactly <Katex>{"\\overrightarrow{BA}"}</Katex>, the negative
+              <Katex>{"l"}</Katex>, exactly <Katex>{"\\overrightarrow{BA}"}</Katex>, the negative
               of the original vector.
             </p>
           </div>

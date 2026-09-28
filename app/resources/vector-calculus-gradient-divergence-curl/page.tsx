@@ -86,7 +86,7 @@ export default function VectorCalculusPage() {
             </p>
             <Katex display>{"\\nabla\\cdot F = \\dfrac{\\partial}{\\partial x}(y) + \\dfrac{\\partial}{\\partial y}(-x) + \\dfrac{\\partial}{\\partial z}(0) = 0+0+0 = 0"}</Katex>
             <p className="blog-post-p">
-              Zero divergence makes sense here — this field just rotates points around the origin
+              Zero divergence makes sense here: this field just rotates points around the origin
               without anything flowing in or out.
             </p>
             <p className="blog-post-p">
@@ -95,7 +95,7 @@ export default function VectorCalculusPage() {
             <Katex display>{"\\nabla\\times F = \\left(\\dfrac{\\partial(0)}{\\partial y}-\\dfrac{\\partial(-x)}{\\partial z},\\; \\dfrac{\\partial(y)}{\\partial z}-\\dfrac{\\partial(0)}{\\partial x},\\; \\dfrac{\\partial(-x)}{\\partial x}-\\dfrac{\\partial(y)}{\\partial y}\\right)"}</Katex>
             <Katex display>{"= (0-0,\\; 0-0,\\; -1-1) = (0,\\,0,\\,-2)"}</Katex>
             <p className="blog-post-p">
-              A nonzero curl, entirely along the <Katex>{"z"}</Katex>-axis — exactly what you&apos;d
+              A nonzero curl, entirely along the <Katex>{"z"}</Katex>-axis, exactly what you&apos;d
               expect from a field that rotates around that axis.
             </p>
           </div>
@@ -103,7 +103,7 @@ export default function VectorCalculusPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Every partial derivative used here follows the same rules covered on their own —
+              Every partial derivative used here follows the same rules covered on their own,
               worth a look if any step above wasn&apos;t obvious.
             </p>
             <ul className="blog-post-related-list">

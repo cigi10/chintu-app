@@ -43,7 +43,7 @@ export default function WaveOpticsYoungsDoubleSlitPage() {
               Light from two narrow, closely-spaced slits (separation <Katex>{"d"}</Katex>) spreads
               out and overlaps on a screen a distance <Katex>{"D"}</Katex> away. At a point on the
               screen a height <Katex>{"y"}</Katex> from the centre, the two waves have traveled
-              slightly different distances — a <strong>path difference</strong> that, for{" "}
+              slightly different distances, a <strong>path difference</strong> that, for{" "}
               <Katex>{"D \\gg d"}</Katex>, works out to:
             </p>
             <Katex display>{"\\Delta = \\dfrac{yd}{D}"}</Katex>
@@ -53,8 +53,8 @@ export default function WaveOpticsYoungsDoubleSlitPage() {
             <h2 className="blog-post-heading">Bright and dark fringes</h2>
             <p className="blog-post-p">
               Where the path difference is a whole number of wavelengths, the two waves arrive in
-              phase and reinforce — a bright fringe. Where it&apos;s a half-integer number of
-              wavelengths, they arrive out of phase and cancel — a dark fringe:
+              phase and reinforce: a bright fringe. Where it&apos;s a half-integer number of
+              wavelengths, they arrive out of phase and cancel: a dark fringe:
             </p>
             <Katex display>{"\\text{Bright: } \\Delta = n\\lambda, \\qquad \\text{Dark: } \\Delta = \\left(n+\\dfrac{1}{2}\\right)\\lambda \\qquad (n = 0, \\pm1, \\pm2, \\ldots)"}</Katex>
           </div>
@@ -91,7 +91,7 @@ export default function WaveOpticsYoungsDoubleSlitPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              A single slit, rather than two, produces a strikingly different pattern — its dark
+              A single slit, rather than two, produces a strikingly different pattern: its dark
               fringes use the same-looking formula as these bright ones, for the opposite reason.
             </p>
             <ul className="blog-post-related-list">

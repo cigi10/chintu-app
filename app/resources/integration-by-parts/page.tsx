@@ -65,7 +65,7 @@ export default function IntegrationByPartsPage() {
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Integration by parts is one of two main techniques for evaluating an integral —
+              Integration by parts is one of two main techniques for evaluating an integral,
               definite integrals use the same antiderivative work, just with limits applied at the
               end.
             </p>

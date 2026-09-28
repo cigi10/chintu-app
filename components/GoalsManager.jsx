@@ -1,6 +1,7 @@
 "use client";
 import "@/styles/goals.css";
 import { useState, useEffect } from "react";
+import Button from "@/components/Button";
 import Companion from "@/components/Companion";
 import { loadGoals, saveGoals, getGoalsForWeek, hydrateGoals } from "@/lib/goals";
 import { setSubjectColor, hydrateSubjectColors } from "@/lib/subjectColors";
@@ -65,9 +66,9 @@ export default function GoalsManager() {
           <h1 className="goals__title">Goals</h1>
           <p className="goals__subtitle">These show up automatically on your Timetable and Tracker.</p>
         </div>
-        <button className="goals__add-btn" onClick={openNewForm}>
+        <Button onClick={openNewForm} size="sm">
           {addingNew ? "Cancel" : "+ New Goal"}
-        </button>
+        </Button>
       </div>
 
       <div className="goals__companion-wrap">
