@@ -59,6 +59,13 @@
       ]
     },
     {
+      "heading": null,
+      "figure": {
+        "name": "percentile-shifts",
+        "caption": "Session 1 from the worked example: Asha's lower raw score earns the higher percentile because her shift was harder."
+      }
+    },
+    {
       "heading": "What normalization does not do",
       "body": "It does not add bonus marks to students in a hard shift or subtract marks from students in an easy one. Your raw marks are never changed. NTA has stated plainly that \"there is no equivalence between raw scores and normalised scores\", which is why a marks-versus-percentile table only ever describes one particular shift. It also doesn't compare you directly against students in other shifts. The cross-shift comparison happens only through the assumption that every shift's pool is equally able. And a percentile is not a percentage: 98 percentile does not mean you scored 98% of the marks. It means 98% of your shift scored the same as you or less."
     },

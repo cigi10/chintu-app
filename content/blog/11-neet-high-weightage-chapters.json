@@ -1,7 +1,7 @@
 {
   "slug": "11-neet-high-weightage-chapters",
-  "title": "11 NEET High-Weightage Chapters to Prioritize When Time Is Short",
-  "description": "NEET doesn't publish an official chapter-by-chapter weightage, but years of previous-paper analysis point to 11 chapters that show up consistently. Here's the list, and how to use it without over-relying on it.",
+  "title": "12 NEET High-Weightage Chapters to Prioritize When Time Is Short",
+  "description": "NEET doesn't publish an official chapter-by-chapter weightage, but years of previous-paper analysis point to 12 chapters that show up consistently. Here's the list, and how to use it without over-relying on it.",
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
   "date": "2026-09-23",
@@ -21,6 +21,80 @@
     {
       "heading": "Physics' high-frequency areas",
       "body": "Motion of a System of Particles (around 7%), Current Electricity, and Semiconductors (each around 6%) are the chapters that recur most in previous-year analysis."
+    },
+    {
+      "heading": null,
+      "table": {
+        "caption": "The 12 chapters, with approximate shares where analyses agree on one",
+        "columns": [
+          "Subject",
+          "Chapter",
+          "Approximate share"
+        ],
+        "rows": [
+          [
+            "Biology",
+            "Molecular Basis of Inheritance",
+            "Frequent (Genetics)"
+          ],
+          [
+            "Biology",
+            "Cell Cycle and Cell Division",
+            "Frequent"
+          ],
+          [
+            "Biology",
+            "Biotechnology",
+            "Frequent"
+          ],
+          [
+            "Biology",
+            "Animal Kingdom",
+            "Frequent"
+          ],
+          [
+            "Chemistry",
+            "Chemical Bonding",
+            "about 8%"
+          ],
+          [
+            "Chemistry",
+            "Aldehydes, Ketones and Carboxylic Acids",
+            "about 6%"
+          ],
+          [
+            "Chemistry",
+            "Equilibrium",
+            "about 6%"
+          ],
+          [
+            "Chemistry",
+            "Basic Principles of Organic Chemistry",
+            "Above average"
+          ],
+          [
+            "Chemistry",
+            "Chemical Kinetics",
+            "Above average"
+          ],
+          [
+            "Physics",
+            "Motion of a System of Particles",
+            "about 7%"
+          ],
+          [
+            "Physics",
+            "Current Electricity",
+            "about 6%"
+          ],
+          [
+            "Physics",
+            "Semiconductors",
+            "about 6%"
+          ]
+        ],
+        "rowHeaders": false
+      }
     },
     {
       "heading": "How much this actually covers",

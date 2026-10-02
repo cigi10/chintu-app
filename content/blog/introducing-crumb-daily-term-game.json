@@ -15,6 +15,17 @@
       "body": "Crumb works like a letter-guessing puzzle you may have played before: guess a word in 6 tries, and after each guess, every letter gets colored feedback showing whether it's in the right spot, in the word but the wrong spot, or not in the word at all. The difference is what you're guessing. Every target word is a real, domain-specific technical term, pulled from an actual exam syllabus, not a common English word picked for letter variety. A clue (the term's topic, e.g. \"Cell Division\" or \"Circuit Theory\") is shown throughout the puzzle, so the challenge is genuinely about knowing the term, not about guessing blind."
     },
     {
+      "heading": null,
+      "image": {
+        "src": "/blog/crumb-mid-play.png",
+        "alt": "A Crumb NEET puzzle three guesses in, topic Biomolecules: PURINE, AMINES and LYSINE are entered with each letter coloured to show whether it's in the right spot, in the word elsewhere, or not in the word",
+        "width": 880,
+        "height": 1574,
+        "maxWidth": 340,
+        "caption": "Three guesses into a NEET puzzle. Green means the right letter in the right spot, tan means it's in the term but elsewhere, grey means it's not in the term. The on-screen keyboard tracks every letter you've tried."
+      }
+    },
+    {
       "heading": "Why a clue, when the original format doesn't have one",
       "body": "A pure letter-frequency guessing game tests something different from subject knowledge: it rewards knowing which letters are statistically common in English, not knowing what a term means. For a word like ESTOPPEL or MITOCHONDRIA, guessing blind from zero information isn't a useful test of anything. Showing the topic up front shifts the challenge to where it belongs: once you know which corner of the syllabus it's from, can you land on the exact term, spelled correctly, under a limited number of guesses."
     },
@@ -29,6 +40,17 @@
     {
       "heading": null,
       "body": "Your streak and progress are saved automatically, and once you finish a puzzle, you can copy a shareable result grid (built from simple block characters, no account required to view or copy it) that shows your guess pattern without giving away the actual word. Head to the games hub to pick a domain and try today's puzzle."
+    },
+    {
+      "heading": null,
+      "image": {
+        "src": "/blog/crumb-share-grid.png",
+        "alt": "A copied Crumb result reading Crumb: NEET 4/6, followed by four rows of square symbols showing the guess pattern and a link to the game",
+        "width": 732,
+        "height": 370,
+        "maxWidth": 366,
+        "caption": "What \"Copy result\" puts on your clipboard: your guess pattern in plain square symbols, without giving the term away."
+      }
     }
   ],
   "relatedLinks": [

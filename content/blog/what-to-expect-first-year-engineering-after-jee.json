@@ -23,6 +23,50 @@
       "body": "JEE Physics stays fairly theoretical. First-year engineering physics and basic electronics start connecting theory to actual devices and circuits: how a diode's exponential current-voltage relationship works, how Kirchhoff's laws actually solve a multi-loop circuit, why a transistor needs a specific DC bias point before it can amplify anything. This is closer to how the concepts get used in practice, but it does mean memorized JEE formulas alone won't carry you the way they might have before."
     },
     {
+      "heading": null,
+      "table": {
+        "caption": "Where first-year topics build on JEE",
+        "columns": [
+          "JEE topic",
+          "First-year topic",
+          "What's new"
+        ],
+        "rows": [
+          [
+            "Calculus",
+            "Laplace transforms and Fourier series",
+            "Solving a problem by moving it into a different domain"
+          ],
+          [
+            "Matrices and determinants",
+            "Eigenvalues and eigenvectors",
+            "Matrices as transformations, not just arrays to evaluate"
+          ],
+          [
+            "Differentiation",
+            "Partial differentiation",
+            "Functions of several variables at once"
+          ],
+          [
+            "Vectors",
+            "Vector calculus: gradient, divergence, curl",
+            "Vectors that change from point to point in space"
+          ],
+          [
+            "Current electricity",
+            "Network theorems (Thevenin, Norton)",
+            "Simplifying whole circuits systematically"
+          ],
+          [
+            "Semiconductors",
+            "Diodes, transistor biasing, op-amps",
+            "Real device behaviour and design choices"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
       "heading": "The practical adjustment that actually helps",
       "body": "The students who adjust fastest tend to treat first-year subjects the same way they treated JEE prep: work through the derivation yourself instead of just memorizing the final formula, and actually verify a worked example rather than trusting it on sight: substitute a solution back into the original equation, check a circuit's currents against both loop equations, confirm a result two independent ways when possible. That habit transfers directly and is arguably more valuable in a derivation-heavy first year than it was for JEE's faster-paced problem format."
     },

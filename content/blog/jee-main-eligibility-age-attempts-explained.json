@@ -19,6 +19,39 @@
       "body": "You're eligible if you passed Class 12 (or equivalent) in the two years immediately before the exam, or are appearing in it the same year as the exam. Since JEE Main runs twice a year (January and April sessions), this works out to a maximum of roughly six attempts spread across three consecutive years from when you passed Class 12. The actual constraint is years-since-passing, not a birth-year cutoff."
     },
     {
+      "heading": null,
+      "table": {
+        "caption": "JEE Main eligibility by Class 12 year (two sessions a year)",
+        "columns": [
+          "Class 12 passed, or appearing",
+          "JEE Main years you can sit",
+          "Most attempts possible"
+        ],
+        "rows": [
+          [
+            "2025",
+            "2025, 2026 and 2027",
+            "6"
+          ],
+          [
+            "2026",
+            "2026, 2027 and 2028",
+            "6"
+          ],
+          [
+            "2027 (appearing)",
+            "2027, 2028 and 2029",
+            "6"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "A worked example",
+      "body": "Priya passed Class 12 in 2025. She could sit JEE Main in both the January and April sessions of 2025 (while appearing for Class 12), 2026 and 2027, which is six attempts at most. JEE Main 2028 is out of reach for her, because 2025 is more than two years before 2028. If she skipped 2025, she would still have 2026 and 2027 left; unused years don't carry forward. NTA sets eligibility in each cycle's information bulletin, so check the current year's rules before relying on a past pattern."
+    },
+    {
       "heading": "No minimum Class 12 score to sit JEE Main itself",
       "body": "There's no minimum percentage required in Class 12 to apply for or take JEE Main itself. You can appear with any score. Where a score threshold does apply is admission. NITs, IIITs and GFTIs, the institutes filled through JEE Main ranks in JoSAA, require either at least 75% aggregate in Class 12 (65% for SC, ST and PwD candidates) or a place in the top 20 percentile of successful candidates in your own board, category-wise. Either condition is enough, which helps students from boards that mark harshly. IITs apply the same Class 12 performance criterion to candidates admitted through JEE Advanced: 75% aggregate (65% for SC, ST and PwD) or top 20 percentile in your board, as set out in the JEE Advanced information brochure. None of this affects whether you can sit JEE Main. It only matters once you're using your rank to secure a seat."
     },

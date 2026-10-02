@@ -15,6 +15,43 @@
       "body": "NEET runs 180 questions for 720 total marks, split as: Biology gets 90 questions (360 marks,50% of the paper), while Physics and Chemistry get 45 questions each (180 marks, 25% each). Biology alone is worth as much as Physics and Chemistry combined."
     },
     {
+      "heading": null,
+      "table": {
+        "caption": "NEET UG marks split, and how far NCERT carries each subject",
+        "columns": [
+          "Subject",
+          "Questions",
+          "Marks",
+          "Share",
+          "How far NCERT gets you"
+        ],
+        "rows": [
+          [
+            "Biology",
+            "90",
+            "360",
+            "50%",
+            "Close to sufficient, if read line by line"
+          ],
+          [
+            "Chemistry",
+            "45",
+            "180",
+            "25%",
+            "Inorganic and physical: most of the way. Organic: needs extra practice"
+          ],
+          [
+            "Physics",
+            "45",
+            "180",
+            "25%",
+            "The concepts only; problem practice has to come from elsewhere"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
       "heading": "Biology: NCERT is close to sufficient",
       "body": "NEET Biology questions are famously close to NCERT's actual wording, including diagrams, footnotes, and the small factual asides many students skip on a first read. Because Biology is half your total score, thoroughness here has the highest leverage in the entire exam. A student who has genuinely internalized every line of NCERT Biology (not skimmed it once) is already competitive on the single largest chunk of the paper. The gap for most students isn't needing material beyond NCERT, it's not having actually covered all of NCERT closely enough (diagrams, exceptions, and the in-between sentences get skipped far more than the bolded definitions)."
     },

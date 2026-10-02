@@ -16,16 +16,57 @@
     },
     {
       "heading": null,
-      "list": [
-        "1. Higher NTA score (subject percentile) in Mathematics",
-        "2. Still tied? Higher NTA score in Physics",
-        "3. Still tied? Higher NTA score in Chemistry",
-        "4. Still tied? A lower proportion of incorrect answers to correct answers across all subjects",
-        "5. Still tied? A lower proportion of incorrect to correct answers in Mathematics",
-        "6. Still tied? A lower proportion of incorrect to correct answers in Physics",
-        "7. Still tied? A lower proportion of incorrect to correct answers in Chemistry",
-        "8. Still tied after all of that? Both candidates are given the same rank"
-      ]
+      "table": {
+        "caption": "NTA's tie-breaking order for JEE Main Paper 1, since 2025",
+        "columns": [
+          "Step",
+          "If still tied, compare",
+          "Ranks higher"
+        ],
+        "rows": [
+          [
+            "1",
+            "NTA score in Mathematics",
+            "Higher score"
+          ],
+          [
+            "2",
+            "NTA score in Physics",
+            "Higher score"
+          ],
+          [
+            "3",
+            "NTA score in Chemistry",
+            "Higher score"
+          ],
+          [
+            "4",
+            "Incorrect to correct answers, all subjects",
+            "Lower proportion"
+          ],
+          [
+            "5",
+            "Incorrect to correct answers, Mathematics",
+            "Lower proportion"
+          ],
+          [
+            "6",
+            "Incorrect to correct answers, Physics",
+            "Lower proportion"
+          ],
+          [
+            "7",
+            "Incorrect to correct answers, Chemistry",
+            "Lower proportion"
+          ],
+          [
+            "8",
+            "Nothing left to compare",
+            "Same rank for both"
+          ]
+        ],
+        "rowHeaders": true
+      }
     },
     {
       "heading": "Where this order comes from",

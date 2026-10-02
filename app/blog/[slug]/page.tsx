@@ -6,6 +6,7 @@ import JsonLd from "@/components/JsonLd";
 import TagChips from "@/components/TagChips";
 import BlogTable, { type BlogTableData } from "@/components/BlogTable";
 import BlogViewCount from "@/components/BlogViewCount";
+import { BlogFigure, BlogImage, type BlogFigureData, type BlogImageData } from "@/components/BlogFigure";
 import { getBlogPost, getBlogSlugs } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
@@ -14,13 +15,16 @@ type BlogPostPageProps = {
 };
 
 // A content section has exactly one of: a `body` string, a `list` of
-// strings, or a `table` (see components/BlogTable.tsx for its shape).
+// strings, a `table` (components/BlogTable.tsx), a named inline-SVG
+// `figure` (components/blog-figures/) or an `image` from /public.
 // lib/blogPosts.test.js checks every post against this.
 type BlogPostSection = {
   heading: string | null;
   body?: string;
   list?: string[];
   table?: BlogTableData;
+  figure?: BlogFigureData;
+  image?: BlogImageData;
 };
 
 // Optional: a post can point at one or more pages it's introducing (e.g. a
@@ -97,6 +101,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {section.heading && <h2 className="blog-post-heading">{section.heading}</h2>}
               {section.table ? (
                 <BlogTable table={section.table} id={`${post.slug}-table-${i}`} />
+              ) : section.figure ? (
+                <BlogFigure figure={section.figure} />
+              ) : section.image ? (
+                <BlogImage image={section.image} />
               ) : section.list ? (
                 <ul className="blog-post-list">
                   {section.list.map((item, j) => (

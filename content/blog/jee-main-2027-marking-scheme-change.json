@@ -36,6 +36,45 @@
       ]
     },
     {
+      "heading": null,
+      "table": {
+        "caption": "JEE Main Paper 1 pattern by year, per subject (MCQs have always been +4 / -1)",
+        "columns": [
+          "Year",
+          "Section A: MCQs",
+          "Section B: numericals",
+          "Wrong numerical answer"
+        ],
+        "rows": [
+          [
+            "2020",
+            "20, all compulsory",
+            "5, all compulsory",
+            "0, no penalty"
+          ],
+          [
+            "2021",
+            "20, all compulsory",
+            "10 given, answer any 5",
+            "0, no penalty"
+          ],
+          [
+            "2022 to 2024",
+            "20, all compulsory",
+            "10 given, answer any 5",
+            "-1"
+          ],
+          [
+            "2025 onward",
+            "20, all compulsory",
+            "5, all compulsory",
+            "-1"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
       "heading": "Why negative marking hits numericals harder than MCQs",
       "body": "The penalty is the same -1 either way, but the odds behind a guess are not. On an MCQ, a blind guess has a 1-in-4 chance at +4, which works out to an expected +0.25 marks, slightly better than leaving it blank (the same maths behind guessing strategy on any +4/-1 exam). A numerical-value question has no options to choose from. You either compute the right value or you don't, so a rough estimate has a very small chance of being exactly right and a large chance of costing a mark. Under the current scheme, submitting a number you aren't confident in is almost always a losing bet."
     },

@@ -11,6 +11,43 @@
       "body": "A lot of JEE/NEET advice gets passed down from senior to junior, coaching batch to coaching batch, without anyone re-checking it against the current actual rule. Some of it was never quite right. Some of it used to be true and quietly stopped being true when a pattern changed. Here are six specific ones, checked."
     },
     {
+      "heading": null,
+      "table": {
+        "caption": "The six myths at a glance",
+        "columns": [
+          "Myth",
+          "What's actually true"
+        ],
+        "rows": [
+          [
+            "Sitting JEE Main Session 2 is risky",
+            "Only your better session counts, so it can't lower your result"
+          ],
+          [
+            "Numericals have no negative marking",
+            "A wrong numerical answer has cost -1 since 2022"
+          ],
+          [
+            "NTA Score and percentile are different numbers",
+            "They're the same number under two names"
+          ],
+          [
+            "With negative marking, never guess",
+            "Guessing pays when your chance of being right is above 20%"
+          ],
+          [
+            "Age or registration order breaks a tie",
+            "Since 2025, ties go to subject scores, then accuracy"
+          ],
+          [
+            "Pick AIQ or State Quota, not both",
+            "You can register for both, but an AIQ Round 3 seat ends your state counselling"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
       "heading": "Myth 1: \"Attempting JEE Main's second session is risky if you already did okay in the first\"",
       "body": "Reality: this is backwards. NTA automatically takes the better of your two session percentiles for your final rank, not an average, and never the worse one. A weak second attempt cannot pull your first attempt's score down. Attempting the second session is close to a free option: your downside is capped at whatever your best session already earned you."
     },

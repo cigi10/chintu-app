@@ -19,6 +19,13 @@
       "body": "CSAB (Central Seat Allocation Board) runs separately, after JoSAA's rounds are done, specifically to fill seats that stayed vacant at NITs, IIITs, and GFTIs. IITs don't participate in CSAB at all. If your target is an IIT, JoSAA is the entire process for you. CSAB typically runs just 2 special rounds, and choice filling there is based only on whatever seats are still vacant after JoSAA finished (a smaller, different pool, not a second shot at the same full seat matrix)."
     },
     {
+      "heading": null,
+      "figure": {
+        "name": "josaa-to-csab",
+        "caption": "How a JEE rank becomes a seat: JoSAA's rounds first, then CSAB's special rounds for NIT+ seats still vacant. IITs only take part in JoSAA."
+      }
+    },
+    {
       "heading": "The detail that catches people off guard",
       "body": "Registering for JoSAA does not automatically register you for CSAB. They're run by different bodies, on different portals, and CSAB requires a fresh registration and a separate Special Round Enrollment Fee, even if you already went through the entire JoSAA process. Missing this second registration because you assumed it carried over is a completely avoidable way to lose access to seats that might otherwise have been available to you."
     },

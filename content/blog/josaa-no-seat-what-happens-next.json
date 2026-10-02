@@ -5,11 +5,21 @@
   "author": "Studyloaf Team",
   "readingTime": "7 min read",
   "date": "2026-10-02",
-  "tags": ["jee", "counselling"],
+  "tags": [
+    "jee",
+    "counselling"
+  ],
   "content": [
     {
       "heading": null,
       "body": "Seeing \"not allotted\" after JoSAA Round 1 is one of the most stressful moments of the whole JEE cycle, and one of the most misunderstood. Plenty of candidates get no seat in the first round and a seat in a later one, because closing ranks move as other students freeze, float, slide and withdraw. What decides the outcome is mostly whether you know what each round expects of you. This walkthrough follows the Joint Seat Allocation Authority's official FAQ and Business Rules for JoSAA 2026. The structure is stable from year to year, but rounds, dates and fees are revised annually, so check the current year's documents on the JoSAA portal before acting on anything here. For the bigger picture of how JoSAA and CSAB fit together, see our post on JoSAA vs CSAB."
+    },
+    {
+      "heading": null,
+      "figure": {
+        "name": "josaa-round",
+        "caption": "What happens in every JoSAA round, based on JoSAA 2026's rules. The sections below go through each step."
+      }
     },
     {
       "heading": "Before Round 1: the choice list you lock is the one used in every round",
@@ -75,8 +85,17 @@
     }
   ],
   "relatedLinks": [
-    { "label": "Free timetable generator", "href": "/tools/timetable-generator" },
-    { "label": "Read next: JoSAA vs CSAB, how JEE counselling works", "href": "/blog/josaa-vs-csab-counselling-explained" },
-    { "label": "Read next: Should you drop a year for JEE or NEET?", "href": "/blog/should-you-drop-a-year-for-jee-neet" }
+    {
+      "label": "Free timetable generator",
+      "href": "/tools/timetable-generator"
+    },
+    {
+      "label": "Read next: JoSAA vs CSAB, how JEE counselling works",
+      "href": "/blog/josaa-vs-csab-counselling-explained"
+    },
+    {
+      "label": "Read next: Should you drop a year for JEE or NEET?",
+      "href": "/blog/should-you-drop-a-year-for-jee-neet"
+    }
   ]
 }

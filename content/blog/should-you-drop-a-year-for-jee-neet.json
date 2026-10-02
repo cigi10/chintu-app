@@ -16,6 +16,13 @@
     },
     {
       "heading": null,
+      "figure": {
+        "name": "score-trends",
+        "caption": "Three illustrative mock-score trends over 8 mocks. The dashed line joins the first and last mock; it's the direction, not any single score, that tells you which pattern you're in."
+      }
+    },
+    {
+      "heading": null,
       "list": [
         "Steadily rising, even if slowly: this is the strongest case against dropping. A rising trend with more study time left before the actual exam often means you were already close to your ceiling for this attempt and just needed a bit more runway, which the remaining weeks might already provide.",
         "Flat, no real movement for 2+ months: this is the case that most often justifies a structural change, whether that's a dropped year or a different study approach entirely, because more of the same routine hasn't been producing more score.",

@@ -5,7 +5,10 @@
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
   "date": "2026-10-02",
-  "tags": ["placements", "career-planning"],
+  "tags": [
+    "placements",
+    "career-planning"
+  ],
   "content": [
     {
       "heading": null,
@@ -33,6 +36,50 @@
         "Role, team and location. The same company can mean very different work depending on the team, and location changes what the salary is really worth",
         "Joining date and conditions, such as clearing your final semester, minimum grades or background verification"
       ]
+    },
+    {
+      "heading": null,
+      "table": {
+        "caption": "Two illustrative offers: the higher CTC isn't the bigger first-year income",
+        "columns": [
+          "",
+          "Offer A (PPO)",
+          "Offer B (campus)"
+        ],
+        "rows": [
+          [
+            "Fixed annual pay",
+            "₹11 lakh",
+            "₹9 lakh"
+          ],
+          [
+            "Joining bonus, one time",
+            "₹1.5 lakh",
+            "₹2 lakh"
+          ],
+          [
+            "Variable pay, if paid in full",
+            "₹1.5 lakh",
+            "₹1 lakh"
+          ],
+          [
+            "Stock grants",
+            "None",
+            "₹4 lakh, vesting over 4 years"
+          ],
+          [
+            "Headline CTC",
+            "₹14 lakh",
+            "₹16 lakh"
+          ],
+          [
+            "Year-one income",
+            "₹14 lakh",
+            "₹13 lakh (₹1 lakh of stock vests)"
+          ]
+        ],
+        "rowHeaders": true
+      }
     },
     {
       "heading": "A four-question framework",
@@ -71,7 +118,13 @@
     }
   ],
   "relatedLinks": [
-    { "label": "Play Crumb: Placements and Aptitude", "href": "/games/crumb/placements-aptitude" },
-    { "label": "Free study timetable generator", "href": "/tools/timetable-generator" }
+    {
+      "label": "Play Crumb: Placements and Aptitude",
+      "href": "/games/crumb/placements-aptitude"
+    },
+    {
+      "label": "Free study timetable generator",
+      "href": "/tools/timetable-generator"
+    }
   ]
 }

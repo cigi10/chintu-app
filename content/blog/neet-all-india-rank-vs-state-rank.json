@@ -5,7 +5,10 @@
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
   "date": "2026-10-02",
-  "tags": ["neet", "counselling"],
+  "tags": [
+    "neet",
+    "counselling"
+  ],
   "content": [
     {
       "heading": null,
@@ -42,12 +45,46 @@
     },
     {
       "heading": null,
-      "list": [
-        "All India Quota, government MBBS: the last open-category seat closed around AIR 21,000 in Round 1, rising to about AIR 25,000 in Round 2 and about AIR 26,000 by Round 3",
-        "Uttar Pradesh state quota, government MBBS: final closing rank reported around AIR 32,000 to 33,000",
-        "Maharashtra state quota, government MBBS: final closing rank reported around AIR 47,500",
-        "The pattern is what matters. In 2025 a general-category candidate around AIR 30,000 was likely outside AIQ government MBBS range but inside several states' state-quota range"
-      ]
+      "table": {
+        "caption": "Approximate 2025 closing ranks, general category (open) government MBBS",
+        "columns": [
+          "Quota",
+          "Round",
+          "Closing rank (approx.)"
+        ],
+        "rows": [
+          [
+            "All India Quota",
+            "Round 1",
+            "AIR 21,000"
+          ],
+          [
+            "All India Quota",
+            "Round 2",
+            "AIR 25,000"
+          ],
+          [
+            "All India Quota",
+            "Round 3",
+            "AIR 26,000"
+          ],
+          [
+            "Uttar Pradesh state quota",
+            "Final",
+            "AIR 32,000 to 33,000"
+          ],
+          [
+            "Maharashtra state quota",
+            "Final",
+            "AIR 47,500"
+          ]
+        ],
+        "rowHeaders": false
+      }
+    },
+    {
+      "heading": null,
+      "body": "The pattern is what matters. In 2025 a general-category candidate around AIR 30,000 was likely outside AIQ government MBBS range but inside several states' state-quota range."
     },
     {
       "heading": "Why state cutoffs can be so different from AIQ",
@@ -74,8 +111,17 @@
     }
   ],
   "relatedLinks": [
-    { "label": "NEET UG 2027 countdown", "href": "/countdown/neet-2027" },
-    { "label": "Read next: NEET counselling, AIQ vs State Quota", "href": "/blog/neet-counselling-aiq-vs-state-quota" },
-    { "label": "Read next: Is NCERT enough for NEET?", "href": "/blog/is-ncert-enough-for-neet" }
+    {
+      "label": "NEET UG 2027 countdown",
+      "href": "/countdown/neet-2027"
+    },
+    {
+      "label": "Read next: NEET counselling, AIQ vs State Quota",
+      "href": "/blog/neet-counselling-aiq-vs-state-quota"
+    },
+    {
+      "label": "Read next: Is NCERT enough for NEET?",
+      "href": "/blog/is-ncert-enough-for-neet"
+    }
   ]
 }

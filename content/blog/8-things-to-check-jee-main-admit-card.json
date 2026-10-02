@@ -16,16 +16,57 @@
     },
     {
       "heading": null,
-      "list": [
-        "Full name, father's name, and date of birth, exactly as they appear on your photo ID, not just as you'd normally write them",
-        "Gender and category (General/OBC/SC/ST/EWS/PwD): an error here can affect which cutoff and reservation rules apply to you",
-        "State of eligibility: this determines certain state-level counselling eligibility later, so it's worth confirming it matches what you intended when you applied",
-        "JEE Main roll number and application form number: you'll need both for several things after the exam, including results and correction requests",
-        "The paper you're appearing for (Paper 1 for B.E./B.Tech, Paper 2 for B.Arch/B.Planning), confirm it matches what you actually prepared for",
-        "Allotted exam centre address, exam date, and shift/reporting time: check the city and address carefully, not just the date",
-        "Your photograph and signature as uploaded: make sure they're clear and match what you submitted, not corrupted or cropped oddly",
-        "Category-specific certificate requirements listed in the guidelines section, if applicable to you"
-      ]
+      "table": {
+        "caption": "The 8 checks",
+        "columns": [
+          "What",
+          "What to check",
+          "What goes wrong if it's incorrect"
+        ],
+        "rows": [
+          [
+            "Name, father's name, date of birth",
+            "Exactly as on your photo ID",
+            "A mismatch with your ID can get you stopped at entry"
+          ],
+          [
+            "Gender and category",
+            "Matches your application",
+            "The wrong cutoff and reservation rules get applied"
+          ],
+          [
+            "State of eligibility",
+            "What you intended when applying",
+            "State-level counselling eligibility can be affected later"
+          ],
+          [
+            "Roll number and application number",
+            "Both printed and legible",
+            "You need both for results and any correction request"
+          ],
+          [
+            "Paper",
+            "Paper 1 (B.E./B.Tech) or Paper 2 (B.Arch/B.Planning)",
+            "You may be sitting a paper you didn't prepare for"
+          ],
+          [
+            "Centre, date, shift and reporting time",
+            "Full address and city, not just the date",
+            "Wrong centre, or arriving after the gate closes"
+          ],
+          [
+            "Photograph and signature",
+            "Clear and as uploaded, not cropped or corrupted",
+            "Identity checks at the gate can fail"
+          ],
+          [
+            "Category certificate requirements",
+            "Any documents the guidelines list for you",
+            "Missing paperwork can hold up entry or verification"
+          ]
+        ],
+        "rowHeaders": true
+      }
     },
     {
       "heading": "The step students actually forget",

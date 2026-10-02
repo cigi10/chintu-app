@@ -330,3 +330,81 @@
 .katex-inline {
   display: inline-block;
 }
+
+/* Post figures: named inline SVGs (components/blog-figures/) and images.
+   Every SVG colour is a theme token, so figures follow every theme. Data
+   marks use --color-text / --color-text-secondary because those reach
+   WCAG contrast against the surface in all 13 themes; accent colours
+   don't (matcha and rose-noir fall below 2:1). */
+.blog-fig {
+  margin: 0;
+  padding: 16px clamp(10px, 3vw, 18px);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.blog-fig-caption {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+.blog-fig-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-body);
+}
+
+.blog-fig-flow,
+.blog-fig-narrow {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.blog-fig-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.blog-fig-trends {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 560px) {
+  .blog-fig-trends {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.blog-fig-axis { stroke: var(--color-border); stroke-width: 1.2; }
+.blog-fig-tick { fill: var(--color-text-secondary); font-size: 9px; }
+.blog-fig-label { fill: var(--color-text); font-size: 12px; font-weight: 700; }
+.blog-fig-note { fill: var(--color-text-secondary); font-size: 10px; }
+.blog-fig-line { fill: none; stroke: var(--color-text); stroke-width: 2.2; stroke-linejoin: round; }
+.blog-fig-dot { fill: var(--color-text); }
+.blog-fig-trendline { stroke: var(--color-text-secondary); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.blog-fig-track { fill: var(--color-surface-alt); }
+.blog-fig-bar { fill: var(--color-text); }
+.blog-fig-bar--alt { fill: var(--color-text-secondary); }
+.blog-fig-barlabel { fill: var(--color-text); font-size: 10px; font-weight: 700; }
+
+.blog-fig-box { fill: var(--color-surface-alt); stroke: var(--color-border); stroke-width: 1.5; }
+/* Box types are told apart by shape and line style, not hue: theme accent
+   colours don't all reach 3:1 against the box fill, but the text colour
+   always does. Decisions are pill-shaped (rx in Flowchart.tsx). */
+.blog-fig-box--decision { stroke: var(--color-text); stroke-width: 1.8; }
+.blog-fig-box--end { stroke: var(--color-text); stroke-width: 2.4; }
+.blog-fig-box--warn { stroke: var(--color-text); stroke-width: 1.8; stroke-dasharray: 5 3; }
+.blog-fig-boxtext { fill: var(--color-text); font-size: 12px; }
+.blog-fig-boxtext--small { font-size: 11px; }
+.blog-fig-connector { stroke: var(--color-text-secondary); stroke-width: 1.5; }
+.blog-fig-arrowhead { fill: var(--color-text-secondary); }
+.blog-fig-arrowlabel { fill: var(--color-text-secondary); font-size: 10px; font-weight: 700; }

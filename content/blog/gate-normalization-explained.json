@@ -5,7 +5,10 @@
   "author": "Studyloaf Team",
   "readingTime": "6 min read",
   "date": "2026-10-02",
-  "tags": ["gate", "percentile-and-rank"],
+  "tags": [
+    "gate",
+    "percentile-and-rank"
+  ],
   "content": [
     {
       "heading": null,
@@ -64,6 +67,42 @@
       "body": "Keep the same paper, and assume for simplicity that μ + σ is 33 (so Mq = 33) and the top average is 84 (so M̄t = 84). Candidate A's GATE score is 350 + 550 × (58.5 − 33) ÷ (84 − 33) = 350 + 275 = 625. Candidate B's is 350 + 550 × (54.6 − 33) ÷ 51, which is about 583. Both qualify, and A's lead in normalized marks carries straight through to a lead in score."
     },
     {
+      "heading": null,
+      "table": {
+        "caption": "The worked example in one table (overall paper: mean + SD 33, top 0.1% average 84)",
+        "columns": [
+          "Candidate",
+          "Session",
+          "Session mean + SD",
+          "Session top 0.1% average",
+          "Raw marks",
+          "Normalized marks",
+          "GATE score"
+        ],
+        "rows": [
+          [
+            "A",
+            "1 (harder)",
+            "30",
+            "80",
+            "55",
+            "58.5",
+            "625"
+          ],
+          [
+            "B",
+            "2 (easier)",
+            "36",
+            "88",
+            "58",
+            "54.6",
+            "about 583"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
       "heading": "What else the brochure is clear about",
       "body": "A GATE 2027 scorecard is valid for three years from the date results are announced, and there are no hard copies: you download it from the GOAPS portal during the download window. After that window a fee applies, and from 1 January 2028 scorecards for GATE 2027 will not be issued at all. Download it as soon as results are out and keep a copy."
     },
@@ -83,7 +122,13 @@
     }
   ],
   "relatedLinks": [
-    { "label": "GATE 2027 countdown", "href": "/countdown/gate-2027" },
-    { "label": "Read next: JEE Main normalization explained", "href": "/blog/jee-main-normalization-explained" }
+    {
+      "label": "GATE 2027 countdown",
+      "href": "/countdown/gate-2027"
+    },
+    {
+      "label": "Read next: JEE Main normalization explained",
+      "href": "/blog/jee-main-normalization-explained"
+    }
   ]
 }

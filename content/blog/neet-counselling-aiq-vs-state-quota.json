@@ -15,6 +15,45 @@
       "body": "All India Quota (AIQ) seats, which are 15% of the seats in government medical colleges, are counselled centrally by the Medical Counselling Committee (MCC), the same body regardless of which state you're from. MCC also counsels all the seats at AIIMS, JIPMER, central universities and deemed universities. State Quota seats, the remaining 85% of government college seats, are counselled separately by each state's own authority, following that state's own rules."
     },
     {
+      "heading": null,
+      "table": {
+        "caption": "All India Quota vs State Quota",
+        "columns": [
+          "",
+          "All India Quota",
+          "State Quota"
+        ],
+        "rows": [
+          [
+            "Run by",
+            "Medical Counselling Committee (MCC)",
+            "Your state's counselling authority"
+          ],
+          [
+            "Seats covered",
+            "15% of government college seats, plus all seats at AIIMS, JIPMER, central and deemed universities",
+            "The other 85% of government college seats, and usually the state's private college seats"
+          ],
+          [
+            "Who can apply",
+            "Any NEET-qualified candidate, no domicile needed",
+            "Usually only candidates meeting the state's domicile or schooling rules"
+          ],
+          [
+            "Rank used",
+            "All India Rank",
+            "State merit rank (your position among eligible state candidates)"
+          ],
+          [
+            "Rules",
+            "Same nationwide",
+            "Set by each state: reservations and extra quotas vary"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
       "heading": "Why AIQ tends to be more competitive",
       "body": "AIQ pools candidates from the entire country into a single national merit list competing for a comparatively small slice of total seats. State Quota, by contrast, is usually restricted to candidates who meet that state's domicile requirement, which narrows the competing pool to a more local one. That's the main structural reason AIQ cutoffs tend to run higher than the equivalent state's own cutoff. Not because AIQ seats are somehow better, but because more people nationally are competing for fewer of them."
     },

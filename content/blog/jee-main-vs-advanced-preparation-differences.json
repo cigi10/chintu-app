@@ -11,6 +11,55 @@
       "body": "A lot of students clear JEE Main and keep doing exactly the same kind of practice for JEE Advanced, just more of it. That's a mistake, because Main and Advanced aren't testing the same thing at different difficulty levels. They're testing different skills. Main rewards speed and direct formula application across a huge number of questions. Advanced rewards depth: fewer questions, but each one often chains two or three concepts together and punishes a shaky middle step."
     },
     {
+      "heading": null,
+      "table": {
+        "caption": "JEE Main and JEE Advanced side by side",
+        "columns": [
+          "",
+          "JEE Main",
+          "JEE Advanced"
+        ],
+        "rows": [
+          [
+            "Conducted by",
+            "National Testing Agency (NTA)",
+            "One of the IITs, in rotation"
+          ],
+          [
+            "Papers",
+            "One 3-hour paper",
+            "Two compulsory 3-hour papers on the same day"
+          ],
+          [
+            "Questions",
+            "75, fixed (25 per subject)",
+            "Not fixed; the pattern is set fresh each year"
+          ],
+          [
+            "Question types",
+            "Single-correct MCQs and numerical answers",
+            "Single and multiple-correct MCQs, numerical answers, and formats that change year to year"
+          ],
+          [
+            "Marking",
+            "+4 / -1 on every question",
+            "Varies by section, stated in the paper itself"
+          ],
+          [
+            "Partial marking",
+            "None",
+            "Yes, on multiple-correct questions in recent papers"
+          ],
+          [
+            "Time per question",
+            "About 2.4 minutes",
+            "Usually more, but each question chains several steps"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
       "heading": "The same topic, two different question styles",
       "body": "Take quadratic equations, a topic both exams test constantly. A Main-style question is usually a direct application: given specific coefficients, find the roots, or use the discriminant to state how many real roots exist. You recognize the setup, apply the formula, done in under a minute."
     },

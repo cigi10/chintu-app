@@ -12,7 +12,7 @@
     },
     {
       "heading": "What the exam actually asks for, per chapter",
-      "body": "JEE Main Physics carries 25 questions (20 MCQs and 5 numerical-value questions, all 25 compulsory under the current pattern), drawn from the full Class 11 and 12 Physics syllabus, roughly 20 chapters depending on how they're grouped. That means most individual chapters contribute somewhere between 1 and 3 questions on any single attempt. This has a direct implication: for a chapter that typically yields 1 question, grinding through hundreds of numericals on it has sharply diminishing returns past a certain point, compared to spreading that same time across a chapter that consistently yields more."
+      "body": "JEE Main Physics carries 25 questions (20 MCQs and 5 numerical-value questions, all 25 compulsory under the current pattern), drawn from the full Class 11 and 12 Physics syllabus, roughly 20 chapters depending on how they're grouped. That means most individual chapters contribute about 1 or 2 questions to any single paper. This has a direct implication: for a chapter that typically yields 1 question, grinding through hundreds of numericals on it has sharply diminishing returns past a certain point, compared to spreading that same time across a chapter that consistently yields more."
     },
     {
       "heading": "Why numerical questions specifically deserve fresh attention",
@@ -20,14 +20,123 @@
     },
     {
       "heading": "A volume target that scales with a chapter's actual weight",
-      "body": "Instead of a flat number of problems per chapter, size your numerical practice to the chapter's typical question share:"
+      "body": "Instead of a flat number of problems per chapter, size your numerical practice to the chapter's typical question share. The table below comes from an analysis of 118 JEE Main papers from 2020 to 2025 (published by Rhovecs), using NTA's own syllabus units. Treat it as an average, not a forecast for any single paper:"
+    },
+    {
+      "heading": null,
+      "table": {
+        "caption": "Average share of JEE Main Physics questions by chapter, 2020 to 2025",
+        "columns": [
+          "Chapter",
+          "Share of Physics questions",
+          "Typical questions per paper"
+        ],
+        "rows": [
+          [
+            "Electrostatics",
+            "7.9%",
+            "about 2"
+          ],
+          [
+            "Optics",
+            "7.4%",
+            "about 2"
+          ],
+          [
+            "Properties of Solids and Liquids",
+            "7.3%",
+            "about 2"
+          ],
+          [
+            "Current Electricity",
+            "7.1%",
+            "about 2"
+          ],
+          [
+            "Electromagnetic Induction and AC",
+            "6.5%",
+            "about 2"
+          ],
+          [
+            "Magnetic Effects of Current and Magnetism",
+            "6.0%",
+            "about 2"
+          ],
+          [
+            "Units and Measurements",
+            "6.0%",
+            "about 2"
+          ],
+          [
+            "Atoms and Nuclei",
+            "5.4%",
+            "about 2"
+          ],
+          [
+            "Kinematics",
+            "5.4%",
+            "about 2"
+          ],
+          [
+            "Laws of Motion",
+            "4.9%",
+            "about 1"
+          ],
+          [
+            "Rotational Motion",
+            "4.9%",
+            "about 1"
+          ],
+          [
+            "Oscillations and Waves",
+            "4.7%",
+            "about 1"
+          ],
+          [
+            "Gravitation",
+            "4.3%",
+            "about 1"
+          ],
+          [
+            "Dual Nature of Matter and Radiation",
+            "4.0%",
+            "about 1"
+          ],
+          [
+            "Work, Energy and Power",
+            "3.9%",
+            "about 1"
+          ],
+          [
+            "Electronic Devices",
+            "3.8%",
+            "about 1"
+          ],
+          [
+            "Thermodynamics",
+            "3.6%",
+            "about 1"
+          ],
+          [
+            "Kinetic Theory of Gases",
+            "3.5%",
+            "about 1"
+          ],
+          [
+            "Electromagnetic Waves",
+            "3.4%",
+            "about 1"
+          ]
+        ],
+        "rowHeaders": true
+      }
     },
     {
       "heading": null,
       "list": [
-        "High-weight chapters (regularly 2-3 questions, e.g. Mechanics, Electrostatics, Modern Physics): deserves the deepest problem-set, enough to have seen most of the standard variations NTA tends to reuse across sessions",
-        "Medium-weight chapters (typically 1-2 questions): a solid but smaller set, enough to be comfortable, not exhaustive",
-        "Low-weight chapters (rarely more than 1 question, sometimes skipped entirely in a given session): a light pass is enough, since this is exactly where over-practicing steals time from a higher-yield chapter"
+        "About 2 questions per paper (the top nine rows, from Electrostatics to Kinematics): these deserve the deepest problem sets, enough to have seen most of the standard variations NTA tends to reuse across sessions",
+        "About 1 question per paper (the other ten chapters): a solid but smaller set, enough to be comfortable, not exhaustive",
+        "These are averages. Any single paper can put 3 questions on one chapter and skip another entirely, so a light pass on every chapter still beats dropping one"
       ]
     },
     {
