@@ -1,47 +1,56 @@
 {
   "slug": "jee-main-2027-marking-scheme-change",
-  "title": "What Changed in JEE Main's Marking Scheme for 2027 (and What It Means for Your Prep)",
-  "description": "Numerical-value questions used to be the one safe place to guess. That changed with the 2026 cycle and carries into 2027. Here's exactly what's different in the current pattern and how it should change your practice.",
+  "title": "JEE Main Marking Scheme Explained: The Current Pattern and How It Got Here",
+  "description": "Every JEE Main question, numericals included, carries +4 and -1, and all 75 are compulsory. Here's the current marking scheme, the two changes that shaped it (2022 and 2025), and what it means for how you practise.",
   "author": "Studyloaf Team",
-  "readingTime": "4 min read",
-  "date": "2026-09-23",
-  "content": [
-    {
-      "heading": null,
-      "body": "If your JEE Main prep advice is more than a cycle or two old, or came from someone who took the exam a few years back, there's a real chance it's describing a pattern that no longer exists. Two specific things changed starting with the 2026 cycle, both still in effect for 2027 based on current exam-pattern reporting, and both matter for how you practice, not just how you sit the actual exam."
-    },
-    {
-      "heading": "Change 1: no more choice within a section",
-      "body": "Older patterns let you answer any 5 of 10 numerical-value questions per subject, meaning if two numerical questions looked rough, you could just skip them and answer five easier ones instead. That choice is gone as of the 2026 cycle and remains gone for 2027: each subject carries exactly 25 compulsory questions (20 MCQs plus 5 numerical-value questions), all of which you're expected to attempt. There's no version of the exam anymore where you get to quietly avoid your weakest question types within a section."
-    },
-    {
-      "heading": "Change 2: numerical questions now carry negative marking",
-      "body": "This is the bigger shift. Numerical-value questions previously had no negative marking at all. A wrong numerical answer cost you nothing, so guessing one was a completely free roll of the dice. That changed with the 2026 cycle: a wrong numerical answer now costs -1, the same as a wrong MCQ. Exam-pattern trackers describe this continuing into the 2027 cycle, though NTA's full 2027 information bulletin (with the complete, exam-specific marking rules) hadn't been released as of this writing. Confirm this specific detail against the official bulletin once it's out, since it's exactly the kind of rule that's worth a five-minute check rather than assuming last cycle's pattern automatically carries over."
-    },
-    {
-      "heading": "Why this matters more for numericals than MCQs",
-      "body": "The negative-marking math is the same -1 penalty either way, but the odds behind a guess are not. On an MCQ, a blind guess still has a 1-in-4 shot at the full +4, which is actually positive expected value (worth +0.25 on average, the same math behind guessing strategy on any negatively-marked exam). A numerical-value question has no options to guess among at all. You either compute the right value or you don't, and there is no \"25% chance of getting lucky\" fallback anymore. An unfinished or roughly-estimated numerical answer used to be free to submit; now it's a real gamble with the same downside as a confidently wrong MCQ."
-    },
-    {
-      "heading": "What this should change in your prep",
-      "body": "Two concrete adjustments, not just \"be more careful\":"
-    },
-    {
-      "heading": null,
-      "list": [
-        "Stop treating numerical practice as done once you recognize the method. The current pattern rewards actually finishing the calculation cleanly. Recognizing the setup but fumbling the last arithmetic step is exactly what the old no-negative-marking safety net used to forgive.",
-        "In mocks, treat every numerical question the same way you'd treat an MCQ you're unsure about: leave it blank rather than submit a rough estimate, unless you're actually confident in the number, since a wrong guess is no longer free.",
-        "Because all 25 questions per subject are compulsory, there's no more \"skip the two ugly numericals\" strategy. Practice needs to cover the full spread of a chapter's question types, not just the ones that feel comfortable."
-      ]
-    },
-    {
-      "heading": null,
-      "body": "If your own practice sets or old notes still describe \"choose 5 of 10\" or \"numericals have no negative marking,\" that's the tell they're describing an older pattern, worth double-checking against the current year's official information bulletin on jeemain.nta.nic.in before you build a strategy around it. And if you're timing numerical practice specifically to check how often you're finishing clean versus guessing under pressure, Studyloaf's free timer tags sessions by subject so that pattern shows up in your own data instead of staying a guess."
-    }
-  ],
+  "readingTime": "5 min read",
+  "date": "2026-10-02",
   "tags": [
     "jee",
     "marking-scheme",
     "exam-pattern"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "A lot of JEE Main advice still in circulation describes a pattern that no longer exists: \"numericals have no negative marking, so always fill something in\" or \"pick any 5 of the 10 numerical questions.\" Both were true at one point, and both stopped being true years ago. Here's the marking scheme as it stands now, how it got here, and what that means for how you practise."
+    },
+    {
+      "heading": "The current pattern (Paper 1, B.E./B.Tech)",
+      "list": [
+        "75 questions in 3 hours, 25 each in Physics, Chemistry and Mathematics, for a total of 300 marks",
+        "Each subject has Section A with 20 multiple-choice questions and Section B with 5 numerical-value questions",
+        "All 75 questions are compulsory. There is no choice within any section",
+        "Marking is the same in both sections: +4 for a correct answer, -1 for an incorrect answer, 0 for a question left unanswered"
+      ]
+    },
+    {
+      "heading": "How it got here: two changes worth knowing",
+      "body": "The numerical-value section arrived in JEE Main 2020, with 5 numerical questions per subject and no negative marking on them. In 2021, during the pandemic, NTA expanded Section B to 10 numerical questions per subject, of which candidates answered any 5. The two changes that produced today's pattern came after that:"
+    },
+    {
+      "heading": null,
+      "list": [
+        "2022: negative marking extended to numerical questions. NTA's information bulletin for JEE Main 2022 initially said Section B had no negative marking, but NTA clarified in a notice in March 2022 that it would: every wrong numerical answer costs 1 mark, the same as a wrong MCQ. That has been the rule in every cycle since",
+        "2025: the optional choice removed. In a public notice dated 17 October 2024, NTA discontinued the \"any 5 of 10\" choice in Section B, which had been introduced as a COVID-era measure. From JEE Main 2025, Section B has exactly 5 compulsory numerical questions per subject"
+      ]
+    },
+    {
+      "heading": "Why negative marking hits numericals harder than MCQs",
+      "body": "The penalty is the same -1 either way, but the odds behind a guess are not. On an MCQ, a blind guess has a 1-in-4 chance at +4, which works out to an expected +0.25 marks, slightly better than leaving it blank (the same maths behind guessing strategy on any +4/-1 exam). A numerical-value question has no options to choose from. You either compute the right value or you don't, so a rough estimate has a very small chance of being exactly right and a large chance of costing a mark. Under the current scheme, submitting a number you aren't confident in is almost always a losing bet."
+    },
+    {
+      "heading": "What this should change in your prep",
+      "list": [
+        "Stop treating numerical practice as done once you recognise the method. The current scheme rewards finishing the calculation cleanly, and a fumbled last step now costs a mark instead of nothing",
+        "In mocks, leave a numerical blank rather than submit a rough estimate, unless you're genuinely confident in the value",
+        "With all 25 questions per subject compulsory, there's no skipping the two ugly numericals any more. Practise the full spread of a chapter's question types, not only the comfortable ones",
+        "On MCQs, the usual rule still applies: guessing pays only when your chance of being right is above 20%, so eliminate options before you guess"
+      ]
+    },
+    {
+      "heading": "How to spot outdated advice",
+      "body": "If your notes, practice sets or a senior's tips say \"numericals have no negative marking\" or \"choose 5 of 10\", they describe a pattern from 2021 or earlier. Before building a strategy around any rule, check it against the current year's information bulletin on jeemain.nta.nic.in, since NTA publishes the full marking scheme there for every cycle. And if you're timing numerical practice to see how often you finish cleanly versus guess under pressure, Studyloaf's free timer tags sessions by subject so that pattern shows up in your own data."
+    }
   ]
 }

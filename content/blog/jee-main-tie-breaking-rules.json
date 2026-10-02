@@ -1,7 +1,7 @@
 {
   "slug": "jee-main-tie-breaking-rules",
   "title": "JEE Main Tie-Breaking Rules: What Actually Decides Your Rank on a Tie",
-  "description": "Same percentile as someone else isn't the end of the story. Here's the exact order NTA uses to break a tie, verified against the current rule, with a worked example.",
+  "description": "Same percentile as someone else isn't the end of the story. Here's the full eight-step order NTA uses to break a tie, with a worked example.",
   "author": "Studyloaf Team",
   "readingTime": "4 min read",
   "date": "2026-09-23",
@@ -17,16 +17,19 @@
     {
       "heading": null,
       "list": [
-        "1. Higher score in Mathematics",
-        "2. Still tied? Higher score in Physics",
-        "3. Still tied? Higher score in Chemistry",
-        "4. Still tied? A lower ratio of negative (incorrect) responses to positive (correct) responses",
-        "5. Still tied after all of that? Both candidates are given the same rank"
+        "1. Higher NTA score (subject percentile) in Mathematics",
+        "2. Still tied? Higher NTA score in Physics",
+        "3. Still tied? Higher NTA score in Chemistry",
+        "4. Still tied? A lower proportion of incorrect answers to correct answers across all subjects",
+        "5. Still tied? A lower proportion of incorrect to correct answers in Mathematics",
+        "6. Still tied? A lower proportion of incorrect to correct answers in Physics",
+        "7. Still tied? A lower proportion of incorrect to correct answers in Chemistry",
+        "8. Still tied after all of that? Both candidates are given the same rank"
       ]
     },
     {
-      "heading": "What changed recently, and what didn't",
-      "body": "As of 2025, age and application number were removed entirely as tie-breakers. Ranking is now purely based on subject performance and accuracy, not who registered first or who's older. If you've seen older advice mentioning \"the younger candidate wins ties\" or similar, that's outdated."
+      "heading": "Where this order comes from",
+      "body": "The order above is NTA's tie-breaking policy as published in the JEE Main information bulletin since the 2025 cycle. It is based entirely on subject scores and accuracy. Up to 2024 the list also used age and application number as final tie-breakers, so advice saying \"the younger candidate wins ties\" describes the pre-2025 rules and no longer applies."
     },
     {
       "heading": "A worked example",
@@ -34,11 +37,11 @@
     },
     {
       "heading": "What this actually means for how you prepare",
-      "body": "This isn't a reason to suddenly neglect Physics or Chemistry. The tie-break only matters if you're already percentile-tied with someone else, a fairly narrow situation. But it is a genuine, if small, argument for not leaving Mathematics as your weakest of the three if you have any flexibility in how you allocate remaining practice time, since it's the first subject checked. The accuracy-ratio criterion (step 4) is also a quiet reminder that blind guessing on questions you have zero basis for can hurt you in a way that shows up specifically in a tie scenario, even if the overall expected-value math on a single question still favors an educated guess."
+      "body": "This isn't a reason to suddenly neglect Physics or Chemistry. The tie-break only matters if you're already percentile-tied with someone else, a fairly narrow situation. But it is a genuine, if small, argument for not leaving Mathematics as your weakest of the three if you have any flexibility in how you allocate remaining practice time, since it's the first subject checked. The accuracy-ratio criteria (steps 4 to 7) are also a quiet reminder that blind guessing on questions you have zero basis for can hurt you in a way that shows up specifically in a tie scenario, even if the overall expected-value math on a single question still favors an educated guess."
     },
     {
       "heading": null,
-      "body": "If you want to see how your accuracy per subject is actually trending across practice sessions (since that's what step 4 is really about), Studyloaf's free timer lets you tag sessions by subject, no account needed, so you can check whether your negative-to-positive ratio in Math specifically is where you'd want it before exam day."
+      "body": "If you want to see how your accuracy per subject is actually trending across practice sessions (since that's what steps 4 to 7 are really about), Studyloaf's free timer lets you tag sessions by subject, no account needed, so you can check whether your negative-to-positive ratio in Math specifically is where you'd want it before exam day."
     }
   ],
   "tags": [
