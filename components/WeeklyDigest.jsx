@@ -141,8 +141,25 @@ export default function WeeklyDigest() {
     ]).then(() => setData(buildDigest()));
   }, []);
 
+  // The week's numbers come from this device or the signed-in account, so
+  // they can only load in the browser. Until they do (and with JavaScript
+  // off), render the real page header and what the digest covers rather
+  // than a bare loading line.
   if (!data) {
-    return <div className="digest digest--loading">Loading your week…</div>;
+    return (
+      <div className="digest digest--loading">
+        <div className="digest__header">
+          <p className="digest__eyebrow">Weekly digest</p>
+          <h1 className="digest__title">Your week in review</h1>
+          <p className="digest__summary">
+            A summary of your last seven days: total study time compared with the week before,
+            your streak, goals completed, a day-by-day breakdown, which subjects your time went
+            to, how consistently you hit your goals, your mood check-ins, and what&apos;s ahead,
+            from your next exam date to revisions coming due. Loading your week now.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   const goalsPct = pct(data.goalsDone, data.goalsTotal);

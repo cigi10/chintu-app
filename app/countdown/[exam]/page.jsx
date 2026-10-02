@@ -88,6 +88,20 @@ export default async function ExamCountdownPage({ params }) {
             {`The ${exam.name} date hasn't been announced yet. Check back once ${exam.body} confirms it.`}
           </p>
         )}
+
+        {exam.about && (
+          <section className="exam-about" aria-labelledby="exam-about-heading">
+            <h2 id="exam-about-heading" className="exam-about__heading">About {exam.name}</h2>
+            <p className="exam-about__summary">{exam.about.summary}</p>
+            <h3 className="exam-about__subheading">Who takes it</h3>
+            <ul className="exam-about__list">{exam.about.who.map(item => <li key={item}>{item}</li>)}</ul>
+            <h3 className="exam-about__subheading">Format</h3>
+            <ul className="exam-about__list">{exam.about.format.map(item => <li key={item}>{item}</li>)}</ul>
+            <h3 className="exam-about__subheading">What it leads to</h3>
+            <p className="exam-about__p">{exam.about.leadsTo}</p>
+            <p className="exam-about__source">Source: {exam.about.source} Conducting body: {exam.body}.</p>
+          </section>
+        )}
       </div>
     </>
   );

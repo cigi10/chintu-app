@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <div className="legal-shell">
         <div className="legal-card">
           <h1 className="legal-title">Privacy Policy</h1>
-          <p className="legal-updated">Last updated: September 1, 2026</p>
+          <p className="legal-updated">Last updated: October 2, 2026</p>
 
           <p className="legal-p">
             Studyloaf (&quot;we,&quot; &quot;our,&quot; or &quot;the app&quot;) is a study companion
@@ -45,6 +45,12 @@ export default function PrivacyPage() {
             <li>
               <strong>Preferences.</strong> Your selected color theme, display settings, and other
               in-app configuration choices.
+            </li>
+            <li>
+              <strong>Messages you send us.</strong> When you use the Write to Us form, the message
+              you write is stored in our Supabase database, together with your account identifier
+              if you are signed in, so we can read it and follow up. You can
+              ask us to delete a message using the contact details at the end of this policy.
             </li>
             <li>
               <strong>Technical and usage data.</strong> Basic technical information such as browser

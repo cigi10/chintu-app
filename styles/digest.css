@@ -1,5 +1,5 @@
 .digest { max-width: 720px; margin: 0 auto; padding: 24px 20px 60px; display: flex; flex-direction: column; gap: 20px; }
-.digest--loading { text-align: center; color: var(--color-text-secondary); padding: 60px 0; font-family: var(--font-body); }
+.digest--loading { color: var(--color-text-secondary); font-family: var(--font-body); }
 
 .digest__header { margin-bottom: 4px; }
 .digest__eyebrow { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-strong); margin-bottom: 4px; }

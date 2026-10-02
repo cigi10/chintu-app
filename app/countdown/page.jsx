@@ -49,6 +49,8 @@ export default function CountdownIndexPage() {
                 </p>
               </div>
 
+              {exam.about && <p className="exam-countdown-card__summary">{exam.about.summary}</p>}
+
               <div className="flip-clock-wrap">
                 <FlipClock target={countdown.target} label={exam.name} />
               </div>
