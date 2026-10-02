@@ -63,5 +63,19 @@
   "tags": [
     "jee",
     "eligibility"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: JoSAA vs CSAB: how JEE counselling works",
+      "href": "/blog/josaa-vs-csab-counselling-explained"
+    },
+    {
+      "label": "Read next: JEE Main marking scheme explained",
+      "href": "/blog/jee-main-2027-marking-scheme-change"
+    },
+    {
+      "label": "JEE Main 2027 Session 1 countdown",
+      "href": "/countdown/jee-2027"
+    }
   ]
 }

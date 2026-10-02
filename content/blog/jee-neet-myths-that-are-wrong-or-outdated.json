@@ -80,5 +80,19 @@
     "jee",
     "neet",
     "exam-myths"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: JEE Main percentile, NTA Score and rank",
+      "href": "/blog/jee-main-normalization-explained"
+    },
+    {
+      "label": "Read next: JEE Main tie-breaking rules",
+      "href": "/blog/jee-main-tie-breaking-rules"
+    },
+    {
+      "label": "Read next: NEET counselling: AIQ vs State Quota",
+      "href": "/blog/neet-counselling-aiq-vs-state-quota"
+    }
   ]
 }

@@ -50,5 +50,19 @@
     "jee",
     "neet",
     "drop-year"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: How many mock tests you actually need",
+      "href": "/blog/jee-main-mock-test-strategy"
+    },
+    {
+      "label": "Read next: No seat in a JoSAA round? What happens next",
+      "href": "/blog/josaa-no-seat-what-happens-next"
+    },
+    {
+      "label": "Free timetable generator",
+      "href": "/tools/timetable-generator"
+    }
   ]
 }

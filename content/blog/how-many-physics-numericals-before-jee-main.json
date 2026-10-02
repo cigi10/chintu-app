@@ -156,5 +156,19 @@
     "jee",
     "physics",
     "practice-strategy"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: JEE Main marking scheme explained",
+      "href": "/blog/jee-main-2027-marking-scheme-change"
+    },
+    {
+      "label": "Read next: How many mock tests you actually need",
+      "href": "/blog/jee-main-mock-test-strategy"
+    },
+    {
+      "label": "JEE Physics practice quiz",
+      "href": "/quiz/jee-physics/practice"
+    }
   ]
 }

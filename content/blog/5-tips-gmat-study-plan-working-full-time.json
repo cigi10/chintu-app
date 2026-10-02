@@ -1,67 +1,160 @@
 {
   "slug": "5-tips-gmat-study-plan-working-full-time",
   "title": "5 Tips for a GMAT Study Plan While Working Full-Time",
-  "description": "Most GMAT advice assumes you have 4 hours a day free. Here are 5 realistic tips for building a plan around an actual full-time job.",
+  "description": "Most GMAT advice assumes hours of free time and still describes the old test. Here are 5 realistic tips for preparing for the GMAT Focus Edition around a full-time job, with a sample week.",
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
-  "date": "2026-09-17",
+  "date": "2026-10-02",
   "content": [
     {
       "heading": null,
-      "body": "Most GMAT study guides are written for people with unlimited free time. Wake up at 6, study for 4 hours, take a break, study for 3 more. That's not realistic advice, that's advice for someone who isn't working a job."
+      "body": "Most GMAT study guides are written for people with unlimited free time: wake at 6, study for four hours, take a break, study for three more. That isn't a plan for someone with a job. A lot of them also describe a test that no longer exists. Since early 2024 the only version you can book is the GMAT Focus Edition, which dropped Sentence Correction, the essay and geometry, and added a Data Insights section. Here's a plan built around the hours you actually have, for the exam you'll actually sit."
+    },
+    {
+      "heading": "Know the exam you're preparing for",
+      "body": "Three sections of 45 minutes each, 64 questions in all, 2 hours and 15 minutes plus one optional 10-minute break, scored from 205 to 805. You choose the order of the sections, and you can bookmark questions and change up to three answers per section before time runs out, according to GMAC, which runs the exam:"
     },
     {
       "heading": null,
-      "body": "If you're studying for the GMAT while working full-time, here's a plan built around the actual hours you have, not the hours a study guide wishes you had."
+      "table": {
+        "caption": "GMAT Focus Edition, section by section",
+        "columns": [
+          "Section",
+          "Questions",
+          "What it tests"
+        ],
+        "rows": [
+          [
+            "Quantitative Reasoning",
+            "21 in 45 minutes",
+            "Arithmetic and algebra problem solving, with no calculator"
+          ],
+          [
+            "Verbal Reasoning",
+            "23 in 45 minutes",
+            "Reading comprehension and critical reasoning"
+          ],
+          [
+            "Data Insights",
+            "20 in 45 minutes",
+            "Data sufficiency and reading tables, graphs and multi-source data, with an on-screen calculator"
+          ]
+        ],
+        "rowHeaders": true
+      }
     },
     {
-      "heading": "Use your commute, don't waste it",
+      "heading": "1. Use your commute for review, not new material",
       "list": [
-        "If you commute by train or bus, that's 30-60 minutes of dead time, twice a day.",
-        "Use it for the lowest-effort review: flashcards, vocabulary, formula recall.",
-        "Save actual problem-solving for when you're at a desk, not swaying on a train."
+        "A 30 to 60 minute commute, twice a day, is real time, but it's poor time for new problem solving",
+        "Use it for low-effort review: go through your error log, reread the explanations for Critical Reasoning questions you missed, or revisit the logic of a Data Sufficiency question that tripped you",
+        "Vocabulary flashcards, a staple of older GMAT advice, are low value now. Sentence Correction is gone, and Verbal rewards following an argument, not knowing rare words"
       ]
     },
     {
-      "heading": "One good hour beats three tired ones",
+      "heading": "2. One good hour beats three tired ones",
       "list": [
-        "After a full workday, your brain is not at its sharpest. Don't schedule your hardest content for 9pm.",
-        "Pick one consistent hour, ideally right after work before you're fully drained, and protect it.",
-        "A single focused hour, four to five days a week, adds up to real progress over 8 to 10 weeks."
+        "After a full workday you aren't at your sharpest, so don't schedule your hardest section for 10 pm",
+        "Pick one consistent hour, ideally soon after work before you're fully drained, and protect it",
+        "Rotate the three sections through the week rather than drilling one. Each counts equally towards your score, and Data Insights is the one older prep books don't cover at all"
       ]
     },
     {
-      "heading": "Weekends carry the real weight",
+      "heading": "3. Let weekends carry the timed practice",
       "list": [
-        "Weekday hours are for maintenance: keep skills sharp, don't lose ground.",
-        "Weekends are for the heavy lifting: full practice sections, timed sets, reviewing mistakes properly.",
-        "Two solid weekend sessions can outweigh five rushed weekday ones."
+        "Weekday hours are for maintenance and targeted review. Weekends are for full 45-minute timed sections and, every second or third weekend, a full practice exam",
+        "Practise in the section order you plan to use on test day, since you get to choose it, and get used to pacing at about two minutes a question",
+        "Practise using bookmarks and the three edits per section. Knowing when to flag a question and move on is a skill, and you don't want to learn it in the real exam"
       ]
     },
     {
-      "heading": "Track time, not just questions solved",
+      "heading": "4. Track focused time, not just days studied",
       "list": [
-        "Working professionals often measure progress by \"did I study today,\" which hides burnout building underneath.",
-        "Track actual focused minutes, not just a yes/no checkbox.",
-        "This makes it obvious when a week was genuinely light, instead of guessing."
+        "\"Did I study today\" hides how little some days actually were",
+        "Track focused minutes per section. A week of 4 hours on Quant and 20 minutes on Data Insights looks fine as a yes/no checklist and terrible as numbers",
+        "Look at the totals each Sunday and move next week's hours towards the weakest section"
       ]
     },
     {
-      "heading": "Give yourself one full day off, every week",
+      "heading": "5. Take one full day off every week",
       "list": [
-        "This is the one people cut first when time is already tight, and the one that costs the most later.",
-        "Studying every single day while also working full-time is a fast route to quitting entirely around week 4.",
-        "One real day off keeps the whole plan sustainable for the 2 to 3 months this actually takes."
+        "It's the first thing people cut when time is tight, and the one that costs the most later",
+        "Studying every day on top of a full-time job is a fast route to quitting around week four",
+        "One genuine day off keeps a plan of two to three months sustainable"
+      ]
+    },
+    {
+      "heading": "A sample week",
+      "body": "About 6 to 7 hours a week, which over 10 to 12 weeks adds up to a realistic total for many working candidates. Adjust the blocks to your own weakest section:"
+    },
+    {
+      "heading": null,
+      "table": {
+        "caption": "A sample GMAT Focus week around a full-time job",
+        "columns": [
+          "Day",
+          "Plan"
+        ],
+        "rows": [
+          [
+            "Monday",
+            "1 hour: Quant problem set, then review every miss"
+          ],
+          [
+            "Tuesday",
+            "1 hour: Verbal, a Critical Reasoning set plus one reading passage"
+          ],
+          [
+            "Wednesday",
+            "1 hour: Data Insights set, with the calculator, as on test day"
+          ],
+          [
+            "Thursday",
+            "45 minutes: error log review across all three sections"
+          ],
+          [
+            "Friday",
+            "Off, or a light commute review"
+          ],
+          [
+            "Saturday",
+            "2 to 3 hours: two timed 45-minute sections in your test-day order, then review"
+          ],
+          [
+            "Sunday",
+            "Off. Every second or third week, swap Saturday for a full practice exam"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Preparing from a pre-2024 book or course full of Sentence Correction, geometry and essay practice",
+        "Leaving Data Insights until last because it's unfamiliar. It's a third of the test",
+        "Using a calculator for Quant practice. You only get one in Data Insights",
+        "Judging progress by hours logged instead of by your accuracy and timing on practice sections"
       ]
     },
     {
       "heading": null,
-      "body": "None of this requires quitting your job or finding hours that don't exist. It just means being honest about which hours you actually have, and using them well instead of pretending you have more. If you want a simple way to track this kind of schedule without a spreadsheet, Studyloaf's free timer and timetable generator work without an account, and take about two minutes to set up."
+      "body": "None of this needs you to quit your job or find hours that don't exist. It means being honest about the hours you have and using them well. If you want to track them without a spreadsheet, Studyloaf's free timer logs focused minutes by subject, and the timetable generator turns a weekly plan like the one above into a schedule in a couple of minutes, without an account."
     }
   ],
   "tags": [
     "gmat",
     "study-timetable",
     "time-management"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Free timetable generator",
+      "href": "/tools/timetable-generator"
+    },
+    {
+      "label": "Read next: 5 rules for a timetable that doesn't burn you out",
+      "href": "/blog/5-rules-jee-neet-study-timetable-no-burnout"
+    }
   ]
 }

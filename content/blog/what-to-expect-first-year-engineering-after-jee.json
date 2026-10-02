@@ -78,5 +78,43 @@
   "tags": [
     "jee",
     "engineering-fundamentals"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Laplace transforms",
+      "href": "/resources/laplace-transforms"
+    },
+    {
+      "label": "Fourier series",
+      "href": "/resources/fourier-series"
+    },
+    {
+      "label": "Eigenvalues and eigenvectors",
+      "href": "/resources/matrices-eigenvalues-eigenvectors"
+    },
+    {
+      "label": "Partial differentiation",
+      "href": "/resources/partial-differentiation"
+    },
+    {
+      "label": "Vector calculus: gradient, divergence, curl",
+      "href": "/resources/vector-calculus-gradient-divergence-curl"
+    },
+    {
+      "label": "Kirchhoff's laws",
+      "href": "/resources/kirchhoffs-laws"
+    },
+    {
+      "label": "The PN junction diode",
+      "href": "/resources/pn-junction-diode"
+    },
+    {
+      "label": "Transistor biasing",
+      "href": "/resources/transistor-biasing"
+    },
+    {
+      "label": "Op-amp fundamentals",
+      "href": "/resources/op-amp-fundamentals"
+    }
   ]
 }

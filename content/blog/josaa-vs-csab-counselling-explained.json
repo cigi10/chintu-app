@@ -37,5 +37,15 @@
   "tags": [
     "jee",
     "counselling"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: No seat in a JoSAA round? What happens next",
+      "href": "/blog/josaa-no-seat-what-happens-next"
+    },
+    {
+      "label": "Read next: JEE Main eligibility and the 75% rule",
+      "href": "/blog/jee-main-eligibility-age-attempts-explained"
+    }
   ]
 }

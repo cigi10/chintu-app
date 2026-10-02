@@ -12,13 +12,13 @@
     },
     {
       "heading": "1. Sign and transcription errors",
-      "body": "You solve the problem correctly in your head or on scratch paper, then copy a number down wrong, drop a negative sign moving between lines, or transcribe the wrong option letter onto the OMR sheet. This isn't a conceptual gap at all. It's a copying error, and it happens more under time pressure."
+      "body": "You solve the problem correctly in your head or on scratch paper, then copy a number down wrong, drop a negative sign moving between lines, or click a different option from the one you actually worked out. This isn't a conceptual gap at all. It's a copying error, and it happens more under time pressure."
     },
     {
       "heading": null,
       "list": [
         "Fix: circle your final numeric answer on scratch paper before you look at the options, so you're matching a number to a number, not scanning options while still holding the calculation in your head",
-        "Fix: for OMR transfer, do it in small batches (every 5 questions) rather than one big transfer at the end, when fatigue and rushing both peak"
+        "Fix: before you press Save & Next, look once more at the highlighted option and check it matches the answer on your rough sheet. JEE Main has been computer-based since 2019 and NEET moves to computer-based testing from 2027, so the old slip of bubbling the wrong circle is now a mis-click, and it's caught the same way: one deliberate look before moving on"
       ]
     },
     {
@@ -39,7 +39,7 @@
     {
       "heading": null,
       "list": [
-        "Fix: before applying any formula, explicitly check its stated conditions (here's a quadratic requires a ≠ 0, for example). This takes 3 seconds and catches an entire category of these",
+        "Fix: before applying any formula, explicitly check its stated conditions (a quadratic, for example, requires a ≠ 0). This takes 3 seconds and catches an entire category of these",
         "Fix: if this keeps happening on the same topic across multiple mocks, that's a signal to revisit the concept itself, not just \"be more careful\" next time"
       ]
     },
@@ -63,5 +63,19 @@
     "jee",
     "neet",
     "exam-mistakes"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: 8 things to check on your JEE Main admit card",
+      "href": "/blog/8-things-to-check-jee-main-admit-card"
+    },
+    {
+      "label": "Read next: How many mock tests you actually need",
+      "href": "/blog/jee-main-mock-test-strategy"
+    },
+    {
+      "label": "Read next: When guessing is worth it under negative marking",
+      "href": "/blog/neet-negative-marking-guessing-strategy"
+    }
   ]
 }

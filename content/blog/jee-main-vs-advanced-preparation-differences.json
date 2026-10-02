@@ -92,5 +92,19 @@
     "jee",
     "jee-advanced",
     "practice-strategy"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Quadratic equations, from first principles",
+      "href": "/resources/quadratic-equations"
+    },
+    {
+      "label": "Read next: How many mock tests you actually need",
+      "href": "/blog/jee-main-mock-test-strategy"
+    },
+    {
+      "label": "JEE Advanced 2027 countdown",
+      "href": "/countdown/jee-advanced-2027"
+    }
   ]
 }

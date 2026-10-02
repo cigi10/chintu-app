@@ -1,47 +1,157 @@
 {
   "slug": "jee-main-mock-test-strategy",
   "title": "How Many JEE Main Mock Tests You Actually Need, and When to Start",
-  "description": "Most JEE Main aspirants either start mocks too early and get discouraged, or too late and never build exam pace. Here's a realistic mock-test schedule and how to use the time-per-question math to pace yourself.",
+  "description": "Most JEE Main aspirants start mocks too early and get discouraged, or too late and never build exam pace. A month-by-month mock schedule, a pacing plan for the 3 hours, and a review routine that finds the marks you're actually losing.",
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
   "date": "2026-09-22",
   "content": [
     {
       "heading": null,
-      "body": "\"How many mock tests before JEE Main\" gets asked constantly, and the honest answer isn't a number. It's a timing problem. Start full-length mocks before your syllabus is far enough along, and you get a string of discouraging scores that measure nothing except how much you haven't learned yet. Start too late, and you never build the actual skill mocks are for: pacing yourself against a clock, not just solving problems untimed at your own speed."
+      "body": "\"How many mock tests before JEE Main\" gets asked constantly, and the honest answer isn't a number. It's a timing and review problem. Start full mocks before your syllabus is far enough along and you get discouraging scores that mostly measure what you haven't studied yet. Start too late and you never build what mocks are for: pacing yourself against a real clock and finding out where your marks actually leak. Here's when to start, how often to take them, how to pace the three hours, and how to review them so each one is worth its time."
     },
     {
       "heading": "When to start",
-      "body": "A reasonable rule of thumb: start full-length mocks once you've covered 60-70% of the syllabus, not 100%. Waiting for a fully complete syllabus before your first mock usually means starting with only a few weeks left, which isn't enough time to act on what the mocks reveal. Early mocks aren't about the score. They're a diagnostic for which chapters are actually weak once tested with mixed, timed questions instead of end-of-chapter practice sets."
+      "body": "A reasonable rule of thumb is to start full-length mocks once you've covered 60 to 70% of the syllabus, not 100%. Waiting for full coverage usually means starting with only a few weeks left, which isn't enough time to act on what mocks reveal. Before that point, use chapter tests and timed sectional papers instead. Early full mocks aren't about the score; they're a diagnostic for which chapters fall apart under mixed, timed conditions."
     },
     {
-      "heading": "How many, how often",
-      "body": "One full mock a week is a sustainable pace for most students. That's roughly 12-16 mocks in the 3-4 months before the exam, which is enough repetition to build real pacing instincts without eating the study time you need to actually review what went wrong. Two mocks a week sounds more thorough, but in practice it usually means neither gets a proper post-mortem. Reviewing mistakes matters more than the raw count of mocks taken."
+      "heading": "How many, and how often",
+      "body": "One full mock a week is sustainable for most students, which works out to roughly 12 to 16 mocks in the three to four months before the exam. Two a week sounds more thorough, but in practice neither gets a proper review, and the review is where the value is. Ramp up towards the exam rather than starting at full intensity:"
+    },
+    {
+      "heading": null,
+      "table": {
+        "caption": "A mock schedule for the final four months",
+        "columns": [
+          "Time to exam",
+          "Mocks",
+          "Alongside"
+        ],
+        "rows": [
+          [
+            "4 to 3 months",
+            "One full mock every 10 to 14 days",
+            "Chapter tests and timed sectional papers"
+          ],
+          [
+            "3 to 1 month",
+            "One full mock a week",
+            "Targeted practice on the chapters each mock exposes"
+          ],
+          [
+            "Final month",
+            "One full mock a week, the last about 3 days before the exam",
+            "Error log and formula sheets; no new chapters"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": null,
+      "body": "Take at least a few of them as NTA's free official mock tests, which use the same computer interface as the real exam, so the question palette and Mark for Review button are familiar on the day. Sit every full mock in one go, at the time of day your real shift will be."
     },
     {
       "heading": "The pacing math",
-      "body": "JEE Main gives you 180 minutes for 75 questions (25 per subject, all compulsory as of the current pattern, since there's no more picking 5 of 10 numerical questions within a section). 180 minutes over 75 questions works out to 2.4 minutes per question on average, but you don't have to spread that evenly across all three subjects if your strengths aren't equal."
+      "body": "JEE Main gives you 180 minutes for 75 questions, 25 per subject, all compulsory. That's 2.4 minutes a question on average, but you don't have to spread time evenly. A common starting split is 55 to 60 minutes per subject, adjusted towards your weakest. Within each subject, working in passes stops one hard question from eating the time three easy ones needed:"
     },
     {
       "heading": null,
       "list": [
-        "A common starting split: roughly 55-60 minutes per subject, adjusted by how confident you are in each",
-        "If Physics is consistently your slowest section, protect its time block rather than letting a hard Chemistry question eat into it",
-        "Track where your time actually goes in a mock, not where you assume it goes: most students are shocked to find one section eating 90 minutes instead of the 60 they planned"
+        "Pass 1: go through the subject and answer everything you can solve confidently in about 2 minutes. Skip anything longer, without guilt",
+        "Pass 2: return to the skipped questions you know how to start, and finish them",
+        "Pass 3: in the time left, decide on the rest. On multiple-choice questions, guessing is worth it once you can rule out at least one option. On numerical answers, leave it blank unless you're confident: a wrong numerical costs -1, and without options a rough guess is rarely right",
+        "Track where your time actually goes. Most students are surprised to find one subject taking 80 or 90 minutes instead of the 60 they planned"
       ]
     },
     {
-      "heading": "The mistake in how mocks get reviewed",
-      "body": "The most common way students waste a mock test is reviewing only the questions they got wrong. That misses two other categories that matter just as much: questions you got right by a lucky guess (you'll get the same question type wrong next time without realizing you don't actually know it), and questions you got right but burned 4+ minutes on. A slow correct answer in a mock is a fast wrong answer on exam day, because you won't have time left for the questions after it. Flag every question that took unusually long, right or wrong, and figure out why before your next mock."
+      "heading": "How to review a mock",
+      "body": "Spend at least as long reviewing a mock as taking it. The most common way to waste one is to look only at the questions you got wrong. Sort every question into one of these groups instead:"
     },
     {
       "heading": null,
-      "body": "If you want your mocks to actually feel like the real clock instead of an approximate one, Studyloaf's free timer runs without needing an account and lets you tag each session by subject, useful for timing a single subject's practice block on its own, so you can isolate exactly which one is quietly eating your pace."
+      "table": {
+        "caption": "Sorting a mock's questions",
+        "columns": [
+          "Group",
+          "What it means",
+          "What to do"
+        ],
+        "rows": [
+          [
+            "Right and fast",
+            "You know it",
+            "Nothing; move on"
+          ],
+          [
+            "Right but slow (4+ minutes)",
+            "You know it, but it costs time you won't have",
+            "Redo similar questions against a timer"
+          ],
+          [
+            "Right by guessing",
+            "You'll get it wrong next time",
+            "Treat as wrong and relearn the concept"
+          ],
+          [
+            "Wrong, but you knew it",
+            "A silly mistake: a sign, a misread, a mis-click",
+            "Work out which kind, and fix that habit"
+          ],
+          [
+            "Wrong, didn't know",
+            "A real gap",
+            "Add the chapter to next week's plan"
+          ],
+          [
+            "Skipped",
+            "Out of time or out of reach",
+            "Check whether pacing or knowledge was the reason"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": null,
+      "body": "A slow correct answer in a mock is a fast wrong answer on exam day, because the time it takes comes out of the questions after it. That's why the \"right but slow\" group matters as much as the wrong ones."
+    },
+    {
+      "heading": "Keep a simple log",
+      "body": "After each review, write down four numbers per subject: score, accuracy (correct out of attempted), time spent, and how many marks went on silly mistakes. Raw score moves around with paper difficulty; accuracy, time and silly-mistake marks are the trends that tell you whether your preparation is working. Your mock percentile is the least useful number, since it depends on who else took that particular mock."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Starting full mocks before covering most of the syllabus, then reading the low scores as a verdict",
+        "Taking two or three mocks a week and reviewing none of them properly",
+        "Reviewing only wrong answers and ignoring slow and lucky ones",
+        "Taking mocks at a different time of day from your real shift",
+        "Taking a full mock the day before the exam"
+      ]
+    },
+    {
+      "heading": null,
+      "body": "If you want your practice to feel like the real clock, Studyloaf's free timer runs without an account and lets you tag each session by subject, which is useful for timing a single subject's block on its own and finding out which one is quietly eating your pace."
     }
   ],
   "tags": [
     "jee",
     "mock-tests",
     "practice-strategy"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: 4 silly mistakes costing you marks",
+      "href": "/blog/4-silly-mistakes-costing-marks-jee-neet"
+    },
+    {
+      "label": "Read next: The last 30 days, week by week",
+      "href": "/blog/jee-neet-last-30-days-revision-plan"
+    },
+    {
+      "label": "Read next: Should you drop a year? A framework",
+      "href": "/blog/should-you-drop-a-year-for-jee-neet"
+    }
   ]
 }

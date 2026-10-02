@@ -112,5 +112,19 @@
   "tags": [
     "neet",
     "revision-planning"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: Is NCERT enough for NEET?",
+      "href": "/blog/is-ncert-enough-for-neet"
+    },
+    {
+      "label": "Read next: Revising the whole syllabus in the last 30 days",
+      "href": "/blog/jee-neet-last-30-days-revision-plan"
+    },
+    {
+      "label": "NEET UG 2027 countdown",
+      "href": "/countdown/neet-2027"
+    }
   ]
 }

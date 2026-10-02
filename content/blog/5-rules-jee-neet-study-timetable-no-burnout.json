@@ -1,68 +1,222 @@
 {
   "slug": "5-rules-jee-neet-study-timetable-no-burnout",
   "title": "5 Rules for a JEE/NEET Study Timetable That Doesn't Burn You Out",
-  "description": "Almost every JEE and NEET timetable dies within a few weeks. Here are the 5 rules behind a structure built to actually survive contact with real life.",
+  "description": "Almost every JEE and NEET timetable dies within a few weeks. Five rules for a structure that survives real life, with separate weekly rotations for JEE and NEET and a daily block template.",
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
   "date": "2026-09-01",
   "content": [
     {
       "heading": null,
-      "body": "Most JEE and NEET timetables die the same way. Five subjects a day. Mock tests every Sunday. Zero gaps. Looks great on paper. Falls apart in two weeks."
+      "body": "Most JEE and NEET timetables die the same way. Five subjects a day, a mock every Sunday, no gaps. It looks impressive on paper and falls apart within two weeks, usually after one bad day turns into three. That isn't a willpower problem. It's a design problem: the plan assumed every day would go perfectly. Here are five rules for a structure that holds up, with separate weekly rotations for JEE and NEET, because the two exams weight their subjects very differently."
+    },
+    {
+      "heading": "Rule 1: Match subjects to your energy, not to the clock",
+      "list": [
+        "Spend three days noticing when you focus best, without changing anything. Most students find one or two clear high-energy windows, often morning or late afternoon",
+        "Put your hardest work in those windows: new chapters or problem sets in your weakest subject",
+        "Use low-energy time for work that doesn't need fresh thinking: revising formula sheets, NCERT rereads, flashcards, or reviewing yesterday's mistakes",
+        "Don't fight your body clock to copy a topper's 5 am routine. A timetable you can keep beats an impressive one you can't"
+      ]
+    },
+    {
+      "heading": "Rule 2: Fix the weekly rotation in advance",
+      "body": "Deciding every morning what to study drains energy before you've started, and it quietly favours whichever subject feels easiest. Set the rotation once, so the only daily decision is to begin. The rotation has to fit your exam. JEE gives Physics, Chemistry and Mathematics 100 marks each, so they get roughly equal time, tilted towards your weakest. NEET gives Biology 360 of 720 marks, as much as Physics and Chemistry together, so Biology appears almost every day."
     },
     {
       "heading": null,
-      "body": "It's not a willpower problem. It's a design problem. Here's a structure that actually holds up."
+      "table": {
+        "caption": "A sample JEE week (6 study days)",
+        "columns": [
+          "Day",
+          "High-energy block",
+          "Second block"
+        ],
+        "rows": [
+          [
+            "Monday",
+            "Physics: new topic",
+            "Mathematics: practice set"
+          ],
+          [
+            "Tuesday",
+            "Chemistry: new topic",
+            "Physics: practice set"
+          ],
+          [
+            "Wednesday",
+            "Mathematics: new topic",
+            "Chemistry: practice set"
+          ],
+          [
+            "Thursday",
+            "Physics: practice set",
+            "Mathematics: new topic"
+          ],
+          [
+            "Friday",
+            "Chemistry: practice set",
+            "Mixed revision of the week"
+          ],
+          [
+            "Saturday",
+            "Full mock test or timed mixed paper",
+            "Mock review"
+          ],
+          [
+            "Sunday",
+            "Off",
+            "Off"
+          ]
+        ],
+        "rowHeaders": true
+      }
     },
     {
-      "heading": "Match subjects to your energy",
+      "heading": null,
+      "table": {
+        "caption": "A sample NEET week (6 study days)",
+        "columns": [
+          "Day",
+          "High-energy block",
+          "Second block"
+        ],
+        "rows": [
+          [
+            "Monday",
+            "Biology: new topic",
+            "Physics: numericals"
+          ],
+          [
+            "Tuesday",
+            "Biology: new topic",
+            "Chemistry: new topic"
+          ],
+          [
+            "Wednesday",
+            "Physics: new topic",
+            "Biology: NCERT reread and diagrams"
+          ],
+          [
+            "Thursday",
+            "Biology: new topic",
+            "Chemistry: practice set"
+          ],
+          [
+            "Friday",
+            "Physics and Chemistry: practice",
+            "Biology: revision of the week"
+          ],
+          [
+            "Saturday",
+            "Full mock test (3 hours)",
+            "Mock review"
+          ],
+          [
+            "Sunday",
+            "Off",
+            "Off"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": null,
+      "body": "Swap the subjects to match your own weak spots, but keep the shape: new material in your best hours, practice next, and one day a week for a mock and a proper review of it."
+    },
+    {
+      "heading": "Rule 3: Leave real slack",
       "list": [
-        "Track your focus for 3 days. No plan yet, just notice.",
-        "Find your 1-2 high-energy windows.",
-        "Put your hardest subject there. Usually Physics or Organic Chem.",
-        "Use low-energy time for revision or flashcards, not fresh problems."
+        "A timetable with zero buffer has zero room for a bad day, and bad days are guaranteed",
+        "Leave one unscheduled block every day, about an hour. On a good day it becomes extra practice; on a bad day it absorbs the overrun",
+        "Keep one lighter day a week, so a missed block has somewhere to go",
+        "Slack is what stops a bad day becoming a bad week"
       ]
     },
     {
-      "heading": "Fix your subject rotation",
+      "heading": "Rule 4: Give revision its own fixed slot",
       "list": [
-        "Don't decide what to study each morning. That decision alone drains you.",
-        "Set a weekly pattern: Physics + Maths on Mon/Thu.",
-        "Chemistry + Biology on Tue/Fri.",
-        "One mixed revision day midweek.",
-        "The only choice left each day is: start."
+        "Revision isn't what happens if there's time left over. New chapters you can't recall on exam day are wasted hours",
+        "Fix it as a daily slot, such as the last 45 minutes of the day, plus one longer session at the end of each week",
+        "Use spaced review: look at a chapter again a day after you study it, then about a week later, then a month later",
+        "Treat the slot as non-negotiable, the same as a class"
       ]
     },
     {
-      "heading": "Leave real slack",
+      "heading": "Rule 5: Take one full day off every week",
       "list": [
-        "Zero buffer means zero room for a bad day.",
-        "Leave one unscheduled block, every single day.",
-        "Keep one lighter day per week.",
-        "This is what stops a bad day from becoming a bad week."
+        "Not a lighter day. Off",
+        "Students who skip rest for weeks don't save time; they lose several days to a crash later",
+        "A day off is also when the week's material settles. Coming back after a break is part of how it sticks",
+        "It's the rule people cut first and regret most"
       ]
     },
     {
-      "heading": "Give revision its own slot",
-      "list": [
-        "Revision is not leftover time.",
-        "New content means nothing if it's gone by exam day.",
-        "Fix a slot: last 45 minutes daily, or one evening a week.",
-        "Non-negotiable. Not \"if there's time.\""
-      ]
+      "heading": "A daily template that uses all five rules",
+      "body": "For a full study day of about 7 to 8 hours (fewer on school or college days, with the same order):"
     },
     {
-      "heading": "Take a full day off",
+      "heading": null,
+      "table": {
+        "caption": "One study day, in blocks",
+        "columns": [
+          "Block",
+          "Length",
+          "What goes in it"
+        ],
+        "rows": [
+          [
+            "1. High-energy",
+            "2 to 2.5 hours",
+            "Today's hardest work from the weekly rotation"
+          ],
+          [
+            "Break",
+            "30 minutes",
+            "Away from the desk"
+          ],
+          [
+            "2. Second block",
+            "2 hours",
+            "Practice set or the second subject"
+          ],
+          [
+            "Break",
+            "1 hour",
+            "Meal and rest"
+          ],
+          [
+            "3. Low-energy",
+            "1 to 1.5 hours",
+            "Formula sheets, NCERT rereads, error log"
+          ],
+          [
+            "4. Slack",
+            "1 hour",
+            "Whatever overran today, or extra practice"
+          ],
+          [
+            "5. Revision",
+            "45 minutes",
+            "Spaced review of earlier chapters"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Common mistakes",
       "list": [
-        "One full day off, every week.",
-        "Not lighter. Off.",
-        "Skip it too long and you don't save time, you lose 3 days to a crash.",
-        "This is the step people cut first and regret most."
+        "Copying someone else's timetable instead of building around your own energy and weak subjects",
+        "Giving NEET Biology the same time as Physics and Chemistry, when it carries half the marks",
+        "Planning every hour of every day, so the first bad day breaks the whole week",
+        "Taking a weekly mock but skipping the review, which is where most of its value is"
       ]
     },
     {
       "heading": null,
-      "body": "None of this is complicated. It's just permission to build a plan you can actually keep. If you want to run it without rebuilding your week from memory every morning, Studyloaf's Timetable and Tracker already work this way: recurring blocks, a syllabus view, and a timer that doesn't guilt-trip you on the days it doesn't go perfectly."
+      "body": "None of this is complicated. It's permission to build a plan you can keep. To set up a rotation like the ones above without rebuilding it from memory every week, Studyloaf's free timetable generator creates a weekly schedule from your subjects, hours per day and exam date, and the timer keeps each block honest without guilt-tripping you on the days that don't go perfectly."
     }
   ],
   "tags": [
@@ -70,5 +224,19 @@
     "neet",
     "study-timetable",
     "burnout-prevention"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Free timetable generator",
+      "href": "/tools/timetable-generator"
+    },
+    {
+      "label": "Read next: The last 30 days, week by week",
+      "href": "/blog/jee-neet-last-30-days-revision-plan"
+    },
+    {
+      "label": "Read next: How many mock tests you actually need",
+      "href": "/blog/jee-main-mock-test-strategy"
+    }
   ]
 }

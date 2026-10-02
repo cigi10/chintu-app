@@ -27,9 +27,9 @@ type BlogPostSection = {
   image?: BlogImageData;
 };
 
-// Optional: a post can point at one or more pages it's introducing (e.g. a
-// feature-announcement post linking to the feature itself), rendered as a
-// small link list after the content.
+// Optional: related pages (other posts, tools, resource pages), rendered as
+// a small link list after the content. Server-rendered like the rest of the
+// post; lib/blogPosts.test.js checks every href resolves.
 type BlogPostRelatedLink = {
   label: string;
   href: string;
@@ -121,7 +121,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {post.relatedLinks && (post.relatedLinks as BlogPostRelatedLink[]).length > 0 && (
             <div className="blog-post-related">
-              <strong>Try it yourself</strong>
+              <strong>Keep going</strong>
               <ul className="blog-post-related-list">
                 {(post.relatedLinks as BlogPostRelatedLink[]).map((link, i) => (
                   <li key={i}>

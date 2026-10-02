@@ -69,5 +69,15 @@
   "tags": [
     "neet",
     "counselling"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: NEET All India Rank vs State Rank",
+      "href": "/blog/neet-all-india-rank-vs-state-rank"
+    },
+    {
+      "label": "Read next: 6 JEE/NEET myths that are wrong",
+      "href": "/blog/jee-neet-myths-that-are-wrong-or-outdated"
+    }
   ]
 }

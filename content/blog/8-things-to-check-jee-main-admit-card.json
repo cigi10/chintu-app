@@ -46,7 +46,7 @@
           ],
           [
             "Paper",
-            "Paper 1 (B.E./B.Tech) or Paper 2 (B.Arch/B.Planning)",
+            "Paper 1 (B.E./B.Tech), Paper 2A (B.Arch) or Paper 2B (B.Planning)",
             "You may be sitting a paper you didn't prepare for"
           ],
           [
@@ -70,7 +70,7 @@
     },
     {
       "heading": "The step students actually forget",
-      "body": "The admit card isn't done once it's downloaded. It includes a self-declaration section where you need to paste a recent photograph and put your left-hand thumb impression before carrying it to the centre. Arriving with an admit card that's missing this step is treated the same as arriving with an incomplete one. Do this the same day you download it, not the morning of the exam when you're already rushed."
+      "body": "The admit card isn't done once it's downloaded. It includes a self-declaration section where you need to paste a recent photograph and put your left-hand thumb impression before carrying it to the centre. Arriving with an admit card that's missing this step is treated the same as arriving with an incomplete one. Do this the same day you download it, not the morning of the exam when you're already rushed. One part you should not do at home: the signature. NTA's instructions are to sign the declaration only inside the exam hall, in front of the invigilator, so leave that box blank until you're told to sign."
     },
     {
       "heading": "What to actually bring, not just download",
@@ -85,5 +85,19 @@
     "jee",
     "admit-card",
     "exam-logistics"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: 4 silly mistakes costing you marks",
+      "href": "/blog/4-silly-mistakes-costing-marks-jee-neet"
+    },
+    {
+      "label": "Read next: JEE Main marking scheme explained",
+      "href": "/blog/jee-main-2027-marking-scheme-change"
+    },
+    {
+      "label": "JEE Main 2027 Session 1 countdown",
+      "href": "/countdown/jee-2027"
+    }
   ]
 }

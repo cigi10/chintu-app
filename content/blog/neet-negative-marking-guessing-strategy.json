@@ -93,5 +93,19 @@
   "tags": [
     "neet",
     "negative-marking"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: NEET 2027 goes computer-based",
+      "href": "/blog/neet-2027-cbt-mode-what-changes"
+    },
+    {
+      "label": "Read next: Is NCERT enough for NEET?",
+      "href": "/blog/is-ncert-enough-for-neet"
+    },
+    {
+      "label": "NEET Biology practice quiz",
+      "href": "/quiz/neet-bio/practice"
+    }
   ]
 }

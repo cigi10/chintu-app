@@ -76,5 +76,19 @@
     "neet",
     "ncert",
     "study-strategy"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: 12 high-weightage NEET chapters",
+      "href": "/blog/11-neet-high-weightage-chapters"
+    },
+    {
+      "label": "Read next: NEET negative marking: when guessing is worth it",
+      "href": "/blog/neet-negative-marking-guessing-strategy"
+    },
+    {
+      "label": "NEET Biology Daily Challenge",
+      "href": "/quiz/neet-bio/daily"
+    }
   ]
 }

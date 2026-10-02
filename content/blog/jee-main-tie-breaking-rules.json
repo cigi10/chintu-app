@@ -89,5 +89,15 @@
     "jee",
     "percentile-and-rank",
     "tie-breaking-rules"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: JEE Main percentile, NTA Score and rank",
+      "href": "/blog/jee-main-normalization-explained"
+    },
+    {
+      "label": "Read next: JEE Main marking scheme explained",
+      "href": "/blog/jee-main-2027-marking-scheme-change"
+    }
   ]
 }

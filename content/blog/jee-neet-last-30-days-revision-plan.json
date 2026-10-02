@@ -1,43 +1,124 @@
 {
   "slug": "jee-neet-last-30-days-revision-plan",
   "title": "How to Revise Your Entire JEE/NEET Syllabus in the Last 30 Days",
-  "description": "With 30 days left, there's no time to re-study everything at first-pass depth. Here's how to triage your syllabus by confidence level and allocate days by subject weight instead.",
+  "description": "With 30 days left, there's no time to re-study everything at first-pass depth. A week-by-week calendar for the final month, how to triage chapters by confidence, and separate subject splits for JEE and NEET.",
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
   "date": "2026-09-22",
   "content": [
     {
       "heading": null,
-      "body": "By the time you're 30 days out, you've already covered the syllabus once. The mistake most students make in this window is trying to re-study everything at the same depth as the first pass: rereading full chapters, redoing every example, as if there were still months left. There aren't. The last 30 days aren't for learning; they're for triage."
+      "body": "By the time you're 30 days out, you've covered the syllabus once. The most common mistake in this window is re-studying everything at first-pass depth: rereading whole chapters and redoing every example as if there were months left. There aren't. The last 30 days aren't for learning. They're for triage, timed practice, and arriving at the exam rested. Below is the method, a week-by-week calendar, and how the subject split differs between JEE and NEET."
     },
     {
-      "heading": "Sort your syllabus into two piles, not one",
-      "body": "Every chapter you've covered falls into one of two categories right now: confident (you'd get most questions right with just a formula glance) or shaky (you'd need to actually work through logic, not just recall). Use your recent mock test performance to sort honestly, not how you feel about a chapter. A chapter you \"like\" isn't the same as a chapter you consistently score well on."
+      "heading": "Step 1: Sort every chapter into two piles",
+      "body": "Use your recent mock results, not your feelings about a chapter, to sort honestly. A chapter you like isn't the same as one you consistently score well on."
     },
     {
       "heading": null,
       "list": [
-        "Confident chapters: a single quick pass (formula sheet, key results, maybe one worked example) to confirm the method hasn't gone stale",
-        "Shaky chapters: a full worked-example pass, the kind of practice you'd have done on a first study round",
-        "This split alone usually cuts your effective 30-day workload by close to half, since most students genuinely have more confident chapters than shaky ones by this point"
+        "Confident: you'd get most questions right with a quick formula glance. These get one fast pass: formula sheet, key results, one worked example to check the method hasn't gone stale",
+        "Shaky: you'd have to work through the logic, and your mocks show you dropping marks there. These get a full worked-example pass and a timed problem set",
+        "Most students have more confident chapters than shaky ones by now, so this split alone usually cuts the month's workload by close to half"
       ]
     },
     {
-      "heading": "Allocate days by subject weight, not by chapter count",
-      "body": "If NEET Biology carries roughly half the total marks, it should get roughly half of your remaining revision days, not one-third, just because there are three subjects. A subject with more chapters but lower weight (like a low-mark topic list) shouldn't out-compete a heavier subject just because it has more items to check off. Count marks, not chapters, when splitting your 30 days."
-    },
-    {
-      "heading": "The mocks question everyone gets wrong",
-      "body": "Two opposite mistakes show up here equally often. One: stopping full mock tests entirely in the last month out of fear that a bad score this close to the exam will wreck your confidence. Two: cramming a mock in literally the day or two before the real exam, when there's no time left to act on what it reveals and it mostly just adds anxiety. The middle path: keep taking 1 full mock a week through most of the 30 days for pacing calibration, then stop 3 full days before the actual exam so your last stretch is review and rest, not another timed ordeal."
+      "heading": "Step 2: The 30-day calendar",
+      "body": "Every week has the same rhythm: six days of targeted work and one full mock with a proper review. Mocks stop three days before the exam, so the final stretch is review and rest, not another timed ordeal."
     },
     {
       "heading": null,
-      "body": "Once you've decided how many days each subject gets, Studyloaf's free timetable generator can turn that into an actual weekly schedule from just your subjects, hours per day, and exam date, and the timer helps keep each day's revision blocks honest instead of quietly running long. Both work without needing an account, so there's no setup standing between you and actually starting."
+      "table": {
+        "caption": "The final 30 days, week by week",
+        "columns": [
+          "Days",
+          "Focus",
+          "Mock"
+        ],
+        "rows": [
+          [
+            "1 to 7",
+            "Shaky chapters, first half: full worked-example pass, one timed set per chapter",
+            "Full mock on day 7, then review"
+          ],
+          [
+            "8 to 14",
+            "Shaky chapters, second half, plus a quick pass through confident chapters in your strongest subject",
+            "Full mock on day 14, then review"
+          ],
+          [
+            "15 to 21",
+            "Mixed timed practice and previous years' papers; quick pass through the remaining confident chapters",
+            "Full mock on day 21, then review"
+          ],
+          [
+            "22 to 27",
+            "Your error log and formula sheets; short timed sets on the chapters mocks keep exposing",
+            "Last full mock on day 26 or 27"
+          ],
+          [
+            "28 to 30",
+            "Light review only: formula sheets, NCERT highlights, your top mistakes. Check your admit card, centre and route. Sleep on schedule",
+            "None"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "A day in the final month",
+      "list": [
+        "Morning, your best hours: one shaky chapter, worked examples then a timed set",
+        "Afternoon: practice or previous years' questions in a second subject",
+        "Evening: 30 to 45 minutes on your error log, rewriting each mistake as the rule you'll apply next time",
+        "Mock days: the full paper at the real exam time, then at least as long again reviewing it",
+        "Keep sleep fixed at the hours your exam needs. A 9 am JEE Main shift and a 2 pm NEET start call for different routines in the last fortnight"
+      ]
+    },
+    {
+      "heading": "How the split differs for JEE",
+      "body": "JEE Main gives Physics, Chemistry and Mathematics 100 marks each, so there's no heavyweight subject to favour. Split the month by weakness instead: if your mocks show Mathematics trailing by 30 marks, it gets the largest share of shaky-chapter days. Numerical-answer questions have carried -1 for a wrong answer since 2022, so practise finishing calculations cleanly and leaving a numerical blank when you can't. If you're also sitting JEE Advanced, keep one multi-concept problem set a week in the plan, since Advanced questions chain topics in a way Main practice doesn't train."
+    },
+    {
+      "heading": "How the split differs for NEET",
+      "body": "NEET gives Biology 360 of 720 marks, as much as Physics and Chemistry combined, so Biology should get roughly half of your revision days rather than a third. Most of that time is close NCERT rereading (diagrams, tables and the lines between the bold headings), because NEET Biology questions track NCERT closely. Physics and Chemistry time goes on problem practice, especially Physics numericals and Organic reactions, where rereading helps far less. Remember that from 2027 NEET is computer-based, so take at least your last two mocks on a screen."
+    },
+    {
+      "heading": "The mock mistake in both directions",
+      "body": "Two opposite mistakes are equally common. One is stopping mocks entirely in the last month for fear a bad score will wreck your confidence; you lose the pacing practice you most need. The other is cramming a mock into the last day or two, when there's no time to act on it and it mostly adds anxiety. The middle path is the calendar above: one full mock a week, the last one about three days out."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Rereading confident chapters because it feels productive, while shaky ones wait",
+        "Splitting NEET days equally across three subjects when Biology is half the paper",
+        "Taking a mock but not reviewing it, which wastes most of its value",
+        "Changing sleep times in the final week instead of fixing them to your exam slot",
+        "Leaving admit card and centre checks to the night before"
+      ]
+    },
+    {
+      "heading": null,
+      "body": "Once you've decided how many days each subject gets, Studyloaf's free timetable generator turns that into a day-by-day schedule from your subjects, hours per day and exam date, and the exam countdown shows exactly how many days you're working with."
     }
   ],
   "tags": [
     "jee",
     "neet",
     "revision-planning"
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read next: How many mock tests you actually need",
+      "href": "/blog/jee-main-mock-test-strategy"
+    },
+    {
+      "label": "Read next: 5 rules for a timetable that doesn't burn you out",
+      "href": "/blog/5-rules-jee-neet-study-timetable-no-burnout"
+    },
+    {
+      "label": "Read next: 12 high-weightage NEET chapters",
+      "href": "/blog/11-neet-high-weightage-chapters"
+    }
   ]
 }
