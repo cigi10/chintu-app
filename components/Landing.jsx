@@ -38,7 +38,7 @@ const FEATURES = [
 // actual product before ever creating an account.
 const TRY_IT_TOOLS = [
   { href: NAV.timetableGenerator.href, title: "Timetable Generator", desc: "Build a study timetable in a couple of minutes." },
-  { href: NAV.countdown.href, title: "Exam Countdown", desc: "See exactly how many days are left until your exam." },
+  { href: NAV.countdown.href, title: "Exam Countdowns", desc: "Live countdowns to JEE, NEET, CLAT, GATE and UPSC, all on one page." },
   { href: NAV.quiz.href, title: "Daily Quiz", desc: "A quick daily challenge for JEE, NEET, and more." },
   { href: NAV.resources.href, title: "Quick Resources", desc: "Formulas and shortcuts you keep having to look up." },
 ];

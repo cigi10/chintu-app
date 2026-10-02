@@ -1,0 +1,155 @@
+/* Flip-clock countdown (components/FlipClock.jsx).
+
+   Tile colours come from the active theme rather than being fixed: the
+   tile takes whichever of --color-bg / --color-text is the DARK one and
+   the digit takes the light one, so every theme gets dark tiles with
+   high-contrast light digits in its own palette. Light themes (dark text
+   on a light page) use text as the tile; the dark themes below swap. */
+.flip-clock {
+  --flip-tile: var(--color-text);
+  --flip-digit-color: var(--color-bg);
+}
+
+html:not([data-theme]) .flip-clock,
+[data-theme="cocoa"] .flip-clock,
+[data-theme="starry-nights"] .flip-clock,
+[data-theme="rose-noir"] .flip-clock,
+[data-theme="midnight-blue"] .flip-clock,
+[data-theme="twilight-forest"] .flip-clock {
+  --flip-tile: var(--color-bg);
+  --flip-digit-color: var(--color-text);
+}
+
+/* Tile size is derived from the clock's own width (container query
+   units), so four units of up to 9 tiles always fit on one row and scale
+   down on narrow screens instead of overflowing. */
+.flip-clock-wrap {
+  container-type: inline-size;
+}
+
+.flip-clock {
+  /* Worst case is 9 tiles (3-digit days) plus 5 digit gaps (0.08w each)
+     and 3 unit gaps (0.35w each): about 10.45 tile widths in total. */
+  --flip-w: clamp(1.25rem, calc(100cqi / 10.6), 3.6rem);
+  --flip-h: calc(var(--flip-w) * 1.45);
+  --flip-gap: calc(var(--flip-w) * 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: calc(var(--flip-w) * 0.35);
+  perspective: 600px;
+}
+
+.flip-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.flip-unit__digits {
+  display: flex;
+  gap: var(--flip-gap);
+}
+
+.flip-unit__label {
+  font-size: clamp(0.62rem, 2.4cqi, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.flip-digit {
+  position: relative;
+  display: block;
+  width: var(--flip-w);
+  height: var(--flip-h);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: calc(var(--flip-h) * 0.66);
+  font-variant-numeric: tabular-nums;
+  color: var(--flip-digit-color);
+  border-radius: calc(var(--flip-w) * 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.flip-digit__half {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  background: var(--flip-tile);
+  backface-visibility: hidden;
+}
+
+/* The inner span is full tile height, so each half shows its own slice
+   of the same centred glyph. */
+.flip-digit__half > span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.flip-digit__half--top {
+  top: 0;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transform-origin: bottom;
+}
+
+.flip-digit__half--top > span { top: 0; }
+
+.flip-digit__half--bottom {
+  bottom: 0;
+  border-radius: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  transform-origin: top;
+  /* The hinge: a thin gap in the card's own colour between the halves. */
+  border-top: max(1px, calc(var(--flip-h) * 0.012)) solid var(--color-surface);
+}
+
+.flip-digit__half--bottom > span { top: -100%; }
+
+.flip-digit__flap-top {
+  z-index: 2;
+  animation: flip-top 0.3s ease-in forwards;
+}
+
+.flip-digit__flap-bottom {
+  z-index: 2;
+  transform: rotateX(90deg);
+  animation: flip-bottom 0.3s ease-out 0.3s forwards;
+}
+
+@keyframes flip-top {
+  to { transform: rotateX(-90deg); }
+}
+
+@keyframes flip-bottom {
+  to { transform: rotateX(0deg); }
+}
+
+/* Near-zero rather than `none`, so animationend still fires and the
+   static bottom half still catches up to the new value. */
+@media (prefers-reduced-motion: reduce) {
+  .flip-digit__flap-top,
+  .flip-digit__flap-bottom {
+    animation-duration: 1ms;
+    animation-delay: 0s;
+  }
+}
+
+.flip-clock__done {
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-text);
+}
