@@ -11,8 +11,8 @@ const KEY_ARIA_LABEL = { ENTER: "Enter", BACKSPACE: "Backspace" };
 
 /**
  * On-screen QWERTY keyboard for Crumb. `keyStatuses` is the letter ->
- * "correct" | "present" | "absent" map from lib/wordGame's
- * computeKeyStatuses, so a key's color reflects every guess submitted so
+ * "correct" | "present" | "absent" map from lib/wordGameRules'
+ * keyStatusesFromScores, so a key's color reflects every guess submitted so
  * far, not just the most recent one. Tapping a key and pressing the same
  * physical key both funnel through the same `onKey` callback in
  * CrumbGame, so on-screen and physical input can never drift apart.

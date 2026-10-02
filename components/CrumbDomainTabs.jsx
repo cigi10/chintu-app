@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { WORD_GAME_DOMAINS, getWordGameDomainSlugs } from "@/lib/wordGame";
+import { WORD_GAME_DOMAIN_META } from "@/lib/wordGameDomains";
 
 // Lets you jump straight from one domain's puzzle to another without
 // going back through the /games/crumb overview - the piece that keeps
@@ -11,17 +11,14 @@ import { WORD_GAME_DOMAINS, getWordGameDomainSlugs } from "@/lib/wordGame";
 // anyway; usePathname keeps this in one small client component instead.
 export default function CrumbDomainTabs() {
   const pathname = usePathname();
-  const slugs = getWordGameDomainSlugs();
-
   return (
     <nav className="crumb-tabs" aria-label="Crumb domains">
-      {slugs.map(slug => {
-        const domain = WORD_GAME_DOMAINS[slug];
-        const active = pathname === `/games/crumb/${slug}`;
+      {WORD_GAME_DOMAIN_META.map(domain => {
+        const active = pathname === `/games/crumb/${domain.slug}`;
         return (
           <Link
-            key={slug}
-            href={`/games/crumb/${slug}`}
+            key={domain.slug}
+            href={`/games/crumb/${domain.slug}`}
             className={`crumb-tab${active ? " crumb-tab--active" : ""}`}
           >
             {domain.label}

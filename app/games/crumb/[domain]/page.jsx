@@ -32,7 +32,9 @@ export default async function CrumbDomainPage({ params }) {
           an equation-guessing puzzle) would add its own sibling section
           here rather than replacing this one. */}
       <section className="crumb-domain-game-section">
-        <CrumbGame domain={domain} />
+        {/* Only the slug and label go to the client. The terms stay on the
+            server; the game fetches today's puzzle from /api/crumb. */}
+        <CrumbGame domain={{ slug: domain.slug, label: domain.label }} />
       </section>
       <ToolAbout content={getCrumbPageContent(slug)} />
     </div>
