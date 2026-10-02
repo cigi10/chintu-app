@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
 import Breadcrumbs from "@/components/Breadcrumbs";

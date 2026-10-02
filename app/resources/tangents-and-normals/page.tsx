@@ -38,7 +38,7 @@ export default function TangentsAndNormalsPage() {
           <h1 className="blog-post-title">Tangents and Normals</h1>
 
           <div className="blog-post-section">
-            <h2 className="blog-post-heading">Finding a tangent's slope</h2>
+            <h2 className="blog-post-heading">Finding a tangent&apos;s slope</h2>
             <p className="blog-post-p">
               The slope of the tangent to <Katex>{"y=f(x)"}</Katex> at a specific point is just{" "}
               <Katex>{"f'(x)"}</Katex> evaluated at that point&apos;s <Katex>{"x"}</Katex>-value.

@@ -35,7 +35,7 @@ export default function CrumbFamilyPage() {
           Crumb is a daily term-guessing game. Guess a real, domain-specific technical term in 6
           tries, not a common English word, so solving it actually takes subject knowledge. Every
           guess gets colored letter feedback: green for the right letter in the right spot, yellow
-          for the right letter in the wrong spot, gray for a letter that isn't in the word. Each
+          for the right letter in the wrong spot, gray for a letter that isn&apos;t in the word. Each
           domain below gets its own puzzle, once a day, with a clue shown throughout so the
           challenge is knowing the term, not guessing blind.
         </p>
@@ -50,7 +50,7 @@ export default function CrumbFamilyPage() {
               <p className="quiz-card-desc">{domain.terms.length} terms in the bank.</p>
               <div className="quiz-card-actions">
                 <Link href={`/games/crumb/${slug}`} className="btn btn--primary btn--sm">
-                  Play today's puzzle
+                  Play today&apos;s puzzle
                 </Link>
               </div>
             </div>

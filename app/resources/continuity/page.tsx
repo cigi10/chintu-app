@@ -68,7 +68,7 @@ export default function ContinuityPage() {
           </div>
 
           <div className="blog-post-section">
-            <h2 className="blog-post-heading">A function can only be continuous where it's defined</h2>
+            <h2 className="blog-post-heading">A function can only be continuous where it&apos;s defined</h2>
             <p className="blog-post-p">
               Before asking whether a function is continuous at a point, it has to actually be
               defined there, so finding a function&apos;s domain is usually the first step.

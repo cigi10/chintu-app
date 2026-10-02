@@ -97,7 +97,7 @@ export default function KirchhoffsLawsPage() {
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/pn-junction-diode">PN Junction Diode: Forward and Reverse Bias</Link></li>
-              <li><Link href="/resources/thevenin-norton-theorems">Thevenin's and Norton's Theorems</Link></li>
+              <li><Link href="/resources/thevenin-norton-theorems">Thevenin&apos;s and Norton&apos;s Theorems</Link></li>
             </ul>
           </div>
         </article>

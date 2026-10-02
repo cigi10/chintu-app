@@ -57,7 +57,7 @@ export default function QuadraticEquationsPage() {
             </ul>
             <p className="blog-post-p">
               <Katex>{"9x + 5 = 0"}</Katex> is <em>not</em> a quadratic equation since the{" "}
-              <Katex>{"x^2"}</Katex> term is missing: it's a linear equation.
+              <Katex>{"x^2"}</Katex> term is missing: it&apos;s a linear equation.
             </p>
             <p className="blog-post-p">A few more points to remember:</p>
             <ul className="blog-post-list">
@@ -134,7 +134,7 @@ export default function QuadraticEquationsPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Worked example</h2>
             <p className="blog-post-p">
-              Let's solve <Katex>{"4x^2 - 12x + 3 = 0"}</Katex> using this method.
+              Let&apos;s solve <Katex>{"4x^2 - 12x + 3 = 0"}</Katex> using this method.
             </p>
             <ol className="blog-post-list">
               <li>
@@ -166,9 +166,9 @@ export default function QuadraticEquationsPage() {
               The graph of a quadratic equation is a curve called a parabola. When{" "}
               <Katex>{"a"}</Katex> is positive, the parabola opens upward; when <Katex>{"a"}</Katex>{" "}
               is negative, it opens downward. As <Katex>{"|a|"}</Katex> increases, the parabola gets
-              narrower. (If <Katex>{"a = 0"}</Katex>, it's no longer a quadratic equation at all.)
+              narrower. (If <Katex>{"a = 0"}</Katex>, it&apos;s no longer a quadratic equation at all.)
               Changing <Katex>{"b"}</Katex> shifts the vertex left or right of the y-axis without
-              changing the parabola's shape, and changing <Katex>{"c"}</Katex> shifts the whole graph
+              changing the parabola&apos;s shape, and changing <Katex>{"c"}</Katex> shifts the whole graph
               up or down.
             </p>
           </div>
@@ -177,17 +177,17 @@ export default function QuadraticEquationsPage() {
             <h2 className="blog-post-heading">Quadratic equations in real life</h2>
             <p className="blog-post-p">
               Quadratic equations show up whenever a quantity depends on the square of another, such
-              as finding the speed of a moving object, a product's profit, or an area. Here's one
+              as finding the speed of a moving object, a product&apos;s profit, or an area. Here&apos;s one
               example: finding the speed of a boat that travels up and down a river.
             </p>
             <p className="blog-post-p">
               A river flows at 2 km/hour. A boat travels 20 km upstream against the current and then
-              back, and the round trip takes 4 hours. Let <Katex>{"x"}</Katex> be the boat's speed in
+              back, and the round trip takes 4 hours. Let <Katex>{"x"}</Katex> be the boat&apos;s speed in
               still water.
             </p>
             <p className="blog-post-p">
-              Going upstream, the boat's speed relative to the ground is <Katex>{"x - 2"}</Katex>{" "}
-              (the current slows it down); going downstream it's <Katex>{"x + 2"}</Katex> (the
+              Going upstream, the boat&apos;s speed relative to the ground is <Katex>{"x - 2"}</Katex>{" "}
+              (the current slows it down); going downstream it&apos;s <Katex>{"x + 2"}</Katex> (the
               current helps it along). Since <Katex>{"\\text{time} = \\dfrac{\\text{distance}}{\\text{speed}}"}</Katex>{" "}
               and the total time is 4 hours:
             </p>
@@ -196,7 +196,7 @@ export default function QuadraticEquationsPage() {
               Expanding this algebraically gives <Katex>{"x^2 - 10x - 4 = 0"}</Katex>. Solving with
               the quadratic formula gives two values: <Katex>{"x \\approx 10.38"}</Katex> and{" "}
               <Katex>{"x \\approx -0.38"}</Katex>. The negative value has no physical meaning here, so
-              the boat's speed in still water is about 10.38 km/hour.
+              the boat&apos;s speed in still water is about 10.38 km/hour.
             </p>
           </div>
 

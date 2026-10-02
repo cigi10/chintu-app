@@ -65,7 +65,7 @@ export default function DefiniteIntegralsPage() {
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
               Finding an antiderivative is the reverse of differentiating, and the chain rule is the
-              differentiation technique behind most of the trickier antiderivatives you'll meet.
+              differentiation technique behind most of the trickier antiderivatives you&apos;ll meet.
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/chain-rule">Chain Rule</Link></li>

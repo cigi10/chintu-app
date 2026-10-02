@@ -61,7 +61,7 @@ export default function OperationsOnMatricesPage() {
             <Katex display>{"A = \\begin{bmatrix} 0 & 6 & 7 \\\\ -6 & 0 & 8 \\\\ 7 & -8 & 0 \\end{bmatrix}, \\quad B = \\begin{bmatrix} 0 & 1 & 1 \\\\ 1 & 0 & 2 \\\\ 1 & 2 & 0 \\end{bmatrix}, \\quad C = \\begin{bmatrix} 2 \\\\ -2 \\\\ 3 \\end{bmatrix}"}</Katex>
             <p className="blog-post-p">
               Calculate <Katex>{"AB"}</Katex> and <Katex>{"AC"}</Katex>. (Note: <Katex>{"B"}</Katex>{" "}
-              is 3&times;3 and <Katex>{"C"}</Katex> is 3&times;1, so <Katex>{"B + C"}</Katex> isn't a
+              is 3&times;3 and <Katex>{"C"}</Katex> is 3&times;1, so <Katex>{"B + C"}</Katex> isn&apos;t a
               defined matrix operation, only <Katex>{"AB"}</Katex> and <Katex>{"AC"}</Katex> are
               computed here.)
             </p>

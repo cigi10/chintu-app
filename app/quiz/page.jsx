@@ -25,7 +25,7 @@ export default function QuizIndexPage() {
           <div className="quiz-header">
             <h1 className="quiz-title">Quiz</h1>
             <p className="quiz-subtitle">
-              Pick a subject, then play today's Daily Challenge or start a Practice Quiz anytime.
+              Pick a subject, then play today&apos;s Daily Challenge or start a Practice Quiz anytime.
             </p>
           </div>
 

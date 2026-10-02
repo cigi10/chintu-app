@@ -58,7 +58,7 @@ export default function QuotientRulePage() {
           </div>
 
           <div className="blog-post-section">
-            <h2 className="blog-post-heading">A function's derivative at a point</h2>
+            <h2 className="blog-post-heading">A function&apos;s derivative at a point</h2>
             <p className="blog-post-p">
               The functions <Katex>{"f(x)"}</Katex> and <Katex>{"g(x)"}</Katex> are differentiable,
               and <Katex>{"h(x) = \\dfrac{g(x)}{f(x)}"}</Katex>. Given{" "}

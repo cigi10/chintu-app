@@ -59,7 +59,7 @@ export default function TrigonometryPage() {
             <p className="blog-post-p">Three more ratios are the reciprocals of these:</p>
             <Katex display>{"\\csc\\theta = \\dfrac{1}{\\sin\\theta}, \\quad \\sec\\theta = \\dfrac{1}{\\cos\\theta}, \\quad \\cot\\theta = \\dfrac{1}{\\tan\\theta}"}</Katex>
             <p className="blog-post-p">
-              A key fact: the values of these ratios for a given angle don't depend on the size of
+              A key fact: the values of these ratios for a given angle don&apos;t depend on the size of
               the triangle, only on the angle itself, since any two right triangles with the same
               acute angle are similar (their sides are all in the same proportion). This is the
               foundation trigonometry is built on.
@@ -67,7 +67,7 @@ export default function TrigonometryPage() {
           </div>
 
           <div className="blog-post-section">
-            <h2 className="blog-post-heading">Worked example: finding a building's height</h2>
+            <h2 className="blog-post-heading">Worked example: finding a building&apos;s height</h2>
             <p className="blog-post-p">
               One common application is finding the height of a building without measuring it
               directly. Stand at a point <Katex>{"C"}</Katex>, a distance of 250 m from the building
@@ -80,7 +80,7 @@ export default function TrigonometryPage() {
             </p>
             <Katex display>{"1.327 = \\dfrac{AB}{250} \\implies AB = 331.75 \\text{ m}"}</Katex>
             <p className="blog-post-p">
-              The building's height comes out to 331.75 m, without ever measuring it directly.
+              The building&apos;s height comes out to 331.75 m, without ever measuring it directly.
             </p>
           </div>
 
@@ -88,7 +88,7 @@ export default function TrigonometryPage() {
             <h2 className="blog-post-heading">Standard angle values</h2>
             <p className="blog-post-p">
               It helps to know the ratios for a handful of standard angles: 0&deg;, 30&deg;, 45&deg;,
-              60&deg;, and 90&deg;. There's a pattern worth noticing: for sine, the numerator (as{" "}
+              60&deg;, and 90&deg;. There&apos;s a pattern worth noticing: for sine, the numerator (as{" "}
               <Katex>{"\\sqrt{0}, \\sqrt{1}, \\sqrt{2}, \\sqrt{3}, \\sqrt{4}"}</Katex>{" "}
               over 2) increases from 0&deg; to 90&deg;; for cosine, the same five values repeat but in
               reverse. Tangent is just sine divided by cosine, and cosecant/secant/cotangent are the
