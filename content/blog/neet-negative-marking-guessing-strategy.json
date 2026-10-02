@@ -43,6 +43,45 @@
       "body": "Above a 20% chance of being right, guessing has positive expected value. Below it, guessing costs you marks on average. A pure random guess among 4 options sits at 25%, just above breakeven, which is why it's technically worth it. But this is also why eliminating even one obviously wrong option matters so much: it pushes your odds from 25% to 33%, moving you well clear of the danger zone, not just marginally better."
     },
     {
+      "heading": null,
+      "table": {
+        "caption": "Expected marks from guessing one NEET question (+4 correct, -1 wrong)",
+        "columns": [
+          "Options eliminated",
+          "Options left",
+          "Chance of being right",
+          "Expected marks per guess"
+        ],
+        "rows": [
+          [
+            "0",
+            "4",
+            "25%",
+            "+0.25"
+          ],
+          [
+            "1",
+            "3",
+            "33%",
+            "+0.67"
+          ],
+          [
+            "2",
+            "2",
+            "50%",
+            "+1.50"
+          ],
+          [
+            "3",
+            "1",
+            "100%",
+            "+4.00"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
       "heading": "The common mistake this reveals",
       "body": "The mistake isn't guessing too much. It's treating \"I've eliminated 1 of 4 options\" and \"I have absolutely no idea\" as the same situation. If you can rule out even one wrong option, you're at a 33% chance and the expected value jumps to (1/3 × 4) + (2/3 × -1) ≈ +0.67, more than double a blind guess's +0.25. The advice to \"be careful with negative marking\" should really only apply to questions where your gut instinct is actively unreliable, for example a topic riddled with lookalike distractor options designed to trap a specific misconception. On those, your real chance of being right can drop below 20%, and that's the case where skipping is genuinely the better call."
     },

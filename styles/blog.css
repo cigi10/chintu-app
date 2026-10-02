@@ -155,6 +155,86 @@
   margin-bottom: 0;
 }
 
+/* Post content tables (components/BlogTable.tsx). Colours are all theme
+   tokens, so they follow every theme. The table never shrinks a column
+   below --blog-table-min-col, so three columns still fit a phone screen
+   and wider tables scroll inside .blog-table-wrap instead of widening
+   the page. */
+.blog-table-figure {
+  margin: 0;
+}
+
+.blog-table-caption {
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+/* The four background layers are the standard "scroll shadow" trick: the
+   two surface-coloured covers scroll with the content (local) and hide
+   the two shadows (scroll) at whichever edge you've reached, so a shadow
+   only shows on a side that has more table to scroll to. */
+.blog-table-wrap {
+  --blog-table-min-col: 5.25rem;
+  --blog-table-shadow: color-mix(in srgb, var(--color-text) 22%, transparent);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(to right, var(--color-surface) 30%, transparent) left / 32px 100% no-repeat local,
+    linear-gradient(to left, var(--color-surface) 30%, transparent) right / 32px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, var(--blog-table-shadow), transparent) left / 12px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, var(--blog-table-shadow), transparent) right / 12px 100% no-repeat scroll,
+    var(--color-surface);
+}
+
+.blog-table-wrap:focus-visible {
+  outline: 2px solid var(--color-outline);
+  outline-offset: 2px;
+}
+
+.blog-table {
+  width: 100%;
+  min-width: calc(var(--blog-table-cols, 2) * var(--blog-table-min-col));
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.blog-table th,
+.blog-table td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-table thead th {
+  background: var(--color-surface-alt);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+.blog-table tbody th {
+  font-weight: 600;
+}
+
+.blog-table tbody tr:last-child th,
+.blog-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 480px) {
+  .blog-table th,
+  .blog-table td {
+    padding: 8px 10px;
+  }
+}
+
 .resource-tags-shell {
   margin-top: -60px;
   margin-bottom: 60px;

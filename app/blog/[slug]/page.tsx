@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import TagChips from "@/components/TagChips";
+import BlogTable, { type BlogTableData } from "@/components/BlogTable";
 import { getBlogPost, getBlogSlugs } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
@@ -11,12 +12,14 @@ type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-// A content section has either a `body` string or a `list` of strings,
-// never both.
+// A content section has exactly one of: a `body` string, a `list` of
+// strings, or a `table` (see components/BlogTable.tsx for its shape).
+// lib/blogPosts.test.js checks every post against this.
 type BlogPostSection = {
   heading: string | null;
   body?: string;
   list?: string[];
+  table?: BlogTableData;
 };
 
 // Optional: a post can point at one or more pages it's introducing (e.g. a
@@ -90,7 +93,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {(post.content as BlogPostSection[]).map((section, i) => (
             <div key={i} className="blog-post-section">
               {section.heading && <h2 className="blog-post-heading">{section.heading}</h2>}
-              {section.list ? (
+              {section.table ? (
+                <BlogTable table={section.table} id={`${post.slug}-table-${i}`} />
+              ) : section.list ? (
                 <ul className="blog-post-list">
                   {section.list.map((item, j) => (
                     <li key={j}>{item}</li>
