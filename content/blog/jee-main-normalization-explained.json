@@ -1,15 +1,19 @@
 {
   "slug": "jee-main-normalization-explained",
-  "title": "JEE Main Normalization Explained: How NTA Compares Different Shifts and Sessions",
-  "description": "Why the same raw marks can give two different percentiles in two shifts, how NTA turns a dozen different question papers into one merit list, and what \"best of two sessions\" really means.",
+  "title": "JEE Main Percentile, NTA Score and Rank: How Normalization Actually Works",
+  "description": "Your JEE Main scorecard shows an NTA Score, not your marks. How NTA turns raw marks into percentiles shift by shift, merges two sessions into one rank list, what your scorecard actually shows, and how to estimate your rank.",
   "author": "Studyloaf Team",
-  "readingTime": "6 min read",
+  "readingTime": "8 min read",
   "date": "2026-10-02",
-  "tags": ["jee", "percentile-and-rank"],
+  "tags": [
+    "jee",
+    "percentile-and-rank",
+    "scorecard"
+  ],
   "content": [
     {
       "heading": null,
-      "body": "JEE Main is not one exam paper. It is a series of shifts spread across two sessions, January and April, and every shift gets its own question paper. No paper setter can make a dozen different papers exactly equally difficult, so comparing raw marks across shifts would quietly reward whoever happened to get the easier paper. The National Testing Agency's answer is what its information bulletin calls the \"Normalization procedure based on Percentile Score\". Our earlier post on converting percentile to rank covers the basic per-shift formula. This one goes a level deeper: why the method is considered fair, what exactly gets calculated, and how two sessions become a single rank list."
+      "body": "JEE Main is not one exam paper. It is a series of shifts spread across two sessions, January and April, and every shift gets its own question paper. No paper setter can make a dozen different papers exactly equally difficult, so comparing raw marks across shifts would quietly reward whoever happened to get the easier paper. The National Testing Agency's answer is what its information bulletin calls the \"Normalization procedure based on Percentile Score\". This post covers the whole chain: how your percentile is calculated, why the method is considered fair, how two sessions become a single rank list, what your scorecard actually shows, and how to estimate your rank from it."
     },
     {
       "heading": "The problem normalization solves",
@@ -29,7 +33,7 @@
         "Percentile = 100 × (number of candidates in your shift with a raw score equal to or less than yours) ÷ (total number of candidates who appeared in that shift)",
         "The highest scorer in every shift gets 100, whatever their raw marks were, because everyone in the shift scored equal to or less than them",
         "Percentiles are calculated to 7 decimal places, so that students with slightly different positions don't get bunched onto the same number",
-        "This percentile of your total is your NTA Score, the number that is actually used for ranking"
+        "This percentile of your total is your NTA Score, the number that is actually used for ranking. \"NTA Score\" and \"percentile\" are two names for the same figure, not two different results"
       ]
     },
     {
@@ -59,8 +63,24 @@
       "body": "It does not add bonus marks to students in a hard shift or subtract marks from students in an easy one. Your raw marks are never changed. NTA has stated plainly that \"there is no equivalence between raw scores and normalised scores\", which is why a marks-versus-percentile table only ever describes one particular shift. It also doesn't compare you directly against students in other shifts. The cross-shift comparison happens only through the assumption that every shift's pool is equally able. And a percentile is not a percentage: 98 percentile does not mean you scored 98% of the marks. It means 98% of your shift scored the same as you or less."
     },
     {
+      "heading": "What your scorecard shows, and what it doesn't",
+      "body": "The JEE Main scorecard confuses a lot of students because it doesn't look like a marksheet. Here's what is on it:"
+    },
+    {
+      "heading": null,
+      "list": [
+        "Four NTA Scores: your total, plus Mathematics, Physics and Chemistry, each a percentile to 7 decimal places. The total NTA Score is the one used for your rank; the subject scores are used for tie-breaking",
+        "No raw marks. The scorecard never prints a score out of 300. You can still work yours out: NTA releases your response sheet and the answer key on the JEE Main website, so you can check every answer and add up +4, -1 and 0 yourself",
+        "No rank after Session 1. A rank needs the merged list from both sessions, so it is published with the final result after Session 2, alongside your category rank where one applies. After Session 1 you get NTA Scores only"
+      ]
+    },
+    {
       "heading": "From NTA Score to a rough rank",
-      "body": "Once everything is merged, a quick estimate is: rank ≈ (100 minus your NTA Score) × (number of candidates in the merged list) ÷ 100. If, say, 12 lakh candidates are in the final list, a 99 percentile works out to roughly rank 12,000. Treat this as a sanity check only. The real rank comes from NTA's merged list, and ties near your score can shift it either way. Our post on percentile-to-rank conversion has more on why the estimate is only approximate."
+      "body": "Once everything is merged, a quick estimate is: rank ≈ (100 minus your NTA Score) × (number of candidates in the merged list) ÷ 100. If, say, 12 lakh candidates are in the final list, a 99 percentile works out to roughly rank 12,000. Treat this as a sanity check only. The real rank comes from NTA's merged list, and ties near your score can shift it either way. It is only approximate for two reasons: the number of candidates changes every year, and many students sit both sessions, so the merged list counts each of them once and is smaller than the total attendance across every shift."
+    },
+    {
+      "heading": "Using percentile to track your own progress",
+      "body": "Percentile only means something within one pool of candidates sitting one paper. A mock test's percentile depends on how hard that mock was and who else took it, so comparing your percentile across two mocks usually compares two different curves rather than your own improvement. Your raw accuracy and your time per section don't get renormalized against anyone, which makes them a far cleaner way to see whether you are actually getting better from one mock to the next."
     },
     {
       "heading": "Common mistakes",
@@ -69,7 +89,9 @@
         "Comparing your raw score with a friend's from a different shift and concluding who did better. Only NTA Scores are comparable across shifts",
         "Believing the two sessions are averaged, so a bad second attempt could pull you down. Only the better score counts, so Session 2 is a free second chance",
         "Treating a marks-vs-percentile chart from another shift or another year as exact. Each shift's curve is different",
-        "Assuming your total percentile is the average of your three subject percentiles. They are calculated independently from different raw marks"
+        "Assuming your total percentile is the average of your three subject percentiles. They are calculated independently from different raw marks",
+        "Treating NTA Score and percentile as two different results. They are the same number under two names",
+        "Expecting your marks out of 300 on the scorecard. Only NTA Scores are printed; work out raw marks from your response sheet and the answer key"
       ]
     },
     {
@@ -78,8 +100,17 @@
     }
   ],
   "relatedLinks": [
-    { "label": "JEE Main 2027 Session 1 countdown", "href": "/countdown/jee-2027" },
-    { "label": "Read next: How JEE Main Percentile Actually Converts to Rank", "href": "/blog/jee-main-percentile-to-rank-conversion" },
-    { "label": "Read next: JEE Main tie-breaking rules", "href": "/blog/jee-main-tie-breaking-rules" }
+    {
+      "label": "JEE Main 2027 Session 1 countdown",
+      "href": "/countdown/jee-2027"
+    },
+    {
+      "label": "Read next: JEE Main tie-breaking rules",
+      "href": "/blog/jee-main-tie-breaking-rules"
+    },
+    {
+      "label": "Read next: JEE Main marking scheme explained",
+      "href": "/blog/jee-main-2027-marking-scheme-change"
+    }
   ]
 }

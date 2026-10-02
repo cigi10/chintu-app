@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
       // The landing page used to live at /landing, reached from / by a
       // client-side redirect. It's now server-rendered at / itself.
       { source: "/landing", destination: "/", permanent: true },
+      // Two near-duplicate JEE percentile posts were merged into the
+      // normalization post. Their URLs may already be indexed, so they
+      // redirect rather than 404.
+      { source: "/blog/jee-main-percentile-to-rank-conversion", destination: "/blog/jee-main-normalization-explained", permanent: true },
+      { source: "/blog/jee-main-scorecard-explained", destination: "/blog/jee-main-normalization-explained", permanent: true },
     ];
   },
 };
