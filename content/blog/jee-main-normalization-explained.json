@@ -1,0 +1,85 @@
+{
+  "slug": "jee-main-normalization-explained",
+  "title": "JEE Main Normalization Explained: How NTA Compares Different Shifts and Sessions",
+  "description": "Why the same raw marks can give two different percentiles in two shifts, how NTA turns a dozen different question papers into one merit list, and what \"best of two sessions\" really means.",
+  "author": "Studyloaf Team",
+  "readingTime": "6 min read",
+  "date": "2026-10-02",
+  "tags": ["jee", "percentile-and-rank"],
+  "content": [
+    {
+      "heading": null,
+      "body": "JEE Main is not one exam paper. It is a series of shifts spread across two sessions, January and April, and every shift gets its own question paper. No paper setter can make a dozen different papers exactly equally difficult, so comparing raw marks across shifts would quietly reward whoever happened to get the easier paper. The National Testing Agency's answer is what its information bulletin calls the \"Normalization procedure based on Percentile Score\". Our earlier post on converting percentile to rank covers the basic per-shift formula. This one goes a level deeper: why the method is considered fair, what exactly gets calculated, and how two sessions become a single rank list."
+    },
+    {
+      "heading": "The problem normalization solves",
+      "body": "Imagine two students of identical ability. One sits a shift where the physics section is unusually lengthy and scores 185 out of 300. The other gets a gentler paper and scores 210. Ranked on raw marks, the second student finishes well ahead, even though the gap came entirely from the paper and not from either student. Across more than a dozen shifts and well over a million candidates, those accidents add up to thousands of rank positions. Normalization exists to strip the paper's difficulty out of the comparison."
+    },
+    {
+      "heading": "The one assumption everything rests on",
+      "body": "NTA's method assumes that every shift contains a similar spread of ability: roughly the same share of toppers, average students and strugglers. That is a reasonable assumption because each shift has a very large number of candidates, students don't pick their own shift, and NTA has said that question papers \"of a similar nature in content were prepared and randomly selected for each shift without knowledge of the difficulty level of each question paper.\" If the pools are equally able, then any difference in how marks are distributed between two shifts must come from the papers. So the fair measure of a student is not their raw score but their position within their own shift. GATE, which also runs some papers across several sessions, normalizes on exactly the same assumption, using a different formula."
+    },
+    {
+      "heading": "Step 1: a percentile for every shift",
+      "body": "Within each shift, NTA converts every candidate's raw total into a percentile score:"
+    },
+    {
+      "heading": null,
+      "list": [
+        "Percentile = 100 × (number of candidates in your shift with a raw score equal to or less than yours) ÷ (total number of candidates who appeared in that shift)",
+        "The highest scorer in every shift gets 100, whatever their raw marks were, because everyone in the shift scored equal to or less than them",
+        "Percentiles are calculated to 7 decimal places, so that students with slightly different positions don't get bunched onto the same number",
+        "This percentile of your total is your NTA Score, the number that is actually used for ranking"
+      ]
+    },
+    {
+      "heading": "Step 2: subject percentiles, calculated separately",
+      "body": "NTA repeats the same calculation for Mathematics, Physics and Chemistry, each using only that subject's raw marks within your shift. These subject percentiles are not averaged to produce your total percentile, and your total percentile is not built from them. Your total NTA Score comes only from your total raw marks. The subject scores matter mainly for tie-breaking, where NTA compares candidates with equal total NTA Scores subject by subject in a fixed order, and then by accuracy. Our separate post on JEE Main tie-breaking rules walks through that order."
+    },
+    {
+      "heading": "Step 3: merging two sessions into one list",
+      "body": "If you appear in both Session 1 and Session 2, NTA takes the better of your two NTA Scores. It is not an average and it is not your latest attempt: only the higher one counts. Every candidate's best NTA Score then goes into a single merit list, sorted from highest to lowest, and that list produces the All India Ranks and the cutoff for JEE Advanced eligibility. Because each NTA Score already describes a position within an equally able pool, scores from different shifts and different sessions can be compared directly without any further adjustment."
+    },
+    {
+      "heading": "A worked example",
+      "body": "Round numbers, to keep the arithmetic visible. Asha and Rohan both appear in Session 1, in different shifts of 1,00,000 candidates each. Asha's shift had the harder paper."
+    },
+    {
+      "heading": null,
+      "list": [
+        "Asha scores 190 out of 300. In her shift, 98,500 candidates scored 190 or less. Her NTA Score is 100 × 98,500 ÷ 1,00,000 = 98.5",
+        "Rohan scores 215 out of 300. In his easier shift, 98,000 candidates scored 215 or less. His NTA Score is 100 × 98,000 ÷ 1,00,000 = 98.0",
+        "After Session 1, Asha ranks above Rohan despite scoring 25 fewer raw marks, because she beat a larger share of an equally able pool",
+        "In Session 2, Rohan improves and gets 99.1 in his April shift. Asha sits Session 2 too but has an off day and gets 97.2",
+        "Final merit list: Rohan's best score is 99.1 and Asha's best is still 98.5. Rohan now ranks above Asha, and Asha's weaker April attempt costs her nothing, since only her better score counts"
+      ]
+    },
+    {
+      "heading": "What normalization does not do",
+      "body": "It does not add bonus marks to students in a hard shift or subtract marks from students in an easy one. Your raw marks are never changed. NTA has stated plainly that \"there is no equivalence between raw scores and normalised scores\", which is why a marks-versus-percentile table only ever describes one particular shift. It also doesn't compare you directly against students in other shifts. The cross-shift comparison happens only through the assumption that every shift's pool is equally able. And a percentile is not a percentage: 98 percentile does not mean you scored 98% of the marks. It means 98% of your shift scored the same as you or less."
+    },
+    {
+      "heading": "From NTA Score to a rough rank",
+      "body": "Once everything is merged, a quick estimate is: rank ≈ (100 minus your NTA Score) × (number of candidates in the merged list) ÷ 100. If, say, 12 lakh candidates are in the final list, a 99 percentile works out to roughly rank 12,000. Treat this as a sanity check only. The real rank comes from NTA's merged list, and ties near your score can shift it either way. Our post on percentile-to-rank conversion has more on why the estimate is only approximate."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Reading your percentile as a percentage of marks. 95 percentile with 160 marks is entirely possible in a hard shift",
+        "Comparing your raw score with a friend's from a different shift and concluding who did better. Only NTA Scores are comparable across shifts",
+        "Believing the two sessions are averaged, so a bad second attempt could pull you down. Only the better score counts, so Session 2 is a free second chance",
+        "Treating a marks-vs-percentile chart from another shift or another year as exact. Each shift's curve is different",
+        "Assuming your total percentile is the average of your three subject percentiles. They are calculated independently from different raw marks"
+      ]
+    },
+    {
+      "heading": "What to take away",
+      "body": "Normalization means your result depends on where you stand among the students in your shift, not on your raw marks. The practical consequence is reassuring: a paper that feels brutal is usually brutal for everyone in your shift, and the percentile accounts for it. What you can control is accuracy and pace across the whole syllabus, the things that move you up within any pool. If you're tracking that across mock tests, Studyloaf's mock test log keeps your scores in one place so you can see the trend rather than one mock's curve, and the exam countdown page shows how long you have until Session 1."
+    }
+  ],
+  "relatedLinks": [
+    { "label": "JEE Main 2027 Session 1 countdown", "href": "/countdown/jee-2027" },
+    { "label": "Read next: How JEE Main Percentile Actually Converts to Rank", "href": "/blog/jee-main-percentile-to-rank-conversion" },
+    { "label": "Read next: JEE Main tie-breaking rules", "href": "/blog/jee-main-tie-breaking-rules" }
+  ]
+}

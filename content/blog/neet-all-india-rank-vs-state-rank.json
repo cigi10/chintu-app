@@ -1,0 +1,81 @@
+{
+  "slug": "neet-all-india-rank-vs-state-rank",
+  "title": "NEET All India Rank vs State Rank: Which One Decides Your Seat",
+  "description": "Your NEET AIR decides All India Quota seats, but state counselling ranks you only against candidates eligible in that state. How the two merit lists work, with approximate 2025 closing ranks to show why the same AIR can mean very different chances.",
+  "author": "Studyloaf Team",
+  "readingTime": "5 min read",
+  "date": "2026-10-02",
+  "tags": ["neet", "counselling"],
+  "content": [
+    {
+      "heading": null,
+      "body": "Every NEET UG scorecard carries an All India Rank, and once counselling starts, many students also get a state rank. The two numbers are constantly mixed up: students compare an AIR against a state-rank cutoff, or decide a seat is out of reach because their AIR looks large, when the state list they'd actually compete in is far smaller. Our earlier post on AIQ vs State Quota covers who runs each process. This one is about the ranks themselves: where each comes from, which counselling uses which, and what realistic closing ranks look like."
+    },
+    {
+      "heading": "One score, two different merit lists",
+      "list": [
+        "All India Rank (AIR). Published by the National Testing Agency with the NEET result. It is your position among every qualified candidate in the country, ordered by NEET score with NTA's tie-breaking rules applied",
+        "State rank (state merit rank). Prepared by your state's counselling authority from the candidates who register for that state's counselling and meet its eligibility rules, usually domicile or schooling conditions. It keeps the same NEET order but counts only those candidates, so it is always a smaller number than your AIR",
+        "Neither rank changes your NEET score. They are the same result viewed against two different pools of competitors"
+      ]
+    },
+    {
+      "heading": "Which counselling uses which rank",
+      "body": "The Medical Counselling Committee (MCC) runs All India Quota counselling directly on AIR. That covers 15% of seats in government medical colleges across the participating states, plus all seats at institutions such as AIIMS, JIPMER, central universities and deemed universities. Everyone in the country competes for these on one national list. State counselling covers the remaining 85% of government seats in that state, along with state private college seats, using the state merit list. Many state authorities publish their closing ranks in AIR terms anyway, for easy comparison, which is one reason students confuse the two. Always check which rank a cutoff table is quoting before comparing yourself against it."
+    },
+    {
+      "heading": "A worked example",
+      "body": "An illustrative case, with round numbers to keep it clear. Priya is a general-category candidate with AIR 30,000. Suppose 2,400 candidates eligible for her home state's counselling finished ahead of her nationally."
+    },
+    {
+      "heading": null,
+      "list": [
+        "In MCC's All India Quota she is AIR 30,000, competing with the whole country for a relatively small pool of seats",
+        "In her state's counselling she is state rank 2,401, competing only with other eligible candidates from her state, for a much larger share of that state's government seats",
+        "If her state has, say, 2,500 general-category government MBBS seats under state quota after reservations, a state rank of 2,401 is comfortably within range, even though AIR 30,000 sounds far from a government seat",
+        "In a state with fewer seats or many more high-scoring candidates, the same AIR could translate into a state rank that falls short. The rank is identical, but the state changes the outcome"
+      ]
+    },
+    {
+      "heading": "What closing ranks actually looked like in 2025",
+      "body": "Approximate figures for general-category (open) government MBBS seats, as compiled from MCC and state round results by counselling trackers. They are rounded and vary between colleges and between sources, so use them to understand the gap between quotas, not as predictions for your year:"
+    },
+    {
+      "heading": null,
+      "list": [
+        "All India Quota, government MBBS: the last open-category seat closed around AIR 21,000 in Round 1, rising to about AIR 25,000 in Round 2 and about AIR 26,000 by Round 3",
+        "Uttar Pradesh state quota, government MBBS: final closing rank reported around AIR 32,000 to 33,000",
+        "Maharashtra state quota, government MBBS: final closing rank reported around AIR 47,500",
+        "The pattern is what matters. In 2025 a general-category candidate around AIR 30,000 was likely outside AIQ government MBBS range but inside several states' state-quota range"
+      ]
+    },
+    {
+      "heading": "Why state cutoffs can be so different from AIQ",
+      "body": "Three things drive it. First, seat supply: states with many government medical colleges relative to their number of NEET candidates have looser closing ranks. Second, domicile rules: state quota usually shuts out candidates from other states, so the pool is smaller and less concentrated at the top. Third, reservation policy: categories and percentages differ by state, which changes how many open seats there are. AIQ has none of that variation, because one national list competes for one national pool, and that is why its open-category closing ranks are usually tighter than most states'."
+    },
+    {
+      "heading": "Using both, sensibly",
+      "body": "If you're eligible for both, register for both. MCC and your state run separate processes on separate timelines, and taking part in one doesn't remove you from the other. Do read each authority's current rules on upgrading or resigning a seat, since leaving a seat at the wrong stage can carry penalties or affect your eligibility in later rounds. Make one timeline with every MCC round and every state round side by side, so that a decision in one doesn't accidentally cost you a deadline in the other."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Comparing your AIR with a cutoff that is actually quoted as a state rank, or the reverse",
+        "Using a neighbouring state's closing ranks to judge your own chances. Seat counts, domicile rules and reservations differ",
+        "Writing off state counselling because your AIR looks too big for a government seat",
+        "Reading open-category closing ranks when your category's figures are the ones that apply to you",
+        "Treating last year's closing rank as this year's cutoff. Seat matrices, candidate numbers and paper difficulty all change",
+        "Not having domicile and category documents ready before state registration opens, which can lock you out regardless of rank"
+      ]
+    },
+    {
+      "heading": "Where to get the real numbers",
+      "body": "For AIQ, MCC publishes round-wise allotment results on its website, and the closing rank for each college and category can be read straight from them. For state quota, your state's medical counselling authority publishes its own merit list and allotment results. Those two sources beat any compiled table, this one included. If you're preparing for NEET UG 2027, Studyloaf's exam countdown tracks the estimated date until NTA announces the official one, and the free portion tracker has a NEET pack covering Physics, Chemistry and Biology."
+    }
+  ],
+  "relatedLinks": [
+    { "label": "NEET UG 2027 countdown", "href": "/countdown/neet-2027" },
+    { "label": "Read next: NEET counselling, AIQ vs State Quota", "href": "/blog/neet-counselling-aiq-vs-state-quota" },
+    { "label": "Read next: Is NCERT enough for NEET?", "href": "/blog/is-ncert-enough-for-neet" }
+  ]
+}

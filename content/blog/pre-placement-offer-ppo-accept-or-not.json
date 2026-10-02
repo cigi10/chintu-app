@@ -1,0 +1,77 @@
+{
+  "slug": "pre-placement-offer-ppo-accept-or-not",
+  "title": "What a Pre-Placement Offer (PPO) Means, and How to Decide Whether to Take It",
+  "description": "A PPO is a full-time job offer that grows out of your internship, usually before campus placements open. What accepting one commits you to, and a practical framework for choosing between a PPO and sitting for placements.",
+  "author": "Studyloaf Team",
+  "readingTime": "5 min read",
+  "date": "2026-10-02",
+  "tags": ["placements", "career-planning"],
+  "content": [
+    {
+      "heading": null,
+      "body": "Every year a lot of final-year students face the same decision weeks before placement season: a company they interned with offers a full-time job, and they have to decide whether to say yes now or turn it down and try for something better on campus. The offer is real, the deadline is usually short, and the advice from seniors tends to contradict itself. Here's what a Pre-Placement Offer actually is, what accepting one usually commits you to, and a framework for deciding that doesn't rely on gut feeling."
+    },
+    {
+      "heading": "What a PPO is, and what it isn't",
+      "list": [
+        "A Pre-Placement Offer (PPO) is a full-time job offer from the company where you did your internship, made on the strength of your work there. It arrives before, or separately from, the company's campus placement drive",
+        "A Pre-Placement Interview (PPI) is different. It is an invitation to a shortened interview process, not an offer. You still have to clear it",
+        "A PPO usually comes with a deadline to accept, sometimes a couple of weeks, often timed to land before placements begin",
+        "Until you have the written offer letter, what you have is a verbal signal. Make sure you get the letter, and read it"
+      ]
+    },
+    {
+      "heading": "What accepting usually commits you to",
+      "body": "The company's terms are only half of it. The other half is your college's placement policy, and that is the part students most often skip. Most placement cells count an accepted PPO as a placement. Many run a one-student-one-offer rule, or something close to it, which takes you out of further placement drives once you accept. Some make exceptions for a defined set of higher-tier companies, and some don't let you sit for placements at all once you hold an accepted PPO. These rules vary a lot between colleges and sometimes between years, so read your placement cell's current policy, or ask the placement office in writing, before you reply to the company. The question to settle is simple: if I accept, can I still sit for anything, and if I decline, can I change my mind later?"
+    },
+    {
+      "heading": "Read the offer properly first",
+      "list": [
+        "Fixed pay versus total CTC. CTC often bundles a one-time joining bonus, relocation support, a variable or performance component, and stock grants that vest over several years. Compare fixed pay with fixed pay",
+        "Stock grants (ESOPs or RSUs). Check the vesting schedule. Grants that vest over four years are not first-year income",
+        "Bond or service agreement. Some offers carry a minimum service period or a payback clause if you leave early",
+        "Role, team and location. The same company can mean very different work depending on the team, and location changes what the salary is really worth",
+        "Joining date and conditions, such as clearing your final semester, minimum grades or background verification"
+      ]
+    },
+    {
+      "heading": "A four-question framework",
+      "list": [
+        "1. The only-offer test. If this turned out to be the only offer you got this season, would you be genuinely content? If yes, accepting is a strong default. If you'd be disappointed even with it in hand, that matters",
+        "2. Your realistic odds of beating it. Look at last year's placement statistics for your branch: the median offer, how many students got offers above this one, and which of those companies had CGPA or branch cutoffs you meet. Be honest about your interview track record too",
+        "3. What \"better\" means for you. Higher pay is one kind of better. A role you'd learn more in, a stronger team, a city you want to live in, or a field you actually want to work in are others. A PPO for work you enjoy can beat a bigger number for work you don't",
+        "4. The cost of saying no. Declining means a full placement season with its stress and uncertainty, a real chance of ending up with something worse, and usually no way back to the PPO once you've turned it down"
+      ]
+    },
+    {
+      "heading": "Two worked examples",
+      "body": "Illustrative cases, to show how the framework plays out."
+    },
+    {
+      "heading": null,
+      "list": [
+        "Neha gets a PPO at a mid-size product company: ₹14 lakh CTC, of which ₹11 lakh is fixed and the rest is joining bonus and variable pay, in a backend role she enjoyed during her internship. In her branch last year the median offer was about ₹9 lakh, and only a small share of students got offers with more fixed pay than hers. Several of the higher-paying companies used a CGPA cutoff above her 7.4. She passes the only-offer test, her odds of beating the offer are low, and she likes the work. Accepting is the clear call",
+        "Arjun gets a PPO in a support role he found unchallenging, at ₹7 lakh fixed. His CGPA is 9.1, he cleared interviews comfortably during internship season, his branch median last year was well above ₹7 lakh, and his college lets students who decline a PPO sit for every company. He fails the only-offer test, his odds of beating the offer are high, and declining costs him little. Sitting for placements is reasonable for him"
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Comparing headline CTC between offers instead of fixed pay and the actual structure",
+        "Not reading the placement cell's PPO policy before replying to the company",
+        "Assuming you can hold a PPO and quietly sit for placements as a backup when your college's rules don't allow it",
+        "Treating a verbal \"we'd love to have you back\" as an offer before the written letter arrives",
+        "Overlooking bond, payback or relocation clauses buried in the offer letter",
+        "Deciding purely on what friends are doing. Their odds, priorities and policy constraints aren't yours"
+      ]
+    },
+    {
+      "heading": "If you do sit for placements",
+      "body": "Declining a PPO only pays off if you're properly prepared for the season, so treat preparation as part of the decision. Plan time for aptitude rounds, core subjects for your branch, and coding or technical interviews, and get your resume and project explanations ready before drives begin. Studyloaf's free portion tracker has a Placements pack covering CS, ECE and Mech fundamentals, DSA and aptitude, which helps you see at a glance what you've revised and what's still pending, and Crumb has a daily placements-and-aptitude term puzzle for a quick warm-up."
+    }
+  ],
+  "relatedLinks": [
+    { "label": "Play Crumb: Placements and Aptitude", "href": "/games/crumb/placements-aptitude" },
+    { "label": "Free study timetable generator", "href": "/tools/timetable-generator" }
+  ]
+}
