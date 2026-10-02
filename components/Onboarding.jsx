@@ -94,7 +94,7 @@ export default function Onboarding() {
             </div>
             <h1 className="onboarding__title">Where are you studying from?</h1>
             <p className="onboarding__subtitle">
-              This narrows the exam list to what's actually relevant to you.
+              This narrows the exam list to what&apos;s actually relevant to you.
             </p>
             <div className="onboarding__exam-grid">
               {COUNTRIES.map(c => (
