@@ -75,14 +75,55 @@ export default function PrivacyPage() {
             <li>To send account-related emails, such as sign-up confirmation, password reset, or important service notices</li>
             <li>To diagnose bugs, monitor performance, and improve the reliability of the app</li>
             <li>To respond to support requests you send us</li>
+            <li>To understand how the site is used, through Google Analytics and Vercel Web Analytics</li>
+            <li>To show advertising through Google AdSense, which helps keep Studyloaf free</li>
           </ul>
-          <p className="legal-p">We do not use your data for targeted advertising, and we do not sell your data to third parties.</p>
+          <p className="legal-p">
+            We do not use your account or study data for advertising, and we do not sell your data to
+            third parties. Ads on the site are served by Google AdSense, which may personalize ads
+            using its own cookies, as described in Section 4.
+          </p>
 
           <h2 className="legal-heading">4. Cookies and similar technologies</h2>
+          <p className="legal-p">Studyloaf uses cookies and browser storage for the following purposes:</p>
+          <ul className="legal-list">
+            <li>
+              <strong>Essential.</strong> To keep you signed in, to remember your preferences (such as
+              your selected theme), and to save your study data on your device if you use Studyloaf
+              without an account.
+            </li>
+            <li>
+              <strong>Blog view counts.</strong> When you open a blog post, we set a cookie named after
+              that post (for example, <code>bv_post-name</code>) that expires after 24 hours, so that
+              reloading the page is not counted as a second view. It contains no personal information
+              and is sent only to the part of our site that counts views. View counts are stored per
+              post, not per person.
+            </li>
+            <li>
+              <strong>Analytics.</strong> We use Google Analytics to understand how visitors use
+              Studyloaf, such as which pages are visited, the type of device and browser used, and
+              approximate location, so that we can improve the site. Google Analytics sets its own
+              cookies (such as <code>_ga</code>) to distinguish visitors. Google processes this data
+              under its own policies; see{" "}
+              <a href="https://policies.google.com/technologies/partner-sites" className="legal-link">
+                How Google uses information from sites or apps that use its services
+              </a>.
+            </li>
+            <li>
+              <strong>Advertising.</strong> We show ads through Google AdSense. Third-party vendors,
+              including Google, use cookies to serve ads based on a user&apos;s prior visits to this
+              website or other websites. Google&apos;s use of advertising cookies enables it and its
+              partners to serve ads to our users based on their visits to this site and/or other sites
+              on the internet.
+            </li>
+          </ul>
           <p className="legal-p">
-            Studyloaf uses essential cookies and browser storage to keep you signed in and to remember
-            your preferences (such as your selected theme) between visits. We do not currently use
-            third-party advertising or tracking cookies.
+            You can opt out of personalized advertising by visiting Google&apos;s{" "}
+            <a href="https://adssettings.google.com" className="legal-link">Ads Settings</a>, or opt
+            out of some third-party vendors&apos; use of cookies for personalized advertising at{" "}
+            <a href="https://www.aboutads.info" className="legal-link">www.aboutads.info</a>. You can
+            also block or delete cookies in your browser settings, although essential cookies are
+            needed to stay signed in.
           </p>
 
           <h2 className="legal-heading">5. Google user data</h2>
@@ -111,7 +152,8 @@ export default function PrivacyPage() {
           <ul className="legal-list">
             <li>
               <strong>Supabase</strong>: provides authentication and database storage for your
-              account and study data.
+              account and study data, messages sent through Write to Us, and per-post blog view
+              counts. The view counter&apos;s 24-hour cookie is described in Section 4.
             </li>
             <li>
               <strong>Google OAuth</strong>: used if you choose to sign in with your Google account,
@@ -122,7 +164,18 @@ export default function PrivacyPage() {
               confirmations and password resets.
             </li>
             <li>
-              <strong>Vercel</strong>: hosts the Studyloaf website and application infrastructure.
+              <strong>Vercel</strong>: hosts the Studyloaf website and application infrastructure,
+              and provides Vercel Web Analytics, which counts page visits without third-party cookies,
+              using a temporary identifier that is discarded after 24 hours.
+            </li>
+            <li>
+              <strong>Google Analytics</strong>: measures how visitors use the site, using cookies.
+              See Section 4.
+            </li>
+            <li>
+              <strong>Google AdSense</strong>: displays advertising on the site. Google and its
+              partners use cookies to serve ads, including ads based on your prior visits to this and
+              other websites. See Section 4 for how to opt out of personalized ads.
             </li>
           </ul>
 
