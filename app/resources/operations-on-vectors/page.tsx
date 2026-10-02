@@ -12,6 +12,7 @@ export const metadata = {
     title: "Operations on Vectors - Studyloaf",
     description: "The negative of a vector, the scalar triple product identity, and using the dot product on unit vectors, with worked examples.",
   },
+  alternates: { canonical: "/resources/operations-on-vectors" },
 };
 
 export default function OperationsOnVectorsPage() {

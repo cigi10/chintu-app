@@ -12,6 +12,7 @@ export const metadata = {
     title: "Differential Equations - Studyloaf",
     description: "Finding the order of a differential equation, forming one from a family of curves, and solving one by separating variables, with worked examples.",
   },
+  alternates: { canonical: "/resources/differential-equations" },
 };
 
 export default function DifferentialEquationsPage() {

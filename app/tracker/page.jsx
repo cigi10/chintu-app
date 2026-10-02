@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
 import PortionTracker from "@/components/PortionTracker";
+import { NOINDEX } from "@/lib/seo";
 
 export const metadata = {
   title: "Study app: Tracker",
   description: "Track your syllabus progress for JEE, NEET, or Placements.",
+  robots: NOINDEX,
 };
 
 export default function TrackerPage() {

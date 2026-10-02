@@ -12,6 +12,7 @@ export const metadata = {
     title: "Kirchhoff's Current and Voltage Laws - Studyloaf",
     description: "Kirchhoff's Current Law and Voltage Law explained, with a fully worked two-loop circuit solved for all three branch currents.",
   },
+  alternates: { canonical: "/resources/kirchhoffs-laws" },
 };
 
 export default function KirchhoffsLawsPage() {

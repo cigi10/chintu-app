@@ -13,7 +13,6 @@ import "@/styles/guest-mode.css";
 const NO_BANNER_ON = [
   "/",
   "/login",
-  "/landing",
   "/onboarding",
   "/forgot-password",
   "/reset-password",

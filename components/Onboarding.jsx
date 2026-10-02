@@ -10,6 +10,7 @@ import { saveExamPackAndSubjects, getSubjects } from "@/lib/tracker";
 import { getLocalDdays, saveDdays } from "@/lib/ddays";
 import { PACK_NAMES, PACK_DESC, PACK_ICON, examPackLabel } from "@/lib/examPacks";
 import { COUNTRIES, packsForCountry } from "@/lib/examRegions";
+import { markOnboarded } from "@/lib/onboardedFlag";
 
 // "Custom" first, then every pack from lib/examPacks — always in sync with
 // the Portion Tracker's RAW_PACKS, no separate hardcoded list to drift.
@@ -62,7 +63,7 @@ export default function Onboarding() {
         console.error("saveDdays failed:", err);
       }
     }
-    localStorage.setItem("chintu-onboarded", "true");
+    markOnboarded();
     try {
       await setProfile({ onboarded: true });
     } catch (err) {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Finding the Equation of a Line - Studyloaf",
     description: "Writing a line's equation in vector and Cartesian form, given two points or a point and a parallel vector, with worked examples.",
   },
+  alternates: { canonical: "/resources/equation-of-a-line" },
 };
 
 export default function EquationOfALinePage() {

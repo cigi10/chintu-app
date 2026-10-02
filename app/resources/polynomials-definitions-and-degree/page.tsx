@@ -12,6 +12,7 @@ export const metadata = {
     title: "Polynomials: Definitions and Degree - Studyloaf",
     description: "What makes an expression a polynomial, the monomial/binomial/trinomial distinction, and how to find the degree of a polynomial in one or more variables.",
   },
+  alternates: { canonical: "/resources/polynomials-definitions-and-degree" },
 };
 
 export default function PolynomialsDefinitionsAndDegreePage() {

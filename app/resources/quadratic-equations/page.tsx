@@ -12,6 +12,7 @@ export const metadata = {
     title: "Quadratic Equations - Studyloaf",
     description: "What a quadratic equation is, solving by factoring and by completing the square, the quadratic formula, and a real-life example.",
   },
+  alternates: { canonical: "/resources/quadratic-equations" },
 };
 
 export default function QuadraticEquationsPage() {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Solving a System of Equations with Matrices - Studyloaf",
     description: "How to solve a system of linear equations using the matrix method, with a fully worked three-variable example.",
   },
+  alternates: { canonical: "/resources/matrices-system-of-equations" },
 };
 
 export default function MatricesSystemOfEquationsPage() {

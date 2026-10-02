@@ -12,6 +12,7 @@ export const metadata = {
     title: "Polynomials: Zeroes and Coefficients - Studyloaf",
     description: "How the zeroes of a quadratic polynomial relate to its coefficients, plus building a polynomial from a given sum and product of zeroes.",
   },
+  alternates: { canonical: "/resources/polynomials-zeroes-and-coefficients" },
 };
 
 export default function PolynomialsZeroesPage() {

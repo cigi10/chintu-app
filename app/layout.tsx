@@ -7,6 +7,7 @@ import GuestModeBanner from "@/components/GuestModeBanner";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
 import type { ReactNode } from "react";
+import { SITE_URL } from "@/lib/seo";
 
 // Self-hosted via next/font: no request to Google at runtime, no
 // render-blocking <link>, and no layout shift while the font swaps in.
@@ -26,7 +27,12 @@ const roboto = Roboto({
   display: "swap",
 });
 
+// metadataBase lets every page's canonical (and other URL fields) be a
+// relative path. No canonical is set here on purpose: metadata merges
+// shallowly, so a layout-level canonical would be inherited by any page
+// that forgot its own and point it at the homepage.
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Studyloaf",
   description: "Study smarter with your companion by your side.",
 };

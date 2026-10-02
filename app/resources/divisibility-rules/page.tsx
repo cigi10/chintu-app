@@ -10,6 +10,7 @@ export const metadata = {
     title: "Divisibility Rules - Studyloaf",
     description: "Quick tests to check whether a number is divisible by 2 through 12, with worked examples.",
   },
+  alternates: { canonical: "/resources/divisibility-rules" },
 };
 
 export default function DivisibilityRulesPage() {

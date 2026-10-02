@@ -4,6 +4,7 @@ import "@/styles/legal.css";
 export const metadata = {
   title: "Privacy Policy - Studyloaf",
   description: "How Studyloaf collects, uses, and protects your data.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

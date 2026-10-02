@@ -12,6 +12,7 @@ export const metadata = {
     title: "Implicit Differentiation - Studyloaf",
     description: "How to differentiate an equation that isn't already solved for y, with worked examples including an inverse trig identity.",
   },
+  alternates: { canonical: "/resources/implicit-differentiation" },
 };
 
 export default function ImplicitDifferentiationPage() {

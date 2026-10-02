@@ -12,6 +12,7 @@ export const metadata = {
     title: "Angle Between a Line and a Plane - Studyloaf",
     description: "How to find the angle between a line and a plane using their direction vector and normal vector, with a worked example.",
   },
+  alternates: { canonical: "/resources/angle-between-line-and-plane" },
 };
 
 export default function AngleBetweenLineAndPlanePage() {

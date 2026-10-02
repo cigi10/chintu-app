@@ -12,6 +12,7 @@ export const metadata = {
     title: "Inverse Trigonometric Functions - Studyloaf",
     description: "Principal values, domains of inverse trig functions, and the complementary identity between tan⁻¹ and cot⁻¹, with worked examples.",
   },
+  alternates: { canonical: "/resources/inverse-trigonometric-functions" },
 };
 
 export default function InverseTrigonometricFunctionsPage() {

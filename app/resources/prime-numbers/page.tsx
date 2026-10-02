@@ -12,6 +12,7 @@ export const metadata = {
     title: "Prime Numbers - Studyloaf",
     description: "What a prime number is, why 0 and 1 are neither prime nor composite, and what twin primes are, with a worked example checking a number for primality.",
   },
+  alternates: { canonical: "/resources/prime-numbers" },
 };
 
 export default function PrimeNumbersPage() {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Polynomial Division Algorithm - Studyloaf",
     description: "Dividing one polynomial by another to find a quotient and remainder, and using that to find missing zeroes, with worked examples.",
   },
+  alternates: { canonical: "/resources/polynomial-division-algorithm" },
 };
 
 export default function PolynomialDivisionAlgorithmPage() {

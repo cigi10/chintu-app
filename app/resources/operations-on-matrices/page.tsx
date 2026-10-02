@@ -12,6 +12,7 @@ export const metadata = {
     title: "Operations on Matrices - Studyloaf",
     description: "How matrix addition and multiplication work, with a worked multiplication example.",
   },
+  alternates: { canonical: "/resources/operations-on-matrices" },
 };
 
 export default function OperationsOnMatricesPage() {

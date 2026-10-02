@@ -12,6 +12,7 @@ export const metadata = {
     title: "Pair of Linear Equations: Cross-Multiplication and Reducible Equations - Studyloaf",
     description: "The cross-multiplication formula for solving a pair of linear equations, and reducing an equation that isn't linear yet into one that is, with worked examples.",
   },
+  alternates: { canonical: "/resources/pair-of-linear-equations-cross-multiplication" },
 };
 
 export default function LinearEquationsCrossMultiplicationPage() {

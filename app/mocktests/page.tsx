@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
 import MockTests from "@/components/MockTests";
+import { NOINDEX } from "@/lib/seo";
 
 export const metadata = {
   title: "Studyloaf: Mock Tests",
   description: "Track your practice test scores over time.",
+  robots: NOINDEX,
 };
 
 export default function MockTestsPage() {

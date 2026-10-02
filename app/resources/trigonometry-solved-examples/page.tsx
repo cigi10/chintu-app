@@ -12,6 +12,7 @@ export const metadata = {
     title: "Trigonometry: Solved Examples - Studyloaf",
     description: "Worked examples finding trigonometric ratios, evaluating standard-angle expressions, proving identities, and using co-function identities.",
   },
+  alternates: { canonical: "/resources/trigonometry-solved-examples" },
 };
 
 export default function TrigonometrySolvedExamplesPage() {

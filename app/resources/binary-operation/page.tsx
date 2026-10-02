@@ -12,6 +12,7 @@ export const metadata = {
     title: "Binary Operation - Studyloaf",
     description: "What a binary operation is, and how to check whether one has an identity element, is commutative, or is associative, with worked examples.",
   },
+  alternates: { canonical: "/resources/binary-operation" },
 };
 
 export default function BinaryOperationPage() {

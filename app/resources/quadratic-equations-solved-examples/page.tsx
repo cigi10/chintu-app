@@ -12,6 +12,7 @@ export const metadata = {
     title: "Quadratic Equations: Solved Examples - Studyloaf",
     description: "Worked examples for checking whether an equation is quadratic, solving by factorization or completing the square, and using the discriminant.",
   },
+  alternates: { canonical: "/resources/quadratic-equations-solved-examples" },
 };
 
 export default function QuadraticEquationsSolvedExamplesPage() {

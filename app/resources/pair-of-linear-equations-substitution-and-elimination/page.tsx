@@ -12,6 +12,7 @@ export const metadata = {
     title: "Pair of Linear Equations: Substitution and Elimination Methods - Studyloaf",
     description: "Solving a pair of linear equations by substitution and by elimination, including recognizing when a system has infinitely many solutions.",
   },
+  alternates: { canonical: "/resources/pair-of-linear-equations-substitution-and-elimination" },
 };
 
 export default function LinearEquationsSubstitutionEliminationPage() {

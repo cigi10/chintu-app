@@ -12,6 +12,7 @@ export const metadata = {
     title: "Percentage - Studyloaf",
     description: "What percentage means, how to compute a combined percentage across subjects, with a worked example.",
   },
+  alternates: { canonical: "/resources/percentage" },
 };
 
 export default function PercentagePage() {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Area of a Triangle Using Determinants - Studyloaf",
     description: "The determinant formula for the area of a triangle from its vertex coordinates, with a worked example.",
   },
+  alternates: { canonical: "/resources/area-of-a-triangle-determinants" },
 };
 
 export default function AreaOfATriangleDeterminantsPage() {

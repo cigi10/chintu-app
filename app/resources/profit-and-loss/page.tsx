@@ -12,6 +12,7 @@ export const metadata = {
     title: "Profit and Loss - Studyloaf",
     description: "How to calculate profit and loss percent, and work backwards from a selling price or discount to find the cost price, with worked examples.",
   },
+  alternates: { canonical: "/resources/profit-and-loss" },
 };
 
 export default function ProfitAndLossPage() {

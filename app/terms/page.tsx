@@ -4,6 +4,7 @@ import "@/styles/legal.css";
 export const metadata = {
   title: "Terms of Service - Studyloaf",
   description: "The terms that apply when you use Studyloaf.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

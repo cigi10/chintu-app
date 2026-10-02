@@ -12,6 +12,7 @@ export const metadata = {
     title: "Laplace Transforms - Studyloaf",
     description: "The Laplace transform definition, a table of standard transforms, the first shifting theorem, and solving a linear ODE with initial conditions.",
   },
+  alternates: { canonical: "/resources/laplace-transforms" },
 };
 
 export default function LaplaceTransformsPage() {

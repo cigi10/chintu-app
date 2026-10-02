@@ -12,6 +12,7 @@ export const metadata = {
     title: "Chain Rule - Studyloaf",
     description: "The chain rule for differentiating composite functions, with two worked derivative examples.",
   },
+  alternates: { canonical: "/resources/chain-rule" },
 };
 
 export default function ChainRulePage() {

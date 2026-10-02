@@ -12,6 +12,7 @@ export const metadata = {
     title: "Maxima and Minima - Studyloaf",
     description: "Finding local maxima and minima and solving optimization problems using derivatives, with worked examples.",
   },
+  alternates: { canonical: "/resources/maxima-and-minima" },
 };
 
 export default function MaximaAndMinimaPage() {

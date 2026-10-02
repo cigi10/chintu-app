@@ -12,6 +12,7 @@ export const metadata = {
     title: "Definite Integrals - Studyloaf",
     description: "What a definite integral is and how to evaluate one, with a worked trigonometric example.",
   },
+  alternates: { canonical: "/resources/definite-integrals" },
 };
 
 export default function DefiniteIntegralsPage() {

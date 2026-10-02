@@ -12,6 +12,7 @@ export const metadata = {
     title: "Square Matrix Properties - Studyloaf",
     description: "Key facts about square matrices: the determinant scaling rule, idempotent matrices, and when a matrix equation has no solution.",
   },
+  alternates: { canonical: "/resources/square-matrix" },
 };
 
 export default function SquareMatrixPage() {

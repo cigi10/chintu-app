@@ -11,6 +11,7 @@ export const metadata = {
     title: "Mathematical Constants: e, i, √2, and π - Studyloaf",
     description: "What Euler's number, the imaginary unit, Pythagoras' constant, and pi actually represent, including the repeating cycle of powers of i, with a worked example.",
   },
+  alternates: { canonical: "/resources/mathematical-constants" },
 };
 
 export default function MathematicalConstantsPage() {

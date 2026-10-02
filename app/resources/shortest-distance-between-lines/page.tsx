@@ -12,6 +12,7 @@ export const metadata = {
     title: "Shortest Distance Between Two Lines - Studyloaf",
     description: "The formula for the shortest distance between two skew lines in vector form, with two fully worked examples.",
   },
+  alternates: { canonical: "/resources/shortest-distance-between-lines" },
 };
 
 export default function ShortestDistanceBetweenLinesPage() {

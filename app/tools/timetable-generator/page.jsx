@@ -9,6 +9,7 @@ export const metadata = {
     title: "Free Timetable Generator - Studyloaf",
     description: "Enter your subjects, hours per day, and exam date to generate a simple weekly study timetable. No login required.",
   },
+  alternates: { canonical: "/tools/timetable-generator" },
 };
 
 export default function TimetableGeneratorPage() {

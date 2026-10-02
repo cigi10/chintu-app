@@ -12,6 +12,7 @@ export const metadata = {
     title: "Pythagoras Theorem - Studyloaf",
     description: "The Pythagorean theorem explained, with a worked real-world distance example.",
   },
+  alternates: { canonical: "/resources/pythagoras-theorem" },
 };
 
 export default function PythagorasTheoremPage() {

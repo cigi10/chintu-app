@@ -12,6 +12,7 @@ export const metadata = {
     title: "Eigenvalues and Eigenvectors - Studyloaf",
     description: "The characteristic equation for finding eigenvalues and eigenvectors, with a fully worked 2x2 example verified two ways: by substitution and by the trace/determinant check.",
   },
+  alternates: { canonical: "/resources/matrices-eigenvalues-eigenvectors" },
 };
 
 export default function EigenvaluesEigenvectorsPage() {

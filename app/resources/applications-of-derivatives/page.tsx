@@ -12,6 +12,7 @@ export const metadata = {
     title: "Applications of Derivatives - Studyloaf",
     description: "Using derivatives as rates of change, with worked examples on a growing circle's area and a particle's velocity and acceleration.",
   },
+  alternates: { canonical: "/resources/applications-of-derivatives" },
 };
 
 export default function ApplicationsOfDerivativesPage() {

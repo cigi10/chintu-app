@@ -11,6 +11,7 @@ export const metadata = {
     title: "Line Segment, Ray, and Line - Studyloaf",
     description: "The differences between a line segment, a ray, and a line, and what makes points or lines collinear or concurrent.",
   },
+  alternates: { canonical: "/resources/line-segment-ray-and-line" },
 };
 
 export default function LineSegmentRayLinePage() {

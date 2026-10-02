@@ -10,6 +10,7 @@ export const metadata = {
     title: "Studyloaf: Games",
     description: "Studyloaf's study games: Crumb, a daily term-guessing game with colored letter feedback, for NEET, JEE, CLAT, and more.",
   },
+  alternates: { canonical: "/games" },
 };
 
 export default function GamesIndexPage() {

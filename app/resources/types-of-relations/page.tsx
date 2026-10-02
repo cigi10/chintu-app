@@ -12,6 +12,7 @@ export const metadata = {
     title: "Types of Relations - Studyloaf",
     description: "Reflexive, symmetric, transitive, and equivalence relations defined and checked against worked examples.",
   },
+  alternates: { canonical: "/resources/types-of-relations" },
 };
 
 export default function TypesOfRelationsPage() {

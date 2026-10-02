@@ -12,6 +12,7 @@ export const metadata = {
     title: "Rolle's Theorem - Studyloaf",
     description: "What Rolle's theorem states and how to verify it for a function on a closed interval, with a worked example.",
   },
+  alternates: { canonical: "/resources/rolles-theorem" },
 };
 
 export default function RollesTheoremPage() {

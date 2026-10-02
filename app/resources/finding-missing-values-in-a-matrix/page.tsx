@@ -12,6 +12,7 @@ export const metadata = {
     title: "Finding Missing Values in a Matrix - Studyloaf",
     description: "Solving for unknown entries in a matrix using a stated property or a matching determinant, with worked examples.",
   },
+  alternates: { canonical: "/resources/finding-missing-values-in-a-matrix" },
 };
 
 export default function FindingMissingValuesPage() {

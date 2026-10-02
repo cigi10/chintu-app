@@ -12,6 +12,7 @@ export const metadata = {
     title: "Symmetric and Skew-Symmetric Matrices - Studyloaf",
     description: "What symmetric and skew-symmetric matrices are, and how to split any square matrix into a sum of both, with a worked example.",
   },
+  alternates: { canonical: "/resources/symmetric-and-skew-symmetric-matrices" },
 };
 
 export default function SymmetricSkewSymmetricPage() {

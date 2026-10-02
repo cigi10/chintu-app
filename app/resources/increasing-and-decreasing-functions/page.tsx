@@ -12,6 +12,7 @@ export const metadata = {
     title: "Increasing and Decreasing Functions - Studyloaf",
     description: "How the sign of a function's derivative determines where it's increasing or decreasing, with worked examples including a cubic.",
   },
+  alternates: { canonical: "/resources/increasing-and-decreasing-functions" },
 };
 
 export default function IncreasingDecreasingPage() {

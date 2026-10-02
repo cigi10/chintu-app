@@ -10,6 +10,7 @@ export const metadata = {
     title: "Percentage Shortcuts - Studyloaf",
     description: "Common percentage calculation shortcuts and mental math tricks with worked examples.",
   },
+  alternates: { canonical: "/resources/percentage-shortcuts" },
 };
 
 // Guards against floating-point noise (e.g. 400 * 1.15 === 459.99999999999994

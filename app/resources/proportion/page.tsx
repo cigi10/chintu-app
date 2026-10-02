@@ -12,6 +12,7 @@ export const metadata = {
     title: "Proportion - Studyloaf",
     description: "How to check whether four numbers are in proportion, and how to solve for a missing term, with worked examples.",
   },
+  alternates: { canonical: "/resources/proportion" },
 };
 
 export default function ProportionPage() {

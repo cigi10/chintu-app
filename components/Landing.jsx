@@ -43,6 +43,7 @@ const TRY_IT_TOOLS = [
   { href: NAV.resources.href, title: "Quick Resources", desc: "Formulas and shortcuts you keep having to look up." },
 ];
 
+/** @param {{ recentPosts?: { slug: string, title: string, description: string }[] }} props */
 export default function Landing({ recentPosts = [] }) {
   const router = useRouter();
   const [heroMood, setHeroMood] = useState(HERO_MOODS[0]);

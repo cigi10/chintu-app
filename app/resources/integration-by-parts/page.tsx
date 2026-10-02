@@ -12,6 +12,7 @@ export const metadata = {
     title: "Integration by Parts - Studyloaf",
     description: "The integration by parts formula for integrating a product of two functions, with a worked example.",
   },
+  alternates: { canonical: "/resources/integration-by-parts" },
 };
 
 export default function IntegrationByPartsPage() {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Finding the Number of Factors of a Number - Studyloaf",
     description: "The formula for counting how many divisors a number has from its prime factorization, with worked examples.",
   },
+  alternates: { canonical: "/resources/finding-the-number-of-factors" },
 };
 
 export default function FindingTheNumberOfFactorsPage() {

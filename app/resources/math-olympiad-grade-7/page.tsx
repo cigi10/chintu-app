@@ -11,6 +11,7 @@ export const metadata = {
     title: "Grade 7 Math Olympiad Problems - Studyloaf",
     description: "Five worked Math Olympiad-style problems for grade 7: a Fibonacci-like sequence, an exponent equation, percentages with overlap, consecutive integers, and clock arithmetic.",
   },
+  alternates: { canonical: "/resources/math-olympiad-grade-7" },
 };
 
 export default function MathOlympiadGrade7Page() {

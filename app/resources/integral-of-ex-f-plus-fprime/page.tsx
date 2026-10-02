@@ -12,6 +12,7 @@ export const metadata = {
     title: "Integral of e^x[f(x) + f'(x)] - Studyloaf",
     description: "A shortcut formula for integrating e^x times a function plus its own derivative, with a worked example.",
   },
+  alternates: { canonical: "/resources/integral-of-ex-f-plus-fprime" },
 };
 
 export default function IntegralExFPlusFPrimePage() {

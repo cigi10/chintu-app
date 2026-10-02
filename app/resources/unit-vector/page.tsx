@@ -12,6 +12,7 @@ export const metadata = {
     title: "Finding a Unit Vector - Studyloaf",
     description: "How to find the unit vector in a given direction, between two points, or scaled to a target magnitude, with worked examples.",
   },
+  alternates: { canonical: "/resources/unit-vector" },
 };
 
 export default function UnitVectorPage() {

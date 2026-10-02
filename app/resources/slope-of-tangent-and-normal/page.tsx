@@ -12,6 +12,7 @@ export const metadata = {
     title: "Slope of Tangent and Normal - Studyloaf",
     description: "How the derivative gives the tangent's slope and the normal's slope is its negative reciprocal, with a worked example.",
   },
+  alternates: { canonical: "/resources/slope-of-tangent-and-normal" },
 };
 
 export default function SlopeOfTangentAndNormalPage() {

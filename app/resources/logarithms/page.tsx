@@ -12,6 +12,7 @@ export const metadata = {
     title: "Logarithms - Studyloaf",
     description: "What a logarithm is, common vs natural vs binary logarithms, and the core logarithm rules, with worked examples.",
   },
+  alternates: { canonical: "/resources/logarithms" },
 };
 
 export default function LogarithmsPage() {

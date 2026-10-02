@@ -11,6 +11,7 @@ export const metadata = {
     title: "Simple and Compound Interest - Studyloaf",
     description: "The simple interest and compound interest formulas, why compound interest grows faster, and worked examples for both.",
   },
+  alternates: { canonical: "/resources/simple-and-compound-interest" },
 };
 
 export default function SimpleAndCompoundInterestPage() {

@@ -11,6 +11,7 @@ export const metadata = {
     title: "Unit Conversions Reference - Studyloaf",
     description: "Common unit conversions for physics and chemistry: length, mass, time, energy, and SI prefixes.",
   },
+  alternates: { canonical: "/resources/unit-conversions" },
 };
 
 export default function UnitConversionsPage() {

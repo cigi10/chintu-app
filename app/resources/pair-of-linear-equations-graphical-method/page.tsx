@@ -12,6 +12,7 @@ export const metadata = {
     title: "Pair of Linear Equations: Graphical Method - Studyloaf",
     description: "Turning a word problem into a pair of linear equations, and checking whether two lines intersect, are parallel, or coincide by comparing coefficient ratios.",
   },
+  alternates: { canonical: "/resources/pair-of-linear-equations-graphical-method" },
 };
 
 export default function LinearEquationsGraphicalPage() {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getAllResourceTags, getResourcesByTag } from "@/lib/resources";
+import { MIN_INDEXABLE_TAG_SIZE, NOINDEX } from "@/lib/seo";
 import "@/styles/blog.css";
 
 type TagPageProps = {
@@ -19,6 +20,8 @@ export async function generateMetadata({ params }: TagPageProps) {
   return {
     title: `${tag} resources - Studyloaf`,
     description: `Studyloaf resource pages tagged "${tag}": ${resources.length} guide${resources.length === 1 ? "" : "s"}.`,
+    alternates: { canonical: `/resources/tag/${tag}` },
+    ...(resources.length < MIN_INDEXABLE_TAG_SIZE && { robots: NOINDEX }),
   };
 }
 

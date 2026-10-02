@@ -12,6 +12,7 @@ export const metadata = {
     title: "Laws of Exponents - Studyloaf",
     description: "The core rules for combining and simplifying exponents, including negative exponents, with worked examples.",
   },
+  alternates: { canonical: "/resources/laws-of-exponents" },
 };
 
 export default function LawsOfExponentsPage() {

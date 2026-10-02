@@ -11,6 +11,7 @@ export const metadata = {
     title: "Surface Area and Volume Formulas Reference - Studyloaf",
     description: "Surface area and volume formulas for cuboids, cubes, spheres, cylinders, cones, and frustums of a cone, with a worked example.",
   },
+  alternates: { canonical: "/resources/surface-area-and-volume-formulas" },
 };
 
 export default function SurfaceAreaAndVolumeFormulasPage() {

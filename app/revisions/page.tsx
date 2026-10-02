@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
 import RevisionQueue from "@/components/RevisionQueue";
+import { NOINDEX } from "@/lib/seo";
 
 export const metadata = {
   title: "Studyloaf: Revisions",
   description: "Topics due for spaced repetition review today.",
+  robots: NOINDEX,
 };
 
 export default function RevisionsPage() {

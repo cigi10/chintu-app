@@ -12,6 +12,7 @@ export const metadata = {
     title: "Finding the Intercepts of a Plane - Studyloaf",
     description: "How to read a plane's intercepts on each axis straight from its equation, with a worked example.",
   },
+  alternates: { canonical: "/resources/intercepts-of-a-plane" },
 };
 
 export default function InterceptsOfAPlanePage() {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Product Rule - Studyloaf",
     description: "The product rule for differentiating a product of two functions, with worked examples including logarithmic differentiation.",
   },
+  alternates: { canonical: "/resources/product-rule" },
 };
 
 export default function ProductRulePage() {

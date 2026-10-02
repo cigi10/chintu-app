@@ -12,6 +12,7 @@ export const metadata = {
     title: "Integration by Partial Fractions - Studyloaf",
     description: "Splitting a rational function into simpler fractions before integrating, with worked examples.",
   },
+  alternates: { canonical: "/resources/integration-by-partial-fractions" },
 };
 
 export default function IntegrationByPartialFractionsPage() {

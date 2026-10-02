@@ -11,6 +11,7 @@ export const metadata = {
     title: "Operations on Sets - Studyloaf",
     description: "Union, intersection, and the inclusion-exclusion principle for counting overlapping groups, with a worked example.",
   },
+  alternates: { canonical: "/resources/operations-on-sets" },
 };
 
 export default function OperationsOnSetsPage() {

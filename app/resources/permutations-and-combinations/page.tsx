@@ -12,6 +12,7 @@ export const metadata = {
     title: "Permutations and Combinations - Studyloaf",
     description: "How to count arrangements with permutations, with a worked dictionary-order example finding a specific word among all arrangements of a word's letters.",
   },
+  alternates: { canonical: "/resources/permutations-and-combinations" },
 };
 
 export default function PermutationsAndCombinationsPage() {

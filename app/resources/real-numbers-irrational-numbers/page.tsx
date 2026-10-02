@@ -12,6 +12,7 @@ export const metadata = {
     title: "Real Numbers: Irrational Numbers and Decimal Expansions - Studyloaf",
     description: "Proving a number is irrational by contradiction, and telling whether a fraction has a terminating or repeating decimal expansion, with worked examples.",
   },
+  alternates: { canonical: "/resources/real-numbers-irrational-numbers" },
 };
 
 export default function RealNumbersIrrationalPage() {

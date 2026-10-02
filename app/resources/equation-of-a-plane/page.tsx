@@ -12,6 +12,7 @@ export const metadata = {
     title: "Finding the Equation of a Plane - Studyloaf",
     description: "The equation of a coordinate plane, and finding a plane through the intersection of two others and a given point, with a worked example.",
   },
+  alternates: { canonical: "/resources/equation-of-a-plane" },
 };
 
 export default function EquationOfAPlanePage() {

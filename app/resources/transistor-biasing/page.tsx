@@ -12,6 +12,7 @@ export const metadata = {
     title: "Transistor Biasing - Studyloaf",
     description: "Why a transistor needs a DC bias point before it can amplify, the fixed-bias circuit equations, and a fully worked example finding the operating point.",
   },
+  alternates: { canonical: "/resources/transistor-biasing" },
 };
 
 export default function TransistorBiasingPage() {

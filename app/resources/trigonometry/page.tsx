@@ -12,6 +12,7 @@ export const metadata = {
     title: "Trigonometry Basics - Studyloaf",
     description: "Sine, cosine, tangent and their reciprocals, standard angle values, and the core trigonometric identities.",
   },
+  alternates: { canonical: "/resources/trigonometry" },
 };
 
 export default function TrigonometryPage() {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Thevenin's and Norton's Theorems - Studyloaf",
     description: "How to reduce any linear two-terminal network to a single source and resistor, with a worked example finding the Thevenin and Norton equivalents of the same circuit.",
   },
+  alternates: { canonical: "/resources/thevenin-norton-theorems" },
 };
 
 export default function TheveninNortonTheoremsPage() {

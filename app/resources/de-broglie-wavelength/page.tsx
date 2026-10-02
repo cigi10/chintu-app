@@ -12,6 +12,7 @@ export const metadata = {
     title: "de Broglie Wavelength and Matter Waves - Studyloaf",
     description: "The de Broglie relation between a particle's momentum and its wavelength, and a worked example deriving the wavelength of an electron accelerated through a known voltage.",
   },
+  alternates: { canonical: "/resources/de-broglie-wavelength" },
 };
 
 export default function DeBroglieWavelengthPage() {

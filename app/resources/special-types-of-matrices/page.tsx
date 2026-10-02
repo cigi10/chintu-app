@@ -12,6 +12,7 @@ export const metadata = {
     title: "Special Types of Matrices - Studyloaf",
     description: "Diagonal, scalar, and identity matrices explained, with examples showing how each one is a more specific case of the last.",
   },
+  alternates: { canonical: "/resources/special-types-of-matrices" },
 };
 
 export default function SpecialTypesOfMatricesPage() {

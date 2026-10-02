@@ -11,6 +11,7 @@ export const metadata = {
     title: "Area and Perimeter Formulas Reference - Studyloaf",
     description: "Area and perimeter formulas for rectangles, squares, circles, sectors, triangles, and regular pentagons, including Heron's formula, with a worked example.",
   },
+  alternates: { canonical: "/resources/area-and-perimeter-formulas" },
 };
 
 export default function AreaAndPerimeterFormulasPage() {

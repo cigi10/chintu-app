@@ -8,6 +8,7 @@ import "@/styles/blog.css";
 export const metadata = {
   title: "Blog - Studyloaf",
   description: "Study tips, timetable guides, and exam prep advice from the Studyloaf team.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogIndexPage() {

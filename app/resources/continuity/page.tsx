@@ -12,6 +12,7 @@ export const metadata = {
     title: "Continuity - Studyloaf",
     description: "Left-hand and right-hand derivatives, spotting a point that's continuous but not differentiable, and finding a function's domain, with worked examples.",
   },
+  alternates: { canonical: "/resources/continuity" },
 };
 
 export default function ContinuityPage() {

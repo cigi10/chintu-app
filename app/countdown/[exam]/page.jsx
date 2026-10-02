@@ -20,6 +20,7 @@ export async function generateMetadata({ params }) {
       title: `${exam.name} Countdown - Studyloaf`,
       description: `Live countdown to ${exam.name}.`,
     },
+    alternates: { canonical: `/countdown/${exam.slug}` },
   };
 }
 

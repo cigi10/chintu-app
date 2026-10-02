@@ -12,6 +12,7 @@ export const metadata = {
     title: "Projection of a Vector - Studyloaf",
     description: "What the projection of a vector onto a directed line means, including what happens at special angles, with a worked example.",
   },
+  alternates: { canonical: "/resources/projection-of-a-vector" },
 };
 
 export default function ProjectionOfAVectorPage() {

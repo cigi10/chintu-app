@@ -13,6 +13,7 @@ export async function generateMetadata({ params }) {
   return {
     title: `Crumb: ${domain.label} - Studyloaf`,
     description: `Today's ${domain.label} term-guessing challenge. One puzzle a day, colored letter feedback, real ${domain.label} terminology.`,
+    alternates: { canonical: `/games/crumb/${domain.slug}` },
   };
 }
 

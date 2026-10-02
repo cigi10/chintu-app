@@ -12,6 +12,7 @@ export const metadata = {
     title: "Linear Equations - Studyloaf",
     description: "How to solve a one-variable linear equation, including fractional coefficients, with worked examples translating word problems into equations.",
   },
+  alternates: { canonical: "/resources/linear-equations" },
 };
 
 export default function LinearEquationsPage() {

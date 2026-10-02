@@ -12,6 +12,7 @@ export const metadata = {
     title: "Integration of Particular Functions - Studyloaf",
     description: "Standard integration formulas for functions like 1/(x^2-a^2) and 1/(a^2-x^2), with worked examples.",
   },
+  alternates: { canonical: "/resources/integration-of-particular-functions" },
 };
 
 export default function IntegrationOfParticularFunctionsPage() {

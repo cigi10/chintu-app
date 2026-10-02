@@ -11,6 +11,7 @@ export const metadata = {
     title: "Studyloaf: Quiz",
     description: "Pick a subject, then play today's Daily Challenge or start a Practice Quiz anytime.",
   },
+  alternates: { canonical: "/quiz" },
 };
 
 export default function QuizIndexPage() {

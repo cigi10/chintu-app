@@ -12,6 +12,7 @@ export const metadata = {
     title: "Partial Differentiation - Studyloaf",
     description: "How to take partial derivatives of a multivariable function, with a worked example that also verifies equality of mixed second partial derivatives by direct computation.",
   },
+  alternates: { canonical: "/resources/partial-differentiation" },
 };
 
 export default function PartialDifferentiationPage() {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Approximations Using Differentials - Studyloaf",
     description: "Using differentials to approximate square roots and estimate small changes, with worked examples including a percentage-change setup.",
   },
+  alternates: { canonical: "/resources/approximations" },
 };
 
 export default function ApproximationsPage() {

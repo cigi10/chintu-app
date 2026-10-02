@@ -11,6 +11,7 @@ export const metadata = {
     title: "Squares and Cubes Reference - Studyloaf",
     description: "A quick-reference table of squares from 1 to 30 and cubes from 1 to 20.",
   },
+  alternates: { canonical: "/resources/squares-and-cubes" },
 };
 
 // Computed at render time rather than hand-typed, so every value is exact

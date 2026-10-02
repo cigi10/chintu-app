@@ -12,6 +12,7 @@ export const metadata = {
     title: "Power Rule - Studyloaf",
     description: "The power rule for differentiating x to a fixed exponent, with a worked example on a square root.",
   },
+  alternates: { canonical: "/resources/power-rule" },
 };
 
 export default function PowerRulePage() {

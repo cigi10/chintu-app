@@ -12,6 +12,7 @@ export const metadata = {
     title: "Arithmetic Progressions - Studyloaf",
     description: "What makes a sequence an arithmetic progression, how to tell whether a real-world situation forms one, and finding three terms in AP from their sum and product, with worked examples.",
   },
+  alternates: { canonical: "/resources/arithmetic-progressions" },
 };
 
 export default function ArithmeticProgressionsPage() {

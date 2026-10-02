@@ -12,6 +12,7 @@ export const metadata = {
     title: "Complex Numbers - Studyloaf",
     description: "What complex numbers are, the modulus-argument form, conjugates, and basic arithmetic on complex numbers, with worked examples.",
   },
+  alternates: { canonical: "/resources/complex-numbers" },
 };
 
 export default function ComplexNumbersPage() {

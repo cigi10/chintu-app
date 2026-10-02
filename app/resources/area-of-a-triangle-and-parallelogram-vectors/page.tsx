@@ -12,6 +12,7 @@ export const metadata = {
     title: "Area of a Triangle and Parallelogram Using Vectors - Studyloaf",
     description: "Using the cross product to find the area of a triangle or parallelogram from vertex or side vectors, with worked examples.",
   },
+  alternates: { canonical: "/resources/area-of-a-triangle-and-parallelogram-vectors" },
 };
 
 export default function AreaOfATriangleAndParallelogramVectorsPage() {

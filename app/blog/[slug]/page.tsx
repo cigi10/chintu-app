@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       title: `${post.title} - Studyloaf Blog`,
       description: post.description,
     },
+    alternates: { canonical: `/blog/${post.slug}` },
   };
 }
 

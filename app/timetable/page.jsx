@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
 import TimetableGrid from "@/components/TimetableGrid";
+import { NOINDEX } from "@/lib/seo";
 
 export const metadata = {
   title: "Study app: Timetable",
   description: "Plan your weekly study schedule.",
+  robots: NOINDEX,
 };
 
 export default function TimetablePage() {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Op-Amp Fundamentals: Inverting and Non-Inverting Amplifiers - Studyloaf",
     description: "The ideal op-amp assumptions, the inverting and non-inverting amplifier gain formulas, and worked examples computing the output voltage for each configuration.",
   },
+  alternates: { canonical: "/resources/op-amp-fundamentals" },
 };
 
 export default function OpAmpFundamentalsPage() {

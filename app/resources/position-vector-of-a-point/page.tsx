@@ -12,6 +12,7 @@ export const metadata = {
     title: "Finding the Position Vector of a Point - Studyloaf",
     description: "The section formula for a point dividing a segment internally or externally, and finding a midpoint, with worked examples.",
   },
+  alternates: { canonical: "/resources/position-vector-of-a-point" },
 };
 
 export default function PositionVectorPage() {

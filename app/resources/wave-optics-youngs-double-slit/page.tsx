@@ -12,6 +12,7 @@ export const metadata = {
     title: "Wave Optics: Young's Double Slit Experiment - Studyloaf",
     description: "The path-difference conditions for bright and dark fringes, the fringe width formula, and worked examples finding fringe width and fringe position.",
   },
+  alternates: { canonical: "/resources/wave-optics-youngs-double-slit" },
 };
 
 export default function WaveOpticsYoungsDoubleSlitPage() {

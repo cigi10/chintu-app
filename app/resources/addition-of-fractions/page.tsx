@@ -12,6 +12,7 @@ export const metadata = {
     title: "Addition of Fractions - Studyloaf",
     description: "Practice questions on adding fractions and mixed numbers, with worked solutions.",
   },
+  alternates: { canonical: "/resources/addition-of-fractions" },
 };
 
 export default function AdditionOfFractionsPage() {

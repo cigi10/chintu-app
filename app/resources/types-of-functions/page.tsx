@@ -12,6 +12,7 @@ export const metadata = {
     title: "Types of Functions - Studyloaf",
     description: "One-one, onto, bijective, and invertible functions explained, with worked examples on checking each property and finding an inverse.",
   },
+  alternates: { canonical: "/resources/types-of-functions" },
 };
 
 export default function TypesOfFunctionsPage() {

@@ -11,6 +11,7 @@ export const metadata = {
     title: "Linear Programming - Studyloaf",
     description: "Feasible regions, corner points, and finding the condition on an objective function's coefficients for it to be maximized at two corners at once.",
   },
+  alternates: { canonical: "/resources/linear-programming" },
 };
 
 export default function LinearProgrammingPage() {

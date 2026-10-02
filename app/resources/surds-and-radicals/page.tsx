@@ -12,6 +12,7 @@ export const metadata = {
     title: "Surds and Radicals - Studyloaf",
     description: "Simplifying and rationalizing expressions with square roots, with worked examples including a telescoping sum.",
   },
+  alternates: { canonical: "/resources/surds-and-radicals" },
 };
 
 export default function SurdsAndRadicalsPage() {

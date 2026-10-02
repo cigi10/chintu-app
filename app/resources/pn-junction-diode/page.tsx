@@ -12,6 +12,7 @@ export const metadata = {
     title: "PN Junction Diode: Forward and Reverse Bias - Studyloaf",
     description: "How a PN junction diode behaves under forward and reverse bias, the diode equation, and a worked example on the 'roughly 60mV per decade' current rule.",
   },
+  alternates: { canonical: "/resources/pn-junction-diode" },
 };
 
 export default function PnJunctionDiodePage() {

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Finding the Area Bounded by a Curve - Studyloaf",
     description: "Using definite integrals to find area under a curve, including a full period of cosine and a classic circle-area derivation.",
   },
+  alternates: { canonical: "/resources/area-bounded-by-a-curve" },
 };
 
 export default function AreaBoundedByACurvePage() {

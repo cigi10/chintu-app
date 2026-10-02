@@ -12,6 +12,7 @@ export const metadata = {
     title: "Quotient Rule - Studyloaf",
     description: "The quotient rule for differentiating one function divided by another, with worked examples.",
   },
+  alternates: { canonical: "/resources/quotient-rule" },
 };
 
 export default function QuotientRulePage() {

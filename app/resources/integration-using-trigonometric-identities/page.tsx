@@ -12,6 +12,7 @@ export const metadata = {
     title: "Integration Using Trigonometric Identities - Studyloaf",
     description: "Rewriting a trigonometric integrand with an identity before integrating, with worked examples on cos^2 x, sin^2 x, and a secant identity.",
   },
+  alternates: { canonical: "/resources/integration-using-trigonometric-identities" },
 };
 
 export default function IntegrationUsingTrigIdentitiesPage() {

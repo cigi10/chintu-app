@@ -12,6 +12,7 @@ export const metadata = {
     title: "Photoelectric Effect - Studyloaf",
     description: "Einstein's photoelectric equation, the work function and threshold frequency, and a worked example finding the maximum kinetic energy of emitted electrons.",
   },
+  alternates: { canonical: "/resources/photoelectric-effect" },
 };
 
 export default function PhotoelectricEffectPage() {

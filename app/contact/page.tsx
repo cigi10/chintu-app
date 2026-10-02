@@ -5,6 +5,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata = {
   title: "Write to Us - Studyloaf",
   description: "Send Studyloaf a message: bug reports, feature ideas, or anything else.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

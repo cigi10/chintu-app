@@ -12,6 +12,7 @@ export const metadata = {
     title: "Diffraction: Single Slit and Diffraction Grating - Studyloaf",
     description: "Why single-slit diffraction minima and double-slit interference maxima use the exact same-looking formula for opposite reasons, plus a worked diffraction grating example.",
   },
+  alternates: { canonical: "/resources/diffraction-single-slit-and-grating" },
 };
 
 export default function DiffractionPage() {

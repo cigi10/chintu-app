@@ -12,6 +12,7 @@ export const metadata = {
     title: "Finding Direction Cosines - Studyloaf",
     description: "What direction cosines are and how to find them for a coordinate axis, a line through two points, or a line at given angles.",
   },
+  alternates: { canonical: "/resources/direction-cosines" },
 };
 
 export default function DirectionCosinesPage() {

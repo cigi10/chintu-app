@@ -12,6 +12,7 @@ export const metadata = {
     title: "Ratio - Studyloaf",
     description: "What a ratio is and how to simplify one to its lowest terms, with a worked real-world example.",
   },
+  alternates: { canonical: "/resources/ratio" },
 };
 
 export default function RatioPage() {

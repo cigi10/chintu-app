@@ -12,6 +12,7 @@ export const metadata = {
     title: "Composition of Functions (gof and fog) - Studyloaf",
     description: "How to compute the composition of two functions in either order, with a worked example showing gof and fog can come out different.",
   },
+  alternates: { canonical: "/resources/composition-of-functions" },
 };
 
 export default function CompositionOfFunctionsPage() {

@@ -10,6 +10,7 @@ export const metadata = {
     title: "Resources - Studyloaf",
     description: "Quick-reference study guides and worked examples.",
   },
+  alternates: { canonical: "/resources" },
 };
 
 export default function ResourcesIndexPage() {

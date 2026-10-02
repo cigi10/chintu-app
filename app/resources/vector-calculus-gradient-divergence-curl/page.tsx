@@ -12,6 +12,7 @@ export const metadata = {
     title: "Vector Calculus: Gradient, Divergence, and Curl - Studyloaf",
     description: "The gradient, divergence, and curl operators explained, with worked examples computing each directly from a scalar and a vector field.",
   },
+  alternates: { canonical: "/resources/vector-calculus-gradient-divergence-curl" },
 };
 
 export default function VectorCalculusPage() {

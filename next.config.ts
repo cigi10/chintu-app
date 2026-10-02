@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
       { source: "/games/neet", destination: "/games/crumb/neet", permanent: true },
       { source: "/games/clat", destination: "/games/crumb/clat", permanent: true },
       { source: "/games/board-exams", destination: "/games/crumb/board-exams", permanent: true },
+      // The landing page used to live at /landing, reached from / by a
+      // client-side redirect. It's now server-rendered at / itself.
+      { source: "/landing", destination: "/", permanent: true },
     ];
   },
 };

@@ -12,6 +12,7 @@ export const metadata = {
     title: "Polynomial Identities and the Remainder Theorem - Studyloaf",
     description: "Using the Remainder Theorem to find a remainder without dividing, and factoring with the sum/difference-of-cubes identities, with worked examples.",
   },
+  alternates: { canonical: "/resources/polynomial-identities-and-remainder-theorem" },
 };
 
 export default function PolynomialIdentitiesPage() {

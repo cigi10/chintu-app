@@ -12,6 +12,7 @@ export const metadata = {
     title: "Pair of Linear Equations: Word Problems - Studyloaf",
     description: "Translating age and money word problems into a pair of linear equations and solving them, including a classic problem with two valid cases.",
   },
+  alternates: { canonical: "/resources/pair-of-linear-equations-word-problems" },
 };
 
 export default function LinearEquationsWordProblemsPage() {

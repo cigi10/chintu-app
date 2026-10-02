@@ -10,6 +10,7 @@ export const metadata = {
     title: "Exam Countdowns - Studyloaf",
     description: "Live countdowns to JEE, NEET, and GATE exam dates.",
   },
+  alternates: { canonical: "/countdown" },
 };
 
 export default function CountdownIndexPage() {

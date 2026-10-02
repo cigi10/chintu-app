@@ -1,6 +1,7 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 import { isGatedPath } from '@/lib/routeAccess'
+import { ONBOARDED_KEY } from '@/lib/onboardedFlag'
 
 // Routes that require a real, signed-in session live in lib/routeAccess.js
 // (shared with GuestModeBanner so both agree on the same list). Everything
@@ -54,6 +55,13 @@ export async function proxy(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser()
 
   const pathname = request.nextUrl.pathname
+
+  // / serves the server-rendered landing page to fresh visitors (and
+  // crawlers). Anyone signed in, or who has finished onboarding in this
+  // browser (see lib/onboardedFlag.js), goes straight to their dashboard.
+  if (pathname === '/' && (user || request.cookies.has(ONBOARDED_KEY))) {
+    return NextResponse.redirect(new URL('/dashboard', request.url))
+  }
 
   if (!user && isGatedPath(pathname)) {
     const redirectUrl = new URL('/login', request.url)

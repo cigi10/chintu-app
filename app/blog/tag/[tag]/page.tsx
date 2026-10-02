@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getAllBlogTags, getBlogPostsByTag } from "@/lib/blogPosts";
+import { MIN_INDEXABLE_TAG_SIZE, NOINDEX } from "@/lib/seo";
 import "@/styles/blog.css";
 
 type TagPageProps = {
@@ -20,6 +21,8 @@ export async function generateMetadata({ params }: TagPageProps) {
   return {
     title: `${tag} posts - Studyloaf Blog`,
     description: `Studyloaf blog posts tagged "${tag}": ${posts.length} post${posts.length === 1 ? "" : "s"}.`,
+    alternates: { canonical: `/blog/tag/${tag}` },
+    ...(posts.length < MIN_INDEXABLE_TAG_SIZE && { robots: NOINDEX }),
   };
 }
 

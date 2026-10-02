@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo";
 
-const BASE_URL = "https://www.studyloaf.com";
-
-// Either behind the real-session gate (see lib/routeAccess.js) or, like
-// /dashboard, a personalized app view rather than public content, so
-// neither is useful for search engines to crawl or index.
-const DISALLOWED_ROUTES = ["/dashboard", "/journal", "/mood", "/rooms", "/shop", "/achievements", "/profile"];
+// Behind the real-session gate (see lib/routeAccess.js), so there's
+// nothing for a crawler to see. Public-but-personal app views like
+// /dashboard are deliberately NOT listed: they carry a noindex meta tag
+// instead, and a crawler blocked here would never read it.
+const DISALLOWED_ROUTES = ["/journal", "/mood", "/rooms", "/shop", "/achievements", "/profile"];
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -14,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: DISALLOWED_ROUTES,
     },
-    sitemap: `${BASE_URL}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

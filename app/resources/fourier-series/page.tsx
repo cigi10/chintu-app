@@ -12,6 +12,7 @@ export const metadata = {
     title: "Fourier Series - Studyloaf",
     description: "The Fourier series formulas for a periodic function, and a fully worked derivation of the Fourier series for f(x) = x on (-π, π).",
   },
+  alternates: { canonical: "/resources/fourier-series" },
 };
 
 export default function FourierSeriesPage() {

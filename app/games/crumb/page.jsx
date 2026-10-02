@@ -16,6 +16,7 @@ export const metadata = {
     title: "Crumb - Studyloaf Games",
     description: `Crumb, Studyloaf's daily term-guessing game: one real domain-specific term a day, colored letter feedback, across ${DOMAIN_COUNT} subject domains.`,
   },
+  alternates: { canonical: "/games/crumb" },
 };
 
 export default function CrumbFamilyPage() {

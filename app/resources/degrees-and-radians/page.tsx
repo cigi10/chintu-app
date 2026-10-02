@@ -11,6 +11,7 @@ export const metadata = {
     title: "Degrees and Radians - Studyloaf",
     description: "What a radian actually measures, the standard-angle conversion table, and converting between degrees and radians, with worked examples.",
   },
+  alternates: { canonical: "/resources/degrees-and-radians" },
 };
 
 export default function DegreesAndRadiansPage() {

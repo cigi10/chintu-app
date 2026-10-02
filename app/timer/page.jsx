@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
 import StudyTimer from "@/components/StudyTimer";
 import { Suspense } from "react";
+import { NOINDEX } from "@/lib/seo";
 
 export const metadata = {
   title: "Studyloaf: Timer",
+  robots: NOINDEX,
 };
 
 export default function TimerPage() {

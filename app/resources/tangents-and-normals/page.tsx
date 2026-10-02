@@ -12,6 +12,7 @@ export const metadata = {
     title: "Tangents and Normals - Studyloaf",
     description: "Finding the slope of a tangent line to a curve at a given point, with worked examples on a cubic and a rational function.",
   },
+  alternates: { canonical: "/resources/tangents-and-normals" },
 };
 
 export default function TangentsAndNormalsPage() {

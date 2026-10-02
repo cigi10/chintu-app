@@ -12,6 +12,7 @@ export const metadata = {
     title: "Probability - Studyloaf",
     description: "What probability measures, independent vs dependent events, and conditional probability, with worked card, dice, and survey examples.",
   },
+  alternates: { canonical: "/resources/probability" },
 };
 
 export default function ProbabilityPage() {
