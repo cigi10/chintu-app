@@ -5,6 +5,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import TagChips from "@/components/TagChips";
 import BlogTable, { type BlogTableData } from "@/components/BlogTable";
+import BlogViewCount from "@/components/BlogViewCount";
 import { getBlogPost, getBlogSlugs } from "@/lib/blogPosts";
 import "@/styles/blog.css";
 
@@ -88,6 +89,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </span>
             <span className="blog-card-meta-dot">•</span>
             <span>{post.readingTime}</span>
+            <BlogViewCount slug={post.slug} />
           </div>
 
           {(post.content as BlogPostSection[]).map((section, i) => (

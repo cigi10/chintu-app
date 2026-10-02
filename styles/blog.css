@@ -116,8 +116,9 @@
 
 .blog-post-meta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 4px 8px;
   font-size: 0.82rem;
   color: var(--color-text-secondary);
   margin-bottom: 32px;
