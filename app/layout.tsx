@@ -6,6 +6,7 @@ import ConditionalNav from "@/components/ConditionalNav";
 import GuestModeBanner from "@/components/GuestModeBanner";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 import type { ReactNode } from "react";
 import { SITE_URL } from "@/lib/seo";
 
@@ -51,9 +52,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             __html: `try{var t=localStorage.getItem('chintu-theme');var v=['sunset','azure','strawberry','periwinkle','matcha','forest','majorelle','slate','cocoa','starry-nights','rose-noir','midnight-blue','twilight-forest'];document.documentElement.setAttribute('data-theme',v.includes(t)?t:'cocoa');}catch(e){}`,
           }}
         />
-        {/* Every third-party analytics/ads script (GA + AdSense) lives in
-            this one component, rendered once here so it's site-wide
-            automatically and never duplicated per page. */}
+        {/* The <head>-injected third-party scripts (GA + AdSense) live in
+            this one component, rendered once here so they're site-wide
+            automatically and never duplicated per page. Vercel Analytics
+            is the exception: it's a React component rendered in <body>
+            below, as @vercel/analytics/next expects. */}
         <ThirdPartyScripts />
       </head>
       <body>
@@ -63,6 +66,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </PageTransition>
         <ConditionalNav />
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
