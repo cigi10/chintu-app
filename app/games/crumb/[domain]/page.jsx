@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import CrumbGame from "@/components/CrumbGame";
+import ToolAbout from "@/components/ToolAbout";
 import { getWordGameDomain, getWordGameDomainSlugs } from "@/lib/wordGame";
+import { getCrumbPageContent } from "@/lib/toolPageContent";
 
 export function generateStaticParams() {
   return getWordGameDomainSlugs().map(domain => ({ domain }));
@@ -10,9 +12,11 @@ export async function generateMetadata({ params }) {
   const { domain: slug } = await params;
   const domain = getWordGameDomain(slug);
   if (!domain) return {};
+  const description = getCrumbPageContent(slug)?.description;
   return {
     title: `Crumb: ${domain.label} - Studyloaf`,
-    description: `Today's ${domain.label} term-guessing challenge. One puzzle a day, colored letter feedback, real ${domain.label} terminology.`,
+    description,
+    openGraph: { title: `Crumb: ${domain.label} - Studyloaf`, description },
     alternates: { canonical: `/games/crumb/${domain.slug}` },
   };
 }
@@ -30,6 +34,7 @@ export default async function CrumbDomainPage({ params }) {
       <section className="crumb-domain-game-section">
         <CrumbGame domain={domain} />
       </section>
+      <ToolAbout content={getCrumbPageContent(slug)} />
     </div>
   );
 }

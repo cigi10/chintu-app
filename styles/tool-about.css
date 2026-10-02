@@ -1,0 +1,66 @@
+/* components/ToolAbout.jsx: descriptive section under quiz and Crumb pages. */
+.tool-about {
+  max-width: 820px;
+  margin: 40px auto 80px;
+  padding: 24px clamp(18px, 4vw, 28px);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.tool-about__heading {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.tool-about__subheading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 18px 0 8px;
+}
+
+.tool-about__p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 10px;
+}
+
+.tool-about__list {
+  margin: 0;
+  padding-left: 1.25em;
+  font-size: 0.93rem;
+}
+
+.tool-about__list li {
+  margin-bottom: 4px;
+}
+
+.tool-about__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.93rem;
+}
+
+.tool-about__links a {
+  /* Text colour, not the accent: some themes' accents fail text contrast. */
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* The tool pages sit inside narrower or edge-to-edge shells; keep the
+   section off the screen edges on phones. */
+@media (max-width: 860px) {
+  .tool-about {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
