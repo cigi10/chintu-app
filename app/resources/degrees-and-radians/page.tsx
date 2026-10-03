@@ -31,7 +31,7 @@ export default function DegreesAndRadiansPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Trigonometry", href: "/resources/math-trigonometry" },
           { label: "Degrees and Radians", href: "/resources/degrees-and-radians" },
         ]} />
         <article className="blog-post">

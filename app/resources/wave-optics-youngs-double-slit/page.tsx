@@ -32,7 +32,7 @@ export default function WaveOpticsYoungsDoubleSlitPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Physics", href: "/resources/physics" },
           { label: "Wave Optics: Young's Double Slit Experiment", href: "/resources/wave-optics-youngs-double-slit" },
         ]} />
         <article className="blog-post">

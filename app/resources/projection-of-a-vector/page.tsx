@@ -31,7 +31,7 @@ export default function ProjectionOfAVectorPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Projection of a Vector", href: "/resources/projection-of-a-vector" },
         ]} />
         <article className="blog-post">

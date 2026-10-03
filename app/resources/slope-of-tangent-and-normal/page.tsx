@@ -31,7 +31,7 @@ export default function SlopeOfTangentAndNormalPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Slope of Tangent and Normal", href: "/resources/slope-of-tangent-and-normal" },
         ]} />
         <article className="blog-post">

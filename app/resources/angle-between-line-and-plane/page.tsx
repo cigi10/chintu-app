@@ -31,7 +31,7 @@ export default function AngleBetweenLineAndPlanePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Angle Between a Line and a Plane", href: "/resources/angle-between-line-and-plane" },
         ]} />
         <article className="blog-post">

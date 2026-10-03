@@ -31,7 +31,7 @@ export default function IncreasingDecreasingPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Increasing and Decreasing Functions", href: "/resources/increasing-and-decreasing-functions" },
         ]} />
         <article className="blog-post">

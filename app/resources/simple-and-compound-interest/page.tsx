@@ -31,7 +31,7 @@ export default function SimpleAndCompoundInterestPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Arithmetic and Number", href: "/resources/math-arithmetic-number" },
           { label: "Simple and Compound Interest", href: "/resources/simple-and-compound-interest" },
         ]} />
         <article className="blog-post">

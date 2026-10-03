@@ -32,7 +32,7 @@ export default function LinearEquationsCrossMultiplicationPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Pair of Linear Equations: Cross-Multiplication and Reducible Equations", href: "/resources/pair-of-linear-equations-cross-multiplication" },
         ]} />
         <article className="blog-post">

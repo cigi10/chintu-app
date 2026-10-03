@@ -31,7 +31,7 @@ export default function PermutationsAndCombinationsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Permutations and Combinations", href: "/resources/permutations-and-combinations" },
         ]} />
         <article className="blog-post">

@@ -1,7 +1,7 @@
 import type { NextRequest } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getBlogPost } from "@/lib/blogPosts";
-import { VIEW_COOKIE_PATH, VIEW_DEDUP_SECONDS, viewCookieName } from "@/lib/blogViews";
+import { VIEW_COOKIE_PATH, VIEW_DEDUP_SECONDS, viewCookieName, viewCountingEnabled } from "@/lib/blogViews";
 
 // POST /api/blog-views/<slug>: records a view (at most once per visitor
 // per post per 24h, via a cookie) and returns { views }. Blog pages stay
@@ -11,7 +11,8 @@ import { VIEW_COOKIE_PATH, VIEW_DEDUP_SECONDS, viewCookieName } from "@/lib/blog
 // Writes go through increment_blog_post_view(), which only the service
 // role may execute (see supabase/migrations/*_blog_post_views.sql), so
 // this route is the only way to count a view. `views` is null whenever
-// the count can't be read, and the page simply shows nothing.
+// the count can't be read, and the page simply shows nothing. Outside the
+// live production deployment it only reads (see viewCountingEnabled).
 export async function POST(request: NextRequest, ctx: RouteContext<"/api/blog-views/[slug]">) {
   const { slug } = await ctx.params;
 
@@ -25,7 +26,7 @@ export async function POST(request: NextRequest, ctx: RouteContext<"/api/blog-vi
 
   const alreadyCounted = request.cookies.has(viewCookieName(slug));
 
-  if (alreadyCounted) {
+  if (alreadyCounted || !viewCountingEnabled()) {
     const { data, error } = await supabase
       .from("blog_post_views")
       .select("view_count")

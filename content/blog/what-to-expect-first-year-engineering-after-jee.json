@@ -5,6 +5,7 @@
   "author": "Studyloaf Team",
   "readingTime": "4 min read",
   "date": "2026-09-25",
+  "updated": "2026-10-02",
   "content": [
     {
       "heading": null,
@@ -75,6 +76,7 @@
       "body": "If you're looking for a first pass at any of these topics (Laplace transforms, Fourier series, eigenvalues, vector calculus, Kirchhoff's laws, diodes, transistor biasing, op-amps), Studyloaf's Engineering Fundamentals resources cover the same core topics shared across most first-year AICTE/VTU-pattern programs, each with a fully worked, independently verified example."
     }
   ],
+  "category": "college-careers",
   "tags": [
     "jee",
     "engineering-fundamentals"

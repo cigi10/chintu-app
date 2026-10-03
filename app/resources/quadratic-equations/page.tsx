@@ -32,7 +32,7 @@ export default function QuadraticEquationsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Quadratic Equations", href: "/resources/quadratic-equations" },
         ]} />
         <article className="blog-post">

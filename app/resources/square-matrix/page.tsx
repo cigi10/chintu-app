@@ -31,7 +31,7 @@ export default function SquareMatrixPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Matrices and Determinants", href: "/resources/math-matrices-determinants" },
           { label: "Square Matrix Properties", href: "/resources/square-matrix" },
         ]} />
         <article className="blog-post">

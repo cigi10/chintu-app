@@ -31,7 +31,7 @@ export default function MatricesSystemOfEquationsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Matrices and Determinants", href: "/resources/math-matrices-determinants" },
           { label: "Solving a System of Equations with Matrices", href: "/resources/matrices-system-of-equations" },
         ]} />
         <article className="blog-post">

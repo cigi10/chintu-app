@@ -31,7 +31,7 @@ export default function LinearEquationsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Linear Equations", href: "/resources/linear-equations" },
         ]} />
         <article className="blog-post">

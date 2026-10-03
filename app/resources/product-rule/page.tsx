@@ -31,7 +31,7 @@ export default function ProductRulePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Product Rule", href: "/resources/product-rule" },
         ]} />
         <article className="blog-post">

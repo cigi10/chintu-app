@@ -31,7 +31,7 @@ export default function ImplicitDifferentiationPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Implicit Differentiation", href: "/resources/implicit-differentiation" },
         ]} />
         <article className="blog-post">

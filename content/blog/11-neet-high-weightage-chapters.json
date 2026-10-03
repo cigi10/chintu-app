@@ -5,6 +5,7 @@
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
   "date": "2026-09-23",
+  "updated": "2026-10-02",
   "content": [
     {
       "heading": null,
@@ -109,6 +110,7 @@
       "body": "If you're using a list like this to structure your remaining revision days, Studyloaf's free timetable generator can turn a priority order like this into an actual weekly schedule from just your subjects, hours per day, and exam date, no account needed."
     }
   ],
+  "category": "neet",
   "tags": [
     "neet",
     "revision-planning"

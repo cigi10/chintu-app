@@ -32,7 +32,7 @@ export default function BinaryOperationPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Sets, Relations and Functions", href: "/resources/math-sets-relations-functions" },
           { label: "Binary Operation", href: "/resources/binary-operation" },
         ]} />
         <article className="blog-post">

@@ -31,7 +31,7 @@ export default function SurdsAndRadicalsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Surds and Radicals", href: "/resources/surds-and-radicals" },
         ]} />
         <article className="blog-post">

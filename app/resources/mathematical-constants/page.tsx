@@ -31,7 +31,7 @@ export default function MathematicalConstantsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Mathematical Constants: e, i, √2, and π", href: "/resources/mathematical-constants" },
         ]} />
         <article className="blog-post">

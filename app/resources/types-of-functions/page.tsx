@@ -32,7 +32,7 @@ export default function TypesOfFunctionsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Sets, Relations and Functions", href: "/resources/math-sets-relations-functions" },
           { label: "Types of Functions", href: "/resources/types-of-functions" },
         ]} />
         <article className="blog-post">

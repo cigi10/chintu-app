@@ -31,7 +31,7 @@ export default function InterceptsOfAPlanePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Finding the Intercepts of a Plane", href: "/resources/intercepts-of-a-plane" },
         ]} />
         <article className="blog-post">

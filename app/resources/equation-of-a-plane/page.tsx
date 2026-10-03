@@ -31,7 +31,7 @@ export default function EquationOfAPlanePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Finding the Equation of a Plane", href: "/resources/equation-of-a-plane" },
         ]} />
         <article className="blog-post">

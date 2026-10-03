@@ -31,7 +31,7 @@ export default function RatioPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Arithmetic and Number", href: "/resources/math-arithmetic-number" },
           { label: "Ratio", href: "/resources/ratio" },
         ]} />
         <article className="blog-post">

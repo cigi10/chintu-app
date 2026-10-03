@@ -31,7 +31,7 @@ export default function PercentagePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Arithmetic and Number", href: "/resources/math-arithmetic-number" },
           { label: "Percentage", href: "/resources/percentage" },
         ]} />
         <article className="blog-post">

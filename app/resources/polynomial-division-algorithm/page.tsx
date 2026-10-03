@@ -31,7 +31,7 @@ export default function PolynomialDivisionAlgorithmPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Polynomial Division Algorithm", href: "/resources/polynomial-division-algorithm" },
         ]} />
         <article className="blog-post">

@@ -31,7 +31,7 @@ export default function DeBroglieWavelengthPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Physics", href: "/resources/physics" },
           { label: "de Broglie Wavelength and Matter Waves", href: "/resources/de-broglie-wavelength" },
         ]} />
         <article className="blog-post">

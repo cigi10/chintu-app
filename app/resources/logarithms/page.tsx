@@ -31,7 +31,7 @@ export default function LogarithmsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Logarithms", href: "/resources/logarithms" },
         ]} />
         <article className="blog-post">

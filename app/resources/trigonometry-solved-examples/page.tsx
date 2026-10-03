@@ -31,7 +31,7 @@ export default function TrigonometrySolvedExamplesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Trigonometry", href: "/resources/math-trigonometry" },
           { label: "Trigonometry: Solved Examples", href: "/resources/trigonometry-solved-examples" },
         ]} />
         <article className="blog-post">

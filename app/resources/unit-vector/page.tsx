@@ -31,7 +31,7 @@ export default function UnitVectorPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Finding a Unit Vector", href: "/resources/unit-vector" },
         ]} />
         <article className="blog-post">

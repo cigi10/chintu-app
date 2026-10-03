@@ -31,7 +31,7 @@ export default function SymmetricSkewSymmetricPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Matrices and Determinants", href: "/resources/math-matrices-determinants" },
           { label: "Symmetric and Skew-Symmetric Matrices", href: "/resources/symmetric-and-skew-symmetric-matrices" },
         ]} />
         <article className="blog-post">

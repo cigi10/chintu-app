@@ -30,7 +30,7 @@ export default function UnitConversionsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Other Subjects" },
+          { label: "Physics", href: "/resources/physics" },
           { label: "Unit Conversions Reference", href: "/resources/unit-conversions" },
         ]} />
         <article className="blog-post">

@@ -32,7 +32,7 @@ export default function TheveninNortonTheoremsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Electrical and Electronics", href: "/resources/electrical-electronics" },
           { label: "Thevenin's and Norton's Theorems", href: "/resources/thevenin-norton-theorems" },
         ]} />
         <article className="blog-post">

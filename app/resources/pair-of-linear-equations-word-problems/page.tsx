@@ -32,7 +32,7 @@ export default function LinearEquationsWordProblemsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Pair of Linear Equations: Word Problems", href: "/resources/pair-of-linear-equations-word-problems" },
         ]} />
         <article className="blog-post">

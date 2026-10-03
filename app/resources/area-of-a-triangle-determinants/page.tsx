@@ -32,7 +32,7 @@ export default function AreaOfATriangleDeterminantsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Matrices and Determinants", href: "/resources/math-matrices-determinants" },
           { label: "Area of a Triangle Using Determinants", href: "/resources/area-of-a-triangle-determinants" },
         ]} />
         <article className="blog-post">

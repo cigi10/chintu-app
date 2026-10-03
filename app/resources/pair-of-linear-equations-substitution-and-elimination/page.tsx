@@ -32,7 +32,7 @@ export default function LinearEquationsSubstitutionEliminationPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Pair of Linear Equations: Substitution and Elimination Methods", href: "/resources/pair-of-linear-equations-substitution-and-elimination" },
         ]} />
         <article className="blog-post">

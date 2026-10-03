@@ -31,7 +31,7 @@ export default function ApplicationsOfDerivativesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Applications of Derivatives", href: "/resources/applications-of-derivatives" },
         ]} />
         <article className="blog-post">

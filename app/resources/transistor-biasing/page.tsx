@@ -32,7 +32,7 @@ export default function TransistorBiasingPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Electrical and Electronics", href: "/resources/electrical-electronics" },
           { label: "Transistor Biasing", href: "/resources/transistor-biasing" },
         ]} />
         <article className="blog-post">

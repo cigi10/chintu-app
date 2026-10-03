@@ -32,7 +32,7 @@ export default function LinearEquationsGraphicalPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Pair of Linear Equations: Graphical Method", href: "/resources/pair-of-linear-equations-graphical-method" },
         ]} />
         <article className="blog-post">

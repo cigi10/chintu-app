@@ -32,7 +32,7 @@ export default function FindingTheNumberOfFactorsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Arithmetic and Number", href: "/resources/math-arithmetic-number" },
           { label: "Finding the Number of Factors of a Number", href: "/resources/finding-the-number-of-factors" },
         ]} />
         <article className="blog-post">

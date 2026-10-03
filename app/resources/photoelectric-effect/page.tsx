@@ -32,7 +32,7 @@ export default function PhotoelectricEffectPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Physics", href: "/resources/physics" },
           { label: "Photoelectric Effect", href: "/resources/photoelectric-effect" },
         ]} />
         <article className="blog-post">

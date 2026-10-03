@@ -35,7 +35,7 @@ export default function SquaresAndCubesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Arithmetic and Number", href: "/resources/math-arithmetic-number" },
           { label: "Squares and Cubes Reference", href: "/resources/squares-and-cubes" },
         ]} />
         <article className="blog-post">

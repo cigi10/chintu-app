@@ -32,7 +32,7 @@ export default function DiffractionPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Physics", href: "/resources/physics" },
           { label: "Diffraction: Single Slit and Diffraction Grating", href: "/resources/diffraction-single-slit-and-grating" },
         ]} />
         <article className="blog-post">

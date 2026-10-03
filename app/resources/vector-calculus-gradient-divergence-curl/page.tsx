@@ -32,7 +32,7 @@ export default function VectorCalculusPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Engineering Mathematics", href: "/resources/engineering-mathematics" },
           { label: "Vector Calculus: Gradient, Divergence, and Curl", href: "/resources/vector-calculus-gradient-divergence-curl" },
         ]} />
         <article className="blog-post">

@@ -31,7 +31,7 @@ export default function IntegrationUsingTrigIdentitiesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Integration Using Trigonometric Identities", href: "/resources/integration-using-trigonometric-identities" },
         ]} />
         <article className="blog-post">

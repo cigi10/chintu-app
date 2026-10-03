@@ -31,7 +31,7 @@ export default function OperationsOnSetsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Sets, Relations and Functions", href: "/resources/math-sets-relations-functions" },
           { label: "Operations on Sets", href: "/resources/operations-on-sets" },
         ]} />
         <article className="blog-post">

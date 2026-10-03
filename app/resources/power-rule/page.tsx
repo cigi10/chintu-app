@@ -31,7 +31,7 @@ export default function PowerRulePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Power Rule", href: "/resources/power-rule" },
         ]} />
         <article className="blog-post">

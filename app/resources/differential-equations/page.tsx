@@ -31,7 +31,7 @@ export default function DifferentialEquationsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Differential Equations", href: "/resources/differential-equations" },
         ]} />
         <article className="blog-post">

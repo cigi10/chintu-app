@@ -31,7 +31,7 @@ export default function ProportionPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Arithmetic and Number", href: "/resources/math-arithmetic-number" },
           { label: "Proportion", href: "/resources/proportion" },
         ]} />
         <article className="blog-post">

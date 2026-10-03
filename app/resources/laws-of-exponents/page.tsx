@@ -32,7 +32,7 @@ export default function LawsOfExponentsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Laws of Exponents", href: "/resources/laws-of-exponents" },
         ]} />
         <article className="blog-post">

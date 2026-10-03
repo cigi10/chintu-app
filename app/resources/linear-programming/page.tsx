@@ -31,7 +31,7 @@ export default function LinearProgrammingPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Linear Programming", href: "/resources/linear-programming" },
         ]} />
         <article className="blog-post">

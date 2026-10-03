@@ -32,7 +32,7 @@ export default function FourierSeriesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Engineering Mathematics", href: "/resources/engineering-mathematics" },
           { label: "Fourier Series", href: "/resources/fourier-series" },
         ]} />
         <article className="blog-post">

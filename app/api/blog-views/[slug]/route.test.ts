@@ -1,5 +1,5 @@
 // @vitest-environment node
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { NextRequest } from "next/server";
 
 const rpc = vi.fn();
@@ -21,6 +21,7 @@ function call(slug: string, cookie?: string) {
 }
 
 beforeEach(() => {
+  vi.stubEnv("VERCEL_ENV", "production");
   rpc.mockReset();
   maybeSingle.mockReset();
   createAdminClient.mockReset();
@@ -28,6 +29,10 @@ beforeEach(() => {
     rpc,
     from: () => ({ select: () => ({ eq: () => ({ maybeSingle }) }) }),
   });
+});
+
+afterEach(() => {
+  vi.unstubAllEnvs();
 });
 
 describe("POST /api/blog-views/[slug]", () => {
@@ -71,4 +76,16 @@ describe("POST /api/blog-views/[slug]", () => {
     expect(await res.json()).toEqual({ views: null });
     expect(res.headers.get("set-cookie")).toBeNull();
   });
+
+  it.each([["local next start", undefined], ["Vercel preview", "preview"], ["development", "development"]])(
+    "only reads, never increments or sets a cookie, outside production (%s)",
+    async (_label, vercelEnv) => {
+      vi.stubEnv("VERCEL_ENV", vercelEnv as string);
+      maybeSingle.mockResolvedValue({ data: { view_count: 42 }, error: null });
+      const res = await call(SLUG);
+      expect(await res.json()).toEqual({ views: 42 });
+      expect(rpc).not.toHaveBeenCalled();
+      expect(res.headers.get("set-cookie")).toBeNull();
+    }
+  );
 });

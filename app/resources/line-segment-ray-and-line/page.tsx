@@ -30,7 +30,7 @@ export default function LineSegmentRayLinePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Geometry and Mensuration", href: "/resources/math-geometry-mensuration" },
           { label: "Line Segment, Ray, and Line", href: "/resources/line-segment-ray-and-line" },
         ]} />
         <article className="blog-post">

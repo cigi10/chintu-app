@@ -31,7 +31,7 @@ export default function MathOlympiadGrade7Page() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Grade 7 Math Olympiad Problems", href: "/resources/math-olympiad-grade-7" },
         ]} />
         <article className="blog-post">

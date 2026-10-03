@@ -31,7 +31,7 @@ export default function DefiniteIntegralsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Definite Integrals", href: "/resources/definite-integrals" },
         ]} />
         <article className="blog-post">

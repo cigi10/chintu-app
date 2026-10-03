@@ -31,7 +31,7 @@ export default function ComplexNumbersPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Complex Numbers", href: "/resources/complex-numbers" },
         ]} />
         <article className="blog-post">

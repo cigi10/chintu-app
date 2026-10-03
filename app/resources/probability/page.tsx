@@ -31,7 +31,7 @@ export default function ProbabilityPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Probability", href: "/resources/probability" },
         ]} />
         <article className="blog-post">

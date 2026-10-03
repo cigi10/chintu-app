@@ -31,7 +31,7 @@ export default function QuadraticEquationsSolvedExamplesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Quadratic Equations: Solved Examples", href: "/resources/quadratic-equations-solved-examples" },
         ]} />
         <article className="blog-post">

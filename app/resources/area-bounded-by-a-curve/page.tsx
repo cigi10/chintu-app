@@ -31,7 +31,7 @@ export default function AreaBoundedByACurvePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Finding the Area Bounded by a Curve", href: "/resources/area-bounded-by-a-curve" },
         ]} />
         <article className="blog-post">

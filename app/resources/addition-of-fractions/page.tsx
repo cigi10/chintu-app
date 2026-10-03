@@ -31,7 +31,7 @@ export default function AdditionOfFractionsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Arithmetic and Number", href: "/resources/math-arithmetic-number" },
           { label: "Addition of Fractions", href: "/resources/addition-of-fractions" },
         ]} />
         <article className="blog-post">

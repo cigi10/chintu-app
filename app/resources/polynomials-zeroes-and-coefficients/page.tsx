@@ -31,7 +31,7 @@ export default function PolynomialsZeroesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Polynomials: Zeroes and Coefficients", href: "/resources/polynomials-zeroes-and-coefficients" },
         ]} />
         <article className="blog-post">

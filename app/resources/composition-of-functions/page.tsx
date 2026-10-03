@@ -32,7 +32,7 @@ export default function CompositionOfFunctionsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Sets, Relations and Functions", href: "/resources/math-sets-relations-functions" },
           { label: "Composition of Functions (gof and fog)", href: "/resources/composition-of-functions" },
         ]} />
         <article className="blog-post">

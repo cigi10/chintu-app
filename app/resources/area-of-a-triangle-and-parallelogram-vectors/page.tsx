@@ -32,7 +32,7 @@ export default function AreaOfATriangleAndParallelogramVectorsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Area of a Triangle and Parallelogram Using Vectors", href: "/resources/area-of-a-triangle-and-parallelogram-vectors" },
         ]} />
         <article className="blog-post">

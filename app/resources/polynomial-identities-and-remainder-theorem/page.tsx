@@ -31,7 +31,7 @@ export default function PolynomialIdentitiesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Polynomial Identities and the Remainder Theorem", href: "/resources/polynomial-identities-and-remainder-theorem" },
         ]} />
         <article className="blog-post">

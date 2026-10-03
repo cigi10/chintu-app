@@ -31,7 +31,7 @@ export default function FindingMissingValuesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Matrices and Determinants", href: "/resources/math-matrices-determinants" },
           { label: "Finding Missing Values in a Matrix", href: "/resources/finding-missing-values-in-a-matrix" },
         ]} />
         <article className="blog-post">

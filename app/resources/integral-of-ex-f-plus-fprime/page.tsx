@@ -31,7 +31,7 @@ export default function IntegralExFPlusFPrimePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Integral of e^x[f(x) + f'(x)]", href: "/resources/integral-of-ex-f-plus-fprime" },
         ]} />
         <article className="blog-post">

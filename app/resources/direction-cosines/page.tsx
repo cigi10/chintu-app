@@ -31,7 +31,7 @@ export default function DirectionCosinesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Finding Direction Cosines", href: "/resources/direction-cosines" },
         ]} />
         <article className="blog-post">

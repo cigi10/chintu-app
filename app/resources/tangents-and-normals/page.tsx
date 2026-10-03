@@ -31,7 +31,7 @@ export default function TangentsAndNormalsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Tangents and Normals", href: "/resources/tangents-and-normals" },
         ]} />
         <article className="blog-post">

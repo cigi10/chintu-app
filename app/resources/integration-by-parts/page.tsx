@@ -31,7 +31,7 @@ export default function IntegrationByPartsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Integration by Parts", href: "/resources/integration-by-parts" },
         ]} />
         <article className="blog-post">

@@ -32,7 +32,7 @@ export default function OpAmpFundamentalsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Electrical and Electronics", href: "/resources/electrical-electronics" },
           { label: "Op-Amp Fundamentals: Inverting and Non-Inverting Amplifiers", href: "/resources/op-amp-fundamentals" },
         ]} />
         <article className="blog-post">

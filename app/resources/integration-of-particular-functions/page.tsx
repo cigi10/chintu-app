@@ -31,7 +31,7 @@ export default function IntegrationOfParticularFunctionsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Integration of Particular Functions", href: "/resources/integration-of-particular-functions" },
         ]} />
         <article className="blog-post">

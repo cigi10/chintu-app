@@ -31,7 +31,7 @@ export default function MaximaAndMinimaPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Maxima and Minima", href: "/resources/maxima-and-minima" },
         ]} />
         <article className="blog-post">

@@ -31,7 +31,7 @@ export default function ShortestDistanceBetweenLinesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Shortest Distance Between Two Lines", href: "/resources/shortest-distance-between-lines" },
         ]} />
         <article className="blog-post">

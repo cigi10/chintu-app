@@ -32,7 +32,7 @@ export default function KirchhoffsLawsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Electrical and Electronics", href: "/resources/electrical-electronics" },
           { label: "Kirchhoff's Current and Voltage Laws", href: "/resources/kirchhoffs-laws" },
         ]} />
         <article className="blog-post">

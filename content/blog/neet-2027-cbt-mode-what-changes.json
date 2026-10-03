@@ -5,6 +5,7 @@
   "author": "Studyloaf Team",
   "readingTime": "5 min read",
   "date": "2026-09-25",
+  "updated": "2026-10-02",
   "content": [
     {
       "heading": null,
@@ -40,6 +41,7 @@
       "body": "The underlying exam (syllabus, question count, marking scheme) hasn't changed. What's changed is the tool you'll be using to answer it, and that's worth a few dedicated practice sessions before exam day rather than discovering the interface cold."
     }
   ],
+  "category": "neet",
   "tags": [
     "neet",
     "exam-pattern"

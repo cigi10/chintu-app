@@ -32,7 +32,7 @@ export default function RealNumbersHcfLcmPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Arithmetic and Number", href: "/resources/math-arithmetic-number" },
           { label: "Real Numbers: HCF and LCM", href: "/resources/real-numbers-hcf-lcm" },
         ]} />
         <article className="blog-post">

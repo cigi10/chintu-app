@@ -31,7 +31,7 @@ export default function ProfitAndLossPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Arithmetic and Number", href: "/resources/math-arithmetic-number" },
           { label: "Profit and Loss", href: "/resources/profit-and-loss" },
         ]} />
         <article className="blog-post">

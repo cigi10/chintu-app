@@ -31,7 +31,7 @@ export default function OperationsOnMatricesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Matrices and Determinants", href: "/resources/math-matrices-determinants" },
           { label: "Operations on Matrices", href: "/resources/operations-on-matrices" },
         ]} />
         <article className="blog-post">

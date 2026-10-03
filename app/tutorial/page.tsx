@@ -4,6 +4,7 @@ import TutorialGuide from "@/components/TutorialGuide";
 export const metadata = {
   title: "Studyloaf: How it works",
   description: "A quick tour of Studyloaf for anyone new to study apps.",
+  alternates: { canonical: "/tutorial" },
 };
 
 export default function TutorialPage() {

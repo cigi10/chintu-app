@@ -31,7 +31,7 @@ export default function PositionVectorPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Finding the Position Vector of a Point", href: "/resources/position-vector-of-a-point" },
         ]} />
         <article className="blog-post">

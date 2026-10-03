@@ -32,7 +32,7 @@ export default function PnJunctionDiodePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Electrical and Electronics", href: "/resources/electrical-electronics" },
           { label: "PN Junction Diode: Forward and Reverse Bias", href: "/resources/pn-junction-diode" },
         ]} />
         <article className="blog-post">

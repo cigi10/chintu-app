@@ -31,7 +31,7 @@ export default function SpecialTypesOfMatricesPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Matrices and Determinants", href: "/resources/math-matrices-determinants" },
           { label: "Special Types of Matrices", href: "/resources/special-types-of-matrices" },
         ]} />
         <article className="blog-post">

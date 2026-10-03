@@ -32,7 +32,7 @@ export default function PolynomialsDefinitionsAndDegreePage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Algebra", href: "/resources/math-algebra" },
           { label: "Polynomials: Definitions and Degree", href: "/resources/polynomials-definitions-and-degree" },
         ]} />
         <article className="blog-post">

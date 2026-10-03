@@ -31,7 +31,7 @@ export default function IntegrationByPartialFractionsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Integration by Partial Fractions", href: "/resources/integration-by-partial-fractions" },
         ]} />
         <article className="blog-post">

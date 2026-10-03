@@ -31,7 +31,7 @@ export default function RollesTheoremPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Rolle's Theorem", href: "/resources/rolles-theorem" },
         ]} />
         <article className="blog-post">

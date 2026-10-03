@@ -32,7 +32,7 @@ export default function ContinuityPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Calculus", href: "/resources/math-calculus" },
           { label: "Continuity", href: "/resources/continuity" },
         ]} />
         <article className="blog-post">

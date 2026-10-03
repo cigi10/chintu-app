@@ -31,7 +31,7 @@ export default function TrigonometryPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Trigonometry", href: "/resources/math-trigonometry" },
           { label: "Trigonometry Basics", href: "/resources/trigonometry" },
         ]} />
         <article className="blog-post">

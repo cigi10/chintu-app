@@ -32,7 +32,7 @@ export default function InverseTrigonometricFunctionsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Trigonometry", href: "/resources/math-trigonometry" },
           { label: "Inverse Trigonometric Functions", href: "/resources/inverse-trigonometric-functions" },
         ]} />
         <article className="blog-post">

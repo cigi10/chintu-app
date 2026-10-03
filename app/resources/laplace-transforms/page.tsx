@@ -32,7 +32,7 @@ export default function LaplaceTransformsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Engineering Mathematics", href: "/resources/engineering-mathematics" },
           { label: "Laplace Transforms", href: "/resources/laplace-transforms" },
         ]} />
         <article className="blog-post">

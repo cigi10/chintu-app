@@ -31,7 +31,7 @@ export default function OperationsOnVectorsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Vectors and 3D Geometry", href: "/resources/math-vectors-3d-geometry" },
           { label: "Operations on Vectors", href: "/resources/operations-on-vectors" },
         ]} />
         <article className="blog-post">

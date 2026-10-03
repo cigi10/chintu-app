@@ -32,7 +32,7 @@ export default function PartialDifferentiationPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Engineering Mathematics", href: "/resources/engineering-mathematics" },
           { label: "Partial Differentiation", href: "/resources/partial-differentiation" },
         ]} />
         <article className="blog-post">

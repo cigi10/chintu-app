@@ -31,7 +31,7 @@ export default function PythagorasTheoremPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Math" },
+          { label: "Math: Geometry and Mensuration", href: "/resources/math-geometry-mensuration" },
           { label: "Pythagoras Theorem", href: "/resources/pythagoras-theorem" },
         ]} />
         <article className="blog-post">

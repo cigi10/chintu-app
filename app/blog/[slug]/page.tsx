@@ -8,6 +8,7 @@ import BlogTable, { type BlogTableData } from "@/components/BlogTable";
 import BlogViewCount from "@/components/BlogViewCount";
 import { BlogFigure, BlogImage, type BlogFigureData, type BlogImageData } from "@/components/BlogFigure";
 import { getBlogPost, getBlogSlugs } from "@/lib/blogPosts";
+import { getBlogCategory } from "@/lib/blogCategories";
 import "@/styles/blog.css";
 
 type BlogPostPageProps = {
@@ -35,6 +36,10 @@ type BlogPostRelatedLink = {
   href: string;
 };
 
+function formatPostDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+}
+
 // Pre-render every known post at build time; anything else 404s.
 export function generateStaticParams() {
   return getBlogSlugs().map(slug => ({ slug }));
@@ -61,6 +66,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getBlogPost(slug);
 
   if (!post) notFound();
+  const category = getBlogCategory(post.category);
 
   return (
     <>
@@ -71,12 +77,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         headline: post.title,
         description: post.description,
         datePublished: post.date,
+        ...(post.updated && { dateModified: post.updated }),
         author: { "@type": "Person", name: post.author },
       }} />
       <div className="blog-shell">
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Blog", href: "/blog" },
+          ...(category ? [{ label: category.title, href: `/blog/category/${category.slug}` }] : []),
           { label: post.title, href: `/blog/${post.slug}` },
         ]} />
         <article className="blog-post">
@@ -85,12 +93,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <span>{post.author}</span>
             <span className="blog-card-meta-dot">•</span>
             <span>
-              {new Date(post.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {formatPostDate(post.date)}
             </span>
+            {post.updated && (
+              <>
+                <span className="blog-card-meta-dot">•</span>
+                <span>Updated {formatPostDate(post.updated)}</span>
+              </>
+            )}
             <span className="blog-card-meta-dot">•</span>
             <span>{post.readingTime}</span>
             <BlogViewCount slug={post.slug} />

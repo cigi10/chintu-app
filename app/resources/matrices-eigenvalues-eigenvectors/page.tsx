@@ -32,7 +32,7 @@ export default function EigenvaluesEigenvectorsPage() {
         <Breadcrumbs items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Engineering Fundamentals" },
+          { label: "Engineering Mathematics", href: "/resources/engineering-mathematics" },
           { label: "Eigenvalues and Eigenvectors", href: "/resources/matrices-eigenvalues-eigenvectors" },
         ]} />
         <article className="blog-post">
