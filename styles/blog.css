@@ -46,6 +46,12 @@
   border-bottom: 1.5px solid var(--color-border);
 }
 
+/* Matcha's accent-strong (#84D175) is 1.7:1 on its cream background, so
+   section headings get a darker shade of the same green (5.3:1). */
+[data-theme="matcha"] .blog-category-title {
+  color: #3A7330;
+}
+
 .blog-card {
   display: block;
   background: var(--color-surface);
