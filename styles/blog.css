@@ -437,6 +437,12 @@
 .blog-fig-line--alt { stroke: var(--color-text-secondary); stroke-width: 2; stroke-dasharray: 10 5; }
 .blog-fig-dot--hollow { fill: var(--color-surface); stroke: var(--color-text); stroke-width: 2; }
 .blog-fig-plotlabel { fill: var(--color-text); font-size: 14px; font-weight: 700; }
+.blog-fig-arrowhead-solid { fill: var(--color-text); }
+.blog-fig-shade--light { opacity: 0.12; }
+.blog-fig-mark { stroke-dasharray: none; }
+/* Diagrams are sized to their content, so keep small ones from growing to
+   the full column. */
+.blog-fig-diagram { max-width: 480px; }
 /* At phone width the post card's padding leaves a graph barely half its
    drawn size, so resource-page figures extend into that padding and the
    text is drawn larger, landing at roughly 10px on screen. */
