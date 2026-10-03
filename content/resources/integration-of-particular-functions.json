@@ -1,0 +1,189 @@
+{
+  "slug": "integration-of-particular-functions",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "Two standard forms",
+      "blocks": [
+        {
+          "p": "A handful of rational forms show up often enough in calculus that it's worth knowing their antiderivatives directly, rather than re-deriving them via partial fractions every time:"
+        },
+        {
+          "math": "\\int \\dfrac{dx}{x^2-a^2} = \\dfrac{1}{2a}\\ln\\left|\\dfrac{x-a}{x+a}\\right| + C"
+        },
+        {
+          "math": "\\int \\dfrac{dx}{a^2-x^2} = \\dfrac{1}{2a}\\ln\\left|\\dfrac{a+x}{a-x}\\right| + C"
+        }
+      ]
+    },
+    {
+      "heading": "The full set of standard forms",
+      "blocks": [
+        {
+          "p": "Seven more forms complete the set. All nine appear in the NCERT Class 12 textbook, and each one is worth knowing by heart."
+        },
+        {
+          "table": {
+            "columns": [
+              "Integral",
+              "Result"
+            ],
+            "rows": [
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{x^2 - a^2}$",
+                "$\\dfrac{1}{2a}\\ln\\left|\\dfrac{x - a}{x + a}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{a^2 - x^2}$",
+                "$\\dfrac{1}{2a}\\ln\\left|\\dfrac{a + x}{a - x}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{x^2 + a^2}$",
+                "$\\dfrac{1}{a}\\tan^{-1}\\dfrac{x}{a} + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{\\sqrt{x^2 - a^2}}$",
+                "$\\ln\\left|x + \\sqrt{x^2 - a^2}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{\\sqrt{a^2 - x^2}}$",
+                "$\\sin^{-1}\\dfrac{x}{a} + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{\\sqrt{x^2 + a^2}}$",
+                "$\\ln\\left|x + \\sqrt{x^2 + a^2}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\sqrt{a^2 - x^2}\\,dx$",
+                "$\\dfrac{x}{2}\\sqrt{a^2 - x^2} + \\dfrac{a^2}{2}\\sin^{-1}\\dfrac{x}{a} + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\sqrt{x^2 + a^2}\\,dx$",
+                "$\\dfrac{x}{2}\\sqrt{x^2 + a^2} + \\dfrac{a^2}{2}\\ln\\left|x + \\sqrt{x^2 + a^2}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\sqrt{x^2 - a^2}\\,dx$",
+                "$\\dfrac{x}{2}\\sqrt{x^2 - a^2} - \\dfrac{a^2}{2}\\ln\\left|x + \\sqrt{x^2 - a^2}\\right| + C$"
+              ]
+            ],
+            "caption": "The nine standard integrals of particular functions"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "One example of each form",
+      "blocks": [
+        {
+          "table": {
+            "columns": [
+              "Integral",
+              "Form used",
+              "Result"
+            ],
+            "rows": [
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{x^2 - 16}$",
+                "$x^2 - a^2$, $a = 4$",
+                "$\\dfrac{1}{8}\\ln\\left|\\dfrac{x - 4}{x + 4}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{9 - x^2}$",
+                "$a^2 - x^2$, $a = 3$",
+                "$\\dfrac{1}{6}\\ln\\left|\\dfrac{3 + x}{3 - x}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{x^2 + 25}$",
+                "$x^2 + a^2$, $a = 5$",
+                "$\\dfrac{1}{5}\\tan^{-1}\\dfrac{x}{5} + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{\\sqrt{x^2 - 4}}$",
+                "$\\sqrt{x^2 - a^2}$, $a = 2$",
+                "$\\ln\\left|x + \\sqrt{x^2 - 4}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{\\sqrt{1 - 4x^2}}$",
+                "$\\sqrt{a^2 - x^2}$ after taking out the 2",
+                "$\\dfrac{1}{2}\\sin^{-1}(2x) + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\dfrac{dx}{\\sqrt{x^2 + 9}}$",
+                "$\\sqrt{x^2 + a^2}$, $a = 3$",
+                "$\\ln\\left|x + \\sqrt{x^2 + 9}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\sqrt{16 - x^2}\\,dx$",
+                "$\\sqrt{a^2 - x^2}$, $a = 4$",
+                "$\\dfrac{x}{2}\\sqrt{16 - x^2} + 8\\sin^{-1}\\dfrac{x}{4} + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\sqrt{x^2 + 4}\\,dx$",
+                "$\\sqrt{x^2 + a^2}$, $a = 2$",
+                "$\\dfrac{x}{2}\\sqrt{x^2 + 4} + 2\\ln\\left|x + \\sqrt{x^2 + 4}\\right| + C$"
+              ],
+              [
+                "$\\displaystyle\\int \\sqrt{x^2 - 9}\\,dx$",
+                "$\\sqrt{x^2 - a^2}$, $a = 3$",
+                "$\\dfrac{x}{2}\\sqrt{x^2 - 9} - \\dfrac{9}{2}\\ln\\left|x + \\sqrt{x^2 - 9}\\right| + C$"
+              ]
+            ],
+            "caption": "Each standard form applied once, with the value of a read off"
+          }
+        },
+        {
+          "p": "For $\\sqrt{1 - 4x^2}$, write it as $2\\sqrt{\\tfrac{1}{4} - x^2}$ first. Then $a = \\dfrac{1}{2}$, and the 2 taken out becomes the $\\dfrac{1}{2}$ in front of the answer."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\dfrac{x^2}{1-x^6}\\,dx$."
+        },
+        {
+          "p": "**Solution:** Substitute $u = x^3$, so $du = 3x^2\\,dx$:"
+        },
+        {
+          "math": "\\int \\dfrac{x^2}{1-x^6}\\,dx = \\dfrac{1}{3}\\int \\dfrac{du}{1-u^2} = \\dfrac{1}{3}\\cdot\\dfrac{1}{2}\\ln\\left|\\dfrac{1+u}{1-u}\\right| + C = \\dfrac{1}{6}\\ln\\left|\\dfrac{1+x^3}{1-x^3}\\right| + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: completing the square",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\dfrac{dx}{x^2 + 6x + 13}$."
+        },
+        {
+          "p": "**Solution:** The quadratic doesn't factor, so complete the square: $x^2 + 6x + 13 = (x + 3)^2 + 4$. With $u = x + 3$ and $a = 2$, this is the $x^2 + a^2$ form:"
+        },
+        {
+          "math": "\\int \\dfrac{dx}{(x+3)^2 + 2^2} = \\dfrac{1}{2}\\tan^{-1}\\dfrac{x + 3}{2} + C"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Ignoring a coefficient on $x^2$.** Take it out first, as with $\\sqrt{1 - 4x^2}$ above, or the value of $a$ and the factor in front will both be wrong.",
+            "**Swapping $x^2 - a^2$ and $a^2 - x^2$.** They give the same logarithm upside down, so the sign of the answer flips.",
+            "**Not completing the square.** A quadratic with an $x$ term, like $x^2 + 6x + 13$, has to be rewritten as $(x + h)^2 \\pm k^2$ before any form applies."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Integration by Partial Fractions",
+        "href": "/resources/integration-by-partial-fractions"
+      }
+    ],
+    "intro": "These standard forms usually come from splitting a rational function into partial fractions in the first place."
+  }
+}

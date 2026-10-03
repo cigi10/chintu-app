@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import ScoreTrends from "./ScoreTrends";
 import PercentileShifts from "./PercentileShifts";
 import Flowchart, { type FlowStep } from "./Flowchart";
+import { RESOURCE_FIGURES } from "./resourceFigures";
 
 // Named figures a blog post can embed with a `figure` section:
 //   { "heading": null, "figure": { "name": "score-trends", "caption": "..." } }
@@ -45,7 +46,8 @@ const JOSAA_ROUND: FlowStep[] = [
   { arrowLabel: "no seat", lines: ["CSAB special rounds (NIT+),", "state counselling, or other", "admission routes"], kind: "end" },
 ];
 
-export const BLOG_FIGURES: Record<string, () => ReactNode> = {
+export const BLOG_FIGURES: Record<string, (id: string) => ReactNode> = {
+  ...RESOURCE_FIGURES,
   "score-trends": () => <ScoreTrends />,
   "percentile-shifts": () => <PercentileShifts />,
   "josaa-to-csab": () => <Flowchart steps={JOSAA_TO_CSAB} title="From JEE results through JoSAA's five rounds to CSAB's special rounds and admission" />,

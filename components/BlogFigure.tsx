@@ -11,7 +11,7 @@ export function BlogFigure({ figure }: { figure: BlogFigureData }) {
   if (!render) return null;
   return (
     <figure className="blog-fig">
-      {render()}
+      {render(`fig-${figure.name}`)}
       {figure.caption && <figcaption className="blog-fig-caption">{figure.caption}</figcaption>}
     </figure>
   );

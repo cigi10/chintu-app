@@ -1,0 +1,168 @@
+{
+  "slug": "integration-by-parts",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "The formula",
+      "blocks": [
+        {
+          "p": "When a function is a product of two simpler ones, integration by parts breaks it down:"
+        },
+        {
+          "math": "\\int u\\,dv = uv - \\int v\\,du"
+        },
+        {
+          "p": "The trick is picking which factor is $u$ (something that gets simpler when differentiated) and which is $dv$ (something easy to integrate)."
+        }
+      ]
+    },
+    {
+      "heading": "Choosing u: the ILATE order",
+      "blocks": [
+        {
+          "p": "Take $u$ to be whichever factor comes first in this list. Functions near the top get simpler when differentiated, and functions near the bottom are easy to integrate."
+        },
+        {
+          "table": {
+            "columns": [
+              "Letter",
+              "Type",
+              "Examples"
+            ],
+            "rows": [
+              [
+                "I",
+                "Inverse trigonometric",
+                "$\\tan^{-1}x$, $\\sin^{-1}x$"
+              ],
+              [
+                "L",
+                "Logarithmic",
+                "$\\ln x$"
+              ],
+              [
+                "A",
+                "Algebraic",
+                "$x$, $x^2$, $3x + 1$"
+              ],
+              [
+                "T",
+                "Trigonometric",
+                "$\\sin x$, $\\cos x$"
+              ],
+              [
+                "E",
+                "Exponential",
+                "$e^x$, $2^x$"
+              ]
+            ],
+            "caption": "ILATE: choose u from the type that appears first in the list",
+            "rowHeaders": true
+          }
+        },
+        {
+          "p": "In $\\int x\\cos x\\,dx$, $x$ is algebraic (A) and $\\cos x$ is trigonometric (T). A comes first, so $u = x$, as in the example below."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find $\\int x\\cos x\\,dx$."
+        },
+        {
+          "p": "**Solution:** Let $u = x$ and $dv = \\cos x\\,dx$, so $du = dx$ and $v = \\sin x$:"
+        },
+        {
+          "math": "\\int x\\cos x\\,dx = x\\sin x - \\int \\sin x\\,dx = x\\sin x - (-\\cos x) + C"
+        },
+        {
+          "math": "= x\\sin x + \\cos x + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a lone logarithm",
+      "blocks": [
+        {
+          "p": "Find $\\int \\ln x\\,dx$."
+        },
+        {
+          "p": "**Solution:** There seems to be only one factor, but write it as $\\ln x \\cdot 1$. Take $u = \\ln x$ (L) and $dv = dx$, so $du = \\dfrac{1}{x}\\,dx$ and $v = x$:"
+        },
+        {
+          "math": "\\int \\ln x\\,dx = x\\ln x - \\int x\\cdot\\dfrac{1}{x}\\,dx = x\\ln x - x + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: applying parts twice",
+      "blocks": [
+        {
+          "p": "Find $\\int x^2e^x\\,dx$."
+        },
+        {
+          "p": "**Solution:** Take $u = x^2$ (A) and $dv = e^x\\,dx$:"
+        },
+        {
+          "math": "\\int x^2e^x\\,dx = x^2e^x - \\int 2xe^x\\,dx"
+        },
+        {
+          "p": "The new integral still has a product, so apply parts again with $u = 2x$ and $dv = e^x\\,dx$: $\\int 2xe^x\\,dx = 2xe^x - 2e^x$. Substituting back:"
+        },
+        {
+          "math": "\\int x^2e^x\\,dx = x^2e^x - 2xe^x + 2e^x + C = e^x\\left(x^2 - 2x + 2\\right) + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the cyclic case",
+      "blocks": [
+        {
+          "p": "Find $I = \\int e^x\\sin x\\,dx$."
+        },
+        {
+          "p": "**Solution:** Take $u = \\sin x$ and $dv = e^x\\,dx$:"
+        },
+        {
+          "math": "I = e^x\\sin x - \\int e^x\\cos x\\,dx"
+        },
+        {
+          "p": "Apply parts to the new integral, again with the trig function as $u$ ($u = \\cos x$):"
+        },
+        {
+          "math": "\\int e^x\\cos x\\,dx = e^x\\cos x + \\int e^x\\sin x\\,dx = e^x\\cos x + I"
+        },
+        {
+          "p": "The original integral $I$ has come back. Substitute and solve for it like an equation:"
+        },
+        {
+          "math": "I = e^x\\sin x - e^x\\cos x - I \\;\\Rightarrow\\; 2I = e^x(\\sin x - \\cos x) \\;\\Rightarrow\\; I = \\dfrac{e^x}{2}(\\sin x - \\cos x) + C"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Picking $u$ the wrong way round.** In $\\int xe^x\\,dx$, taking $u = e^x$ and $dv = x\\,dx$ gives $\\int \\dfrac{x^2}{2}e^x\\,dx$, which is harder than the start. Follow ILATE.",
+            "**Losing the minus sign.** The formula is $uv - \\int v\\,du$. When applying it twice, the second result goes inside the first one's minus sign.",
+            "**Switching choices in the cyclic case.** If you take the trig function as $u$ the first time, do the same the second time. Switching to $u = e^x$ just undoes the first step.",
+            "**Forgetting $+ C$ at the end** of an indefinite integral."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Definite Integrals",
+        "href": "/resources/definite-integrals"
+      }
+    ],
+    "intro": "Integration by parts is one of two main techniques for evaluating an integral, definite integrals use the same antiderivative work, just with limits applied at the end."
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "slug": "implicit-differentiation",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "Explicit vs. implicit",
+      "blocks": [
+        {
+          "p": "A function given as $y = f(x)$ is explicit. When $x$ and $y$ are tangled together in one equation instead, differentiate both sides with respect to $x$, treating $y$ as a function of $x$ (so every $y$ term picks up a $\\frac{dy}{dx}$ factor via the chain rule), then solve for $\\frac{dy}{dx}$."
+        }
+      ]
+    },
+    {
+      "heading": "The method, step by step",
+      "blocks": [
+        {
+          "steps": [
+            "Differentiate every term on both sides with respect to $x$.",
+            "Each time you differentiate a term containing $y$, multiply by $\\dfrac{dy}{dx}$ (the chain rule): $\\dfrac{d}{dx}(y^2) = 2y\\dfrac{dy}{dx}$.",
+            "Use the product rule on mixed terms: $\\dfrac{d}{dx}(xy) = y + x\\dfrac{dy}{dx}$.",
+            "Move every term containing $\\dfrac{dy}{dx}$ to one side and everything else to the other.",
+            "Factor out $\\dfrac{dy}{dx}$ and divide."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find $\\dfrac{dy}{dx}$ if $2x + 3y = \\sin x$."
+        },
+        {
+          "p": "**Solution:** Differentiate both sides with respect to $x$:"
+        },
+        {
+          "math": "2 + 3\\dfrac{dy}{dx} = \\cos x \\;\\Rightarrow\\; \\dfrac{dy}{dx} = \\dfrac{\\cos x - 2}{3}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a product term",
+      "blocks": [
+        {
+          "p": "Find $\\dfrac{dy}{dx}$ if $x^2 + xy + y^2 = 7$."
+        },
+        {
+          "p": "**Solution:** The middle term needs the product rule:"
+        },
+        {
+          "math": "2x + \\left(y + x\\dfrac{dy}{dx}\\right) + 2y\\dfrac{dy}{dx} = 0"
+        },
+        {
+          "p": "Collecting the $\\dfrac{dy}{dx}$ terms:"
+        },
+        {
+          "math": "\\dfrac{dy}{dx}(x + 2y) = -(2x + y) \\;\\Rightarrow\\; \\dfrac{dy}{dx} = -\\dfrac{2x + y}{x + 2y}"
+        }
+      ]
+    },
+    {
+      "heading": "Second derivatives",
+      "blocks": [
+        {
+          "p": "To find $\\dfrac{d^2y}{dx^2}$, differentiate the expression for $\\dfrac{dy}{dx}$ again, then substitute the first derivative back in."
+        },
+        {
+          "p": "For the circle $x^2 + y^2 = 25$, find $\\dfrac{dy}{dx}$ and $\\dfrac{d^2y}{dx^2}$, and evaluate both at $(3, 4)$."
+        },
+        {
+          "p": "**Solution:** Differentiating once: $2x + 2y\\dfrac{dy}{dx} = 0$, so $\\dfrac{dy}{dx} = -\\dfrac{x}{y}$. Differentiating $-\\dfrac{x}{y}$ with the quotient rule (remembering $y$ depends on $x$):"
+        },
+        {
+          "math": "\\dfrac{d^2y}{dx^2} = -\\dfrac{y - x\\dfrac{dy}{dx}}{y^2} = -\\dfrac{y + \\dfrac{x^2}{y}}{y^2} = -\\dfrac{x^2 + y^2}{y^3} = -\\dfrac{25}{y^3}"
+        },
+        {
+          "p": "The last step uses the original equation, $x^2 + y^2 = 25$. At $(3, 4)$: $\\dfrac{dy}{dx} = -\\dfrac{3}{4}$ and $\\dfrac{d^2y}{dx^2} = -\\dfrac{25}{64}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: an inverse trig identity",
+      "blocks": [
+        {
+          "p": "If $y = \\cos^{-1}\\!\\left(\\dfrac{1-x^2}{1+x^2}\\right)$, find $\\dfrac{dy}{dx}$."
+        },
+        {
+          "p": "**Solution:** Substituting $x = \\tan\\theta$ turns the fraction into the double-angle identity $\\dfrac{1-\\tan^2\\theta}{1+\\tan^2\\theta} = \\cos 2\\theta$, so:"
+        },
+        {
+          "math": "y = \\cos^{-1}(\\cos 2\\theta) = 2\\theta = 2\\tan^{-1}x"
+        },
+        {
+          "p": "Differentiating this simpler explicit form:"
+        },
+        {
+          "math": "\\dfrac{dy}{dx} = \\dfrac{2}{1+x^2}"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Leaving off $\\dfrac{dy}{dx}$.** $\\dfrac{d}{dx}(y^3) = 3y^2\\dfrac{dy}{dx}$, not $3y^2$. Every $y$ term picks up the factor.",
+            "**Treating $xy$ as a single variable.** It is a product, so it needs the product rule: $y + x\\dfrac{dy}{dx}$.",
+            "**Forgetting that constants differentiate to 0.** In $x^2 + y^2 = 25$, the right side becomes 0, not 25.",
+            "**Not substituting back for a second derivative.** $\\dfrac{d^2y}{dx^2}$ usually still contains $\\dfrac{dy}{dx}$ until you replace it with the first-derivative result."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Tangents and Normals",
+        "href": "/resources/tangents-and-normals"
+      }
+    ],
+    "intro": "Implicit differentiation is exactly the tool used to find the slope of a tangent line on a curve whose equation isn't solved for y."
+  }
+}

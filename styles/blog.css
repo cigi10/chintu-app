@@ -162,6 +162,13 @@
   margin-bottom: 0;
 }
 
+/* JSON resource pages (app/resources/[slug]) mix several paragraphs,
+   lists, tables and figures in one section, so blocks after the first
+   get a gap. Display maths already carries its own margin. */
+.resource-section > :not(.blog-post-heading) + :is(p, ul, ol, figure) {
+  margin-top: 10px;
+}
+
 /* Post content tables (components/BlogTable.tsx). Colours are all theme
    tokens, so they follow every theme. The table never shrinks a column
    below --blog-table-min-col, so three columns still fit a phone screen
@@ -414,6 +421,39 @@
 .blog-fig-connector { stroke: var(--color-text-secondary); stroke-width: 1.5; }
 .blog-fig-arrowhead { fill: var(--color-text-secondary); }
 .blog-fig-arrowlabel { fill: var(--color-text-secondary); font-size: 10px; font-weight: 700; }
+
+/* Function graphs (components/blog-figures/FunctionPlot.tsx). The viewBox
+   is wider than the small trend charts, so text is sized up to stay
+   legible once the SVG scales down to a phone column. */
+.blog-fig-plot { max-width: 560px; margin: 0 auto; }
+.blog-fig-plot .blog-fig-tick { font-size: 12px; }
+.blog-fig-plot .blog-fig-note { font-size: 13px; }
+.blog-fig-plot .blog-fig-trendline { fill: none; stroke-width: 1.6; }
+.blog-fig-axis--strong { stroke: var(--color-text-secondary); }
+.blog-fig-grid { stroke: var(--color-border); stroke-width: 0.8; opacity: 0.6; }
+.blog-fig-shade { fill: var(--color-text-secondary); opacity: 0.22; }
+/* Second curves are told apart by dash pattern as well as colour: in some
+   themes (midnight-blue) the two text colours are nearly identical. */
+.blog-fig-line--alt { stroke: var(--color-text-secondary); stroke-width: 2; stroke-dasharray: 10 5; }
+.blog-fig-dot--hollow { fill: var(--color-surface); stroke: var(--color-text); stroke-width: 2; }
+.blog-fig-plotlabel { fill: var(--color-text); font-size: 14px; font-weight: 700; }
+/* At phone width the post card's padding leaves a graph barely half its
+   drawn size, so resource-page figures extend into that padding and the
+   text is drawn larger, landing at roughly 10px on screen. */
+@media (max-width: 560px) {
+  .resource-section > .blog-fig { margin-inline: -18px; padding-inline: 6px; }
+  .blog-fig-plot .blog-fig-tick { font-size: 18px; }
+  .blog-fig-plot .blog-fig-note { font-size: 19px; }
+  .blog-fig-plotlabel { font-size: 20px; }
+}
+/* A surface-coloured outline behind every label, so text that crosses a
+   curve or grid line stays readable. */
+.blog-fig-plot text {
+  paint-order: stroke;
+  stroke: var(--color-surface);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
 
 /* Subject hubs (/resources, /resources/<hub>, /blog, /blog/category/<hub>).
    A hub card holds several links, so it isn't itself a link and doesn't

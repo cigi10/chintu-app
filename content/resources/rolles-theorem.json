@@ -1,0 +1,130 @@
+{
+  "slug": "rolles-theorem",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "The theorem",
+      "blocks": [
+        {
+          "p": "If $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a) = f(b)$, then there exists at least one point $c \\in (a,b)$ where $f'(c) = 0$: intuitively, if a smooth curve starts and ends at the same height, it must have a flat point somewhere in between."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Verify Rolle's theorem for $f(x) = x^2 + 2x - 8$ on $[-4, 2]$."
+        },
+        {
+          "p": "**Solution:** $f$ is a polynomial, so it's continuous and differentiable everywhere. Checking the endpoints:"
+        },
+        {
+          "math": "f(-4) = 16 - 8 - 8 = 0, \\qquad f(2) = 4 + 4 - 8 = 0"
+        },
+        {
+          "p": "Since $f(-4) = f(2)$, Rolle's theorem guarantees a point $c \\in (-4, 2)$ with $f'(c)=0$. Since $f'(x) = 2x+2$:"
+        },
+        {
+          "math": "2c + 2 = 0 \\;\\Rightarrow\\; c = -1"
+        },
+        {
+          "p": "$c=-1$ does lie in $(-4,2)$, so the theorem is verified."
+        },
+        {
+          "figure": {
+            "name": "rolles-theorem-graph",
+            "caption": "f(x) = x² + 2x − 8 on [−4, 2]. The curve starts and ends at height 0, so somewhere between it must level off: at c = −1, where the tangent is horizontal."
+          }
+        }
+      ]
+    },
+    {
+      "heading": "When the theorem doesn't apply",
+      "blocks": [
+        {
+          "p": "All three conditions matter. $f(x) = |x|$ on $[-1, 1]$ has $f(-1) = f(1) = 1$ and is continuous, but it is not differentiable at $x = 0$, and there is no point where $f'(c) = 0$: the slope is $-1$ on the left and $+1$ on the right. So before using the theorem, check continuity on $[a, b]$, differentiability on $(a, b)$, and equal end values."
+        }
+      ]
+    },
+    {
+      "heading": "The mean value theorem",
+      "blocks": [
+        {
+          "p": "Rolle's theorem is a special case of the **mean value theorem**. Drop the condition $f(a) = f(b)$, and some point still has a tangent parallel to the chord joining the endpoints: if $f$ is continuous on $[a, b]$ and differentiable on $(a, b)$, there is a $c \\in (a, b)$ with"
+        },
+        {
+          "math": "f'(c) = \\dfrac{f(b) - f(a)}{b - a}"
+        },
+        {
+          "p": "When $f(a) = f(b)$, the right side is 0, which is exactly Rolle's theorem."
+        },
+        {
+          "table": {
+            "columns": [
+              "",
+              "Rolle's theorem",
+              "Mean value theorem"
+            ],
+            "rows": [
+              [
+                "Continuous on",
+                "$[a, b]$",
+                "$[a, b]$"
+              ],
+              [
+                "Differentiable on",
+                "$(a, b)$",
+                "$(a, b)$"
+              ],
+              [
+                "End values",
+                "$f(a) = f(b)$",
+                "no condition"
+              ],
+              [
+                "Conclusion",
+                "$f'(c) = 0$",
+                "$f'(c) = \\dfrac{f(b) - f(a)}{b - a}$"
+              ]
+            ],
+            "caption": "Rolle's theorem and the mean value theorem side by side",
+            "rowHeaders": true
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the mean value theorem",
+      "blocks": [
+        {
+          "p": "Find the value of $c$ guaranteed by the mean value theorem for $f(x) = \\sqrt{x}$ on $[0, 4]$."
+        },
+        {
+          "p": "**Solution:** $\\sqrt{x}$ is continuous on $[0, 4]$ and differentiable on $(0, 4)$. The chord's slope is $\\dfrac{f(4) - f(0)}{4 - 0} = \\dfrac{2}{4} = \\dfrac{1}{2}$. Setting the derivative equal to it:"
+        },
+        {
+          "math": "\\dfrac{1}{2\\sqrt{c}} = \\dfrac{1}{2} \\;\\Rightarrow\\; \\sqrt{c} = 1 \\;\\Rightarrow\\; c = 1"
+        },
+        {
+          "p": "$c = 1$ lies in $(0, 4)$, as the theorem promises."
+        },
+        {
+          "figure": {
+            "name": "mean-value-theorem-graph",
+            "caption": "f(x) = √x on [0, 4]. The chord from (0, 0) to (4, 2) has slope 1/2, and the tangent at c = 1 is parallel to it."
+          }
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Maxima and Minima",
+        "href": "/resources/maxima-and-minima"
+      }
+    ],
+    "intro": "The point Rolle's theorem guarantees is exactly the kind of critical point that shows up when hunting for a local maximum or minimum."
+  }
+}

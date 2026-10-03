@@ -1,0 +1,205 @@
+{
+  "slug": "differential-equations",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "The order of a differential equation",
+      "blocks": [
+        {
+          "p": "The **order** of a differential equation is simply the order of the highest derivative appearing in it. No need to solve anything first."
+        },
+        {
+          "p": "What is the order of $2x^2\\dfrac{d^2y}{dx^2} - 3\\dfrac{dy}{dx} + y = 0$?"
+        },
+        {
+          "p": "**Solution:** The highest derivative present is $\\dfrac{d^2y}{dx^2}$, a second derivative, so the order is **2**."
+        }
+      ]
+    },
+    {
+      "heading": "Order and degree",
+      "blocks": [
+        {
+          "p": "The **degree** is the power of the highest-order derivative, once the equation is written as a polynomial in its derivatives. If a derivative sits inside a function like $\\sin$ or $e^x$, the degree is not defined."
+        },
+        {
+          "table": {
+            "columns": [
+              "Equation",
+              "Order",
+              "Degree"
+            ],
+            "rows": [
+              [
+                "$\\dfrac{dy}{dx} + y = x$",
+                "1",
+                "1"
+              ],
+              [
+                "$\\left(\\dfrac{d^2y}{dx^2}\\right)^3 + \\left(\\dfrac{dy}{dx}\\right)^4 + y = 0$",
+                "2",
+                "3"
+              ],
+              [
+                "$\\left(\\dfrac{dy}{dx}\\right)^2 = 1 + x$",
+                "1",
+                "2"
+              ],
+              [
+                "$\\dfrac{d^2y}{dx^2} + \\sin\\left(\\dfrac{dy}{dx}\\right) = 0$",
+                "2",
+                "not defined"
+              ]
+            ],
+            "caption": "Order is the highest derivative; degree is that derivative's power"
+          }
+        },
+        {
+          "p": "In the second row, the degree is 3 even though a 4th power appears. Degree belongs to the *highest-order* derivative, $\\dfrac{d^2y}{dx^2}$, not to the biggest exponent."
+        }
+      ]
+    },
+    {
+      "heading": "Three types of first-order equation",
+      "blocks": [
+        {
+          "table": {
+            "columns": [
+              "Type",
+              "Form",
+              "Method"
+            ],
+            "rows": [
+              [
+                "Variable separable",
+                "$\\dfrac{dy}{dx} = g(x)\\,h(y)$",
+                "Separate: $\\dfrac{dy}{h(y)} = g(x)\\,dx$, then integrate both sides"
+              ],
+              [
+                "Homogeneous",
+                "$\\dfrac{dy}{dx} = F\\left(\\dfrac{y}{x}\\right)$",
+                "Substitute $y = vx$, so $\\dfrac{dy}{dx} = v + x\\dfrac{dv}{dx}$, then separate"
+              ],
+              [
+                "Linear",
+                "$\\dfrac{dy}{dx} + P(x)\\,y = Q(x)$",
+                "Multiply by the integrating factor $e^{\\int P\\,dx}$: $y\\cdot\\text{IF} = \\int Q\\cdot\\text{IF}\\,dx$"
+              ]
+            ],
+            "caption": "How to recognise and solve each type",
+            "rowHeaders": true
+          }
+        },
+        {
+          "p": "The worked example below on separating variables covers the first type. The other two follow it."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: forming an equation from a family of curves",
+      "blocks": [
+        {
+          "p": "Form the differential equation representing the family of curves $y = mx$, where $m$ is an arbitrary constant."
+        },
+        {
+          "p": "**Solution:** Differentiate $y = mx$ with respect to $x$:"
+        },
+        {
+          "math": "\\dfrac{dy}{dx} = m"
+        },
+        {
+          "p": "Since $m = \\dfrac{y}{x}$ from the original equation, substituting eliminates the arbitrary constant, giving the differential equation:"
+        },
+        {
+          "math": "\\dfrac{dy}{dx} = \\dfrac{y}{x}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: solving by separating variables",
+      "blocks": [
+        {
+          "p": "Find the equation of the curve passing through $(-2, 3)$, given that the slope of the tangent at any point $(x, y)$ is $\\dfrac{2x}{y^2}$."
+        },
+        {
+          "p": "**Solution:** The slope is $\\dfrac{dy}{dx} = \\dfrac{2x}{y^2}$. Separating variables and integrating both sides:"
+        },
+        {
+          "math": "y^2\\,dy = 2x\\,dx \\;\\Rightarrow\\; \\int y^2\\,dy = \\int 2x\\,dx \\;\\Rightarrow\\; \\dfrac{y^3}{3} = x^2 + C"
+        },
+        {
+          "p": "Using the point $(-2, 3)$ to find $C$:"
+        },
+        {
+          "math": "\\dfrac{27}{3} = 4 + C \\;\\Rightarrow\\; 9 = 4 + C \\;\\Rightarrow\\; C = 5"
+        },
+        {
+          "p": "So $\\dfrac{y^3}{3} = x^2 + 5$, or equivalently:"
+        },
+        {
+          "math": "y^3 = 3x^2 + 15"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a homogeneous equation",
+      "blocks": [
+        {
+          "p": "Solve $\\dfrac{dy}{dx} = \\dfrac{x + y}{x}$ for $x > 0$."
+        },
+        {
+          "p": "**Solution:** The right side is $1 + \\dfrac{y}{x}$, a function of $\\dfrac{y}{x}$, so the equation is homogeneous. Substitute $y = vx$:"
+        },
+        {
+          "math": "v + x\\dfrac{dv}{dx} = 1 + v \\;\\Rightarrow\\; x\\dfrac{dv}{dx} = 1 \\;\\Rightarrow\\; \\int dv = \\int \\dfrac{dx}{x} \\;\\Rightarrow\\; v = \\ln x + C"
+        },
+        {
+          "p": "Replacing $v$ with $\\dfrac{y}{x}$:"
+        },
+        {
+          "math": "y = x\\ln x + Cx"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a linear equation",
+      "blocks": [
+        {
+          "p": "Solve $\\dfrac{dy}{dx} + \\dfrac{y}{x} = x^2$ for $x > 0$."
+        },
+        {
+          "p": "**Solution:** This is linear with $P(x) = \\dfrac{1}{x}$ and $Q(x) = x^2$. The integrating factor is $e^{\\int \\frac{1}{x}dx} = e^{\\ln x} = x$. Multiplying through by it turns the left side into the derivative of $xy$:"
+        },
+        {
+          "math": "\\dfrac{d}{dx}(xy) = x^3 \\;\\Rightarrow\\; xy = \\dfrac{x^4}{4} + C \\;\\Rightarrow\\; y = \\dfrac{x^3}{4} + \\dfrac{C}{x}"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Confusing order and degree.** Order is *which* derivative is highest; degree is the *power* it is raised to.",
+            "**Giving a degree when it isn't defined.** If a derivative appears inside $\\sin$, $\\log$ or an exponential, there is no degree.",
+            "**Dropping $C$ before dividing.** In $xy = \\dfrac{x^4}{4} + C$, dividing by $x$ gives $\\dfrac{C}{x}$, not $C$. Add the constant as soon as you integrate.",
+            "**Writing the integrating factor wrongly.** It is $e^{\\int P\\,dx}$, using $P$ from the standard form with the coefficient of $\\dfrac{dy}{dx}$ equal to 1. Divide through first if it isn't."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Integration by Parts",
+        "href": "/resources/integration-by-parts"
+      },
+      {
+        "label": "Logarithms",
+        "href": "/resources/logarithms"
+      }
+    ],
+    "intro": "Solving a differential equation almost always ends in integration, and separating variables here works the same way integration by parts handles a trickier product."
+  }
+}

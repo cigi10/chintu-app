@@ -1,0 +1,118 @@
+{
+  "slug": "linear-programming",
+  "datePublished": "2026-09-22T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The key fact",
+      "blocks": [
+        {
+          "p": "In a linear programming problem, the **feasible region** is the set of points satisfying every constraint at once, and a **feasible solution** is any point in it. The objective function $Z=ax+by$ being linear means it can only reach its maximum or minimum at a **corner point** of that region, never somewhere in the interior."
+        }
+      ]
+    },
+    {
+      "heading": "Solving a problem, step by step",
+      "blocks": [
+        {
+          "steps": [
+            "Name the decision variables, e.g. $x$ = chairs made and $y$ = tables made.",
+            "Turn each limit in the problem into an inequality in $x$ and $y$.",
+            "Add the non-negativity constraints $x \\ge 0$ and $y \\ge 0$.",
+            "Write the objective function $Z$ to maximise or minimise.",
+            "Draw each constraint's line and shade the side that satisfies it. The overlap is the feasible region.",
+            "Find the corner points and evaluate $Z$ at each one."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: forming the constraints",
+      "blocks": [
+        {
+          "p": "A workshop makes chairs and tables. A chair needs 2 hours of carpentry and 1 hour of finishing. A table needs 1 hour of carpentry and 3 hours of finishing. Each day there are 10 hours of carpentry and 15 hours of finishing available. The profit is ₹300 per chair and ₹400 per table. How many of each maximises profit?"
+        },
+        {
+          "p": "**Solution:** Let $x$ be the number of chairs and $y$ the number of tables. Carpentry gives $2x + y \\le 10$ and finishing gives $x + 3y \\le 15$, with $x, y \\ge 0$. The objective is $Z = 300x + 400y$. These are the same constraints as the region below, so its corners are $(0, 0)$, $(5, 0)$, $(3, 4)$ and $(0, 5)$:"
+        },
+        {
+          "table": {
+            "columns": [
+              "Corner",
+              "$Z = 300x + 400y$"
+            ],
+            "rows": [
+              [
+                "$(0, 0)$",
+                "$0$"
+              ],
+              [
+                "$(5, 0)$",
+                "$1500$"
+              ],
+              [
+                "$(3, 4)$",
+                "$900 + 1600 = 2500$"
+              ],
+              [
+                "$(0, 5)$",
+                "$2000$"
+              ]
+            ],
+            "caption": "The objective function evaluated at each corner of the feasible region",
+            "rowHeaders": true
+          }
+        },
+        {
+          "p": "The maximum profit is ₹2500, from 3 chairs and 4 tables a day."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a tie between two corners",
+      "blocks": [
+        {
+          "p": "The feasible region for $2x+y \\le 10$, $x+3y \\le 15$, $x,y \\ge 0$ has corners $(0,0)$, $(5,0)$, $(3,4)$, and $(0,5)$. For $Z=ax+by$ with $a,b>0$, what condition on $a$ and $b$ makes the maximum occur at **both** $(3,4)$ and $(0,5)$?"
+        },
+        {
+          "figure": {
+            "name": "lp-feasible-region",
+            "caption": "The feasible region for 2x + y ≤ 10, x + 3y ≤ 15, x, y ≥ 0. Every point in the shaded quadrilateral satisfies all four constraints, and its four corners are the only candidates for the optimum."
+          }
+        },
+        {
+          "p": "**Solution:** The maximum can only be shared by two corners if $Z$ takes the *same* value at both. Otherwise one would beat the other. Set them equal:"
+        },
+        {
+          "math": "Z(3,4) = 3a+4b, \\qquad Z(0,5) = 5b"
+        },
+        {
+          "math": "3a+4b = 5b \\;\\Rightarrow\\; 3a = b \\;\\Rightarrow\\; b = 3a"
+        },
+        {
+          "p": "With $b = 3a$, $Z = a(x + 3y)$, so every point on the edge $x + 3y = 15$ joining $(3, 4)$ and $(0, 5)$ gives the same value, $15a$. The maximum is reached along that whole edge, not just at its two corners."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Leaving out $x, y \\ge 0$.** Without them the region spills into negative quantities, which make no sense for chairs or tables.",
+            "**Shading the wrong side of a line.** Test a point such as $(0, 0)$: if it satisfies the inequality, shade the side containing it.",
+            "**Trusting corners in an unbounded region.** If the region is unbounded, a maximum may not exist. Check whether $Z$ can grow without limit before quoting a corner value."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "intro": "Each corner point is where two constraint lines cross, which is the same as solving a pair of linear equations graphically.",
+    "links": [
+      {
+        "label": "Pair of Linear Equations: Graphical Method",
+        "href": "/resources/pair-of-linear-equations-graphical-method"
+      }
+    ]
+  }
+}

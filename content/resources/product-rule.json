@@ -1,0 +1,103 @@
+{
+  "slug": "product-rule",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "The rule",
+      "blocks": [
+        {
+          "p": "To differentiate a product of two functions, differentiate each one in turn while holding the other fixed, then add the results:"
+        },
+        {
+          "math": "\\dfrac{d}{dx}\\left[u(x)v(x)\\right] = u'(x)v(x) + u(x)v'(x)"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find the derivative of $f(x) = (x^2+1)(x^3-3x)$."
+        },
+        {
+          "p": "**Solution:** With $u=x^2+1$ (so $u'=2x$) and $v=x^3-3x$ (so $v'=3x^2-3$):"
+        },
+        {
+          "math": "f'(x) = 2x(x^3-3x) + (x^2+1)(3x^2-3)"
+        },
+        {
+          "math": "= (2x^4-6x^2) + (3x^4-3) = 5x^4 - 6x^2 - 3"
+        }
+      ]
+    },
+    {
+      "heading": "Three functions multiplied together",
+      "blocks": [
+        {
+          "p": "The rule extends to any number of factors: differentiate one factor at a time, keep the others unchanged, and add up the results:"
+        },
+        {
+          "math": "\\dfrac{d}{dx}\\left[uvw\\right] = u'vw + uv'w + uvw'"
+        },
+        {
+          "p": "Differentiate $y = x^2 e^x \\sin x$."
+        },
+        {
+          "p": "**Solution:** With $u = x^2$, $v = e^x$ and $w = \\sin x$, the derivatives are $u' = 2x$, $v' = e^x$ and $w' = \\cos x$:"
+        },
+        {
+          "math": "y' = 2x\\,e^x\\sin x + x^2e^x\\sin x + x^2e^x\\cos x = xe^x\\left(2\\sin x + x\\sin x + x\\cos x\\right)"
+        }
+      ]
+    },
+    {
+      "heading": "Logarithmic differentiation, a product-rule cousin",
+      "blocks": [
+        {
+          "p": "When a variable appears in both the base and the exponent, taking a logarithm first turns the problem into one the product rule can handle."
+        },
+        {
+          "p": "If $y = x^{\\sin x}$ for $x > 0$, find $\\dfrac{dy}{dx}$."
+        },
+        {
+          "p": "**Solution:** Take the natural log of both sides: $\\ln y = \\sin x \\ln x$. Differentiate both sides: the right side is now a product:"
+        },
+        {
+          "math": "\\dfrac{y'}{y} = \\cos x \\ln x + \\sin x \\cdot \\dfrac{1}{x}"
+        },
+        {
+          "p": "Multiplying back through by $y = x^{\\sin x}$:"
+        },
+        {
+          "math": "y' = x^{\\sin x}\\left[\\dfrac{\\sin x}{x} + \\ln x \\cos x\\right]"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Multiplying the derivatives.** $(uv)' \\ne u'v'$. Try $u = v = x$: the product is $x^2$, whose derivative is $2x$, but $u'v' = 1$.",
+            "**Dropping one of the terms.** There is one term per factor: two for $uv$, three for $uvw$. Each term has exactly one factor differentiated.",
+            "**Reaching for it when one factor is a constant.** $5x^3$ is a constant times a power, so its derivative is just $15x^2$. The product rule gives the same answer, only more slowly.",
+            "**Worrying about the order.** Addition doesn't care about order, so $u'v + uv'$ and $uv' + u'v$ are the same. That is not true of the [quotient rule](/resources/quotient-rule), where order matters."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Quotient Rule",
+        "href": "/resources/quotient-rule"
+      },
+      {
+        "label": "Power Rule",
+        "href": "/resources/power-rule"
+      }
+    ],
+    "intro": "The quotient rule is the product rule's counterpart for dividing two functions instead of multiplying them."
+  }
+}

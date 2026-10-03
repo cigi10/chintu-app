@@ -1,0 +1,164 @@
+{
+  "slug": "tangents-and-normals",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "Two related slopes",
+      "blocks": [
+        {
+          "p": "At a point on a curve $y=f(x)$, the derivative $f'(x)$ gives the slope of the **tangent** line, the line that just touches the curve there. The **normal** is perpendicular to the tangent at that same point, so its slope is the tangent slope's negative reciprocal:"
+        },
+        {
+          "math": "m_{\\text{normal}} = -\\dfrac{1}{m_{\\text{tangent}}}"
+        }
+      ]
+    },
+    {
+      "heading": "Equations of the tangent and normal",
+      "blocks": [
+        {
+          "p": "Once you know the slope $m$ at a point $(x_1, y_1)$ on the curve, the line through that point is $y - y_1 = m(x - x_1)$. So at $x = x_1$:"
+        },
+        {
+          "math": "\\text{Tangent: } y - y_1 = f'(x_1)(x - x_1)"
+        },
+        {
+          "math": "\\text{Normal: } y - y_1 = -\\dfrac{1}{f'(x_1)}(x - x_1) \\quad (f'(x_1) \\ne 0)"
+        },
+        {
+          "table": {
+            "columns": [
+              "At the point",
+              "Tangent",
+              "Normal"
+            ],
+            "rows": [
+              [
+                "$f'(x_1) = m \\ne 0$",
+                "slope $m$",
+                "slope $-\\dfrac{1}{m}$"
+              ],
+              [
+                "$f'(x_1) = 0$",
+                "horizontal: $y = y_1$",
+                "vertical: $x = x_1$"
+              ],
+              [
+                "$\\dfrac{dy}{dx} \\to \\infty$ (vertical tangent)",
+                "vertical: $x = x_1$",
+                "horizontal: $y = y_1$"
+              ]
+            ],
+            "caption": "How the tangent and normal behave in the three possible cases"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a cubic curve",
+      "blocks": [
+        {
+          "p": "Find the slope of the tangent to $y = x^3 - x$ at $x=2$."
+        },
+        {
+          "p": "**Solution:** $y' = 3x^2 - 1$. At $x=2$:"
+        },
+        {
+          "math": "y'(2) = 3(4) - 1 = 11"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a rational function",
+      "blocks": [
+        {
+          "p": "Find the slope of the tangent to $y = \\dfrac{x-1}{x-2}$ (for $x \\ne 2$) at $x=10$."
+        },
+        {
+          "p": "**Solution:** By the quotient rule:"
+        },
+        {
+          "math": "y' = \\dfrac{(1)(x-2) - (x-1)(1)}{(x-2)^2} = \\dfrac{-1}{(x-2)^2}"
+        },
+        {
+          "p": "At $x=10$:"
+        },
+        {
+          "math": "y'(10) = \\dfrac{-1}{(10-2)^2} = -\\dfrac{1}{64}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the slope of a normal",
+      "blocks": [
+        {
+          "p": "Find the slope of the normal to the curve $y = 2x^2 - 3\\sin x$ at $x=0$."
+        },
+        {
+          "p": "**Solution:** The tangent slope is the derivative:"
+        },
+        {
+          "math": "y' = 4x - 3\\cos x"
+        },
+        {
+          "p": "At $x=0$: $y'(0) = 0 - 3(1) = -3$. The normal slope is the negative reciprocal:"
+        },
+        {
+          "math": "m_{\\text{normal}} = -\\dfrac{1}{-3} = \\dfrac{1}{3}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: both equations at a point",
+      "blocks": [
+        {
+          "p": "Find the equations of the tangent and the normal to $y = x^2$ at the point $(1, 1)$."
+        },
+        {
+          "p": "**Solution:** $\\dfrac{dy}{dx} = 2x$, so the tangent slope at $x = 1$ is $2$. The tangent is:"
+        },
+        {
+          "math": "y - 1 = 2(x - 1) \\;\\Rightarrow\\; y = 2x - 1"
+        },
+        {
+          "p": "The normal slope is $-\\dfrac{1}{2}$, so the normal is:"
+        },
+        {
+          "math": "y - 1 = -\\dfrac{1}{2}(x - 1) \\;\\Rightarrow\\; x + 2y = 3"
+        },
+        {
+          "figure": {
+            "name": "tangent-and-normal",
+            "caption": "y = x² with its tangent y = 2x − 1 and normal x + 2y = 3 at (1, 1). The two lines meet the curve at the same point and cross at a right angle."
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Using $f'(x)$ instead of $f'(x_1)$.** The slope in the line's equation must be a number, the derivative evaluated at the point, not the general derivative.",
+            "**Dropping the minus sign.** The normal slope is the *negative* reciprocal. If the tangent slope is $-3$, the normal slope is $+\\dfrac{1}{3}$.",
+            "**Dividing by zero when the tangent is horizontal.** If $f'(x_1) = 0$, don't write $-\\dfrac{1}{0}$. The normal is simply the vertical line $x = x_1$.",
+            "**Using the wrong point.** If you are only given $x_1$, find $y_1 = f(x_1)$ from the curve's equation before writing either line."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "intro": "When the curve's equation isn't solved for $y$, implicit differentiation finds the slope instead. Tangents and normals are also one of the standard applications of derivatives.",
+    "links": [
+      {
+        "label": "Implicit Differentiation",
+        "href": "/resources/implicit-differentiation"
+      },
+      {
+        "label": "Applications of Derivatives",
+        "href": "/resources/applications-of-derivatives"
+      }
+    ]
+  }
+}

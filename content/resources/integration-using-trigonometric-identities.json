@@ -1,0 +1,151 @@
+{
+  "slug": "integration-using-trigonometric-identities",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "The idea",
+      "blocks": [
+        {
+          "p": "Functions like $\\cos^2 x$ and $\\sin^2 x$ have no direct antiderivative, but the double-angle identities rewrite them as something that does:"
+        },
+        {
+          "math": "\\cos^2 x = \\dfrac{1+\\cos 2x}{2}, \\qquad \\sin^2 x = \\dfrac{1-\\cos 2x}{2}"
+        }
+      ]
+    },
+    {
+      "heading": "Identities used in integration",
+      "blocks": [
+        {
+          "table": {
+            "columns": [
+              "Identity",
+              "Use it to integrate"
+            ],
+            "rows": [
+              [
+                "$\\cos^2 x = \\dfrac{1 + \\cos 2x}{2}$",
+                "$\\cos^2 x$"
+              ],
+              [
+                "$\\sin^2 x = \\dfrac{1 - \\cos 2x}{2}$",
+                "$\\sin^2 x$"
+              ],
+              [
+                "$\\sin^3 x = \\dfrac{3\\sin x - \\sin 3x}{4}$",
+                "$\\sin^3 x$"
+              ],
+              [
+                "$\\cos^3 x = \\dfrac{3\\cos x + \\cos 3x}{4}$",
+                "$\\cos^3 x$"
+              ],
+              [
+                "$\\tan^2 x = \\sec^2 x - 1$",
+                "$\\tan^2 x$"
+              ],
+              [
+                "$2\\sin A\\cos B = \\sin(A + B) + \\sin(A - B)$",
+                "$\\sin mx\\cos nx$"
+              ],
+              [
+                "$2\\cos A\\cos B = \\cos(A + B) + \\cos(A - B)$",
+                "$\\cos mx\\cos nx$"
+              ],
+              [
+                "$2\\sin A\\sin B = \\cos(A - B) - \\cos(A + B)$",
+                "$\\sin mx\\sin nx$"
+              ]
+            ],
+            "caption": "Power-reduction and product-to-sum identities, and what each one integrates"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\cos^2 x\\,dx$ and $\\displaystyle\\int \\sin^2 x\\,dx$."
+        },
+        {
+          "p": "**Solution:** Substituting the identities above and integrating term by term:"
+        },
+        {
+          "math": "\\int \\cos^2 x\\,dx = \\int \\dfrac{1+\\cos 2x}{2}\\,dx = \\dfrac{x}{2} + \\dfrac{\\sin 2x}{4} + C"
+        },
+        {
+          "math": "\\int \\sin^2 x\\,dx = \\int \\dfrac{1-\\cos 2x}{2}\\,dx = \\dfrac{x}{2} - \\dfrac{\\sin 2x}{4} + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a product of sines and cosines",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\sin 3x\\cos 2x\\,dx$."
+        },
+        {
+          "p": "**Solution:** Use $2\\sin A\\cos B = \\sin(A + B) + \\sin(A - B)$ with $A = 3x$ and $B = 2x$:"
+        },
+        {
+          "math": "\\int \\sin 3x\\cos 2x\\,dx = \\dfrac{1}{2}\\int (\\sin 5x + \\sin x)\\,dx = -\\dfrac{\\cos 5x}{10} - \\dfrac{\\cos x}{2} + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: tan squared",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\tan^2 x\\,dx$."
+        },
+        {
+          "p": "**Solution:** Replace $\\tan^2 x$ with $\\sec^2 x - 1$, both of which have standard antiderivatives:"
+        },
+        {
+          "math": "\\int \\tan^2 x\\,dx = \\int (\\sec^2 x - 1)\\,dx = \\tan x - x + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: splitting into known antiderivatives",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\dfrac{1-\\sin x}{\\cos^2 x}\\,dx$."
+        },
+        {
+          "p": "**Solution:** Split the fraction into two terms:"
+        },
+        {
+          "math": "\\int \\dfrac{1}{\\cos^2 x}\\,dx - \\int \\dfrac{\\sin x}{\\cos^2 x}\\,dx = \\int \\sec^2 x\\,dx - \\int \\sec x\\tan x\\,dx"
+        },
+        {
+          "p": "Both are standard forms:"
+        },
+        {
+          "math": "= \\tan x - \\sec x + C"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Dropping the factor from $\\cos 2x$.** $\\int \\cos 2x\\,dx = \\dfrac{\\sin 2x}{2}$, not $\\sin 2x$. The same goes for $\\sin 5x$, $\\cos 3x$ and so on.",
+            "**Getting the order wrong in $2\\sin A\\sin B$.** It is $\\cos(A - B) - \\cos(A + B)$. Reversing it flips the sign.",
+            "**Integrating $\\sin^2 x$ as $\\dfrac{\\sin^3 x}{3}$.** The power rule only works for a power of $x$ itself. Use the power-reduction identity."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Trigonometry Basics",
+        "href": "/resources/trigonometry"
+      }
+    ],
+    "intro": "Every trigonometric identity used here comes from the same core right-triangle relationships covered in trigonometry basics."
+  }
+}

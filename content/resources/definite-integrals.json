@@ -1,0 +1,136 @@
+{
+  "slug": "definite-integrals",
+  "datePublished": "2026-09-16",
+  "sections": [
+    {
+      "heading": "What is a definite integral?",
+      "blocks": [
+        {
+          "p": "A definite integral $\\int_{a}^{b} f(x)\\, dx$ gives the signed area under the curve $f(x)$ between $x = a$ and $x = b$. By the fundamental theorem of calculus, if $F(x)$ is an antiderivative of $f(x)$ (that is, $F'(x) = f(x)$), then"
+        },
+        {
+          "math": "\\int_{a}^{b} f(x)\\, dx = F(b) - F(a)"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Evaluate $\\displaystyle\\int_{0}^{\\pi/2} \\cos(2x)\\, dx$."
+        },
+        {
+          "p": "**Solution:** An antiderivative of $\\cos(2x)$ is $\\dfrac{\\sin(2x)}{2}$. Applying the limits:"
+        },
+        {
+          "math": "\\left[\\dfrac{\\sin(2x)}{2}\\right]_{0}^{\\pi/2} = \\dfrac{\\sin(\\pi)}{2} - \\dfrac{\\sin(0)}{2} = \\dfrac{0}{2} - \\dfrac{0}{2} = 0"
+        }
+      ]
+    },
+    {
+      "heading": "Properties of definite integrals",
+      "blocks": [
+        {
+          "p": "These properties often turn an integral with no easy antiderivative into one that is easy, or show it is zero without integrating at all."
+        },
+        {
+          "table": {
+            "columns": [
+              "",
+              "Property"
+            ],
+            "rows": [
+              [
+                "P0",
+                "$\\displaystyle\\int_a^b f(x)\\,dx = \\int_a^b f(t)\\,dt$ (the variable's name doesn't matter)"
+              ],
+              [
+                "P1",
+                "$\\displaystyle\\int_a^b f(x)\\,dx = -\\int_b^a f(x)\\,dx$, and $\\displaystyle\\int_a^a f(x)\\,dx = 0$"
+              ],
+              [
+                "P2",
+                "$\\displaystyle\\int_a^b f(x)\\,dx = \\int_a^c f(x)\\,dx + \\int_c^b f(x)\\,dx$"
+              ],
+              [
+                "P3",
+                "$\\displaystyle\\int_a^b f(x)\\,dx = \\int_a^b f(a + b - x)\\,dx$"
+              ],
+              [
+                "P4",
+                "$\\displaystyle\\int_0^a f(x)\\,dx = \\int_0^a f(a - x)\\,dx$"
+              ],
+              [
+                "P5",
+                "$\\displaystyle\\int_0^{2a} f(x)\\,dx = \\int_0^a f(x)\\,dx + \\int_0^a f(2a - x)\\,dx$"
+              ],
+              [
+                "P6",
+                "$\\displaystyle\\int_0^{2a} f(x)\\,dx = 2\\int_0^a f(x)\\,dx$ if $f(2a - x) = f(x)$, and $0$ if $f(2a - x) = -f(x)$"
+              ],
+              [
+                "P7",
+                "$\\displaystyle\\int_{-a}^{a} f(x)\\,dx = 2\\int_0^a f(x)\\,dx$ if $f$ is even, and $0$ if $f$ is odd"
+              ]
+            ],
+            "caption": "The standard properties of definite integrals, numbered as in the NCERT textbook",
+            "rowHeaders": true
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: using property P4",
+      "blocks": [
+        {
+          "p": "Evaluate $I = \\displaystyle\\int_0^{\\pi/2} \\dfrac{\\sin x}{\\sin x + \\cos x}\\,dx$."
+        },
+        {
+          "p": "**Solution:** By P4, replace $x$ with $\\dfrac{\\pi}{2} - x$. Since $\\sin\\left(\\dfrac{\\pi}{2} - x\\right) = \\cos x$ and $\\cos\\left(\\dfrac{\\pi}{2} - x\\right) = \\sin x$:"
+        },
+        {
+          "math": "I = \\int_0^{\\pi/2} \\dfrac{\\cos x}{\\cos x + \\sin x}\\,dx"
+        },
+        {
+          "p": "Adding this to the original form of $I$, the numerators combine into the denominator:"
+        },
+        {
+          "math": "2I = \\int_0^{\\pi/2} \\dfrac{\\sin x + \\cos x}{\\sin x + \\cos x}\\,dx = \\int_0^{\\pi/2} 1\\,dx = \\dfrac{\\pi}{2} \\;\\Rightarrow\\; I = \\dfrac{\\pi}{4}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: an odd function",
+      "blocks": [
+        {
+          "p": "Evaluate $\\displaystyle\\int_{-1}^{1} x^3\\cos x\\,dx$."
+        },
+        {
+          "p": "**Solution:** $x^3$ is odd and $\\cos x$ is even, so their product is odd: replacing $x$ with $-x$ gives $(-x)^3\\cos(-x) = -x^3\\cos x$. By P7, the integral over the symmetric interval $[-1, 1]$ is $0$, with no antiderivative needed."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Keeping the old limits after a substitution.** If you substitute $u = 2x$, the limits $0$ and $\\dfrac{\\pi}{2}$ become $0$ and $\\pi$. Either change them or substitute back before applying them.",
+            "**Reading a definite integral as an area.** It is a *signed* area, so parts below the axis count as negative. The worked example above is 0 for exactly that reason. For actual area, see [area bounded by a curve](/resources/area-bounded-by-a-curve).",
+            "**Adding $+ C$.** A definite integral is a number. Any constant cancels in $F(b) - F(a)$.",
+            "**Using P7 on a function that is neither even nor odd.** Check $f(-x)$ first. $x^3 + 1$ is neither, so its integral over $[-1, 1]$ is $2$, not $0$."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Chain Rule",
+        "href": "/resources/chain-rule"
+      }
+    ],
+    "intro": "Finding an antiderivative is the reverse of differentiating, and the chain rule is the differentiation technique behind most of the trickier antiderivatives you'll meet."
+  }
+}

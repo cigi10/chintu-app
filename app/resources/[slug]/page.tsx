@@ -2,42 +2,85 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { getResourceHubs, getResourceHub, getResourcesByHub } from "@/lib/resources";
+import JsonLd from "@/components/JsonLd";
+import Katex from "@/components/Katex";
+import RichText from "@/components/RichText";
+import BlogTable, { type BlogTableData } from "@/components/BlogTable";
+import { BlogFigure, type BlogFigureData } from "@/components/BlogFigure";
+import { getResourceHubs, getResourceHub, getResourcesByHub, getResourceBySlug } from "@/lib/resources";
+import { getResourceContent, getResourceContentSlugs } from "@/lib/resourceContent";
 import "@/styles/blog.css";
 
-// /resources/<slug>: the subject hub pages (e.g. /resources/math-calculus).
-// Individual resource pages that still live in their own folders under
-// app/resources/ take precedence over this dynamic route, so hubs and
-// resources share the /resources/ namespace without clashing; hub slugs
-// are checked never to collide with a resource slug. Anything that isn't
-// a hub 404s (dynamicParams = false).
-type HubPageProps = {
+// /resources/<slug> serves two kinds of page:
+//   - subject hubs (e.g. /resources/math-calculus), from RESOURCE_HUBS
+//   - resource pages migrated to JSON (content/resources/<slug>.json)
+// Resource pages still hand-written in their own app/resources/<slug>/
+// folder take precedence over this dynamic route. Hub slugs are checked
+// never to collide with a resource slug, and anything else 404s.
+type PageProps = {
   params: Promise<{ slug: string }>;
+};
+
+type Block =
+  | { p: string }
+  | { math: string }
+  | { list: string[] }
+  | { steps: string[] }
+  | { table: BlogTableData }
+  | { figure: BlogFigureData };
+
+type ResourceContent = {
+  slug: string;
+  datePublished: string;
+  h1?: string;
+  sections: { heading: string | null; blocks: Block[] }[];
+  related?: { intro?: string; links: { label: string; href: string }[] };
 };
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getResourceHubs().map(hub => ({ slug: hub.slug }));
+  return [
+    ...getResourceHubs().map(hub => ({ slug: hub.slug })),
+    ...getResourceContentSlugs().map(slug => ({ slug })),
+  ];
 }
 
-export async function generateMetadata({ params }: HubPageProps) {
+export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const hub = getResourceHub(slug);
-  if (!hub) return {};
-  const title = `${hub.title} Resources - Studyloaf`;
+  if (hub) {
+    const title = `${hub.title} Resources - Studyloaf`;
+    return {
+      title,
+      description: hub.description,
+      openGraph: { title, description: hub.description },
+      alternates: { canonical: `/resources/${hub.slug}` },
+    };
+  }
+  const resource = getResourceBySlug(slug);
+  if (!resource || !getResourceContent(slug)) return {};
+  const title = `${resource.title} - Studyloaf`;
   return {
     title,
-    description: hub.description,
-    openGraph: { title, description: hub.description },
-    alternates: { canonical: `/resources/${hub.slug}` },
+    description: resource.description,
+    openGraph: { title, description: resource.description },
+    alternates: { canonical: `/resources/${resource.slug}` },
   };
 }
 
-export default async function ResourceHubPage({ params }: HubPageProps) {
+export default async function ResourceSlugPage({ params }: PageProps) {
   const { slug } = await params;
   const hub = getResourceHub(slug);
-  if (!hub) notFound();
+  if (hub) return <HubPage slug={hub.slug} />;
+  const resource = getResourceBySlug(slug);
+  const content = getResourceContent(slug) as ResourceContent | undefined;
+  if (!resource || !content) notFound();
+  return <ResourcePage slug={slug} content={content} />;
+}
+
+function HubPage({ slug }: { slug: string }) {
+  const hub = getResourceHub(slug)!;
   const resources = getResourcesByHub(hub.slug);
   const siblings = getResourceHubs().filter(h => h.slug !== hub.slug);
 
@@ -76,4 +119,85 @@ export default async function ResourceHubPage({ params }: HubPageProps) {
       </div>
     </>
   );
+}
+
+const renderCell = (cell: string) => <RichText text={cell} />;
+
+function ResourcePage({ slug, content }: { slug: string; content: ResourceContent }) {
+  const resource = getResourceBySlug(slug)!;
+  const hub = getResourceHub(resource.hub)!;
+
+  return (
+    <>
+      <Navbar />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": ["Article", "LearningResource"],
+        headline: resource.title,
+        description: resource.description,
+        datePublished: content.datePublished,
+        dateModified: resource.updated,
+        author: { "@type": "Organization", name: "Studyloaf Team" },
+      }} />
+      <div className="blog-shell">
+        <Breadcrumbs items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: hub.title, href: `/resources/${hub.slug}` },
+          { label: resource.title, href: `/resources/${resource.slug}` },
+        ]} />
+        <article className="blog-post">
+          <h1 className="blog-post-title">
+            {content.h1 ? <RichText text={content.h1} /> : resource.title}
+          </h1>
+
+          {content.sections.map((section, i) => (
+            <div key={i} className="blog-post-section resource-section">
+              {section.heading && (
+                <h2 className="blog-post-heading"><RichText text={section.heading} /></h2>
+              )}
+              {section.blocks.map((block, j) => (
+                <ContentBlock key={j} block={block} id={`${slug}-${i}-${j}`} />
+              ))}
+            </div>
+          ))}
+
+          {content.related && content.related.links.length > 0 && (
+            <div className="blog-post-related">
+              <h2 className="blog-post-heading">Continue learning</h2>
+              {content.related.intro && (
+                <p className="blog-post-p"><RichText text={content.related.intro} /></p>
+              )}
+              <ul className="blog-post-related-list">
+                {content.related.links.map(link => (
+                  <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </article>
+      </div>
+    </>
+  );
+}
+
+function ContentBlock({ block, id }: { block: Block; id: string }) {
+  if ("p" in block) return <p className="blog-post-p"><RichText text={block.p} /></p>;
+  if ("math" in block) return <Katex display>{block.math}</Katex>;
+  if ("list" in block) {
+    return (
+      <ul className="blog-post-list">
+        {block.list.map((item, k) => <li key={k}><RichText text={item} /></li>)}
+      </ul>
+    );
+  }
+  if ("steps" in block) {
+    return (
+      <ol className="blog-post-list">
+        {block.steps.map((item, k) => <li key={k}><RichText text={item} /></li>)}
+      </ol>
+    );
+  }
+  if ("table" in block) return <BlogTable table={block.table} id={id} renderCell={renderCell} />;
+  return <BlogFigure figure={block.figure} />;
 }

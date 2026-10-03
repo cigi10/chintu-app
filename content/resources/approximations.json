@@ -1,0 +1,100 @@
+{
+  "slug": "approximations",
+  "datePublished": "2026-09-22T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The idea",
+      "blocks": [
+        {
+          "p": "Near a point where $f(x)$ is already known, the differential $dy = f'(x)\\,dx$ approximates how much $f$ changes for a small change $dx$, without needing the exact value:"
+        },
+        {
+          "math": "f(x+dx) \\approx f(x) + f'(x)\\,dx"
+        }
+      ]
+    },
+    {
+      "heading": "Why it works: dy and Δy",
+      "blocks": [
+        {
+          "p": "For a step $dx$ along the $x$-axis, the curve itself rises by $\\Delta y = f(x + dx) - f(x)$, the exact change. The tangent line at $x$ rises by $dy = f'(x)\\,dx$, the estimate. The approximation replaces the curve by its tangent for that short step."
+        },
+        {
+          "figure": {
+            "name": "differential-approximation",
+            "caption": "y = x²/4 with its tangent at x = 2, and a step of dx = 1.5 (exaggerated so the gap shows). Along the tangent the rise is dy = 1.5; along the curve it is Δy ≈ 2.06."
+          }
+        },
+        {
+          "p": "The gap between $\\Delta y$ and $dy$ shrinks much faster than $dx$ does, which is why the estimate is good for a *small* $dx$ and poor for a large one."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: approximating a square root",
+      "blocks": [
+        {
+          "p": "Use differentials to approximate $\\sqrt{36.6}$."
+        },
+        {
+          "p": "**Solution:** Take $f(x)=\\sqrt{x}$, with $x=36$ (a perfect square close by) and $dx=0.6$. Then $f(36)=6$ and $f'(x) = \\dfrac{1}{2\\sqrt{x}}$, so $f'(36) = \\dfrac{1}{12}$:"
+        },
+        {
+          "math": "dy = f'(36) \\cdot dx = \\dfrac{1}{12}(0.6) = 0.05"
+        },
+        {
+          "math": "\\sqrt{36.6} \\approx 6 + 0.05 = 6.05"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: percentage change in volume",
+      "blocks": [
+        {
+          "p": "Find the approximate change in the volume of a cube of side $x$ meters caused by increasing the side by 3%."
+        },
+        {
+          "p": "**Solution:** $V=x^3$, so $dV = 3x^2\\,dx$. A 3% increase means $dx = 0.03x$:"
+        },
+        {
+          "math": "dV = 3x^2(0.03x) = 0.09x^3 \\text{ m}^3"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: error in a measured quantity",
+      "blocks": [
+        {
+          "p": "A sphere's radius is measured as 7 m with a possible error of 0.02 m. Find the approximate error this causes in the computed volume."
+        },
+        {
+          "p": "**Solution:** $V = \\dfrac{4}{3}\\pi r^3$, so $dV = 4\\pi r^2\\,dr$. With $r=7$ and $dr=0.02$:"
+        },
+        {
+          "math": "dV = 4\\pi(49)(0.02) = 3.92\\pi \\text{ m}^3"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Choosing a far-away base point.** Pick $x$ where $f(x)$ is easy *and* close to the target: 36 for $\\sqrt{36.6}$, not 25.",
+            "**Using degrees in a trig approximation.** $dx$ must be in radians. For $\\sin 31^\\circ$ from $\\sin 30^\\circ$, $dx = 1^\\circ = \\dfrac{\\pi}{180}$, not 1.",
+            "**Mixing up error and relative error.** $dV$ is the error in the volume. The relative error is $\\dfrac{dV}{V}$, and the percentage error is $\\dfrac{dV}{V} \\times 100$."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Applications of Derivatives",
+        "href": "/resources/applications-of-derivatives"
+      }
+    ],
+    "intro": "This is a different use of the same derivative machinery covered in rates-of-change problems elsewhere."
+  }
+}

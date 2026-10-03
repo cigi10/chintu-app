@@ -1,0 +1,126 @@
+{
+  "slug": "integral-of-ex-f-plus-fprime",
+  "datePublished": "2026-09-17",
+  "h1": "Integral of $e^x[f(x) + f'(x)]$",
+  "sections": [
+    {
+      "heading": "The shortcut formula",
+      "blocks": [
+        {
+          "p": "Whenever an integrand has the exact shape $e^x$ times $[f(x) + f'(x)]$, it integrates instantly, no substitution or parts needed:"
+        },
+        {
+          "math": "\\int e^x\\left[f(x) + f'(x)\\right]dx = e^x f(x) + C"
+        },
+        {
+          "p": "This follows directly from the product rule run in reverse: $\\frac{d}{dx}\\left[e^xf(x)\\right] = e^xf(x) + e^xf'(x) = e^x[f(x)+f'(x)]$."
+        }
+      ]
+    },
+    {
+      "heading": "Why it works",
+      "blocks": [
+        {
+          "p": "Differentiate $e^xf(x)$ with the product rule:"
+        },
+        {
+          "math": "\\dfrac{d}{dx}\\left[e^xf(x)\\right] = e^x\\cdot f(x) + e^x\\cdot f'(x) = e^x\\left[f(x) + f'(x)\\right]"
+        },
+        {
+          "p": "So $e^xf(x)$ is an antiderivative of $e^x[f(x) + f'(x)]$, and integrating just reverses that step. The whole skill is spotting $f$: find a term in the bracket whose derivative is the other term."
+        },
+        {
+          "table": {
+            "columns": [
+              "Bracket",
+              "$f(x)$",
+              "Integral"
+            ],
+            "rows": [
+              [
+                "$\\sin x + \\cos x$",
+                "$\\sin x$",
+                "$e^x\\sin x + C$"
+              ],
+              [
+                "$\\tan x + \\sec^2 x$",
+                "$\\tan x$",
+                "$e^x\\tan x + C$"
+              ],
+              [
+                "$\\ln x + \\dfrac{1}{x}$",
+                "$\\ln x$",
+                "$e^x\\ln x + C$"
+              ],
+              [
+                "$x^2 + 2x$",
+                "$x^2$",
+                "$x^2e^x + C$"
+              ],
+              [
+                "$\\dfrac{1}{x} - \\dfrac{1}{x^2}$",
+                "$\\dfrac{1}{x}$",
+                "$\\dfrac{e^x}{x} + C$"
+              ]
+            ],
+            "caption": "Spotting f(x) in some common brackets"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int e^x\\left(\\dfrac{1}{x} - \\dfrac{1}{x^2}\\right)dx$."
+        },
+        {
+          "p": "**Solution:** Let $f(x) = \\dfrac{1}{x}$. Then $f'(x) = -\\dfrac{1}{x^2}$, exactly matching the second term. So the integrand is $e^x[f(x)+f'(x)]$, and:"
+        },
+        {
+          "math": "\\int e^x\\left(\\dfrac{1}{x} - \\dfrac{1}{x^2}\\right)dx = e^xf(x) + C = \\dfrac{e^x}{x} + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: f has to be uncovered",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int e^x\\dfrac{x + 1}{(x + 2)^2}\\,dx$."
+        },
+        {
+          "p": "**Solution:** The bracket doesn't look like $f + f'$ yet. Write the numerator as $(x + 2) - 1$ and split:"
+        },
+        {
+          "math": "\\dfrac{x + 1}{(x + 2)^2} = \\dfrac{x + 2}{(x + 2)^2} - \\dfrac{1}{(x + 2)^2} = \\dfrac{1}{x + 2} - \\dfrac{1}{(x + 2)^2}"
+        },
+        {
+          "p": "With $f(x) = \\dfrac{1}{x + 2}$, $f'(x) = -\\dfrac{1}{(x + 2)^2}$, which is exactly the second term:"
+        },
+        {
+          "math": "\\int e^x\\left[\\dfrac{1}{x + 2} - \\dfrac{1}{(x + 2)^2}\\right]dx = \\dfrac{e^x}{x + 2} + C"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Not checking that the second term is exactly $f'$.** $e^x(\\sin x - \\cos x)$ is not this pattern with $f = \\sin x$, since $f' = +\\cos x$. (It is the pattern with $f = -\\cos x$, giving $-e^x\\cos x + C$.)",
+            "**Using it with $e^{2x}$.** The general version is $\\int e^{kx}\\left[kf(x) + f'(x)\\right]dx = e^{kx}f(x) + C$, so with $e^{2x}$ the bracket must be $2f + f'$."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Integration by Parts",
+        "href": "/resources/integration-by-parts"
+      }
+    ],
+    "intro": "This trick is really integration by parts in disguise: recognizing the pattern upfront just skips having to run the parts formula."
+  }
+}

@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
       // redirect rather than 404.
       { source: "/blog/jee-main-percentile-to-rank-conversion", destination: "/blog/jee-main-normalization-explained", permanent: true },
       { source: "/blog/jee-main-scorecard-explained", destination: "/blog/jee-main-normalization-explained", permanent: true },
+      // Two overlapping calculus pages were merged into tangents-and-normals
+      // when the resource pages moved to JSON (Task 3, calculus batch).
+      { source: "/resources/slope-of-tangent-and-normal", destination: "/resources/tangents-and-normals", permanent: true },
     ];
   },
 };

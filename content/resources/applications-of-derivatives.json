@@ -1,0 +1,134 @@
+{
+  "slug": "applications-of-derivatives",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "A derivative is a rate of change",
+      "blocks": [
+        {
+          "p": "If $y$ depends on $x$, then $\\dfrac{dy}{dx}$ measures how fast $y$ changes as $x$ changes. This is the idea behind every physical rate-of-change problem, from growing areas to moving particles."
+        }
+      ]
+    },
+    {
+      "heading": "The applications at a glance",
+      "blocks": [
+        {
+          "p": "Every application below starts from the same derivative. Each has its own page with the method and worked examples."
+        },
+        {
+          "table": {
+            "columns": [
+              "Application",
+              "What the derivative tells you"
+            ],
+            "rows": [
+              [
+                "Rates of change (this page)",
+                "$\\dfrac{dy}{dx}$ at a given value: how fast $y$ changes"
+              ],
+              [
+                "[Increasing and decreasing functions](/resources/increasing-and-decreasing-functions)",
+                "The sign of $f'(x)$: positive means rising, negative means falling"
+              ],
+              [
+                "[Tangents and normals](/resources/tangents-and-normals)",
+                "$f'(x_1)$ is the tangent's slope at a point, $-\\dfrac{1}{f'(x_1)}$ the normal's"
+              ],
+              [
+                "[Maxima and minima](/resources/maxima-and-minima)",
+                "Solve $f'(x) = 0$, then test the sign of $f'$ or $f''$"
+              ],
+              [
+                "[Approximations](/resources/approximations)",
+                "$dy = f'(x)\\,dx$ estimates a small change in $y$"
+              ],
+              [
+                "[Rolle's theorem](/resources/rolles-theorem)",
+                "Guarantees a point where $f'(c) = 0$ (or equals the chord's slope)"
+              ]
+            ],
+            "caption": "Where the derivative is used, and the page that covers each use"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: rate of change of an area",
+      "blocks": [
+        {
+          "p": "Find the rate of change of the area of a circle with respect to its radius $r$, when $r=4$ cm."
+        },
+        {
+          "p": "**Solution:** Area is $A = \\pi r^2$, so:"
+        },
+        {
+          "math": "\\dfrac{dA}{dr} = 2\\pi r"
+        },
+        {
+          "p": "At $r=4$: $\\dfrac{dA}{dr} = 2\\pi(4) = 8\\pi$ sq. cm per cm of radius."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: velocity and acceleration",
+      "blocks": [
+        {
+          "p": "A particle's position is $s = 4t^3 - 2t^2 + 3t + 7$. Find its velocity and acceleration at $t=2$ seconds."
+        },
+        {
+          "p": "**Solution:** Velocity is the first derivative of position, and acceleration is the derivative of velocity:"
+        },
+        {
+          "math": "v = \\dfrac{ds}{dt} = 12t^2 - 4t + 3, \\qquad a = \\dfrac{dv}{dt} = 24t - 4"
+        },
+        {
+          "p": "At $t=2$:"
+        },
+        {
+          "math": "v = 12(4) - 4(2) + 3 = 43 \\text{ units/s}, \\qquad a = 24(2) - 4 = 44 \\text{ units/s}^2"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: related rates",
+      "blocks": [
+        {
+          "p": "A spherical balloon is being inflated so that its radius increases at $0.5$ cm/s. How fast is its volume increasing when the radius is $10$ cm?"
+        },
+        {
+          "p": "**Solution:** Both $V$ and $r$ change with time, so differentiate $V = \\dfrac{4}{3}\\pi r^3$ with respect to $t$ using the chain rule:"
+        },
+        {
+          "math": "\\dfrac{dV}{dt} = 4\\pi r^2\\dfrac{dr}{dt} = 4\\pi(10)^2(0.5) = 200\\pi \\text{ cm}^3\\text{/s}"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Substituting the value too early.** In the balloon example, putting $r = 10$ into $V$ before differentiating gives a constant, whose derivative is 0. Differentiate first, then substitute.",
+            "**Dropping the units.** A rate's units are the output's units per input unit: $\\text{cm}^2$ per cm for area against radius, $\\text{cm}^3$ per second for volume against time.",
+            "**Confusing velocity with speed.** Velocity $\\dfrac{ds}{dt}$ can be negative (moving backwards). Speed is its absolute value.",
+            "**Treating acceleration as a first derivative of position.** Acceleration is $\\dfrac{d^2s}{dt^2}$, the derivative of velocity."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Maxima and Minima",
+        "href": "/resources/maxima-and-minima"
+      },
+      {
+        "label": "Approximations Using Differentials",
+        "href": "/resources/approximations"
+      }
+    ],
+    "intro": "Rate-of-change problems and optimization problems both start from the same derivative-as-rate idea: one asks how fast something changes, the other asks where that rate hits zero. The same derivative also drives approximating small changes directly, instead of an exact rate."
+  }
+}

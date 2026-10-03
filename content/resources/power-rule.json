@@ -1,0 +1,143 @@
+{
+  "slug": "power-rule",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "The rule",
+      "blocks": [
+        {
+          "p": "For any fixed exponent $n$, the derivative of $x^n$ brings the exponent down as a multiplier and reduces it by one:"
+        },
+        {
+          "math": "\\dfrac{d}{dx}\\left[x^n\\right] = nx^{n-1}"
+        },
+        {
+          "p": "This works for negative and fractional exponents too, not just positive whole numbers."
+        }
+      ]
+    },
+    {
+      "heading": "Every kind of exponent",
+      "blocks": [
+        {
+          "p": "The rule needs the function written as a single power of $x$ first. Roots become fractional powers and reciprocals become negative powers, then the same two steps apply: bring the power down, and subtract one from it."
+        },
+        {
+          "table": {
+            "columns": [
+              "Function",
+              "Rewrite as",
+              "Derivative"
+            ],
+            "rows": [
+              [
+                "$x^5$",
+                "$x^5$",
+                "$5x^4$"
+              ],
+              [
+                "$x$",
+                "$x^1$",
+                "$1$"
+              ],
+              [
+                "$7$ (a constant)",
+                "$7x^0$",
+                "$0$"
+              ],
+              [
+                "$\\dfrac{1}{x}$",
+                "$x^{-1}$",
+                "$-x^{-2} = -\\dfrac{1}{x^2}$"
+              ],
+              [
+                "$\\dfrac{1}{x^3}$",
+                "$x^{-3}$",
+                "$-3x^{-4} = -\\dfrac{3}{x^4}$"
+              ],
+              [
+                "$\\sqrt{x}$",
+                "$x^{1/2}$",
+                "$\\dfrac{1}{2}x^{-1/2} = \\dfrac{1}{2\\sqrt{x}}$"
+              ],
+              [
+                "$\\sqrt[3]{x^2}$",
+                "$x^{2/3}$",
+                "$\\dfrac{2}{3}x^{-1/3} = \\dfrac{2}{3\\sqrt[3]{x}}$"
+              ]
+            ],
+            "caption": "The power rule applied to whole, zero, negative and fractional exponents"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find the derivative of $f(x) = \\sqrt{x}$."
+        },
+        {
+          "p": "**Solution:** Rewrite the square root as a fractional exponent, $f(x) = x^{1/2}$, then apply the power rule with $n = \\frac{1}{2}$:"
+        },
+        {
+          "math": "f'(x) = \\dfrac{1}{2}x^{\\frac{1}{2} - 1} = \\dfrac{1}{2}x^{-\\frac{1}{2}}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: negative and fractional powers together",
+      "blocks": [
+        {
+          "p": "Differentiate $f(x) = \\dfrac{4}{x^2} - 6\\sqrt[3]{x} + 5$."
+        },
+        {
+          "p": "**Solution:** Rewrite every term as a power of $x$: $f(x) = 4x^{-2} - 6x^{1/3} + 5$. Differentiate term by term. A constant multiplier stays in front, and the constant term 5 differentiates to 0:"
+        },
+        {
+          "math": "f'(x) = 4(-2)x^{-3} - 6\\cdot\\dfrac{1}{3}x^{-2/3} + 0 = -\\dfrac{8}{x^3} - \\dfrac{2}{\\sqrt[3]{x^2}}"
+        }
+      ]
+    },
+    {
+      "heading": "What the rule looks like on a graph",
+      "blocks": [
+        {
+          "figure": {
+            "name": "power-rule-graph",
+            "caption": "y = x³ and its derivative y′ = 3x². The derivative's height at any x is the cubic's slope there: 3 at x = 1, 12 at x = 2, and 0 at x = 0."
+          }
+        },
+        {
+          "p": "The derivative of $x^3$ is $3x^2$, which is never negative, so $x^3$ rises everywhere. Its slope drops to 0 at $x = 0$, where the cubic flattens out for an instant, then grows again on both sides. Reading a derivative this way, as the slope of the original graph, is the idea behind [increasing and decreasing functions](/resources/increasing-and-decreasing-functions)."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Moving the wrong way on a negative power.** The derivative of $x^{-2}$ is $-2x^{-3}$, not $-2x^{-1}$: one less than $-2$ is $-3$.",
+            "**Differentiating before rewriting.** $\\dfrac{1}{x^3}$ does not become $\\dfrac{1}{3x^2}$. Rewrite it as $x^{-3}$ first, which gives $-\\dfrac{3}{x^4}$.",
+            "**Using it on an exponential.** The power rule needs a variable base and a fixed exponent. In $2^x$ the exponent is the variable, and its derivative is $2^x\\ln 2$, not $x\\cdot 2^{x-1}$.",
+            "**Mixing up constant terms and constant multipliers.** $\\dfrac{d}{dx}(5x^3) = 15x^2$, because the 5 stays as a multiplier, but $\\dfrac{d}{dx}(5) = 0$."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Product Rule",
+        "href": "/resources/product-rule"
+      },
+      {
+        "label": "Quotient Rule",
+        "href": "/resources/quotient-rule"
+      }
+    ],
+    "intro": "The power rule only differentiates a single power of x, once two functions are multiplied or divided together, the product rule or quotient rule takes over."
+  }
+}

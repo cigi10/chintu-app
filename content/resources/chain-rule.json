@@ -1,0 +1,158 @@
+{
+  "slug": "chain-rule",
+  "datePublished": "2026-09-16",
+  "sections": [
+    {
+      "heading": "The rule",
+      "blocks": [
+        {
+          "p": "The chain rule differentiates a composite function, one function applied to the output of another. If $y = f(g(x))$, then"
+        },
+        {
+          "math": "\\dfrac{dy}{dx} = f'(g(x)) \\cdot g'(x)"
+        },
+        {
+          "p": "In words: differentiate the outer function (leaving the inner function alone), then multiply by the derivative of the inner function."
+        }
+      ]
+    },
+    {
+      "heading": "The same rule in Leibniz notation",
+      "blocks": [
+        {
+          "p": "Naming the inner function makes the rule easier to apply. If $y = f(u)$ and $u = g(x)$, then:"
+        },
+        {
+          "math": "\\dfrac{dy}{dx} = \\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}"
+        },
+        {
+          "p": "It reads as if the $du$ terms cancel. They don't really cancel, but it's a reliable way to remember which derivative goes where, and it extends to longer chains: $\\dfrac{dy}{dx} = \\dfrac{dy}{dv}\\cdot\\dfrac{dv}{du}\\cdot\\dfrac{du}{dx}$."
+        }
+      ]
+    },
+    {
+      "heading": "Common chain-rule patterns",
+      "blocks": [
+        {
+          "table": {
+            "columns": [
+              "Function",
+              "Derivative"
+            ],
+            "rows": [
+              [
+                "$[g(x)]^n$",
+                "$n[g(x)]^{n-1}\\cdot g'(x)$"
+              ],
+              [
+                "$e^{g(x)}$",
+                "$e^{g(x)}\\cdot g'(x)$"
+              ],
+              [
+                "$\\ln g(x)$",
+                "$\\dfrac{g'(x)}{g(x)}$"
+              ],
+              [
+                "$\\sin g(x)$",
+                "$\\cos g(x)\\cdot g'(x)$"
+              ],
+              [
+                "$\\cos g(x)$",
+                "$-\\sin g(x)\\cdot g'(x)$"
+              ],
+              [
+                "$\\tan g(x)$",
+                "$\\sec^2 g(x)\\cdot g'(x)$"
+              ]
+            ],
+            "caption": "Each standard derivative, with the inner function's derivative multiplied on"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "1. Derivative of sin(ln(x))",
+      "blocks": [
+        {
+          "p": "Find the derivative of $f(x) = \\sin(\\ln(x))$."
+        },
+        {
+          "p": "**Solution:** The outer function is $\\sin(u)$, the inner function is $u = \\ln(x)$. Since $\\dfrac{d}{du}\\sin(u) = \\cos(u)$ and $\\dfrac{d}{dx}\\ln(x) = \\dfrac{1}{x}$,"
+        },
+        {
+          "math": "f'(x) = \\cos(\\ln(x)) \\cdot \\dfrac{1}{x} = \\dfrac{\\cos(\\ln(x))}{x}"
+        }
+      ]
+    },
+    {
+      "heading": "2. Derivative of sec(tan(√x))",
+      "blocks": [
+        {
+          "p": "Find the derivative of $\\sec(\\tan(\\sqrt{x}))$ with respect to $x$. This nests three functions, so the chain rule is applied twice."
+        },
+        {
+          "p": "**Solution:** Let $u = \\sqrt{x}$, $v = \\tan(u)$, and differentiate $\\sec(v)$ from the outside in:"
+        },
+        {
+          "math": "\\dfrac{du}{dx} = \\dfrac{1}{2\\sqrt{x}}, \\qquad \\dfrac{dv}{du} = \\sec^2(u), \\qquad \\dfrac{d}{dv}\\sec(v) = \\sec(v)\\tan(v)"
+        },
+        {
+          "p": "Multiplying the three pieces together (the chain rule again):"
+        },
+        {
+          "math": "\\dfrac{1}{2\\sqrt{x}} \\cdot \\sec(\\tan(\\sqrt{x})) \\cdot \\tan(\\tan(\\sqrt{x})) \\cdot \\sec^2(\\sqrt{x})"
+        }
+      ]
+    },
+    {
+      "heading": "3. A power of a trig function",
+      "blocks": [
+        {
+          "p": "Differentiate $y = \\sin^3 x$."
+        },
+        {
+          "p": "**Solution:** $\\sin^3 x$ means $(\\sin x)^3$, so the outer function is a cube and the inner function is $u = \\sin x$:"
+        },
+        {
+          "math": "\\dfrac{dy}{dx} = \\dfrac{dy}{du}\\cdot\\dfrac{du}{dx} = 3u^2\\cdot\\cos x = 3\\sin^2 x\\cos x"
+        }
+      ]
+    },
+    {
+      "heading": "4. A power of a polynomial",
+      "blocks": [
+        {
+          "p": "Differentiate $y = (3x^2 + 1)^5$."
+        },
+        {
+          "p": "**Solution:** Expanding the fifth power would be slow. With $u = 3x^2 + 1$, $\\dfrac{du}{dx} = 6x$:"
+        },
+        {
+          "math": "\\dfrac{dy}{dx} = 5(3x^2+1)^4\\cdot 6x = 30x(3x^2+1)^4"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Forgetting the inner derivative.** $\\dfrac{d}{dx}\\sin(2x) = 2\\cos(2x)$, not $\\cos(2x)$. This is the most common chain-rule error by far.",
+            "**Confusing $\\sin^2 x$ with $\\sin(x^2)$.** $\\sin^2 x = (\\sin x)^2$ has derivative $2\\sin x\\cos x$. $\\sin(x^2)$ has derivative $2x\\cos(x^2)$.",
+            "**Changing the inside of the outer function.** In $\\dfrac{d}{dx}\\sin(x^2) = \\cos(x^2)\\cdot 2x$, the cosine still contains $x^2$. Only the multiplier outside is the inner derivative.",
+            "**Stopping one layer early.** In a three-layer chain like $\\sec(\\tan\\sqrt{x})$ there are three factors to multiply, one per layer."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Definite Integrals",
+        "href": "/resources/definite-integrals"
+      }
+    ],
+    "intro": "Many definite integrals are solved by spotting a chain-rule pattern in reverse, so the two techniques are worth learning back to back."
+  }
+}

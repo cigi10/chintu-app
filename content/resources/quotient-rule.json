@@ -1,0 +1,85 @@
+{
+  "slug": "quotient-rule",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "The rule",
+      "blocks": [
+        {
+          "p": "For a quotient of two functions, \"low d-high minus high d-low, over low squared\":"
+        },
+        {
+          "math": "\\dfrac{d}{dx}\\left[\\dfrac{u(x)}{v(x)}\\right] = \\dfrac{u'(x)v(x) - u(x)v'(x)}{v(x)^2}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Differentiate $y = \\dfrac{2x+1}{3x-4}$."
+        },
+        {
+          "p": "**Solution:** With $u=2x+1$ ($u'=2$) and $v=3x-4$ ($v'=3$):"
+        },
+        {
+          "math": "y' = \\dfrac{2(3x-4) - (2x+1)(3)}{(3x-4)^2} = \\dfrac{6x-8-6x-3}{(3x-4)^2} = \\dfrac{-11}{(3x-4)^2}"
+        }
+      ]
+    },
+    {
+      "heading": "A function's derivative at a point",
+      "blocks": [
+        {
+          "p": "The functions $f(x)$ and $g(x)$ are differentiable, and $h(x) = \\dfrac{g(x)}{f(x)}$. Given $f(0)=-7$, $f'(0)=5$, $g(0)=3$, and $g'(0)=-6$, find $h'(0)$."
+        },
+        {
+          "p": "**Solution:** By the quotient rule, $h'(x) = \\dfrac{g'(x)f(x) - g(x)f'(x)}{f(x)^2}$. Substituting the values at $x=0$:"
+        },
+        {
+          "math": "h'(0) = \\dfrac{(-6)(-7) - (3)(5)}{(-7)^2} = \\dfrac{42-15}{49} = \\dfrac{27}{49}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the derivative of tan x",
+      "blocks": [
+        {
+          "p": "Use the quotient rule to show that $\\dfrac{d}{dx}\\tan x = \\sec^2 x$."
+        },
+        {
+          "p": "**Solution:** Write $\\tan x = \\dfrac{\\sin x}{\\cos x}$, so $u = \\sin x$ ($u' = \\cos x$) and $v = \\cos x$ ($v' = -\\sin x$):"
+        },
+        {
+          "math": "\\dfrac{d}{dx}\\tan x = \\dfrac{\\cos x\\cdot\\cos x - \\sin x\\cdot(-\\sin x)}{\\cos^2 x} = \\dfrac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\dfrac{1}{\\cos^2 x} = \\sec^2 x"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Swapping the order in the numerator.** It is $u'v - uv'$, derivative of the top first. Writing $uv' - u'v$ flips the sign of the whole answer. In the first example above, that would give $+\\dfrac{11}{(3x-4)^2}$ instead of $-\\dfrac{11}{(3x-4)^2}$.",
+            "**Forgetting to square the denominator.** The bottom of the answer is $v^2$, not $v$.",
+            "**Losing a minus sign while expanding.** Keep brackets around $uv'$ until the end: $2(3x-4) - (2x+1)(3)$ expands to $6x - 8 - 6x - 3$, with the minus applied to both terms.",
+            "**Using it when the denominator is a constant.** $\\dfrac{x^2}{5}$ is just $\\dfrac{1}{5}x^2$, with derivative $\\dfrac{2x}{5}$. No quotient rule needed."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Product Rule",
+        "href": "/resources/product-rule"
+      },
+      {
+        "label": "Power Rule",
+        "href": "/resources/power-rule"
+      }
+    ],
+    "intro": "The product rule is the quotient rule's counterpart for multiplying two functions instead of dividing them."
+  }
+}

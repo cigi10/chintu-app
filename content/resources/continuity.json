@@ -1,0 +1,137 @@
+{
+  "slug": "continuity",
+  "datePublished": "2026-09-17T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The three-part continuity check",
+      "blocks": [
+        {
+          "p": "A function $f$ is continuous at $x = a$ when all three of these hold:"
+        },
+        {
+          "steps": [
+            "$f(a)$ is defined.",
+            "$\\lim_{x \\to a} f(x)$ exists, meaning the left-hand and right-hand limits are equal.",
+            "That limit equals $f(a)$."
+          ]
+        },
+        {
+          "p": "Each kind of discontinuity is a different one of these failing:"
+        },
+        {
+          "table": {
+            "columns": [
+              "Type",
+              "What fails",
+              "Example"
+            ],
+            "rows": [
+              [
+                "Jump",
+                "Left and right limits exist but differ",
+                "$\\lfloor x \\rfloor$ at any integer"
+              ],
+              [
+                "Removable",
+                "The limit exists but $f(a)$ is missing or different",
+                "$\\dfrac{x^2 - 1}{x - 1}$ at $x = 1$"
+              ],
+              [
+                "Infinite",
+                "The function grows without bound",
+                "$\\dfrac{1}{x}$ at $x = 0$"
+              ]
+            ],
+            "caption": "Kinds of discontinuity and the condition each one breaks"
+          }
+        },
+        {
+          "figure": {
+            "name": "discontinuity-types",
+            "caption": "A jump at x = 2, a removable gap at x = 5 (the curve's point is missing and f(5) sits elsewhere) and a corner at x = 7.5. The corner is continuous; it fails only differentiability."
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: choosing a constant for continuity",
+      "blocks": [
+        {
+          "p": "Find $k$ so that $f(x) = \\begin{cases} kx + 1, & x \\le 2 \\\\ 3x - 1, & x > 2 \\end{cases}$ is continuous at $x = 2$."
+        },
+        {
+          "p": "**Solution:** $f(2) = 2k + 1$, which is also the left-hand limit. The right-hand limit is $3(2) - 1 = 5$. For continuity they must match:"
+        },
+        {
+          "math": "2k + 1 = 5 \\;\\Rightarrow\\; k = 2"
+        }
+      ]
+    },
+    {
+      "heading": "A function can be continuous but not differentiable",
+      "blocks": [
+        {
+          "p": "A function is continuous at a point if there's no break or jump there, but it's only **differentiable** at that point if the slope approaching from the left matches the slope approaching from the right. The left-hand derivative is:"
+        },
+        {
+          "math": "f'(a^-) = \\lim_{h \\to 0^-} \\dfrac{f(a+h) - f(a)}{h}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find the left-hand derivative of $f(x) = |x|$ at $x = 0$."
+        },
+        {
+          "p": "**Solution:** Just to the left of 0, $x < 0$, so $f(x) = |x| = -x$. Differentiating this piece:"
+        },
+        {
+          "math": "f'(x) = -1 \\quad \\text{for } x < 0"
+        },
+        {
+          "p": "So the left-hand derivative at $x=0$ is **-1**. (The right-hand derivative there is $+1$, since $f(x)=x$ for $x>0$, the two don't match, which is exactly why $|x|$ is continuous at 0 but has a sharp corner there instead of a smooth tangent.)"
+        }
+      ]
+    },
+    {
+      "heading": "A function can only be continuous where it's defined",
+      "blocks": [
+        {
+          "p": "Before asking whether a function is continuous at a point, it has to actually be defined there, so finding a function's domain is usually the first step."
+        },
+        {
+          "p": "Find the domain of $f(x) = \\sqrt{\\cos x}$ over one full period, $[0, 2\\pi]$."
+        },
+        {
+          "p": "**Solution:** A square root is only defined for a non-negative input, so $f(x)$ requires $\\cos x \\ge 0$. Over $[0, 2\\pi]$, cosine is non-negative on the first and last quarters of the circle:"
+        },
+        {
+          "math": "\\left[0, \\dfrac{\\pi}{2}\\right] \\cup \\left[\\dfrac{3\\pi}{2}, 2\\pi\\right]"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Checking only one side.** A piecewise function needs both one-sided limits at the joining point.",
+            "**Assuming continuous means differentiable.** $|x|$ is continuous at 0 but has a corner there. Differentiable does imply continuous, though.",
+            "**Calling a point outside the domain a discontinuity.** $\\sqrt{x}$ isn't discontinuous at $x = -1$. It simply isn't defined there."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Chain Rule",
+        "href": "/resources/chain-rule"
+      }
+    ],
+    "intro": "A function has to be differentiable, in the sense checked here, before the chain rule can be applied to it."
+  }
+}

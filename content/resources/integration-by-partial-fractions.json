@@ -1,0 +1,132 @@
+{
+  "slug": "integration-by-partial-fractions",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "The idea",
+      "blocks": [
+        {
+          "p": "When the denominator of a rational function factors into distinct linear pieces, the whole fraction can be rewritten as a sum of simpler fractions, each of which has a known antiderivative involving a logarithm:"
+        },
+        {
+          "math": "\\int \\dfrac{1}{x-a}\\,dx = \\ln|x-a| + C"
+        }
+      ]
+    },
+    {
+      "heading": "Partial-fraction forms",
+      "blocks": [
+        {
+          "p": "The form to write depends on the factors of the denominator. This only works when the fraction is *proper* (the numerator's degree is lower than the denominator's). If it isn't, divide first."
+        },
+        {
+          "table": {
+            "columns": [
+              "Denominator contains",
+              "Write it as"
+            ],
+            "rows": [
+              [
+                "$(x - a)(x - b)$, distinct linear factors",
+                "$\\dfrac{A}{x - a} + \\dfrac{B}{x - b}$"
+              ],
+              [
+                "$(x - a)^2$, a repeated linear factor",
+                "$\\dfrac{A}{x - a} + \\dfrac{B}{(x - a)^2}$"
+              ],
+              [
+                "$(x - a)^2(x - b)$",
+                "$\\dfrac{A}{x - a} + \\dfrac{B}{(x - a)^2} + \\dfrac{C}{x - b}$"
+              ],
+              [
+                "$(x - a)(x^2 + bx + c)$, with an irreducible quadratic",
+                "$\\dfrac{A}{x - a} + \\dfrac{Bx + C}{x^2 + bx + c}$"
+              ]
+            ],
+            "caption": "Which partial fractions to write for each kind of factor in the denominator"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\dfrac{x}{(x+1)(x+2)}\\,dx$."
+        },
+        {
+          "p": "**Solution:** Write $\\dfrac{x}{(x+1)(x+2)} = \\dfrac{A}{x+1} + \\dfrac{B}{x+2}$, so $x = A(x+2) + B(x+1)$. Setting $x=-1$ gives $A=-1$; setting $x=-2$ gives $B=2$:"
+        },
+        {
+          "math": "\\int \\left(\\dfrac{-1}{x+1} + \\dfrac{2}{x+2}\\right)dx = -\\ln|x+1| + 2\\ln|x+2| + C = \\ln\\dfrac{(x+2)^2}{|x+1|} + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\dfrac{2x}{x^2+3x+2}\\,dx$."
+        },
+        {
+          "p": "**Solution:** The denominator factors as $(x+1)(x+2)$. Writing $\\dfrac{2x}{(x+1)(x+2)} = \\dfrac{A}{x+1} + \\dfrac{B}{x+2}$ gives $2x = A(x+2)+B(x+1)$. Setting $x=-1$: $A=-2$. Setting $x=-2$: $B=4$:"
+        },
+        {
+          "math": "\\int \\left(\\dfrac{-2}{x+1} + \\dfrac{4}{x+2}\\right)dx = 4\\ln|x+2| - 2\\ln|x+1| + C"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a repeated factor",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\dfrac{1}{(x-1)^2(x+2)}\\,dx$."
+        },
+        {
+          "p": "**Solution:** Write $\\dfrac{1}{(x-1)^2(x+2)} = \\dfrac{A}{x-1} + \\dfrac{B}{(x-1)^2} + \\dfrac{D}{x+2}$, so $1 = A(x-1)(x+2) + B(x+2) + D(x-1)^2$. Setting $x = 1$ gives $B = \\dfrac{1}{3}$, and setting $x = -2$ gives $D = \\dfrac{1}{9}$. Comparing the $x^2$ coefficients, $0 = A + D$, so $A = -\\dfrac{1}{9}$:"
+        },
+        {
+          "math": "\\int \\left(\\dfrac{-1/9}{x-1} + \\dfrac{1/3}{(x-1)^2} + \\dfrac{1/9}{x+2}\\right)dx = \\dfrac{1}{9}\\ln\\left|\\dfrac{x+2}{x-1}\\right| - \\dfrac{1}{3(x-1)} + C"
+        },
+        {
+          "p": "The repeated-factor term integrates as a power, not a logarithm: $\\int (x-1)^{-2}\\,dx = -(x-1)^{-1}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a quadratic factor",
+      "blocks": [
+        {
+          "p": "Find $\\displaystyle\\int \\dfrac{2x}{(x+1)(x^2+1)}\\,dx$."
+        },
+        {
+          "p": "**Solution:** $x^2 + 1$ has no real factors, so its numerator is linear: $\\dfrac{2x}{(x+1)(x^2+1)} = \\dfrac{A}{x+1} + \\dfrac{Bx + D}{x^2+1}$. Then $2x = A(x^2+1) + (Bx + D)(x+1)$. Setting $x = -1$ gives $A = -1$. Comparing $x^2$ coefficients, $0 = A + B$, so $B = 1$. Comparing constants, $0 = A + D$, so $D = 1$:"
+        },
+        {
+          "math": "\\int \\left(\\dfrac{-1}{x+1} + \\dfrac{x}{x^2+1} + \\dfrac{1}{x^2+1}\\right)dx = -\\ln|x+1| + \\dfrac{1}{2}\\ln(x^2+1) + \\tan^{-1}x + C"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Skipping the division step.** $\\dfrac{x^2}{(x+1)(x+2)}$ is improper (degree 2 over degree 2), so divide first: it equals $1 - \\dfrac{3x + 2}{(x+1)(x+2)}$.",
+            "**Writing only one term for a repeated factor.** $(x-1)^2$ needs both $\\dfrac{A}{x-1}$ and $\\dfrac{B}{(x-1)^2}$.",
+            "**Putting a constant over an irreducible quadratic.** Over $x^2 + 1$ the numerator must be $Bx + C$, not just $B$."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "links": [
+      {
+        "label": "Integration of Particular Functions",
+        "href": "/resources/integration-of-particular-functions"
+      }
+    ],
+    "intro": "Partial fractions are one technique for a rational integrand: some standard rational forms have their own ready-made formulas instead."
+  }
+}

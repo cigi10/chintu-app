@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 export type BlogTableData = {
   columns: string[];
@@ -16,7 +16,13 @@ export type BlogTableData = {
 // wider scrolls inside the post instead of stretching the page. The caption
 // sits outside the scrolling box so it never gets clipped, and the wrapper
 // is focusable so keyboard users can scroll it too.
-export default function BlogTable({ table, id }: { table: BlogTableData; id: string }) {
+// `renderCell` lets JSON resource pages render cells as rich text (maths,
+// bold); blog posts pass plain strings through unchanged.
+export default function BlogTable({ table, id, renderCell = cell => cell }: {
+  table: BlogTableData;
+  id: string;
+  renderCell?: (cell: string) => ReactNode;
+}) {
   const style = { "--blog-table-cols": table.columns.length } as CSSProperties;
   const captionId = `${id}-caption`;
 
@@ -36,7 +42,7 @@ export default function BlogTable({ table, id }: { table: BlogTableData; id: str
           <thead>
             <tr>
               {table.columns.map((column, i) => (
-                <th key={i} scope="col">{column}</th>
+                <th key={i} scope="col">{renderCell(column)}</th>
               ))}
             </tr>
           </thead>
@@ -45,8 +51,8 @@ export default function BlogTable({ table, id }: { table: BlogTableData; id: str
               <tr key={i}>
                 {row.map((cell, j) =>
                   j === 0 && table.rowHeaders
-                    ? <th key={j} scope="row">{cell}</th>
-                    : <td key={j}>{cell}</td>
+                    ? <th key={j} scope="row">{renderCell(cell)}</th>
+                    : <td key={j}>{renderCell(cell)}</td>
                 )}
               </tr>
             ))}
