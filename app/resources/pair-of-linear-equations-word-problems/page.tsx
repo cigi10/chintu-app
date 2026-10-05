@@ -78,8 +78,8 @@ export default function LinearEquationsWordProblemsPage() {
               I&apos;ll have six times what you have left.&quot; Find how much each friend has.
             </p>
             <p className="blog-post-p">
-              <strong>Solution:</strong> Let the first friend have <Katex>{"\\text{₹}x"}</Katex> and
-              the second have <Katex>{"\\text{₹}y"}</Katex>.
+              <strong>Solution:</strong> Let the first friend have ₹<Katex>{"x"}</Katex> and
+              the second have ₹<Katex>{"y"}</Katex>.
             </p>
             <p className="blog-post-p">
               <strong>First condition</strong> (second friend gives ₹100 to the first):
