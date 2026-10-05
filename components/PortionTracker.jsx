@@ -18,6 +18,7 @@ import {
 import { upsertTodoForTopic } from "@/lib/todos";
 import { RAW_PACKS, PACK_NAMES, PACK_DESC, examPackLabel } from "@/lib/examPacks";
 import { COUNTRIES, packsForCountry } from "@/lib/examRegions";
+import { trackTrackerUse } from "@/lib/analytics";
 
 const STATUS_ORDER = ["not-started", "in-progress", "done", "migrated", "cancelled", "question"];
 const STATUS_LABEL = {
@@ -220,6 +221,7 @@ export default function PortionTracker() {
   }, [subjects]);
 
   function pickExam(packName) {
+    trackTrackerUse("pick_exam");
     setExamType(packName);
     setSubjects(buildFreshSubjects(packName));
   }
@@ -250,7 +252,9 @@ export default function PortionTracker() {
     setAllTags(getAllTags());
   }
 
+  // Tracked outside the state updaters, which React may run twice.
   function cycleTopicStatus(subject, topicId) {
+    trackTrackerUse("topic_status");
     setSubjects(prev => {
       const wasFullyDone = subjectProgress(prev[subject]) === 100;
       const topics = prev[subject].map(t => {
@@ -271,6 +275,7 @@ export default function PortionTracker() {
   }
 
   function cycleSubtopicStatus(subject, topicId, subtopicId) {
+    trackTrackerUse("subtopic_status");
     setSubjects(prev => {
       const topics = prev[subject].map(t => {
         if (t.id !== topicId) return t;

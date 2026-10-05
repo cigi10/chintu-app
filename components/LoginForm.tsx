@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import { trackSignUp } from '@/lib/analytics'
 import Header from '@/components/Header'
 import Companion from '@/components/Companion'
 import "@/styles/login.css"
@@ -41,6 +42,10 @@ export default function LoginForm() {
       })
       setLoading(false)
       if (error) { setError(error.message); return }
+      // Supabase answers a sign-up for an already-registered email with a
+      // user that has no identities (so it can't be used to probe which
+      // emails exist). Only a genuinely new account counts as a sign-up.
+      if (data.user && (data.user.identities?.length ?? 0) > 0) trackSignUp('email')
       if (data.user && !data.session) {
         setSignupSent(true)
       }

@@ -15,6 +15,7 @@ import { getLocalCoins, hydrateCoins, addCoins } from "@/lib/coins";
 import { getLocalTodos, hydrateTodos, saveTodos as persistTodos } from "@/lib/todos";
 import { hydrateTracker, getSessionLog, appendSessionLogEntry, getBonusLog, saveBonusLog } from "@/lib/tracker";
 import { getRandomQuote } from "@/lib/quotes";
+import { trackTimerStart, trackTimerComplete } from "@/lib/analytics";
 
 const SESSION_KEY       = "chintu-sessions";
 const TIMER_STATE_KEY   = "chintu-timer-state";
@@ -228,6 +229,10 @@ export default function StudyTimer({ roomName = null }) {
   const endAtRef          = useRef(null);
   const subjectRef        = useRef(subject);
   const autoCycleRef      = useRef(false);
+  // Whether the current session has been started at all, so timer_start
+  // fires on a fresh start but not when a paused session is resumed.
+  // Cleared whenever the session ends or is replaced.
+  const sessionStartedRef = useRef(false);
   const autoCycleCountRef = useRef(0);
   const lastStudyModeRef     = useRef("study");
   const lastStudyDurationRef = useRef(PRESET_MODES.study.duration);
@@ -268,6 +273,7 @@ export default function StudyTimer({ roomName = null }) {
           completeSession(saved.mode, saved.totalDuration, subjectFromParam || saved.subject || "", savedGoalId);
         } else {
           setTimeLeft(remaining);
+          sessionStartedRef.current = true;
           setRunning(true);
         }
       } else if (typeof saved.timeLeft === "number") {
@@ -275,6 +281,7 @@ export default function StudyTimer({ roomName = null }) {
         setTotalDuration(saved.totalDuration);
         setTimeLeft(saved.timeLeft);
         setSubject(subjectFromParam || saved.subject || "");
+        sessionStartedRef.current = saved.timeLeft < saved.totalDuration;
         setRunning(false);
       }
     }
@@ -405,6 +412,8 @@ export default function StudyTimer({ roomName = null }) {
   }
 
   function completeSession(modeKey, durationSecs, subj, goalId, isEarly = false) {
+    sessionStartedRef.current = false;
+    trackTimerComplete(modeKey, durationSecs, isEarly);
     setRunning(false);
     setDone(true);
     setTimeLeft(0);
@@ -479,6 +488,7 @@ export default function StudyTimer({ roomName = null }) {
       setTimeLeft(totalDuration);
       setDone(false);
       clearTimerState();
+      sessionStartedRef.current = false;
       return;
     }
     completeSession(mode, elapsed, subjectRef.current, goalIdFromParam, true);
@@ -491,6 +501,8 @@ export default function StudyTimer({ roomName = null }) {
     setTimeLeft(dur);
     setTotalDuration(dur);
     setDone(false);
+    sessionStartedRef.current = true;
+    trackTimerStart(newMode, dur);
     setRunning(true);
   }
 
@@ -502,6 +514,7 @@ export default function StudyTimer({ roomName = null }) {
     setMode(newMode);
     setTimeLeft(dur);
     setTotalDuration(dur);
+    sessionStartedRef.current = false;
     setRunning(false);
     setDone(false);
     setShowCustom(false);
@@ -519,6 +532,7 @@ export default function StudyTimer({ roomName = null }) {
     setMode("custom");
     setTimeLeft(total);
     setTotalDuration(total);
+    sessionStartedRef.current = false;
     setRunning(false);
     setDone(false);
     setShowCustom(false);
@@ -529,9 +543,15 @@ export default function StudyTimer({ roomName = null }) {
     if (done) {
       setTimeLeft(totalDuration);
       setDone(false);
+      sessionStartedRef.current = true;
+      trackTimerStart(mode, totalDuration);
       setRunning(true);
       setToastResetKey(k => k + 1);
     } else {
+      if (!running && !sessionStartedRef.current) {
+        sessionStartedRef.current = true;
+        trackTimerStart(mode, totalDuration);
+      }
       setRunning(r => !r);
     }
   }
@@ -539,6 +559,7 @@ export default function StudyTimer({ roomName = null }) {
   function handleReset() {
     clearInterval(intervalRef.current);
     clearInterval(quoteIntervalRef.current);
+    sessionStartedRef.current = false;
     setTimeLeft(totalDuration);
     setRunning(false);
     setDone(false);

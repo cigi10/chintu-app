@@ -1,4 +1,5 @@
 import Onboarding from "@/components/Onboarding";
+import SignupTracker from "@/components/SignupTracker";
 import { NOINDEX } from "@/lib/seo";
 
 export const metadata = {
@@ -8,5 +9,10 @@ export const metadata = {
 };
 
 export default function OnboardingPage() {
-  return <Onboarding />;
+  return (
+    <>
+      <SignupTracker />
+      <Onboarding />
+    </>
+  );
 }
