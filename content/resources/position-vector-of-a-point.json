@@ -115,6 +115,11 @@
       ]
     }
   ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists the position vector of a point and the position vector of a point dividing a line segment in a given ratio. The JEE Main 2026 three-dimensional geometry unit lists the section formula.",
+    "countdowns": ["jee-2027"],
+    "sources": ["cbse-11-12-2025-26", "jee-main-2026"]
+  },
   "related": {
     "intro": "Combining position vectors like this is the same vector arithmetic covered more generally elsewhere.",
     "links": [

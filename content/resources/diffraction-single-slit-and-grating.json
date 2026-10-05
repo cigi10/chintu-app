@@ -116,8 +116,9 @@
     }
   ],
   "exam": {
-    "note": "Single-slit diffraction and the width of the central maximum are part of Wave Optics in the JEE Main and NEET Physics syllabus, usually tested alongside Young's double slit. Diffraction gratings are covered in first-year engineering physics.",
-    "countdowns": ["jee-2027", "neet-2027"]
+    "note": "Diffraction due to a single slit and the width of the central maximum are listed in the JEE Main 2026 and NEET (UG) 2026 syllabi, and single-slit diffraction in the JEE Advanced 2026 syllabus. None of the three lists the diffraction grating.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"],
+    "sources": ["jee-main-2026", "neet-ug-2026", "jee-advanced-2026"]
   },
   "related": {
     "intro": "The same wave rules apply to electrons, whose de Broglie wavelength is small enough for a crystal lattice to act as a grating.",

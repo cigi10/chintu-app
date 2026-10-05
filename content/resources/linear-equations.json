@@ -148,6 +148,11 @@
       ]
     }
   ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class IX syllabus opens its linear equations unit with a recall of linear equations in one variable, before moving on to equations in two variables.",
+    "countdowns": [],
+    "sources": ["cbse-9-10-2025-26"]
+  },
   "related": {
     "intro": "Linear equations are the entry point before quadratic equations, the same isolate-the-variable habit carries over once a squared term is involved. With two unknowns, you need two equations solved together.",
     "links": [

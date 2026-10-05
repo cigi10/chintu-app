@@ -99,8 +99,9 @@
     }
   ],
   "exam": {
-    "note": "The photoelectric effect is the core of Dual Nature of Matter and Radiation in the JEE Main and NEET Physics syllabus, including Einstein's equation, stopping potential and the graphs of photocurrent against voltage and stopping potential against frequency. JEE Advanced questions often add a second step, such as combining it with de Broglie wavelength.",
-    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"]
+    "note": "The photoelectric effect, Hertz and Lenard's observations and Einstein's photoelectric equation are listed in the Dual Nature of Matter and Radiation units of the JEE Main 2026 and NEET (UG) 2026 syllabi. The JEE Advanced 2026 syllabus lists the photoelectric effect.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"],
+    "sources": ["jee-main-2026", "neet-ug-2026", "jee-advanced-2026"]
   },
   "related": {
     "intro": "The photoelectric effect treats light as particles; the de Broglie relation runs the same idea in reverse, treating particles like electrons as waves.",

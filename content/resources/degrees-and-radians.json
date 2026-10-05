@@ -139,6 +139,11 @@
       ]
     }
   ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XI syllabus covers measuring angles in radians and in degrees and converting between the two, at the start of its trigonometric functions unit.",
+    "countdowns": [],
+    "sources": ["cbse-11-12-2025-26"]
+  },
   "related": {
     "intro": "Every trigonometric identity and every calculus result about $\\sin x$ and $\\cos x$ assumes radians, which is why calculus and most of trigonometry work in radians.",
     "links": [

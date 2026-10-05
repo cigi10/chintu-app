@@ -135,8 +135,9 @@
     }
   ],
   "exam": {
-    "note": "de Broglie waves are part of Dual Nature of Matter and Radiation in the JEE Main and NEET Physics syllabus, and JEE Advanced often combines them with accelerating potentials or with Bohr's model. Expect ratio questions like the proton and alpha particle example above.",
-    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"]
+    "note": "Matter waves and the de Broglie relation are listed in the Dual Nature of Matter and Radiation units of the JEE Main 2026 and NEET (UG) 2026 syllabi, and the JEE Advanced 2026 syllabus lists the de Broglie wavelength of matter waves.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"],
+    "sources": ["jee-main-2026", "neet-ug-2026", "jee-advanced-2026"]
   },
   "related": {
     "intro": "The photoelectric effect runs the same idea the other way, treating light as particles. Electron diffraction, the experiment that confirmed matter waves, follows the same rules as light through slits.",

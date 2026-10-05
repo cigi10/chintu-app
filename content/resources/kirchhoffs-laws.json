@@ -115,8 +115,9 @@
     }
   ],
   "exam": {
-    "note": "Kirchhoff's laws are part of Current Electricity in the JEE Main and NEET Physics syllabus, together with the Wheatstone bridge and metre bridge, and JEE Advanced uses them in multi-loop circuit problems. In GATE EC, EE and IN they are the starting point for nodal and mesh analysis in Network Theory.",
-    "countdowns": ["jee-2027", "neet-2027", "gate-2027"]
+    "note": "Kirchhoff's laws are listed in the Current Electricity units of the JEE Main 2026 and NEET (UG) 2026 syllabi, together with the Wheatstone bridge and metre bridge, and in the JEE Advanced 2026 syllabus. GATE 2026 EE and IN name KCL, KVL and Kirchhoff's laws alongside node and mesh analysis, and EC lists node and mesh analysis.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027", "gate-2027"],
+    "sources": ["jee-main-2026", "neet-ug-2026", "jee-advanced-2026", "gate-2026-ee", "gate-2026-in", "gate-2026-ec"]
   },
   "related": {
     "intro": "Once a circuit is solved for its currents, the diode equation is what determines how current actually flows through any non-linear component you add to it. And for a circuit like this one, reducing everything except one branch down to a single equivalent source is often faster than solving the whole loop system directly.",

@@ -120,8 +120,9 @@
     }
   ],
   "exam": {
-    "note": "This is the opening of the Polynomials chapter in Class 9 and 10 maths, and the definitions come up as one-mark board questions. For JEE they're assumed background for the theory of equations, where the degree tells you how many roots to look for.",
-    "countdowns": ["jee-2027"]
+    "note": "The 2025-26 CBSE Class IX syllabus lists the definition of a polynomial in one variable, the zero polynomial, the degree of a polynomial, constant, linear, quadratic and cubic polynomials, and monomials, binomials and trinomials.",
+    "countdowns": [],
+    "sources": ["cbse-9-10-2025-26"]
   },
   "related": {
     "intro": "Once you can identify a polynomial and its degree, finding its zeroes and dividing one polynomial by another build directly on these same definitions.",

@@ -3,6 +3,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import Katex from "@/components/Katex";
 import BlogTable from "@/components/BlogTable";
+import ExamSection from "@/components/ExamSection";
 import "@/styles/blog.css";
 import "@/styles/resources.css";
 
@@ -140,6 +141,37 @@ export default function SquaresAndCubesPage() {
               method still produces an answer, just a wrong one, with no warning.
             </p>
           </div>
+
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Common mistakes</h2>
+            <ul className="blog-post-list">
+              <li>
+                <strong>Taking a square root of a number that isn&apos;t a perfect square.</strong>{" "}
+                5,477 ends in 7, which no square does, so it has no whole-number square root. Check
+                the last digit before using the method.
+              </li>
+              <li>
+                <strong>Stopping at one candidate for a square root.</strong> A square ending in 6
+                comes from a number ending in 4 or 6, so there are always two candidates to compare.
+                Cube roots never have this problem.
+              </li>
+              <li>
+                <strong>Dropping the middle term near 50.</strong> <Katex>{"53^2"}</Katex> is not{" "}
+                <Katex>{"2500 + 9"}</Katex>: the <Katex>{"100a"}</Katex> term, 300 here, carries most
+                of the difference.
+              </li>
+              <li>
+                <strong>Confusing <Katex>{"n^2"}</Katex> with <Katex>{"2n"}</Katex>.</strong>{" "}
+                <Katex>{"3^2 = 9"}</Katex>, not 6. The two agree only at <Katex>{"n = 0"}</Katex> and <Katex>{"n = 2"}</Katex>.
+              </li>
+            </ul>
+          </div>
+
+          <ExamSection exam={{
+            note: "Powers are listed under numerical computation and estimation in the General Aptitude syllabus, a section every GATE 2026 paper includes.",
+            countdowns: ["gate-2027"],
+            sources: ["gate-2026-brochure"],
+          }} />
         </article>
       </div>
     </>

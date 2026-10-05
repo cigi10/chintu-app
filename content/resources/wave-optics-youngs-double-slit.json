@@ -139,8 +139,9 @@
     }
   ],
   "exam": {
-    "note": "Young's double slit experiment is part of Wave Optics in the JEE Main and NEET Physics syllabus, covering fringe width, the intensity formula and the effect of changing the setup. JEE Advanced regularly adds a thin film over one slit or a medium between the slits and the screen.",
-    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"]
+    "note": "Young's double-slit experiment and the expression for fringe width are listed in the wave optics units of the JEE Main 2026 and NEET (UG) 2026 syllabi. The JEE Advanced 2026 syllabus limits interference to Young's double slit experiment.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"],
+    "sources": ["jee-main-2026", "neet-ug-2026", "jee-advanced-2026"]
   },
   "related": {
     "intro": "A single slit, rather than two, produces a strikingly different pattern: its dark fringes use the same-looking formula as these bright ones, for the opposite reason.",

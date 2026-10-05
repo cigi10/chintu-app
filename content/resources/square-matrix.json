@@ -133,8 +133,9 @@
     }
   ],
   "exam": {
-    "note": "Matrices and determinants are a full chapter of JEE Main and Class 12 boards: determinant properties, the adjoint and inverse, and solving systems by the matrix method all appear regularly. JEE Advanced adds questions on idempotent, nilpotent and other special square matrices like the one above.",
-    "countdowns": ["jee-2027", "jee-advanced-2027"]
+    "note": "Determinants of square matrices and the adjoint and inverse are listed in the matrices units of the JEE Main 2026 and JEE Advanced 2026 syllabi and the 2025-26 CBSE Class XII syllabus. JEE Main and CBSE also name the consistency of a system of linear equations, and JEE Advanced its solution.",
+    "countdowns": ["jee-2027", "jee-advanced-2027"],
+    "sources": ["jee-main-2026", "jee-advanced-2026", "cbse-11-12-2025-26"]
   },
   "related": {
     "intro": "Whether a matrix is singular is exactly what decides whether a system of equations solved by the matrix method has a unique solution in the first place.",

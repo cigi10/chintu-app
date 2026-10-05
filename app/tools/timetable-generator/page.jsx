@@ -135,6 +135,7 @@ export default function TimetableGeneratorPage() {
                 <li><Link href="/blog/5-rules-jee-neet-study-timetable-no-burnout">5 Rules for a JEE/NEET Study Timetable That Doesn&apos;t Burn You Out</Link></li>
                 <li><Link href="/blog/jee-neet-last-30-days-revision-plan">How to Revise Your Entire JEE/NEET Syllabus in the Last 30 Days</Link></li>
                 <li><Link href="/countdown">Exam countdowns</Link></li>
+                <li><Link href="/tracker">Syllabus tracker</Link></li>
               </ul>
             </div>
           </article>

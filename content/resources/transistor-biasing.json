@@ -127,8 +127,9 @@
     }
   ],
   "exam": {
-    "note": "BJT biasing, Q-point stability and the regions of operation are standard Analog Circuits material in GATE EC, EE and IN, and part of most first-year Basic Electronics courses. Transistors are no longer in the JEE Main or NEET syllabus, which now stop at diodes and logic gates.",
-    "countdowns": ["gate-2027"]
+    "note": "Biasing is listed in the GATE 2026 EC syllabus (BJT and MOSFET amplifiers, under Analog Circuits) and the EE syllabus (amplifiers, under Analog and Digital Electronics); GATE IN lists the characteristics and applications of the BJT. The JEE Main 2026 and NEET (UG) 2026 syllabi list diodes and logic gates but no transistors.",
+    "countdowns": ["gate-2027"],
+    "sources": ["gate-2026-ec", "gate-2026-ee", "gate-2026-in", "jee-main-2026", "neet-ug-2026"]
   },
   "related": {
     "intro": "Once biased into its active region, a transistor becomes the building block behind op-amp circuits, though an op-amp is normally analyzed as a single ideal component rather than transistor by transistor.",

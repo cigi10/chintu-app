@@ -123,6 +123,11 @@
       ]
     }
   ],
+  "exam": {
+    "note": "Skew lines and the shortest distance between them are listed in the three-dimensional geometry units of the JEE Main 2026 and JEE Advanced 2026 syllabi, and in the 2025-26 CBSE Class XII mathematics syllabus.",
+    "countdowns": ["jee-2027", "jee-advanced-2027"],
+    "sources": ["jee-main-2026", "jee-advanced-2026", "cbse-11-12-2025-26"]
+  },
   "related": {
     "intro": "All of these start from the vector form of a line's equation covered separately.",
     "links": [

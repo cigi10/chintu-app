@@ -103,6 +103,11 @@
       ]
     }
   ],
+  "exam": {
+    "note": "The JEE Advanced 2026 syllabus lists the angle between two lines, between two planes, and between a line and a plane. The JEE Main 2026 syllabus and the 2025-26 CBSE Class XII syllabus list only the angle between two lines.",
+    "countdowns": ["jee-advanced-2027"],
+    "sources": ["jee-advanced-2026", "jee-main-2026", "cbse-11-12-2025-26"]
+  },
   "related": {
     "intro": "This uses the same direction vector that defines a line's equation in the first place, and the normal that defines a plane's.",
     "links": [

@@ -111,8 +111,9 @@
     }
   ],
   "exam": {
-    "note": "Primes and the Fundamental Theorem of Arithmetic open the Real Numbers chapter in Class 10 boards. Prime factorization, number of divisors and co-primes are also staples of quantitative aptitude, including the General Aptitude section every GATE paper carries.",
-    "countdowns": ["gate-2027"]
+    "note": "The 2025-26 CBSE Class X syllabus opens its Real Numbers unit with the Fundamental Theorem of Arithmetic, the prime factorization result above.",
+    "countdowns": [],
+    "sources": ["cbse-9-10-2025-26"]
   },
   "related": {
     "intro": "Prime factorization is exactly the tool both divisibility rules and HCF/LCM calculations are built on, and the divisor count above has its own page.",

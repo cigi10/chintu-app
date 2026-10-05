@@ -177,6 +177,11 @@
       ]
     }
   ],
+  "exam": {
+    "note": "The JEE Advanced 2026 syllabus lists the equation of a plane and the distance of a point from a plane. Neither appears in the JEE Main 2026 syllabus or the 2025-26 CBSE Class XII syllabus, whose three-dimensional geometry units cover lines only.",
+    "countdowns": ["jee-advanced-2027"],
+    "sources": ["jee-advanced-2026", "jee-main-2026", "cbse-11-12-2025-26"]
+  },
   "related": {
     "intro": "With a plane's normal in hand, the angle a line makes with it is one dot product away.",
     "links": [

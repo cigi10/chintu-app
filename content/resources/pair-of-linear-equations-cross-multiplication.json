@@ -132,6 +132,11 @@
       ]
     }
   ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class X syllabus lists the graphical, substitution and elimination methods for a pair of linear equations, together with the conditions for consistency. Cross-multiplication isn't named there, so check whether your board or school still uses it.",
+    "countdowns": [],
+    "sources": ["cbse-9-10-2025-26"]
+  },
   "related": {
     "intro": "These same two equations, once set up, are exactly the kind of story problem worked through step by step elsewhere. The other two algebraic methods give the same answers by a different route.",
     "links": [

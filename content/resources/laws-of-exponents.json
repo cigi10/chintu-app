@@ -130,8 +130,9 @@
     }
   ],
   "exam": {
-    "note": "Exponents are Class 8 and 9 maths and come up in Class 10 boards inside surds and simplification. For JEE they are assumed knowledge: logarithms, exponential equations and the binomial theorem all rely on handling these rules quickly and without slips.",
-    "countdowns": ["jee-2027"]
+    "note": "The 2025-26 CBSE Class IX syllabus recalls the laws of exponents with integral powers in its Number Systems unit. Powers, exponents and logarithms are also listed in the General Aptitude syllabus that every GATE 2026 paper includes.",
+    "countdowns": ["gate-2027"],
+    "sources": ["cbse-9-10-2025-26", "gate-2026-brochure"]
   },
   "related": {
     "intro": "These same rules are exactly what makes logarithms (the inverse operation of exponentiation) behave the way they do.",

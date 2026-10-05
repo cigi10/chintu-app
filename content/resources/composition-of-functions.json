@@ -121,6 +121,11 @@
       ]
     }
   ],
+  "exam": {
+    "note": "The composition of functions is listed in the sets, relations and functions units of both the JEE Main 2026 and JEE Advanced 2026 syllabi.",
+    "countdowns": ["jee-2027", "jee-advanced-2027"],
+    "sources": ["jee-main-2026", "jee-advanced-2026"]
+  },
   "related": {
     "intro": "Composition is exactly how you'd verify that a candidate inverse function actually undoes the original: check that both compositions give back $x$.",
     "links": [

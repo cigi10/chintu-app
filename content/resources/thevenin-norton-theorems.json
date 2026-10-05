@@ -114,8 +114,9 @@
     }
   ],
   "exam": {
-    "note": "Network theorems are a core part of the Network Theory section in GATE EC, EE and IN, usually alongside nodal and mesh analysis and maximum power transfer. They also open most first-year Basic Electrical Engineering courses. They are not in the JEE Main or NEET syllabus, which stop at Kirchhoff's laws and the Wheatstone bridge.",
-    "countdowns": ["gate-2027"]
+    "note": "Thevenin's and Norton's theorems are listed in the GATE 2026 EC (Networks, Signals and Systems), EE (Electric Circuits) and IN (Electrical Circuits and Machines) syllabi, and all three also name maximum power transfer. They are not in the JEE Main 2026, JEE Advanced 2026 or NEET (UG) 2026 syllabi, which cover Kirchhoff's laws but not network theorems.",
+    "countdowns": ["gate-2027"],
+    "sources": ["gate-2026-ec", "gate-2026-ee", "gate-2026-in", "jee-main-2026", "jee-advanced-2026", "neet-ug-2026"]
   },
   "related": {
     "intro": "This same circuit could be solved directly with Kirchhoff's laws instead of reducing it first, useful for checking a Thevenin/Norton reduction against a from-scratch calculation.",
