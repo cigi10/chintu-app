@@ -1,0 +1,146 @@
+{
+  "slug": "transistor-biasing",
+  "datePublished": "2026-09-25T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "Why biasing comes first",
+      "blocks": [
+        {
+          "p": "A transistor amplifies an AC signal by riding it on top of a steady DC current, without that DC baseline (the **Q-point**, or operating point), a signal that dips negative would just cut the transistor off instead of being amplified. Biasing circuitry exists purely to set that DC baseline before any signal is applied."
+        }
+      ]
+    },
+    {
+      "heading": "The three regions of operation",
+      "blocks": [
+        {
+          "p": "A BJT has two junctions, base-emitter (BE) and base-collector (BC). How each one is biased decides what the transistor does:"
+        },
+        {
+          "table": {
+            "caption": "BJT regions of operation",
+            "columns": ["Region", "BE junction", "BC junction", "Behaviour"],
+            "rows": [
+              ["Cut-off", "Reverse", "Reverse", "Off: $I_C \\approx 0$, an open switch"],
+              ["Active", "Forward", "Reverse", "Amplifier: $I_C = \\beta I_B$"],
+              ["Saturation", "Forward", "Forward", "On: $V_{CE} \\approx 0.2$ V, a closed switch"]
+            ]
+          }
+        },
+        {
+          "p": "Biasing for an amplifier means landing in the active region, with $V_{CE}$ comfortably away from both 0 V and $V_{CC}$ so the signal has room to swing either way."
+        }
+      ]
+    },
+    {
+      "heading": "Fixed-bias circuit equations",
+      "blocks": [
+        {
+          "p": "In the simplest bias circuit, a resistor $R_B$ feeds base current from the supply, and a resistor $R_C$ sits between the supply and the collector:"
+        },
+        {
+          "math": "I_B = \\dfrac{V_{CC}-V_{BE}}{R_B}, \\qquad I_C = \\beta I_B, \\qquad V_{CE} = V_{CC} - I_CR_C"
+        },
+        {
+          "p": "where $V_{BE}\\approx0.7\\text{V}$ for a silicon transistor and $\\beta$ (also written $h_{FE}$) is the transistor's current gain."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "A fixed-bias circuit has $V_{CC}=12\\text{V}$, $R_B=470\\text{k}\\Omega$, $R_C=2.2\\text{k}\\Omega$, and $\\beta=100$. Find $I_B$, $I_C$, and $V_{CE}$."
+        },
+        {
+          "p": "**Solution:**"
+        },
+        {
+          "math": "I_B = \\dfrac{12-0.7}{470{,}000} = \\dfrac{11.3}{470{,}000} \\approx 24.0\\,\\mu\\text{A}"
+        },
+        {
+          "math": "I_C = \\beta I_B = 100 \\times 24.0\\,\\mu\\text{A} = 2.40\\text{ mA}"
+        },
+        {
+          "math": "V_{CE} = V_{CC} - I_CR_C = 12 - (2.40\\times10^{-3})(2200) = 12 - 5.29 \\approx 6.71\\text{V}"
+        },
+        {
+          "p": "Since $V_{CE}$ lands comfortably between 0V and $V_{CC}$, the transistor is biased in its active region, ready to amplify a signal riding on top of this DC point."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: what happens when β changes",
+      "blocks": [
+        {
+          "p": "Fixed bias like this is simple but sensitive to $\\beta$, which varies between individual transistors and with temperature. Swap in a transistor with $\\beta = 200$ and keep everything else the same."
+        },
+        {
+          "p": "**Solution:** $I_B$ doesn't depend on $\\beta$, so it stays at $24.0\\,\\mu$A. But:"
+        },
+        {
+          "math": "I_C = 200 \\times 24.0\\,\\mu\\text{A} = 4.81\\text{ mA}, \\qquad V_{CE} = 12 - (4.81\\times10^{-3})(2200) \\approx 1.42\\text{ V}"
+        },
+        {
+          "p": "The Q-point has slid most of the way to saturation. A signal of more than about a volt would now be clipped. Doubling $\\beta$ doubled $I_C$, which is the instability voltage-divider bias is designed to fix."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: voltage-divider bias",
+      "blocks": [
+        {
+          "p": "Voltage-divider bias is the more common practical alternative specifically because it holds the Q-point stable even when $\\beta$ drifts. Resistors $R_1$ and $R_2$ set the base voltage, and an emitter resistor $R_E$ sets the current."
+        },
+        {
+          "p": "Take $V_{CC} = 12$ V, $R_1 = 10\\text{ k}\\Omega$, $R_2 = 2.2\\text{ k}\\Omega$, $R_C = 3.3\\text{ k}\\Omega$, $R_E = 1\\text{ k}\\Omega$ and $\\beta = 100$. Find $I_C$ and $V_{CE}$."
+        },
+        {
+          "p": "**Solution:** The base current is small next to the divider current (the usual check, $\\beta R_E \\geq 10R_2$, holds: $100\\text{ k}\\Omega \\geq 22\\text{ k}\\Omega$), so treat the divider as unloaded:"
+        },
+        {
+          "math": "V_B = 12 \\times \\dfrac{2.2}{10 + 2.2} \\approx 2.164\\text{ V}, \\qquad V_E = V_B - 0.7 \\approx 1.464\\text{ V}"
+        },
+        {
+          "math": "I_C \\approx I_E = \\dfrac{V_E}{R_E} = \\dfrac{1.464}{1000} \\approx 1.464\\text{ mA}"
+        },
+        {
+          "math": "V_{CE} = V_{CC} - I_C(R_C + R_E) = 12 - (1.464\\times10^{-3})(4300) \\approx 5.70\\text{ V}"
+        },
+        {
+          "p": "$\\beta$ never appeared in the calculation. Change it to 200 and $I_C$ stays at about 1.46 mA, which is the whole point of this circuit."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Forgetting $V_{BE}$.** The base resistor carries $V_{CC} - 0.7$ V, not the full $V_{CC}$.",
+            "**Using $I_C = \\beta I_B$ without checking the region.** It only holds in the active region. If the answer gives $V_{CE}$ below about 0.2 V, the transistor is saturated and $I_C$ is limited by $R_C$ instead.",
+            "**Dropping $R_E$ from the collector-emitter loop.** In voltage-divider bias, $V_{CE} = V_{CC} - I_C(R_C + R_E)$, not $V_{CC} - I_CR_C$.",
+            "**Mixing units.** kΩ times mA gives volts directly. Mixing kΩ with A, or Ω with mA, puts the answer off by a factor of 1,000."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "BJT biasing, Q-point stability and the regions of operation are standard Analog Circuits material in GATE EC, EE and IN, and part of most first-year Basic Electronics courses. Transistors are no longer in the JEE Main or NEET syllabus, which now stop at diodes and logic gates.",
+    "countdowns": ["gate-2027"]
+  },
+  "related": {
+    "intro": "Once biased into its active region, a transistor becomes the building block behind op-amp circuits, though an op-amp is normally analyzed as a single ideal component rather than transistor by transistor.",
+    "links": [
+      {
+        "label": "Op-Amp Fundamentals: Inverting and Non-Inverting Amplifiers",
+        "href": "/resources/op-amp-fundamentals"
+      },
+      {
+        "label": "PN Junction Diode: Forward and Reverse Bias",
+        "href": "/resources/pn-junction-diode"
+      }
+    ]
+  }
+}

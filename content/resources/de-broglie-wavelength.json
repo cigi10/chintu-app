@@ -1,0 +1,140 @@
+{
+  "slug": "de-broglie-wavelength",
+  "datePublished": "2026-09-25T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "Every moving particle has a wavelength",
+      "blocks": [
+        {
+          "p": "If light (normally a wave) can behave like a stream of particles (photons), de Broglie proposed the reverse should hold too: every moving particle has an associated wavelength, set by its momentum $p=mv$:"
+        },
+        {
+          "math": "\\lambda = \\dfrac{h}{p} = \\dfrac{h}{mv}"
+        },
+        {
+          "p": "For everyday objects this wavelength is absurdly small and unobservable. It only becomes significant for very light, fast particles like electrons, which is exactly why electron microscopes work."
+        }
+      ]
+    },
+    {
+      "heading": "The same formula in other forms",
+      "blocks": [
+        {
+          "p": "Questions rarely hand you the momentum directly. Rewrite $p$ in terms of what you're given, using $K = \\dfrac{p^2}{2m}$ for kinetic energy and $K = qV$ for a charge accelerated from rest through a potential difference $V$:"
+        },
+        {
+          "table": {
+            "caption": "de Broglie wavelength from different starting quantities",
+            "columns": ["Given", "Wavelength"],
+            "rows": [
+              ["Momentum $p$", "$\\lambda = \\dfrac{h}{p}$"],
+              ["Mass $m$ and speed $v$", "$\\lambda = \\dfrac{h}{mv}$"],
+              ["Kinetic energy $K$", "$\\lambda = \\dfrac{h}{\\sqrt{2mK}}$"],
+              ["Charge $q$ accelerated through $V$", "$\\lambda = \\dfrac{h}{\\sqrt{2mqV}}$"],
+              ["Electron accelerated through $V$", "$\\lambda \\approx \\dfrac{1.227}{\\sqrt{V}}$ nm"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find the de Broglie wavelength of an electron accelerated from rest through a potential difference of 100 V."
+        },
+        {
+          "p": "**Solution:** The accelerating field does work $eV$ on the electron, which becomes its kinetic energy:"
+        },
+        {
+          "math": "eV = \\dfrac{1}{2}mv^2 \\;\\Rightarrow\\; mv = \\sqrt{2meV}"
+        },
+        {
+          "p": "Substituting $p=mv=\\sqrt{2meV}$ into the de Broglie relation:"
+        },
+        {
+          "math": "\\lambda = \\dfrac{h}{\\sqrt{2meV}}"
+        },
+        {
+          "p": "Plugging in $h=6.626\\times10^{-34}$ J·s, $m=9.11\\times10^{-31}$ kg, and $e=1.6\\times10^{-19}$ C gives a clean, commonly-used shortcut for electrons specifically:"
+        },
+        {
+          "math": "\\lambda \\approx \\dfrac{1.227}{\\sqrt{V}}\\text{ nm} \\qquad (V \\text{ in volts})"
+        },
+        {
+          "p": "For $V=100$ V:"
+        },
+        {
+          "math": "\\lambda \\approx \\dfrac{1.227}{\\sqrt{100}} = \\dfrac{1.227}{10} \\approx 0.123\\text{ nm}"
+        },
+        {
+          "p": "That's comparable to the spacing between atoms in a crystal, which is exactly why fast electrons diffract off crystal lattices the same way X-rays do."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: why a cricket ball doesn't diffract",
+      "blocks": [
+        {
+          "p": "Find the de Broglie wavelength of a 0.15 kg cricket ball moving at 30 m/s."
+        },
+        {
+          "p": "**Solution:**"
+        },
+        {
+          "math": "\\lambda = \\dfrac{h}{mv} = \\dfrac{6.626\\times10^{-34}}{0.15 \\times 30} = \\dfrac{6.626\\times10^{-34}}{4.5} \\approx 1.5\\times10^{-34}\\text{ m}"
+        },
+        {
+          "p": "That's around $10^{19}$ times smaller than a proton. No gap or obstacle is anywhere near that size, so the ball shows no wave behaviour at all."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: comparing two particles",
+      "blocks": [
+        {
+          "p": "A proton and an alpha particle are accelerated from rest through the same potential difference. Find the ratio of their de Broglie wavelengths."
+        },
+        {
+          "p": "**Solution:** From $\\lambda = \\dfrac{h}{\\sqrt{2mqV}}$ with the same $V$, $\\lambda \\propto \\dfrac{1}{\\sqrt{mq}}$. An alpha particle has about 4 times the proton's mass and twice its charge:"
+        },
+        {
+          "math": "\\dfrac{\\lambda_p}{\\lambda_\\alpha} = \\sqrt{\\dfrac{m_\\alpha q_\\alpha}{m_p q_p}} = \\sqrt{4 \\times 2} = 2\\sqrt{2}"
+        },
+        {
+          "p": "If instead the two particles had the same *kinetic energy*, the charge would drop out and the ratio would be $\\sqrt{\\dfrac{m_\\alpha}{m_p}} = 2$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Using an energy in eV without converting.** In $\\lambda = \\dfrac{h}{\\sqrt{2mK}}$ with SI values, $K$ must be in joules: multiply eV by $1.6\\times10^{-19}$.",
+            "**Forgetting the charge.** An alpha particle carries $2e$, so it gains $2eV$ of energy through a potential difference $V$, not $eV$.",
+            "**Writing $\\lambda \\propto \\dfrac{1}{V}$.** The wavelength goes as $\\dfrac{1}{\\sqrt{V}}$. Four times the voltage halves the wavelength.",
+            "**Using the electron shortcut for other particles.** $\\dfrac{1.227}{\\sqrt{V}}$ nm has the electron's mass built in. For anything else, use the full formula."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "de Broglie waves are part of Dual Nature of Matter and Radiation in the JEE Main and NEET Physics syllabus, and JEE Advanced often combines them with accelerating potentials or with Bohr's model. Expect ratio questions like the proton and alpha particle example above.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"]
+  },
+  "related": {
+    "intro": "The photoelectric effect runs the same idea the other way, treating light as particles. Electron diffraction, the experiment that confirmed matter waves, follows the same rules as light through slits.",
+    "links": [
+      {
+        "label": "Photoelectric Effect",
+        "href": "/resources/photoelectric-effect"
+      },
+      {
+        "label": "Diffraction: Single Slit and Diffraction Grating",
+        "href": "/resources/diffraction-single-slit-and-grating"
+      }
+    ]
+  }
+}

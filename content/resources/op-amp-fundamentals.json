@@ -1,0 +1,135 @@
+{
+  "slug": "op-amp-fundamentals",
+  "datePublished": "2026-09-25T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The two ideal-op-amp rules",
+      "blocks": [
+        {
+          "p": "An op-amp has two inputs, $V_+$ and $V_-$, and (with negative feedback) two assumptions make circuit analysis almost algebra-free:"
+        },
+        {
+          "list": [
+            "No current flows into either input terminal (infinite input impedance).",
+            "The op-amp drives its output to force $V_+ = V_-$, the **virtual short**, even though the two inputs aren't actually connected."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inverting amplifier",
+      "blocks": [
+        {
+          "p": "The input signal drives $R_{in}$ into the $V_-$ terminal, with a feedback resistor $R_f$ from output back to that same terminal, while $V_+$ is grounded. Since $V_-$ is forced to $0$V (a \"virtual ground\") and no current enters the input, the current through $R_{in}$ must equal the current through $R_f$, giving:"
+        },
+        {
+          "math": "\\text{Gain} = \\dfrac{V_{out}}{V_{in}} = -\\dfrac{R_f}{R_{in}}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: inverting amplifier",
+      "blocks": [
+        {
+          "p": "$R_{in}=1\\text{k}\\Omega$, $R_f=10\\text{k}\\Omega$, $V_{in}=0.5\\text{V}$:"
+        },
+        {
+          "math": "V_{out} = -\\dfrac{10\\text{k}}{1\\text{k}} \\times 0.5 = -5\\text{V}"
+        }
+      ]
+    },
+    {
+      "heading": "Non-inverting amplifier",
+      "blocks": [
+        {
+          "p": "The input signal now drives $V_+$ directly, and $R_1$ plus $R_f$ form a voltage divider from output back to $V_-$, forcing $V_- = V_{in}$ by the virtual-short rule:"
+        },
+        {
+          "math": "\\text{Gain} = \\dfrac{V_{out}}{V_{in}} = 1+\\dfrac{R_f}{R_1}"
+        },
+        {
+          "p": "always positive (no inversion) and always at least 1, even if $R_f=0$. That special case, with $R_f = 0$ and $R_1$ left out, is the **voltage follower**: gain exactly 1, used as a buffer because it draws almost no current from the source."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: non-inverting amplifier",
+      "blocks": [
+        {
+          "p": "$R_1=1\\text{k}\\Omega$, $R_f=9\\text{k}\\Omega$, $V_{in}=0.5\\text{V}$:"
+        },
+        {
+          "math": "V_{out} = \\left(1+\\dfrac{9\\text{k}}{1\\text{k}}\\right) \\times 0.5 = 10 \\times 0.5 = 5\\text{V}"
+        },
+        {
+          "p": "Same gain magnitude (10) and output size as the inverting example above, but positive, and it took a resistor ratio of 9 rather than 10 to get there, a direct consequence of the $+1$ in the formula."
+        }
+      ]
+    },
+    {
+      "heading": "Inverting vs non-inverting: the differences",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Inverting and non-inverting amplifiers compared",
+            "columns": ["", "Inverting", "Non-inverting"],
+            "rows": [
+              ["Signal goes to", "$V_-$ through $R_{in}$", "$V_+$ directly"],
+              ["Gain", "$-\\dfrac{R_f}{R_{in}}$", "$1 + \\dfrac{R_f}{R_1}$"],
+              ["Output phase", "Flipped (180°)", "Same as input"],
+              ["Smallest gain magnitude", "Any, including below 1", "1 (voltage follower)"],
+              ["Input impedance", "About $R_{in}$", "Very high"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a summing amplifier",
+      "blocks": [
+        {
+          "p": "Add a second input resistor to the inverting amplifier and the virtual ground adds the currents from both inputs:"
+        },
+        {
+          "math": "V_{out} = -R_f\\left(\\dfrac{V_1}{R_1} + \\dfrac{V_2}{R_2}\\right)"
+        },
+        {
+          "p": "With $R_1 = R_2 = R_f = 10\\text{ k}\\Omega$, $V_1 = 1$ V and $V_2 = 2$ V:"
+        },
+        {
+          "math": "V_{out} = -10\\text{k}\\left(\\dfrac{1}{10\\text{k}} + \\dfrac{2}{10\\text{k}}\\right) = -3\\text{ V}"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Dropping the minus sign.** An inverting amplifier's output is always opposite in sign to its input.",
+            "**Forgetting the $+1$.** A non-inverting amplifier with $R_f = 9\\text{ k}\\Omega$ and $R_1 = 1\\text{ k}\\Omega$ has a gain of 10, not 9.",
+            "**Ignoring the supply rails.** The output can't go beyond the supply voltages. A gain of $-10$ on a 2 V input asks for $-20$ V, but on a $\\pm 12$ V supply the output saturates near $-12$ V instead.",
+            "**Using the virtual short without negative feedback.** $V_+ = V_-$ only holds when the output is fed back to the inverting input. Without feedback (a comparator), the output just swings to a rail."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Ideal op-amp circuits (inverting, non-inverting, summing, and the follower) are standard Analog Circuits questions in GATE EC, EE and IN, and appear in first-year Basic Electronics. Op-amps are not in the JEE Main or NEET syllabus.",
+    "countdowns": ["gate-2027"]
+  },
+  "related": {
+    "intro": "An op-amp is itself built from biased transistor stages internally, though it's normally treated as a single ideal block rather than analyzed transistor by transistor.",
+    "links": [
+      {
+        "label": "Transistor Biasing",
+        "href": "/resources/transistor-biasing"
+      },
+      {
+        "label": "Thevenin's and Norton's Theorems",
+        "href": "/resources/thevenin-norton-theorems"
+      }
+    ]
+  }
+}

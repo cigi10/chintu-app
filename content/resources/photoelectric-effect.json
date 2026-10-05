@@ -1,0 +1,118 @@
+{
+  "slug": "photoelectric-effect",
+  "datePublished": "2026-09-25T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "Einstein's photoelectric equation",
+      "blocks": [
+        {
+          "p": "When light hits a metal surface, each photon can knock out at most one electron, and only if the photon carries enough energy to first overcome the metal's **work function** $\\phi$, the minimum energy binding an electron to the surface. Whatever energy is left over becomes the electron's kinetic energy:"
+        },
+        {
+          "math": "h\\nu = \\phi + KE_{max}"
+        },
+        {
+          "p": "where $h\\nu$ is the photon's energy ($h$ is Planck's constant, $6.626\\times10^{-34}$ J·s). Below the **threshold frequency** $\\nu_0 = \\phi/h$, no electrons are emitted at all, no matter how intense the light is, a single low-energy photon still can't individually clear the work function."
+        },
+        {
+          "p": "The **stopping potential** $V_0$ is the reverse voltage that just stops the fastest electrons, so it measures $KE_{max}$ directly: $eV_0 = KE_{max}$. In electron-volts, the two are the same number."
+        }
+      ]
+    },
+    {
+      "heading": "What depends on what",
+      "blocks": [
+        {
+          "p": "Most photoelectric questions test which quantity responds to which change. The particle picture explains every row:"
+        },
+        {
+          "table": {
+            "caption": "Effect of changing the light, for a fixed metal",
+            "columns": ["Change", "$KE_{max}$ and stopping potential", "Photocurrent"],
+            "rows": [
+              ["Higher intensity, same frequency", "No change", "Increases (more photons, more electrons)"],
+              ["Higher frequency, same intensity", "Increases", "Saturation current unchanged in the standard NCERT treatment"],
+              ["Frequency below $\\nu_0$", "No emission", "Zero, at any intensity"]
+            ]
+          }
+        },
+        {
+          "p": "Emission also starts with no measurable delay, even in dim light, because each electron is freed by a single photon rather than by energy slowly building up."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Sodium has a work function of 2.3 eV. Light of wavelength 400 nm shines on it. Find the maximum kinetic energy of the emitted electrons, the stopping potential, and the threshold wavelength above which no electrons are emitted."
+        },
+        {
+          "p": "**Solution:** Working in electron-volts and nanometres, photon energy is $E = hc/\\lambda$, and $hc \\approx 1240\\text{ eV}\\cdot\\text{nm}$ is a convenient constant to keep on hand:"
+        },
+        {
+          "math": "E = \\dfrac{1240}{400} = 3.1\\text{ eV}"
+        },
+        {
+          "p": "Subtracting the work function gives the maximum kinetic energy:"
+        },
+        {
+          "math": "KE_{max} = E - \\phi = 3.1 - 2.3 = 0.8\\text{ eV}"
+        },
+        {
+          "p": "So the stopping potential is $V_0 = 0.8$ V. The threshold wavelength is where $KE_{max}=0$: the photon energy exactly equals the work function:"
+        },
+        {
+          "math": "\\lambda_0 = \\dfrac{hc}{\\phi} = \\dfrac{1240}{2.3} \\approx 539\\text{ nm}"
+        },
+        {
+          "p": "Any wavelength longer than this (lower photon energy) produces no photoelectrons at all from sodium, regardless of the light's intensity."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: work function from a stopping potential",
+      "blocks": [
+        {
+          "p": "Light of wavelength 400 nm falls on a metal and the stopping potential is found to be 1.0 V. Find the metal's work function and threshold wavelength."
+        },
+        {
+          "p": "**Solution:** The photon energy is again $\\dfrac{1240}{400} = 3.1$ eV, and $KE_{max} = eV_0 = 1.0$ eV:"
+        },
+        {
+          "math": "\\phi = 3.1 - 1.0 = 2.1\\text{ eV}, \\qquad \\lambda_0 = \\dfrac{1240}{2.1} \\approx 590\\text{ nm}"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Getting the threshold direction backwards.** No emission happens *above* the threshold wavelength (below the threshold frequency). Longer wavelength means less energy per photon.",
+            "**Expecting brighter light to give faster electrons.** Intensity changes how many electrons come out, not how fast the fastest ones are.",
+            "**Mixing joules and electron-volts.** $hc = 1240$ eV·nm only works with $\\lambda$ in nm and energies in eV. With $h = 6.626\\times10^{-34}$ J·s, use metres and joules throughout.",
+            "**Treating $KE_{max}$ as every electron's energy.** It's the maximum. Electrons from deeper in the metal lose some energy on the way out and leave slower."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The photoelectric effect is the core of Dual Nature of Matter and Radiation in the JEE Main and NEET Physics syllabus, including Einstein's equation, stopping potential and the graphs of photocurrent against voltage and stopping potential against frequency. JEE Advanced questions often add a second step, such as combining it with de Broglie wavelength.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"]
+  },
+  "related": {
+    "intro": "The photoelectric effect treats light as particles; the de Broglie relation runs the same idea in reverse, treating particles like electrons as waves.",
+    "links": [
+      {
+        "label": "de Broglie Wavelength and Matter Waves",
+        "href": "/resources/de-broglie-wavelength"
+      },
+      {
+        "label": "Wave Optics: Young's Double Slit Experiment",
+        "href": "/resources/wave-optics-youngs-double-slit"
+      }
+    ]
+  }
+}

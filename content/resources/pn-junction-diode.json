@@ -1,0 +1,129 @@
+{
+  "slug": "pn-junction-diode",
+  "datePublished": "2026-09-24T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The junction and the depletion region",
+      "blocks": [
+        {
+          "p": "A PN junction diode is formed where P-type semiconductor (extra positive charge carriers, or \"holes\") meets N-type semiconductor (extra electrons). Right at the junction, electrons and holes diffuse across and cancel each other out, leaving a thin **depletion region** with no free charge carriers, and a small built-in electric field that opposes any further diffusion, holding the junction in equilibrium."
+        },
+        {
+          "p": "The depletion region isn't empty: it holds fixed ions (negative on the P side, positive on the N side) left behind by the carriers that recombined. Those ions are what create the built-in field and the **barrier potential**, about 0.7 V for silicon and 0.3 V for germanium."
+        }
+      ]
+    },
+    {
+      "heading": "Forward bias vs. reverse bias",
+      "blocks": [
+        {
+          "p": "**Forward bias** connects the positive terminal of a source to the P-side. This pushes against the built-in field, narrows the depletion region, and once the applied voltage exceeds a threshold (around 0.7V for silicon), current flows easily and grows rapidly with voltage."
+        },
+        {
+          "p": "**Reverse bias** connects the positive terminal to the N-side instead. This widens the depletion region and reinforces the built-in field, blocking current almost entirely: only a tiny leakage current flows, largely independent of voltage until breakdown."
+        },
+        {
+          "table": {
+            "caption": "Forward and reverse bias compared",
+            "columns": ["", "Forward bias", "Reverse bias"],
+            "rows": [
+              ["P side connected to", "Positive terminal", "Negative terminal"],
+              ["Depletion region", "Narrows", "Widens"],
+              ["Current", "Large, rises steeply past about 0.7 V (Si)", "Tiny (μA or less) until breakdown"],
+              ["Carried mainly by", "Majority carriers", "Minority carriers"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "The diode equation",
+      "blocks": [
+        {
+          "p": "The current through a diode as a function of the voltage across it is:"
+        },
+        {
+          "math": "I = I_0\\left(e^{V/\\eta V_T} - 1\\right)"
+        },
+        {
+          "p": "where $I_0$ is the small reverse saturation current, $\\eta$ is an ideality factor (1 for an ideal diode), and $V_T = kT/q$ is the thermal voltage, about 26 mV at room temperature. Under forward bias, the exponential term dominates and the $-1$ becomes negligible."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the \"60mV per decade\" rule",
+      "blocks": [
+        {
+          "p": "For an ideal diode ($\\eta=1$) at room temperature, by what factor does the current increase when the forward voltage rises from 0.60V to 0.66V?"
+        },
+        {
+          "p": "**Solution:** Since forward current is approximately $I \\approx I_0 e^{V/V_T}$, the ratio between two currents depends only on the voltage difference:"
+        },
+        {
+          "math": "\\dfrac{I_2}{I_1} = e^{(V_2-V_1)/V_T} = e^{0.06/0.026} = e^{2.31}"
+        },
+        {
+          "p": "which works out to about **10**, a 60 mV increase in forward voltage multiplies the current roughly tenfold. This is exactly why a diode's forward voltage barely moves even as the current through it changes by orders of magnitude: the relationship is logarithmic, not linear."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a diode in a simple circuit",
+      "blocks": [
+        {
+          "p": "A 5 V supply, a 1 kΩ resistor and a silicon diode are connected in series. Find the current when the diode is forward biased, and when it is reversed."
+        },
+        {
+          "p": "**Solution:** In circuit problems a forward-biased silicon diode is usually modelled as a fixed 0.7 V drop. KVL around the loop gives:"
+        },
+        {
+          "math": "I = \\dfrac{5 - 0.7}{1000} = 4.3\\text{ mA}"
+        },
+        {
+          "p": "Reversed, the diode blocks: the current is essentially zero, so there is no drop across the resistor and the full 5 V appears across the diode."
+        }
+      ]
+    },
+    {
+      "heading": "The diode as a rectifier",
+      "blocks": [
+        {
+          "p": "Because a diode conducts in one direction only, it turns AC into pulsating DC. A **half-wave rectifier** (one diode) passes only the positive half-cycles. A **full-wave rectifier** (two diodes with a centre-tapped transformer, or a four-diode bridge) flips the negative half-cycles too."
+        },
+        {
+          "p": "That changes the ripple frequency of the output. From a 50 Hz mains supply, a half-wave rectifier's output repeats at 50 Hz, while a full-wave rectifier's output repeats at 100 Hz, which is easier to smooth with a capacitor."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Using 0.7 V for every diode.** That's silicon. Germanium is about 0.3 V, and an ideal diode in a question means 0 V drop.",
+            "**Saying the reverse current is exactly zero.** A small, nearly constant leakage current flows until breakdown. It's zero only in the ideal model.",
+            "**Mixing up which way the depletion region changes.** Forward bias *narrows* it and reverse bias *widens* it.",
+            "**Giving the full-wave ripple frequency as 50 Hz.** Full-wave output pulses twice per input cycle, so it's twice the supply frequency."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The PN junction is in the Semiconductor Electronics unit of both JEE Main and NEET: I-V characteristics in forward and reverse bias, the diode as a rectifier, and special diodes like the Zener, LED and photodiode. In GATE EC it sits under Electronic Devices, where the diode equation and depletion region are tested in more depth.",
+    "countdowns": ["jee-2027", "neet-2027", "gate-2027"]
+  },
+  "related": {
+    "intro": "A diode is a non-linear component sitting inside an otherwise linear circuit. Kirchhoff's laws still apply to the rest of the loop around it, and two PN junctions back to back make a transistor.",
+    "links": [
+      {
+        "label": "Kirchhoff's Current and Voltage Laws",
+        "href": "/resources/kirchhoffs-laws"
+      },
+      {
+        "label": "Transistor Biasing",
+        "href": "/resources/transistor-biasing"
+      }
+    ]
+  }
+}
