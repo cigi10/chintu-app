@@ -7,10 +7,10 @@ import "@/styles/blog.css";
 
 export const metadata = {
   title: "Complex Numbers - Studyloaf",
-  description: "What complex numbers are, the modulus-argument form, conjugates and arithmetic, plus the mathematical constants e, i, √2 and π, including powers of i.",
+  description: "What complex numbers are, the modulus-argument form, conjugates, arithmetic on complex numbers, and how to find any power of i, with worked examples.",
   openGraph: {
     title: "Complex Numbers - Studyloaf",
-    description: "What complex numbers are, the modulus-argument form, conjugates and arithmetic, plus the mathematical constants e, i, √2 and π, including powers of i.",
+    description: "What complex numbers are, the modulus-argument form, conjugates, arithmetic on complex numbers, and how to find any power of i, with worked examples.",
   },
   alternates: { canonical: "/resources/complex-numbers" },
 };
@@ -23,7 +23,7 @@ export default function ComplexNumbersPage() {
         "@context": "https://schema.org",
         "@type": ["Article", "LearningResource"],
         headline: "Complex Numbers",
-        description: "What complex numbers are, the modulus-argument form, conjugates and arithmetic, plus the mathematical constants e, i, √2 and π, including powers of i.",
+        description: "What complex numbers are, the modulus-argument form, conjugates, arithmetic on complex numbers, and how to find any power of i, with worked examples.",
         datePublished: "2026-09-17",
         author: { "@type": "Organization", name: "Studyloaf Team" },
       }} />
@@ -83,13 +83,7 @@ export default function ComplexNumbersPage() {
           </div>
 
           <div className="blog-post-section">
-            <h2 className="blog-post-heading">Mathematical Constants: e, i, √2, and π</h2>
-            <p className="blog-post-p">
-              The imaginary unit is one of four constants that turn up across school and JEE maths.
-              Euler&apos;s identity, <Katex>{"e^{i\\pi} + 1 = 0"}</Katex>, links three of them in a
-              single line. Here is what each one is, starting with <Katex>{"i"}</Katex> itself.
-            </p>
-            <h3 className="blog-post-subheading">The imaginary unit, i</h3>
+            <h2 className="blog-post-heading">Powers of i</h2>
             <p className="blog-post-p">
               <Katex>{"i"}</Katex> is defined by <Katex>{"i = \\sqrt{-1}"}</Katex>, so{" "}
               <Katex>{"i^2 = -1"}</Katex>. Higher powers of <Katex>{"i"}</Katex> repeat with a
@@ -109,24 +103,6 @@ export default function ComplexNumbersPage() {
               <Katex>{"i^{-1}=\\tfrac{1}{i}=-i"}</Katex>:
             </p>
             <Katex display>{"i^{-1}=-i, \\quad i^{-2}=-1, \\quad i^{-3}=i, \\quad i^{-4}=1"}</Katex>
-            <h3 className="blog-post-subheading">Euler&apos;s number, e</h3>
-            <p className="blog-post-p">
-              <Katex>{"e \\approx 2.71828\\ldots"}</Katex> is an irrational number that shows up
-              constantly in growth and decay, including continuously compounded interest. One way
-              to define it is as an infinite sum:
-            </p>
-            <Katex display>{"e = \\sum_{n=0}^{\\infty} \\dfrac{1}{n!} = \\dfrac{1}{0!} + \\dfrac{1}{1!} + \\dfrac{1}{2!} + \\cdots"}</Katex>
-            <h3 className="blog-post-subheading">Pythagoras&apos; constant, √2</h3>
-            <p className="blog-post-p">
-              <Katex>{"\\sqrt{2} \\approx 1.41421\\ldots"}</Katex> is the diagonal length of a unit
-              square, and was the first number ever proven irrational.
-            </p>
-            <h3 className="blog-post-subheading">Archimedes&apos; constant, π</h3>
-            <p className="blog-post-p">
-              <Katex>{"\\pi"}</Katex> is the ratio of a circle&apos;s circumference to its
-              diameter, for <em>every</em> circle regardless of size:
-            </p>
-            <Katex display>{"\\pi = \\dfrac{C}{d} = \\dfrac{C}{2r} \\approx 3.14159\\ldots"}</Katex>
           </div>
 
           <div className="blog-post-related">
