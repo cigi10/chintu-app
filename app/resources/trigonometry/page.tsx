@@ -185,7 +185,7 @@ export default function TrigonometryPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Trigonometry: Solved Examples</h2>
             <p className="blog-post-p">
-              Seven worked examples on the standard question types: ratios from one given ratio, identities, standard-angle values, co-function identities and product-to-sum.
+              Seven worked examples, one per question type: ratios from one given ratio, identities, standard-angle values, co-function identities and product-to-sum.
             </p>
             <h3 className="blog-post-subheading">Finding all ratios from one</h3>
             <p className="blog-post-p">

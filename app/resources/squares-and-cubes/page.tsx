@@ -53,9 +53,8 @@ export default function SquaresAndCubesPage() {
 
           <div className="blog-post-section">
             <p className="blog-post-p">
-              Knowing squares and cubes by heart saves time on arithmetic-heavy questions in exams
-              like JEE, GATE, and general aptitude tests. This page lists squares from 1 to 30 and
-              cubes from 1 to 20.
+              Knowing squares and cubes by heart saves time on any arithmetic-heavy question. This
+              page lists squares from 1 to 30 and cubes from 1 to 20.
             </p>
           </div>
 
@@ -137,8 +136,8 @@ export default function SquaresAndCubesPage() {
             </p>
             <Katex display>{"\\sqrt[3]{474552} = 78"}</Katex>
             <p className="blog-post-p">
-              This only works for numbers you know are perfect cubes, which is how these questions are
-              set in aptitude tests.
+              This only works when you know the number is a perfect cube. For any other number the
+              method still produces an answer, just a wrong one, with no warning.
             </p>
           </div>
         </article>

@@ -140,7 +140,7 @@
     }
   ],
   "related": {
-    "intro": "Every trigonometric identity and every calculus result about $\\sin x$ and $\\cos x$ assumes radians, which is why they become the default from Class 11 on.",
+    "intro": "Every trigonometric identity and every calculus result about $\\sin x$ and $\\cos x$ assumes radians, which is why calculus and most of trigonometry work in radians.",
     "links": [
       {
         "label": "Trigonometry Basics",

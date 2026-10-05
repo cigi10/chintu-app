@@ -203,7 +203,7 @@ export default function QuadraticEquationsPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Quadratic Equations: Solved Examples</h2>
             <p className="blog-post-p">
-              These work through the standard board-exam question types one at a time: checking whether an equation is quadratic, setting one up from a word problem, solving it, and reading the nature of its roots.
+              These work through the main question types one at a time: checking whether an equation is quadratic, setting one up from a word problem, solving it, and reading the nature of its roots.
             </p>
             <h3 className="blog-post-subheading">Is it actually quadratic?</h3>
             <p className="blog-post-p">

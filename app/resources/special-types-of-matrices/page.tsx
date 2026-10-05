@@ -73,7 +73,7 @@ export default function SpecialTypesOfMatricesPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Finding Missing Values in a Matrix</h2>
             <p className="blog-post-p">
-              The definitions above are exactly what unknown-entry questions test: a stated matrix type, or an equation between determinants, pins down each missing value.
+              The definitions above are what let you find unknown entries: a stated matrix type, or an equation between determinants, pins down each missing value.
             </p>
             <h3 className="blog-post-subheading">Worked example: using a stated property</h3>
             <p className="blog-post-p">
