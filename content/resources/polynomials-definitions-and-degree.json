@@ -1,0 +1,139 @@
+{
+  "slug": "polynomials-definitions-and-degree",
+  "datePublished": "2026-09-23T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "What makes an expression a polynomial",
+      "blocks": [
+        {
+          "p": "A polynomial is an algebraic expression where every variable is raised only to a non-negative whole-number power. That single rule is what disqualifies some expressions that otherwise look similar:"
+        },
+        {
+          "list": [
+            "$4x^2 - 15x + 9$ is a polynomial (powers 2, 1, 0, all non-negative whole numbers).",
+            "$5x + 2y^{-1} - 120$ is *not* a polynomial: $y$ has a negative power.",
+            "$y^{6/7} + 2z - \\tfrac{1}{2}$ is *not* a polynomial: $6/7$ isn't a whole number.",
+            "$\\sqrt{x} + 1$ and $\\dfrac{1}{x} + x$ are *not* polynomials either: $\\sqrt{x} = x^{1/2}$ and $\\dfrac{1}{x} = x^{-1}$."
+          ]
+        },
+        {
+          "p": "The coefficients can be any numbers, including fractions and surds: $\\sqrt{2}x^2 + \\tfrac{1}{3}$ is a polynomial. Only the *powers of the variable* are restricted."
+        }
+      ]
+    },
+    {
+      "heading": "Monomial, binomial, trinomial",
+      "blocks": [
+        {
+          "p": "The parts of a polynomial separated by $+$ or $-$ are its **terms**. The number of terms names the expression:"
+        },
+        {
+          "list": [
+            "**Monomial**: one term, e.g. $5z$ or $4x^2$.",
+            "**Binomial**: two terms, e.g. $3p - 2q$.",
+            "**Trinomial**: three terms, e.g. $4x^2 + 6x + 7$."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Finding the degree",
+      "blocks": [
+        {
+          "p": "In one variable, the degree is just the highest power present. With multiple variables, add the exponents *within* each term, then take the highest total across all terms."
+        },
+        {
+          "p": "**Worked example:** find the degree of $5x^2y^3 + 2x^2y^2 - 8xy$."
+        },
+        {
+          "p": "Add exponents within each term:"
+        },
+        {
+          "math": "5x^2y^3: 2+3=5, \\qquad 2x^2y^2: 2+2=4, \\qquad -8xy: 1+1=2"
+        },
+        {
+          "p": "The highest total is 5, so the polynomial has degree **5**."
+        }
+      ]
+    },
+    {
+      "heading": "Polynomials named by degree",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Degrees of polynomials and their names",
+            "columns": ["Degree", "Name", "Example"],
+            "rows": [
+              ["0", "Constant", "$7$"],
+              ["1", "Linear", "$3x - 2$"],
+              ["2", "Quadratic", "$x^2 - 5x + 6$"],
+              ["3", "Cubic", "$2x^3 + x - 1$"],
+              ["4", "Biquadratic (quartic)", "$x^4 - 16$"]
+            ]
+          }
+        },
+        {
+          "p": "A non-zero constant like 7 has degree 0, because $7 = 7x^0$. The **zero polynomial** (just 0) is the exception: its degree is left undefined, since $0 = 0x^5 = 0x^{100}$ fits any power."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the degree of a product",
+      "blocks": [
+        {
+          "p": "Find the degree of $(x^2 + 1)(x^3 - 2x)$ without fully expanding it."
+        },
+        {
+          "p": "**Solution:** The highest-power term of the product comes from multiplying the highest-power terms of each factor, $x^2 \\cdot x^3 = x^5$, and nothing else can cancel it. So the degree is $2 + 3 = $ **5**. Expanding confirms it: $x^5 - 2x^3 + x^3 - 2x = x^5 - x^3 - 2x$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the value of a polynomial",
+      "blocks": [
+        {
+          "p": "Find $p(2)$ and $p(-1)$ for $p(x) = x^3 - 2x + 1$."
+        },
+        {
+          "p": "**Solution:** Substitute each value for $x$:"
+        },
+        {
+          "math": "p(2) = 8 - 4 + 1 = 5, \\qquad p(-1) = -1 + 2 + 1 = 2"
+        },
+        {
+          "p": "A value of $x$ that makes $p(x) = 0$ is called a **zero** of the polynomial, which is where the next topic picks up."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Taking the single largest exponent in several variables.** In $5x^2y^3$ the degree is $2 + 3 = 5$, not 3.",
+            "**Calling $\\sqrt{x}$ or $\\dfrac{1}{x}$ terms polynomial.** They're powers $\\tfrac{1}{2}$ and $-1$, which aren't allowed. A surd *coefficient* like $\\sqrt{2}x$ is fine.",
+            "**Saying a constant has no degree.** A non-zero constant has degree 0. Only the zero polynomial's degree is undefined.",
+            "**Reading the degree before simplifying.** $(x^2 + x) - x^2$ looks quadratic but simplifies to $x$, which has degree 1."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "This is the opening of the Polynomials chapter in Class 9 and 10 maths, and the definitions come up as one-mark board questions. For JEE they're assumed background for the theory of equations, where the degree tells you how many roots to look for.",
+    "countdowns": ["jee-2027"]
+  },
+  "related": {
+    "intro": "Once you can identify a polynomial and its degree, finding its zeroes and dividing one polynomial by another build directly on these same definitions.",
+    "links": [
+      {
+        "label": "Polynomials: Zeroes and Coefficients",
+        "href": "/resources/polynomials-zeroes-and-coefficients"
+      },
+      {
+        "label": "Polynomial Division Algorithm",
+        "href": "/resources/polynomial-division-algorithm"
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "slug": "prime-numbers",
+  "datePublished": "2026-09-23T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The definition, and two common exceptions",
+      "blocks": [
+        {
+          "p": "A **prime number** is a natural number greater than 1 whose only positive divisors are 1 and itself. A number greater than 1 that isn't prime is **composite**."
+        },
+        {
+          "p": "**0 is neither prime nor composite**: every number times 0 is 0, so 0 would have infinitely many factors, and primality requires a finite, specific set of divisors."
+        },
+        {
+          "p": "**1 is also neither**: a prime needs exactly two distinct divisors (1 and itself), but 1's only divisor is 1 itself, just one."
+        },
+        {
+          "p": "**2 is the only even prime.** Every other even number has 2 as a divisor as well as 1 and itself."
+        }
+      ]
+    },
+    {
+      "heading": "Prime numbers up to 100",
+      "blocks": [
+        {
+          "p": "There are 25 primes below 100:"
+        },
+        {
+          "table": {
+            "caption": "The 25 primes below 100, by tens",
+            "columns": ["Range", "Primes", "Count"],
+            "rows": [
+              ["1 to 10", "2, 3, 5, 7", "4"],
+              ["11 to 20", "11, 13, 17, 19", "4"],
+              ["21 to 30", "23, 29", "2"],
+              ["31 to 40", "31, 37", "2"],
+              ["41 to 50", "41, 43, 47", "3"],
+              ["51 to 60", "53, 59", "2"],
+              ["61 to 70", "61, 67", "2"],
+              ["71 to 80", "71, 73, 79", "3"],
+              ["81 to 90", "83, 89", "2"],
+              ["91 to 100", "97", "1"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: checking primality",
+      "blocks": [
+        {
+          "p": "Is $91$ prime?"
+        },
+        {
+          "p": "**Solution:** It's enough to test divisibility by every prime up to $\\sqrt{91} \\approx 9.5$ (2, 3, 5, and 7), since any factor larger than the square root would have to pair with one smaller than it, already caught. $91$ is odd (not divisible by 2), its digit sum 10 isn't divisible by 3, it doesn't end in 0 or 5 (not divisible by 5), but $91 = 7 \\times 13$, so **91 is composite**, not prime."
+        },
+        {
+          "p": "Compare 97: $\\sqrt{97} \\approx 9.8$, and none of 2, 3, 5 or 7 divides it, so **97 is prime**."
+        }
+      ]
+    },
+    {
+      "heading": "Prime factorization and distinct prime factors",
+      "blocks": [
+        {
+          "p": "The **Fundamental Theorem of Arithmetic** says every composite number can be written as a product of primes in exactly one way, apart from the order of the factors. The primes that appear are its **prime divisors** (or prime factors); counted once each, they are its **distinct** prime factors."
+        },
+        {
+          "p": "**Example:** factorize 360 and list its distinct prime factors."
+        },
+        {
+          "p": "**Solution:** Keep dividing by the smallest prime that works: $360 = 2 \\times 180 = 2^2 \\times 90 = 2^3 \\times 45 = 2^3 \\times 3^2 \\times 5$."
+        },
+        {
+          "math": "360 = 2^3 \\times 3^2 \\times 5"
+        },
+        {
+          "p": "Its distinct prime factors are 2, 3 and 5: three of them, even though six primes multiply together to make 360. The exponents also give its number of divisors: $(3+1)(2+1)(1+1) = 24$."
+        }
+      ]
+    },
+    {
+      "heading": "Twin primes",
+      "blocks": [
+        {
+          "p": "A pair of primes exactly 2 apart is called a **twin prime** pair, like $(17, 19)$ or $(29, 31)$. The very first few pairs are $(3,5), (5,7), (11,13), (17,19), (29,31), (41,43)$."
+        }
+      ]
+    },
+    {
+      "heading": "Co-prime numbers",
+      "blocks": [
+        {
+          "p": "Two numbers are **co-prime** when their HCF is 1, meaning they share no prime factor. Neither has to be prime itself: $8 = 2^3$ and $15 = 3 \\times 5$ are co-prime. Any two different primes are always co-prime."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Calling 1 a prime.** It has only one divisor. The smallest prime is 2.",
+            "**Trusting numbers that look prime.** 51 ($3 \\times 17$), 57 ($3 \\times 19$) and 91 ($7 \\times 13$) are the usual traps. Test every prime up to the square root.",
+            "**Stopping before the square root.** You need every prime up to $\\sqrt{n}$ and no further: 2, 3, 5 and 7 settle 97, but skipping 7 for 91 would miss its factor.",
+            "**Mixing up distinct and repeated prime factors.** 360 has three distinct prime factors (2, 3, 5), but six prime factors counted with repetition.",
+            "**Thinking co-prime means both numbers are prime.** 8 and 15 are co-prime and neither is prime."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Primes and the Fundamental Theorem of Arithmetic open the Real Numbers chapter in Class 10 boards. Prime factorization, number of divisors and co-primes are also staples of quantitative aptitude, including the General Aptitude section every GATE paper carries.",
+    "countdowns": ["gate-2027"]
+  },
+  "related": {
+    "intro": "Prime factorization is exactly the tool both divisibility rules and HCF/LCM calculations are built on, and the divisor count above has its own page.",
+    "links": [
+      {
+        "label": "Divisibility Rules",
+        "href": "/resources/divisibility-rules"
+      },
+      {
+        "label": "Real Numbers: HCF and LCM",
+        "href": "/resources/real-numbers-hcf-lcm"
+      },
+      {
+        "label": "Finding the Number of Factors of a Number",
+        "href": "/resources/finding-the-number-of-factors"
+      }
+    ]
+  }
+}

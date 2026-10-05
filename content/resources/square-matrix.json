@@ -1,0 +1,152 @@
+{
+  "slug": "square-matrix",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "What a square matrix is",
+      "blocks": [
+        {
+          "p": "A **square matrix** has the same number of rows and columns, $n \\times n$. Only square matrices have a determinant, an inverse, a **main diagonal** (the entries $a_{11}, a_{22}, \\ldots, a_{nn}$) and a **trace** (the sum of that diagonal)."
+        }
+      ]
+    },
+    {
+      "heading": "The square of a matrix",
+      "blocks": [
+        {
+          "p": "$A^2$ means $A \\times A$ using matrix multiplication (each entry is a row of $A$ times a column of $A$), not squaring each entry. It's only defined for square matrices, since the number of columns of the first factor must match the rows of the second."
+        },
+        {
+          "p": "**Example:** find $A^2$ for $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$."
+        },
+        {
+          "math": "A^2 = \\begin{bmatrix} 1\\cdot1 + 2\\cdot3 & 1\\cdot2 + 2\\cdot4 \\\\ 3\\cdot1 + 4\\cdot3 & 3\\cdot2 + 4\\cdot4 \\end{bmatrix} = \\begin{bmatrix} 7 & 10 \\\\ 15 & 22 \\end{bmatrix}"
+        },
+        {
+          "p": "Squaring each entry instead would give $\\begin{bmatrix} 1 & 4 \\\\ 9 & 16 \\end{bmatrix}$, which is a different (and wrong) answer."
+        }
+      ]
+    },
+    {
+      "heading": "Scaling a determinant",
+      "blocks": [
+        {
+          "p": "Multiplying every entry of an $n \\times n$ matrix by a constant $k$ scales the determinant by $k^n$, not just $k$:"
+        },
+        {
+          "math": "|kA| = k^n|A|"
+        },
+        {
+          "p": "If $A$ is a $3\\times3$ matrix with $|A|=5$, then $|2A| = 2^3(5) = 40$."
+        }
+      ]
+    },
+    {
+      "heading": "Determinant properties of square matrices",
+      "blocks": [
+        {
+          "table": {
+            "caption": "For n × n matrices A and B",
+            "columns": ["Property", "Result"],
+            "rows": [
+              ["Scalar multiple", "$|kA| = k^n|A|$"],
+              ["Product", "$|AB| = |A||B|$"],
+              ["Transpose", "$|A^T| = |A|$"],
+              ["Inverse (when $|A| \\neq 0$)", "$|A^{-1}| = \\dfrac{1}{|A|}$"],
+              ["Adjoint", "$A(\\text{adj }A) = (\\text{adj }A)A = |A|\\,I$"],
+              ["Determinant of the adjoint", "$|\\text{adj }A| = |A|^{n-1}$"]
+            ]
+          }
+        },
+        {
+          "p": "**Example:** $A$ is $3 \\times 3$ with $|A| = 4$. Then $|\\text{adj }A| = 4^{2} = 16$, $|A^{-1}| = \\dfrac{1}{4}$ and $|3A| = 3^3 \\times 4 = 108$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: an idempotent matrix",
+      "blocks": [
+        {
+          "p": "If $A$ is a square matrix with $A^2 = A$ (called **idempotent**), simplify $(I-A)^3 + A$."
+        },
+        {
+          "p": "**Solution:** First find $(I-A)^2$:"
+        },
+        {
+          "math": "(I-A)^2 = I - 2A + A^2 = I - 2A + A = I - A"
+        },
+        {
+          "p": "So squaring $(I-A)$ gives back $(I-A)$ itself: $(I-A)$ is idempotent too. That means:"
+        },
+        {
+          "math": "(I-A)^3 = (I-A)^2(I-A) = (I-A)(I-A) = I-A"
+        },
+        {
+          "p": "So $(I-A)^3 + A = (I-A) + A = I$."
+        }
+      ]
+    },
+    {
+      "heading": "Building a matrix from a formula",
+      "blocks": [
+        {
+          "p": "For a $2\\times2$ matrix $A = [a_{ij}]$ where $a_{ij} = \\dfrac{i}{j}$, find $A$."
+        },
+        {
+          "p": "**Solution:** Compute each entry directly from its row/column index:"
+        },
+        {
+          "math": "a_{11}=\\dfrac{1}{1}=1,\\quad a_{12}=\\dfrac{1}{2},\\quad a_{21}=\\dfrac{2}{1}=2,\\quad a_{22}=\\dfrac{2}{2}=1"
+        },
+        {
+          "math": "A = \\begin{bmatrix} 1 & \\frac{1}{2} \\\\ 2 & 1 \\end{bmatrix}"
+        }
+      ]
+    },
+    {
+      "heading": "A singular matrix and its system of equations",
+      "blocks": [
+        {
+          "p": "For a matrix equation $AX=B$ with square matrix $A$:"
+        },
+        {
+          "list": [
+            "If $|A| \\neq 0$, the system has exactly one solution, $X = A^{-1}B$.",
+            "If $|A|=0$ (A is singular) and $(\\text{adj }A)B \\ne O$, the system has **no solution** at all: it's inconsistent.",
+            "If $|A| = 0$ and $(\\text{adj }A)B = O$, the test doesn't decide. The system may have infinitely many solutions or none, so it has to be checked directly, for example by elimination."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Squaring each entry.** $A^2$ is $A$ multiplied by itself as matrices, as the example above shows.",
+            "**Writing $|kA| = k|A|$.** Each of the $n$ rows picks up a factor of $k$, so it's $k^n|A|$.",
+            "**Assuming $AB = BA$.** Matrix multiplication isn't commutative, so $(A + B)^2 = A^2 + AB + BA + B^2$, not $A^2 + 2AB + B^2$.",
+            "**Treating $(\\text{adj }A)B = O$ as \"infinitely many solutions\".** With $|A| = 0$ it can also mean no solution."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Matrices and determinants are a full chapter of JEE Main and Class 12 boards: determinant properties, the adjoint and inverse, and solving systems by the matrix method all appear regularly. JEE Advanced adds questions on idempotent, nilpotent and other special square matrices like the one above.",
+    "countdowns": ["jee-2027", "jee-advanced-2027"]
+  },
+  "related": {
+    "intro": "Whether a matrix is singular is exactly what decides whether a system of equations solved by the matrix method has a unique solution in the first place.",
+    "links": [
+      {
+        "label": "Solving a System of Equations with Matrices",
+        "href": "/resources/matrices-system-of-equations"
+      },
+      {
+        "label": "Special Types of Matrices",
+        "href": "/resources/special-types-of-matrices"
+      }
+    ]
+  }
+}
