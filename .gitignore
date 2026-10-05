@@ -43,3 +43,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Search Console exports used for local analysis only (Phase 0)
+/data/
+
+# Maths review notes for the site owner, not part of the app or the site
+/docs/phase0-review.md
