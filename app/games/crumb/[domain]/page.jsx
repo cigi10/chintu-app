@@ -3,6 +3,7 @@ import CrumbGame from "@/components/CrumbGame";
 import ToolAbout from "@/components/ToolAbout";
 import { getWordGameDomain, getWordGameDomainSlugs } from "@/lib/wordGame";
 import { getCrumbPageContent } from "@/lib/toolPageContent";
+import { NOINDEX } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getWordGameDomainSlugs().map(domain => ({ domain }));
@@ -18,6 +19,11 @@ export async function generateMetadata({ params }) {
     description,
     openGraph: { title: `Crumb: ${domain.label} - Studyloaf`, description },
     alternates: { canonical: `/games/crumb/${domain.slug}` },
+    // Each domain's bank is only a handful of terms, and most of the page
+    // copy is shared across domains, so these stay out of search (and the
+    // sitemap) until the banks grow. /games/crumb itself stays indexed and
+    // links here, and these pages' own links are still followed.
+    robots: NOINDEX,
   };
 }
 

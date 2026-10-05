@@ -1,0 +1,169 @@
+{
+  "slug": "linear-equations",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "What makes an equation linear",
+      "blocks": [
+        {
+          "p": "A linear equation in one variable is one where the variable only appears to the first power: no $x^2$, no $\\sqrt{x}$, no $\\dfrac{1}{x}$. After simplifying, such an equation can be written as"
+        },
+        {
+          "math": "ax + b = 0 \\;\\Rightarrow\\; x = -\\dfrac{b}{a} \\quad (a \\neq 0)"
+        },
+        {
+          "p": "so whenever $a \\neq 0$ it has exactly one solution. If the $x$ terms cancel completely ($a = 0$), there is either no solution, as with $x + 1 = x + 2$, or every $x$ works, as with $x + 1 = x + 1$."
+        }
+      ]
+    },
+    {
+      "heading": "The four steps",
+      "blocks": [
+        {
+          "steps": [
+            "**Clear fractions** by multiplying *every* term on both sides by the LCM of the denominators.",
+            "**Expand brackets** and simplify each side.",
+            "**Collect** the variable terms on one side and the numbers on the other. A term changes sign when it crosses the equals sign.",
+            "**Divide** by the coefficient of $x$, then substitute back into the original equation to check."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the variable on both sides",
+      "blocks": [
+        {
+          "p": "Solve $3x - 5 = x + 7$."
+        },
+        {
+          "p": "**Solution:** Subtract $x$ from both sides and add 5 to both sides:"
+        },
+        {
+          "math": "3x - x = 7 + 5 \\;\\Rightarrow\\; 2x = 12 \\;\\Rightarrow\\; x = 6"
+        },
+        {
+          "p": "Check: $3(6) - 5 = 13$ and $6 + 7 = 13$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: an equation with mixed fractions",
+      "blocks": [
+        {
+          "p": "Solve $x - 2\\frac{1}{3} = 5\\frac{1}{2}$."
+        },
+        {
+          "p": "**Solution:** Isolate $x$ by adding $2\\frac{1}{3}$ to both sides:"
+        },
+        {
+          "math": "x = 5\\tfrac{1}{2} + 2\\tfrac{1}{3} = \\left(5+2\\right) + \\left(\\tfrac{1}{2}+\\tfrac{1}{3}\\right) = 7 + \\tfrac{3+2}{6} = 7\\tfrac{5}{6}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: fractions with the variable on top",
+      "blocks": [
+        {
+          "p": "Solve $\\dfrac{x-2}{3} + \\dfrac{x+1}{2} = 4$."
+        },
+        {
+          "p": "**Solution:** The LCM of 3 and 2 is 6. Multiply every term, including the 4, by 6:"
+        },
+        {
+          "math": "2(x-2) + 3(x+1) = 24 \\;\\Rightarrow\\; 2x - 4 + 3x + 3 = 24 \\;\\Rightarrow\\; 5x = 25 \\;\\Rightarrow\\; x = 5"
+        },
+        {
+          "p": "Check: $\\dfrac{3}{3} + \\dfrac{6}{2} = 1 + 3 = 4$."
+        }
+      ]
+    },
+    {
+      "heading": "Turning words into an equation",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Common phrases, with x as the unknown number",
+            "columns": ["Phrase", "Expression"],
+            "rows": [
+              ["A number increased by 5", "$x + 5$"],
+              ["5 less than a number", "$x - 5$"],
+              ["A number subtracted from 5", "$5 - x$"],
+              ["Twice a number", "$2x$"],
+              ["One fourth of a number", "$\\dfrac{x}{4}$"],
+              ["Three consecutive integers", "$x, \\; x+1, \\; x+2$"],
+              ["Age 12 years from now", "$x + 12$"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a word problem",
+      "blocks": [
+        {
+          "p": "One fourth of a number, added to one sixth of it, is 15. Find the number."
+        },
+        {
+          "p": "**Solution:** Let the number be $n$:"
+        },
+        {
+          "math": "\\dfrac{n}{4} + \\dfrac{n}{6} = 15"
+        },
+        {
+          "p": "Using a common denominator of 12: $\\dfrac{3n}{12} + \\dfrac{2n}{12} = \\dfrac{5n}{12} = 15$, so:"
+        },
+        {
+          "math": "n = \\dfrac{15 \\times 12}{5} = 36"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: an age problem",
+      "blocks": [
+        {
+          "p": "A father is three times as old as his son. In 12 years he will be twice as old as his son. Find their present ages."
+        },
+        {
+          "p": "**Solution:** Let the son be $x$ years old, so the father is $3x$. In 12 years they will be $x + 12$ and $3x + 12$:"
+        },
+        {
+          "math": "3x + 12 = 2(x + 12) \\;\\Rightarrow\\; 3x + 12 = 2x + 24 \\;\\Rightarrow\\; x = 12"
+        },
+        {
+          "p": "The son is 12 and the father is 36. Check: in 12 years they will be 24 and 48, and $48 = 2 \\times 24$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Multiplying only some terms by the LCM.** In the fractions example, forgetting to multiply the 4 by 6 gives $5x - 1 = 4$ and the wrong answer $x = 1$.",
+            "**Losing a minus sign across a bracket.** $-(x - 3)$ is $-x + 3$, not $-x - 3$.",
+            "**Writing \"5 less than x\" as $5 - x$.** It's $x - 5$. Read the phrase as \"start with x, then take 5 away\".",
+            "**Skipping the check.** Substituting the answer back into the original equation catches sign slips before they cost marks."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class IX syllabus opens its linear equations unit with a recall of linear equations in one variable, before moving on to equations in two variables.",
+    "countdowns": [],
+    "sources": ["cbse-9-10-2025-26"]
+  },
+  "related": {
+    "intro": "Linear equations are the entry point before quadratic equations, the same isolate-the-variable habit carries over once a squared term is involved. With two unknowns, you need two equations solved together.",
+    "links": [
+      {
+        "label": "Quadratic Equations",
+        "href": "/resources/quadratic-equations"
+      },
+      {
+        "label": "Pair of Linear Equations: Substitution and Elimination Methods",
+        "href": "/resources/pair-of-linear-equations-substitution-and-elimination"
+      }
+    ]
+  }
+}

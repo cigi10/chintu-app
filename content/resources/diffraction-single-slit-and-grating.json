@@ -1,0 +1,136 @@
+{
+  "slug": "diffraction-single-slit-and-grating",
+  "datePublished": "2026-09-25T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "A single slit produces minima where two slits produce maxima",
+      "blocks": [
+        {
+          "p": "This is the part that trips people up: for a single slit of width $a$, the condition $a\\sin\\theta = n\\lambda$ gives **dark** fringes, the opposite of the double-slit formula on [Young's Double Slit](/resources/wave-optics-youngs-double-slit), where the same-looking condition gives *bright* fringes. The reason: a single slit isn't two point sources interfering: it's infinitely many point sources across the slit width interfering with *each other*, and at these specific angles they cancel out in pairs."
+        },
+        {
+          "math": "\\text{Single-slit minima: } a\\sin\\theta = n\\lambda \\qquad (n = \\pm1, \\pm2, \\ldots)"
+        },
+        {
+          "p": "The central band between the first minima on either side is the **central maximum**, far brighter and wider than any of the side bands."
+        },
+        {
+          "p": "Its full width on a screen a distance $D$ away is the gap between the two first minima:"
+        },
+        {
+          "math": "w = \\dfrac{2\\lambda D}{a}"
+        },
+        {
+          "p": "The weaker secondary maxima sit roughly halfway between minima, at $a\\sin\\theta \\approx \\left(n + \\tfrac{1}{2}\\right)\\lambda$, and each is only half as wide as the central one."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: single-slit minimum",
+      "blocks": [
+        {
+          "p": "Light of wavelength 600 nm passes through a slit 0.2 mm wide. Find the angle to the first minimum, and its position on a screen 1.5 m away."
+        },
+        {
+          "p": "**Solution:** For the first minimum, $n=1$:"
+        },
+        {
+          "math": "\\sin\\theta = \\dfrac{\\lambda}{a} = \\dfrac{600\\times10^{-9}}{0.2\\times10^{-3}} = 3\\times10^{-3}"
+        },
+        {
+          "p": "For such a small angle, $\\sin\\theta \\approx \\theta$ in radians, and the position on screen is $y \\approx D\\sin\\theta$:"
+        },
+        {
+          "math": "y \\approx (1.5)(3\\times10^{-3}) = 4.5\\times10^{-3}\\text{ m} = 4.5\\text{ mm}"
+        },
+        {
+          "p": "The central maximum spans from $-4.5$ mm to $+4.5$ mm, so its width is $\\dfrac{2\\lambda D}{a} = 9$ mm."
+        }
+      ]
+    },
+    {
+      "heading": "Diffraction grating",
+      "blocks": [
+        {
+          "p": "A grating is many equally-spaced slits, spacing $d$ apart. Unlike a single slit, this produces sharp, bright **principal maxima**, the same form as the double-slit condition, just with far more slits reinforcing each other:"
+        },
+        {
+          "math": "d\\sin\\theta = n\\lambda"
+        },
+        {
+          "p": "Since $\\sin\\theta$ can't exceed 1, the highest order you can see is the largest whole number $n$ with $n < \\dfrac{d}{\\lambda}$. (If $\\dfrac{d}{\\lambda}$ were a whole number, that order would sit at $\\theta = 90^\\circ$, along the grating itself, and couldn't be seen.)"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: diffraction grating",
+      "blocks": [
+        {
+          "p": "A grating has 5000 lines per centimetre. Find the angle of the first-order maximum for sodium light, $\\lambda = 589\\text{ nm}$, and the highest order visible."
+        },
+        {
+          "p": "**Solution:** The line spacing is the reciprocal of the line density:"
+        },
+        {
+          "math": "d = \\dfrac{1}{5000\\text{ lines/cm}} = 2\\times10^{-4}\\text{ cm} = 2000\\text{ nm}"
+        },
+        {
+          "p": "For the first order, $n=1$:"
+        },
+        {
+          "math": "\\sin\\theta = \\dfrac{n\\lambda}{d} = \\dfrac{589}{2000} \\approx 0.2945 \\;\\Rightarrow\\; \\theta \\approx 17.1^\\circ"
+        },
+        {
+          "p": "For the highest order, $\\dfrac{d}{\\lambda} = \\dfrac{2000}{589} \\approx 3.4$, so orders up to $n = 3$ appear on each side of the centre. A 4th order would need $\\sin\\theta \\approx 1.18$, which is impossible."
+        }
+      ]
+    },
+    {
+      "heading": "Single slit, double slit and grating compared",
+      "blocks": [
+        {
+          "table": {
+            "caption": "The condition that looks the same means different things",
+            "columns": ["Setup", "Condition", "What it gives"],
+            "rows": [
+              ["Single slit, width $a$", "$a\\sin\\theta = n\\lambda$, $n \\neq 0$", "Dark fringes (minima)"],
+              ["Double slit, spacing $d$", "$d\\sin\\theta = n\\lambda$", "Bright fringes, evenly spaced near the centre"],
+              ["Grating, spacing $d$", "$d\\sin\\theta = n\\lambda$", "Very sharp, bright principal maxima"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Treating $a\\sin\\theta = n\\lambda$ as a bright fringe.** For a single slit it marks the dark fringes.",
+            "**Halving the central maximum.** Its width runs from the first minimum on one side to the first minimum on the other: $\\dfrac{2\\lambda D}{a}$, not $\\dfrac{\\lambda D}{a}$.",
+            "**Including $n = 0$ as a minimum.** At $\\theta = 0$ every part of the slit is in phase, which is the brightest point of the pattern.",
+            "**Forgetting to convert lines per centimetre.** 5000 lines/cm means $d = 2\\times10^{-4}$ cm, which has to be converted to the same unit as $\\lambda$ before dividing."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Diffraction due to a single slit and the width of the central maximum are listed in the JEE Main 2026 and NEET (UG) 2026 syllabi, and single-slit diffraction in the JEE Advanced 2026 syllabus. None of the three lists the diffraction grating.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"],
+    "sources": ["jee-main-2026", "neet-ug-2026", "jee-advanced-2026"]
+  },
+  "related": {
+    "intro": "The same wave rules apply to electrons, whose de Broglie wavelength is small enough for a crystal lattice to act as a grating.",
+    "links": [
+      {
+        "label": "Wave Optics: Young's Double Slit Experiment",
+        "href": "/resources/wave-optics-youngs-double-slit"
+      },
+      {
+        "label": "de Broglie Wavelength and Matter Waves",
+        "href": "/resources/de-broglie-wavelength"
+      }
+    ]
+  }
+}

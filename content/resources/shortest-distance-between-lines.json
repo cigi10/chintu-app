@@ -1,0 +1,144 @@
+{
+  "slug": "shortest-distance-between-lines",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "Skew, parallel and intersecting lines",
+      "blocks": [
+        {
+          "p": "In two dimensions, two lines either meet or are parallel. In three dimensions there is a third case: **skew lines**, which are not parallel and never meet because they don't lie in a common plane. Which formula you use depends on which case you have."
+        },
+        {
+          "table": {
+            "caption": "Which formula to use",
+            "columns": ["Lines", "How to tell", "Shortest distance"],
+            "rows": [
+              ["Intersecting", "Not parallel, and $(\\vec{a_2}-\\vec{a_1})\\cdot(\\vec{b_1}\\times\\vec{b_2}) = 0$", "0"],
+              ["Skew", "Not parallel, and that product is not 0", "$\\dfrac{\\left|(\\vec{a_2}-\\vec{a_1})\\cdot(\\vec{b_1}\\times\\vec{b_2})\\right|}{|\\vec{b_1}\\times\\vec{b_2}|}$"],
+              ["Parallel", "$\\vec{b_1}$ and $\\vec{b_2}$ are multiples of each other", "$\\dfrac{\\left|\\vec{b}\\times(\\vec{a_2}-\\vec{a_1})\\right|}{|\\vec{b}|}$"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "The formula",
+      "blocks": [
+        {
+          "p": "For two lines $\\vec{r}=\\vec{a_1}+\\lambda\\vec{b_1}$ and $\\vec{r}=\\vec{a_2}+\\mu\\vec{b_2}$ that don't intersect, the shortest distance between them is:"
+        },
+        {
+          "math": "d = \\dfrac{\\left|(\\vec{a_2}-\\vec{a_1})\\cdot(\\vec{b_1}\\times\\vec{b_2})\\right|}{|\\vec{b_1}\\times\\vec{b_2}|}"
+        },
+        {
+          "p": "**Why it works:** $\\vec{b_1}\\times\\vec{b_2}$ is perpendicular to both lines, so the shortest connecting segment runs along it. Dividing by its length gives a unit vector in that direction, and the dot product projects the gap between the two starting points $\\vec{a_2}-\\vec{a_1}$ onto it."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find the shortest distance between $\\vec{r}=\\hat{i}+\\hat{j}+\\lambda(2\\hat{i}-\\hat{j}+\\hat{k})$ and $\\vec{r}=2\\hat{i}+\\hat{j}-\\hat{k}+\\mu(3\\hat{i}-5\\hat{j}+2\\hat{k})$."
+        },
+        {
+          "p": "**Solution:** Here $\\vec{a_2}-\\vec{a_1} = \\hat{i}-\\hat{k}$, $\\vec{b_1}=(2,-1,1)$, $\\vec{b_2}=(3,-5,2)$."
+        },
+        {
+          "math": "\\vec{b_1}\\times\\vec{b_2} = (3,-1,-7), \\qquad |\\vec{b_1}\\times\\vec{b_2}| = \\sqrt{9+1+49}=\\sqrt{59}"
+        },
+        {
+          "math": "(\\vec{a_2}-\\vec{a_1})\\cdot(\\vec{b_1}\\times\\vec{b_2}) = (1)(3)+(0)(-1)+(-1)(-7) = 10"
+        },
+        {
+          "math": "d = \\dfrac{10}{\\sqrt{59}}"
+        }
+      ]
+    },
+    {
+      "heading": "A second worked example",
+      "blocks": [
+        {
+          "p": "Find the shortest distance between $\\vec{r}=\\hat{i}+2\\hat{j}+\\hat{k}+\\lambda(\\hat{i}-\\hat{j}+\\hat{k})$ and $\\vec{r}=2\\hat{i}-\\hat{j}-\\hat{k}+\\mu(2\\hat{i}+\\hat{j}+2\\hat{k})$."
+        },
+        {
+          "p": "**Solution:** $\\vec{a_2}-\\vec{a_1} = \\hat{i}-3\\hat{j}-2\\hat{k}$, $\\vec{b_1}=(1,-1,1)$, $\\vec{b_2}=(2,1,2)$."
+        },
+        {
+          "math": "\\vec{b_1}\\times\\vec{b_2} = (-3,0,3), \\qquad |\\vec{b_1}\\times\\vec{b_2}| = \\sqrt{9+0+9}=3\\sqrt2"
+        },
+        {
+          "math": "(\\vec{a_2}-\\vec{a_1})\\cdot(\\vec{b_1}\\times\\vec{b_2}) = (1)(-3)+(-3)(0)+(-2)(3) = -9"
+        },
+        {
+          "math": "d = \\dfrac{9}{3\\sqrt2} = \\dfrac{3}{\\sqrt2}"
+        },
+        {
+          "p": "The dot product came out negative, which only means the cross product points the other way. The absolute value in the formula takes care of it."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: parallel lines",
+      "blocks": [
+        {
+          "p": "Find the distance between $\\vec{r}=\\hat{i}+2\\hat{j}-4\\hat{k}+\\lambda(2\\hat{i}+3\\hat{j}+6\\hat{k})$ and $\\vec{r}=3\\hat{i}+3\\hat{j}-5\\hat{k}+\\mu(2\\hat{i}+3\\hat{j}+6\\hat{k})$."
+        },
+        {
+          "p": "**Solution:** Both lines have direction $\\vec{b} = (2,3,6)$, so they are parallel and $\\vec{b_1}\\times\\vec{b_2} = \\vec{0}$: the skew-line formula would divide by zero. Use the parallel-line formula with $\\vec{a_2}-\\vec{a_1} = (2,1,-1)$:"
+        },
+        {
+          "math": "\\vec{b}\\times(\\vec{a_2}-\\vec{a_1}) = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 2 & 3 & 6 \\\\ 2 & 1 & -1 \\end{vmatrix} = -9\\hat{i}+14\\hat{j}-4\\hat{k}"
+        },
+        {
+          "math": "d = \\dfrac{\\sqrt{81+196+16}}{\\sqrt{4+9+36}} = \\dfrac{\\sqrt{293}}{7}"
+        }
+      ]
+    },
+    {
+      "heading": "Lines given in Cartesian form",
+      "blocks": [
+        {
+          "p": "For $\\dfrac{x-x_1}{a_1}=\\dfrac{y-y_1}{b_1}=\\dfrac{z-z_1}{c_1}$ and $\\dfrac{x-x_2}{a_2}=\\dfrac{y-y_2}{b_2}=\\dfrac{z-z_2}{c_2}$, read off $\\vec{a_1} = (x_1, y_1, z_1)$ and $\\vec{b_1} = (a_1, b_1, c_1)$, and the same for the second line. The numerator of the skew-line formula is then a single determinant:"
+        },
+        {
+          "math": "\\begin{vmatrix} x_2-x_1 & y_2-y_1 & z_2-z_1 \\\\ a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\end{vmatrix}"
+        },
+        {
+          "p": "If that determinant is 0 and the lines aren't parallel, they intersect."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Using the skew formula on parallel lines.** If $\\vec{b_1}\\times\\vec{b_2} = \\vec{0}$, switch to the parallel-line formula instead of reporting an undefined answer.",
+            "**Reading the point and direction the wrong way round.** In $\\dfrac{x+1}{2}$, the point has $x_1 = -1$ (the sign flips) and the direction ratio is 2.",
+            "**Dropping the absolute value.** A distance can't be negative. A negative dot product just means the cross product happened to point the other way.",
+            "**Forgetting to check for intersection.** A numerator of 0 means the lines meet, so the distance is 0, not \"no answer\"."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Skew lines and the shortest distance between them are listed in the three-dimensional geometry units of the JEE Main 2026 and JEE Advanced 2026 syllabi, and in the 2025-26 CBSE Class XII mathematics syllabus.",
+    "countdowns": ["jee-2027", "jee-advanced-2027"],
+    "sources": ["jee-main-2026", "jee-advanced-2026", "cbse-11-12-2025-26"]
+  },
+  "related": {
+    "intro": "All of these start from the vector form of a line's equation covered separately.",
+    "links": [
+      {
+        "label": "Finding the Equation of a Line",
+        "href": "/resources/equation-of-a-line"
+      },
+      {
+        "label": "Operations on Vectors",
+        "href": "/resources/operations-on-vectors"
+      }
+    ]
+  }
+}

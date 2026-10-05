@@ -1,0 +1,218 @@
+{
+  "slug": "ratio-and-proportion",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "What is a ratio?",
+      "blocks": [
+        {
+          "p": "A ratio compares two quantities of the same kind, showing how many times one contains the other. The ratio of $a$ to $b$ is written $a : b$, and it's simplified the same way a fraction is: by dividing both sides by their HCF."
+        },
+        {
+          "p": "Both quantities must be in the same unit before you compare them, and the order matters: $a : b$ and $b : a$ are different ratios unless $a = b$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: simplifying a ratio",
+      "blocks": [
+        {
+          "p": "The length and breadth of a rectangular park are 75 m and 60 m respectively. What is the ratio of the length to the breadth?"
+        },
+        {
+          "p": "**Solution:** The ratio is $75 : 60$. The HCF of 75 and 60 is 15, so dividing both sides by 15:"
+        },
+        {
+          "math": "75 : 60 = 5 : 4"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: different units",
+      "blocks": [
+        {
+          "p": "Find the ratio of 50 paise to ₹2."
+        },
+        {
+          "p": "**Solution:** Convert both to paise first, since ₹2 = 200 paise:"
+        },
+        {
+          "math": "50 : 200 = 1 : 4"
+        },
+        {
+          "p": "Writing $50 : 2 = 25 : 1$ without converting would be wrong by a factor of 100."
+        }
+      ]
+    },
+    {
+      "heading": "Dividing a quantity in a given ratio",
+      "blocks": [
+        {
+          "p": "To split a total in the ratio $m : n$, think of it as $m + n$ equal parts. The first share is $\\dfrac{m}{m+n}$ of the total and the second is $\\dfrac{n}{m+n}$."
+        },
+        {
+          "p": "**Example:** Divide ₹1,200 between A and B in the ratio $5 : 3$."
+        },
+        {
+          "p": "**Solution:** There are $5 + 3 = 8$ parts, so each part is $1200 \\div 8 = 150$:"
+        },
+        {
+          "math": "\\text{A} = 5 \\times 150 = 750, \\qquad \\text{B} = 3 \\times 150 = 450"
+        },
+        {
+          "p": "Check: $750 + 450 = 1200$ and $750 : 450 = 5 : 3$."
+        }
+      ]
+    },
+    {
+      "heading": "Combining two ratios into one",
+      "blocks": [
+        {
+          "p": "If $a : b = 2 : 3$ and $b : c = 4 : 5$, find $a : b : c$."
+        },
+        {
+          "p": "**Solution:** The two ratios share $b$, but it's 3 in one and 4 in the other. Scale both so $b$ becomes the LCM of 3 and 4, which is 12:"
+        },
+        {
+          "math": "a : b = 2 : 3 = 8 : 12, \\qquad b : c = 4 : 5 = 12 : 15"
+        },
+        {
+          "math": "a : b : c = 8 : 12 : 15"
+        }
+      ]
+    },
+    {
+      "heading": "What is a proportion?",
+      "blocks": [
+        {
+          "p": "Four numbers $a, b, c, d$ are said to be in proportion, written $a : b :: c : d$, when the ratio of the first pair equals the ratio of the second pair:"
+        },
+        {
+          "math": "\\dfrac{a}{b} = \\dfrac{c}{d} \\iff a \\times d = b \\times c"
+        },
+        {
+          "p": "That cross-multiplied form (the product of the outer (extreme) terms equals the product of the inner (middle) terms) is the fastest way to test or solve a proportion."
+        },
+        {
+          "table": {
+            "caption": "The name of each term in a : b :: c : d",
+            "columns": ["Term", "Name", "Meaning"],
+            "rows": [
+              ["$a$ and $c$", "Antecedents", "The first term of each ratio"],
+              ["$b$ and $d$", "Consequents", "The second term of each ratio"],
+              ["$a$ and $d$", "Extremes", "The outer two terms"],
+              ["$b$ and $c$", "Means", "The inner two terms"],
+              ["$d$", "Fourth proportional", "The term found from $a$, $b$ and $c$"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: testing a proportion",
+      "blocks": [
+        {
+          "p": "Are 20, 18, 5, 6 in proportion?"
+        },
+        {
+          "p": "**Solution:** Check whether $20 \\times 6 = 18 \\times 5$:"
+        },
+        {
+          "math": "20 \\times 6 = 120, \\qquad 18 \\times 5 = 90"
+        },
+        {
+          "p": "120 ≠ 90, so **20, 18, 5, 6 are not in proportion**."
+        },
+        {
+          "p": "Compare that with 30, 40, 45, 60:"
+        },
+        {
+          "math": "30 \\times 60 = 1800, \\qquad 40 \\times 45 = 1800"
+        },
+        {
+          "p": "These match, so **30, 40, 45, 60 are in proportion**."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: solving for a missing term",
+      "blocks": [
+        {
+          "p": "If $36 : 81 :: x : 63$, find $x$."
+        },
+        {
+          "p": "**Solution:** Cross-multiplying, $36 \\times 63 = 81 \\times x$:"
+        },
+        {
+          "math": "x = \\dfrac{36 \\times 63}{81} = \\dfrac{2268}{81} = 28"
+        }
+      ]
+    },
+    {
+      "heading": "Mean, third and fourth proportionals",
+      "blocks": [
+        {
+          "p": "Each of these is the same cross-multiplication with a different term missing."
+        },
+        {
+          "table": {
+            "columns": ["Find", "Set up", "Example", "Answer"],
+            "rows": [
+              ["Mean proportional of $a$ and $b$", "$a : x :: x : b$, so $x^2 = ab$", "4 and 9", "$x = \\sqrt{36} = 6$"],
+              ["Third proportional to $a$ and $b$", "$a : b :: b : x$, so $x = \\dfrac{b^2}{a}$", "4 and 6", "$x = \\dfrac{36}{4} = 9$"],
+              ["Fourth proportional to $a, b, c$", "$a : b :: c : x$, so $x = \\dfrac{bc}{a}$", "2, 3 and 4", "$x = \\dfrac{12}{2} = 6$"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Direct and inverse proportion",
+      "blocks": [
+        {
+          "p": "**Direct proportion:** both quantities grow together, so their ratio stays fixed. If 5 pens cost ₹60, then 8 pens cost $x$ where $5 : 8 :: 60 : x$:"
+        },
+        {
+          "math": "x = \\dfrac{8 \\times 60}{5} = 96"
+        },
+        {
+          "p": "**Inverse proportion:** one quantity grows as the other shrinks, so their *product* stays fixed instead. If 6 workers finish a job in 10 days, 4 workers take $x$ days where:"
+        },
+        {
+          "math": "6 \\times 10 = 4 \\times x \\;\\Rightarrow\\; x = 15 \\text{ days}"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Comparing different units.** Convert first: 50 paise to ₹2 is $1 : 4$, not $25 : 1$.",
+            "**Swapping the order.** \"Boys to girls\" and \"girls to boys\" are reciprocal ratios. Keep the order the question uses.",
+            "**Treating an inverse relationship as direct.** More workers means *fewer* days. Ask whether the quantities move together before setting up $a : b :: c : d$.",
+            "**Adding ratios like fractions.** To combine $a : b$ and $b : c$, make the shared term equal, as in the example above. Adding $2 : 3$ and $4 : 5$ term by term gives nothing meaningful."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Ratios and percentages are listed under numerical computation and estimation in the General Aptitude syllabus, a section every GATE 2026 paper includes.",
+    "countdowns": ["gate-2027"],
+    "sources": ["gate-2026-brochure"]
+  },
+  "related": {
+    "intro": "Ratios turn into percentages as soon as the second term is 100, and profit and loss questions lean on both.",
+    "links": [
+      {
+        "label": "Percentage",
+        "href": "/resources/percentage"
+      },
+      {
+        "label": "Profit and Loss",
+        "href": "/resources/profit-and-loss"
+      }
+    ]
+  }
+}

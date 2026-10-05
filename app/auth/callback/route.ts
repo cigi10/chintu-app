@@ -34,7 +34,13 @@ export async function GET(request: Request) {
       if (!profile) {
         const { error: insertError } = await supabase.from('profiles').insert({ id: data.user.id })
         if (insertError) console.error('profile insert error:', insertError.message)
-        return NextResponse.redirect(`${origin}/onboarding`)
+        // A first Google login has no profile yet, so this is the sign-up.
+        // GA runs in the browser, so the flag rides along to onboarding,
+        // where SignupTracker fires sign_up once and strips it. Email
+        // sign-ups also land here (confirming the address) but were
+        // already counted when the form was submitted, so they get no flag.
+        const isGoogleSignup = data.user.app_metadata?.provider === 'google'
+        return NextResponse.redirect(`${origin}/onboarding${isGoogleSignup ? '?signup=google' : ''}`)
       }
       if (!profile.onboarded) {
         return NextResponse.redirect(`${origin}/onboarding`)

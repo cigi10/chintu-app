@@ -1,0 +1,135 @@
+{
+  "slug": "kirchhoffs-laws",
+  "datePublished": "2026-09-24T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The two laws",
+      "blocks": [
+        {
+          "p": "**Kirchhoff's Current Law (KCL)** is just conservation of charge: at any junction, the current flowing in must equal the current flowing out. Charge can't pile up at a point."
+        },
+        {
+          "p": "**Kirchhoff's Voltage Law (KVL)** is conservation of energy: going all the way around any closed loop in a circuit, the total voltage gained (from sources) equals the total voltage dropped (across resistors). You end up back where you started, at the same potential."
+        },
+        {
+          "math": "\\text{KCL: } \\sum I_{in} = \\sum I_{out}, \\qquad \\text{KVL: } \\sum_{\\text{loop}} \\Delta V = 0"
+        }
+      ]
+    },
+    {
+      "heading": "Sign conventions for KVL",
+      "blocks": [
+        {
+          "p": "Pick a direction to walk around the loop and stick to it. Each element then adds or subtracts according to this table:"
+        },
+        {
+          "table": {
+            "caption": "Change in potential as you walk across each element",
+            "columns": ["Element", "Walking direction", "Change in potential"],
+            "rows": [
+              ["Resistor", "Same way as the assumed current", "$-IR$"],
+              ["Resistor", "Against the assumed current", "$+IR$"],
+              ["Battery", "From $-$ terminal to $+$ terminal", "$+E$"],
+              ["Battery", "From $+$ terminal to $-$ terminal", "$-E$"]
+            ]
+          }
+        },
+        {
+          "p": "If a current comes out negative at the end, your assumed direction was simply backwards. The size is still right, so there is no need to redo the problem."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a two-loop circuit",
+      "blocks": [
+        {
+          "p": "A circuit has two loops sharing a middle branch. The left loop has an 8V source in series with a 1Ω resistor, the right loop has an 8V source in series with a 2Ω resistor, and the shared middle branch has a 2Ω resistor. Current $I_1$ flows from the left source into the shared node, $I_2$ from the right source into the same node, and $I_3$ flows out through the middle resistor. Find all three currents."
+        },
+        {
+          "p": "**Solution:** KCL at the shared node gives $I_3 = I_1+I_2$. Applying KVL around each loop:"
+        },
+        {
+          "math": "\\text{Left loop: } 8 = I_1(1) + I_3(2)"
+        },
+        {
+          "math": "\\text{Right loop: } 8 = I_2(2) + I_3(2)"
+        },
+        {
+          "p": "Substituting $I_3 = I_1+I_2$ into both:"
+        },
+        {
+          "math": "8 = I_1 + 2(I_1+I_2) = 3I_1 + 2I_2 \\qquad\\text{(i)}"
+        },
+        {
+          "math": "8 = 2I_2 + 2(I_1+I_2) = 2I_1 + 4I_2 \\qquad\\text{(ii)}"
+        },
+        {
+          "p": "From (ii): $I_1 = 4 - 2I_2$. Substituting into (i):"
+        },
+        {
+          "math": "3(4-2I_2) + 2I_2 = 8 \\;\\Rightarrow\\; 12 - 4I_2 = 8 \\;\\Rightarrow\\; I_2 = 1\\text{ A}"
+        },
+        {
+          "p": "Then $I_1 = 4-2(1) = 2\\text{ A}$, and $I_3 = I_1+I_2 = 3\\text{ A}$."
+        },
+        {
+          "p": "**Check:** left loop: $2(1)+3(2)=2+6=8$ ✓. Right loop: $1(2)+3(2)=2+6=8$ ✓. Both match the source voltages."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a balanced Wheatstone bridge",
+      "blocks": [
+        {
+          "p": "Four resistors $P$, $Q$, $R$ and $S$ form a Wheatstone bridge, with a galvanometer between the $P$-$Q$ junction and the $R$-$S$ junction. Applying KCL and KVL shows the galvanometer reads zero exactly when"
+        },
+        {
+          "math": "\\dfrac{P}{Q} = \\dfrac{R}{S}"
+        },
+        {
+          "p": "With $P = 10\\,\\Omega$, $Q = 20\\,\\Omega$ and $R = 15\\,\\Omega$, find the value of $S$ that balances the bridge."
+        },
+        {
+          "p": "**Solution:**"
+        },
+        {
+          "math": "S = \\dfrac{QR}{P} = \\dfrac{20 \\times 15}{10} = 30\\,\\Omega"
+        },
+        {
+          "p": "At balance the two ends of the galvanometer are at the same potential, so its branch can be removed entirely. That shortcut turns many \"find the equivalent resistance\" questions into simple series and parallel combinations."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Mixing sign conventions inside one loop.** Choose the walking direction once and apply the table to every element in that loop.",
+            "**Writing more loop equations than you need.** With $n$ unknown currents you need exactly $n$ independent equations. An extra loop equation is just a combination of the others.",
+            "**Redoing work after a negative answer.** A negative current only means it flows opposite to the arrow you drew.",
+            "**Forgetting a battery's internal resistance.** If a cell has internal resistance $r$, it sits in series with the EMF and drops $Ir$ like any other resistor."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Kirchhoff's laws are listed in the Current Electricity units of the JEE Main 2026 and NEET (UG) 2026 syllabi, together with the Wheatstone bridge and metre bridge, and in the JEE Advanced 2026 syllabus. GATE 2026 EE and IN name KCL, KVL and Kirchhoff's laws alongside node and mesh analysis, and EC lists node and mesh analysis.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027", "gate-2027"],
+    "sources": ["jee-main-2026", "neet-ug-2026", "jee-advanced-2026", "gate-2026-ee", "gate-2026-in", "gate-2026-ec"]
+  },
+  "related": {
+    "intro": "Once a circuit is solved for its currents, the diode equation is what determines how current actually flows through any non-linear component you add to it. And for a circuit like this one, reducing everything except one branch down to a single equivalent source is often faster than solving the whole loop system directly.",
+    "links": [
+      {
+        "label": "PN Junction Diode: Forward and Reverse Bias",
+        "href": "/resources/pn-junction-diode"
+      },
+      {
+        "label": "Thevenin's and Norton's Theorems",
+        "href": "/resources/thevenin-norton-theorems"
+      }
+    ]
+  }
+}

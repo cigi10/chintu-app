@@ -1,0 +1,150 @@
+{
+  "slug": "laws-of-exponents",
+  "datePublished": "2026-09-22T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The three core rules",
+      "blocks": [
+        {
+          "list": [
+            "**Same base, multiplying:** add the exponents: $x^m \\cdot x^n = x^{m+n}$. E.g. $2^4 \\cdot 2^3 = 2^{7} = 128$.",
+            "**A power raised to a power:** multiply the exponents: $(x^m)^n = x^{mn}$. E.g. $(3^2)^5 = 3^{10} = 59049$.",
+            "**Negative exponent:** take the reciprocal: $x^{-m} = \\dfrac{1}{x^m}$. E.g. $2^{-5} = \\dfrac{1}{32}$."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "All the exponent rules in one table",
+      "blocks": [
+        {
+          "p": "The core three combine into the full set. Each holds for any non-zero base $x$, $y$:"
+        },
+        {
+          "table": {
+            "caption": "Laws of exponents",
+            "columns": ["Rule", "Law", "Example"],
+            "rows": [
+              ["Product", "$x^m \\cdot x^n = x^{m+n}$", "$5^2 \\cdot 5^3 = 5^5$"],
+              ["Quotient", "$\\dfrac{x^m}{x^n} = x^{m-n}$", "$\\dfrac{7^6}{7^4} = 7^2 = 49$"],
+              ["Power of a power", "$(x^m)^n = x^{mn}$", "$(2^3)^2 = 2^6 = 64$"],
+              ["Power of a product", "$(xy)^n = x^n y^n$", "$(2 \\times 3)^2 = 4 \\times 9 = 36$"],
+              ["Power of a quotient", "$\\left(\\dfrac{x}{y}\\right)^n = \\dfrac{x^n}{y^n}$", "$\\left(\\dfrac{2}{3}\\right)^3 = \\dfrac{8}{27}$"],
+              ["Zero exponent", "$x^0 = 1$", "$100^0 = 1$"],
+              ["Negative exponent", "$x^{-m} = \\dfrac{1}{x^m}$", "$10^{-2} = \\dfrac{1}{100}$"],
+              ["Fractional exponent", "$x^{m/n} = \\left(\\sqrt[n]{x}\\right)^m$", "$27^{2/3} = 3^2 = 9$"]
+            ]
+          }
+        },
+        {
+          "p": "The zero rule follows from the quotient rule: $\\dfrac{x^m}{x^m} = x^{m-m} = x^0$, and anything divided by itself is 1."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a negative exponent on a fraction",
+      "blocks": [
+        {
+          "p": "Simplify $\\left(\\dfrac{-3}{4}\\right)^{-3}$."
+        },
+        {
+          "p": "**Solution:** A negative exponent on a fraction flips it, then applies the (now positive) power:"
+        },
+        {
+          "math": "\\left(\\dfrac{-3}{4}\\right)^{-3} = \\left(\\dfrac{4}{-3}\\right)^3 = \\left(\\dfrac{-4}{3}\\right)^3 = \\dfrac{-64}{27}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: combining rules to avoid big numbers",
+      "blocks": [
+        {
+          "p": "Simplify $\\dfrac{7^8 \\times 12^8}{14^8 \\times 6^8}$ without computing any of these to the 8th power directly."
+        },
+        {
+          "p": "**Solution:** Notice $7 \\times 12 = 84 = 14 \\times 6$, the numerator and denominator are built from the same product, just split differently. Since $a^n b^n = (ab)^n$:"
+        },
+        {
+          "math": "\\dfrac{7^8 \\times 12^8}{14^8 \\times 6^8} = \\dfrac{(7\\times12)^8}{(14\\times6)^8} = \\dfrac{84^8}{84^8} = 1"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: rewriting in one base",
+      "blocks": [
+        {
+          "p": "Simplify $\\dfrac{2^5 \\times 8^2}{4^3}$."
+        },
+        {
+          "p": "**Solution:** Write every number as a power of 2 ($8 = 2^3$, $4 = 2^2$), then use the product and quotient rules:"
+        },
+        {
+          "math": "\\dfrac{2^5 \\times (2^3)^2}{(2^2)^3} = \\dfrac{2^5 \\times 2^6}{2^6} = 2^{5+6-6} = 2^5 = 32"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: fractional and negative exponents",
+      "blocks": [
+        {
+          "p": "Evaluate $16^{-3/4}$."
+        },
+        {
+          "p": "**Solution:** Deal with the minus sign as a reciprocal, then take the 4th root before cubing, which keeps the numbers small:"
+        },
+        {
+          "math": "16^{-3/4} = \\dfrac{1}{16^{3/4}} = \\dfrac{1}{\\left(\\sqrt[4]{16}\\right)^3} = \\dfrac{1}{2^3} = \\dfrac{1}{8}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: solving for an exponent",
+      "blocks": [
+        {
+          "p": "If $\\left(\\dfrac{5}{3}\\right)^{-5} \\times \\left(\\dfrac{5}{3}\\right)^{11} = \\left(\\dfrac{5}{3}\\right)^{8x}$, find $x$."
+        },
+        {
+          "p": "**Solution:** Same base on both sides, so just add the exponents on the left and match:"
+        },
+        {
+          "math": "(-5) + 11 = 8x \\;\\Rightarrow\\; 6 = 8x \\;\\Rightarrow\\; x = \\dfrac{6}{8} = \\dfrac{3}{4}"
+        },
+        {
+          "p": "The same idea solves $3^{x+1} = 81$: write $81 = 3^4$, so $x + 1 = 4$ and $x = 3$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Multiplying exponents when multiplying powers.** $x^2 \\cdot x^3 = x^5$, not $x^6$. Exponents multiply only for a power of a power.",
+            "**Using the rules across different bases.** $2^3 \\cdot 3^2$ can't be combined into one power. The product rule needs the same base.",
+            "**Reading a negative exponent as a negative number.** $2^{-3} = \\dfrac{1}{8}$, which is positive.",
+            "**Mixing up $-2^2$ and $(-2)^2$.** $-2^2 = -4$ (square first, then the minus), while $(-2)^2 = 4$.",
+            "**Distributing a power over a sum.** $(x + y)^2$ is $x^2 + 2xy + y^2$, not $x^2 + y^2$. The power-of-a-product rule only works for products."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class IX syllabus recalls the laws of exponents with integral powers in its Number Systems unit. Powers, exponents and logarithms are also listed in the General Aptitude syllabus that every GATE 2026 paper includes.",
+    "countdowns": ["gate-2027"],
+    "sources": ["cbse-9-10-2025-26", "gate-2026-brochure"]
+  },
+  "related": {
+    "intro": "These same rules are exactly what makes logarithms (the inverse operation of exponentiation) behave the way they do.",
+    "links": [
+      {
+        "label": "Logarithms",
+        "href": "/resources/logarithms"
+      },
+      {
+        "label": "Surds and Radicals",
+        "href": "/resources/surds-and-radicals"
+      }
+    ]
+  }
+}

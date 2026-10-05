@@ -9,6 +9,7 @@ import BlogTable, { type BlogTableData } from "@/components/BlogTable";
 import { BlogFigure, type BlogFigureData } from "@/components/BlogFigure";
 import { getResourceHubs, getResourceHub, getResourcesByHub, getResourceBySlug } from "@/lib/resources";
 import { getResourceContent, getResourceContentSlugs } from "@/lib/resourceContent";
+import ExamSection, { type ExamInfo } from "@/components/ExamSection";
 import "@/styles/blog.css";
 
 // /resources/<slug> serves two kinds of page:
@@ -34,6 +35,9 @@ type ResourceContent = {
   datePublished: string;
   h1?: string;
   sections: { heading: string | null; blocks: Block[] }[];
+  // Which exams list this topic, sourced from lib/syllabusSources.js, and
+  // the countdowns to link. See components/ExamSection.tsx.
+  exam?: ExamInfo;
   related?: { intro?: string; links: { label: string; href: string }[] };
 };
 
@@ -161,6 +165,8 @@ function ResourcePage({ slug, content }: { slug: string; content: ResourceConten
               ))}
             </div>
           ))}
+
+          {content.exam && <ExamSection exam={content.exam} />}
 
           {content.related && content.related.links.length > 0 && (
             <div className="blog-post-related">

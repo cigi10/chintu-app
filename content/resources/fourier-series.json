@@ -1,0 +1,158 @@
+{
+  "slug": "fourier-series",
+  "datePublished": "2026-09-24T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The idea",
+      "blocks": [
+        {
+          "p": "Any reasonably well-behaved periodic function can be rebuilt out of sines and cosines. For a function $f(x)$ with period $2\\pi$:"
+        },
+        {
+          "math": "f(x) = \\dfrac{a_0}{2} + \\sum_{n=1}^{\\infty}\\left(a_n\\cos nx + b_n\\sin nx\\right)"
+        },
+        {
+          "p": "where the coefficients are found by integrating over one full period:"
+        },
+        {
+          "math": "a_0 = \\dfrac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(x)\\,dx, \\qquad a_n = \\dfrac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(x)\\cos nx\\,dx, \\qquad b_n = \\dfrac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(x)\\sin nx\\,dx"
+        },
+        {
+          "p": "For a general period $2L$ on $(-L, L)$, replace $nx$ by $\\dfrac{n\\pi x}{L}$ everywhere and $\\dfrac{1}{\\pi}$ by $\\dfrac{1}{L}$ in front of each integral."
+        }
+      ]
+    },
+    {
+      "heading": "Shortcuts for odd and even functions",
+      "blocks": [
+        {
+          "p": "If $f(x)$ is **odd** (symmetric about the origin), every $a_n$ (including $a_0$) is automatically zero, since cosine is even and an odd-times-even integrand over a symmetric interval vanishes. Only the sine terms survive."
+        },
+        {
+          "p": "If $f(x)$ is **even** (symmetric about the $y$-axis), it's the other way round: every $b_n = 0$, and only $a_0$ and the cosine terms survive. In both cases the remaining integrals can be taken over $(0, \\pi)$ and doubled."
+        },
+        {
+          "table": {
+            "caption": "What survives for odd and even functions on (−π, π)",
+            "columns": ["Function", "Zero coefficients", "Series contains"],
+            "rows": [
+              ["Odd, e.g. $x$, $x^3$, $\\sin x$", "$a_0$ and every $a_n$", "Sine terms only"],
+              ["Even, e.g. $x^2$, $|x|$, $\\cos x$", "Every $b_n$", "Constant and cosine terms only"],
+              ["Neither", "None in general", "Both"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the Fourier series of f(x) = x",
+      "blocks": [
+        {
+          "p": "Find the Fourier series of $f(x) = x$ on $(-\\pi, \\pi)$."
+        },
+        {
+          "p": "**Solution:** $f(x)=x$ is odd, so $a_0 = 0$ and every $a_n = 0$. Only $b_n$ needs computing, and since $x\\sin nx$ is even, the integral over $(-\\pi,\\pi)$ is twice the integral over $(0,\\pi)$:"
+        },
+        {
+          "math": "b_n = \\dfrac{2}{\\pi}\\int_0^{\\pi} x\\sin nx\\,dx"
+        },
+        {
+          "p": "Integrating by parts ($u = x$, $dv = \\sin nx\\,dx$):"
+        },
+        {
+          "math": "\\int_0^\\pi x\\sin nx\\,dx = \\left[-\\dfrac{x\\cos nx}{n}\\right]_0^\\pi + \\dfrac{1}{n}\\int_0^\\pi \\cos nx\\,dx = -\\dfrac{\\pi\\cos n\\pi}{n} + \\dfrac{1}{n}\\left[\\dfrac{\\sin nx}{n}\\right]_0^\\pi"
+        },
+        {
+          "p": "The second term vanishes since $\\sin n\\pi = 0$ for every integer $n$, and $\\cos n\\pi = (-1)^n$:"
+        },
+        {
+          "math": "\\int_0^\\pi x\\sin nx\\,dx = -\\dfrac{\\pi(-1)^n}{n} = \\dfrac{\\pi(-1)^{n+1}}{n}"
+        },
+        {
+          "p": "So:"
+        },
+        {
+          "math": "b_n = \\dfrac{2}{\\pi}\\cdot\\dfrac{\\pi(-1)^{n+1}}{n} = \\dfrac{2(-1)^{n+1}}{n}"
+        },
+        {
+          "p": "giving $b_1=2$, $b_2=-1$, $b_3=\\tfrac{2}{3}$, and so on, so the full series is:"
+        },
+        {
+          "math": "x = 2\\sin x - \\sin 2x + \\dfrac{2}{3}\\sin 3x - \\dfrac{1}{2}\\sin 4x + \\cdots = \\sum_{n=1}^{\\infty} \\dfrac{2(-1)^{n+1}}{n}\\sin nx"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the Fourier series of f(x) = x²",
+      "blocks": [
+        {
+          "p": "Find the Fourier series of $f(x) = x^2$ on $(-\\pi, \\pi)$, and use it to find $\\displaystyle\\sum_{n=1}^{\\infty} \\dfrac{1}{n^2}$."
+        },
+        {
+          "p": "**Solution:** $x^2$ is even, so every $b_n = 0$. For the constant term:"
+        },
+        {
+          "math": "a_0 = \\dfrac{2}{\\pi}\\int_0^\\pi x^2\\,dx = \\dfrac{2}{\\pi}\\cdot\\dfrac{\\pi^3}{3} = \\dfrac{2\\pi^2}{3}, \\qquad \\dfrac{a_0}{2} = \\dfrac{\\pi^2}{3}"
+        },
+        {
+          "p": "For $a_n$, integrate by parts twice. The boundary terms leave only the part with $\\cos n\\pi = (-1)^n$:"
+        },
+        {
+          "math": "a_n = \\dfrac{2}{\\pi}\\int_0^\\pi x^2\\cos nx\\,dx = \\dfrac{2}{\\pi}\\cdot\\dfrac{2\\pi(-1)^n}{n^2} = \\dfrac{4(-1)^n}{n^2}"
+        },
+        {
+          "math": "x^2 = \\dfrac{\\pi^2}{3} + 4\\sum_{n=1}^{\\infty} \\dfrac{(-1)^n}{n^2}\\cos nx = \\dfrac{\\pi^2}{3} - 4\\cos x + \\cos 2x - \\dfrac{4}{9}\\cos 3x + \\cdots"
+        },
+        {
+          "p": "Now put $x = \\pi$. Since $\\cos n\\pi = (-1)^n$, every term becomes $\\dfrac{4}{n^2}$:"
+        },
+        {
+          "math": "\\pi^2 = \\dfrac{\\pi^2}{3} + 4\\sum_{n=1}^{\\infty}\\dfrac{1}{n^2} \\;\\Rightarrow\\; \\sum_{n=1}^{\\infty}\\dfrac{1}{n^2} = \\dfrac{\\pi^2}{6}"
+        }
+      ]
+    },
+    {
+      "heading": "What the series does at a jump",
+      "blocks": [
+        {
+          "p": "Under the usual (Dirichlet) conditions, the series equals $f(x)$ wherever $f$ is continuous. At a jump it converges to the **average** of the values on either side."
+        },
+        {
+          "p": "The series for $x$ shows this. Repeated with period $2\\pi$, the function jumps from $\\pi$ down to $-\\pi$ at $x = \\pi$. Every term $\\sin n\\pi$ is 0 there, so the series gives $0 = \\dfrac{\\pi + (-\\pi)}{2}$, the midpoint of the jump."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Mixing the two conventions for the constant.** With $a_0 = \\dfrac{1}{\\pi}\\displaystyle\\int f\\,dx$, the series starts with $\\dfrac{a_0}{2}$. Some books define $a_0$ with $\\dfrac{1}{2\\pi}$ and start with $a_0$. Use one convention throughout.",
+            "**Computing coefficients you already know are zero.** Check odd or even first: it removes half the work.",
+            "**Forgetting $\\cos n\\pi = (-1)^n$ and $\\sin n\\pi = 0$.** Almost every boundary term simplifies through these two facts.",
+            "**Keeping $nx$ for a period other than $2\\pi$.** On $(-L, L)$ the arguments become $\\dfrac{n\\pi x}{L}$.",
+            "**Claiming the series equals $f$ at a discontinuity.** It gives the average of the two one-sided values there."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Fourier series are listed in the Engineering Mathematics sections of the GATE 2026 EE and IN syllabi, and under Signals and Systems (continuous-time signals) in the GATE 2026 EC syllabus.",
+    "countdowns": ["gate-2027"],
+    "sources": ["gate-2026-ee", "gate-2026-in", "gate-2026-ec"]
+  },
+  "related": {
+    "intro": "Fourier series and Laplace transforms are the two core tools engineering math uses to turn a hard problem in the time domain into an easier one somewhere else.",
+    "links": [
+      {
+        "label": "Laplace Transforms",
+        "href": "/resources/laplace-transforms"
+      },
+      {
+        "label": "Integration by Parts",
+        "href": "/resources/integration-by-parts"
+      }
+    ]
+  }
+}

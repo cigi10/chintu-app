@@ -23,7 +23,8 @@
 
 .site-footer__links {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 8px 20px;
 }
 
 .site-footer__link {

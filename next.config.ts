@@ -22,6 +22,19 @@ const nextConfig: NextConfig = {
       // Two overlapping calculus pages were merged into tangents-and-normals
       // when the resource pages moved to JSON (Task 3, calculus batch).
       { source: "/resources/slope-of-tangent-and-normal", destination: "/resources/tangents-and-normals", permanent: true },
+      // Phase 0 thin-page audit: each pair covered one half of the same
+      // NCERT topic in under 110 words, so they were merged into one page.
+      { source: "/resources/ratio", destination: "/resources/ratio-and-proportion", permanent: true },
+      { source: "/resources/proportion", destination: "/resources/ratio-and-proportion", permanent: true },
+      { source: "/resources/intercepts-of-a-plane", destination: "/resources/equation-of-a-plane", permanent: true },
+      // Phase 0 approved merges: each solved-examples or companion page now
+      // lives as a headed section of its parent topic page. These use an
+      // explicit 301 (permanent: true sends a 308), as specified for them.
+      { source: "/resources/quadratic-equations-solved-examples", destination: "/resources/quadratic-equations", statusCode: 301 },
+      { source: "/resources/trigonometry-solved-examples", destination: "/resources/trigonometry", statusCode: 301 },
+      { source: "/resources/percentage-shortcuts", destination: "/resources/percentage", statusCode: 301 },
+      { source: "/resources/finding-missing-values-in-a-matrix", destination: "/resources/special-types-of-matrices", statusCode: 301 },
+      { source: "/resources/mathematical-constants", destination: "/resources/complex-numbers", statusCode: 301 },
     ];
   },
 };

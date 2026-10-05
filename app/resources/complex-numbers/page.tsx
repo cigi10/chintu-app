@@ -7,10 +7,10 @@ import "@/styles/blog.css";
 
 export const metadata = {
   title: "Complex Numbers - Studyloaf",
-  description: "What complex numbers are, the modulus-argument form, conjugates, and basic arithmetic on complex numbers, with worked examples.",
+  description: "What complex numbers are, the modulus-argument form, conjugates, arithmetic on complex numbers, and how to find any power of i, with worked examples.",
   openGraph: {
     title: "Complex Numbers - Studyloaf",
-    description: "What complex numbers are, the modulus-argument form, conjugates, and basic arithmetic on complex numbers, with worked examples.",
+    description: "What complex numbers are, the modulus-argument form, conjugates, arithmetic on complex numbers, and how to find any power of i, with worked examples.",
   },
   alternates: { canonical: "/resources/complex-numbers" },
 };
@@ -23,7 +23,7 @@ export default function ComplexNumbersPage() {
         "@context": "https://schema.org",
         "@type": ["Article", "LearningResource"],
         headline: "Complex Numbers",
-        description: "What complex numbers are, the modulus-argument form, conjugates, and basic arithmetic on complex numbers, with worked examples.",
+        description: "What complex numbers are, the modulus-argument form, conjugates, arithmetic on complex numbers, and how to find any power of i, with worked examples.",
         datePublished: "2026-09-17",
         author: { "@type": "Organization", name: "Studyloaf Team" },
       }} />
@@ -82,6 +82,29 @@ export default function ComplexNumbersPage() {
             <Katex display>{"z_1 z_2 = (x_1x_2 - y_1y_2) + i(x_1y_2 + x_2y_1)"}</Katex>
           </div>
 
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Powers of i</h2>
+            <p className="blog-post-p">
+              <Katex>{"i"}</Katex> is defined by <Katex>{"i = \\sqrt{-1}"}</Katex>, so{" "}
+              <Katex>{"i^2 = -1"}</Katex>. Higher powers of <Katex>{"i"}</Katex> repeat with a
+              period of 4:
+            </p>
+            <Katex display>{"i^0=1, \\quad i^1=i, \\quad i^2=-1, \\quad i^3=-i, \\quad i^4=1, \\quad \\ldots"}</Katex>
+            <p className="blog-post-p">
+              To find <Katex>{"i^n"}</Katex> for a large <Katex>{"n"}</Katex>, divide by 4 and use
+              the remainder.
+            </p>
+            <p className="blog-post-p">
+              <strong>Worked example:</strong> find <Katex>{"i^{45}"}</Katex>.
+            </p>
+            <Katex display>{"45 = 4 \\times 11 + 1 \\quad\\Rightarrow\\quad i^{45} = i^1 = i"}</Katex>
+            <p className="blog-post-p">
+              Negative powers cycle the same way, just starting from{" "}
+              <Katex>{"i^{-1}=\\tfrac{1}{i}=-i"}</Katex>:
+            </p>
+            <Katex display>{"i^{-1}=-i, \\quad i^{-2}=-1, \\quad i^{-3}=i, \\quad i^{-4}=1"}</Katex>
+          </div>
+
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
@@ -89,7 +112,7 @@ export default function ComplexNumbersPage() {
               is negative. The two roots become a conjugate pair like the ones above.
             </p>
             <ul className="blog-post-related-list">
-              <li><Link href="/resources/quadratic-equations-solved-examples">Quadratic Equations: Solved Examples</Link></li>
+              <li><Link href="/resources/quadratic-equations">Quadratic Equations</Link></li>
             </ul>
           </div>
         </article>

@@ -1,0 +1,157 @@
+{
+  "slug": "pair-of-linear-equations-cross-multiplication",
+  "datePublished": "2026-09-22T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The formula",
+      "blocks": [
+        {
+          "p": "For $a_1x+b_1y+c_1=0$ and $a_2x+b_2y+c_2=0$ with a unique solution, cross-multiplication gives both variables in one line:"
+        },
+        {
+          "math": "\\dfrac{x}{b_1c_2-b_2c_1} = \\dfrac{y}{c_1a_2-c_2a_1} = \\dfrac{1}{a_1b_2-a_2b_1}"
+        },
+        {
+          "p": "Both equations must be in the \"$= 0$\" form first, so the constants $c_1$ and $c_2$ carry their signs over. For $2x + y = 5$, that means $c_1 = -5$, not 5."
+        }
+      ]
+    },
+    {
+      "heading": "Remembering the pattern",
+      "blocks": [
+        {
+          "p": "Write the coefficients in this order, repeating the $b$ column at the end:"
+        },
+        {
+          "math": "\\begin{matrix} b_1 & c_1 & a_1 & b_1 \\\\ b_2 & c_2 & a_2 & b_2 \\end{matrix}"
+        },
+        {
+          "p": "Each denominator comes from one neighbouring pair of columns: (top-left × bottom-right) minus (bottom-left × top-right). The first pair ($b$, $c$) goes under $x$, the second ($c$, $a$) under $y$, and the third ($a$, $b$) under 1."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Solve $2x+y=5$ and $3x+2y=8$ by cross-multiplication."
+        },
+        {
+          "p": "**Solution:** Rewrite as $2x+y-5=0$ and $3x+2y-8=0$, so $a_1=2,b_1=1,c_1=-5$ and $a_2=3,b_2=2,c_2=-8$:"
+        },
+        {
+          "math": "\\dfrac{x}{(1)(-8)-(2)(-5)} = \\dfrac{y}{(-5)(3)-(-8)(2)} = \\dfrac{1}{(2)(2)-(3)(1)}"
+        },
+        {
+          "math": "\\dfrac{x}{2} = \\dfrac{y}{1} = \\dfrac{1}{1} \\;\\Rightarrow\\; x=2, \\; y=1"
+        },
+        {
+          "p": "Check: $2(2) + 1 = 5$ and $3(2) + 2(1) = 8$."
+        }
+      ]
+    },
+    {
+      "heading": "One solution, none, or infinitely many",
+      "blocks": [
+        {
+          "p": "The last denominator, $a_1b_2 - a_2b_1$, tells you before you start whether there is a unique answer. Comparing ratios of the coefficients gives the full picture:"
+        },
+        {
+          "table": {
+            "caption": "Consistency of a pair of linear equations",
+            "columns": ["Condition", "Lines", "Solutions"],
+            "rows": [
+              ["$\\dfrac{a_1}{a_2} \\neq \\dfrac{b_1}{b_2}$", "Intersect", "Exactly one"],
+              ["$\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} \\neq \\dfrac{c_1}{c_2}$", "Parallel", "None"],
+              ["$\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} = \\dfrac{c_1}{c_2}$", "Coincident", "Infinitely many"]
+            ]
+          }
+        },
+        {
+          "p": "When $a_1b_2 - a_2b_1 = 0$ you're in one of the last two rows, and the cross-multiplication formula can't be used."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: finding k for no solution",
+      "blocks": [
+        {
+          "p": "For what value of $k$ does the pair $kx + 3y = k - 3$ and $12x + ky = k$ have no solution?"
+        },
+        {
+          "p": "**Solution:** No solution needs $\\dfrac{k}{12} = \\dfrac{3}{k}$, so $k^2 = 36$ and $k = 6$ or $k = -6$. Both must then also satisfy $\\dfrac{3}{k} \\neq \\dfrac{k-3}{k}$:"
+        },
+        {
+          "list": [
+            "$k = 6$: $\\dfrac{3}{6} = \\dfrac{1}{2}$ and $\\dfrac{6-3}{6} = \\dfrac{1}{2}$. These are equal, so the lines coincide and there are infinitely many solutions.",
+            "$k = -6$: $\\dfrac{3}{-6} = -\\dfrac{1}{2}$ but $\\dfrac{-9}{-6} = \\dfrac{3}{2}$. These differ, so the lines are parallel."
+          ]
+        },
+        {
+          "p": "So the pair has no solution only when $k = -6$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: an equation that isn't linear yet",
+      "blocks": [
+        {
+          "p": "Solve $\\dfrac{1}{2x}+\\dfrac{1}{3y}=2$ and $\\dfrac{1}{3x}+\\dfrac{1}{2y}=\\dfrac{13}{6}$."
+        },
+        {
+          "p": "**Solution:** Neither equation is linear in $x$ and $y$, but substituting $p=\\tfrac{1}{x}$ and $q=\\tfrac{1}{y}$ makes them linear in $p$ and $q$:"
+        },
+        {
+          "math": "\\dfrac{p}{2}+\\dfrac{q}{3}=2 \\;\\Rightarrow\\; 3p+2q-12=0, \\qquad \\dfrac{p}{3}+\\dfrac{q}{2}=\\dfrac{13}{6} \\;\\Rightarrow\\; 2p+3q-13=0"
+        },
+        {
+          "p": "Cross-multiplying:"
+        },
+        {
+          "math": "\\dfrac{p}{(2)(-13)-(3)(-12)} = \\dfrac{q}{(-12)(2)-(-13)(3)} = \\dfrac{1}{(3)(3)-(2)(2)}"
+        },
+        {
+          "math": "\\dfrac{p}{10} = \\dfrac{q}{15} = \\dfrac{1}{5} \\;\\Rightarrow\\; p=2, \\; q=3"
+        },
+        {
+          "p": "Converting back, $\\tfrac{1}{x}=2$ gives $x=\\tfrac{1}{2}$, and $\\tfrac{1}{y}=3$ gives $y=\\tfrac{1}{3}$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Using the constants with the wrong sign.** Move everything to one side first. $3x + 2y = 8$ has $c_2 = -8$.",
+            "**Mixing up the order of the products.** It's always top-left × bottom-right first in each pair of columns. Reversing one of them flips that variable's sign.",
+            "**Forgetting to convert back.** In reducible equations, $p = 2$ is not the answer. The question asked for $x$, which is $\\dfrac{1}{2}$.",
+            "**Stopping at $k^2 = 36$.** One of the two roots often gives infinitely many solutions instead of none. Test each root against the $c$ ratio."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class X syllabus lists the graphical, substitution and elimination methods for a pair of linear equations, together with the conditions for consistency. Cross-multiplication isn't named there, so check whether your board or school still uses it.",
+    "countdowns": [],
+    "sources": ["cbse-9-10-2025-26"]
+  },
+  "related": {
+    "intro": "These same two equations, once set up, are exactly the kind of story problem worked through step by step elsewhere. The other two algebraic methods give the same answers by a different route.",
+    "links": [
+      {
+        "label": "Pair of Linear Equations: Word Problems",
+        "href": "/resources/pair-of-linear-equations-word-problems"
+      },
+      {
+        "label": "Pair of Linear Equations: Substitution and Elimination Methods",
+        "href": "/resources/pair-of-linear-equations-substitution-and-elimination"
+      },
+      {
+        "label": "Pair of Linear Equations: Graphical Method",
+        "href": "/resources/pair-of-linear-equations-graphical-method"
+      }
+    ]
+  }
+}

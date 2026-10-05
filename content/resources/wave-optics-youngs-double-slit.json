@@ -1,0 +1,159 @@
+{
+  "slug": "wave-optics-youngs-double-slit",
+  "datePublished": "2026-09-24T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "Why fringes form",
+      "blocks": [
+        {
+          "p": "Light from two narrow, closely-spaced slits (separation $d$) spreads out and overlaps on a screen a distance $D$ away. At a point on the screen a height $y$ from the centre, the two waves have traveled slightly different distances, a **path difference** that, when $D \\gg d$ and the point is close to the centre ($y \\ll D$, so the angle is small and $\\sin\\theta \\approx \\tan\\theta = \\dfrac{y}{D}$), works out to:"
+        },
+        {
+          "math": "\\Delta = \\dfrac{yd}{D}"
+        }
+      ]
+    },
+    {
+      "heading": "Bright and dark fringes",
+      "blocks": [
+        {
+          "p": "Where the path difference is a whole number of wavelengths, the two waves arrive in phase and reinforce: a bright fringe. Where it's a half-integer number of wavelengths, they arrive out of phase and cancel: a dark fringe:"
+        },
+        {
+          "math": "\\text{Bright: } \\Delta = n\\lambda, \\qquad \\text{Dark: } \\Delta = \\left(n+\\dfrac{1}{2}\\right)\\lambda \\qquad (n = 0, \\pm1, \\pm2, \\ldots)"
+        }
+      ]
+    },
+    {
+      "heading": "Fringe width",
+      "blocks": [
+        {
+          "p": "Setting $\\Delta = n\\lambda$ and solving for $y$ gives the position of the $n$th bright fringe, $y_n = \\tfrac{n\\lambda D}{d}$. Consecutive bright fringes are therefore evenly spaced, a distance apart called the **fringe width**:"
+        },
+        {
+          "math": "\\beta = \\dfrac{\\lambda D}{d}"
+        },
+        {
+          "p": "Dark fringes sit exactly halfway between bright ones, at $y = \\left(n + \\tfrac{1}{2}\\right)\\beta$, and are spaced by the same $\\beta$. The **angular fringe width** $\\dfrac{\\beta}{D} = \\dfrac{\\lambda}{d}$ doesn't depend on where the screen is."
+        }
+      ]
+    },
+    {
+      "heading": "Intensity on the screen",
+      "blocks": [
+        {
+          "p": "If each slit alone gives intensity $I_0$, two waves with phase difference $\\phi$ combine to:"
+        },
+        {
+          "math": "I = 4I_0\\cos^2\\dfrac{\\phi}{2}, \\qquad \\phi = \\dfrac{2\\pi}{\\lambda}\\Delta"
+        },
+        {
+          "p": "Bright fringes reach $4I_0$, not $2I_0$, and dark fringes drop to zero. The energy isn't created: it's moved from the dark regions into the bright ones, and the average over the pattern is still $2I_0$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Two slits are 0.5 mm apart, the screen is 1 m away, and the light has a wavelength of 500 nm. Find the fringe width and the position of the 3rd bright fringe."
+        },
+        {
+          "p": "**Solution:** Convert to metres first: $d = 0.5\\times10^{-3}\\text{ m}$, $\\lambda = 500\\times10^{-9}\\text{ m}$, $D=1\\text{ m}$:"
+        },
+        {
+          "math": "\\beta = \\dfrac{\\lambda D}{d} = \\dfrac{(500\\times10^{-9})(1)}{0.5\\times10^{-3}} = 1\\times10^{-3}\\text{ m} = 1\\text{ mm}"
+        },
+        {
+          "p": "The $n$th bright fringe sits at $n$ fringe-widths from the centre, so the 3rd bright fringe is at:"
+        },
+        {
+          "math": "y_3 = 3\\beta = 3\\text{ mm}"
+        },
+        {
+          "p": "The 2nd dark fringe (counting the first dark fringe as $n = 0$) is at $1.5\\beta = 1.5$ mm."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the same setup under water",
+      "blocks": [
+        {
+          "p": "The whole apparatus above is immersed in water (refractive index $\\mu = \\tfrac{4}{3}$). Find the new fringe width."
+        },
+        {
+          "p": "**Solution:** Inside the water the wavelength shrinks to $\\dfrac{\\lambda}{\\mu}$, and $\\beta$ is proportional to $\\lambda$:"
+        },
+        {
+          "math": "\\beta' = \\dfrac{\\beta}{\\mu} = \\dfrac{1\\text{ mm}}{4/3} = 0.75\\text{ mm}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: intensity at a quarter-wave path difference",
+      "blocks": [
+        {
+          "p": "At a point where the path difference is $\\dfrac{\\lambda}{4}$, what fraction of the maximum intensity is seen?"
+        },
+        {
+          "p": "**Solution:** $\\phi = \\dfrac{2\\pi}{\\lambda} \\cdot \\dfrac{\\lambda}{4} = \\dfrac{\\pi}{2}$, so"
+        },
+        {
+          "math": "I = 4I_0\\cos^2\\dfrac{\\pi}{4} = 4I_0 \\times \\dfrac{1}{2} = 2I_0"
+        },
+        {
+          "p": "That's half the maximum of $4I_0$."
+        }
+      ]
+    },
+    {
+      "heading": "How the pattern responds to changes",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Effect on fringe width",
+            "columns": ["Change", "Effect on $\\beta = \\dfrac{\\lambda D}{d}$"],
+            "rows": [
+              ["Longer wavelength (red instead of blue)", "Wider fringes"],
+              ["Screen moved further away (larger $D$)", "Wider fringes"],
+              ["Slits moved closer together (smaller $d$)", "Wider fringes"],
+              ["Apparatus in a medium of index $\\mu$", "$\\beta$ divided by $\\mu$"],
+              ["Thin sheet (index $\\mu$, thickness $t$) over one slit", "Same width, whole pattern shifts by $\\dfrac{(\\mu - 1)tD}{d}$ towards that slit"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Mixing millimetres, nanometres and metres.** Convert everything to metres before substituting, as in the worked example.",
+            "**Miscounting dark fringes.** The first dark fringe is at $0.5\\beta$ ($n = 0$ in the dark formula), not at $\\beta$.",
+            "**Expecting $2I_0$ at a bright fringe.** Amplitudes add, so intensity at a bright fringe is $4I_0$.",
+            "**Thinking a sheet over one slit changes the fringe width.** It only shifts the pattern. The spacing depends on $\\lambda$, $D$ and $d$ alone."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Young's double-slit experiment and the expression for fringe width are listed in the wave optics units of the JEE Main 2026 and NEET (UG) 2026 syllabi. The JEE Advanced 2026 syllabus limits interference to Young's double slit experiment.",
+    "countdowns": ["jee-2027", "jee-advanced-2027", "neet-2027"],
+    "sources": ["jee-main-2026", "neet-ug-2026", "jee-advanced-2026"]
+  },
+  "related": {
+    "intro": "A single slit, rather than two, produces a strikingly different pattern: its dark fringes use the same-looking formula as these bright ones, for the opposite reason.",
+    "links": [
+      {
+        "label": "Diffraction: Single Slit and Diffraction Grating",
+        "href": "/resources/diffraction-single-slit-and-grating"
+      },
+      {
+        "label": "Photoelectric Effect",
+        "href": "/resources/photoelectric-effect"
+      }
+    ]
+  }
+}

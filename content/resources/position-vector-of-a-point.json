@@ -1,0 +1,136 @@
+{
+  "slug": "position-vector-of-a-point",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "What a position vector is",
+      "blocks": [
+        {
+          "p": "The position vector of a point $P(x, y, z)$ is the vector from the origin $O$ to $P$:"
+        },
+        {
+          "math": "\\vec{p} = \\overrightarrow{OP} = x\\hat{i} + y\\hat{j} + z\\hat{k}, \\qquad |\\vec{p}| = \\sqrt{x^2 + y^2 + z^2}"
+        },
+        {
+          "p": "Its components are just the point's coordinates, so moving between \"the point $(2, 3, 4)$\" and \"the vector $2\\hat{i} + 3\\hat{j} + 4\\hat{k}$\" costs nothing. Once every point has a position vector, the vector joining two of them is a subtraction:"
+        },
+        {
+          "math": "\\overrightarrow{PQ} = \\vec{q} - \\vec{p}"
+        },
+        {
+          "p": "That's \"head minus tail\": the position vector of where the arrow ends, minus where it starts."
+        }
+      ]
+    },
+    {
+      "heading": "The section formula",
+      "blocks": [
+        {
+          "p": "A point $R$ dividing the segment from $P$ to $Q$ in the ratio $m:n$ has position vector:"
+        },
+        {
+          "math": "\\text{Internally: } \\dfrac{m\\vec{q}+n\\vec{p}}{m+n}, \\qquad \\text{Externally: } \\dfrac{m\\vec{q}-n\\vec{p}}{m-n}"
+        },
+        {
+          "p": "Notice the cross-over: $m$, the part of the ratio next to $P$, multiplies $\\vec{q}$, and $n$ multiplies $\\vec{p}$. Internally $R$ lies between $P$ and $Q$; externally it lies on the line through them but outside the segment."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find the position vector of $R$, which divides the segment joining $P$ (position vector $\\hat{i}+2\\hat{j}-\\hat{k}$) and $Q$ (position vector $-\\hat{i}+\\hat{j}+\\hat{k}$) in the ratio 2:1, both internally and externally."
+        },
+        {
+          "p": "**Solution, internally** ($m=2, n=1$):"
+        },
+        {
+          "math": "R = \\dfrac{2(-\\hat{i}+\\hat{j}+\\hat{k}) + 1(\\hat{i}+2\\hat{j}-\\hat{k})}{3} = \\dfrac{-\\hat{i}+4\\hat{j}+\\hat{k}}{3}"
+        },
+        {
+          "p": "**Externally:**"
+        },
+        {
+          "math": "R = \\dfrac{2(-\\hat{i}+\\hat{j}+\\hat{k}) - 1(\\hat{i}+2\\hat{j}-\\hat{k})}{1} = -3\\hat{i}+3\\hat{k}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a midpoint",
+      "blocks": [
+        {
+          "p": "Find the position vector of the midpoint of the segment joining $P(2,3,4)$ and $Q(4,1,-2)$."
+        },
+        {
+          "p": "**Solution:** A midpoint is just the 1:1 case of the section formula: average each coordinate:"
+        },
+        {
+          "math": "\\left(\\dfrac{2+4}{2}, \\dfrac{3+1}{2}, \\dfrac{4-2}{2}\\right) = (3,2,1) = 3\\hat{i}+2\\hat{j}+\\hat{k}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the centroid of a triangle",
+      "blocks": [
+        {
+          "p": "The centroid of a triangle with vertices $\\vec{a}$, $\\vec{b}$, $\\vec{c}$ is their average, $\\dfrac{\\vec{a} + \\vec{b} + \\vec{c}}{3}$. Find the centroid of the triangle with vertices $A(1, 2, 3)$, $B(3, 0, 1)$ and $C(-1, 1, -1)$."
+        },
+        {
+          "p": "**Solution:**"
+        },
+        {
+          "math": "\\dfrac{(1 + 3 - 1)\\hat{i} + (2 + 0 + 1)\\hat{j} + (3 + 1 - 1)\\hat{k}}{3} = \\hat{i} + \\hat{j} + \\hat{k}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: showing three points are collinear",
+      "blocks": [
+        {
+          "p": "Show that $A(2, -1, 3)$, $B(4, 3, 1)$ and $C(3, 1, 2)$ lie on one line."
+        },
+        {
+          "p": "**Solution:** Find two vectors from $A$ using head minus tail:"
+        },
+        {
+          "math": "\\overrightarrow{AB} = 2\\hat{i} + 4\\hat{j} - 2\\hat{k}, \\qquad \\overrightarrow{AC} = \\hat{i} + 2\\hat{j} - \\hat{k}"
+        },
+        {
+          "p": "$\\overrightarrow{AB} = 2\\,\\overrightarrow{AC}$, so the two vectors are parallel and share the point $A$, which puts all three points on one line. In fact $C$ is the midpoint of $AB$: averaging $A$ and $B$ gives $(3, 1, 2)$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Pairing $m$ with $\\vec{p}$.** In $\\dfrac{m\\vec{q}+n\\vec{p}}{m+n}$, $m$ goes with the *far* endpoint $Q$. Swapping them gives the point dividing the segment in $n:m$ instead.",
+            "**Using $+$ in the external formula.** Externally both the numerator and the denominator change to minus: $\\dfrac{m\\vec{q}-n\\vec{p}}{m-n}$.",
+            "**Writing $\\overrightarrow{PQ} = \\vec{p} - \\vec{q}$.** That's $\\overrightarrow{QP}$, the same arrow pointing the other way. It's always head minus tail.",
+            "**Treating a position vector as the point itself in a length question.** $|\\vec{p}|$ is the distance from the origin. The distance between $P$ and $Q$ is $|\\vec{q} - \\vec{p}|$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists the position vector of a point and the position vector of a point dividing a line segment in a given ratio. The JEE Main 2026 three-dimensional geometry unit lists the section formula.",
+    "countdowns": ["jee-2027"],
+    "sources": ["cbse-11-12-2025-26", "jee-main-2026"]
+  },
+  "related": {
+    "intro": "Combining position vectors like this is the same vector arithmetic covered more generally elsewhere.",
+    "links": [
+      {
+        "label": "Operations on Vectors",
+        "href": "/resources/operations-on-vectors"
+      },
+      {
+        "label": "Finding the Equation of a Line",
+        "href": "/resources/equation-of-a-line"
+      }
+    ]
+  }
+}

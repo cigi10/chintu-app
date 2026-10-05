@@ -1,0 +1,198 @@
+{
+  "slug": "equation-of-a-plane",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "The forms of a plane's equation",
+      "blocks": [
+        {
+          "p": "A plane is fixed by a point on it and a direction perpendicular to it (its normal $\\vec{n} = a\\hat{i} + b\\hat{j} + c\\hat{k}$). Every form below is a different way of supplying that information."
+        },
+        {
+          "table": {
+            "caption": "Equation of a plane in each standard form",
+            "columns": ["Given", "Equation"],
+            "rows": [
+              ["Normal $\\vec{n}$ and point with position vector $\\vec{a}$", "$(\\vec{r} - \\vec{a}) \\cdot \\vec{n} = 0$"],
+              ["Normal $(a, b, c)$ and point $(x_1, y_1, z_1)$", "$a(x - x_1) + b(y - y_1) + c(z - z_1) = 0$"],
+              ["General (Cartesian) form", "$ax + by + cz + d = 0$"],
+              ["Unit normal $\\hat{n}$, distance $p$ from origin", "$\\vec{r} \\cdot \\hat{n} = p$"],
+              ["Intercepts $a$, $b$, $c$ on the axes", "$\\dfrac{x}{a} + \\dfrac{y}{b} + \\dfrac{z}{c} = 1$"],
+              ["Through the intersection of planes $P_1 = 0$ and $P_2 = 0$", "$P_1 + \\lambda P_2 = 0$"]
+            ]
+          }
+        },
+        {
+          "p": "In the general form, the coefficients $(a, b, c)$ of $x$, $y$ and $z$ are always the direction ratios of the normal. That is the fastest way to read a plane's orientation off its equation."
+        }
+      ]
+    },
+    {
+      "heading": "The coordinate planes",
+      "blocks": [
+        {
+          "p": "The $xy$-plane is every point where the height above it is zero, so its equation is simply $z=0$. Likewise the $yz$-plane is $x=0$ and the $xz$-plane is $y=0$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a point and a normal",
+      "blocks": [
+        {
+          "p": "Find the equation of the plane through $(1, -1, 2)$ with normal $2\\hat{i} + 3\\hat{j} - \\hat{k}$."
+        },
+        {
+          "p": "**Solution:** Use the point-normal form with $(a, b, c) = (2, 3, -1)$:"
+        },
+        {
+          "math": "2(x - 1) + 3(y + 1) - (z - 2) = 0 \\;\\Rightarrow\\; 2x + 3y - z + 3 = 0"
+        },
+        {
+          "p": "Check: $2(1) + 3(-1) - 2 + 3 = 0$, so the given point lies on it."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: three points",
+      "blocks": [
+        {
+          "p": "Find the equation of the plane through $A(1, 1, 0)$, $B(1, 2, 1)$ and $C(-2, 2, -1)$."
+        },
+        {
+          "p": "**Solution:** Two vectors lying in the plane are $\\overrightarrow{AB} = (0, 1, 1)$ and $\\overrightarrow{AC} = (-3, 1, -1)$. Their cross product is perpendicular to both, so it is a normal:"
+        },
+        {
+          "math": "\\vec{n} = \\overrightarrow{AB} \\times \\overrightarrow{AC} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 0 & 1 & 1 \\\\ -3 & 1 & -1 \\end{vmatrix} = -2\\hat{i} - 3\\hat{j} + 3\\hat{k}"
+        },
+        {
+          "p": "Using point $A$:"
+        },
+        {
+          "math": "-2(x - 1) - 3(y - 1) + 3z = 0 \\;\\Rightarrow\\; 2x + 3y - 3z = 5"
+        },
+        {
+          "p": "Check with the other two points: $B$ gives $2 + 6 - 3 = 5$ and $C$ gives $-4 + 6 + 3 = 5$."
+        }
+      ]
+    },
+    {
+      "heading": "Intercept form",
+      "blocks": [
+        {
+          "p": "A plane's equation can be rewritten in **intercept form**, $\\dfrac{x}{a}+\\dfrac{y}{b}+\\dfrac{z}{c}=1$, where $a$, $b$, and $c$ are exactly where the plane crosses the $x$-, $y$-, and $z$-axes."
+        },
+        {
+          "p": "To get there from $ax + by + cz = d$, divide through by $d$ so the right-hand side is 1, then write each coefficient as a denominator. This only works when $d \\neq 0$: a plane through the origin has all three intercepts at zero and no intercept form."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the sum of the intercepts",
+      "blocks": [
+        {
+          "p": "Find the sum of the intercepts cut off by the plane $2x+y-z=5$."
+        },
+        {
+          "p": "**Solution:** Divide through by 5 to get the right-hand side to 1:"
+        },
+        {
+          "math": "\\dfrac{2x}{5}+\\dfrac{y}{5}-\\dfrac{z}{5}=1 \\;\\Rightarrow\\; \\dfrac{x}{5/2}+\\dfrac{y}{5}+\\dfrac{z}{-5}=1"
+        },
+        {
+          "p": "So the intercepts are $a=\\dfrac{5}{2}$, $b=5$, and $c=-5$. Their sum:"
+        },
+        {
+          "math": "\\dfrac{5}{2}+5-5 = \\dfrac{5}{2}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a plane from its intercepts",
+      "blocks": [
+        {
+          "p": "Find the equation of the plane that cuts the axes at 2, $-3$ and 4."
+        },
+        {
+          "p": "**Solution:** Substitute straight into intercept form, then clear the fractions by multiplying by 12:"
+        },
+        {
+          "math": "\\dfrac{x}{2} + \\dfrac{y}{-3} + \\dfrac{z}{4} = 1 \\;\\Rightarrow\\; 6x - 4y + 3z = 12"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a plane through an intersection",
+      "blocks": [
+        {
+          "p": "Find the vector equation of the plane through the intersection of $3x-y+2z-4=0$ and $x+y+z-3=0$, passing through the point $(2,2,1)$."
+        },
+        {
+          "p": "**Solution:** Any plane through that intersection has the form $(3x-y+2z-4) + \\lambda(x+y+z-3) = 0$ for some constant $\\lambda$. Plugging in $(2,2,1)$ pins down $\\lambda$:"
+        },
+        {
+          "math": "(6-2+2-4) + \\lambda(2+2+1-3) = 0 \\;\\Rightarrow\\; 2 + 2\\lambda = 0 \\;\\Rightarrow\\; \\lambda = -1"
+        },
+        {
+          "p": "Substituting back in:"
+        },
+        {
+          "math": "(3x-y+2z-4) - (x+y+z-3) = 0 \\;\\Rightarrow\\; 2x-2y+z-1 = 0"
+        },
+        {
+          "p": "In vector form, this is:"
+        },
+        {
+          "math": "\\vec{r}\\cdot(2\\hat{i}-2\\hat{j}+\\hat{k}) = 1"
+        }
+      ]
+    },
+    {
+      "heading": "Distance from a point to a plane",
+      "blocks": [
+        {
+          "p": "Once a plane is in general form, the perpendicular distance $D$ from a point $(x_1, y_1, z_1)$ to it comes straight from the coefficients:"
+        },
+        {
+          "math": "D = \\dfrac{|ax_1 + by_1 + cz_1 + d|}{\\sqrt{a^2 + b^2 + c^2}}"
+        },
+        {
+          "p": "**Example:** the distance from $(2, 5, -3)$ to $6x - 3y + 2z - 4 = 0$ is"
+        },
+        {
+          "math": "\\dfrac{|12 - 15 - 6 - 4|}{\\sqrt{36 + 9 + 4}} = \\dfrac{13}{7}"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Reading intercepts before the right side is 1.** In $2x + y - z = 5$ the $x$-intercept is $\\dfrac{5}{2}$, not 2 or 5.",
+            "**Dropping the sign of an intercept.** A $-z$ term gives a negative intercept, as with $c = -5$ above. Leaving it positive changes the sum.",
+            "**Confusing the normal with a direction in the plane.** $(a, b, c)$ is perpendicular to the plane. A vector *in* the plane, like $\\overrightarrow{AB}$, is perpendicular to the normal instead.",
+            "**Using $\\vec{r} \\cdot \\vec{n} = d$ as the distance form.** The right side is the distance from the origin only when $\\vec{n}$ is a unit vector. Divide by $|\\vec{n}|$ first."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The JEE Advanced 2026 syllabus lists the equation of a plane and the distance of a point from a plane. Neither appears in the JEE Main 2026 syllabus or the 2025-26 CBSE Class XII syllabus, whose three-dimensional geometry units cover lines only.",
+    "countdowns": ["jee-advanced-2027"],
+    "sources": ["jee-advanced-2026", "jee-main-2026", "cbse-11-12-2025-26"]
+  },
+  "related": {
+    "intro": "With a plane's normal in hand, the angle a line makes with it is one dot product away.",
+    "links": [
+      {
+        "label": "Angle Between a Line and a Plane",
+        "href": "/resources/angle-between-line-and-plane"
+      },
+      {
+        "label": "Finding the Equation of a Line",
+        "href": "/resources/equation-of-a-line"
+      }
+    ]
+  }
+}

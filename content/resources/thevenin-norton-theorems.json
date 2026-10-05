@@ -1,0 +1,134 @@
+{
+  "slug": "thevenin-norton-theorems",
+  "datePublished": "2026-09-25T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "Reducing a whole network to two numbers",
+      "blocks": [
+        {
+          "p": "**Thevenin's theorem:** any linear circuit, viewed from just two terminals, behaves exactly like a single voltage source $V_{th}$ in series with a single resistor $R_{th}$, no matter how complicated the actual network behind those terminals is."
+        },
+        {
+          "p": "**Norton's theorem** is the same idea with a current source instead: a current source $I_N$ in *parallel* with $R_N$. The two are directly related, same resistance, and:"
+        },
+        {
+          "math": "R_N = R_{th}, \\qquad I_N = \\dfrac{V_{th}}{R_{th}}"
+        },
+        {
+          "p": "$V_{th}$ is the open-circuit voltage across the terminals (nothing connected). $R_{th}$ is the resistance seen from the terminals with every independent source turned off (voltage sources shorted, current sources opened)."
+        }
+      ]
+    },
+    {
+      "heading": "Finding the equivalent, step by step",
+      "blocks": [
+        {
+          "steps": [
+            "**Pick the two terminals** and disconnect whatever load you want to analyse from them.",
+            "**Find $V_{th}$:** the voltage across the open terminals, usually by a voltage divider, nodal analysis or KVL.",
+            "**Find $R_{th}$:** turn off every *independent* source (short voltage sources, open current sources) and work out the resistance looking back into the terminals.",
+            "**Or find $I_N$ directly:** short the terminals and calculate the current through the short. Then $R_{th} = \\dfrac{V_{th}}{I_N}$, which is the method to use when the circuit has dependent sources.",
+            "**Reconnect the load** to the simple equivalent and solve that instead of the original network."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "A 12V source feeds a 4Ω resistor in series, which then splits into a 6Ω resistor to the return path. Find the Thevenin and Norton equivalents seen from the two ends of that 6Ω resistor, as a load connected across it would see the circuit."
+        },
+        {
+          "p": "**$V_{th}$:** with nothing connected across the terminals, the only current flows through the 4Ω and 6Ω in series, so the terminal voltage is just the voltage-divider result across the 6Ω:"
+        },
+        {
+          "math": "V_{th} = 12 \\times \\dfrac{6}{4+6} = 12 \\times 0.6 = 7.2\\text{ V}"
+        },
+        {
+          "p": "**$R_{th}$:** shorting the 12V source and looking back into the terminals, the 4Ω and 6Ω are now simply in parallel with each other:"
+        },
+        {
+          "math": "R_{th} = \\dfrac{4\\times6}{4+6} = \\dfrac{24}{10} = 2.4\\,\\Omega"
+        },
+        {
+          "p": "**Norton equivalent:**"
+        },
+        {
+          "math": "I_N = \\dfrac{V_{th}}{R_{th}} = \\dfrac{7.2}{2.4} = 3\\text{ A}, \\qquad R_N = 2.4\\,\\Omega"
+        },
+        {
+          "p": "**Cross-check:** the Norton current should also equal the *short-circuit* current at the terminals. Shorting the terminals shorts out the 6Ω branch entirely, leaving only the 4Ω resistor across the 12V source:"
+        },
+        {
+          "math": "I_{sc} = \\dfrac{12}{4} = 3\\text{ A}"
+        },
+        {
+          "p": "Matches $I_N$ exactly, confirming both equivalents independently."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: connecting a load",
+      "blocks": [
+        {
+          "p": "A 2.4Ω load is connected across the same terminals. Find the load current and voltage."
+        },
+        {
+          "p": "**Solution:** With the Thevenin equivalent, this is one series loop of $V_{th}$, $R_{th}$ and the load:"
+        },
+        {
+          "math": "I_L = \\dfrac{V_{th}}{R_{th} + R_L} = \\dfrac{7.2}{2.4 + 2.4} = 1.5\\text{ A}, \\qquad V_L = I_L R_L = 1.5 \\times 2.4 = 3.6\\text{ V}"
+        },
+        {
+          "p": "**Check against the original circuit:** the 6Ω and the 2.4Ω load are in parallel, $\\dfrac{6 \\times 2.4}{6 + 2.4} = \\dfrac{12}{7}\\,\\Omega$. In series with the 4Ω, the source sees $\\dfrac{40}{7}\\,\\Omega$, so it supplies $12 \\div \\dfrac{40}{7} = 2.1$ A, and the voltage across the parallel pair is $2.1 \\times \\dfrac{12}{7} = 3.6$ V. Same answer, with a lot more arithmetic, which is why the equivalent is worth finding when the load changes."
+        }
+      ]
+    },
+    {
+      "heading": "Maximum power transfer",
+      "blocks": [
+        {
+          "p": "A load draws the most power from a circuit when its resistance equals the Thevenin resistance, $R_L = R_{th}$. The power it then receives is:"
+        },
+        {
+          "math": "P_{max} = \\dfrac{V_{th}^2}{4R_{th}}"
+        },
+        {
+          "p": "The 2.4Ω load above is exactly that case: $P_{max} = \\dfrac{7.2^2}{4 \\times 2.4} = \\dfrac{51.84}{9.6} = 5.4$ W, which matches $I_L^2 R_L = 1.5^2 \\times 2.4 = 5.4$ W. Inside the Thevenin equivalent the efficiency at this point is 50%, since $R_{th}$ dissipates as much as the load. The real network can do worse: here the source supplies $12 \times 2.1 = 25.2$ W, so the load gets only about 21% of it."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Leaving the load in when finding $V_{th}$.** $V_{th}$ is an open-circuit voltage. Decide which element is the load, take it out, then measure across the gap.",
+            "**Turning off dependent sources.** Only independent sources are deactivated. A dependent source stays in the circuit, and you find $R_{th}$ from $\\dfrac{V_{oc}}{I_{sc}}$ or with a test source.",
+            "**Shorting a current source.** A turned-off current source is an *open* circuit (zero current), not a short.",
+            "**Getting the Norton direction wrong.** $I_N$ points so that it drives current out of the terminal that is positive in the Thevenin circuit."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Thevenin's and Norton's theorems are listed in the GATE 2026 EC (Networks, Signals and Systems), EE (Electric Circuits) and IN (Electrical Circuits and Machines) syllabi, and all three also name maximum power transfer. They are not in the JEE Main 2026, JEE Advanced 2026 or NEET (UG) 2026 syllabi, which cover Kirchhoff's laws but not network theorems.",
+    "countdowns": ["gate-2027"],
+    "sources": ["gate-2026-ec", "gate-2026-ee", "gate-2026-in", "jee-main-2026", "jee-advanced-2026", "neet-ug-2026"]
+  },
+  "related": {
+    "intro": "This same circuit could be solved directly with Kirchhoff's laws instead of reducing it first, useful for checking a Thevenin/Norton reduction against a from-scratch calculation.",
+    "links": [
+      {
+        "label": "Kirchhoff's Current and Voltage Laws",
+        "href": "/resources/kirchhoffs-laws"
+      },
+      {
+        "label": "Op-Amp Fundamentals: Inverting and Non-Inverting Amplifiers",
+        "href": "/resources/op-amp-fundamentals"
+      }
+    ]
+  }
+}
