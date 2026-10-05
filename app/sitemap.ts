@@ -3,7 +3,6 @@ import { getAllBlogPosts } from "@/lib/blogPosts";
 import { getBlogCategories } from "@/lib/blogCategories";
 import { getAllResources, getResourceHubs } from "@/lib/resources";
 import { getQuizCategorySlugs } from "@/lib/quiz";
-import { getWordGameDomainSlugs } from "@/lib/wordGame";
 import { getExamSlugs } from "@/lib/examDates";
 import { SITE_URL } from "@/lib/seo";
 
@@ -19,6 +18,10 @@ const STATIC_ROUTES = ["/", "/blog", "/quiz", "/games", "/games/crumb", "/resour
 // belong here once they carry their own distinguishing content (an intro
 // per tag, say). The small ones are also noindexed, see
 // MIN_INDEXABLE_TAG_SIZE in lib/seo.js.
+//
+// Pages served with noindex are left out too: listing a URL here while
+// telling Google not to index it sends mixed signals. That covers the
+// Crumb domain pages (/games/crumb/<domain>).
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
@@ -47,7 +50,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const countdownEntries = getExamSlugs().map(exam => ({ url: url(`/countdown/${exam}`) }));
 
-  const gameEntries = getWordGameDomainSlugs().map(domain => ({ url: url(`/games/crumb/${domain}`) }));
-
-  return [...staticEntries, ...blogEntries, ...resourceEntries, ...hubEntries, ...blogCategoryEntries, ...quizEntries, ...countdownEntries, ...gameEntries];
+  return [...staticEntries, ...blogEntries, ...resourceEntries, ...hubEntries, ...blogCategoryEntries, ...quizEntries, ...countdownEntries];
 }
