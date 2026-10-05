@@ -152,8 +152,8 @@
     "intro": "Linear equations are the entry point before quadratic equations, the same isolate-the-variable habit carries over once a squared term is involved. With two unknowns, you need two equations solved together.",
     "links": [
       {
-        "label": "Quadratic Equations: Solved Examples",
-        "href": "/resources/quadratic-equations-solved-examples"
+        "label": "Quadratic Equations",
+        "href": "/resources/quadratic-equations"
       },
       {
         "label": "Pair of Linear Equations: Substitution and Elimination Methods",

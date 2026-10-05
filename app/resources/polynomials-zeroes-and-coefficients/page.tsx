@@ -90,7 +90,7 @@ export default function PolynomialsZeroesPage() {
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/quadratic-equations">Quadratic Equations</Link></li>
-              <li><Link href="/resources/quadratic-equations-solved-examples">Quadratic Equations: Solved Examples</Link></li>
+              <li><Link href="/resources/quadratic-equations">Quadratic Equations</Link></li>
             </ul>
           </div>
         </article>

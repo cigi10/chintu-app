@@ -89,7 +89,7 @@ export default function ComplexNumbersPage() {
               is negative. The two roots become a conjugate pair like the ones above.
             </p>
             <ul className="blog-post-related-list">
-              <li><Link href="/resources/quadratic-equations-solved-examples">Quadratic Equations: Solved Examples</Link></li>
+              <li><Link href="/resources/quadratic-equations">Quadratic Equations</Link></li>
             </ul>
           </div>
         </article>

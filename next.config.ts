@@ -27,6 +27,9 @@ const nextConfig: NextConfig = {
       { source: "/resources/ratio", destination: "/resources/ratio-and-proportion", permanent: true },
       { source: "/resources/proportion", destination: "/resources/ratio-and-proportion", permanent: true },
       { source: "/resources/intercepts-of-a-plane", destination: "/resources/equation-of-a-plane", permanent: true },
+      // Phase 0 approved merges: each solved-examples or companion page now
+      // lives as a headed section of its parent topic page.
+      { source: "/resources/quadratic-equations-solved-examples", destination: "/resources/quadratic-equations", permanent: true },
     ];
   },
 };
