@@ -32,6 +32,7 @@ const nextConfig: NextConfig = {
       // explicit 301 (permanent: true sends a 308), as specified for them.
       { source: "/resources/quadratic-equations-solved-examples", destination: "/resources/quadratic-equations", statusCode: 301 },
       { source: "/resources/trigonometry-solved-examples", destination: "/resources/trigonometry", statusCode: 301 },
+      { source: "/resources/percentage-shortcuts", destination: "/resources/percentage", statusCode: 301 },
     ];
   },
 };

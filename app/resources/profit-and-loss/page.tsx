@@ -102,7 +102,7 @@ export default function ProfitAndLossPage() {
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/percentage">Percentage</Link></li>
-              <li><Link href="/resources/percentage-shortcuts">Percentage Shortcuts</Link></li>
+              <li><Link href="/resources/simple-and-compound-interest">Simple and Compound Interest</Link></li>
             </ul>
           </div>
         </article>
