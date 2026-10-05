@@ -33,6 +33,7 @@ const nextConfig: NextConfig = {
       { source: "/resources/quadratic-equations-solved-examples", destination: "/resources/quadratic-equations", statusCode: 301 },
       { source: "/resources/trigonometry-solved-examples", destination: "/resources/trigonometry", statusCode: 301 },
       { source: "/resources/percentage-shortcuts", destination: "/resources/percentage", statusCode: 301 },
+      { source: "/resources/finding-missing-values-in-a-matrix", destination: "/resources/special-types-of-matrices", statusCode: 301 },
     ];
   },
 };

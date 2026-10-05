@@ -7,10 +7,10 @@ import "@/styles/blog.css";
 
 export const metadata = {
   title: "Special Types of Matrices - Studyloaf",
-  description: "Diagonal, scalar, and identity matrices explained, with examples showing how each one is a more specific case of the last.",
+  description: "Diagonal, scalar and identity matrices defined with examples, and finding missing values in a matrix from a stated type or matching determinants.",
   openGraph: {
     title: "Special Types of Matrices - Studyloaf",
-    description: "Diagonal, scalar, and identity matrices explained, with examples showing how each one is a more specific case of the last.",
+    description: "Diagonal, scalar and identity matrices defined with examples, and finding missing values in a matrix from a stated type or matching determinants.",
   },
   alternates: { canonical: "/resources/special-types-of-matrices" },
 };
@@ -23,7 +23,7 @@ export default function SpecialTypesOfMatricesPage() {
         "@context": "https://schema.org",
         "@type": ["Article", "LearningResource"],
         headline: "Special Types of Matrices",
-        description: "Diagonal, scalar, and identity matrices explained, with examples showing how each one is a more specific case of the last.",
+        description: "Diagonal, scalar and identity matrices defined with examples, and finding missing values in a matrix from a stated type or matching determinants.",
         datePublished: "2026-09-18",
         author: { "@type": "Organization", name: "Studyloaf Team" },
       }} />
@@ -70,14 +70,46 @@ export default function SpecialTypesOfMatricesPage() {
             </p>
           </div>
 
+          <div className="blog-post-section">
+            <h2 className="blog-post-heading">Finding Missing Values in a Matrix</h2>
+            <p className="blog-post-p">
+              The definitions above are exactly what unknown-entry questions test: a stated matrix type, or an equation between determinants, pins down each missing value.
+            </p>
+            <h3 className="blog-post-subheading">Worked example: using a stated property</h3>
+            <p className="blog-post-p">
+              If <Katex>{"\\begin{bmatrix} x+2 & y-3 \\\\ 0 & 4 \\end{bmatrix}"}</Katex> is a{" "}
+              <strong>scalar matrix</strong>, find <Katex>{"x"}</Katex> and <Katex>{"y"}</Katex>.
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> A scalar matrix needs every off-diagonal entry to be zero
+              and both diagonal entries equal. The off-diagonal entry <Katex>{"y-3"}</Katex> must
+              be zero:
+            </p>
+            <Katex display>{"y - 3 = 0 \\;\\Rightarrow\\; y = 3"}</Katex>
+            <p className="blog-post-p">
+              And the diagonal entries must match: <Katex>{"x+2 = 4"}</Katex>, so{" "}
+              <Katex>{"x=2"}</Katex>.
+            </p>
+            <h3 className="blog-post-subheading">Worked example: matching determinants</h3>
+            <p className="blog-post-p">
+              If <Katex>{"\\begin{vmatrix} 3 & x \\\\ x & 1 \\end{vmatrix} = \\begin{vmatrix} 3 & 2 \\\\ 4 & 1 \\end{vmatrix}"}</Katex>,
+              find <Katex>{"x"}</Katex>.
+            </p>
+            <p className="blog-post-p">
+              <strong>Solution:</strong> Evaluate both determinants:
+            </p>
+            <Katex display>{"3(1) - x(x) = 3(1) - 2(4) \\;\\Rightarrow\\; 3-x^2 = -5"}</Katex>
+            <Katex display>{"x^2 = 8 \\;\\Rightarrow\\; x = \\pm 2\\sqrt{2}"}</Katex>
+          </div>
+
           <div className="blog-post-related">
             <h2 className="blog-post-heading">Continue learning</h2>
             <p className="blog-post-p">
-              Recognizing a scalar matrix is exactly the skill needed to solve for unknown entries
-              that are required to make a given matrix scalar.
+              Once the types are clear, the next step is how these matrices behave under addition,
+              multiplication and determinants.
             </p>
             <ul className="blog-post-related-list">
-              <li><Link href="/resources/finding-missing-values-in-a-matrix">Finding Missing Values in a Matrix</Link></li>
+              <li><Link href="/resources/square-matrix">Square Matrix Properties</Link></li>
               <li><Link href="/resources/operations-on-matrices">Operations on Matrices</Link></li>
             </ul>
           </div>
