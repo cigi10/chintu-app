@@ -1,5 +1,6 @@
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { internalTrafficScript } from "@/lib/internalTraffic";
 
 // Every third-party analytics/ads script the site loads, in one place.
 // Rendered once from the root layout, so it applies to every page
@@ -8,7 +9,13 @@ export default function ThirdPartyScripts() {
   return (
     <>
       {process.env.NEXT_PUBLIC_GA_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        <>
+          {/* A plain inline script runs while <head> is parsed, before the
+              GA init script, so ?internal=1 visits have traffic_type set
+              before the first page_view. See lib/internalTraffic.js. */}
+          <script dangerouslySetInnerHTML={{ __html: internalTrafficScript }} />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        </>
       )}
       {/* AdSense verification script — next/script with afterInteractive
           is Google's own recommended approach for loading adsbygoogle.js
