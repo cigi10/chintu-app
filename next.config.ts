@@ -22,6 +22,11 @@ const nextConfig: NextConfig = {
       // Two overlapping calculus pages were merged into tangents-and-normals
       // when the resource pages moved to JSON (Task 3, calculus batch).
       { source: "/resources/slope-of-tangent-and-normal", destination: "/resources/tangents-and-normals", permanent: true },
+      // Phase 0 thin-page audit: each pair covered one half of the same
+      // NCERT topic in under 110 words, so they were merged into one page.
+      { source: "/resources/ratio", destination: "/resources/ratio-and-proportion", permanent: true },
+      { source: "/resources/proportion", destination: "/resources/ratio-and-proportion", permanent: true },
+      { source: "/resources/intercepts-of-a-plane", destination: "/resources/equation-of-a-plane", permanent: true },
     ];
   },
 };

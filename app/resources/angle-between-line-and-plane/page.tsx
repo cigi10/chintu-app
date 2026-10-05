@@ -72,7 +72,7 @@ export default function AngleBetweenLineAndPlanePage() {
             </p>
             <ul className="blog-post-related-list">
               <li><Link href="/resources/equation-of-a-line">Finding the Equation of a Line</Link></li>
-              <li><Link href="/resources/equation-of-a-plane">Finding the Equation of a Plane</Link></li>
+              <li><Link href="/resources/equation-of-a-plane">Equation of a Plane</Link></li>
             </ul>
           </div>
         </article>
