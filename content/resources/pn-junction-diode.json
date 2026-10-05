@@ -9,7 +9,7 @@
           "p": "A PN junction diode is formed where P-type semiconductor (extra positive charge carriers, or \"holes\") meets N-type semiconductor (extra electrons). Right at the junction, electrons and holes diffuse across and cancel each other out, leaving a thin **depletion region** with no free charge carriers, and a small built-in electric field that opposes any further diffusion, holding the junction in equilibrium."
         },
         {
-          "p": "The depletion region isn't empty: it holds fixed ions (negative on the P side, positive on the N side) left behind by the carriers that recombined. Those ions are what create the built-in field and the **barrier potential**, about 0.7 V for silicon and 0.3 V for germanium."
+          "p": "The depletion region isn't empty: it holds fixed ions (negative on the P side, positive on the N side) left behind by the carriers that recombined. Those ions are what create the built-in field and the **barrier potential**, about 0.7 V for silicon and 0.2 to 0.3 V for germanium (NCERT uses 0.2 V)."
         }
       ]
     },
@@ -100,7 +100,7 @@
       "blocks": [
         {
           "list": [
-            "**Using 0.7 V for every diode.** That's silicon. Germanium is about 0.3 V, and an ideal diode in a question means 0 V drop.",
+            "**Using 0.7 V for every diode.** That's silicon. Germanium is about 0.2 to 0.3 V, and an ideal diode in a question means 0 V drop.",
             "**Saying the reverse current is exactly zero.** A small, nearly constant leakage current flows until breakdown. It's zero only in the ideal model.",
             "**Mixing up which way the depletion region changes.** Forward bias *narrows* it and reverse bias *widens* it.",
             "**Giving the full-wave ripple frequency as 50 Hz.** Full-wave output pulses twice per input cycle, so it's twice the supply frequency."
