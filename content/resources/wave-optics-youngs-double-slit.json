@@ -6,7 +6,7 @@
       "heading": "Why fringes form",
       "blocks": [
         {
-          "p": "Light from two narrow, closely-spaced slits (separation $d$) spreads out and overlaps on a screen a distance $D$ away. At a point on the screen a height $y$ from the centre, the two waves have traveled slightly different distances, a **path difference** that, for $D \\gg d$, works out to:"
+          "p": "Light from two narrow, closely-spaced slits (separation $d$) spreads out and overlaps on a screen a distance $D$ away. At a point on the screen a height $y$ from the centre, the two waves have traveled slightly different distances, a **path difference** that, when $D \\gg d$ and the point is close to the centre ($y \\ll D$, so the angle is small and $\\sin\\theta \\approx \\tan\\theta = \\dfrac{y}{D}$), works out to:"
         },
         {
           "math": "\\Delta = \\dfrac{yd}{D}"

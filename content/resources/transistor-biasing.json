@@ -82,7 +82,7 @@
           "math": "I_C = 200 \\times 24.0\\,\\mu\\text{A} = 4.81\\text{ mA}, \\qquad V_{CE} = 12 - (4.81\\times10^{-3})(2200) \\approx 1.42\\text{ V}"
         },
         {
-          "p": "The Q-point has slid most of the way to saturation. A signal of more than about a volt would now be clipped. Doubling $\\beta$ doubled $I_C$, which is the instability voltage-divider bias is designed to fix."
+          "p": "The Q-point has slid most of the way to saturation. The output can now swing down only about 1.2 V before the transistor saturates (at $V_{CE} \\approx 0.2$ V), so a larger signal would be clipped. Doubling $\\beta$ doubled $I_C$, which is the instability voltage-divider bias is designed to fix."
         }
       ]
     },
@@ -108,7 +108,7 @@
           "math": "V_{CE} = V_{CC} - I_C(R_C + R_E) = 12 - (1.464\\times10^{-3})(4300) \\approx 5.70\\text{ V}"
         },
         {
-          "p": "$\\beta$ never appeared in the calculation. Change it to 200 and $I_C$ stays at about 1.46 mA, which is the whole point of this circuit."
+          "p": "$\\beta$ never appeared in the calculation. That's an approximation: including the base current, an exact calculation gives $I_C \\approx 1.42$ mA at $\\beta = 100$ and $1.44$ mA at $\\beta = 200$. Doubling $\\beta$ moves $I_C$ by about 1.4%, against 100% for fixed bias, which is the whole point of this circuit."
         }
       ]
     },

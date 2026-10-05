@@ -6,13 +6,13 @@
       "heading": "What makes an equation linear",
       "blocks": [
         {
-          "p": "A linear equation in one variable is one where the variable only appears to the first power: no $x^2$, no $\\sqrt{x}$, no $\\dfrac{1}{x}$. After simplifying, every such equation can be written as"
+          "p": "A linear equation in one variable is one where the variable only appears to the first power: no $x^2$, no $\\sqrt{x}$, no $\\dfrac{1}{x}$. After simplifying, such an equation can be written as"
         },
         {
-          "math": "ax + b = 0, \\quad a \\neq 0 \\;\\Rightarrow\\; x = -\\dfrac{b}{a}"
+          "math": "ax + b = 0 \\;\\Rightarrow\\; x = -\\dfrac{b}{a} \\quad (a \\neq 0)"
         },
         {
-          "p": "so it always has exactly one solution."
+          "p": "so whenever $a \\neq 0$ it has exactly one solution. If the $x$ terms cancel completely ($a = 0$), there is either no solution, as with $x + 1 = x + 2$, or every $x$ works, as with $x + 1 = x + 1$."
         }
       ]
     },
@@ -142,7 +142,7 @@
             "**Multiplying only some terms by the LCM.** In the fractions example, forgetting to multiply the 4 by 6 gives $5x - 1 = 4$ and the wrong answer $x = 1$.",
             "**Losing a minus sign across a bracket.** $-(x - 3)$ is $-x + 3$, not $-x - 3$.",
             "**Writing \"5 less than x\" as $5 - x$.** It's $x - 5$. Read the phrase as \"start with x, then take 5 away\".",
-            "**Skipping the check.** Substituting back takes ten seconds and catches almost every sign slip."
+            "**Skipping the check.** Substituting the answer back into the original equation catches sign slips before they cost marks."
           ]
         }
       ]

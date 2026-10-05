@@ -95,7 +95,7 @@
           "math": "P_{max} = \\dfrac{V_{th}^2}{4R_{th}}"
         },
         {
-          "p": "The 2.4Ω load above is exactly that case: $P_{max} = \\dfrac{7.2^2}{4 \\times 2.4} = \\dfrac{51.84}{9.6} = 5.4$ W, which matches $I_L^2 R_L = 1.5^2 \\times 2.4 = 5.4$ W. At this point the efficiency is only 50%, since $R_{th}$ dissipates as much as the load."
+          "p": "The 2.4Ω load above is exactly that case: $P_{max} = \\dfrac{7.2^2}{4 \\times 2.4} = \\dfrac{51.84}{9.6} = 5.4$ W, which matches $I_L^2 R_L = 1.5^2 \\times 2.4 = 5.4$ W. Inside the Thevenin equivalent the efficiency at this point is 50%, since $R_{th}$ dissipates as much as the load. The real network can do worse: here the source supplies $12 \times 2.1 = 25.2$ W, so the load gets only about 21% of it."
         }
       ]
     },

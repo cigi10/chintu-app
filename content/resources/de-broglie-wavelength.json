@@ -12,7 +12,7 @@
           "math": "\\lambda = \\dfrac{h}{p} = \\dfrac{h}{mv}"
         },
         {
-          "p": "For everyday objects this wavelength is absurdly small and unobservable. It only becomes significant for very light, fast particles like electrons, which is exactly why electron microscopes work."
+          "p": "For everyday objects this wavelength is absurdly small and unobservable. It only becomes significant for particles with very small mass, like electrons, whose wavelength at laboratory energies is comparable to the spacing of atoms. Electron microscopes rely on this: an electron beam's wavelength is far shorter than visible light's, so it resolves much finer detail."
         }
       ]
     },
@@ -103,6 +103,20 @@
         },
         {
           "p": "If instead the two particles had the same *kinetic energy*, the charge would drop out and the ratio would be $\\sqrt{\\dfrac{m_\\alpha}{m_p}} = 2$."
+        }
+      ]
+    },
+    {
+      "heading": "When the simple formula stops working",
+      "blocks": [
+        {
+          "p": "$K = \\dfrac{p^2}{2m}$ is the non-relativistic kinetic energy, so every formula above assumes the particle is much slower than light. For an electron that holds well at ordinary voltages: the error in $\\lambda$ is about 0.005% at 100 V and about 0.5% at 10 kV, but it grows to about 5% at 100 kV."
+        },
+        {
+          "p": "At high voltages, use the relativistic momentum instead, where $mc^2$ is the particle's rest energy (511 keV for an electron):"
+        },
+        {
+          "math": "\\lambda = \\dfrac{h}{\\sqrt{2mK\\left(1 + \\dfrac{K}{2mc^2}\\right)}}"
         }
       ]
     },

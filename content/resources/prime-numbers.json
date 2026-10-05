@@ -9,7 +9,7 @@
           "p": "A **prime number** is a natural number greater than 1 whose only positive divisors are 1 and itself. A number greater than 1 that isn't prime is **composite**."
         },
         {
-          "p": "**0 is neither prime nor composite**: every number times 0 is 0, so 0 would have infinitely many factors, and primality requires a finite, specific set of divisors."
+          "p": "**0 is neither prime nor composite**: the two words are only defined for natural numbers greater than 1. (0 couldn't pass the test anyway: every non-zero number divides 0, so it has far more than two divisors.)"
         },
         {
           "p": "**1 is also neither**: a prime needs exactly two distinct divisors (1 and itself), but 1's only divisor is 1 itself, just one."

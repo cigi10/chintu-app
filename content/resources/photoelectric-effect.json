@@ -31,7 +31,7 @@
             "columns": ["Change", "$KE_{max}$ and stopping potential", "Photocurrent"],
             "rows": [
               ["Higher intensity, same frequency", "No change", "Increases (more photons, more electrons)"],
-              ["Higher frequency, same intensity", "Increases", "Saturation current unchanged in the standard NCERT treatment"],
+              ["Higher frequency, same intensity", "Increases", "Set by photons per second, not by frequency itself: at equal intensity, higher-frequency light delivers fewer photons, so the saturation current can be lower"],
               ["Frequency below $\\nu_0$", "No emission", "Zero, at any intensity"]
             ]
           }

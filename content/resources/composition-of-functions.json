@@ -103,7 +103,7 @@
           }
         },
         {
-          "p": "Composition is associative, as the last row says, but not commutative: $gof$ and $fog$ usually differ, as every example on this page shows."
+          "p": "Composition is associative, as the last row says, but not commutative: $gof$ and $fog$ usually differ, as the first two examples on this page show. They agree in special cases, such as a function and its own inverse."
         }
       ]
     },

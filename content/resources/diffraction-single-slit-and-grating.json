@@ -58,7 +58,7 @@
           "math": "d\\sin\\theta = n\\lambda"
         },
         {
-          "p": "Since $\\sin\\theta$ can't exceed 1, the highest order you can see is the largest whole number $n$ with $n \\leq \\dfrac{d}{\\lambda}$."
+          "p": "Since $\\sin\\theta$ can't exceed 1, the highest order you can see is the largest whole number $n$ with $n < \\dfrac{d}{\\lambda}$. (If $\\dfrac{d}{\\lambda}$ were a whole number, that order would sit at $\\theta = 90^\\circ$, along the grating itself, and couldn't be seen.)"
         }
       ]
     },
@@ -94,7 +94,7 @@
             "columns": ["Setup", "Condition", "What it gives"],
             "rows": [
               ["Single slit, width $a$", "$a\\sin\\theta = n\\lambda$, $n \\neq 0$", "Dark fringes (minima)"],
-              ["Double slit, spacing $d$", "$d\\sin\\theta = n\\lambda$", "Bright fringes, evenly spaced"],
+              ["Double slit, spacing $d$", "$d\\sin\\theta = n\\lambda$", "Bright fringes, evenly spaced near the centre"],
               ["Grating, spacing $d$", "$d\\sin\\theta = n\\lambda$", "Very sharp, bright principal maxima"]
             ]
           }
