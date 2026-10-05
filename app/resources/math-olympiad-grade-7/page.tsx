@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Katex from "@/components/Katex";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
+import { NOINDEX } from "@/lib/seo";
 import "@/styles/blog.css";
 
 export const metadata = {
@@ -12,6 +13,7 @@ export const metadata = {
     description: "Five worked Math Olympiad-style problems for grade 7: a Fibonacci-like sequence, an exponent equation, percentages with overlap, consecutive integers, and clock arithmetic.",
   },
   alternates: { canonical: "/resources/math-olympiad-grade-7" },
+  robots: NOINDEX,
 };
 
 export default function MathOlympiadGrade7Page() {

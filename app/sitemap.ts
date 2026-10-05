@@ -22,7 +22,8 @@ const STATIC_ROUTES = ["/", "/blog", "/quiz", "/games", "/games/crumb", "/resour
 // Pages served with noindex are left out too: listing a URL here while
 // telling Google not to index it sends mixed signals. That covers the
 // Crumb domain pages (/games/crumb/<domain>) and the quiz Daily
-// Challenges (/quiz/<category>/daily).
+// Challenges (/quiz/<category>/daily), plus any resource marked
+// `noindex` in lib/resources.js.
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
@@ -35,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.updated ?? post.date),
   }));
 
-  const resourceEntries = getAllResources().map(resource => ({
+  const resourceEntries = getAllResources().filter(resource => !resource.noindex).map(resource => ({
     url: url(`/resources/${resource.slug}`),
     lastModified: new Date(resource.updated),
   }));
