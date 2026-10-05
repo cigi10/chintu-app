@@ -31,6 +31,7 @@ const nextConfig: NextConfig = {
       // lives as a headed section of its parent topic page. These use an
       // explicit 301 (permanent: true sends a 308), as specified for them.
       { source: "/resources/quadratic-equations-solved-examples", destination: "/resources/quadratic-equations", statusCode: 301 },
+      { source: "/resources/trigonometry-solved-examples", destination: "/resources/trigonometry", statusCode: 301 },
     ];
   },
 };
