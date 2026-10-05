@@ -1,0 +1,133 @@
+{
+  "slug": "operations-on-sets",
+  "datePublished": "2026-09-22T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "The basic operations",
+      "blocks": [
+        {
+          "p": "Each operation builds a new set out of two sets $A$ and $B$ inside a universal set $U$. The examples below all use $U = \\{1, 2, 3, 4, 5, 6, 7, 8\\}$, $A = \\{1, 2, 3, 4\\}$ and $B = \\{3, 4, 5, 6\\}$."
+        },
+        {
+          "table": {
+            "caption": "Set operations with A = {1, 2, 3, 4} and B = {3, 4, 5, 6}",
+            "columns": ["Operation", "Contains", "Example"],
+            "rows": [
+              ["Union $A \\cup B$", "Elements in $A$, in $B$, or in both", "$\\{1, 2, 3, 4, 5, 6\\}$"],
+              ["Intersection $A \\cap B$", "Elements in both $A$ and $B$", "$\\{3, 4\\}$"],
+              ["Difference $A - B$", "Elements in $A$ but not in $B$", "$\\{1, 2\\}$"],
+              ["Difference $B - A$", "Elements in $B$ but not in $A$", "$\\{5, 6\\}$"],
+              ["Complement $A'$", "Elements of $U$ not in $A$", "$\\{5, 6, 7, 8\\}$"],
+              ["Symmetric difference $A \\,\\Delta\\, B$", "Elements in exactly one of the two", "$\\{1, 2, 5, 6\\}$"]
+            ]
+          }
+        },
+        {
+          "p": "Union and intersection don't care about order ($A \\cup B = B \\cup A$), but difference does: $A - B$ and $B - A$ above share no elements at all."
+        }
+      ]
+    },
+    {
+      "heading": "De Morgan's laws",
+      "blocks": [
+        {
+          "p": "Taking a complement swaps union and intersection:"
+        },
+        {
+          "math": "(A \\cup B)' = A' \\cap B', \\qquad (A \\cap B)' = A' \\cup B'"
+        },
+        {
+          "p": "**Check with the sets above:** $A \\cup B = \\{1, \\dots, 6\\}$, so $(A \\cup B)' = \\{7, 8\\}$. Separately, $A' = \\{5, 6, 7, 8\\}$ and $B' = \\{1, 2, 7, 8\\}$, and their intersection is also $\\{7, 8\\}$."
+        }
+      ]
+    },
+    {
+      "heading": "Counting two overlapping groups",
+      "blocks": [
+        {
+          "p": "When two groups $A$ and $B$ overlap, simply adding their sizes double-counts whoever is in both. The **inclusion-exclusion principle** corrects for that:"
+        },
+        {
+          "math": "|A \\cup B| = |A| + |B| - |A \\cap B|"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "In a class of 60 students, 25 play cricket and 20 play tennis, and 10 play both. How many play neither?"
+        },
+        {
+          "p": "**Solution:** First find how many play at least one sport:"
+        },
+        {
+          "math": "|\\text{cricket} \\cup \\text{tennis}| = 25 + 20 - 10 = 35"
+        },
+        {
+          "p": "Out of 60 students total, the rest play neither:"
+        },
+        {
+          "math": "60 - 35 = 25"
+        },
+        {
+          "p": "The same numbers also give the \"only\" counts: $25 - 10 = 15$ play only cricket and $20 - 10 = 10$ play only tennis. Check: $15 + 10 + 10 + 25 = 60$."
+        }
+      ]
+    },
+    {
+      "heading": "Three overlapping groups",
+      "blocks": [
+        {
+          "p": "With three sets, subtracting every pairwise overlap removes the middle region (in all three) once too often, so it gets added back at the end:"
+        },
+        {
+          "math": "|A \\cup B \\cup C| = |A| + |B| + |C| - |A \\cap B| - |B \\cap C| - |A \\cap C| + |A \\cap B \\cap C|"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: three languages",
+      "blocks": [
+        {
+          "p": "In a survey of 100 students, 50 study Hindi, 40 study English and 30 study Sanskrit. 20 study Hindi and English, 15 study English and Sanskrit, 10 study Hindi and Sanskrit, and 5 study all three. How many study none of the three?"
+        },
+        {
+          "p": "**Solution:**"
+        },
+        {
+          "math": "|H \\cup E \\cup S| = 50 + 40 + 30 - 20 - 15 - 10 + 5 = 80"
+        },
+        {
+          "p": "So $100 - 80 = 20$ students study none of them."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Treating \"both\" as \"only\".** \"10 play both\" means 10 are inside each of the two groups already. Students who play *only* cricket are $25 - 10$, not 25.",
+            "**Forgetting the last term for three sets.** Without $+|A \\cap B \\cap C|$, the 5 students who study all three languages would be counted zero times.",
+            "**Assuming $A - B = B - A$.** Difference is not symmetric. Use the symmetric difference $A \\,\\Delta\\, B$ when you mean \"in one but not the other\" either way round.",
+            "**Taking a complement without a universal set.** $A'$ only makes sense relative to $U$. Change $U$ and the complement changes too."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "intro": "Sets are the ground floor of relations and functions, which are defined as particular sets of ordered pairs.",
+    "links": [
+      {
+        "label": "Types of Relations",
+        "href": "/resources/types-of-relations"
+      },
+      {
+        "label": "Probability",
+        "href": "/resources/probability"
+      }
+    ]
+  }
+}

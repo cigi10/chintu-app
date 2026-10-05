@@ -1,0 +1,137 @@
+{
+  "slug": "composition-of-functions",
+  "datePublished": "2026-09-22T00:00:00+05:30",
+  "sections": [
+    {
+      "heading": "Reading the notation",
+      "blocks": [
+        {
+          "p": "$gof$ means \"first apply $f$, then apply $g$ to the result\", read right to left: $(g \\circ f)(x) = g(f(x))$. Likewise $fog(x) = f(g(x))$. There's no reason these have to match."
+        },
+        {
+          "p": "**A quick numerical check:** with $f(x) = x + 1$ and $g(x) = x^2$, $gof(2) = g(3) = 9$ but $fog(2) = f(4) = 5$."
+        }
+      ]
+    },
+    {
+      "heading": "When a composition is defined",
+      "blocks": [
+        {
+          "p": "For $f: A \\to B$ and $g: B \\to C$, the composition $gof: A \\to C$ is defined because every output of $f$ is a valid input for $g$. In general, $gof$ exists only when the range of $f$ sits inside the domain of $g$."
+        },
+        {
+          "p": "**Example:** take $f(x) = \\sqrt{x}$ (defined for $x \\geq 0$) and $g(x) = x - 4$."
+        },
+        {
+          "list": [
+            "$gof(x) = \\sqrt{x} - 4$, defined for every $x \\geq 0$.",
+            "$fog(x) = \\sqrt{x - 4}$, defined only for $x \\geq 4$, because $f$ can't accept the negative outputs $g$ produces when $x < 4$."
+          ]
+        },
+        {
+          "p": "Same two functions, different order, different domain."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "$f,g: \\mathbb{R} \\to \\mathbb{R}$ are given by $g(x) = x^{1/3}$ and $f(x) = 8x^3$. Find $gof$ and $fog$."
+        },
+        {
+          "p": "**Solution, gof:** substitute $f(x)$ into $g$:"
+        },
+        {
+          "math": "gof(x) = g(8x^3) = (8x^3)^{1/3} = 8^{1/3} \\cdot x = 2x"
+        },
+        {
+          "p": "**fog:** substitute $g(x)$ into $f$:"
+        },
+        {
+          "math": "fog(x) = f(x^{1/3}) = 8(x^{1/3})^3 = 8x"
+        },
+        {
+          "p": "So $gof(x) = 2x$ but $fog(x) = 8x$, a clean reminder that composition order matters."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a function that undoes itself",
+      "blocks": [
+        {
+          "p": "If $f(x) = \\dfrac{4x+3}{6x-4}$ for $x \\neq \\dfrac{2}{3}$, show that $fof(x) = x$."
+        },
+        {
+          "p": "**Solution:** Substitute $f(x)$ into itself, then multiply the top and bottom by $6x - 4$:"
+        },
+        {
+          "math": "fof(x) = \\dfrac{4\\left(\\dfrac{4x+3}{6x-4}\\right) + 3}{6\\left(\\dfrac{4x+3}{6x-4}\\right) - 4} = \\dfrac{16x + 12 + 18x - 12}{24x + 18 - 24x + 16} = \\dfrac{34x}{34} = x"
+        },
+        {
+          "p": "So $f$ is its own inverse: applying it twice gets you back where you started."
+        }
+      ]
+    },
+    {
+      "heading": "Checking an inverse with composition",
+      "blocks": [
+        {
+          "p": "A function $g$ is the inverse of $f$ exactly when both compositions give back the input: $gof(x) = x$ and $fog(x) = x$."
+        },
+        {
+          "p": "**Example:** for $f(x) = 2x + 3$, the candidate inverse is $g(x) = \\dfrac{x - 3}{2}$. Checking both orders:"
+        },
+        {
+          "math": "gof(x) = \\dfrac{(2x+3) - 3}{2} = x, \\qquad fog(x) = 2\\left(\\dfrac{x-3}{2}\\right) + 3 = x"
+        }
+      ]
+    },
+    {
+      "heading": "Properties worth knowing",
+      "blocks": [
+        {
+          "table": {
+            "columns": ["If", "Then"],
+            "rows": [
+              ["$f$ and $g$ are both one-one", "$gof$ is one-one"],
+              ["$f$ and $g$ are both onto", "$gof$ is onto"],
+              ["$gof$ is one-one", "$f$ is one-one (but $g$ need not be)"],
+              ["$gof$ is onto", "$g$ is onto (but $f$ need not be)"],
+              ["Any three functions", "$h \\circ (g \\circ f) = (h \\circ g) \\circ f$"]
+            ]
+          }
+        },
+        {
+          "p": "Composition is associative, as the last row says, but not commutative: $gof$ and $fog$ usually differ, as every example on this page shows."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Reading $gof$ left to right.** The function nearest $x$ acts first: in $g(f(x))$ that's $f$.",
+            "**Confusing composition with multiplication.** $fog(x)$ is $f(g(x))$, not $f(x) \\cdot g(x)$.",
+            "**Ignoring the domain.** Simplifying $fog(x) = \\sqrt{x - 4}$ is only half the answer. State that it needs $x \\geq 4$.",
+            "**Checking only one order for an inverse.** For functions on restricted domains, $gof(x) = x$ can hold while $fog(x) = x$ fails. Check both."
+          ]
+        }
+      ]
+    }
+  ],
+  "related": {
+    "intro": "Composition is exactly how you'd verify that a candidate inverse function actually undoes the original: check that both compositions give back $x$.",
+    "links": [
+      {
+        "label": "Types of Functions",
+        "href": "/resources/types-of-functions"
+      },
+      {
+        "label": "Inverse Trigonometric Functions",
+        "href": "/resources/inverse-trigonometric-functions"
+      }
+    ]
+  }
+}
