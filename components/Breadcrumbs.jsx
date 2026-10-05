@@ -1,8 +1,7 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import { SITE_URL } from "@/lib/seo";
 import "@/styles/breadcrumbs.css";
-
-const SITE_URL = "https://www.studyloaf.com";
 
 // Renders both the visible breadcrumb trail (for users) and a matching
 // BreadcrumbList JSON-LD block (Google surfaces these directly in search
