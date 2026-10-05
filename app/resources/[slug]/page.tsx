@@ -9,6 +9,8 @@ import BlogTable, { type BlogTableData } from "@/components/BlogTable";
 import { BlogFigure, type BlogFigureData } from "@/components/BlogFigure";
 import { getResourceHubs, getResourceHub, getResourcesByHub, getResourceBySlug } from "@/lib/resources";
 import { getResourceContent, getResourceContentSlugs } from "@/lib/resourceContent";
+import { getExamBySlug } from "@/lib/examDates";
+import { NAV } from "@/lib/navItems";
 import "@/styles/blog.css";
 
 // /resources/<slug> serves two kinds of page:
@@ -34,6 +36,10 @@ type ResourceContent = {
   datePublished: string;
   h1?: string;
   sections: { heading: string | null; blocks: Block[] }[];
+  // Which exams test this topic, and the countdowns to link (lib/examDates
+  // slugs). Rendered as a standard section that also points at the
+  // timetable generator and tracker, so every page planning-links the same way.
+  exam?: { note: string; countdowns: string[] };
   related?: { intro?: string; links: { label: string; href: string }[] };
 };
 
@@ -162,6 +168,8 @@ function ResourcePage({ slug, content }: { slug: string; content: ResourceConten
             </div>
           ))}
 
+          {content.exam && <ExamSection exam={content.exam} />}
+
           {content.related && content.related.links.length > 0 && (
             <div className="blog-post-related">
               <h2 className="blog-post-heading">Continue learning</h2>
@@ -178,6 +186,35 @@ function ResourcePage({ slug, content }: { slug: string; content: ResourceConten
         </article>
       </div>
     </>
+  );
+}
+
+function ExamSection({ exam }: { exam: NonNullable<ResourceContent["exam"]> }) {
+  const countdowns = exam.countdowns.map(slug => getExamBySlug(slug)!);
+  return (
+    <div className="blog-post-section resource-section">
+      <h2 className="blog-post-heading">Where this comes up in exams</h2>
+      <p className="blog-post-p"><RichText text={exam.note} /></p>
+      <ul className="blog-post-list">
+        <li>
+          Fit it into your week with the free{" "}
+          <Link href={NAV.timetableGenerator.href}>timetable generator</Link>.
+        </li>
+        <li>
+          Mark it off as you revise in the <Link href={NAV.tracker.href}>syllabus tracker</Link>.
+        </li>
+        <li>
+          See how long you have left:{" "}
+          {countdowns.map((countdown, i) => (
+            <span key={countdown.slug}>
+              {i > 0 && (i === countdowns.length - 1 ? " and " : ", ")}
+              <Link href={`/countdown/${countdown.slug}`}>{countdown.name} countdown</Link>
+            </span>
+          ))}
+          .
+        </li>
+      </ul>
+    </div>
   );
 }
 
