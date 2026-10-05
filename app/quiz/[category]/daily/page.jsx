@@ -4,6 +4,7 @@ import DailyQuiz from "@/components/DailyQuiz";
 import ToolAbout from "@/components/ToolAbout";
 import { getQuizCategory, getQuizCategorySlugs } from "@/lib/quiz";
 import { getQuizPageContent } from "@/lib/toolPageContent";
+import { NOINDEX } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getQuizCategorySlugs().map(category => ({ category }));
@@ -19,6 +20,10 @@ export async function generateMetadata({ params }) {
     description,
     openGraph: { title: `${category.label} Daily Challenge - Studyloaf`, description },
     alternates: { canonical: `/quiz/${category.slug}/daily` },
+    // The Daily Challenge draws from the same question bank as this
+    // category's Practice Quiz, so only /practice is indexed (and in the
+    // sitemap). This page stays live and its links are still followed.
+    robots: NOINDEX,
   };
 }
 

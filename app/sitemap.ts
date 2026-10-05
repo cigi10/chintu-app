@@ -21,7 +21,8 @@ const STATIC_ROUTES = ["/", "/blog", "/quiz", "/games", "/games/crumb", "/resour
 //
 // Pages served with noindex are left out too: listing a URL here while
 // telling Google not to index it sends mixed signals. That covers the
-// Crumb domain pages (/games/crumb/<domain>).
+// Crumb domain pages (/games/crumb/<domain>) and the quiz Daily
+// Challenges (/quiz/<category>/daily).
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
@@ -43,10 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const hubEntries = getResourceHubs().map(hub => ({ url: url(`/resources/${hub.slug}`) }));
 
-  const quizEntries = getQuizCategorySlugs().flatMap(category => [
-    { url: url(`/quiz/${category}/daily`) },
-    { url: url(`/quiz/${category}/practice`) },
-  ]);
+  const quizEntries = getQuizCategorySlugs().map(category => ({ url: url(`/quiz/${category}/practice`) }));
 
   const countdownEntries = getExamSlugs().map(exam => ({ url: url(`/countdown/${exam}`) }));
 
