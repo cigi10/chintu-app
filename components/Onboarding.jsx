@@ -9,7 +9,7 @@ import { setCompanionName, NAME_CHIPS } from "@/lib/companion";
 import { saveExamPackAndSubjects, getSubjects } from "@/lib/tracker";
 import { getLocalDdays, saveDdays } from "@/lib/ddays";
 import { PACK_NAMES, PACK_DESC, PACK_ICON, examPackLabel } from "@/lib/examPacks";
-import { COUNTRIES, packsForCountry } from "@/lib/examRegions";
+import { COUNTRIES, splitPacksForCountry } from "@/lib/examRegions";
 import { markOnboarded } from "@/lib/onboardedFlag";
 
 // "Custom" first, then every pack from lib/examPacks — always in sync with
@@ -30,12 +30,30 @@ export default function Onboarding() {
   const [name, setName] = useState("");
   const [dday, setDday] = useState("");
   const [saving, setSaving] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
-  function pickCountry(key) { setCountry(key); setStep(1); }
+  function pickCountry(key) { setCountry(key); setShowMore(false); setStep(1); }
   function pickPack(key) { setPack(key); setStep(2); }
 
-  const packOptions = ALL_PACK_OPTIONS.filter(p =>
-    p.key === "Custom" || packsForCountry(country, [p.key]).length > 0
+  // A handful of packs for the chosen region up front, then Custom, with
+  // the rest of the region's packs behind "More exams".
+  const optionFor = key => ALL_PACK_OPTIONS.find(p => p.key === key);
+  const { featured, more } = splitPacksForCountry(country, PACK_NAMES);
+  const featuredOptions = [...featured.map(optionFor), optionFor("Custom")];
+  const moreOptions = more.map(optionFor);
+
+  const renderPack = p => (
+    <button
+      key={p.key}
+      className={`onboarding__exam-btn${p.key === "Custom" ? " onboarding__exam-btn--custom" : ""}`}
+      onClick={() => pickPack(p.key)}
+    >
+      <span className="onboarding__exam-icon">{p.icon}</span>
+      <span className="onboarding__exam-text">
+        <span className="onboarding__exam-name">{examPackLabel(p.key)}</span>
+        <span className="onboarding__exam-desc">{p.desc}</span>
+      </span>
+    </button>
   );
 
   async function confirmName() {
@@ -133,20 +151,26 @@ export default function Onboarding() {
               New to study apps? Take a 1-minute tour →
             </a>
             <div className="onboarding__exam-grid">
-              {packOptions.map(p => (
-                <button
-                  key={p.key}
-                  className={`onboarding__exam-btn${p.key === "Custom" ? " onboarding__exam-btn--custom" : ""}`}
-                  onClick={() => pickPack(p.key)}
-                >
-                  <span className="onboarding__exam-icon">{p.icon}</span>
-                  <span className="onboarding__exam-text">
-                    <span className="onboarding__exam-name">{examPackLabel(p.key)}</span>
-                    <span className="onboarding__exam-desc">{p.desc}</span>
-                  </span>
-                </button>
-              ))}
+              {featuredOptions.map(renderPack)}
             </div>
+            {moreOptions.length > 0 && (
+              <>
+                <button
+                  type="button"
+                  className="onboarding__more-toggle"
+                  aria-expanded={showMore}
+                  aria-controls="onboarding-more-packs"
+                  onClick={() => setShowMore(v => !v)}
+                >
+                  {showMore ? "Fewer exams" : `More exams (${moreOptions.length})`}
+                </button>
+                {showMore && (
+                  <div id="onboarding-more-packs" className="onboarding__exam-grid">
+                    {moreOptions.map(renderPack)}
+                  </div>
+                )}
+              </>
+            )}
           </>
         )}
 

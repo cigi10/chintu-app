@@ -40,3 +40,5 @@
 .onboarding__skip:hover { color: var(--color-accent-strong); }
 .onboarding__chips-label { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0 0 6px; text-align: center; font-weight: 700; }
 @media (max-width: 480px) { .onboarding__exam-grid { grid-template-columns: 1fr; } }
+.onboarding__more-toggle { background: none; border: 1.5px solid var(--color-border); border-radius: var(--radius-pill); padding: 8px 18px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; color: var(--color-accent-strong); cursor: pointer; }
+.onboarding__more-toggle:hover { background: var(--color-accent); }
