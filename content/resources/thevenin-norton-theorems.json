@@ -40,6 +40,12 @@
           "p": "A 12V source feeds a 4Ω resistor in series, which then splits into a 6Ω resistor to the return path. Find the Thevenin and Norton equivalents seen from the two ends of that 6Ω resistor, as a load connected across it would see the circuit."
         },
         {
+          "figure": {
+            "name": "thevenin-circuit",
+            "caption": "The worked example's circuit. A and B are the two ends of the 6Ω resistor, where a load connects."
+          }
+        },
+        {
           "p": "**$V_{th}$:** with nothing connected across the terminals, the only current flows through the 4Ω and 6Ω in series, so the terminal voltage is just the voltage-divider result across the 6Ω:"
         },
         {
@@ -56,6 +62,12 @@
         },
         {
           "math": "I_N = \\dfrac{V_{th}}{R_{th}} = \\dfrac{7.2}{2.4} = 3\\text{ A}, \\qquad R_N = 2.4\\,\\Omega"
+        },
+        {
+          "figure": {
+            "name": "thevenin-norton-equivalents",
+            "caption": "What a load across A and B sees: 7.2 V behind 2.4Ω (Thevenin), or equivalently 3 A in parallel with 2.4Ω (Norton)."
+          }
         },
         {
           "p": "**Cross-check:** the Norton current should also equal the *short-circuit* current at the terminals. Shorting the terminals shorts out the 6Ω branch entirely, leaving only the 4Ω resistor across the 12V source:"

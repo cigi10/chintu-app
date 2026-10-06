@@ -4,13 +4,15 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "@/components/Button";
 import Companion from "@/components/Companion";
-import { getData, setData } from "@/lib/storage";
 import { hydrateCoins, setCoins as persistCoins } from "@/lib/coins";
-import { ITEMS, CATEGORIES, itemById, migrateEquippedSlots } from "@/lib/shopItems";
+import { ITEMS, CATEGORIES, itemById } from "@/lib/shopItems";
+import { hydrateShop, saveShop } from "@/lib/shopOwnership";
+import { SOUNDS, SOUND_PRICES, isSoundOwned, isSoundForSale, shopIdForSound, loadSoundSettings, resolveSoundId } from "@/lib/timerSounds";
+import { saveSoundSettings } from "@/lib/soundSettings";
+import { playSoundNow } from "@/lib/timerAudio";
 
-const SHOP_KEY = "shop_ownership";
-const LEGACY_SHOP_KEY = "chintu-shop"; // pre-cloud-sync key name
 const DEFAULT_SHOP = { owned: [], equipped: {} };
+const DEFAULT_SOUND_VIEW = { soundId: "ding", volume: 0.6, muted: false };
 
 const ART_THUMBS = {
   glasses:       "/shop-items/glasses.PNG",
@@ -25,32 +27,6 @@ const ART_THUMBS = {
   sweater_red:   "/shop-items/sweater_red.PNG",
 };
 
-function loadLocalShop() {
-  try {
-    const raw = localStorage.getItem(SHOP_KEY) ?? localStorage.getItem(LEGACY_SHOP_KEY);
-    const parsed = raw ? JSON.parse(raw) : null;
-    return {
-      owned: Array.isArray(parsed?.owned) ? parsed.owned : [],
-      equipped: migrateEquippedSlots(parsed?.equipped),
-    };
-  } catch {
-    return { owned: [], equipped: {} };
-  }
-}
-
-function sanitizeShop(raw) {
-  if (!raw || typeof raw !== "object") return DEFAULT_SHOP;
-  return {
-    owned: Array.isArray(raw.owned) ? raw.owned : [],
-    equipped: migrateEquippedSlots(raw.equipped),
-  };
-}
-
-async function saveShop(s) {
-  await setData(SHOP_KEY, s);
-  window.dispatchEvent(new Event("chintu-shop-change"));
-}
-
 export default function CoinShop() {
   const [coins, setCoins]     = useState(0);
   const [shop, setShop]       = useState(DEFAULT_SHOP);
@@ -58,19 +34,18 @@ export default function CoinShop() {
   // local state — trying something on never touches owned/equipped data or
   // the cloud, so it costs nothing and reverts the instant it's cleared.
   const [preview, setPreview] = useState({});
+  const [soundSettings, setSoundSettings] = useState(DEFAULT_SOUND_VIEW);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [cloudCoins, cloudShop] = await Promise.all([
-        hydrateCoins(),
-        getData(SHOP_KEY, loadLocalShop()),
-      ]);
+      // hydrateShop merges cloud and local purchases, so one bought here
+      // whose sync failed is never replaced by an older cloud copy.
+      const [cloudCoins, mergedShop] = await Promise.all([hydrateCoins(), hydrateShop()]);
       if (cancelled) return;
-      const safeShop = sanitizeShop(cloudShop);
       setCoins(cloudCoins);
-      setShop(safeShop);
-      try { localStorage.setItem(SHOP_KEY, JSON.stringify(safeShop)); } catch {}
+      setShop(mergedShop);
+      setSoundSettings(loadSoundSettings());
     })();
     return () => { cancelled = true; };
   }, []);
@@ -87,6 +62,20 @@ export default function CoinShop() {
     setCoins(newCoins); setShop(newShop);
     if (wasPreviewing) clearPreview(item.slot);
     persistCoins(newCoins); saveShop(newShop);
+  }
+
+  function buySound(sound) {
+    const shopId = shopIdForSound(sound.id);
+    const price = SOUND_PRICES[sound.id];
+    if (!isSoundForSale(sound.id) || shop.owned.includes(shopId) || coins < price) return;
+    const newCoins = coins - price;
+    const newShop = { ...shop, owned: [...shop.owned, shopId] };
+    setCoins(newCoins); setShop(newShop);
+    persistCoins(newCoins); saveShop(newShop);
+  }
+
+  function selectSound(sound) {
+    setSoundSettings(saveSoundSettings({ ...loadSoundSettings(), soundId: sound.id }));
   }
 
   function toggleEquip(item) {
@@ -211,6 +200,58 @@ export default function CoinShop() {
               </div>
             </div>
           ))}
+
+          <div className="shop__category">
+            <h3 className="shop__category-title">Timer sounds</h3>
+            <p className="shop__category-note">Plays when a timer session ends. Preview any of them before you buy.</p>
+            <div className="shop__item-grid">
+              {SOUNDS.map(sound => {
+                const owned = isSoundOwned(sound.id, shop.owned);
+                const inUse = resolveSoundId(soundSettings.soundId, shop.owned) === sound.id;
+                const forSale = isSoundForSale(sound.id);
+                const price = SOUND_PRICES[sound.id];
+                const affordable = forSale && coins >= price;
+                return (
+                  <div key={sound.id} className={`shop__item-card shop__item-card--sound${inUse ? " shop__item-card--equipped" : ""}`}>
+                    <div className="shop__item-icon shop__item-icon--sound" aria-hidden="true">♪</div>
+                    <div className="shop__item-name">{sound.name}</div>
+                    <div className="shop__item-cost">
+                      {owned ? (isSoundOwned(sound.id, []) ? "Free" : "Owned") : forSale ? `${price} coins` : "Not for sale yet"}
+                    </div>
+                    <div className="shop__item-actions">
+                      <button
+                        className="shop__item-tryon-btn"
+                        onClick={() => playSoundNow(sound.id, soundSettings.volume)}
+                        aria-label={`Preview ${sound.name}`}
+                      >
+                        Preview
+                      </button>
+                      {owned ? (
+                        <Button
+                          className="shop__item-buy-btn"
+                          size="sm"
+                          variant={inUse ? "primary" : "ghost"}
+                          disabled={inUse}
+                          onClick={() => selectSound(sound)}
+                        >
+                          {inUse ? "In use" : "Use"}
+                        </Button>
+                      ) : (
+                        <Button
+                          className="shop__item-buy-btn"
+                          size="sm"
+                          disabled={!affordable}
+                          onClick={() => buySound(sound)}
+                        >
+                          {affordable ? "Buy" : "Locked"}
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>

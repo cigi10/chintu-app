@@ -4,6 +4,7 @@ import PercentileShifts from "./PercentileShifts";
 import Flowchart, { type FlowStep } from "./Flowchart";
 import { RESOURCE_FIGURES } from "./resourceFigures";
 import { VECTOR_FIGURES } from "./vectorFigures";
+import { CIRCUIT_FIGURES } from "./circuitFigures";
 
 // Named figures a blog post can embed with a `figure` section:
 //   { "heading": null, "figure": { "name": "score-trends", "caption": "..." } }
@@ -50,6 +51,7 @@ const JOSAA_ROUND: FlowStep[] = [
 export const BLOG_FIGURES: Record<string, (id: string) => ReactNode> = {
   ...RESOURCE_FIGURES,
   ...VECTOR_FIGURES,
+  ...CIRCUIT_FIGURES,
   "score-trends": () => <ScoreTrends />,
   "percentile-shifts": () => <PercentileShifts />,
   "josaa-to-csab": () => <Flowchart steps={JOSAA_TO_CSAB} title="From JEE results through JoSAA's five rounds to CSAB's special rounds and admission" />,

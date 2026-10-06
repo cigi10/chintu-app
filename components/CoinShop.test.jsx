@@ -3,15 +3,15 @@ import { render, screen, waitFor } from "@testing-library/react";
 import CoinShop from "@/components/CoinShop";
 
 vi.mock("@/lib/storage", () => ({
-  getData: vi.fn(async (_key, fallback) => fallback),
-  setData: vi.fn(async () => {}),
+  readCloudValue: vi.fn(async () => ({ ok: true, value: null })),
+  setData: vi.fn(async () => true),
 }));
 vi.mock("@/lib/coins", () => ({
   hydrateCoins: vi.fn(async () => 1000),
   setCoins: vi.fn(async () => {}),
 }));
 
-import { getData, setData } from "@/lib/storage";
+import { readCloudValue, setData } from "@/lib/storage";
 
 function equipBtnFor(name) {
   const card = screen.getByText(name).closest(".shop__item-card");
@@ -26,7 +26,7 @@ beforeEach(() => {
 describe("CoinShop — multi-slot equip", () => {
   it("equipping an item in one slot doesn't touch an item already equipped in a different slot", async () => {
     const seeded = { owned: ["glasses", "headphones"], equipped: { face: "glasses" } };
-    getData.mockResolvedValueOnce(seeded);
+    readCloudValue.mockResolvedValueOnce({ ok: true, value: seeded });
 
     render(<CoinShop />);
     await waitFor(() => expect(equipBtnFor("Study headphones")).toHaveTextContent("Equip"));
@@ -47,7 +47,7 @@ describe("CoinShop — multi-slot equip", () => {
 
   it("equipping a second item in the same slot replaces the first rather than stacking", async () => {
     const seeded = { owned: ["scarf", "bowtie"], equipped: { neck: "scarf" } };
-    getData.mockResolvedValueOnce(seeded);
+    readCloudValue.mockResolvedValueOnce({ ok: true, value: seeded });
 
     render(<CoinShop />);
     await waitFor(() => expect(equipBtnFor("Dapper bowtie")).toHaveTextContent("Equip"));
@@ -64,7 +64,7 @@ describe("CoinShop — multi-slot equip", () => {
   });
 
   it("migrates a legacy single-slot equipped item into its real slot on load", async () => {
-    getData.mockResolvedValueOnce({ owned: ["glasses"], equipped: { wearable: "glasses" } });
+    readCloudValue.mockResolvedValueOnce({ ok: true, value: { owned: ["glasses"], equipped: { wearable: "glasses" } } });
 
     render(<CoinShop />);
 
@@ -73,7 +73,7 @@ describe("CoinShop — multi-slot equip", () => {
 
   it("unequipping an item only clears its own slot", async () => {
     const seeded = { owned: ["glasses", "headphones"], equipped: { face: "glasses", head: "headphones" } };
-    getData.mockResolvedValueOnce(seeded);
+    readCloudValue.mockResolvedValueOnce({ ok: true, value: seeded });
 
     render(<CoinShop />);
     await waitFor(() => expect(equipBtnFor("Little glasses")).toHaveTextContent("Unequip"));

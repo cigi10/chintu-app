@@ -16,6 +16,28 @@ import { getLocalTodos, hydrateTodos, saveTodos as persistTodos } from "@/lib/to
 import { hydrateTracker, getSessionLog, appendSessionLogEntry, getBonusLog, saveBonusLog } from "@/lib/tracker";
 import { getRandomQuote } from "@/lib/quotes";
 import { trackTimerStart, trackTimerComplete } from "@/lib/analytics";
+import TimerSoundSettings from "@/components/TimerSoundSettings";
+import { getAudioContext, unlockAudio, scheduleCompletionSound, cancelCompletionSound, ensureCompletionSound } from "@/lib/timerAudio";
+import { loadSoundSettings, resolveSoundId, SOUND_SETTINGS_EVENT } from "@/lib/timerSounds";
+import { loadLocalShop, hydrateShop, SHOP_CHANGE_EVENT } from "@/lib/shopOwnership";
+import { hydrateSoundSettings } from "@/lib/soundSettings";
+
+// The completion sound to use right now: the saved choice if owned (else
+// the free default), its volume, and whether it's muted. Read fresh each
+// time so a change in the settings panel or the shop applies immediately.
+function currentCompletionSound() {
+  const settings = loadSoundSettings();
+  return { ...settings, soundId: resolveSoundId(settings.soundId, loadLocalShop().owned) };
+}
+
+// (Re)schedules the completion sound for the session ending at endAtMs,
+// or cancels it when muted. See lib/timerAudio.js for why it's scheduled
+// ahead on the audio clock.
+function scheduleCompletionFor(endAtMs) {
+  const s = currentCompletionSound();
+  if (s.muted || !endAtMs) cancelCompletionSound();
+  else scheduleCompletionSound(endAtMs, s.soundId, s.volume);
+}
 
 const SESSION_KEY       = "chintu-sessions";
 const TIMER_STATE_KEY   = "chintu-timer-state";
@@ -217,6 +239,7 @@ export default function StudyTimer({ roomName = null }) {
   const [soundOn, setSoundOn]         = useState(false);
   const [soundType, setSoundType]     = useState("white");
   const [showYoutube, setShowYoutube] = useState(false);
+  const [showSoundSettings, setShowSoundSettings] = useState(false);
   const [youtubeUrl, setYoutubeUrl]   = useState("");
   const [youtubeVideoId, setYoutubeVideoId] = useState(null);
   const [history, setHistory]         = useState([]);
@@ -236,7 +259,6 @@ export default function StudyTimer({ roomName = null }) {
   const autoCycleCountRef = useRef(0);
   const lastStudyModeRef     = useRef("study");
   const lastStudyDurationRef = useRef(PRESET_MODES.study.duration);
-  const audioCtxRef       = useRef(null);
   const noiseNodesRef     = useRef(null);
 
   useEffect(() => { subjectRef.current = subject; }, [subject]);
@@ -299,6 +321,8 @@ export default function StudyTimer({ roomName = null }) {
         goalId: goalIdFromParam, running: true, endAt: endAtRef.current,
       });
 
+      scheduleCompletionFor(endAtRef.current);
+
       intervalRef.current = setInterval(() => {
         const remaining = Math.max(0, Math.round((endAtRef.current - Date.now()) / 1000));
         setTimeLeft(remaining);
@@ -328,12 +352,44 @@ export default function StudyTimer({ roomName = null }) {
       }
     }
 
+    // While running: a sound setting or shop change reschedules the pending
+    // completion sound, and the first click or key press unlocks audio for
+    // a session restored after a reload (browsers need a gesture first).
+    const reschedule = () => { if (running) scheduleCompletionFor(endAtRef.current); };
+    const unlockAndReschedule = () => {
+      if (getAudioContext({ create: false })?.state === "running") return; // already unlocked
+      unlockAudio();
+      reschedule();
+    };
+    if (running) {
+      window.addEventListener(SOUND_SETTINGS_EVENT, reschedule);
+      window.addEventListener(SHOP_CHANGE_EVENT, reschedule);
+      document.addEventListener("pointerdown", unlockAndReschedule, { once: true });
+      document.addEventListener("keydown", unlockAndReschedule, { once: true });
+    }
+
     return () => {
       clearInterval(intervalRef.current);
       clearInterval(quoteIntervalRef.current);
+      // Pausing, resetting or switching modes stops a sound that hasn't
+      // started yet; one already ringing is left to finish.
+      cancelCompletionSound();
+      window.removeEventListener(SOUND_SETTINGS_EVENT, reschedule);
+      window.removeEventListener(SHOP_CHANGE_EVENT, reschedule);
+      document.removeEventListener("pointerdown", unlockAndReschedule);
+      document.removeEventListener("keydown", unlockAndReschedule);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [running, hydrated]);
+
+  // Pull the sound settings and shop ownership from the cloud once, then
+  // let a running session reschedule its completion sound, so a sound
+  // chosen or bought on another device applies here too.
+  useEffect(() => {
+    Promise.all([hydrateSoundSettings(), hydrateShop()])
+      .then(() => { try { window.dispatchEvent(new Event(SOUND_SETTINGS_EVENT)); } catch {} })
+      .catch(() => {});
+  }, []);
 
   // Watches for the URL params actually changing (e.g. clicking a different
   // "Study" button while already on this page) — Next.js doesn't remount
@@ -413,6 +469,15 @@ export default function StudyTimer({ roomName = null }) {
 
   function completeSession(modeKey, durationSecs, subj, goalId, isEarly = false) {
     sessionStartedRef.current = false;
+    // The sound was scheduled for this moment on the audio clock; this
+    // plays it now only if that didn't happen (audio suspended in the
+    // background, or a restored session). Finishing early is the user's
+    // own click, so it gets no alarm.
+    if (isEarly) cancelCompletionSound();
+    else {
+      const sound = currentCompletionSound();
+      if (!sound.muted) ensureCompletionSound(sound.soundId, sound.volume);
+    }
     trackTimerComplete(modeKey, durationSecs, isEarly);
     setRunning(false);
     setDone(true);
@@ -540,6 +605,9 @@ export default function StudyTimer({ roomName = null }) {
   }
 
   function handleStartPause() {
+    // A click is the gesture browsers require before audio can play, so
+    // the completion sound will be able to ring later.
+    unlockAudio();
     if (done) {
       setTimeLeft(totalDuration);
       setDone(false);
@@ -601,12 +669,10 @@ export default function StudyTimer({ roomName = null }) {
   function startSound(type) {
     stopSound();
     try {
-      if (!audioCtxRef.current) {
-        const AC = window.AudioContext || window.webkitAudioContext;
-        audioCtxRef.current = new AC();
-      }
-      const ctx = audioCtxRef.current;
-      if (ctx.state === "suspended") ctx.resume();
+      // Shares the timer's one AudioContext (lib/timerAudio.js) with the
+      // completion sounds; this toggle click also unlocks it.
+      const ctx = unlockAudio();
+      if (!ctx) return;
 
       const bufferSize = 2 * ctx.sampleRate;
       const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
@@ -851,7 +917,17 @@ export default function StudyTimer({ roomName = null }) {
               >
                 YouTube
               </button>
+              <button
+                className={`timer__toggle-chip${showSoundSettings ? " timer__toggle-chip--active" : ""}`}
+                onClick={() => setShowSoundSettings(v => !v)}
+                aria-expanded={showSoundSettings}
+                title="Choose the sound that plays when a session ends"
+              >
+                Alarm sound
+              </button>
             </div>
+
+            {showSoundSettings && <TimerSoundSettings />}
 
             {soundOn && (
               <div className="timer__sound-types">

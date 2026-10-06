@@ -1,0 +1,157 @@
+{
+  "slug": "matrices-system-of-equations",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "The idea",
+      "blocks": [
+        {
+          "p": "A system of linear equations can be written as a single matrix equation $AX = B$, where $A$ holds the coefficients, $X$ the unknowns, and $B$ the right-hand sides."
+        },
+        {
+          "p": "When $A$ is square and $|A| \\neq 0$, it has an inverse, and multiplying both sides by $A^{-1}$ on the left solves the whole system at once. This is the **matrix method**:"
+        },
+        {
+          "math": "AX = B \\;\\Rightarrow\\; X = A^{-1}B, \\qquad A^{-1} = \\dfrac{1}{|A|}\\,\\text{adj}\\,A"
+        }
+      ]
+    },
+    {
+      "heading": "Steps of the matrix method",
+      "blocks": [
+        {
+          "steps": [
+            "Write the system as $AX = B$, keeping the variables in the same order in every row.",
+            "Find $|A|$. If it is 0, stop and use the consistency test below instead.",
+            "Find $\\text{adj}\\,A$, the transpose of the matrix of cofactors.",
+            "Compute $X = \\dfrac{1}{|A|}(\\text{adj}\\,A)\\,B$.",
+            "Substitute the answer back into one original equation to check."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: two variables",
+      "blocks": [
+        {
+          "p": "Solve $2x + 3y = 8$ and $x - y = -1$ using matrices."
+        },
+        {
+          "math": "A = \\begin{bmatrix} 2 & 3 \\\\ 1 & -1 \\end{bmatrix}, \\quad X = \\begin{bmatrix} x \\\\ y \\end{bmatrix}, \\quad B = \\begin{bmatrix} 8 \\\\ -1 \\end{bmatrix}, \\qquad |A| = (2)(-1) - (3)(1) = -5"
+        },
+        {
+          "p": "**Solution:** For a $2 \\times 2$ matrix the adjoint swaps the diagonal entries and changes the sign of the other two:"
+        },
+        {
+          "math": "X = \\dfrac{1}{-5}\\begin{bmatrix} -1 & -3 \\\\ -1 & 2 \\end{bmatrix}\\begin{bmatrix} 8 \\\\ -1 \\end{bmatrix} = \\dfrac{1}{-5}\\begin{bmatrix} -5 \\\\ -10 \\end{bmatrix} = \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}"
+        },
+        {
+          "p": "So $x = 1$, $y = 2$. Check: $2(1) + 3(2) = 8$ and $1 - 2 = -1$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: three variables",
+      "blocks": [
+        {
+          "p": "Solve the system:"
+        },
+        {
+          "math": "x - y + z = 4, \\qquad x + y + z = 2, \\qquad 2x + y - 3z = 0"
+        },
+        {
+          "p": "**Solution by the matrix method:**"
+        },
+        {
+          "math": "A = \\begin{bmatrix} 1 & -1 & 1 \\\\ 1 & 1 & 1 \\\\ 2 & 1 & -3 \\end{bmatrix}, \\qquad |A| = 1(-3 - 1) + 1(-3 - 2) + 1(1 - 2) = -10"
+        },
+        {
+          "p": "The cofactors give the adjoint (each row of $\\text{adj}\\,A$ is a column of cofactors):"
+        },
+        {
+          "math": "\\text{adj}\\,A = \\begin{bmatrix} -4 & -2 & -2 \\\\ 5 & -5 & 0 \\\\ -1 & -3 & 2 \\end{bmatrix}"
+        },
+        {
+          "math": "X = \\dfrac{1}{-10}\\begin{bmatrix} -4 & -2 & -2 \\\\ 5 & -5 & 0 \\\\ -1 & -3 & 2 \\end{bmatrix}\\begin{bmatrix} 4 \\\\ 2 \\\\ 0 \\end{bmatrix} = \\dfrac{1}{-10}\\begin{bmatrix} -20 \\\\ 10 \\\\ -10 \\end{bmatrix} = \\begin{bmatrix} 2 \\\\ -1 \\\\ 1 \\end{bmatrix}"
+        },
+        {
+          "p": "So $x = 2$, $y = -1$, $z = 1$."
+        },
+        {
+          "p": "**Checking by elimination:** subtracting the first equation from the second eliminates $x$ and $z$ at once:"
+        },
+        {
+          "math": "(x+y+z) - (x-y+z) = 2-4 \\;\\Rightarrow\\; 2y = -2 \\;\\Rightarrow\\; y=-1"
+        },
+        {
+          "p": "Substituting $y=-1$ into the second equation gives $x+z=3$. Substituting into the third gives $2x-3z=1$. Using $x=3-z$:"
+        },
+        {
+          "math": "2(3-z)-3z=1 \\;\\Rightarrow\\; 6-5z=1 \\;\\Rightarrow\\; z=1 \\;\\Rightarrow\\; x=2"
+        },
+        {
+          "p": "Both methods agree."
+        }
+      ]
+    },
+    {
+      "heading": "Consistency: one solution, none, or infinitely many",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Consistency test for AX = B with a square matrix A",
+            "columns": ["Condition", "Result"],
+            "rows": [
+              ["$|A| \\neq 0$", "Consistent, with exactly one solution $X = A^{-1}B$"],
+              ["$|A| = 0$ and $(\\text{adj}\\,A)B \\neq O$", "Inconsistent: no solution"],
+              ["$|A| = 0$ and $(\\text{adj}\\,A)B = O$", "Not decided by this test: infinitely many solutions or none, so check directly"]
+            ]
+          }
+        },
+        {
+          "p": "**Example:** show that $x + y = 2$ and $2x + 2y = 5$ has no solution."
+        },
+        {
+          "p": "**Solution:** $A = \\begin{bmatrix} 1 & 1 \\\\ 2 & 2 \\end{bmatrix}$, so $|A| = 2 - 2 = 0$. With $\\text{adj}\\,A = \\begin{bmatrix} 2 & -1 \\\\ -2 & 1 \\end{bmatrix}$:"
+        },
+        {
+          "math": "(\\text{adj}\\,A)B = \\begin{bmatrix} 2 & -1 \\\\ -2 & 1 \\end{bmatrix}\\begin{bmatrix} 2 \\\\ 5 \\end{bmatrix} = \\begin{bmatrix} -1 \\\\ 1 \\end{bmatrix} \\neq O"
+        },
+        {
+          "p": "So the system is inconsistent. Geometrically the two equations are parallel lines. Change the second right-hand side to 4 and $(\\text{adj}\\,A)B$ becomes $O$: the equations are then the same line, with infinitely many solutions."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Multiplying in the wrong order.** It's $X = A^{-1}B$. Matrix multiplication isn't commutative, and $BA^{-1}$ isn't even defined here.",
+            "**Forgetting to transpose the cofactors.** $\\text{adj}\\,A$ is the *transpose* of the cofactor matrix. Skipping the transpose gives a wrong inverse whenever $A$ isn't symmetric.",
+            "**Mixing up variable order.** If one equation is written $z + x - y$, rewrite it as $x - y + z$ before building $A$, or the columns won't line up.",
+            "**Reading $(\\text{adj}\\,A)B = O$ as \"infinitely many solutions\".** With $|A| = 0$ it can also mean no solution. The test only rules a system inconsistent when $(\\text{adj}\\,A)B \\neq O$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists the consistency, inconsistency and number of solutions of a system of linear equations, and solving systems in two or three variables using the inverse of a matrix. The JEE Main 2026 syllabus lists the test of consistency and the solution of simultaneous linear equations in two or three variables using matrices, and JEE Advanced 2026 lists solutions of simultaneous linear equations in two or three variables.",
+    "countdowns": ["jee-2027", "jee-advanced-2027"],
+    "sources": ["cbse-11-12-2025-26", "jee-main-2026", "jee-advanced-2026"]
+  },
+  "related": {
+    "intro": "The matrix method only produces a unique solution when the coefficient matrix isn't singular, and checking that comes down to a basic square-matrix property.",
+    "links": [
+      {
+        "label": "Square Matrix Properties",
+        "href": "/resources/square-matrix"
+      },
+      {
+        "label": "Pair of Linear Equations: Cross-Multiplication and Reducible Equations",
+        "href": "/resources/pair-of-linear-equations-cross-multiplication"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+/* timer-sound.css: completion sound settings (components/TimerSoundSettings.jsx) */
+.timer-sound { width: 100%; max-width: 320px; box-sizing: border-box; margin: 0; padding: 12px 14px; border: 1.5px solid var(--color-border); border-radius: 16px; background: var(--color-surface); display: flex; flex-direction: column; gap: 10px; font-family: var(--font-body); animation: set-btn-in 0.2s ease; }
+.timer-sound__legend { padding: 0 6px; font-family: var(--font-heading); font-weight: 700; font-size: 0.85rem; color: var(--color-text); }
+.timer-sound__list { display: flex; flex-direction: column; gap: 6px; }
+.timer-sound__row { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.timer-sound__row--locked .timer-sound__name { color: var(--color-text-faint); }
+.timer-sound__radio { flex-shrink: 0; accent-color: var(--color-accent-strong); width: 16px; height: 16px; margin: 0; }
+.timer-sound__name { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; font-weight: 700; font-size: 0.82rem; color: var(--color-text); cursor: pointer; }
+.timer-sound__row--locked .timer-sound__name { cursor: default; }
+.timer-sound__lock { font-weight: 600; font-size: 0.7rem; color: var(--color-text-secondary); }
+.timer-sound__preview { flex-shrink: 0; padding: 4px 10px; border-radius: var(--radius-pill); border: 1.5px solid var(--color-border); background: var(--color-surface-alt); color: var(--color-accent-strong); font-family: var(--font-body); font-weight: 700; font-size: 0.72rem; cursor: pointer; }
+.timer-sound__preview:hover { border-color: var(--color-accent-strong); }
+.timer-sound__controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding-top: 4px; border-top: 1px solid var(--color-border); }
+.timer-sound__volume { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 180px; font-weight: 700; font-size: 0.78rem; color: var(--color-text-secondary); }
+.timer-sound__volume input[type="range"] { flex: 1; min-width: 0; accent-color: var(--color-accent-strong); }
+.timer-sound__volume-value { width: 3ch; text-align: right; font-variant-numeric: tabular-nums; }
+.timer-sound__mute { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 0.78rem; color: var(--color-text-secondary); cursor: pointer; }
+.timer-sound__mute input { accent-color: var(--color-accent-strong); margin: 0; }
+.timer-sound__shop-link { margin: 0; font-size: 0.75rem; color: var(--color-text-secondary); text-align: center; }
+.timer-sound__shop-link a { color: var(--color-accent-strong); font-weight: 700; }

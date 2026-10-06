@@ -408,6 +408,11 @@
 }
 
 .blog-fig-axis { stroke: var(--color-border); stroke-width: 1.2; }
+/* Circuit diagrams (components/blog-figures/circuitFigures.tsx) */
+.blog-fig-wire { fill: none; stroke: var(--color-text); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.blog-fig-wire--thick { stroke-width: 4; }
+.blog-fig-component { fill: var(--color-surface); }
+.blog-fig-terminal { fill: var(--color-surface); stroke: var(--color-text); stroke-width: 2; }
 .blog-fig-tick { fill: var(--color-text-secondary); font-size: 9px; }
 .blog-fig-label { fill: var(--color-text); font-size: 12px; font-weight: 700; }
 .blog-fig-note { fill: var(--color-text-secondary); font-size: 10px; }
