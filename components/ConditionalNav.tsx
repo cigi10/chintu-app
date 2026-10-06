@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 import BottomNav from '@/components/BottomNav'
 import { claimGuestDataForAccount } from '@/lib/claimGuestData'
+import { migrateNewlySyncedKeys } from '@/lib/migrateSyncedKeys'
 
 // Exported so other places that need to know when the nav chrome (this
 // component's BottomNav, and each page's own <Navbar/>) is hidden can
@@ -21,8 +22,13 @@ export default function ConditionalNav() {
   // than in LoginForm means it also covers landing on /onboarding or
   // /dashboard via the OAuth/email-confirmation callback route, without
   // duplicating the call at every auth entry point.
+  //
+  // migrateNewlySyncedKeys (lib/migrateSyncedKeys.js) then uploads data for
+  // keys that only recently got a user_data column, for existing accounts
+  // that passed the guest claim long ago. Run in sequence so it sees
+  // whatever the claim just uploaded and doesn't repeat it.
   useEffect(() => {
-    claimGuestDataForAccount()
+    claimGuestDataForAccount().then(() => migrateNewlySyncedKeys())
   }, [])
 
   const shouldHide = CHROME_HIDDEN_ON.some((path) => pathname?.startsWith(path))
