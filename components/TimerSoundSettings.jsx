@@ -5,16 +5,16 @@ import {
   SOUNDS, SOUND_PRICES, SOUND_SETTINGS_EVENT,
   isSoundOwned, isSoundForSale, loadSoundSettings, resolveSoundId,
 } from "@/lib/timerSounds";
-import { saveSoundSettings } from "@/lib/soundSettings";
+import { saveSoundSettings, hydrateSoundSettings } from "@/lib/soundSettings";
 import { playSoundNow } from "@/lib/timerAudio";
 import { hydrateShop, loadLocalShop, SHOP_CHANGE_EVENT } from "@/lib/shopOwnership";
 import { NAV } from "@/lib/navItems";
 import "@/styles/timer-sound.css";
 
 // Choose the completion sound, preview any of them (locked ones too, like
-// the shop's "Try on"), and set volume or mute. Settings save locally via
-// lib/storage (timer_sound has no cloud column yet) and a change event
-// lets the running timer reschedule its pending sound.
+// the shop's "Try on"), and set volume or mute. Settings sync through
+// user_data.timer_sound (lib/soundSettings.js), and a change event lets the
+// running timer reschedule its pending sound.
 export default function TimerSoundSettings() {
   const [settings, setSettings] = useState(() => loadSoundSettings());
   const [owned, setOwned] = useState(() => loadLocalShop().owned);
@@ -22,6 +22,7 @@ export default function TimerSoundSettings() {
   useEffect(() => {
     let cancelled = false;
     hydrateShop().then(shop => { if (!cancelled) setOwned(shop.owned); });
+    hydrateSoundSettings().then(next => { if (!cancelled) setSettings(next); });
     const onShop = () => setOwned(loadLocalShop().owned);
     const onSettings = () => setSettings(loadSoundSettings());
     window.addEventListener(SHOP_CHANGE_EVENT, onShop);

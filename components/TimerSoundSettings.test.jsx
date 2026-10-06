@@ -6,7 +6,7 @@ vi.mock("@/lib/shopOwnership", () => ({
   loadLocalShop: vi.fn(() => ({ owned: [], equipped: {} })),
   SHOP_CHANGE_EVENT: "chintu-shop-change",
 }));
-vi.mock("@/lib/storage", () => ({ setData: vi.fn(async () => null) }));
+vi.mock("@/lib/storage", () => ({ setData: vi.fn(async () => null), readCloudValue: vi.fn(async () => ({ ok: true, value: null })) }));
 vi.mock("@/lib/analytics", () => ({ trackSoundChange: vi.fn() }));
 vi.mock("@/lib/timerAudio", () => ({ playSoundNow: vi.fn() }));
 

@@ -19,7 +19,8 @@ import { trackTimerStart, trackTimerComplete } from "@/lib/analytics";
 import TimerSoundSettings from "@/components/TimerSoundSettings";
 import { getAudioContext, unlockAudio, scheduleCompletionSound, cancelCompletionSound, ensureCompletionSound } from "@/lib/timerAudio";
 import { loadSoundSettings, resolveSoundId, SOUND_SETTINGS_EVENT } from "@/lib/timerSounds";
-import { loadLocalShop, SHOP_CHANGE_EVENT } from "@/lib/shopOwnership";
+import { loadLocalShop, hydrateShop, SHOP_CHANGE_EVENT } from "@/lib/shopOwnership";
+import { hydrateSoundSettings } from "@/lib/soundSettings";
 
 // The completion sound to use right now: the saved choice if owned (else
 // the free default), its volume, and whether it's muted. Read fresh each
@@ -380,6 +381,15 @@ export default function StudyTimer({ roomName = null }) {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [running, hydrated]);
+
+  // Pull the sound settings and shop ownership from the cloud once, then
+  // let a running session reschedule its completion sound, so a sound
+  // chosen or bought on another device applies here too.
+  useEffect(() => {
+    Promise.all([hydrateSoundSettings(), hydrateShop()])
+      .then(() => { try { window.dispatchEvent(new Event(SOUND_SETTINGS_EVENT)); } catch {} })
+      .catch(() => {});
+  }, []);
 
   // Watches for the URL params actually changing (e.g. clicking a different
   // "Study" button while already on this page) — Next.js doesn't remount
