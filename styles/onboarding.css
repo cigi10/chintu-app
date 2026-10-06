@@ -1,4 +1,10 @@
-.onboarding { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; box-sizing: border-box; overflow-x: hidden; overflow-y: auto; }
+/* Pack and region grid: a plain `1fr` track is minmax(auto, 1fr), so it
+   can't shrink below its widest card's min-content width. With one-line
+   (nowrap) subtitles like GATE ECE's topic list, that pushed the columns to
+   600px+ inside the 560px container and off the right edge. minmax(0, 1fr)
+   plus min-width: 0 on the cards lets the tracks shrink, and subtitles wrap
+   to at most two lines instead of setting the column width. */
+.onboarding { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; box-sizing: border-box; overflow-y: auto; }
 .onboarding__container { max-width: 560px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 16px 0; }
 .onboarding__progress { display: flex; gap: 6px; margin-bottom: 8px; }
 .onboarding__dot { width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-accent); transition: all 0.2s ease; }
@@ -9,8 +15,8 @@
 .onboarding__subtitle { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--color-text-secondary); margin: 0; max-width: 380px; }
 .onboarding__tour-link { font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; color: var(--color-accent-strong); text-decoration: underline; margin-top: -8px; }
 .onboarding__step { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-.onboarding__exam-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
-.onboarding__exam-btn { display: flex; align-items: center; gap: 10px; padding: 14px; border-radius: 16px; border: 1.5px solid var(--color-border); background: var(--color-surface-alt); box-shadow: var(--shadow-card); cursor: pointer; text-align: left; font-family: var(--font-body); width: 100%; min-height: 68px; box-sizing: border-box; transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease; }
+.onboarding__exam-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; width: 100%; }
+.onboarding__exam-btn { display: flex; align-items: center; gap: 10px; padding: 14px; border-radius: 16px; border: 1.5px solid var(--color-border); background: var(--color-surface-alt); box-shadow: var(--shadow-card); cursor: pointer; text-align: left; font-family: var(--font-body); width: 100%; min-width: 0; min-height: 68px; box-sizing: border-box; transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease; }
 .onboarding__exam-btn:hover { border-color: var(--color-accent-strong); background: var(--color-accent); transform: translateY(-2px); }
 .onboarding__exam-btn--selected { border-color: var(--color-accent-strong); background: var(--color-accent); }
 .onboarding__exam-btn--custom { grid-column: 1 / -1; background: var(--color-surface); border: 2px dashed var(--color-border-dashed); box-shadow: none; }
@@ -18,7 +24,7 @@
 .onboarding__exam-icon { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--color-surface); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 0.72rem; letter-spacing: 0.02em; color: var(--color-accent-strong); }
 .onboarding__exam-text { display: flex; flex-direction: column; min-width: 0; }
 .onboarding__exam-name { font-weight: 800; font-size: 0.9rem; color: var(--color-text); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.onboarding__exam-desc { font-weight: 600; font-size: 0.72rem; color: var(--color-text-secondary); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.onboarding__exam-desc { font-weight: 600; font-size: 0.72rem; line-height: 1.35; color: var(--color-text-secondary); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
 .onboarding__input { width: 100%; padding: 13px 16px; border: 1.5px solid var(--color-border); border-radius: 16px; font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--color-text); background: var(--color-surface); box-sizing: border-box; outline: none; transition: border-color 0.15s ease, background-color 0.15s ease; }
 .onboarding__input:focus { border-color: var(--color-accent-strong); }
 .onboarding__input::placeholder { color: var(--color-text-faint); font-weight: 600; }
@@ -34,3 +40,11 @@
 .onboarding__skip:hover { color: var(--color-accent-strong); }
 .onboarding__chips-label { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0 0 6px; text-align: center; font-weight: 700; }
 @media (max-width: 480px) { .onboarding__exam-grid { grid-template-columns: 1fr; } }
+/* Pack groups (Entrance exams, GATE, Other exams, College semesters). */
+.onboarding__groups { display: flex; flex-direction: column; gap: 18px; width: 100%; }
+.onboarding__group { display: flex; flex-direction: column; gap: 8px; width: 100%; min-width: 0; }
+.onboarding__group-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--color-text-secondary); text-align: left; margin: 0; }
+.onboarding__group-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 16px; border: 1.5px solid var(--color-border); background: var(--color-surface); color: var(--color-text); font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; text-align: left; cursor: pointer; box-sizing: border-box; }
+.onboarding__group-toggle:hover { border-color: var(--color-accent-strong); }
+.onboarding__group-chevron { font-size: 1.1rem; line-height: 1; color: var(--color-accent-strong); }
+.onboarding__exam-grid[hidden] { display: none; }

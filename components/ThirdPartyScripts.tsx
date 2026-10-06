@@ -1,10 +1,9 @@
-import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { internalTrafficScript } from "@/lib/internalTraffic";
 
-// Every third-party analytics/ads script the site loads, in one place.
-// Rendered once from the root layout, so it applies to every page
-// automatically instead of being duplicated per page.
+// The site-wide third-party scripts (analytics), rendered once from the
+// root layout. AdSense is deliberately not here: it loads only on content
+// routes, from components/AdSenseScript.tsx.
 export default function ThirdPartyScripts() {
   return (
     <>
@@ -17,15 +16,6 @@ export default function ThirdPartyScripts() {
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         </>
       )}
-      {/* AdSense verification script — next/script with afterInteractive
-          is Google's own recommended approach for loading adsbygoogle.js
-          in a Next.js app, rather than a raw <script> tag. */}
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4680201738326151"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
     </>
   );
 }

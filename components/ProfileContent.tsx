@@ -8,6 +8,7 @@ import Companion from "@/components/Companion";
 import Button from "@/components/Button";
 import RenameCompanion from "@/components/RenameCompanion";
 import { hydrateCompanionName, DEFAULT_NAME as DEFAULT_COMPANION_NAME } from "@/lib/companion";
+import { flushPendingWrites } from "@/lib/storage";
 import "@/styles/profile.css";
 
 export default function ProfileContent() {
@@ -15,6 +16,8 @@ export default function ProfileContent() {
   const [joined, setJoined] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [companionName, setCompanionName] = useState(DEFAULT_COMPANION_NAME);
+  const [signingOut, setSigningOut] = useState(false);
+  const [syncFailed, setSyncFailed] = useState(false);
   const router = useRouter();
   const supabase = createClient();
 
@@ -38,7 +41,20 @@ export default function ProfileContent() {
     hydrateCompanionName().then(setCompanionName);
   }, []);
 
+  // Local data is only cleared once the cloud has all of it. If any
+  // pending write can't be flushed, the user stays signed in with their
+  // local data intact and can retry; signing out regardless would lose
+  // whatever hadn't synced, and keeping the data while signed out would
+  // leave it on a possibly shared browser for the next account.
   async function handleSignOut() {
+    setSigningOut(true);
+    setSyncFailed(false);
+    const { ok } = await flushPendingWrites();
+    if (!ok) {
+      setSyncFailed(true);
+      setSigningOut(false);
+      return;
+    }
     await supabase.auth.signOut();
     try { localStorage.clear(); } catch {}
     router.push("/login");
@@ -85,8 +101,14 @@ export default function ProfileContent() {
           )}
           <RenameCompanion currentName={companionName} onRenamed={setCompanionName} />
         </div>
-        <Button variant="secondary" className="profile__signout-btn" onClick={handleSignOut}>
-          Sign out
+        {syncFailed && (
+          <p className="profile__sync-error" role="alert">
+            Some changes haven&apos;t synced yet, so you&apos;re still signed in and nothing was
+            removed. Check your connection and try again.
+          </p>
+        )}
+        <Button variant="secondary" className="profile__signout-btn" onClick={handleSignOut} disabled={signingOut}>
+          {signingOut ? "Syncing..." : syncFailed ? "Try signing out again" : "Sign out"}
         </Button>
       </div>
     </>
