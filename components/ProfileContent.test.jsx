@@ -66,4 +66,51 @@ describe("ProfileContent sign-out", () => {
     expect(flushPendingWrites).toHaveBeenCalledTimes(2);
     expect(localStorage.getItem("journal")).toBeNull();
   });
+
+  it("offers Sign out anyway only after a failed sync", async () => {
+    flushPendingWrites.mockResolvedValue({ ok: false, failed: ["journal"] });
+    render(<ProfileContent />);
+    expect(screen.queryByRole("button", { name: "Sign out anyway" })).toBeNull();
+    await clickSignOut();
+    expect(await screen.findByRole("button", { name: "Sign out anyway" })).toBeInTheDocument();
+  });
+
+  it("asks for confirmation, with Cancel as the focused default, and cancelling keeps everything", async () => {
+    flushPendingWrites.mockResolvedValue({ ok: false, failed: ["journal"] });
+    render(<ProfileContent />);
+    await clickSignOut();
+    fireEvent.click(await screen.findByRole("button", { name: "Sign out anyway" }));
+
+    const dialog = screen.getByRole("alertdialog");
+    expect(dialog).toHaveTextContent(/haven't synced will be permanently deleted/);
+    expect(screen.getByRole("button", { name: "Cancel" })).toHaveFocus();
+
+    fireEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    expect(screen.queryByRole("alertdialog")).toBeNull();
+    expect(auth.signOut).not.toHaveBeenCalled();
+    expect(localStorage.getItem("journal")).toBe(JSON.stringify([{ id: 1 }]));
+  });
+
+  it("treats Escape like Cancel", async () => {
+    flushPendingWrites.mockResolvedValue({ ok: false, failed: ["journal"] });
+    render(<ProfileContent />);
+    await clickSignOut();
+    fireEvent.click(await screen.findByRole("button", { name: "Sign out anyway" }));
+    fireEvent.keyDown(document, { key: "Escape" });
+    expect(screen.queryByRole("alertdialog")).toBeNull();
+    expect(auth.signOut).not.toHaveBeenCalled();
+  });
+
+  it("deletes local data and signs out when the user confirms", async () => {
+    flushPendingWrites.mockResolvedValue({ ok: false, failed: ["journal"] });
+    render(<ProfileContent />);
+    await clickSignOut();
+    fireEvent.click(await screen.findByRole("button", { name: "Sign out anyway" }));
+    fireEvent.click(screen.getByRole("button", { name: "Delete and sign out" }));
+
+    await waitFor(() => expect(router.push).toHaveBeenCalledWith("/login"));
+    expect(auth.signOut).toHaveBeenCalledTimes(1);
+    expect(flushPendingWrites).toHaveBeenCalledTimes(1); // no second flush attempt
+    expect(localStorage.getItem("journal")).toBeNull();
+  });
 });
