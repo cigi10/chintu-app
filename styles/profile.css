@@ -18,3 +18,4 @@
 .site-header__logo { font-family: var(--font-heading); font-weight: 800; font-size: 1.3rem; color: var(--color-accent-strong); text-decoration: none; }
 .site-header__logo:hover { filter: brightness(0.85); }
 @media (max-width: 480px) { .site-header { top: 16px; left: 20px; } .site-header__logo { font-size: 1.1rem; } }
+.profile__sync-error { font-size: 0.85rem; font-weight: 600; color: var(--color-text); background: var(--color-surface-alt); border: 1.5px solid var(--color-border); border-radius: 12px; padding: 10px 14px; margin: 0; max-width: 420px; text-align: center; }
