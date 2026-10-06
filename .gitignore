@@ -48,4 +48,4 @@ next-env.d.ts
 /data/
 
 # Maths review notes for the site owner, not part of the app or the site
-/docs/phase0-review.md
+/docs/phase*-review.md
