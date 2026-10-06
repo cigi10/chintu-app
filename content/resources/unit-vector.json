@@ -1,0 +1,151 @@
+{
+  "slug": "unit-vector",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "The unit vector formula",
+      "blocks": [
+        {
+          "p": "A unit vector has magnitude 1. To find the unit vector pointing the same way as any vector $\\vec{a}$, divide by its own magnitude:"
+        },
+        {
+          "math": "\\hat{a} = \\dfrac{\\vec{a}}{|\\vec{a}|}"
+        },
+        {
+          "p": "For $\\vec{a} = a_1\\hat{i} + a_2\\hat{j} + a_3\\hat{k}$ the magnitude is $|\\vec{a}| = \\sqrt{a_1^2 + a_2^2 + a_3^2}$, so the unit vector of a vector in component form is:"
+        },
+        {
+          "math": "\\hat{a} = \\dfrac{a_1\\hat{i} + a_2\\hat{j} + a_3\\hat{k}}{\\sqrt{a_1^2 + a_2^2 + a_3^2}}"
+        },
+        {
+          "p": "The three basic unit vectors $\\hat{i}$, $\\hat{j}$ and $\\hat{k}$ point along the $x$-, $y$- and $z$-axes. The zero vector is the one vector with no unit vector, because it has no direction and $|\\vec{0}| = 0$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find the unit vector in the direction of $\\vec{a} = \\hat{i}+\\hat{j}+2\\hat{k}$."
+        },
+        {
+          "p": "**Solution:** $|\\vec{a}| = \\sqrt{1^2+1^2+2^2} = \\sqrt{6}$, so:"
+        },
+        {
+          "math": "\\hat{a} = \\dfrac{1}{\\sqrt{6}}(\\hat{i}+\\hat{j}+2\\hat{k})"
+        },
+        {
+          "p": "**Check:** $\\left(\\dfrac{1}{\\sqrt{6}}\\right)^2 + \\left(\\dfrac{1}{\\sqrt{6}}\\right)^2 + \\left(\\dfrac{2}{\\sqrt{6}}\\right)^2 = \\dfrac{1 + 1 + 4}{6} = 1$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: between two points",
+      "blocks": [
+        {
+          "p": "Find the unit vector in the direction of $\\overrightarrow{PQ}$ where $P(1,2,3)$ and $Q(4,5,6)$."
+        },
+        {
+          "p": "**Solution:** $\\overrightarrow{PQ}$ is found by subtracting coordinates: $(4-1, 5-2, 6-3) = (3,3,3) = 3\\hat{i}+3\\hat{j}+3\\hat{k}$. Its magnitude is $\\sqrt{27} = 3\\sqrt{3}$, so:"
+        },
+        {
+          "math": "\\hat{PQ} = \\dfrac{3(\\hat{i}+\\hat{j}+\\hat{k})}{3\\sqrt{3}} = \\dfrac{1}{\\sqrt{3}}(\\hat{i}+\\hat{j}+\\hat{k})"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: scaling to a target magnitude",
+      "blocks": [
+        {
+          "p": "Find a vector in the direction of $\\vec{a} = \\hat{i}-2\\hat{j}$ with magnitude 7."
+        },
+        {
+          "p": "**Solution:** First find the unit vector, then scale it up to magnitude 7. $|\\vec{a}| = \\sqrt{1+4} = \\sqrt{5}$:"
+        },
+        {
+          "math": "7\\hat{a} = 7\\cdot\\dfrac{\\hat{i}-2\\hat{j}}{\\sqrt{5}} = \\dfrac{7}{\\sqrt{5}}\\hat{i} - \\dfrac{14}{\\sqrt{5}}\\hat{j}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: along the sum of two vectors",
+      "blocks": [
+        {
+          "p": "Find the unit vector in the direction of $\\vec{a} + \\vec{b}$, where $\\vec{a} = 2\\hat{i} + 4\\hat{j} - 5\\hat{k}$ and $\\vec{b} = \\hat{i} + 2\\hat{j} + 3\\hat{k}$."
+        },
+        {
+          "p": "**Solution:** Add first, then divide by the magnitude of the sum:"
+        },
+        {
+          "math": "\\vec{a} + \\vec{b} = 3\\hat{i} + 6\\hat{j} - 2\\hat{k}, \\qquad |\\vec{a} + \\vec{b}| = \\sqrt{9 + 36 + 4} = 7"
+        },
+        {
+          "math": "\\dfrac{\\vec{a} + \\vec{b}}{|\\vec{a} + \\vec{b}|} = \\dfrac{3}{7}\\hat{i} + \\dfrac{6}{7}\\hat{j} - \\dfrac{2}{7}\\hat{k}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: perpendicular to two vectors",
+      "blocks": [
+        {
+          "p": "Find a unit vector perpendicular to both $\\vec{a} = \\hat{i} + \\hat{j} + \\hat{k}$ and $\\vec{b} = \\hat{i} - \\hat{j}$."
+        },
+        {
+          "p": "**Solution:** The cross product $\\vec{a} \\times \\vec{b}$ is perpendicular to both, so divide it by its magnitude:"
+        },
+        {
+          "math": "\\vec{a} \\times \\vec{b} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 1 & 1 \\\\ 1 & -1 & 0 \\end{vmatrix} = \\hat{i} + \\hat{j} - 2\\hat{k}, \\qquad |\\vec{a} \\times \\vec{b}| = \\sqrt{6}"
+        },
+        {
+          "math": "\\pm\\dfrac{1}{\\sqrt{6}}(\\hat{i} + \\hat{j} - 2\\hat{k})"
+        },
+        {
+          "p": "There are two answers, pointing opposite ways. **Check:** $(1)(1) + (1)(1) + (-2)(1) = 0$ and $(1)(1) + (1)(-1) + (-2)(0) = 0$, so it is perpendicular to both."
+        }
+      ]
+    },
+    {
+      "heading": "Unit vectors and direction cosines",
+      "blocks": [
+        {
+          "p": "The components of a unit vector are its direction cosines: if $\\hat{a}$ makes angles $\\alpha$, $\\beta$, $\\gamma$ with the axes, then $\\hat{a} = \\cos\\alpha\\,\\hat{i} + \\cos\\beta\\,\\hat{j} + \\cos\\gamma\\,\\hat{k}$, which is why $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$. For the first example, the direction cosines are $\\dfrac{1}{\\sqrt{6}}$, $\\dfrac{1}{\\sqrt{6}}$ and $\\dfrac{2}{\\sqrt{6}}$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Dividing by the squared magnitude.** Divide by $|\\vec{a}| = \\sqrt{a_1^2 + a_2^2 + a_3^2}$, not by $a_1^2 + a_2^2 + a_3^2$.",
+            "**Not checking the answer.** The squares of a unit vector's components must add to 1. $\\tfrac{1}{2}\\hat{i} + \\tfrac{1}{2}\\hat{j} + \\tfrac{1}{2}\\hat{k}$ fails: its magnitude is $\\tfrac{\\sqrt{3}}{2}$.",
+            "**Giving one answer for \"perpendicular to both\".** $\\vec{b} \\times \\vec{a}$ points the opposite way, so both signs are correct unless the question fixes a direction.",
+            "**Subtracting the wrong way.** $\\overrightarrow{PQ} = Q - P$. Using $P - Q$ gives the unit vector pointing back from $Q$ to $P$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists unit vectors among the types of vectors, along with direction cosines and the scalar and vector products. JEE Main 2026's vector algebra unit lists components of a vector and the scalar and vector products, and JEE Advanced 2026 lists dot and cross products, which the examples above use.",
+    "countdowns": ["jee-2027", "jee-advanced-2027"],
+    "sources": ["cbse-11-12-2025-26", "jee-main-2026", "jee-advanced-2026"]
+  },
+  "related": {
+    "intro": "Dividing by a vector's magnitude is the same normalization step used when finding the projection of one vector onto another.",
+    "links": [
+      {
+        "label": "Projection of a Vector",
+        "href": "/resources/projection-of-a-vector"
+      },
+      {
+        "label": "Operations on Vectors",
+        "href": "/resources/operations-on-vectors"
+      },
+      {
+        "label": "Finding Direction Cosines",
+        "href": "/resources/direction-cosines"
+      }
+    ]
+  }
+}
