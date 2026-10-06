@@ -9,7 +9,7 @@ import { setCompanionName, NAME_CHIPS } from "@/lib/companion";
 import { saveExamPackAndSubjects, getSubjects } from "@/lib/tracker";
 import { getLocalDdays, saveDdays } from "@/lib/ddays";
 import { PACK_NAMES, PACK_DESC, PACK_ICON, examPackLabel } from "@/lib/examPacks";
-import { COUNTRIES, splitPacksForCountry } from "@/lib/examRegions";
+import { COUNTRIES, groupPacksForCountry } from "@/lib/examRegions";
 import { markOnboarded } from "@/lib/onboardedFlag";
 
 // "Custom" first, then every pack from lib/examPacks — always in sync with
@@ -30,17 +30,17 @@ export default function Onboarding() {
   const [name, setName] = useState("");
   const [dday, setDday] = useState("");
   const [saving, setSaving] = useState(false);
-  const [showMore, setShowMore] = useState(false);
+  // Which collapsible groups (College semesters) the user has opened.
+  const [openGroups, setOpenGroups] = useState({});
 
-  function pickCountry(key) { setCountry(key); setShowMore(false); setStep(1); }
+  function pickCountry(key) { setCountry(key); setOpenGroups({}); setStep(1); }
   function pickPack(key) { setPack(key); setStep(2); }
 
-  // A handful of packs for the chosen region up front, then Custom, with
-  // the rest of the region's packs behind "More exams".
+  // The region's packs under group headings (lib/examRegions.js), with
+  // College semesters collapsed until opened, then Custom at the end.
   const optionFor = key => ALL_PACK_OPTIONS.find(p => p.key === key);
-  const { featured, more } = splitPacksForCountry(country, PACK_NAMES);
-  const featuredOptions = [...featured.map(optionFor), optionFor("Custom")];
-  const moreOptions = more.map(optionFor);
+  const groups = groupPacksForCountry(country, PACK_NAMES);
+  const toggleGroup = id => setOpenGroups(open => ({ ...open, [id]: !open[id] }));
 
   const renderPack = p => (
     <button
@@ -150,27 +150,39 @@ export default function Onboarding() {
             >
               New to study apps? Take a 1-minute tour →
             </a>
-            <div className="onboarding__exam-grid">
-              {featuredOptions.map(renderPack)}
+            <div className="onboarding__groups">
+              {groups.map(group => {
+                const collapsible = group.collapsedByDefault;
+                const open = !collapsible || Boolean(openGroups[group.id]);
+                const panelId = `onboarding-group-${group.id}`;
+                return (
+                  <section key={group.id} className="onboarding__group" aria-labelledby={`${panelId}-title`}>
+                    <h2 className="onboarding__group-title" id={`${panelId}-title`}>
+                      {collapsible ? (
+                        <button
+                          type="button"
+                          className="onboarding__group-toggle"
+                          aria-expanded={open}
+                          aria-controls={panelId}
+                          onClick={() => toggleGroup(group.id)}
+                        >
+                          <span>{group.label} ({group.keys.length})</span>
+                          <span className="onboarding__group-chevron" aria-hidden="true">{open ? "−" : "+"}</span>
+                        </button>
+                      ) : (
+                        group.label
+                      )}
+                    </h2>
+                    <div id={panelId} className="onboarding__exam-grid" hidden={!open}>
+                      {group.keys.map(optionFor).filter(Boolean).map(renderPack)}
+                    </div>
+                  </section>
+                );
+              })}
+              <div className="onboarding__exam-grid">
+                {renderPack(optionFor("Custom"))}
+              </div>
             </div>
-            {moreOptions.length > 0 && (
-              <>
-                <button
-                  type="button"
-                  className="onboarding__more-toggle"
-                  aria-expanded={showMore}
-                  aria-controls="onboarding-more-packs"
-                  onClick={() => setShowMore(v => !v)}
-                >
-                  {showMore ? "Fewer exams" : `More exams (${moreOptions.length})`}
-                </button>
-                {showMore && (
-                  <div id="onboarding-more-packs" className="onboarding__exam-grid">
-                    {moreOptions.map(renderPack)}
-                  </div>
-                )}
-              </>
-            )}
           </>
         )}
 

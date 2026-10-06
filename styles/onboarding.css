@@ -40,5 +40,11 @@
 .onboarding__skip:hover { color: var(--color-accent-strong); }
 .onboarding__chips-label { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0 0 6px; text-align: center; font-weight: 700; }
 @media (max-width: 480px) { .onboarding__exam-grid { grid-template-columns: 1fr; } }
-.onboarding__more-toggle { background: none; border: 1.5px solid var(--color-border); border-radius: var(--radius-pill); padding: 8px 18px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; color: var(--color-accent-strong); cursor: pointer; }
-.onboarding__more-toggle:hover { background: var(--color-accent); }
+/* Pack groups (Entrance exams, GATE, Other exams, College semesters). */
+.onboarding__groups { display: flex; flex-direction: column; gap: 18px; width: 100%; }
+.onboarding__group { display: flex; flex-direction: column; gap: 8px; width: 100%; min-width: 0; }
+.onboarding__group-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--color-text-secondary); text-align: left; margin: 0; }
+.onboarding__group-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 16px; border: 1.5px solid var(--color-border); background: var(--color-surface); color: var(--color-text); font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; text-align: left; cursor: pointer; box-sizing: border-box; }
+.onboarding__group-toggle:hover { border-color: var(--color-accent-strong); }
+.onboarding__group-chevron { font-size: 1.1rem; line-height: 1; color: var(--color-accent-strong); }
+.onboarding__exam-grid[hidden] { display: none; }
