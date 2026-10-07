@@ -1,9 +1,9 @@
 {
   "slug": "gate-2027-eligibility",
   "title": "GATE 2027 Eligibility, Explained with Official Links",
-  "description": "GATE 2027 eligibility: third year or higher of any undergraduate degree, or a completed one, and no age limit. The official criteria from IIT Madras in plain language, with eight common cases worked through.",
+  "description": "GATE 2027 eligibility: third year or higher of any undergraduate degree, or a completed one, and no age limit. What the official IIT Madras brochure says, in plain language, with common cases worked through.",
   "author": "Studyloaf Team",
-  "readingTime": "6 min read",
+  "readingTime": "5 min read",
   "date": "2026-10-07",
   "lastVerified": "2026-10-07",
   "category": "college-careers",
@@ -14,100 +14,102 @@
   "content": [
     {
       "heading": null,
-      "body": "GATE's eligibility rules are broad, and they're easy to over-think. This post sets out the GATE 2027 criteria from the official website and information brochure, then applies them to common cases. The official eligibility page has the full degree-by-degree table, and it's the one that decides, so it's linked below."
+      "body": "GATE's eligibility rules are broad. This post sets out only what the GATE 2027 information brochure from IIT Madras states (section 6.1 and Table 2), applies it to common cases, and points you to the brochure or the GATE helpdesk for anything less straightforward. The brochure and the official eligibility page are linked below, and they decide."
     },
     {
-      "heading": "The criteria, in plain language",
+      "heading": "What the brochure says",
       "list": [
-        "You're eligible if you're currently in the third year or higher of any undergraduate degree programme, or have completed any government-approved degree in engineering, technology, architecture, science, commerce, arts or humanities",
-        "M.B.B.S., B.D.S., B.V.Sc. and B.Sc. (Agriculture, Horticulture, Forestry) students are eligible from the 5th semester onwards, as are graduates of those degrees",
-        "With a degree from outside India, you need to be in the third year or higher of, or have completed, a bachelor's degree of at least three years in those fields",
-        "Certifications from professional societies (such as IE, ICE, IETE, AeSI, IIChE, IIM and IIIE) count only if they're approved by MoE, AICTE, UGC or UPSC as equivalent to B.E., B.Tech., B.Arch. or B.Planning",
-        "Candidates studying for or holding a higher degree than those in the eligibility table can also appear",
-        "There is no age limit"
+        "A candidate currently in the third or higher year of any undergraduate degree programme, or who has completed any government-approved degree in engineering, technology, architecture, science, commerce, arts or humanities, is eligible",
+        "A candidate pursuing, or holding, a degree higher than those in the brochure's Table 2 is eligible",
+        "There is no age limit",
+        "Table 2 sets out the rule degree by degree. For example: B.E., B.Tech. and B.Pharm. from the third year; three-year B.Sc., B.A., B.Com. and BCA from the third year; M.B.B.S., B.D.S., B.V.Sc. and the other listed medical degrees from the fifth semester; M.Sc., M.A. and M.C.A. from the first year; and B.Sc. (Agriculture, Horticulture, Forestry) from the third year"
       ]
     },
     {
-      "heading": "Worked through: eight common cases",
+      "heading": "Worked through: common cases",
       "table": {
-        "caption": "Applying the GATE 2027 criteria (confirm your own case on the official eligibility page)",
+        "caption": "Applying the GATE 2027 brochure (section 6.1 and Table 2)",
         "columns": [
           "Situation",
           "Eligible?",
-          "Why"
+          "Brochure basis"
         ],
         "rows": [
           [
             "Second-year B.Tech student",
             "Not yet",
-            "The rule starts at the third year"
+            "B.E./B.Tech.: currently in the third year or higher, or completed"
           ],
           [
             "Third-year B.Tech student",
             "Yes",
-            "Third year or higher of an undergraduate degree"
+            "B.E./B.Tech.: third year or higher"
           ],
           [
-            "Third-year B.Sc. student",
+            "Third-year student of a three-year B.Sc.",
             "Yes",
-            "Any undergraduate degree counts, science included"
+            "B.Sc./B.A./B.Com./BCA: currently in the third year or completed"
           ],
           [
             "B.Com graduate",
             "Yes",
-            "A completed government-approved degree in commerce"
+            "Completed a government-approved degree in commerce"
           ],
           [
-            "M.B.B.S. student in the 5th semester",
+            "M.B.B.S. student in the fifth semester",
             "Yes",
-            "Eligible from the 5th semester"
+            "Medical degrees: fifth, sixth, seventh or higher semester, or completed"
           ],
           [
-            "Final year of a three-year bachelor's degree abroad",
+            "First-year M.Sc. student",
             "Yes",
-            "Third year of a degree of at least three years"
-          ],
-          [
-            "Holder of a professional society certification",
-            "Only if approved",
-            "It must be recognised by MoE, AICTE, UGC or UPSC as equivalent to B.E., B.Tech., B.Arch. or B.Planning"
+            "M.Sc./M.A./M.C.A.: first year or higher, or completed"
           ],
           [
             "Graduate aged 45 with a full-time job",
             "Yes",
             "There is no age limit"
+          ],
+          [
+            "Degree from outside India, or a professional society certification",
+            "Check",
+            "Read the brochure's eligibility section (6.1 and Table 2) or ask the GATE helpdesk"
           ]
         ],
         "rowHeaders": true
       }
     },
     {
+      "heading": "Not sure? Ask the official source",
+      "body": "If your degree, institution or situation isn't one of the clear-cut rows above, don't rely on a summary, this one included. Read section 6.1 and Table 2 of the GATE 2027 information brochure, or contact the GATE 2027 helpdesk at IIT Madras: helpdesk@gate.iitm.ac.in, phone 044-22578200 (as listed in the brochure)."
+    },
+    {
       "heading": "Eligibility is not admission",
-      "body": "Being eligible to sit GATE says nothing about whether a particular programme will admit you. Each admitting institute sets and applies its own criteria for admission based on the GATE score, so read the notice of every programme you're aiming for, not just the GATE rules."
+      "body": "In the brochure's words, qualifying GATE does not guarantee admission, scholarship or a job: admission to any institute and recruitment by any employer depend entirely on that institute's or employer's own criteria. Read the notice of every programme you're aiming for, not just the GATE rules."
     },
     {
       "heading": "Choosing a paper",
-      "body": "GATE 2027 has 30 test papers, and you can sit one, or two from the official list of allowed combinations. Admission is decided by each admitting institute, so check which GATE papers a programme accepts in that programme's own notice before you choose."
+      "body": "GATE 2027 has 30 test papers. You can appear in one, or in two, as long as the pair is on the brochure's list of allowed two-paper combinations (Table 4, also on the official site)."
     },
     {
       "heading": "Common mistakes",
       "list": [
-        "Assuming a second-year student can apply early. The rule starts at the third year",
+        "Assuming a second-year B.Tech student can apply early. The rule starts at the third year",
         "Assuming GATE has an age limit. It doesn't",
-        "Treating eligibility for GATE as eligibility for a programme. Institutes decide admission",
-        "Relying on a summary (this one included) for an unusual degree. Check the full official table"
+        "Treating eligibility for GATE as eligibility for a programme. The admitting institute decides",
+        "Relying on a summary for an unusual degree. Check the brochure's Table 2 or ask the helpdesk"
       ]
     },
     {
       "heading": "Official sources",
       "links": [
         {
-          "label": "GATE 2027 eligibility criteria (full table)",
-          "href": "https://gate2027.iitm.ac.in/eligibility_criteria"
+          "label": "GATE 2027 information brochure (PDF; eligibility is section 6.1 and Table 2)",
+          "href": "https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf"
         },
         {
-          "label": "GATE 2027 information brochure (PDF)",
-          "href": "https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf"
+          "label": "GATE 2027 eligibility criteria page",
+          "href": "https://gate2027.iitm.ac.in/eligibility_criteria"
         },
         {
           "label": "GATE 2027 two-paper combinations",
@@ -142,7 +144,7 @@
     },
     {
       "heading": "Sources and last verified date",
-      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website, information brochure and syllabus PDFs from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+      "body": "Everything in this post was checked against the GATE 2027 information brochure (IIT Madras, dated 27 September 2026) and the official GATE 2027 website on 7 October 2026. If the brochure is revised, it takes precedence."
     }
   ],
   "relatedLinks": [

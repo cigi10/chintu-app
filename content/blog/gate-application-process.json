@@ -1,7 +1,7 @@
 {
   "slug": "gate-application-process",
   "title": "How the GATE Application Process Works: Documents to Exam Day",
-  "description": "The GATE application process, step by step: GOAPS, DigiLocker, live photo capture and fees, then what comes after registration (city allotment, admit card, exam day, results). Registration timing is on the official site.",
+  "description": "The GATE application process, from the official brochure: the GOAPS portal, DigiLocker, documents and photo ID, payment, then city allotment, admit card and exam day. Registration timing and fees are on the official site.",
   "author": "Studyloaf Team",
   "readingTime": "7 min read",
   "date": "2026-10-07",
@@ -15,7 +15,7 @@
   "content": [
     {
       "heading": null,
-      "body": "This is a guide to everything around a GATE 2027 application: what you need before you start, what happens during registration, and the steps that follow, up to exam day and results. It isn't a reminder to apply. Registration dates have been revised more than once and two official pages currently disagree on the late closing date, so the timing lives on the official Important Dates page, linked here first."
+      "body": "This is a guide to the process around a GATE 2027 application, based on section 6 of the GATE 2027 information brochure from IIT Madras: what the portal does, what to have ready, what happens after you submit, and what to bring on exam day. It isn't a reminder to apply. Registration dates have been revised more than once, and fee amounts and timing are best read straight from the official pages, linked here first."
     },
     {
       "heading": null,
@@ -23,62 +23,74 @@
         {
           "label": "Registration deadline: check the official GATE 2027 Important Dates page (dates have been revised more than once)",
           "href": "https://gate2027.iitm.ac.in/important_dates"
+        },
+        {
+          "label": "Application fees: see the official GATE 2027 fees page",
+          "href": "https://gate2027.iitm.ac.in/application_fees"
         }
       ]
     },
     {
-      "heading": "Before you start",
+      "heading": "The application portal",
+      "body": "Applications are submitted online only, through the GATE Online Application Processing System (GOAPS), accessible from the GATE 2027 website. Documents are uploaded online too: the brochure asks candidates not to send printed forms or documents to IIT Madras or any GATE office. GOAPS lets you save a partly filled form and come back to it later."
+    },
+    {
+      "heading": "What GOAPS is used for",
       "list": [
-        "Applications go only through GOAPS, the GATE online application portal, reached from the official GATE 2027 website",
-        "DigiLocker is mandatory for all Indian nationals. A verified DigiLocker account is recommended: with an unverified one, GATE may ask for more documents, and you'll have to show originals at the exam venue",
-        "Decide your paper, or your two papers from the official list of allowed combinations",
-        "Have a way to pay online: UPI, debit or credit card, wallet or internet banking"
+        "Registering and enrolling for the exam",
+        "Uploading your photograph, signature, photo ID and any category, PwD or dyslexia certificate",
+        "Paying the application fee",
+        "Checking the status of your application, including any defect and its rectification",
+        "Later: downloading your admit card, viewing your answers, marks and GATE score, and downloading your scorecard"
       ]
     },
     {
-      "heading": "During registration",
+      "heading": "Registration",
       "list": [
-        "Your live facial details are captured during registration",
-        "Fill in the application and pay the fee electronically. Bank charges are extra",
-        "Keep your enrollment ID and password safe, and don't delete the DigiLocker account you applied with: the official site asks candidates not to, because later communication refers to it"
+        "Indian nationals may need to register through DigiLocker. Other nationals register with their full name (as on their valid photo ID), an email address, a mobile number and a password",
+        "The brochure recommends a verified DigiLocker account. With an unverified one, GATE may ask for more documents during scrutiny, and the originals must be produced at the exam venue",
+        "Only one person can register with one email address, and the email and mobile number can't be changed later, so use your own",
+        "Each candidate gets a unique Enrolment ID by email. You'll need it in all later communication",
+        "Your live photo is captured during registration, so use a computer with a webcam or a phone with a 5 MP camera"
       ]
     },
     {
-      "heading": "The fee, for one paper",
+      "heading": "Have these ready before you fill the form",
+      "list": [
+        "Personal details, with your name exactly as on your photo ID (no prefixes such as Mr., Dr. or Prof.) and a date of birth that matches it",
+        "Address for communication with PIN code, degree details, and your institute's name and address with PIN code",
+        "Your choice of test paper or papers, and three exam city choices",
+        "A recent photograph (not older than 3 months) and your signature, in the brochure's specified format",
+        "A scanned photo ID, plus your SC/ST certificate, UDID or PwD certificate, or dyslexia certificate if they apply (PDF)",
+        "Internet banking, debit card, credit card, UPI or wallet details for the fee"
+      ]
+    },
+    {
+      "heading": "Photo IDs the brochure accepts",
+      "body": "Aadhaar-UID, Aadhaar Virtual ID, passport, PAN card, voter ID card, driving licence, or any valid photo ID issued by the central or a state government. Upload the one issued most recently, and bring the same original to the exam: without it, you may not be allowed to sit the paper."
+    },
+    {
+      "heading": "Worked example: a pre-submission check",
+      "list": [
+        "Name: the form says \"Dr. Priya Sharma\" but her Aadhaar says \"Priya Sharma\". Remove the prefix: the name must match the photo ID exactly, and the scorecard is issued in the name on the form",
+        "Date of birth: check it digit for digit against the same ID",
+        "Exam cities: if her first choice is in one GATE zone, the second and third must be in that same zone. GATE may still allot a different city for operational reasons",
+        "Photo ID: she uploads the most recently issued ID and puts the original with her exam-day documents",
+        "Review: she clicks \"Save and View Application\" and reads everything, because after \"Submit and Proceed to Payment\" the form can't be changed"
+      ]
+    },
+    {
+      "heading": "Paying the fee",
+      "body": "The fee is paid online by internet banking, debit card, credit card, wallet or UPI; the brochure advises enabling e-commerce transactions on your card first. Bank charges aren't included. The fee isn't transferable and isn't refundable, except when a certain two-paper combination is removed. For the amount that applies to you, use the official fees page linked above."
+    },
+    {
+      "heading": "If something needs correcting",
+      "body": "Your application status in GOAPS can show a defect and, later, the status after rectification. The two official pages that mention the rectification window give different dates, so check the Important Dates page and the fees page rather than relying on either date alone."
+    },
+    {
+      "heading": "After you submit: the timeline",
       "table": {
-        "caption": "GATE 2027 application fee per paper, one paper (information brochure Table 5 and the official fees page agree)",
-        "columns": [
-          "Category",
-          "Regular period",
-          "Extended period"
-        ],
-        "rows": [
-          [
-            "Female, SC, ST, PwD",
-            "₹1000",
-            "₹1500"
-          ],
-          [
-            "All other candidates",
-            "₹2000",
-            "₹2500"
-          ]
-        ],
-        "rowHeaders": true
-      }
-    },
-    {
-      "heading": "Worked example: the fee",
-      "body": "A female candidate choosing one paper pays ₹1000 if she registers in the regular period, or ₹1500 in the extended period, plus bank charges. A candidate in the all-others category pays ₹2000 or ₹2500. For two papers, the brochure and the official fees page currently show different amounts in the extended period, so check the official fees page before paying for two. Fees aren't refundable except in one specific two-paper case described in the brochure."
-    },
-    {
-      "heading": "If you need to correct your application",
-      "body": "GATE runs a rectification window for corrections after registration. The two official pages that mention it give different dates, so use the Important Dates page and the fees page linked below, and act early rather than on the last day either one shows."
-    },
-    {
-      "heading": "After registration: the timeline",
-      "table": {
-        "caption": "What happens after you register (official dates as of 7 October 2026)",
+        "caption": "What happens next (dates from the official Important Dates page, as of 7 October 2026)",
         "columns": [
           "Step",
           "When",
@@ -86,24 +98,24 @@
         ],
         "rows": [
           [
-            "Exam city allotment notified",
+            "Exam city notified",
             "Monday, 4 January 2027",
-            "Check the official site for your exam city"
+            "Check your allotted city on the official site"
           ],
           [
             "Admit card",
-            "To be announced",
-            "Download it from the official site when released, and check every detail"
+            "Date to be announced",
+            "Download it from GOAPS; it isn't posted"
           ],
           [
             "Exam weekends",
             "6 to 7, 13 to 14 and 20 to 21 February 2027",
-            "Sit the session on your admit card. In a multi-session paper you sit only that session"
+            "Appear on the date and reporting time on your admit card"
           ],
           [
             "Results",
             "Friday, 19 March 2027",
-            "Check your result; qualified candidates download the scorecard"
+            "Qualified candidates download the scorecard from GOAPS"
           ]
         ],
         "rowHeaders": true
@@ -112,27 +124,27 @@
     {
       "heading": "On exam day",
       "list": [
-        "Follow the instructions on your admit card about what to bring, and bring the originals it asks for (essential if your DigiLocker account was unverified)",
-        "The paper is a 3-hour computer-based test in English, with only an on-screen virtual calculator",
-        "You'll answer 65 questions for 100 marks: MCQs, MSQs and numerical-answer questions"
+        "Arrive by the reporting time on your admit card. Requests to change the centre, date or time aren't entertained",
+        "Bring the original of the photo ID you uploaded, and the original documents if you registered with an unverified DigiLocker account",
+        "The paper is a 3-hour computer-based test in English, with only an on-screen virtual calculator"
       ]
-    },
-    {
-      "heading": "After the results",
-      "body": "The GATE 2027 score is valid for three years from the results date. There are no hard copies of the scorecard. After the free download period a scorecard costs ₹500 per paper, and from 1 January 2028 GATE 2027 scorecards won't be issued at all."
     },
     {
       "heading": "Common mistakes",
       "list": [
-        "Planning around a registration date you read somewhere else. Use the official Important Dates page",
-        "Deleting or changing the DigiLocker account you applied with",
-        "Assuming a two-paper fee from one official page without checking the other",
-        "Not checking the admit card details as soon as it's released"
+        "Planning around a registration date read anywhere other than the official Important Dates page",
+        "Using a parent's email address or mobile number. They can't be changed later",
+        "A name or date of birth that doesn't match the photo ID exactly",
+        "Uploading one photo ID and bringing a different one on exam day"
       ]
     },
     {
       "heading": "Official sources",
       "links": [
+        {
+          "label": "GATE 2027 information brochure (PDF; the application process is section 6.4)",
+          "href": "https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf"
+        },
         {
           "label": "GATE 2027 Important Dates (registration and rectification timing)",
           "href": "https://gate2027.iitm.ac.in/important_dates"
@@ -144,10 +156,6 @@
         {
           "label": "GATE 2027 two-paper combinations",
           "href": "https://gate2027.iitm.ac.in/two_paper_combinations"
-        },
-        {
-          "label": "GATE 2027 information brochure (PDF)",
-          "href": "https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf"
         },
         {
           "label": "GATE 2027 official website",
@@ -178,7 +186,7 @@
     },
     {
       "heading": "Sources and last verified date",
-      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website, information brochure and syllabus PDFs from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+      "body": "The application steps in this post come from section 6 of the GATE 2027 information brochure (IIT Madras, dated 27 September 2026); the dates come from the official Important Dates page. Both were checked on 7 October 2026. If the brochure is revised, it takes precedence."
     }
   ],
   "relatedLinks": [

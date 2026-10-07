@@ -144,7 +144,11 @@ From the Eligibility page and the IB summary:
 - Currently in the **3rd or higher year** of any undergraduate degree programme, or having completed any
   government-approved degree in Engineering/Technology/Architecture/Science/Commerce/Arts/Humanities.
 - Currently in the 5th/6th/7th or higher semester of, or having completed, M.B.B.S./B.D.S./B.V.Sc./
-  B.Sc. (Agriculture, Horticulture, Forestry), is also eligible (IB).
+  B.S.M.S./B.A.M.S./B.U.M.S./B.H.M.S./B.N.Y.S. (IB Table 2).
+- B.Sc. (Agriculture, Horticulture, Forestry), 4-year: currently in the third/fourth year or completed (IB
+  Table 2). *Corrected 7 October 2026: an earlier version of this file wrongly grouped it with the
+  medical degrees' 5th-semester rule.*
+- M.Sc./M.A./M.C.A. or equivalent: currently in the first year or higher, or completed (IB Table 2).
 - Degrees from outside India: currently in the 3rd or higher year of, or having completed, a bachelor's
   degree of at least three years in those fields.
 - Professional society certifications (IE, ICE, IETE, AeSI, IIChE, IIM, IIIE) count only if approved by
