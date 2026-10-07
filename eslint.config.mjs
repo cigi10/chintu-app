@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Raw source content kept for reference (its own git repo, gitignored);
+    // never part of the app's build or runtime.
+    "vachmi/**",
   ]),
 ]);
 
