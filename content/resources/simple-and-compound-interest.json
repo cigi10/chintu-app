@@ -1,0 +1,157 @@
+{
+  "slug": "simple-and-compound-interest",
+  "datePublished": "2026-09-22",
+  "sections": [
+    {
+      "heading": "Simple interest",
+      "blocks": [
+        {
+          "p": "Simple interest charges the same amount every period, always calculated on the original principal $P$:"
+        },
+        {
+          "math": "SI = \\dfrac{P \\times N \\times R}{100}"
+        },
+        {
+          "p": "where $N$ is the number of years and $R$ the annual rate as a percentage."
+        },
+        {
+          "p": "**Worked example:** the simple interest on ₹25,000 borrowed for 3 years at 9% per annum is $\\dfrac{25000 \\times 3 \\times 9}{100} = 6750$, so the total repaid is $25000 + 6750 = 31{,}750$."
+        }
+      ]
+    },
+    {
+      "heading": "Compound interest: interest on interest",
+      "blocks": [
+        {
+          "p": "Compound interest adds each period's interest to the principal before working out the next period's, so later interest is earned on more than the original sum. With the same ₹25,000 at 9%, compounded yearly:"
+        },
+        {
+          "math": "I_1 = 25000 \\times \\dfrac{9}{100} = 2250 \\;\\Rightarrow\\; 27{,}250, \\qquad I_2 = 27250 \\times \\dfrac{9}{100} = 2452.5 \\;\\Rightarrow\\; 29{,}702.5"
+        },
+        {
+          "math": "I_3 = 29702.5 \\times \\dfrac{9}{100} = 2673.225"
+        },
+        {
+          "p": "The total interest over 3 years is $2250 + 2452.5 + 2673.225 = 7375.725$, more than the ₹6,750 of simple interest at the same rate. The formula gives the same result directly, with $n$ compounding periods a year over $t$ years:"
+        },
+        {
+          "math": "CI = P\\left(1+\\dfrac{r}{100n}\\right)^{nt} - P = 25000(1.09)^3 - 25000 = 7375.725"
+        }
+      ]
+    },
+    {
+      "heading": "Solved example: interest for part of a year",
+      "blocks": [
+        {
+          "p": "Find the simple interest on ₹60,000 for 6 months at 5% per annum."
+        },
+        {
+          "p": "**Solution:** Time must be in years, so $N = \\tfrac{6}{12} = 0.5$: $SI = \\dfrac{60000 \\times 0.5 \\times 5}{100} = 1500$."
+        }
+      ]
+    },
+    {
+      "heading": "Solved example: finding the principal",
+      "blocks": [
+        {
+          "p": "The simple interest on a sum for 3 years at 7% is ₹900 more than the simple interest on the same sum for 2 years at 6%. Find the sum."
+        },
+        {
+          "math": "\\dfrac{3 \\times 7}{100}x - \\dfrac{2 \\times 6}{100}x = 900 \\;\\Rightarrow\\; \\dfrac{9x}{100} = 900 \\;\\Rightarrow\\; x = 10{,}000"
+        },
+        {
+          "p": "Check: $2100 - 1200 = 900$."
+        }
+      ]
+    },
+    {
+      "heading": "Solved example: splitting an investment",
+      "blocks": [
+        {
+          "p": "₹50,000 is split between two investments paying 11% and 14% a year. Together they return 12.8% of the total. How much went into each?"
+        },
+        {
+          "p": "**Solution:** Let $x$ go into the 11% investment. The total return is $0.128 \\times 50000 = 6400$:"
+        },
+        {
+          "math": "0.11x + 0.14(50000 - x) = 6400 \\;\\Rightarrow\\; 7000 - 0.03x = 6400 \\;\\Rightarrow\\; x = 20{,}000"
+        },
+        {
+          "p": "So ₹20,000 earns 11% and ₹30,000 earns 14%. Check: $2200 + 4200 = 6400$."
+        }
+      ]
+    },
+    {
+      "heading": "Solved example: compound interest over five years",
+      "blocks": [
+        {
+          "p": "The compound interest on ₹25,000 for 5 years at 10% per annum, compounded yearly, is $25000(1.1)^5 - 25000 = 25000 \\times 1.61051 - 25000 = 15{,}262.75$, against $12{,}500$ of simple interest."
+        }
+      ]
+    },
+    {
+      "heading": "Solved example: a different rate each year",
+      "blocks": [
+        {
+          "p": "₹50,000 grows at 8% in the first year and 9% in the second, compounded yearly. Each year's factor multiplies:"
+        },
+        {
+          "math": "A = 50000 \\times 1.08 \\times 1.09 = 58{,}860"
+        }
+      ]
+    },
+    {
+      "heading": "Solved example: finding the time",
+      "blocks": [
+        {
+          "p": "In how many years will ₹6,250 grow to ₹7,290 at 8% per annum, compounded yearly?"
+        },
+        {
+          "math": "\\dfrac{7290}{6250} = 1.1664 = (1.08)^2 \\;\\Rightarrow\\; t = 2 \\text{ years}"
+        }
+      ]
+    },
+    {
+      "heading": "Solved example: quarterly compounding",
+      "blocks": [
+        {
+          "p": "A loan of ₹3,90,625 is charged 16% a year, compounded quarterly. What is owed after 1 year?"
+        },
+        {
+          "p": "**Solution:** Each quarter earns $16 \\div 4 = 4\\%$, and there are 4 quarters:"
+        },
+        {
+          "math": "A = 390625 \\times (1.04)^4 = 390625 \\times 1.16985856 = 4{,}56{,}976"
+        },
+        {
+          "p": "The result is exact: $390625 = 5^8$, and it cancels the denominator of $(1.04)^4 = \\tfrac{26^4}{25^4}$."
+        }
+      ]
+    },
+    {
+      "heading": "Solved example: a fractional number of years",
+      "blocks": [
+        {
+          "p": "Find the amount and compound interest on ₹30,000 for $3\\tfrac{3}{4}$ years at 8%, compounded yearly."
+        },
+        {
+          "p": "**Solution:** A common textbook convention compounds for the 3 whole years and then adds simple interest for the remaining $\\tfrac{3}{4}$ year, at $\\tfrac{3}{4} \\times 8 = 6\\%$:"
+        },
+        {
+          "math": "A = 30000 \\times (1.08)^3 \\times 1.06 \\approx 40{,}058.84, \\qquad CI = A - P \\approx 10{,}058.84"
+        },
+        {
+          "p": "Note the difference between the two: ₹40,058.84 is the amount, and the interest is what's left after subtracting the principal."
+        }
+      ]
+    },
+    {
+      "heading": "Solved example: population growth and decline",
+      "blocks": [
+        {
+          "p": "Growth at a steady rate works like compound interest. A town of 1,25,000 growing at 2% a year reaches $125000 \\times (1.02)^3 = 1{,}32{,}651$ after 3 years. A town of 1,20,000 that grows 6% and then shrinks 5% ends at $120000 \\times 1.06 \\times 0.95 = 1{,}20{,}840$: the changes multiply, they don't simply add to +1%."
+        }
+      ]
+    }
+  ]
+}

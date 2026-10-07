@@ -83,15 +83,39 @@
         {
           "table": {
             "caption": "Common phrases, with x as the unknown number",
-            "columns": ["Phrase", "Expression"],
+            "columns": [
+              "Phrase",
+              "Expression"
+            ],
             "rows": [
-              ["A number increased by 5", "$x + 5$"],
-              ["5 less than a number", "$x - 5$"],
-              ["A number subtracted from 5", "$5 - x$"],
-              ["Twice a number", "$2x$"],
-              ["One fourth of a number", "$\\dfrac{x}{4}$"],
-              ["Three consecutive integers", "$x, \\; x+1, \\; x+2$"],
-              ["Age 12 years from now", "$x + 12$"]
+              [
+                "A number increased by 5",
+                "$x + 5$"
+              ],
+              [
+                "5 less than a number",
+                "$x - 5$"
+              ],
+              [
+                "A number subtracted from 5",
+                "$5 - x$"
+              ],
+              [
+                "Twice a number",
+                "$2x$"
+              ],
+              [
+                "One fourth of a number",
+                "$\\dfrac{x}{4}$"
+              ],
+              [
+                "Three consecutive integers",
+                "$x, \\; x+1, \\; x+2$"
+              ],
+              [
+                "Age 12 years from now",
+                "$x + 12$"
+              ]
             ]
           }
         }
@@ -135,6 +159,23 @@
       ]
     },
     {
+      "heading": "Worked example: consecutive integers",
+      "blocks": [
+        {
+          "p": "Find three consecutive integers whose sum is 78."
+        },
+        {
+          "p": "**Solution:** Call them $x$, $x+1$ and $x+2$, as in the table above. Their sum is 78:"
+        },
+        {
+          "math": "x + (x+1) + (x+2) = 78 \\;\\Rightarrow\\; 3x + 3 = 78 \\;\\Rightarrow\\; 3x = 75 \\;\\Rightarrow\\; x = 25"
+        },
+        {
+          "p": "So the integers are 25, 26 and 27. Check: $25 + 26 + 27 = 78$. A shortcut: three consecutive integers add up to 3 times the middle one, so the middle one is $78 \\div 3 = 26$. The same method gives 110, 111 and 112 for a sum of 333."
+        }
+      ]
+    },
+    {
       "heading": "Common mistakes",
       "blocks": [
         {
@@ -151,7 +192,9 @@
   "exam": {
     "note": "The 2025-26 CBSE Class IX syllabus opens its linear equations unit with a recall of linear equations in one variable, before moving on to equations in two variables.",
     "countdowns": [],
-    "sources": ["cbse-9-10-2025-26"]
+    "sources": [
+      "cbse-9-10-2025-26"
+    ]
   },
   "related": {
     "intro": "Linear equations are the entry point before quadratic equations, the same isolate-the-variable habit carries over once a squared term is involved. With two unknowns, you need two equations solved together.",
