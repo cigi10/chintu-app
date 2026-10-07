@@ -1,0 +1,143 @@
+{
+  "slug": "gate-preparation-working-professionals",
+  "title": "GATE Preparation While Working Full Time",
+  "description": "GATE preparation for working professionals: about 350 study hours at 20 a week before February 2027, how to split them by the official marks pattern, and what the GATE 2027 rules mean if you have a job.",
+  "author": "Studyloaf Team",
+  "readingTime": "6 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "study-skills",
+  "tags": [
+    "gate",
+    "study-timetable",
+    "time-management"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "Preparing for GATE with a full-time job is a different problem from preparing in college: fewer hours, less energy on weekdays, and work that doesn't pause for your syllabus. The good news is that a few GATE 2027 rules suit working candidates well. Here is how to use them, with real numbers."
+    },
+    {
+      "heading": "Rules that help you",
+      "list": [
+        "There is no age limit for GATE, and a completed degree in an eligible field qualifies you. The full eligibility table is on the official site",
+        "All six exam days fall on weekends: 6 and 7, 13 and 14, and 20 and 21 February 2027",
+        "A GATE 2027 score is valid for three years from the results date of 19 March 2027, so one good attempt can support applications over the following years",
+        "Each admitting institute decides how it uses the score, so read its own notices for programmes aimed at working candidates"
+      ]
+    },
+    {
+      "heading": "Worked example: your real hour budget",
+      "body": "Say you can manage 2 hours on each weekday and 5 hours on each weekend day: 2 × 5 + 5 × 2 = 20 hours a week. From 7 October 2026 to 6 February 2027 is 122 days, or about 17.4 weeks, which gives about 349 hours; call it 350. Splitting 350 hours by the marks pattern of most papers (General Aptitude 15, Engineering Mathematics 13, subject 72) gives 52.5, 45.5 and 252 hours. Rounded to whole hours that still add up to 350: 52 for General Aptitude, 46 for Engineering Mathematics and 252 for the subject."
+    },
+    {
+      "heading": null,
+      "table": {
+        "caption": "About 350 hours at 20 a week, split by the GATE marks pattern",
+        "columns": [
+          "Part",
+          "Share of marks",
+          "Hours"
+        ],
+        "rows": [
+          [
+            "General Aptitude",
+            "15%",
+            "52"
+          ],
+          [
+            "Engineering Mathematics",
+            "13%",
+            "46"
+          ],
+          [
+            "Subject",
+            "72%",
+            "252"
+          ],
+          [
+            "Total",
+            "100%",
+            "350"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "A week that survives work",
+      "list": [
+        "Weekday mornings or evenings, 2 hours: one topic, or problems on yesterday's topic. Keep weekday sessions small enough that a late meeting doesn't wipe them out",
+        "Saturday, 5 hours: the hardest new material of the week, while you're fresh",
+        "Sunday, 5 hours: revision of the week, plus a timed section test",
+        "Two 20-minute General Aptitude sessions slotted into commutes or lunch breaks",
+        "From mid-January, replace one weekend day each week with a full 3-hour paper"
+      ]
+    },
+    {
+      "heading": "Leave and logistics",
+      "body": "Your exact exam date and session are on your admit card, whose release date hadn't been announced when this was written. Because every exam day is a Saturday or Sunday, you may not need leave for the exam itself, but your exam city is notified on 4 January 2027, and travel to a distant city can eat into a Friday or Monday. Check your city as soon as it's notified, and plan leave for the days before your exam if you can."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Planning weekday sessions as long as weekend ones and then missing them",
+        "Spending scarce hours on topics the 2027 syllabus doesn't list. Check the official PDF",
+        "Saving all practice papers for the last week",
+        "Waiting until results to think about which programmes accept working candidates"
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 eligibility criteria",
+          "href": "https://gate2027.iitm.ac.in/eligibility_criteria"
+        },
+        {
+          "label": "GATE 2027 Important Dates",
+          "href": "https://gate2027.iitm.ac.in/important_dates"
+        },
+        {
+          "label": "GATE 2027 information brochure (PDF)",
+          "href": "https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website and information brochure from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "A 90-day GATE timetable you can actually follow",
+      "href": "/blog/gate-90-day-study-plan"
+    },
+    {
+      "label": "Where to find your GATE 2027 syllabus",
+      "href": "/blog/gate-2027-syllabus-official-pdf"
+    }
+  ]
+}

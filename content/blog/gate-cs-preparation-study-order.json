@@ -1,0 +1,183 @@
+{
+  "slug": "gate-cs-preparation-study-order",
+  "title": "GATE CS Preparation: A Subject-by-Subject Study Order",
+  "description": "A GATE CS preparation order built from the official 2027 syllabus: which of the ten sections to study first, which ones depend on each other, and a 17-week plan to the exam.",
+  "author": "Studyloaf Team",
+  "readingTime": "7 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "college-careers",
+  "tags": [
+    "gate",
+    "study-timetable"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "The GATE CS 2027 syllabus has ten sections, and several of them lean on each other. Studying them in an order that respects those links saves you from learning the same idea twice. This order is built from the official 2027 CS syllabus text, not from any guess about which sections carry more marks: GATE doesn't publish that split."
+    },
+    {
+      "heading": "The marks you can count on",
+      "body": "GATE CS is 100 marks: General Aptitude 15, Engineering Mathematics 13, and 72 for the other nine sections. General Aptitude and Engineering Mathematics together are 28 marks, so they deserve steady time from the first week, not a cram at the end."
+    },
+    {
+      "heading": "The order, and why",
+      "table": {
+        "caption": "A dependency-based order for the GATE CS 2027 sections",
+        "columns": [
+          "Phase",
+          "Sections",
+          "Why here"
+        ],
+        "rows": [
+          [
+            "1",
+            "Discrete Mathematics (from Engineering Mathematics); Programming and Data Structures",
+            "Recurrence relations and graphs feed Algorithms, and logic and sets feed Theory of Computation. Data structures are what algorithms run on"
+          ],
+          [
+            "2",
+            "Algorithms; Digital Logic",
+            "Algorithms builds on data structures and recurrences. Digital Logic stands alone and is needed for the next phase"
+          ],
+          [
+            "3",
+            "Computer Organization and Architecture; Theory of Computation",
+            "ALU and control unit design build on combinational and sequential circuits. TOC builds on logic and sets"
+          ],
+          [
+            "4",
+            "Operating System; Compiler Design",
+            "Virtual memory and I/O scheduling build on the memory hierarchy, interrupts and DMA. Lexical analysis and parsing build on finite automata and context-free grammars"
+          ],
+          [
+            "5",
+            "Databases; Computer Networks",
+            "Indexing with B and B+ trees uses trees from data structures, and concurrency control echoes OS synchronization. Networks is the most self-contained section"
+          ],
+          [
+            "6",
+            "Linear Algebra, Calculus, Probability and Statistics",
+            "The rest of Engineering Mathematics, which no later section depends on, so it can sit late or run alongside"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Worked example: a 17-week plan",
+      "body": "From 7 October 2026 there are 17 weeks and 3 days to Saturday 6 February 2027. One way to spend them: phases 1 to 6 take two weeks each, except phase 1 which takes three, so the syllabus is covered by the end of week 13. Weeks 14 to 17 are for revision and full-length 3-hour papers. General Aptitude gets two short sessions every week throughout, because its four sections (verbal, quantitative, analytical and spatial) reward regular practice more than a late cram."
+    },
+    {
+      "heading": null,
+      "table": {
+        "caption": "The 17-week GATE CS plan",
+        "columns": [
+          "Weeks",
+          "Work"
+        ],
+        "rows": [
+          [
+            "1 to 3",
+            "Discrete Mathematics; Programming and Data Structures"
+          ],
+          [
+            "4 to 5",
+            "Algorithms; Digital Logic"
+          ],
+          [
+            "6 to 7",
+            "Computer Organization and Architecture; Theory of Computation"
+          ],
+          [
+            "8 to 9",
+            "Operating System; Compiler Design"
+          ],
+          [
+            "10 to 11",
+            "Databases; Computer Networks"
+          ],
+          [
+            "12 to 13",
+            "Linear Algebra, Calculus, Probability and Statistics; catch-up"
+          ],
+          [
+            "14 to 17",
+            "Revision, previous papers and full-length timed papers"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Stay on the 2027 syllabus",
+      "list": [
+        "Computer Networks lists IPv4 (fragmentation, CIDR notation, network address translation) and TCP flow and congestion control, plus DNS and HTTP. IPv6 isn't listed",
+        "Programming and Data Structures lists trees, binary search trees and binary heaps. B and B+ trees appear under Databases, as indexing",
+        "Compiler Design includes runtime environments, intermediate code generation and data flow analyses such as liveness analysis",
+        "Operating System includes system calls, inter-process communication and CPU and I/O scheduling"
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Starting with Compiler Design or Operating System before the sections they build on",
+        "Leaving all of Engineering Mathematics to the end. Discrete Mathematics is needed early",
+        "Studying topics from an old syllabus that the 2027 PDF doesn't list",
+        "Skipping full-length practice. Every paper is 3 hours, and stamina is part of the test"
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 CS syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 question paper pattern",
+          "href": "https://gate2027.iitm.ac.in/question_paper_pattern"
+        },
+        {
+          "label": "GATE 2027 information brochure, with the General Aptitude syllabus (PDF)",
+          "href": "https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website and information brochure from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Where to find your GATE 2027 syllabus",
+      "href": "/blog/gate-2027-syllabus-official-pdf"
+    },
+    {
+      "label": "A 90-day GATE timetable you can actually follow",
+      "href": "/blog/gate-90-day-study-plan"
+    }
+  ]
+}

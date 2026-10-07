@@ -17,7 +17,8 @@ type BlogPostPageProps = {
 
 // A content section has exactly one of: a `body` string, a `list` of
 // strings, a `table` (components/BlogTable.tsx), a named inline-SVG
-// `figure` (components/blog-figures/) or an `image` from /public.
+// `figure` (components/blog-figures/), an `image` from /public, or a
+// `links` list (internal pages, or official sources opened in a new tab).
 // lib/blogPosts.test.js checks every post against this.
 type BlogPostSection = {
   heading: string | null;
@@ -26,6 +27,7 @@ type BlogPostSection = {
   table?: BlogTableData;
   figure?: BlogFigureData;
   image?: BlogImageData;
+  links?: BlogPostRelatedLink[];
 };
 
 // Optional: related pages (other posts, tools, resource pages), rendered as
@@ -35,6 +37,23 @@ type BlogPostRelatedLink = {
   label: string;
   href: string;
 };
+
+// A link list inside the content: site pages use <Link>, official sources
+// (https://) open in a new tab. lib/blogPosts.test.js restricts external
+// hosts to official exam bodies.
+function SectionLinks({ links }: { links: BlogPostRelatedLink[] }) {
+  return (
+    <ul className="blog-post-list blog-post-links">
+      {links.map((link, j) => (
+        <li key={j}>
+          {link.href.startsWith("https://")
+            ? <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+            : <Link href={link.href}>{link.label}</Link>}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 function formatPostDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
@@ -101,6 +120,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <span>Updated {formatPostDate(post.updated)}</span>
               </>
             )}
+            {post.lastVerified && (
+              <>
+                <span className="blog-card-meta-dot">•</span>
+                <span>Last verified {formatPostDate(post.lastVerified)}</span>
+              </>
+            )}
             <span className="blog-card-meta-dot">•</span>
             <span>{post.readingTime}</span>
             <BlogViewCount slug={post.slug} />
@@ -115,6 +140,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <BlogFigure figure={section.figure} />
               ) : section.image ? (
                 <BlogImage image={section.image} />
+              ) : section.links ? (
+                <SectionLinks links={section.links} />
               ) : section.list ? (
                 <ul className="blog-post-list">
                   {section.list.map((item, j) => (

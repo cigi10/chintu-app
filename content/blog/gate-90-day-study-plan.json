@@ -1,0 +1,169 @@
+{
+  "slug": "gate-90-day-study-plan",
+  "title": "A 90-Day GATE Study Plan You Can Actually Follow",
+  "description": "A GATE study plan for the last 90 days: start on 8 November 2026 to finish on 5 February 2027, with hours split by the official GATE marks pattern and dated phases for learning, revision and mocks.",
+  "author": "Studyloaf Team",
+  "readingTime": "7 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "study-skills",
+  "tags": [
+    "gate",
+    "study-timetable",
+    "revision-planning"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "Ninety days is enough to cover the GATE syllabus once and revise it, if the plan is simple enough to survive a bad week. This one has three phases, dates tied to the official GATE 2027 calendar, and hours split by the marks pattern IIT Madras publishes."
+    },
+    {
+      "heading": "The dates",
+      "body": "GATE 2027 starts on Saturday 6 February 2027. Ninety days before that is Sunday 8 November 2026, so day 1 is 8 November and day 90 is Friday 5 February, the day before the first exam weekend. If your admit card puts your paper on the second or third weekend, you gain 7 or 14 days: add them to revision, don't stretch the learning phase."
+    },
+    {
+      "heading": "Three phases",
+      "table": {
+        "caption": "The 90-day plan for an exam on 6 February 2027",
+        "columns": [
+          "Phase",
+          "Days",
+          "Dates",
+          "Work"
+        ],
+        "rows": [
+          [
+            "Learn",
+            "1 to 56",
+            "8 November 2026 to 2 January 2027",
+            "Cover every section of your syllabus once, in dependency order"
+          ],
+          [
+            "Revise",
+            "57 to 77",
+            "3 to 23 January 2027",
+            "Second pass, short notes, section-wise timed tests"
+          ],
+          [
+            "Perform",
+            "78 to 90",
+            "24 January to 5 February 2027",
+            "A full 3-hour paper every other day, and fixing what each one shows"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Worked example: where the hours go",
+      "body": "Take 5 hours a day on weekdays and 7 on weekend days: 5 × 5 + 2 × 7 = 39 hours a week. Over the 8 weeks of the learning phase that's 312 hours. Split them the way most papers split their marks (General Aptitude 15, Engineering Mathematics 13, subject 72) and you get 46.8, 40.56 and 224.64 hours. Rounded to whole hours that add back up to 312: 47 for General Aptitude, 41 for Engineering Mathematics and 224 for the subject. That's a starting point: move hours towards whatever your first mock shows is weakest."
+    },
+    {
+      "heading": null,
+      "table": {
+        "caption": "Learning-phase hours at 39 hours a week for 8 weeks",
+        "columns": [
+          "Part",
+          "Share of marks",
+          "Hours"
+        ],
+        "rows": [
+          [
+            "General Aptitude",
+            "15%",
+            "47"
+          ],
+          [
+            "Engineering Mathematics",
+            "13%",
+            "41"
+          ],
+          [
+            "Subject",
+            "72%",
+            "224"
+          ],
+          [
+            "Total",
+            "100%",
+            "312"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "The performance phase, day by day",
+      "list": [
+        "Days 78, 80, 82, 84, 86 and 88: a full-length paper at the real 3-hour length, using only an on-screen calculator",
+        "The day after each paper: go through every wrong and skipped question, and write down the reason each one went wrong",
+        "Days 89 and 90: light revision of your short notes, and sleep"
+      ]
+    },
+    {
+      "heading": "Dates inside the plan",
+      "list": [
+        "Day 58 is Monday 4 January 2027, when exam cities are notified. Check the official site for yours that day",
+        "The admit card release date hadn't been announced when this was written. Watch the official site in January",
+        "Results are announced on Friday 19 March 2027"
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Stretching the learning phase into January and leaving no time to revise",
+        "Taking mocks without reviewing them. A reviewed mock is worth more than two unreviewed ones",
+        "Ignoring General Aptitude because it feels easy. It is 15 marks on every paper",
+        "Planning to a later exam weekend before your admit card confirms it"
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 Important Dates",
+          "href": "https://gate2027.iitm.ac.in/important_dates"
+        },
+        {
+          "label": "GATE 2027 question paper pattern",
+          "href": "https://gate2027.iitm.ac.in/question_paper_pattern"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website and information brochure from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "GATE preparation while working full time",
+      "href": "/blog/gate-preparation-working-professionals"
+    },
+    {
+      "label": "GATE 2027 exam date and schedule",
+      "href": "/blog/gate-2027-exam-date-schedule"
+    }
+  ]
+}

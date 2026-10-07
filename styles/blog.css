@@ -172,6 +172,11 @@
   margin-bottom: 0;
 }
 
+.blog-post-links a {
+  color: var(--color-accent-strong);
+  font-weight: 600;
+}
+
 /* JSON resource pages (app/resources/[slug]) mix several paragraphs,
    lists, tables and figures in one section, so blocks after the first
    get a gap. Display maths already carries its own margin. */

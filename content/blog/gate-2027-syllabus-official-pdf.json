@@ -1,0 +1,165 @@
+{
+  "slug": "gate-2027-syllabus-official-pdf",
+  "title": "GATE 2027 Syllabus: Where to Find Your Branch's Official Syllabus",
+  "description": "The GATE 2027 syllabus was revised, so use the 2027 PDF for your paper. Where IIT Madras publishes each one, the official section names for CS, EC, EE, ME and BT, and how to check a topic in a minute.",
+  "author": "Studyloaf Team",
+  "readingTime": "6 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "college-careers",
+  "tags": [
+    "gate",
+    "exam-pattern"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "The GATE 2027 syllabi were revised: the official website says so on its homepage. A topic list copied from an older year, or from a coaching handout, can be wrong in both directions, missing new topics and padding with ones that are no longer listed. Every GATE 2027 paper has its own official syllabus PDF from IIT Madras, and this post shows where to get yours and how to use it."
+    },
+    {
+      "heading": "Where the official syllabus lives",
+      "list": [
+        "Open the Test papers and syllabus page on the GATE 2027 website (linked below)",
+        "Find your paper by its two-letter code, for example CS, EC, EE, ME or BT",
+        "Download the PDF next to it. The file is named after the code, for example EC_GATE2027_Syllabus.pdf",
+        "XE (Engineering Sciences), XH (Humanities and Social Sciences) and XL (Life Sciences) have a combined syllabus file covering all their sections",
+        "General Aptitude, common to every paper, is in the GATE 2027 information brochure"
+      ]
+    },
+    {
+      "heading": "What changed in the paper list for 2027",
+      "list": [
+        "There are 30 test papers",
+        "Robotics and Automation (RA) is a new paper",
+        "The section codes inside XE, XH and XL changed, and Textile Engineering and Fibre Science is now section XE9 of XE",
+        "You can sit one paper, or two papers from the official list of allowed combinations"
+      ]
+    },
+    {
+      "heading": "Official section names for five popular papers",
+      "table": {
+        "caption": "Sections in the GATE 2027 syllabus PDFs, in the order each PDF lists them",
+        "columns": [
+          "Paper",
+          "Sections"
+        ],
+        "rows": [
+          [
+            "CS",
+            "Engineering Mathematics; Digital Logic; Computer Organization and Architecture; Programming and Data Structures; Algorithms; Theory of Computation; Compiler Design; Operating System; Databases; Computer Networks"
+          ],
+          [
+            "EC",
+            "Engineering Mathematics; Networks, Signals and Systems; Electronic Devices; Analog Circuits; Digital Circuits; Control Systems; Communications; Electromagnetics"
+          ],
+          [
+            "EE",
+            "Engineering Mathematics; Electric circuits; Electromagnetic Fields; Signals and Systems; Electrical Machines; Power Systems; Control Systems; Electrical and Electronic Measurements; Analog and Digital Electronics; Power Electronics"
+          ],
+          [
+            "ME",
+            "Engineering Mathematics; Applied Mechanics and Design; Fluid Mechanics and Thermal Sciences; Materials, Manufacturing and Industrial Engineering"
+          ],
+          [
+            "BT",
+            "Engineering Mathematics; General Biology; Genetics, Cellular and Molecular Biology; Fundamentals of Biological Engineering; Plant, Animal and Microbial Biotechnology; Recombinant DNA technology and Other Tools in Biotechnology"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "How the marks split across the syllabus",
+      "body": "Every paper has 65 questions for 100 marks, and General Aptitude carries 15 of them. For most papers, including CS, EC, EE, ME and BT, the rest splits into 13 marks of Engineering Mathematics and 72 marks for the subject. AR, CY, DA, EY, GE, GG, MA, PH, RA, ST, XH and XL have no separate Engineering Mathematics share: General Aptitude 15, subject 85. GATE doesn't publish how the subject marks split between sections, so be wary of any chart that claims to know."
+    },
+    {
+      "heading": "Worked example: checking one topic in a minute",
+      "body": "Say a friend's notes include IPv6 and you're preparing for GATE CS. Open the CS 2027 PDF and search for \"IPv\". Section 10, Computer Networks, lists \"IPv4 - Fragmentation, CIDR Notation, Network Address Translation\", and IPv6 doesn't appear anywhere in the file. That tells you IPv6 isn't a listed topic for GATE CS 2027, so it goes to the bottom of your list. The same check works the other way: search EC for \"Fourier\" and you'll find Fourier series and Fourier transform under Networks, Signals and Systems, so that one stays near the top."
+    },
+    {
+      "heading": "Turning the PDF into a checklist",
+      "body": "A syllabus PDF is a list of nouns, not a plan. Copy each section into a checklist, tick topics off as you finish them, and come back to the PDF whenever a source tempts you off it. Studyloaf's syllabus tracker has GATE CS, ECE, EE, ME and BT packs that use these official 2027 section names, with each pack linking its official PDF."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Working from a previous year's syllabus. The 2027 syllabi were revised",
+        "Treating a coaching institute's topic list as the syllabus. Only the official PDF is",
+        "Skipping General Aptitude. It is 15 marks on every paper",
+        "Picking two papers without checking that the pair is on the official combinations list"
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 test papers and syllabus page",
+          "href": "https://gate2027.iitm.ac.in/exam_papers_and_syllabus"
+        },
+        {
+          "label": "GATE 2027 CS syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 EC syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/EC_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 EE syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/EE_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 ME syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/ME_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 BT syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/BT_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 information brochure, with the General Aptitude syllabus (PDF)",
+          "href": "https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf"
+        },
+        {
+          "label": "GATE 2027 question paper pattern",
+          "href": "https://gate2027.iitm.ac.in/question_paper_pattern"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website and information brochure from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "GATE CS: a subject-by-subject study order",
+      "href": "/blog/gate-cs-preparation-study-order"
+    },
+    {
+      "label": "GATE ECE: a subject-by-subject study order",
+      "href": "/blog/gate-ece-preparation-study-order"
+    }
+  ]
+}
