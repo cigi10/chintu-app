@@ -66,7 +66,7 @@
       "heading": "The modulus of a product",
       "blocks": [
         {
-          "p": "Moduli multiply: $|z_1 z_2| = |z_1||z_2|$. From the example above, $|3+2i| = \\sqrt{13}$ and $|1-4i| = \\sqrt{17}$, so the product should have modulus $\\sqrt{221}$. Directly, $|11 - 10i| = \\sqrt{121 + 100} = \\sqrt{221}$, which matches. Arguments add in the same way, which is why multiplying by $i$ rotates a point by $90^\\circ$ on the Argand plane."
+          "p": "Moduli multiply: $|z_1 z_2| = |z_1||z_2|$. From the example above, $|3+2i| = \\sqrt{13}$ and $|1-4i| = \\sqrt{17}$, so the product should have modulus $\\sqrt{221}$. Directly, $|11 - 10i| = \\sqrt{121 + 100} = \\sqrt{221}$, which matches. Arguments add too (up to a multiple of $2\\pi$, since an argument is only fixed to within one turn), which is why multiplying by $i$ rotates a point by $90^\\circ$ on the Argand plane."
         }
       ]
     },
