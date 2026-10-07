@@ -53,19 +53,19 @@ export default function PythagorasTheoremPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Worked example</h2>
             <p className="blog-post-p">
-              In a rectangular park that is 60 meters by 91 meters, a dog began in the northwest
-              corner and ran south along the length of the park. Then the dog ran east along the
-              width to the southeast corner. Finally, the dog ran back to the northwest corner. How
-              far did the dog run in total?
+              A rectangular sports field is 48 meters wide and 55 meters long. A coach jogs from one
+              corner along the width, then along the length to the opposite corner, and finally cuts
+              straight back across the field to where they started. How far does the coach jog in
+              total?
             </p>
             <p className="blog-post-p">
-              <strong>Solution:</strong> The first two legs of the run are the two sides of the
-              rectangle, 60 m and 91 m. The final leg, straight back to the start, is the diagonal of
-              the rectangle, the hypotenuse of a right triangle with legs 60 and 91:
+              <strong>Solution:</strong> The first two legs of the jog are the two sides of the
+              rectangle, 48 m and 55 m. The final leg, straight back to the start, is the diagonal of
+              the rectangle, the hypotenuse of a right triangle with legs 48 and 55:
             </p>
-            <Katex display>{"c = \\sqrt{60^2 + 91^2} = \\sqrt{3600 + 8281} = \\sqrt{11881} = 109 \\text{ m}"}</Katex>
+            <Katex display>{"c = \\sqrt{48^2 + 55^2} = \\sqrt{2304 + 3025} = \\sqrt{5329} = 73 \\text{ m}"}</Katex>
             <p className="blog-post-p">
-              Total distance run: <Katex>{"60 + 91 + 109 = 260"}</Katex> meters.
+              Total distance jogged: <Katex>{"48 + 55 + 73 = 176"}</Katex> meters.
             </p>
           </div>
 

@@ -48,46 +48,48 @@ export default function AdditionOfFractionsPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">1. Painting a wall together</h2>
             <p className="blog-post-p">
-              Shubham painted <Katex>{"\\dfrac{2}{3}"}</Katex> of the wall space in his room. His
-              sister Madhavi helped and painted <Katex>{"\\dfrac{1}{3}"}</Katex> of the wall space.
-              How much did they paint together?
+              Arjun painted <Katex>{"\\dfrac{3}{8}"}</Katex> of a classroom wall in the morning, and
+              his friend Meera painted another <Katex>{"\\dfrac{1}{4}"}</Katex> of it in the afternoon.
+              How much of the wall did they paint together?
             </p>
             <p className="blog-post-p">
-              <strong>Solution:</strong> <Katex>{"\\dfrac{2}{3} + \\dfrac{1}{3} = \\dfrac{3}{3} = 1"}</Katex>.
-              Together they painted the whole wall.
+              <strong>Solution:</strong> With a common denominator of 8,{" "}
+              <Katex>{"\\dfrac{1}{4} = \\dfrac{2}{8}"}</Katex>, so{" "}
+              <Katex>{"\\dfrac{3}{8} + \\dfrac{2}{8} = \\dfrac{5}{8}"}</Katex>. Together they painted
+              five-eighths of the wall, leaving <Katex>{"\\dfrac{3}{8}"}</Katex> still to do.
             </p>
           </div>
 
           <div className="blog-post-section">
             <h2 className="blog-post-heading">2. Sharing cake</h2>
             <p className="blog-post-p">
-              Naina was given <Katex>{"1\\dfrac{1}{2}"}</Katex> pieces of cake and Najma was given{" "}
-              <Katex>{"1\\dfrac{1}{3}"}</Katex> pieces of cake. Find the total amount of cake given to
-              both of them.
+              At a party, Kabir ate <Katex>{"2\\dfrac{1}{4}"}</Katex> slices of cake and Riya ate{" "}
+              <Katex>{"1\\dfrac{2}{3}"}</Katex> slices. How much cake did the two of them eat
+              altogether?
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> Convert to improper fractions:{" "}
-              <Katex>{"1\\dfrac{1}{2} = \\dfrac{3}{2}"}</Katex> and{" "}
-              <Katex>{"1\\dfrac{1}{3} = \\dfrac{4}{3}"}</Katex>. With a common denominator of 6:{" "}
-              <Katex>{"\\dfrac{3}{2} = \\dfrac{9}{6}"}</Katex> and{" "}
-              <Katex>{"\\dfrac{4}{3} = \\dfrac{8}{6}"}</Katex>, so{" "}
-              <Katex>{"\\dfrac{9}{6} + \\dfrac{8}{6} = \\dfrac{17}{6} = 2\\dfrac{5}{6}"}</Katex>{" "}
-              pieces of cake in total.
+              <Katex>{"2\\dfrac{1}{4} = \\dfrac{9}{4}"}</Katex> and{" "}
+              <Katex>{"1\\dfrac{2}{3} = \\dfrac{5}{3}"}</Katex>. With a common denominator of 12:{" "}
+              <Katex>{"\\dfrac{9}{4} = \\dfrac{27}{12}"}</Katex> and{" "}
+              <Katex>{"\\dfrac{5}{3} = \\dfrac{20}{12}"}</Katex>, so{" "}
+              <Katex>{"\\dfrac{27}{12} + \\dfrac{20}{12} = \\dfrac{47}{12} = 3\\dfrac{11}{12}"}</Katex>{" "}
+              slices of cake in total.
             </p>
           </div>
 
           <div className="blog-post-section">
             <h2 className="blog-post-heading">3. Buying ribbon</h2>
             <p className="blog-post-p">
-              Sarita bought <Katex>{"\\dfrac{2}{5}"}</Katex> meter of ribbon and Lalita bought{" "}
-              <Katex>{"\\dfrac{3}{4}"}</Katex> meter of ribbon. What is the total length of ribbon
-              they bought?
+              For a craft project, Tara bought <Katex>{"\\dfrac{3}{10}"}</Katex> meter of red ribbon
+              and <Katex>{"\\dfrac{5}{6}"}</Katex> meter of blue ribbon. What is the total length of
+              ribbon she bought?
             </p>
             <p className="blog-post-p">
-              <strong>Solution:</strong> With a common denominator of 20:{" "}
-              <Katex>{"\\dfrac{2}{5} = \\dfrac{8}{20}"}</Katex> and{" "}
-              <Katex>{"\\dfrac{3}{4} = \\dfrac{15}{20}"}</Katex>, so{" "}
-              <Katex>{"\\dfrac{8}{20} + \\dfrac{15}{20} = \\dfrac{23}{20} = 1\\dfrac{3}{20}"}</Katex>{" "}
+              <strong>Solution:</strong> The LCM of 10 and 6 is 30:{" "}
+              <Katex>{"\\dfrac{3}{10} = \\dfrac{9}{30}"}</Katex> and{" "}
+              <Katex>{"\\dfrac{5}{6} = \\dfrac{25}{30}"}</Katex>, so{" "}
+              <Katex>{"\\dfrac{9}{30} + \\dfrac{25}{30} = \\dfrac{34}{30} = \\dfrac{17}{15} = 1\\dfrac{2}{15}"}</Katex>{" "}
               meters of ribbon.
             </p>
           </div>
@@ -95,22 +97,22 @@ export default function AdditionOfFractionsPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">4. Find the missing number</h2>
             <p className="blog-post-p">
-              <Katex>{"? - \\dfrac{5}{8} = \\dfrac{1}{4}"}</Katex>
+              <Katex>{"? - \\dfrac{3}{10} = \\dfrac{2}{5}"}</Katex>
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> Rearranging,{" "}
-              <Katex>{"? = \\dfrac{1}{4} + \\dfrac{5}{8} = \\dfrac{2}{8} + \\dfrac{5}{8} = \\dfrac{7}{8}"}</Katex>.
+              <Katex>{"? = \\dfrac{2}{5} + \\dfrac{3}{10} = \\dfrac{4}{10} + \\dfrac{3}{10} = \\dfrac{7}{10}"}</Katex>.
             </p>
           </div>
 
           <div className="blog-post-section">
             <h2 className="blog-post-heading">5. Find the missing number</h2>
             <p className="blog-post-p">
-              <Katex>{"? - \\dfrac{1}{5} = \\dfrac{1}{2}"}</Katex>
+              <Katex>{"? - \\dfrac{1}{6} = \\dfrac{3}{4}"}</Katex>
             </p>
             <p className="blog-post-p">
               <strong>Solution:</strong> Rearranging,{" "}
-              <Katex>{"? = \\dfrac{1}{2} + \\dfrac{1}{5} = \\dfrac{5}{10} + \\dfrac{2}{10} = \\dfrac{7}{10}"}</Katex>.
+              <Katex>{"? = \\dfrac{3}{4} + \\dfrac{1}{6} = \\dfrac{9}{12} + \\dfrac{2}{12} = \\dfrac{11}{12}"}</Katex>.
             </p>
           </div>
 

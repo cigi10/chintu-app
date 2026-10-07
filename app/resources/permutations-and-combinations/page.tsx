@@ -50,24 +50,24 @@ export default function PermutationsAndCombinationsPage() {
           <div className="blog-post-section">
             <h2 className="blog-post-heading">Worked example: the 19th word in dictionary order</h2>
             <p className="blog-post-p">
-              If all permutations of the letters of the word MASK are arranged in dictionary order,
+              If all arrangements of the letters of the word FROG are listed in dictionary order,
               which one is the 19th word?
             </p>
             <p className="blog-post-p">
-              <strong>Solution:</strong> Sort the letters alphabetically first: A, K, M, S. There are{" "}
+              <strong>Solution:</strong> Sort the letters alphabetically first: F, G, O, R. There are{" "}
               <Katex>{"4! = 24"}</Katex> total arrangements. Group them by starting letter: each
               group has <Katex>{"3! = 6"}</Katex> words, since the remaining 3 letters can be arranged
               6 ways:
             </p>
             <ul className="blog-post-list">
-              <li>Words 1–6 start with A</li>
-              <li>Words 7–12 start with K</li>
-              <li>Words 13–18 start with M</li>
-              <li>Words 19–24 start with S</li>
+              <li>Words 1–6 start with F (FROG itself is the 6th, the last of them)</li>
+              <li>Words 7–12 start with G</li>
+              <li>Words 13–18 start with O</li>
+              <li>Words 19–24 start with R</li>
             </ul>
             <p className="blog-post-p">
-              The 19th word is the <em>first</em> word starting with S. Arranging the remaining
-              letters (A, K, M) in alphabetical order gives <strong>SAKM</strong>.
+              The 19th word is the <em>first</em> word starting with R. Arranging the remaining
+              letters (F, G, O) in alphabetical order gives <strong>RFGO</strong>.
             </p>
           </div>
 

@@ -83,9 +83,9 @@
       "blocks": [
         {
           "list": [
-            "\"A ray has no end point.\" **False.** It has exactly one endpoint.",
-            "\"A line can be drawn on paper.\" **False, strictly:** only a segment representing it can be.",
-            "\"Two lines can meet at two points.\" **False:** distinct lines share at most one point."
+            "'A ray has a definite length.' **False.** It starts at one endpoint and goes on forever in one direction.",
+            "'Two distinct points determine exactly one line.' **True.** This is Euclid's axiom above.",
+            "'Any three points are collinear.' **False.** Three points are collinear only if one line passes through all of them."
           ]
         }
       ]
