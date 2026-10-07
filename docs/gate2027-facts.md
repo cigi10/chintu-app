@@ -17,7 +17,9 @@ must be hedged or left out.
 - Two-paper combinations: https://gate2027.iitm.ac.in/two_paper_combinations
 
 Both the website and the IB state that dates are liable to change. Pages that quote a date should
-say "as of [last verified date]" and link the Important Dates page.
+say "as of [last verified date]" and link the Important Dates page. **Publishable dates** are the exam
+weekends, city allotment and results; registration dates are shown only as a link to the official
+deadline.
 
 ---
 
@@ -37,15 +39,15 @@ are noted where they matter.
 |---|---|---|
 | GOAPS (application portal) opened | Wednesday, 2 September 2026 (earlier 14 Aug, then 27 Aug; both struck through) | Important dates |
 | Regular registration closed (no late fee) | Monday, 5 October 2026 (earlier 21 Sep, then 27 Sep; struck through) | Important dates |
-| Extended registration closes (with late fee) | Monday, 12 October 2026 (earlier 30 Sep, then 5 Oct; struck through) | Important dates; homepage notice "registration with late fee window is open till 12th October 2026" |
-| Application rectification | Wednesday 14 October to Wednesday 21 October 2026 | Important dates (see CONFLICT 1) |
+| Extended registration closes (with late fee) | **UNVERIFIED** (sources disagree, see below) | Important dates vs IB |
+| Application rectification window | **UNVERIFIED** (sources disagree, see below) | Important dates vs Application fees page |
 | City allotment notification | Monday, 4 January 2027 | Important dates |
 | Admit card download | TBA | Important dates |
 | Examinations | Sat 6 and Sun 7 February 2027; Sat 13 and Sun 14 February 2027; Sat 20 and Sun 21 February 2027 | Important dates |
 | Results announced | Friday, 19 March 2027 | Important dates |
 
-The IB (27 Sep) still gives 5 October 2026 as the late-fee closing date; the website's later
-revision to 12 October supersedes it.
+Registration dates move (the portal opening and both closing dates have each been revised twice). Pages
+must not quote registration or rectification dates as settled; link the Important Dates page instead.
 
 ## 3. Papers and sections (GATE 2027)
 
@@ -162,29 +164,36 @@ From the Eligibility page and the IB summary:
   (homepage notice).
 - Fees are paid electronically (UPI, debit/credit card, wallet, internet banking). (IB)
 
-### Application fee per paper (IB Table 5, and website)
+### Application fee per paper, one paper (IB Table 5, and website; these agree)
 
 | Category | Regular period | Extended period |
 |---|---|---|
 | Female / SC / ST / PwD | ₹1000 | ₹1500 |
 | All other candidates (incl. foreign nationals on the website) | ₹2000 | ₹2500 |
 
+Two-paper fees in the extended period are UNVERIFIED (see below).
+
 Bank charges are extra. Fees are non-transferable and not refundable except in a specific two-paper case
 described in the IB.
 
 ---
 
-## CONFLICTS between official sources (do not state either value as settled)
+## UNVERIFIED: official sources disagree
 
-1. **Rectification window end.** Important Dates page: 21 October 2026. Application Fees page: GOAPS login
-   for rectification "up to November 03, 2026". Say "check the Important Dates page" instead of quoting.
-2. **Two-paper fee in the extended period.** IB: two papers cost twice a single paper (so ₹3000 and ₹5000).
-   Website table: ₹2500 (Female/SC/ST/PwD) and ₹4500 (others) for two papers. Quote one-paper fees only, or
-   link the official table.
-3. **Late-fee closing date.** IB: 5 October 2026; website (later): 12 October 2026. Use the website value
-   with "as of 7 October 2026".
+No number from these three items may appear in posts, the countdown or the /gate hub. Link the official
+page instead (Important Dates for 1 and 3, Application Fees for 2).
 
-## UNVERIFIED (not stated on the official site or IB as of 7 October 2026)
+1. **Rectification window.**
+   - Important Dates page: 14 to 21 October 2026. https://gate2027.iitm.ac.in/important_dates
+   - Application Fees page: GOAPS login for rectification "up to November 03, 2026". https://gate2027.iitm.ac.in/application_fees
+2. **Two-paper fee in the extended period.**
+   - IB (section 6.4.1 and Table 5 note): for two papers the fee is twice a single paper, which would be ₹3000 and ₹5000. https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf
+   - Application Fees page table: ₹2500 (Female/SC/ST/PwD) and ₹4500 (others) for two papers. https://gate2027.iitm.ac.in/application_fees
+3. **Closing date of extended (late-fee) registration.**
+   - IB key dates: Monday, 5 October 2026. https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf
+   - Important Dates page and homepage notice: Monday, 12 October 2026. https://gate2027.iitm.ac.in/important_dates
+
+## UNVERIFIED: not yet published (as of 7 October 2026)
 
 - Admit card release date (official: TBA).
 - Which papers are held in multiple sessions, and the session for each paper (not yet published).
