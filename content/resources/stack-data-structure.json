@@ -1,0 +1,132 @@
+{
+  "slug": "stack-data-structure",
+  "datePublished": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "sections": [
+    {
+      "heading": "Where this sits in GATE",
+      "blocks": [
+        {
+          "p": "Stacks are listed in **Programming and Data Structures**, Section 4 of the GATE 2027 CS syllabus, alongside arrays, queues, linked lists, trees, binary heaps and graphs. In the tracker's GATE CS pack they sit under Programming and Data Structures."
+        }
+      ]
+    },
+    {
+      "heading": "What a stack is",
+      "blocks": [
+        {
+          "p": "A stack is a last-in, first-out (LIFO) collection: the last item added is the first removed. It supports three operations, each in constant time:"
+        },
+        {
+          "list": [
+            "**push(x):** put $x$ on top.",
+            "**pop():** remove and return the top item.",
+            "**peek():** read the top item without removing it."
+          ]
+        },
+        {
+          "p": "In an array implementation of capacity $n$, a variable 'top' holds the index of the top item (−1 when empty). Pushing onto a full stack is an **overflow**; popping an empty one is an **underflow**."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: tracing operations",
+      "blocks": [
+        {
+          "p": "Starting from an empty stack, perform: push 4, push 7, pop, push 2, push 9, pop, pop, push 5."
+        },
+        {
+          "steps": [
+            "push 4, push 7: the stack is [4, 7] (top on the right).",
+            "pop removes 7: [4].",
+            "push 2, push 9: [4, 2, 9].",
+            "pop removes 9, pop removes 2: [4].",
+            "push 5: [4, 5]."
+          ]
+        },
+        {
+          "p": "The values popped, in order, are 7, 9, 2, and the final stack is [4, 5]."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: evaluating a postfix expression",
+      "blocks": [
+        {
+          "p": "Evaluate the postfix expression '5 3 2 × + 4 −'. Push each number; on an operator, pop two values, apply it (second popped on the left), and push the result."
+        },
+        {
+          "steps": [
+            "Push 5, 3, 2: [5, 3, 2].",
+            "'×': pop 2 and 3, push $3 \\times 2 = 6$: [5, 6].",
+            "'+': pop 6 and 5, push $5 + 6 = 11$: [11].",
+            "Push 4: [11, 4]. '−': pop 4 and 11, push $11 - 4 = 7$: [7]."
+          ]
+        },
+        {
+          "p": "The answer is 7, the single value left on the stack."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: infix to postfix",
+      "blocks": [
+        {
+          "p": "Convert $A + B * (C - D) / E$ to postfix. Operands go straight to the output; operators wait on a stack and leave when an operator of lower or equal precedence arrives, or at a closing bracket. The result is:"
+        },
+        {
+          "math": "A\\;B\\;C\\;D\\;-\\;*\\;E\\;/\\;+"
+        },
+        {
+          "p": "Reading it back: $C - D$ first, then multiply by $B$, divide by $E$, and finally add $A$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: which pop orders are possible?",
+      "blocks": [
+        {
+          "p": "The numbers 1, 2, 3 are pushed in that order, with pops allowed at any time. Can the output be 3, 1, 2?"
+        },
+        {
+          "p": "**Solution:** To pop 3 first, 1 and 2 must already be on the stack with 2 above 1. The next pop must then be 2, not 1, so 3, 1, 2 is impossible. Of the 6 orders, exactly 5 are possible: 123, 132, 213, 231 and 321."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Reversing operands in postfix evaluation.** For '−' and '÷', the second value popped goes on the left: '8 2 ÷' is 4, not 0.25.",
+            "**Checking for underflow after popping.** Check that the stack is non-empty before you pop.",
+            "**Treating ^ as left-associative.** Exponentiation is right-associative, so $2^{3^2}$ is $2^9$, and the infix-to-postfix rule changes for it.",
+            "**Confusing a stack with a queue.** A queue is first-in, first-out."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The GATE 2027 CS syllabus lists stacks under Section 4, Programming and Data Structures, together with programming in C, recursion, arrays, queues, linked lists, trees, binary search trees, binary heaps and graphs.",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "gate-2027-cs"
+    ]
+  },
+  "related": {
+    "intro": "Digital Logic is the other early GATE CS section with a page here.",
+    "links": [
+      {
+        "label": "Logic Gates",
+        "href": "/resources/logic-gates"
+      },
+      {
+        "label": "Boolean Algebra",
+        "href": "/resources/boolean-algebra"
+      }
+    ]
+  }
+}

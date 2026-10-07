@@ -1,0 +1,176 @@
+{
+  "slug": "boolean-algebra",
+  "datePublished": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "sections": [
+    {
+      "heading": "Where this sits in GATE",
+      "blocks": [
+        {
+          "p": "The GATE 2027 CS syllabus lists Boolean algebra and minimization (the algebraic technique, the Karnaugh map and the tabular method) as the first item of **Digital Logic**, Section 2. In the tracker's GATE CS pack it sits under Digital Logic."
+        }
+      ]
+    },
+    {
+      "heading": "The laws",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Boolean algebra laws (each has a dual: swap + with · and 0 with 1)",
+            "columns": [
+              "Law",
+              "OR form",
+              "AND form"
+            ],
+            "rows": [
+              [
+                "Identity",
+                "$A + 0 = A$",
+                "$A \\cdot 1 = A$"
+              ],
+              [
+                "Null",
+                "$A + 1 = 1$",
+                "$A \\cdot 0 = 0$"
+              ],
+              [
+                "Idempotent",
+                "$A + A = A$",
+                "$A \\cdot A = A$"
+              ],
+              [
+                "Complement",
+                "$A + \\overline{A} = 1$",
+                "$A \\cdot \\overline{A} = 0$"
+              ],
+              [
+                "Absorption",
+                "$A + AB = A$",
+                "$A(A + B) = A$"
+              ],
+              [
+                "Distributive",
+                "$A + BC = (A+B)(A+C)$",
+                "$A(B + C) = AB + AC$"
+              ],
+              [
+                "De Morgan",
+                "$\\overline{A + B} = \\overline{A}\\,\\overline{B}$",
+                "$\\overline{AB} = \\overline{A} + \\overline{B}$"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "The OR form of the distributive law, $A + BC = (A+B)(A+C)$, has no counterpart in ordinary arithmetic, and it's the one most often forgotten."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: simplifying algebraically",
+      "blocks": [
+        {
+          "p": "Simplify $F = AB + A\\overline{B} + \\overline{A}B$."
+        },
+        {
+          "math": "F = A(B + \\overline{B}) + \\overline{A}B = A + \\overline{A}B = (A + \\overline{A})(A + B) = A + B"
+        },
+        {
+          "p": "The third step uses the OR distributive law. A truth table confirms it: $F$ is 0 only when $A = B = 0$, exactly like $A + B$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the consensus theorem",
+      "blocks": [
+        {
+          "p": "Show that $AB + \\overline{A}C + BC = AB + \\overline{A}C$."
+        },
+        {
+          "p": "**Solution:** Multiply the redundant term by $1 = A + \\overline{A}$: $BC = ABC + \\overline{A}BC$. Then $ABC$ is absorbed by $AB$ and $\\overline{A}BC$ by $\\overline{A}C$, so $BC$ adds nothing. Checking all 8 rows of the truth table gives the same result."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a Karnaugh map",
+      "blocks": [
+        {
+          "p": "Minimise $F(A,B,C) = \\sum m(0, 2, 4, 5, 6)$."
+        },
+        {
+          "table": {
+            "caption": "K-map for F (rows A, columns BC in Gray-code order)",
+            "columns": [
+              "A \\ BC",
+              "00",
+              "01",
+              "11",
+              "10"
+            ],
+            "rows": [
+              [
+                "0",
+                "1 (m0)",
+                "0",
+                "0",
+                "1 (m2)"
+              ],
+              [
+                "1",
+                "1 (m4)",
+                "1 (m5)",
+                "0",
+                "1 (m6)"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "**Solution:** The four 1s in columns 00 and 10 (minterms 0, 2, 4, 6) form a group that wraps around the map's edges; in all four $C = 0$, so the group is $\\overline{C}$. Minterm 5 remains: pair it with minterm 4, where $A = 1$ and $B = 0$, giving $A\\overline{B}$. So"
+        },
+        {
+          "math": "F = \\overline{C} + A\\overline{B}"
+        },
+        {
+          "p": "Check minterm 5 ($A = 1, B = 0, C = 1$): $\\overline{C} = 0$ but $A\\overline{B} = 1$, so $F = 1$, as required."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Complementing a product term by term without swapping the operator.** $\\overline{AB}$ is $\\overline{A} + \\overline{B}$, not $\\overline{A}\\,\\overline{B}$.",
+            "**Forgetting the K-map wraps around.** The left and right columns are adjacent, as are the top and bottom rows on a 4-row map.",
+            "**Using groups of 3, 5 or 6.** K-map groups must contain a power of 2 cells.",
+            "**Stopping at a correct but non-minimal form.** Always check whether a larger group covers the same 1s."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The GATE 2027 CS syllabus lists, under Section 2, Digital Logic, Boolean algebra and minimization by the algebraic technique, the Karnaugh map and the tabular method. The GATE 2027 EC syllabus lists Boolean algebra and the minimization of functions using Boolean identities and the Karnaugh map under Digital Circuits.",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "gate-2027-cs",
+      "gate-2027-ec"
+    ]
+  },
+  "related": {
+    "intro": "These laws describe exactly what logic gates compute.",
+    "links": [
+      {
+        "label": "Logic Gates",
+        "href": "/resources/logic-gates"
+      },
+      {
+        "label": "Types of Relations",
+        "href": "/resources/types-of-relations"
+      }
+    ]
+  }
+}

@@ -33,6 +33,9 @@ type Block =
 type ResourceContent = {
   slug: string;
   datePublished: string;
+  // Optional: when the page's exam facts were last checked against the
+  // official sources, shown under the title (pages written for GATE 2027).
+  lastVerified?: string;
   h1?: string;
   sections: { heading: string | null; blocks: Block[] }[];
   // Which exams list this topic, sourced from lib/syllabusSources.js, and
@@ -127,6 +130,10 @@ function HubPage({ slug }: { slug: string }) {
 
 const renderCell = (cell: string) => <RichText text={cell} />;
 
+function formatVerified(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+}
+
 function ResourcePage({ slug, content }: { slug: string; content: ResourceContent }) {
   const resource = getResourceBySlug(slug)!;
   const hub = getResourceHub(resource.hub)!;
@@ -154,6 +161,11 @@ function ResourcePage({ slug, content }: { slug: string; content: ResourceConten
           <h1 className="blog-post-title">
             {content.h1 ? <RichText text={content.h1} /> : resource.title}
           </h1>
+          {content.lastVerified && (
+            <div className="blog-post-meta">
+              <span>Last verified {formatVerified(content.lastVerified)}</span>
+            </div>
+          )}
 
           {content.sections.map((section, i) => (
             <div key={i} className="blog-post-section resource-section">

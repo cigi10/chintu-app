@@ -1,0 +1,143 @@
+{
+  "slug": "data-interpretation-bar-graphs",
+  "datePublished": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "sections": [
+    {
+      "heading": "Where this sits in GATE",
+      "blocks": [
+        {
+          "p": "Data interpretation is part of Quantitative Aptitude in the General Aptitude section that every GATE 2027 paper includes, and General Aptitude carries 15 of the paper's 100 marks. The syllabus names bar graphs, pie charts and other data graphs, 2- and 3-dimensional plots, maps and tables. In the tracker's GATE packs this is under General Aptitude, Quantitative Aptitude."
+        }
+      ]
+    },
+    {
+      "heading": "The chart",
+      "blocks": [
+        {
+          "p": "All the questions below use this bar graph of a factory's yearly output, in thousands of units."
+        },
+        {
+          "figure": {
+            "name": "factory-output-bars",
+            "caption": "Factory output, thousand units: 2021, 120; 2022, 150; 2023, 135; 2024, 180; 2025, 210."
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: percentage change",
+      "blocks": [
+        {
+          "p": "By what percentage did output change from 2024 to 2025?"
+        },
+        {
+          "math": "\\dfrac{210 - 180}{180} \\times 100 = \\dfrac{30}{180} \\times 100 \\approx 16.67\\%"
+        },
+        {
+          "p": "The base is the *earlier* year, 180. Dividing by 210 instead gives 14.29%, a common wrong answer."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the largest percentage rise",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Year-on-year change",
+            "columns": [
+              "Year",
+              "Change",
+              "Percentage change"
+            ],
+            "rows": [
+              [
+                "2022",
+                "+30",
+                "$30/120 = 25\\%$"
+              ],
+              [
+                "2023",
+                "−15",
+                "$-15/150 = -10\\%$"
+              ],
+              [
+                "2024",
+                "+45",
+                "$45/135 \\approx 33.33\\%$"
+              ],
+              [
+                "2025",
+                "+30",
+                "$30/180 \\approx 16.67\\%$"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "The largest percentage rise is in 2024, about 33.33%. Notice that 2022 and 2025 had the same absolute rise (+30) but different percentage rises, because they started from different bases."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: averages, ratios and shares",
+      "blocks": [
+        {
+          "list": [
+            "**Average output:** $(120 + 150 + 135 + 180 + 210) \\div 5 = 795 \\div 5 = 159$ thousand units. Only 2024 and 2025 are above it.",
+            "**Ratio of 2025 to 2021:** $210 : 120 = 7 : 4$, so output grew by 75% over the four years.",
+            "**Share of 2025 in the five-year total:** $210 \\div 795 \\times 100 \\approx 26.42\\%$."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "A quick method for exam conditions",
+      "blocks": [
+        {
+          "steps": [
+            "Read the scale and units first, and note whether the axis starts at zero.",
+            "Write the values you need in a small table before calculating.",
+            "Decide what each question's base is (previous year, first year, or the total) before dividing.",
+            "Estimate first, then use the on-screen calculator only for the final step."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Using the wrong base for percentage change.** It's always the starting value.",
+            "**Comparing bar heights by eye when the axis doesn't start at zero.** Read the values instead.",
+            "**Confusing absolute and percentage change.** The same +30 is 25% from 120 but only 16.67% from 180.",
+            "**Mixing percentage points with percent** when the chart itself shows percentages."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The General Aptitude syllabus for every GATE 2027 paper lists, under Quantitative Aptitude, data interpretation from data graphs (bar graphs, pie charts and other graphs representing data), 2- and 3-dimensional plots, maps and tables, along with ratios and percentages.",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "gate-2027-brochure"
+    ]
+  },
+  "related": {
+    "intro": "Percentages and ratios do most of the work in data interpretation.",
+    "links": [
+      {
+        "label": "Percentage",
+        "href": "/resources/percentage"
+      },
+      {
+        "label": "Ratio and Proportion",
+        "href": "/resources/ratio-and-proportion"
+      }
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "slug": "logic-gates",
+  "datePublished": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "sections": [
+    {
+      "heading": "Where this sits in GATE",
+      "blocks": [
+        {
+          "p": "Logic gates are the building blocks of **Digital Logic**, Section 2 of the GATE 2027 CS syllabus, and of Digital Circuits in the GATE 2027 EC syllabus. In the Studyloaf tracker's GATE CS pack, tick them off under Digital Logic."
+        }
+      ]
+    },
+    {
+      "heading": "The seven gates",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Truth tables for two inputs A and B (NOT takes A only)",
+            "columns": [
+              "A",
+              "B",
+              "AND $AB$",
+              "OR $A+B$",
+              "NAND $\\overline{AB}$",
+              "NOR $\\overline{A+B}$",
+              "XOR $A\\oplus B$",
+              "XNOR $\\overline{A\\oplus B}$"
+            ],
+            "rows": [
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1",
+                "1",
+                "0",
+                "1"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "1",
+                "1",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "1",
+                "1",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "1",
+                "1",
+                "1",
+                "1",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "NOT simply flips its input: $\\overline{0} = 1$ and $\\overline{1} = 0$. XOR outputs 1 when the inputs differ; XNOR outputs 1 when they match."
+        }
+      ]
+    },
+    {
+      "heading": "NAND and NOR are universal",
+      "blocks": [
+        {
+          "p": "Every Boolean function can be built from NAND gates alone (and, separately, from NOR gates alone). With NAND:"
+        },
+        {
+          "list": [
+            "**NOT:** tie both inputs together, $\\overline{A \\cdot A} = \\overline{A}$.",
+            "**AND:** a NAND followed by a NAND used as NOT, $\\overline{\\overline{AB}} = AB$.",
+            "**OR:** invert each input first, then NAND: $\\overline{\\overline{A}\\cdot\\overline{B}} = A + B$ by De Morgan's theorem.",
+            "**XOR:** four NAND gates. With $N = \\overline{AB}$, the output is $\\overline{\\overline{A N}\\cdot\\overline{B N}} = A \\oplus B$, which checks out on all four input rows."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a half adder",
+      "blocks": [
+        {
+          "p": "A half adder adds two bits $A$ and $B$, giving a sum bit $S$ and a carry bit $C$. From the table of binary sums (0 + 0 = 00, 0 + 1 = 01, 1 + 0 = 01, 1 + 1 = 10):"
+        },
+        {
+          "math": "S = A \\oplus B, \\qquad C = AB"
+        },
+        {
+          "p": "So one XOR gate and one AND gate are enough. Check the last row: $1 \\oplus 1 = 0$ and $1 \\cdot 1 = 1$, giving binary 10, which is 2."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: tracing a circuit",
+      "blocks": [
+        {
+          "p": "Inputs $A$ and $B$ feed a NAND gate, and its output and a third input $C$ feed a NOR gate. When is the final output $Y$ equal to 1?"
+        },
+        {
+          "p": "**Solution:** $Y = \\overline{\\overline{AB} + C}$. A NOR outputs 1 only when both its inputs are 0, so we need $\\overline{AB} = 0$ (that is, $A = B = 1$) and $C = 0$. Of the 8 input combinations, only $A = 1, B = 1, C = 0$ gives $Y = 1$, so $Y = AB\\overline{C}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: how many functions?",
+      "blocks": [
+        {
+          "p": "How many different Boolean functions of 2 inputs are there? A 2-input truth table has $2^2 = 4$ rows, and each row's output can be 0 or 1 independently, so there are $2^4 = 16$ functions. With $n$ inputs there are $2^{2^n}$: 4 for one input, 16 for two, 256 for three. The seven named gates are just seven of those 16."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Mixing up OR and XOR.** For inputs 1 and 1, OR gives 1 but XOR gives 0.",
+            "**Reading NAND as 'NOT A AND B'.** It's NOT applied to the whole AND: $\\overline{AB}$, not $\\overline{A}B$.",
+            "**Inverting only one side when converting with De Morgan.** $\\overline{A + B} = \\overline{A}\\cdot\\overline{B}$: complement each term *and* swap the operator.",
+            "**Assuming XOR of three inputs is 1 only when exactly one input is 1.** It's 1 when an *odd* number of inputs are 1, so $1 \\oplus 1 \\oplus 1 = 1$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The GATE 2027 CS syllabus lists, under Section 2, Digital Logic, Boolean algebra and minimization and the design of combinational and sequential circuits, which are built from these gates. The GATE 2027 EC syllabus lists logic gates and their static CMOS implementations under Digital Circuits.",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "gate-2027-cs",
+      "gate-2027-ec"
+    ]
+  },
+  "related": {
+    "intro": "Gate expressions are simplified with Boolean algebra.",
+    "links": [
+      {
+        "label": "Boolean Algebra",
+        "href": "/resources/boolean-algebra"
+      },
+      {
+        "label": "Stack (Data Structure)",
+        "href": "/resources/stack-data-structure"
+      }
+    ]
+  }
+}
