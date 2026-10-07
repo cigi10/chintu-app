@@ -1,0 +1,155 @@
+{
+  "slug": "pn-junction-diode-gate",
+  "title": "PN Junction Diode for GATE: Concepts and Common Mistakes",
+  "description": "The PN junction diode for GATE EC: built-in potential, depletion width and junction capacitance with a fully worked silicon example, the diode equation in numbers, and the mistakes that cost marks.",
+  "author": "Studyloaf Team",
+  "readingTime": "8 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "college-careers",
+  "tags": [
+    "gate",
+    "engineering-fundamentals"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "The GATE 2027 EC syllabus lists the P-N junction under Electronic Devices, alongside energy bands, carrier concentration, drift and diffusion current, and the Poisson and continuity equations. GATE questions on the junction are usually short calculations, which is exactly where unit and log mistakes hide. This post sets out the formulas for an abrupt junction, works one silicon example end to end, and lists the traps."
+    },
+    {
+      "heading": "The formulas (abrupt junction)",
+      "table": {
+        "caption": "PN junction formulas. V is the applied voltage, positive for forward bias",
+        "columns": [
+          "Quantity",
+          "Formula"
+        ],
+        "rows": [
+          [
+            "Thermal voltage",
+            "VT = kT ÷ q ≈ 25.85 mV at 300 K (often rounded to 26 mV)"
+          ],
+          [
+            "Built-in potential",
+            "V0 = VT ln(NA ND ÷ ni²)"
+          ],
+          [
+            "Depletion width",
+            "W = √[(2ε ÷ q)(V0 − V)(1 ÷ NA + 1 ÷ ND)]"
+          ],
+          [
+            "Charge balance",
+            "NA xp = ND xn, so the region extends further into the lightly doped side"
+          ],
+          [
+            "Peak electric field",
+            "Emax = q ND xn ÷ ε = q NA xp ÷ ε"
+          ],
+          [
+            "Junction capacitance per area",
+            "Cj = ε ÷ W"
+          ],
+          [
+            "Diode current",
+            "I = Is[e^(V ÷ ηVT) − 1]"
+          ],
+          [
+            "Small-signal resistance",
+            "rd = ηVT ÷ ID"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Worked example: a silicon junction",
+      "body": "Take NA = 10¹⁷ cm⁻³ on the p side, ND = 10¹⁶ cm⁻³ on the n side, ni = 10¹⁰ cm⁻³, T = 300 K and εr = 11.7 for silicon, so ε = 11.7 × 8.854 × 10⁻¹⁴ F/cm."
+    },
+    {
+      "heading": null,
+      "list": [
+        "Built-in potential: NA ND ÷ ni² = 10³³ ÷ 10²⁰ = 10¹³, and ln(10¹³) = 29.93. So V0 = 0.02585 × 29.93 ≈ 0.774 V",
+        "Depletion width at zero bias: W = √[(2 × 1.036 × 10⁻¹² × 0.774 ÷ 1.602 × 10⁻¹⁹)(10⁻¹⁷ + 10⁻¹⁶)] ≈ 3.32 × 10⁻⁵ cm = 0.332 µm",
+        "Split: xn = W × NA ÷ (NA + ND) ≈ 0.302 µm and xp ≈ 0.030 µm. Ten times more of the region lies in the n side, the lightly doped one",
+        "Peak field: Emax = q ND xn ÷ ε ≈ 4.66 × 10⁴ V/cm",
+        "At 5 V reverse bias: W grows by √[(0.774 + 5) ÷ 0.774] = 2.73, to about 0.906 µm, and Cj = ε ÷ W falls by the same factor, from about 31.2 to 11.4 nF/cm²"
+      ]
+    },
+    {
+      "heading": "The diode equation in numbers",
+      "body": "In forward bias well above a few VT, I ≈ Is e^(V ÷ ηVT). So a tenfold rise in current needs ΔV = ηVT ln 10. With η = 1 that's 0.02585 × 2.303 ≈ 59.5 mV, and with η = 2 about 119 mV. The small-signal resistance at 1 mA with η = 1 is rd = 25.85 mV ÷ 1 mA ≈ 25.9 Ω."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Using log base 10 where the formula has a natural log. ln(10¹³) is 29.93; log10 gives 13 and a built-in potential less than half the right size",
+        "Mixing up the built-in potential with the 0.7 V forward drop used in circuit problems. The 0.7 V figure is a circuit approximation, not V0",
+        "Assuming the depletion region splits equally. It extends mostly into the lightly doped side",
+        "Getting the sign in (V0 − V) wrong: forward bias narrows the depletion region and reverse bias widens it",
+        "Mixing cm and m. With doping in cm⁻³, keep ε in F/cm and W comes out in cm",
+        "Using a different ni from the question. Some texts use 1.5 × 10¹⁰ cm⁻³ for silicon, which gives V0 ≈ 0.753 V in this example. Always use the value given"
+      ]
+    },
+    {
+      "heading": "Go deeper",
+      "links": [
+        {
+          "label": "PN junction diode: forward and reverse bias",
+          "href": "/resources/pn-junction-diode"
+        },
+        {
+          "label": "Transistor biasing",
+          "href": "/resources/transistor-biasing"
+        },
+        {
+          "label": "GATE ECE: a subject-by-subject study order",
+          "href": "/blog/gate-ece-preparation-study-order"
+        }
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 EC syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/EC_GATE2027_Syllabus.pdf"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website, information brochure and syllabus PDFs from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Common mistakes in GATE NAT questions",
+      "href": "/blog/gate-nat-questions-common-mistakes"
+    },
+    {
+      "label": "GATE ECE: a subject-by-subject study order",
+      "href": "/blog/gate-ece-preparation-study-order"
+    }
+  ]
+}

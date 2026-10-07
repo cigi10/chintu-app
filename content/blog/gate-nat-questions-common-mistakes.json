@@ -1,0 +1,117 @@
+{
+  "slug": "gate-nat-questions-common-mistakes",
+  "title": "Common Mistakes in GATE NAT Questions",
+  "description": "GATE NAT questions carry no negative marking, so the marks you lose come from avoidable slips: radians, natural logs, units, early rounding and signs. Five worked examples of each mistake, with the right answer.",
+  "author": "Studyloaf Team",
+  "readingTime": "6 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "study-skills",
+  "tags": [
+    "gate",
+    "exam-mistakes",
+    "negative-marking"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "In a GATE numerical answer type (NAT) question there are no options: you type a number using an on-screen keypad, and you work it out with the on-screen virtual calculator, the only calculator allowed. NAT questions carry no negative marking, so a wrong answer costs nothing beyond the marks you don't get. That makes the mistakes below doubly painful: they usually come from knowing the method and slipping on the number."
+    },
+    {
+      "heading": "Mistake 1: degrees and radians",
+      "body": "sin 30 is 0.5 only in degrees. In radians, sin(30) = −0.988. If a question gives an angle in degrees, check which mode the calculator is in before you trust the result. A sanity check catches it: an angle of 30 degrees can't have a negative sine."
+    },
+    {
+      "heading": "Mistake 2: log base",
+      "body": "Semiconductor and transient formulas use the natural log. The voltage for a tenfold rise in diode current is ηVT ln 10 = 0.02585 × 2.303 ≈ 59.5 mV for η = 1. Use log10(10) = 1 by mistake and you get 25.85 mV, less than half the right answer."
+    },
+    {
+      "heading": "Mistake 3: rounding too early",
+      "body": "A capacitor charging towards 10 V has v = 10(1 − e^(−0.7)) after 0.7 time constants. Done properly, that's 5.034 V. Round e^(−0.7) to 0.5 halfway through and you get 5.000 V. If the question asks for two decimal places, that's 5.03 against 5.00: a lost answer from a correct method. Keep full precision until the last step, then round once, the way the question asks."
+    },
+    {
+      "heading": "Mistake 4: the unit asked for",
+      "body": "The energy in a 4.7 µF capacitor at 12 V is ½CV² = 0.5 × 4.7 × 10⁻⁶ × 144 = 3.384 × 10⁻⁴ J. If the question asks for millijoules, the answer is 0.3384, not 338.4 (that's microjoules) and not 0.0003384 (joules). Read the unit in the question last, just before you type."
+    },
+    {
+      "heading": "Mistake 5: dropping a sign",
+      "body": "When a question defines a direction or polarity, a negative answer can be correct. In a circuit where a branch current comes out as −6 A against the direction the question drew, the answer is −6, not 6. Don't tidy away a minus sign unless the question asks for a magnitude."
+    },
+    {
+      "heading": "A 20-second check before you submit",
+      "list": [
+        "Is the calculator in the right angle mode?",
+        "Did I use ln or log10 as the formula needs?",
+        "Did I round only at the end, as the question asks?",
+        "Is the number in the unit the question asks for?",
+        "Does the sign match the direction the question defined?",
+        "Is the size plausible?"
+      ]
+    },
+    {
+      "heading": "Always answer",
+      "body": "Because NAT questions carry no negative marking, a reasoned estimate is always worth typing in when you're short of time. That's different from MCQs, where a wrong answer costs a third or two-thirds of the question's marks."
+    },
+    {
+      "heading": "Go deeper",
+      "links": [
+        {
+          "label": "GATE marking scheme: MCQ, MSQ, NAT and negative marking",
+          "href": "/blog/gate-marking-scheme-mcq-msq-nat"
+        },
+        {
+          "label": "PN junction diode for GATE",
+          "href": "/blog/pn-junction-diode-gate"
+        }
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 question paper pattern",
+          "href": "https://gate2027.iitm.ac.in/question_paper_pattern"
+        },
+        {
+          "label": "GATE 2027 information brochure (PDF)",
+          "href": "https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website, information brochure and syllabus PDFs from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "The last 30 days before GATE",
+      "href": "/blog/gate-last-month-preparation"
+    },
+    {
+      "label": "GATE marking scheme",
+      "href": "/blog/gate-marking-scheme-mcq-msq-nat"
+    }
+  ]
+}

@@ -110,6 +110,15 @@
       "body": "General Aptitude is 15 marks on every paper. For most papers, including CS, EC, EE, ME and BT, Engineering Mathematics is another 13 and the subject carries 72. AR, CY, DA, EY, GE, GG, MA, PH, RA, ST, XH and XL split their 100 marks as General Aptitude 15 plus subject 85."
     },
     {
+      "heading": null,
+      "links": [
+        {
+          "label": "Your marks out of 100 aren't the number institutes see: GATE score vs marks shows how they become your GATE score.",
+          "href": "/blog/gate-score-calculation-marks-vs-score"
+        }
+      ]
+    },
+    {
       "heading": "Common mistakes",
       "list": [
         "Leaving NAT or MSQ questions blank. A wrong answer costs nothing there",

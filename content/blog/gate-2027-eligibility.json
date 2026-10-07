@@ -1,0 +1,158 @@
+{
+  "slug": "gate-2027-eligibility",
+  "title": "GATE 2027 Eligibility, Explained with Official Links",
+  "description": "GATE 2027 eligibility: third year or higher of any undergraduate degree, or a completed one, and no age limit. The official criteria from IIT Madras in plain language, with eight common cases worked through.",
+  "author": "Studyloaf Team",
+  "readingTime": "6 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "college-careers",
+  "tags": [
+    "gate",
+    "eligibility"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "GATE's eligibility rules are broad, and they're easy to over-think. This post sets out the GATE 2027 criteria from the official website and information brochure, then applies them to common cases. The official eligibility page has the full degree-by-degree table, and it's the one that decides, so it's linked below."
+    },
+    {
+      "heading": "The criteria, in plain language",
+      "list": [
+        "You're eligible if you're currently in the third year or higher of any undergraduate degree programme, or have completed any government-approved degree in engineering, technology, architecture, science, commerce, arts or humanities",
+        "M.B.B.S., B.D.S., B.V.Sc. and B.Sc. (Agriculture, Horticulture, Forestry) students are eligible from the 5th semester onwards, as are graduates of those degrees",
+        "With a degree from outside India, you need to be in the third year or higher of, or have completed, a bachelor's degree of at least three years in those fields",
+        "Certifications from professional societies (such as IE, ICE, IETE, AeSI, IIChE, IIM and IIIE) count only if they're approved by MoE, AICTE, UGC or UPSC as equivalent to B.E., B.Tech., B.Arch. or B.Planning",
+        "Candidates studying for or holding a higher degree than those in the eligibility table can also appear",
+        "There is no age limit"
+      ]
+    },
+    {
+      "heading": "Worked through: eight common cases",
+      "table": {
+        "caption": "Applying the GATE 2027 criteria (confirm your own case on the official eligibility page)",
+        "columns": [
+          "Situation",
+          "Eligible?",
+          "Why"
+        ],
+        "rows": [
+          [
+            "Second-year B.Tech student",
+            "Not yet",
+            "The rule starts at the third year"
+          ],
+          [
+            "Third-year B.Tech student",
+            "Yes",
+            "Third year or higher of an undergraduate degree"
+          ],
+          [
+            "Third-year B.Sc. student",
+            "Yes",
+            "Any undergraduate degree counts, science included"
+          ],
+          [
+            "B.Com graduate",
+            "Yes",
+            "A completed government-approved degree in commerce"
+          ],
+          [
+            "M.B.B.S. student in the 5th semester",
+            "Yes",
+            "Eligible from the 5th semester"
+          ],
+          [
+            "Final year of a three-year bachelor's degree abroad",
+            "Yes",
+            "Third year of a degree of at least three years"
+          ],
+          [
+            "Holder of a professional society certification",
+            "Only if approved",
+            "It must be recognised by MoE, AICTE, UGC or UPSC as equivalent to B.E., B.Tech., B.Arch. or B.Planning"
+          ],
+          [
+            "Graduate aged 45 with a full-time job",
+            "Yes",
+            "There is no age limit"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Eligibility is not admission",
+      "body": "Being eligible to sit GATE says nothing about whether a particular programme will admit you. Each admitting institute sets and applies its own criteria for admission based on the GATE score, so read the notice of every programme you're aiming for, not just the GATE rules."
+    },
+    {
+      "heading": "Choosing a paper",
+      "body": "GATE 2027 has 30 test papers, and you can sit one, or two from the official list of allowed combinations. Admission is decided by each admitting institute, so check which GATE papers a programme accepts in that programme's own notice before you choose."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Assuming a second-year student can apply early. The rule starts at the third year",
+        "Assuming GATE has an age limit. It doesn't",
+        "Treating eligibility for GATE as eligibility for a programme. Institutes decide admission",
+        "Relying on a summary (this one included) for an unusual degree. Check the full official table"
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 eligibility criteria (full table)",
+          "href": "https://gate2027.iitm.ac.in/eligibility_criteria"
+        },
+        {
+          "label": "GATE 2027 information brochure (PDF)",
+          "href": "https://gate2027ib.iitm.ac.in/GATE2027-IB.pdf"
+        },
+        {
+          "label": "GATE 2027 two-paper combinations",
+          "href": "https://gate2027.iitm.ac.in/two_paper_combinations"
+        },
+        {
+          "label": "Registration deadline: check the official GATE 2027 Important Dates page (dates have been revised more than once)",
+          "href": "https://gate2027.iitm.ac.in/important_dates"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website, information brochure and syllabus PDFs from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "How the GATE application process works",
+      "href": "/blog/gate-application-process"
+    },
+    {
+      "label": "GATE 2027 exam date and schedule",
+      "href": "/blog/gate-2027-exam-date-schedule"
+    }
+  ]
+}

@@ -54,6 +54,22 @@ function CurrentSource({ x, y1, y2, label }: { x: number; y1: number; y2: number
   );
 }
 
+// A current-controlled voltage source (diamond) on a vertical wire at x
+// between y1 (top) and y2, + at the top.
+function DependentVoltageSource({ x, y1, y2, label }: { x: number; y1: number; y2: number; label: string }) {
+  const mid = (y1 + y2) / 2;
+  const r = 17;
+  return (
+    <g>
+      <path d={`M${x},${y1} V${mid - r} M${x},${mid + r} V${y2}`} className="blog-fig-wire" />
+      <path d={`M${x},${mid - r} L${x + r},${mid} L${x},${mid + r} L${x - r},${mid} Z`} className="blog-fig-wire blog-fig-component" />
+      <text x={x} y={mid - 3} textAnchor="middle" className="blog-fig-note">+</text>
+      <text x={x} y={mid + 11} textAnchor="middle" className="blog-fig-note">−</text>
+      <text x={x + r + 6} y={mid + 4} className="blog-fig-label">{label}</text>
+    </g>
+  );
+}
+
 function Terminal({ at, label }: { at: Pt; label: string }) {
   return (
     <g>
@@ -139,7 +155,73 @@ function TheveninNortonEquivalents({ id }: { id: string }) {
   );
 }
 
+// GATE Thevenin post, example 1: 10 V with 2 Ω in series to node A, 3 Ω
+// from A to the return wire, and a 2 A source pushing current up into A.
+function TheveninTwoSources({ id }: { id: string }) {
+  const top = 40, bottom = 170, xs = 60, xa = 250, xi = 330, xt = 400;
+  return (
+    <Svg
+      id={id}
+      w={450}
+      h={200}
+      title="Circuit: a 10 volt source, positive at the top, feeds a 2 ohm resistor in series to node A. A 3 ohm resistor runs from node A down to the return wire, and a 2 amp current source, arrow pointing up, also connects the return wire to node A. Terminals A (top) and B (bottom) are at the right."
+    >
+      <Battery x={xs} y1={top} y2={bottom} label="10 V" />
+      <path d={`M${xs},${top} H120`} className="blog-fig-wire" />
+      <path d={resistor([120, top], [190, top])} className="blog-fig-wire" />
+      <text x={155} y={top - 14} textAnchor="middle" className="blog-fig-label">2 Ω</text>
+      <path d={`M190,${top} H${xt}`} className="blog-fig-wire" />
+      <circle cx={xa} cy={top} r={3} className="blog-fig-dot" />
+      <path d={`M${xa},${top} V75`} className="blog-fig-wire" />
+      <path d={resistor([xa, 75], [xa, 135])} className="blog-fig-wire" />
+      <path d={`M${xa},135 V${bottom}`} className="blog-fig-wire" />
+      <text x={xa - 14} y={109} textAnchor="end" className="blog-fig-label">3 Ω</text>
+      <circle cx={xa} cy={bottom} r={3} className="blog-fig-dot" />
+      <CurrentSource x={xi} y1={top} y2={bottom} label="2 A" />
+      <circle cx={xi} cy={top} r={3} className="blog-fig-dot" />
+      <circle cx={xi} cy={bottom} r={3} className="blog-fig-dot" />
+      <path d={`M${xs},${bottom} H${xt}`} className="blog-fig-wire" />
+      <Terminal at={[xt, top]} label="A" />
+      <Terminal at={[xt, bottom]} label="B" />
+    </Svg>
+  );
+}
+
+// GATE Thevenin post, example 2: 12 V with 4 Ω in series (current Ix into
+// node A), then from A to the return wire a 2 Ω resistor in series with a
+// current-controlled voltage source of 4Ix, + at the top.
+function TheveninDependentSource({ id }: { id: string }) {
+  const top = 40, bottom = 190, xs = 60, xa = 280, xt = 380;
+  return (
+    <Svg
+      id={id}
+      w={440}
+      h={220}
+      title="Circuit: a 12 volt source, positive at the top, feeds a 4 ohm resistor in series, carrying current I x to the right into node A. From node A to the return wire there is a 2 ohm resistor in series with a dependent voltage source of value 4 I x, positive terminal at the top. Terminals A (top) and B (bottom) are at the right."
+    >
+      <Battery x={xs} y1={top} y2={bottom} label="12 V" />
+      <path d={`M${xs},${top} H120`} className="blog-fig-wire" />
+      <path d={resistor([120, top], [190, top])} className="blog-fig-wire" />
+      <text x={155} y={top - 14} textAnchor="middle" className="blog-fig-label">4 Ω</text>
+      <path d={`M190,${top} H${xt}`} className="blog-fig-wire" />
+      <path d={`M226,${top - 9} L240,${top - 9} M234,${top - 13} L240,${top - 9} L234,${top - 5}`} className="blog-fig-wire" />
+      <text x={233} y={top - 16} textAnchor="middle" className="blog-fig-note">Iₓ</text>
+      <circle cx={xa} cy={top} r={3} className="blog-fig-dot" />
+      <path d={`M${xa},${top} V60`} className="blog-fig-wire" />
+      <path d={resistor([xa, 60], [xa, 110])} className="blog-fig-wire" />
+      <text x={xa - 14} y={89} textAnchor="end" className="blog-fig-label">2 Ω</text>
+      <DependentVoltageSource x={xa} y1={110} y2={bottom} label="4Iₓ" />
+      <circle cx={xa} cy={bottom} r={3} className="blog-fig-dot" />
+      <path d={`M${xs},${bottom} H${xt}`} className="blog-fig-wire" />
+      <Terminal at={[xt, top]} label="A" />
+      <Terminal at={[xt, bottom]} label="B" />
+    </Svg>
+  );
+}
+
 export const CIRCUIT_FIGURES: Record<string, (id: string) => ReactNode> = {
   "thevenin-circuit": id => <TheveninCircuit id={id} />,
   "thevenin-norton-equivalents": id => <TheveninNortonEquivalents id={id} />,
+  "thevenin-gate-two-sources": id => <TheveninTwoSources id={id} />,
+  "thevenin-gate-dependent-source": id => <TheveninDependentSource id={id} />,
 };

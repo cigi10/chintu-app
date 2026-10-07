@@ -1,0 +1,150 @@
+{
+  "slug": "thevenin-theorem-gate-solved-examples",
+  "title": "Thevenin and Norton Theorems for GATE, with Solved Examples",
+  "description": "Thevenin's theorem for GATE EC and EE: two solved examples, one with two independent sources and one with a dependent source, worked three ways, plus maximum power transfer and the mistakes that cost marks.",
+  "author": "Studyloaf Team",
+  "readingTime": "8 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "college-careers",
+  "tags": [
+    "gate",
+    "engineering-fundamentals"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "Thevenin's and Norton's theorems are listed in the GATE 2027 syllabi for EC (under Networks, Signals and Systems, with maximum power transfer), EE (under Electric circuits, with maximum power transfer) and IN. GATE questions rarely stop at a single source and two resistors. They add a second source, a dependent source or a load to optimise. This post works through two such circuits, each solved more than one way so you can check your own answers."
+    },
+    {
+      "heading": "The method in four lines",
+      "list": [
+        "Thevenin voltage Vth: the open-circuit voltage across the two terminals",
+        "Norton current In: the current through a short placed across the terminals",
+        "Thevenin resistance Rth = Vth ÷ In. With only independent sources you can also turn them off (voltage sources shorted, current sources opened) and combine resistors",
+        "With a dependent source, never turn it off. Use Vth ÷ In, or turn off only the independent sources and apply a test source"
+      ]
+    },
+    {
+      "heading": "Example 1: two independent sources",
+      "figure": {
+        "name": "thevenin-gate-two-sources",
+        "caption": "Example 1: a 10 V source with 2 Ω in series feeds node A. From A to the return wire there is a 3 Ω resistor, and a 2 A source pushes current up into A."
+      }
+    },
+    {
+      "heading": null,
+      "list": [
+        "Vth by nodal analysis at A: (Va − 10) ÷ 2 + Va ÷ 3 − 2 = 0. Multiply by 6: 3Va − 30 + 2Va − 12 = 0, so 5Va = 42 and Vth = 8.4 V",
+        "Rth with both sources turned off (10 V shorted, 2 A opened): 2 Ω in parallel with 3 Ω = 6 ÷ 5 = 1.2 Ω",
+        "In from Vth ÷ Rth: 8.4 ÷ 1.2 = 7 A",
+        "Check In directly: shorting A to B puts 0 V across the 3 Ω, so the 10 V source drives 10 ÷ 2 = 5 A into the short and the current source adds 2 A, giving 7 A. Both routes agree",
+        "Maximum power transfer: a 1.2 Ω load takes Vth² ÷ (4Rth) = 8.4² ÷ 4.8 = 70.56 ÷ 4.8 = 14.7 W"
+      ]
+    },
+    {
+      "heading": "Example 2: a dependent source",
+      "figure": {
+        "name": "thevenin-gate-dependent-source",
+        "caption": "Example 2: a 12 V source with 4 Ω in series carries Ix into node A. From A, a 2 Ω resistor in series with a dependent source of 4Ix (+ at the top) returns to B."
+      }
+    },
+    {
+      "heading": null,
+      "list": [
+        "Vth: with A and B open, Ix flows through the 4 Ω, the 2 Ω and the dependent source. KVL: 12 = 4Ix + 2Ix + 4Ix, so Ix = 1.2 A and Vth = 12 − 4 × 1.2 = 7.2 V. Check from the other branch: 2 × 1.2 + 4 × 1.2 = 7.2 V",
+        "In: short A to B. Now Ix = 12 ÷ 4 = 3 A, and the right-hand branch has 0 V across it: 2I2 + 4 × 3 = 0, so I2 = −6 A (6 A flows up out of that branch into A). KCL at A: In = Ix − I2 = 3 + 6 = 9 A",
+        "Rth = Vth ÷ In = 7.2 ÷ 9 = 0.8 Ω",
+        "Check with a test source: turn off only the 12 V source and apply V at A. Then Ix = −V ÷ 4, the branch current is (V − 4Ix) ÷ 2 = (V + V) ÷ 2 = V, and the test source supplies V − (−V ÷ 4) = 1.25V. So Rth = V ÷ 1.25V = 0.8 Ω, matching",
+        "Maximum power: a 0.8 Ω load takes 7.2² ÷ (4 × 0.8) = 51.84 ÷ 3.2 = 16.2 W"
+      ]
+    },
+    {
+      "heading": "Why the dependent source can't be switched off",
+      "body": "If you had shorted the 4Ix source in example 2, you'd get Rth = 4 Ω in parallel with 2 Ω = 1.33 Ω instead of 0.8 Ω, and every answer downstream would be wrong. A dependent source isn't an independent supply. It's part of how the circuit responds, so it stays in while you find Rth. With dependent sources Rth can even come out negative, which is why the test-source method is the safe default whenever a dependent source is present."
+    },
+    {
+      "heading": "Maximum power transfer in AC circuits",
+      "body": "In sinusoidal steady state the same idea uses impedances: the load that takes maximum average power is the complex conjugate of the Thevenin impedance, ZL = Zth*. The reactances cancel, and the power is |Vth|² ÷ (4Rth) with Vth as an RMS value. If only a pure resistance is allowed as the load, the best choice is RL = |Zth|, which gives less power than the conjugate match."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Turning off a dependent source while finding Rth",
+        "Replacing a current source with a short instead of an open circuit when turning it off",
+        "Getting the sign of In wrong: In points the same way as the current Vth would push through an external short",
+        "Using peak values in |Vth|² ÷ (4Rth) when the question gives RMS, or the other way round",
+        "Forgetting to check: Vth ÷ In and the turned-off-source method must give the same Rth whenever both apply"
+      ]
+    },
+    {
+      "heading": "Go deeper",
+      "links": [
+        {
+          "label": "Thevenin's and Norton's theorems: the basics, with diagrams",
+          "href": "/resources/thevenin-norton-theorems"
+        },
+        {
+          "label": "Kirchhoff's current and voltage laws",
+          "href": "/resources/kirchhoffs-laws"
+        },
+        {
+          "label": "Network theory formulas to know for GATE EC and EE",
+          "href": "/blog/network-theory-formulas-gate"
+        }
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 EC syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/EC_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 EE syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/EE_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 IN syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/IN_GATE2027_Syllabus.pdf"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website, information brochure and syllabus PDFs from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Network theory formulas for GATE",
+      "href": "/blog/network-theory-formulas-gate"
+    },
+    {
+      "label": "GATE ECE: a subject-by-subject study order",
+      "href": "/blog/gate-ece-preparation-study-order"
+    }
+  ]
+}

@@ -104,6 +104,15 @@
       }
     },
     {
+      "heading": null,
+      "links": [
+        {
+          "label": "For the score formula on its own, with a single-session example and the 25 and 40 limits on the qualifying mark, read GATE score vs marks: how your score is calculated.",
+          "href": "/blog/gate-score-calculation-marks-vs-score"
+        }
+      ]
+    },
+    {
       "heading": "What else the brochure is clear about",
       "body": "A GATE 2027 scorecard is valid for three years from the date results are announced, and there are no hard copies: you download it from the GOAPS portal during the download window. After that window a fee applies, and from 1 January 2028 scorecards for GATE 2027 will not be issued at all. Download it as soon as results are out and keep a copy."
     },
@@ -119,7 +128,7 @@
     },
     {
       "heading": "Preparing for it",
-      "body": "Normalization protects you from an unlucky session, so the only number worth chasing is your standing among the candidates in your paper. That comes from covering the syllabus thoroughly and practising under timed conditions. Studyloaf's exam countdown runs to the official GATE 2027 start date of 6 February, and the free portion tracker has syllabus packs for GATE CS, ECE, ME and BT."
+      "body": "Normalization protects you from an unlucky session, so the only number worth chasing is your standing among the candidates in your paper. That comes from covering the syllabus thoroughly and practising under timed conditions. Studyloaf's exam countdown runs to the official GATE 2027 start date of 6 February, and the free portion tracker has syllabus packs for GATE CS, ECE, EE, ME and BT."
     }
   ],
   "relatedLinks": [

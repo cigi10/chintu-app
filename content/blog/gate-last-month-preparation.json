@@ -1,0 +1,124 @@
+{
+  "slug": "gate-last-month-preparation",
+  "title": "The Last 30 Days Before GATE: A Revision Plan",
+  "description": "GATE last month preparation, day by day: from 7 January to 5 February 2027, a revision pass, seven full-length papers with reviews, and a taper, plus how to turn mock mistakes into a plan.",
+  "author": "Studyloaf Team",
+  "readingTime": "6 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "study-skills",
+  "tags": [
+    "gate",
+    "revision-planning",
+    "mock-tests"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "The last month before GATE isn't for new topics. It's for turning what you know into marks under a 3-hour clock. This plan counts back from Saturday 6 February 2027, the first GATE 2027 exam day, and uses only dates confirmed on the official site."
+    },
+    {
+      "heading": "The dates",
+      "body": "Thirty days before 6 February 2027 is Thursday 7 January, so day 1 is 7 January and day 30 is Friday 5 February. Exam cities are notified on 4 January, three days before the plan starts, so check yours on the official site and sort out travel early. If your admit card puts you on a later weekend, you gain 7 or 14 days: spend them on more papers and reviews, not new topics."
+    },
+    {
+      "heading": "The plan",
+      "table": {
+        "caption": "30 days to 6 February 2027",
+        "columns": [
+          "Days",
+          "Dates",
+          "Work"
+        ],
+        "rows": [
+          [
+            "1 to 10",
+            "7 to 16 January",
+            "One fast revision pass through every section, from your own short notes and formula sheets"
+          ],
+          [
+            "11 to 23",
+            "17 to 29 January",
+            "A full 3-hour paper on days 11, 13, 15, 17, 19, 21 and 23; the day after each, a full review"
+          ],
+          [
+            "24 to 28",
+            "30 January to 3 February",
+            "Fix the weakest topics your reviews found; short timed sets only"
+          ],
+          [
+            "29 to 30",
+            "4 to 5 February",
+            "Light revision of formula sheets, admit card and travel checks, sleep"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Worked example: reading your mistake log",
+      "body": "Suppose that across your first three papers you log 18 questions lost: 7 to concepts you didn't know, 6 to calculation slips and 5 to misreading the question. Calculation slips and misreading are 11 of 18, about 61%, and both are fixed by habits rather than new study: slower first reading, writing units, and re-checking the final number. So days 24 to 28 go mostly to timed practice with a checking routine, and only the 7 concept gaps get topic time, starting with whichever topics they share."
+    },
+    {
+      "heading": "Pacing a 3-hour paper",
+      "body": "GATE 2027 gives you 180 minutes for 65 questions, an average of about 2.8 minutes per question, though 2-mark questions deserve more than 1-mark ones. A simple routine: a first pass answering everything you can do quickly, a second pass on the longer ones, and the last few minutes to re-check. Remember the marking: a blind guess on an MCQ gains nothing on average, while MSQs and numerical-answer questions carry no negative marking."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Starting a new topic in the last fortnight",
+        "Taking full papers without reviewing them",
+        "Practising with a physical calculator when the exam allows only the on-screen one",
+        "Leaving exam-city travel to the last day"
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 Important Dates",
+          "href": "https://gate2027.iitm.ac.in/important_dates"
+        },
+        {
+          "label": "GATE 2027 question paper pattern",
+          "href": "https://gate2027.iitm.ac.in/question_paper_pattern"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website, information brochure and syllabus PDFs from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Common mistakes in GATE NAT questions",
+      "href": "/blog/gate-nat-questions-common-mistakes"
+    },
+    {
+      "label": "A 90-day GATE study plan",
+      "href": "/blog/gate-90-day-study-plan"
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "slug": "network-theory-formulas-gate",
+  "title": "Network Theory Formulas to Know for GATE EC and EE",
+  "description": "Network theory formulas for GATE EC and EE in one place: dividers, star-delta, first-order transients, RLC resonance and Q, complex power, two-port parameters and three-phase power, each with a worked number.",
+  "author": "Studyloaf Team",
+  "readingTime": "8 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "college-careers",
+  "tags": [
+    "gate",
+    "engineering-fundamentals"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "Circuits are the first block of both the GATE EC syllabus (Networks, Signals and Systems) and the GATE EE syllabus (Electric circuits). The formulas below are the ones those 2027 syllabi call for, grouped by topic, each with a quick worked number. Two topics are named in only one of the two: balanced three-phase circuits and resonance are listed in the EE syllabus, while EC covers RL, RC and RLC circuits in the time and frequency domains without naming resonance."
+    },
+    {
+      "heading": "Dividers, sources and the basic elements",
+      "table": {
+        "caption": "Basics",
+        "columns": [
+          "Idea",
+          "Formula"
+        ],
+        "rows": [
+          [
+            "Voltage divider (series)",
+            "Vx = V × Rx ÷ (R1 + R2 + ...)"
+          ],
+          [
+            "Current divider (two branches)",
+            "I1 = I × R2 ÷ (R1 + R2)"
+          ],
+          [
+            "Inductor and capacitor",
+            "v = L di/dt, i = C dv/dt. Inductor current and capacitor voltage can't jump instantly"
+          ],
+          [
+            "Energy stored",
+            "½Li² in an inductor, ½Cv² in a capacitor"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Star-delta (wye-delta) conversion",
+      "body": "Delta to star: each star arm equals the product of the two delta resistors touching that node, divided by the sum of all three. Star to delta: each delta resistor equals the sum of the pairwise products of the star arms, divided by the star arm opposite it. Worked number: a delta of 10 Ω, 20 Ω and 30 Ω (sum 60 Ω) becomes star arms of 10 × 20 ÷ 60 = 3.33 Ω, 20 × 30 ÷ 60 = 10 Ω and 10 × 30 ÷ 60 = 5 Ω. For three equal resistors the rule simplifies to RY = RΔ ÷ 3, so a 30 Ω delta is a 10 Ω star."
+    },
+    {
+      "heading": "First-order transients (RC and RL)",
+      "body": "Any voltage or current in a circuit with one capacitor or one inductor follows x(t) = x(∞) + [x(0⁺) − x(∞)]e^(−t/τ), with τ = RC or τ = L/R, where R is the Thevenin resistance seen by the capacitor or inductor. Worked number: a 5 µF capacitor charging from 0 V towards 10 V through 2 kΩ has τ = 2000 × 5 × 10⁻⁶ = 10 ms. At t = 20 ms, two time constants, v = 10(1 − e⁻²) = 8.65 V."
+    },
+    {
+      "heading": "Second-order circuits and resonance",
+      "table": {
+        "caption": "Series and parallel RLC",
+        "columns": [
+          "Quantity",
+          "Series RLC",
+          "Parallel RLC"
+        ],
+        "rows": [
+          [
+            "Resonant frequency",
+            "ω0 = 1 ÷ √(LC)",
+            "ω0 = 1 ÷ √(LC)"
+          ],
+          [
+            "Quality factor",
+            "Q = (1 ÷ R)√(L ÷ C) = ω0L ÷ R",
+            "Q = R√(C ÷ L) = ω0RC"
+          ],
+          [
+            "Bandwidth",
+            "ω0 ÷ Q = R ÷ L",
+            "ω0 ÷ Q = 1 ÷ (RC)"
+          ],
+          [
+            "Damping ratio (step response)",
+            "ζ = (R ÷ 2)√(C ÷ L)",
+            "ζ = (1 ÷ 2R)√(L ÷ C)"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Worked number: series RLC",
+      "body": "R = 10 Ω, L = 10 mH and C = 1 µF. Then LC = 10⁻⁸, so ω0 = 10⁴ rad/s, or f0 = 10⁴ ÷ 2π ≈ 1591.5 Hz. Q = (1 ÷ 10)√(0.01 ÷ 10⁻⁶) = 0.1 × 100 = 10. Bandwidth = R ÷ L = 1000 rad/s (about 159.2 Hz), which is ω0 ÷ Q as it should be. The damping ratio is ζ = 5 × √(10⁻⁴) = 0.05, which equals 1 ÷ (2Q): the circuit is heavily underdamped and rings when switched."
+    },
+    {
+      "heading": "AC power",
+      "body": "Complex power is S = V I* = P + jQ, with V and I as RMS phasors. P is in watts, Q in volt-amperes reactive, |S| in volt-amperes, and the power factor is cos(θv − θi). Worked number: V = 230∠0° V and I = 10∠−30° A give S = 2300∠30° VA, so P = 2300 cos 30° ≈ 1991.9 W, Q = 2300 sin 30° = 1150 var, and the power factor is 0.866 lagging. For maximum power transfer, a DC load should equal Rth, and an AC load should be the conjugate ZL = Zth*."
+    },
+    {
+      "heading": "Two-port parameters",
+      "table": {
+        "caption": "Two-port definitions (I1 and I2 both flow into the network)",
+        "columns": [
+          "Set",
+          "Equations",
+          "Reciprocal when"
+        ],
+        "rows": [
+          [
+            "Z",
+            "V1 = z11 I1 + z12 I2; V2 = z21 I1 + z22 I2",
+            "z12 = z21"
+          ],
+          [
+            "Y",
+            "I1 = y11 V1 + y12 V2; I2 = y21 V1 + y22 V2",
+            "y12 = y21"
+          ],
+          [
+            "h",
+            "V1 = h11 I1 + h12 V2; I2 = h21 I1 + h22 V2",
+            "h12 = −h21"
+          ],
+          [
+            "ABCD",
+            "V1 = A V2 − B I2; I1 = C V2 − D I2",
+            "AD − BC = 1"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Balanced three-phase (EE)",
+      "body": "Star: line voltage = √3 × phase voltage, line current = phase current. Delta: line voltage = phase voltage, line current = √3 × phase current. Either way, total power P = √3 VL IL cos φ. Worked number: a 400 V star-connected balanced load of 8 + j6 Ω per phase (|Z| = 10 Ω, power factor 0.8). Phase voltage = 400 ÷ √3 ≈ 230.9 V, current ≈ 23.09 A, and P = √3 × 400 × 23.09 × 0.8 = 12,800 W. Check: 3I²R = 3 × (23.09)² × 8 = 12,800 W."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Using peak values in power formulas that assume RMS",
+        "Mixing up series and parallel Q: series Q rises with L ÷ C and falls with R, parallel Q rises with R",
+        "Forgetting that the R in τ = RC is the Thevenin resistance seen by the capacitor, not just the resistor next to it",
+        "Using I2 out of the port in the ABCD equations but into the port everywhere else, or the other way round",
+        "Applying √3 to phase quantities in the wrong connection: star multiplies voltage, delta multiplies current"
+      ]
+    },
+    {
+      "heading": "Go deeper",
+      "links": [
+        {
+          "label": "Thevenin and Norton theorems for GATE, with solved examples",
+          "href": "/blog/thevenin-theorem-gate-solved-examples"
+        },
+        {
+          "label": "Kirchhoff's current and voltage laws",
+          "href": "/resources/kirchhoffs-laws"
+        },
+        {
+          "label": "Thevenin's and Norton's theorems: the basics",
+          "href": "/resources/thevenin-norton-theorems"
+        }
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 EC syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/EC_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 EE syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/EE_GATE2027_Syllabus.pdf"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website, information brochure and syllabus PDFs from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Thevenin and Norton theorems for GATE",
+      "href": "/blog/thevenin-theorem-gate-solved-examples"
+    },
+    {
+      "label": "Fourier series for GATE signals and systems",
+      "href": "/blog/fourier-series-gate-signals-systems"
+    }
+  ]
+}

@@ -38,6 +38,14 @@ export default function BlogIndexPage() {
           <p className="blog-subtitle">Exam guides and study advice, organised by subject.</p>
         </div>
 
+        <aside className="blog-callout" aria-labelledby="blog-gate-callout">
+          <h2 id="blog-gate-callout" className="blog-callout-title">GATE 2027</h2>
+          <p className="blog-callout-text">
+            Official dates, the 2027 syllabi, study plans and every GATE guide in one place.
+          </p>
+          <Link href="/gate" className="blog-callout-link">Open the GATE 2027 hub</Link>
+        </aside>
+
         <section className="blog-category-section" aria-labelledby="blog-subjects">
           <h2 id="blog-subjects" className="blog-category-title">Browse by subject</h2>
           <div className="blog-list">

@@ -1,0 +1,145 @@
+{
+  "slug": "fourier-series-gate-signals-systems",
+  "title": "Fourier Series for GATE Signals and Systems",
+  "description": "Fourier series for GATE EC, EE and IN: the trigonometric and exponential forms, symmetry shortcuts, Parseval's theorem, and three worked examples including a square wave through a filter.",
+  "author": "Studyloaf Team",
+  "readingTime": "8 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "college-careers",
+  "tags": [
+    "gate",
+    "engineering-fundamentals"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "Fourier series appear in three GATE 2027 syllabi: under Networks, Signals and Systems in EC, under both Engineering Mathematics and Signals and Systems in EE, and under Signals and Systems in IN. GATE tends to test them through symmetry, power and filtering rather than long integrals. This post collects the formulas and works three examples, all checked numerically."
+    },
+    {
+      "heading": "The two forms",
+      "list": [
+        "Trigonometric: x(t) = a0 + Σ [an cos(nω0t) + bn sin(nω0t)], with a0 = (1/T)∫x dt, an = (2/T)∫x cos(nω0t) dt and bn = (2/T)∫x sin(nω0t) dt over one period T, where ω0 = 2π/T",
+        "Exponential: x(t) = Σ ck e^(jkω0t), with ck = (1/T)∫x e^(−jkω0t) dt. For real signals c(−k) is the complex conjugate of ck, and ck = (ak − jbk)/2 for k ≥ 1",
+        "Parseval: average power = a0² + ½Σ(an² + bn²) = Σ|ck|²",
+        "Through an LTI system with frequency response H(jω), each coefficient ck becomes ck H(jkω0)"
+      ]
+    },
+    {
+      "heading": "Symmetry shortcuts",
+      "table": {
+        "caption": "What symmetry tells you before you integrate",
+        "columns": [
+          "Symmetry",
+          "Consequence"
+        ],
+        "rows": [
+          [
+            "Even: x(−t) = x(t)",
+            "Only a0 and cosine terms (all bn = 0)"
+          ],
+          [
+            "Odd: x(−t) = −x(t)",
+            "Only sine terms (a0 = 0 and all an = 0)"
+          ],
+          [
+            "Half-wave: x(t + T/2) = −x(t)",
+            "Only odd harmonics, and a0 = 0"
+          ],
+          [
+            "Zero average",
+            "a0 = 0"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Example 1: a square wave",
+      "body": "A square wave of period 2π is +A for 0 < t < π and −A for π < t < 2π. It is odd and has half-wave symmetry, so only odd sine terms survive. Integrating gives bn = 2A(1 − (−1)ⁿ)/(nπ), which is 4A/(nπ) for odd n and 0 for even n: b1 = 4A/π ≈ 1.273A, b3 = 4A/(3π) ≈ 0.424A, b5 = 4A/(5π) ≈ 0.255A. Parseval checks it: the power is A², and ½Σ(4A/nπ)² over odd n = (8A²/π²)(1 + 1/9 + 1/25 + ...) = (8A²/π²)(π²/8) = A²."
+    },
+    {
+      "heading": "Example 2: the square wave through a low-pass filter",
+      "body": "Take A = 1 V and ω0 = 1000 rad/s, and pass the wave through an ideal low-pass filter with cutoff 2000 rad/s. Only the fundamental gets through, so the output is (4/π) sin(1000t), an amplitude of about 1.273 V, carrying (4/π)²/2 ÷ 1 = 8/π² ≈ 81.1% of the input power. Raise the cutoff to 4000 rad/s and the third harmonic passes too: the output then carries 8/π² × (1 + 1/9) ≈ 90.1% of the power."
+    },
+    {
+      "heading": "Example 3: a rectangular pulse train",
+      "body": "A pulse train of height 1 and period T, with each pulse lasting T/4 and centred on t = 0, is even, so its coefficients are real: c0 = 1/4 (the duty cycle) and ck = sin(kπ/4)/(kπ). So c1 = √2/(2π) ≈ 0.2251, c2 = 1/(2π) ≈ 0.1592, c3 = √2/(6π) ≈ 0.0750, and c4 = 0: every fourth harmonic vanishes because the duty cycle is 1/4. The total power is 1/4, and the harmonics up to |k| = 4 already hold 0.2257 of it, about 90.3%."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Using 1/T instead of 2/T for an and bn, or 2/T for the exponential ck",
+        "Forgetting that a0 in the trigonometric form is the average value, not half of it (some books write a0/2 with a different definition; stay with one convention)",
+        "Integrating when symmetry already says a coefficient is zero",
+        "Applying Parseval to a single-sided sum of |ck|² and missing the negative-k terms",
+        "Mixing up rad/s and Hz when deciding which harmonics a filter passes"
+      ]
+    },
+    {
+      "heading": "Go deeper",
+      "links": [
+        {
+          "label": "Fourier series: the reference page",
+          "href": "/resources/fourier-series"
+        },
+        {
+          "label": "Network theory formulas to know for GATE EC and EE",
+          "href": "/blog/network-theory-formulas-gate"
+        }
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "GATE 2027 EC syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/EC_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 EE syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/EE_GATE2027_Syllabus.pdf"
+        },
+        {
+          "label": "GATE 2027 IN syllabus (PDF)",
+          "href": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/IN_GATE2027_Syllabus.pdf"
+        }
+      ]
+    },
+    {
+      "heading": "Plan with Studyloaf",
+      "links": [
+        {
+          "label": "GATE 2027 hub: dates, syllabi and every GATE guide",
+          "href": "/gate"
+        },
+        {
+          "label": "GATE 2027 countdown",
+          "href": "/countdown/gate-2027"
+        },
+        {
+          "label": "Free timetable generator",
+          "href": "/tools/timetable-generator"
+        },
+        {
+          "label": "Syllabus tracker with GATE CS, ECE, EE, ME and BT packs",
+          "href": "/tracker"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Every GATE 2027 fact in this post was checked against the official GATE 2027 website, information brochure and syllabus PDFs from IIT Madras on 7 October 2026. Official dates and rules can change, so confirm anything you plan around on the official site."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Network theory formulas for GATE",
+      "href": "/blog/network-theory-formulas-gate"
+    },
+    {
+      "label": "GATE ECE: a subject-by-subject study order",
+      "href": "/blog/gate-ece-preparation-study-order"
+    }
+  ]
+}
