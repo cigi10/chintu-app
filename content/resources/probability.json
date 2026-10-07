@@ -1,0 +1,121 @@
+{
+  "slug": "probability",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "What is probability?",
+      "blocks": [
+        {
+          "math": "P(A) = \\dfrac{\\text{number of favourable outcomes}}{\\text{total number of outcomes}}"
+        },
+        {
+          "p": "For example, 4 of the 52 cards in a standard deck are Kings, so $P(\\text{King}) = \\dfrac{4}{52} = \\dfrac{1}{13}$."
+        }
+      ]
+    },
+    {
+      "heading": "The addition rule",
+      "blocks": [
+        {
+          "math": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)"
+        },
+        {
+          "p": "**Worked example:** the probability of drawing a heart or a King is $\\dfrac{13}{52} + \\dfrac{4}{52} - \\dfrac{1}{52} = \\dfrac{16}{52} = \\dfrac{4}{13}$, subtracting the King of hearts so it isn't counted twice."
+        }
+      ]
+    },
+    {
+      "heading": "Independent vs. dependent events",
+      "blocks": [
+        {
+          "p": "Independent events don't affect each other: tossing a coin and rolling a die, $P(\\text{Head and 3}) = \\dfrac{1}{2}\\times\\dfrac{1}{6} = \\dfrac{1}{12}$."
+        },
+        {
+          "p": "Dependent events do: drawing a King and then a Queen without replacement, $P = \\dfrac{4}{52}\\times\\dfrac{4}{51} = \\dfrac{4}{663}$."
+        }
+      ]
+    },
+    {
+      "heading": "Conditional probability",
+      "blocks": [
+        {
+          "math": "P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)}"
+        },
+        {
+          "p": "**Worked example:** of 50 students surveyed, 35 play basketball, and 25 of those are boys. The probability that a basketball player is a boy is $\\dfrac{25/50}{35/50} = \\dfrac{5}{7} \\approx 0.71$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: Bayes' theorem",
+      "blocks": [
+        {
+          "p": "Machine A makes 60% of a factory's parts and 2% of its parts are defective; machine B makes the other 40%, with 5% defective. A part is picked at random and found to be defective. What is the probability it came from machine A?"
+        },
+        {
+          "math": "P(\\text{defective}) = 0.6 \\times 0.02 + 0.4 \\times 0.05 = 0.012 + 0.020 = 0.032"
+        },
+        {
+          "math": "P(A \\mid \\text{defective}) = \\dfrac{0.012}{0.032} = \\dfrac{3}{8} = 0.375"
+        },
+        {
+          "p": "So although A makes most of the parts, a defective part is more likely (62.5%) to come from B."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the complement rule",
+      "blocks": [
+        {
+          "p": "What is the probability of getting at least one six in four rolls of a fair die?"
+        },
+        {
+          "p": "**Solution:** \"At least one\" has many cases; its complement, \"no six at all\", has one. Each roll misses a six with probability $\\tfrac{5}{6}$, independently, so:"
+        },
+        {
+          "math": "P(\\text{at least one six}) = 1 - \\left(\\dfrac{5}{6}\\right)^4 = 1 - \\dfrac{625}{1296} = \\dfrac{671}{1296} \\approx 0.518"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Confusing independent with mutually exclusive.** Mutually exclusive events can't both happen; independent ones can.",
+            "**Swapping the condition.** $P(A \\mid B)$ and $P(B \\mid A)$ are different numbers, as the Bayes example shows.",
+            "**Ignoring replacement.** Without replacement, the second draw's total drops by one.",
+            "**Double counting in a union.** Subtract the overlap $P(A \\cap B)$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "JEE Main 2026 lists the addition and multiplication theorems of probability and Bayes' theorem, and JEE Advanced 2026 lists conditional probability, independence, total probability and Bayes' theorem. The 2025-26 CBSE Class XII syllabus lists conditional probability, the multiplication theorem, independent events, total probability and Bayes' theorem, and the GATE 2027 CS syllabus lists conditional probability and Bayes theorem.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027",
+      "gate-2027"
+    ],
+    "sources": [
+      "jee-main-2026",
+      "jee-advanced-2026",
+      "cbse-11-12-2025-26",
+      "gate-2027-cs"
+    ]
+  },
+  "related": {
+    "intro": "Counting the outcomes in a probability question is often a permutations or combinations problem.",
+    "links": [
+      {
+        "label": "Permutations and Combinations",
+        "href": "/resources/permutations-and-combinations"
+      },
+      {
+        "label": "Operations on Sets",
+        "href": "/resources/operations-on-sets"
+      }
+    ]
+  }
+}

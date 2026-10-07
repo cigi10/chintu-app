@@ -1,0 +1,108 @@
+{
+  "slug": "types-of-functions",
+  "datePublished": "2026-09-22",
+  "sections": [
+    {
+      "heading": "The definitions",
+      "blocks": [
+        {
+          "p": "A function $f$ is **one-one** (injective) if different inputs always give different outputs, and **onto** (surjective) if every element of the codomain is hit. A function that is both is **bijective**, which is exactly the condition for it to be **invertible**."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: checking one-one and onto",
+      "blocks": [
+        {
+          "p": "Let $f: \\mathbb{N} \\to \\mathbb{N}$ with $f(n) = \\dfrac{n+1}{2}$ for odd $n$ and $\\dfrac{n}{2}$ for even $n$. Since $f(1) = f(2) = 1$, $f$ is not one-one. For any $m$, $f(2m) = m$, so $f$ is onto."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: restricting the domain",
+      "blocks": [
+        {
+          "p": "$f(x) = x^2$ on $\\mathbb{R}$ is not one-one, because $f(-3) = f(3) = 9$. Restricted to $[0, \\infty)$, different inputs give different squares, so it is one-one, and as a map onto $[0, \\infty)$ it is bijective, with inverse $\\sqrt{x}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: finding an inverse",
+      "blocks": [
+        {
+          "p": "For $f: \\mathbb{N} \\to S$, $f(x) = 4x^2+12x+15$ with $S$ the range, complete the square: $f(x) = 4\\left(x+\\tfrac{3}{2}\\right)^2 + 6$. Since $x + \\tfrac{3}{2} > 0$ on $\\mathbb{N}$, solving is reversible:"
+        },
+        {
+          "math": "x = \\dfrac{\\sqrt{y-6}-3}{2}, \\qquad f^{-1}(y) = \\dfrac{\\sqrt{y-6}-3}{2}"
+        },
+        {
+          "p": "Check: $f(5) = 100 + 60 + 15 = 175$, and $\\dfrac{\\sqrt{169}-3}{2} = \\dfrac{13-3}{2} = 5$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a reflection is an inverse",
+      "blocks": [
+        {
+          "p": "For $f(x) = (x+1)^2$ with $x \\ge -1$, the reflection of its graph in $y = x$ is the inverse: $y = (x+1)^2 \\Rightarrow x = \\sqrt{y} - 1$, so $g(x) = \\sqrt{x} - 1$."
+        }
+      ]
+    },
+    {
+      "heading": "Counting functions between finite sets",
+      "blocks": [
+        {
+          "p": "From a set of 3 elements to a set of 4, each input has 4 choices, so there are $4^3 = 64$ functions, of which $4 \\times 3 \\times 2 = 24$ are one-one. From a 4-element set onto a 3-element set, inclusion and exclusion gives $3^4 - 3 \\cdot 2^4 + 3 \\cdot 1^4 = 81 - 48 + 3 = 36$ onto functions."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a linear function",
+      "blocks": [
+        {
+          "p": "Show that $f: \\mathbb{R} \\to \\mathbb{R}$, $f(x) = 3x - 5$ is bijective and find its inverse."
+        },
+        {
+          "p": "**Solution:** If $3a - 5 = 3b - 5$ then $a = b$, so $f$ is one-one. For any real $y$, $x = \\dfrac{y+5}{3}$ is real and $f(x) = y$, so $f$ is onto. Hence $f^{-1}(y) = \\dfrac{y+5}{3}$. The same argument works for any $f(x) = ax + b$ with $a \\ne 0$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Ignoring the codomain.** Whether $f$ is onto depends on the stated codomain, not just the formula.",
+            "**Inverting a function that isn't one-one.** Restrict the domain first.",
+            "**Taking both square roots when inverting.** The domain decides which sign is correct."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists one to one and onto functions. JEE Main 2026 lists one-one, into and onto functions and the composition of functions, and JEE Advanced 2026 lists invertible functions and into, onto and one-to-one functions.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "Composition is the next step once inverses are clear, and relations sit underneath functions.",
+    "links": [
+      {
+        "label": "Composition of Functions (gof and fog)",
+        "href": "/resources/composition-of-functions"
+      },
+      {
+        "label": "Types of Relations",
+        "href": "/resources/types-of-relations"
+      }
+    ]
+  }
+}

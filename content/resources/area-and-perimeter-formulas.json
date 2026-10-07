@@ -1,0 +1,120 @@
+{
+  "slug": "area-and-perimeter-formulas",
+  "datePublished": "2026-09-23",
+  "sections": [
+    {
+      "heading": "Rectangle and square",
+      "blocks": [
+        {
+          "math": "\\text{Rectangle: Area} = l \\times b, \\qquad \\text{Perimeter} = 2(l+b)"
+        },
+        {
+          "math": "\\text{Square: Area} = a^2, \\qquad \\text{Perimeter} = 4a"
+        }
+      ]
+    },
+    {
+      "heading": "Circle and sector",
+      "blocks": [
+        {
+          "math": "\\text{Circle: Area} = \\pi r^2, \\qquad \\text{Circumference} = 2\\pi r"
+        },
+        {
+          "p": "A sector is the pie-slice region between two radii and an arc, spanning an angle $C$ in degrees:"
+        },
+        {
+          "math": "\\text{Area of sector} = \\pi r^2 \\times \\dfrac{C}{360}, \\qquad \\text{Perimeter of sector} = 2r + 2\\pi r \\times \\dfrac{C}{360}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a sector",
+      "blocks": [
+        {
+          "p": "A garden bed is a quarter circle of radius 14 m. Find its area and the length of edging needed around it."
+        },
+        {
+          "p": "**Solution:** With $C = 90$, the area is $\\pi(14)^2 \\times \\dfrac{90}{360} = 49\\pi \\approx 153.94$ m². The edging runs along both straight radii and the arc:"
+        },
+        {
+          "math": "2(14) + 2\\pi(14) \\times \\dfrac{90}{360} = 28 + 7\\pi \\approx 49.99 \\text{ m}"
+        }
+      ]
+    },
+    {
+      "heading": "Triangle, including Heron's formula",
+      "blocks": [
+        {
+          "p": "With a known base and height, the area is $\\dfrac{1}{2} \\times \\text{base} \\times \\text{height}$. When only the three sides are known, Heron's formula avoids needing the height:"
+        },
+        {
+          "math": "s = \\dfrac{a+b+c}{2}, \\qquad \\text{Area} = \\sqrt{s(s-a)(s-b)(s-c)}"
+        },
+        {
+          "p": "**Worked example:** for sides 5, 6 and 7, $s = 9$ and the area is $\\sqrt{9 \\times 4 \\times 3 \\times 2} = \\sqrt{216} = 6\\sqrt{6} \\approx 14.70$."
+        }
+      ]
+    },
+    {
+      "heading": "Regular pentagon",
+      "blocks": [
+        {
+          "p": "A regular pentagon splits into 5 identical triangles meeting at its centre, so its area is 5 times one of them. With side $a$:"
+        },
+        {
+          "math": "\\text{Area} = \\dfrac{5a^2}{4\\tan 36^\\circ}, \\qquad \\text{Perimeter} = 5a"
+        },
+        {
+          "p": "For $a = 2$, the area is $\\dfrac{20}{4\\tan 36^\\circ} \\approx 6.88$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: same perimeter, different area",
+      "blocks": [
+        {
+          "p": "A rectangle is 12 cm by 8 cm. A square has the same perimeter. Which has the larger area?"
+        },
+        {
+          "p": "**Solution:** The rectangle's perimeter is $2(12 + 8) = 40$ cm, so the square's side is $40 \\div 4 = 10$ cm. The square's area is $100$ cm², larger than the rectangle's $96$ cm². For a fixed perimeter, the square has the largest area of any rectangle."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Using the diameter as the radius.** Halve it first.",
+            "**Leaving out the radii in a sector's perimeter.** The boundary is the arc plus two straight edges.",
+            "**Mixing degrees and radians.** The sector formulas above use $C$ in degrees; in radians the area is $\\tfrac{1}{2}r^2\\theta$.",
+            "**Using Heron's formula with the perimeter instead of the semi-perimeter.** $s$ is *half* of $a + b + c$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class IX syllabus lists the area of a triangle using Heron's formula. Mensuration and geometry are also part of the General Aptitude syllabus in every GATE 2027 paper.",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "cbse-9-10-2025-26",
+      "gate-2027-brochure"
+    ]
+  },
+  "related": {
+    "intro": "Three-dimensional shapes build their surface areas from these flat formulas.",
+    "links": [
+      {
+        "label": "Surface Area and Volume Formulas Reference",
+        "href": "/resources/surface-area-and-volume-formulas"
+      },
+      {
+        "label": "Area of a Triangle Using Determinants",
+        "href": "/resources/area-of-a-triangle-determinants"
+      }
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "slug": "area-of-a-triangle-determinants",
+  "datePublished": "2026-09-22",
+  "sections": [
+    {
+      "heading": "The formula",
+      "blocks": [
+        {
+          "p": "For a triangle with vertices $(x_1,y_1)$, $(x_2,y_2)$ and $(x_3,y_3)$, the area is half the absolute value of a determinant:"
+        },
+        {
+          "math": "\\text{Area} = \\dfrac{1}{2} \\left| \\begin{vmatrix} x_1 & y_1 & 1 \\\\ x_2 & y_2 & 1 \\\\ x_3 & y_3 & 1 \\end{vmatrix} \\right|"
+        },
+        {
+          "p": "The determinant can be negative, depending on the order the vertices are listed in (it is positive for anticlockwise order), but an area never is, hence the absolute value."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Find the area of the triangle with vertices $(2,7)$, $(1,1)$ and $(10,8)$."
+        },
+        {
+          "math": "\\begin{vmatrix} 2 & 7 & 1 \\\\ 1 & 1 & 1 \\\\ 10 & 8 & 1 \\end{vmatrix} = 2(1-8) - 7(1-10) + 1(8-10) = -14 + 63 - 2 = 47"
+        },
+        {
+          "p": "So the area is $\\dfrac{47}{2}$ square units."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: testing for collinearity",
+      "blocks": [
+        {
+          "p": "Are $(1,2)$, $(3,6)$ and $(5,10)$ collinear?"
+        },
+        {
+          "math": "\\begin{vmatrix} 1 & 2 & 1 \\\\ 3 & 6 & 1 \\\\ 5 & 10 & 1 \\end{vmatrix} = 1(6-10) - 2(3-5) + 1(30-30) = -4 + 4 + 0 = 0"
+        },
+        {
+          "p": "A zero area means the three points lie on one line, here $y = 2x$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: an unknown vertex",
+      "blocks": [
+        {
+          "p": "The triangle with vertices $(k,0)$, $(4,0)$ and $(0,2)$ has area 4. Find $k$."
+        },
+        {
+          "math": "\\dfrac{1}{2}\\left|k(0-2) + 4(2-0) + 0(0-0)\\right| = 4 \\;\\Rightarrow\\; |8-2k| = 8"
+        },
+        {
+          "p": "So $8 - 2k = 8$ or $8 - 2k = -8$, giving $k = 0$ or $k = 8$. Both work: the base along the $x$-axis is 4 units either way, and the height is 2."
+        }
+      ]
+    },
+    {
+      "heading": "Why the order of the vertices changes the sign",
+      "blocks": [
+        {
+          "p": "Listing the vertices of the first example in the order $(2,7)$, $(10,8)$, $(1,1)$ swaps two rows of the determinant, which flips its sign: it becomes $-47$. Anticlockwise order gives a positive value and clockwise a negative one, which is why the formula takes the absolute value before halving."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a quadrilateral",
+      "blocks": [
+        {
+          "p": "Find the area of the quadrilateral with vertices $(0,0)$, $(4,0)$, $(5,3)$ and $(1,4)$, taken in that order."
+        },
+        {
+          "p": "**Solution:** Split it along the diagonal from $(0,0)$ to $(5,3)$ into two triangles and apply the formula to each:"
+        },
+        {
+          "math": "\\dfrac{1}{2}\\left|\\begin{vmatrix} 0 & 0 & 1 \\\\ 4 & 0 & 1 \\\\ 5 & 3 & 1 \\end{vmatrix}\\right| = 6, \\qquad \\dfrac{1}{2}\\left|\\begin{vmatrix} 0 & 0 & 1 \\\\ 5 & 3 & 1 \\\\ 1 & 4 & 1 \\end{vmatrix}\\right| = \\dfrac{17}{2}"
+        },
+        {
+          "p": "The total is $6 + \\dfrac{17}{2} = \\dfrac{29}{2}$ square units. The split only works along a diagonal that lies inside the shape, which it does here because the quadrilateral is convex."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Dropping the absolute value.** A negative determinant still gives a positive area.",
+            "**Forgetting the $\\tfrac{1}{2}$.** The determinant alone is twice the area.",
+            "**Keeping only one solution** when the area is given: $|D| = c$ has two cases, $D = c$ and $D = -c$.",
+            "**Using this in 3D.** For points with three coordinates, use the cross product instead."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "JEE Main 2026 lists the area of triangles using determinants in its Matrices and Determinants unit, and the 2025-26 CBSE Class XII syllabus lists applications of determinants in finding the area of a triangle.",
+    "countdowns": [
+      "jee-2027"
+    ],
+    "sources": [
+      "jee-main-2026",
+      "cbse-11-12-2025-26"
+    ]
+  },
+  "related": {
+    "intro": "For triangles in three dimensions the cross product does the same job.",
+    "links": [
+      {
+        "label": "Area of a Triangle and Parallelogram Using Vectors",
+        "href": "/resources/area-of-a-triangle-and-parallelogram-vectors"
+      },
+      {
+        "label": "Solving a System of Equations with Matrices",
+        "href": "/resources/matrices-system-of-equations"
+      }
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "slug": "surface-area-and-volume-formulas",
+  "datePublished": "2026-09-23",
+  "sections": [
+    {
+      "heading": "Cuboid, cube and sphere",
+      "blocks": [
+        {
+          "math": "\\text{Cuboid: Surface Area} = 2(lb+lh+bh), \\qquad \\text{Volume} = lbh"
+        },
+        {
+          "math": "\\text{Cube: Surface Area} = 6l^2, \\qquad \\text{Volume} = l^3"
+        },
+        {
+          "math": "\\text{Sphere: Surface Area} = 4\\pi r^2, \\qquad \\text{Volume} = \\dfrac{4}{3}\\pi r^3"
+        },
+        {
+          "p": "A **hemisphere** has curved surface area $2\\pi r^2$, total surface area $3\\pi r^2$ (curved part plus the flat circular face) and volume $\\dfrac{2}{3}\\pi r^3$."
+        }
+      ]
+    },
+    {
+      "heading": "Cylinder",
+      "blocks": [
+        {
+          "math": "\\text{Surface Area} = 2\\pi rh + 2\\pi r^2, \\qquad \\text{Volume} = \\pi r^2 h"
+        },
+        {
+          "p": "**Worked example:** for a cylinder with $r = 7$ and $h = 10$, using $\\pi \\approx \\tfrac{22}{7}$ since 7 divides out cleanly:"
+        },
+        {
+          "math": "\\text{Volume} = \\dfrac{22}{7} \\times 49 \\times 10 = 1540, \\qquad \\text{Surface Area} = 2 \\times \\dfrac{22}{7} \\times 7 \\times (10+7) = 44 \\times 17 = 748"
+        }
+      ]
+    },
+    {
+      "heading": "Cone and its frustum",
+      "blocks": [
+        {
+          "p": "A cone's slant height is $l = \\sqrt{r^2+h^2}$:"
+        },
+        {
+          "math": "\\text{Surface Area} = \\pi r (r + l), \\qquad \\text{Volume} = \\dfrac{1}{3}\\pi r^2 h"
+        },
+        {
+          "p": "Slicing the top off a cone parallel to its base leaves a frustum with base radius $R$ and top radius $r$. Its slant height is the hypotenuse of a right triangle with legs $h$ and the radius gap $R - r$:"
+        },
+        {
+          "math": "s = \\sqrt{(R-r)^2 + h^2}"
+        },
+        {
+          "p": "**Worked example:** a frustum with $R = 5$, $r = 2$ and $h = 4$ has $s = \\sqrt{3^2 + 4^2} = 5$, so its lateral surface area is $\\pi(R + r)s = \\pi(7)(5) = 35\\pi$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a combined solid",
+      "blocks": [
+        {
+          "p": "A toy is a cone of radius 3 cm and height 4 cm standing on a hemisphere of the same radius. Find its volume and its outer surface area."
+        },
+        {
+          "p": "**Solution:** The cone's slant height is $l = \\sqrt{3^2 + 4^2} = 5$ cm. The volumes add, because the two solids fill different space:"
+        },
+        {
+          "math": "V = \\dfrac{2}{3}\\pi(3)^3 + \\dfrac{1}{3}\\pi(3)^2(4) = 18\\pi + 12\\pi = 30\\pi \\approx 94.25 \\text{ cm}^3"
+        },
+        {
+          "p": "For the outer surface, only the curved parts are exposed: the flat circle where the cone meets the hemisphere is hidden inside."
+        },
+        {
+          "math": "\\text{Area} = 2\\pi(3)^2 + \\pi(3)(5) = 18\\pi + 15\\pi = 33\\pi \\approx 103.67 \\text{ cm}^2"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Adding the hidden face.** In a combined solid, a face where two parts join isn't on the outside; leave it out of the surface area.",
+            "**Using the vertical height in $\\pi r l$.** The curved surface of a cone uses the slant height $l$, not $h$.",
+            "**The frustum slant height.** It's $\\sqrt{(R-r)^2 + h^2}$, built from the *difference* of the radii, not $R^2 - r^2$.",
+            "**Units.** Areas are in square units and volumes in cubic units; convert every length to one unit first."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class IX syllabus lists surface areas and volumes of spheres, hemispheres and right circular cones, and Class X lists surface areas and volumes of combinations of cubes, cuboids, spheres, hemispheres and right circular cylinders and cones. Mensuration and geometry are also part of the General Aptitude syllabus in every GATE 2027 paper.",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "cbse-9-10-2025-26",
+      "gate-2027-brochure"
+    ]
+  },
+  "related": {
+    "intro": "Flat-shape formulas come first, and the same Pythagoras step gives every slant height here.",
+    "links": [
+      {
+        "label": "Area and Perimeter Formulas Reference",
+        "href": "/resources/area-and-perimeter-formulas"
+      },
+      {
+        "label": "Pythagoras Theorem",
+        "href": "/resources/pythagoras-theorem"
+      }
+    ]
+  }
+}

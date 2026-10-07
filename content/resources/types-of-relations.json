@@ -1,0 +1,107 @@
+{
+  "slug": "types-of-relations",
+  "datePublished": "2026-09-22",
+  "sections": [
+    {
+      "heading": "The four definitions",
+      "blocks": [
+        {
+          "p": "A relation $R$ on a set $A$ is a collection of ordered pairs from $A$. It is:"
+        },
+        {
+          "list": [
+            "**Reflexive** if $(a,a) \\in R$ for every $a \\in A$.",
+            "**Symmetric** if $(a,b) \\in R$ always forces $(b,a) \\in R$.",
+            "**Transitive** if $(a,b) \\in R$ and $(b,c) \\in R$ together force $(a,c) \\in R$.",
+            "An **equivalence relation** if it is all three."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: reflexive and transitive, but not symmetric",
+      "blocks": [
+        {
+          "p": "$R = \\{(a,b) : a \\le b\\}$ on the real numbers is reflexive ($a \\le a$) and transitive ($a \\le b$ and $b \\le c$ give $a \\le c$), but not symmetric: $1 \\le 2$ while $2 \\le 1$ is false."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: an equivalence relation",
+      "blocks": [
+        {
+          "p": "$R = \\{(a,b) : 5 \\text{ divides } a-b\\}$ on $\\mathbb{Z}$ is reflexive ($5$ divides $0$), symmetric ($5$ divides $a - b$ if and only if it divides $b - a$) and transitive ($a - c = (a-b) + (b-c)$). It splits $\\mathbb{Z}$ into 5 equivalence classes, one for each remainder $0, 1, 2, 3, 4$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: fixing a relation to make it symmetric",
+      "blocks": [
+        {
+          "p": "On $A=\\{a,b,c\\}$, $R = \\{(a,a),(a,b),(a,c),(b,c),(c,a)\\}$ needs $(b,a)$ and $(c,b)$ added to be symmetric; every other pair already has its reverse."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the smallest equivalence relation",
+      "blocks": [
+        {
+          "p": "The smallest equivalence relation on $\\{1, 2, 3\\}$ containing $(1, 2)$ needs all three pairs $(1,1), (2,2), (3,3)$ for reflexivity and $(2,1)$ for symmetry. That set is already transitive, so the answer is $\\{(1,1),(2,2),(3,3),(1,2),(2,1)\\}$."
+        }
+      ]
+    },
+    {
+      "heading": "Counting relations",
+      "blocks": [
+        {
+          "p": "On a set with $n$ elements there are $n^2$ ordered pairs, so $2^{n^2}$ relations. For $n = 3$ that's $2^9 = 512$. A reflexive relation must contain the 3 diagonal pairs and may contain any of the other 6, so there are $2^6 = 64$ reflexive relations. There are exactly 5 equivalence relations on a 3-element set, one for each way of splitting it into groups."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: equivalence classes on a finite set",
+      "blocks": [
+        {
+          "p": "On $\\{1, 2, 3, 4, 5, 6\\}$, let $a\\,R\\,b$ when $a$ and $b$ leave the same remainder on division by 3. This is an equivalence relation, and it splits the set into three classes that don't overlap and together cover everything: $\\{1, 4\\}$, $\\{2, 5\\}$ and $\\{3, 6\\}$. Every equivalence relation does this: its classes form a partition of the set."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Calling a relation reflexive because some $(a,a)$ appear.** Every element needs its pair.",
+            "**Forgetting vacuous truth.** The empty relation on a non-empty set is symmetric and transitive but not reflexive.",
+            "**Checking transitivity on a few pairs only.** Check every chain $(a,b), (b,c)$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists reflexive, symmetric, transitive and equivalence relations. JEE Main 2026 lists relations, types of relations and equivalence relations, and JEE Advanced 2026 lists relations, their domain and codomain, and equivalence relations.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "A function is a special kind of relation, covered next.",
+    "links": [
+      {
+        "label": "Types of Functions",
+        "href": "/resources/types-of-functions"
+      },
+      {
+        "label": "Binary Operation",
+        "href": "/resources/binary-operation"
+      }
+    ]
+  }
+}

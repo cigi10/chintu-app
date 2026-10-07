@@ -1,0 +1,140 @@
+{
+  "slug": "inverse-trigonometric-functions",
+  "datePublished": "2026-09-22",
+  "sections": [
+    {
+      "heading": "Principal value ranges",
+      "blocks": [
+        {
+          "p": "Because $\\sin$, $\\cos$ and the rest repeat, each inverse is defined on one principal value branch:"
+        },
+        {
+          "table": {
+            "caption": "Principal value branches",
+            "columns": [
+              "Function",
+              "Domain",
+              "Range"
+            ],
+            "rows": [
+              [
+                "$\\sin^{-1}x$",
+                "$[-1, 1]$",
+                "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$"
+              ],
+              [
+                "$\\cos^{-1}x$",
+                "$[-1, 1]$",
+                "$[0, \\pi]$"
+              ],
+              [
+                "$\\tan^{-1}x$",
+                "$\\mathbb{R}$",
+                "$\\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$"
+              ],
+              [
+                "$\\cot^{-1}x$",
+                "$\\mathbb{R}$",
+                "$(0, \\pi)$"
+              ],
+              [
+                "$\\sec^{-1}x$",
+                "$\\mathbb{R} - (-1, 1)$",
+                "$[0, \\pi] - \\left\\{\\tfrac{\\pi}{2}\\right\\}$"
+              ],
+              [
+                "$\\csc^{-1}x$",
+                "$\\mathbb{R} - (-1, 1)$",
+                "$\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right] - \\{0\\}$"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: evaluating a mixed expression",
+      "blocks": [
+        {
+          "p": "With $\\theta = \\cos^{-1}\\dfrac{1}{\\sqrt5}$ and $\\sin\\left(\\tfrac{\\pi}{2}+\\theta\\right) = \\cos\\theta$, $\\sin\\left(\\dfrac{\\pi}{2} + \\cos^{-1}\\dfrac{1}{\\sqrt5}\\right) = \\dfrac{1}{\\sqrt5}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a principal value",
+      "blocks": [
+        {
+          "p": "$\\cot^{-1}\\left(-\\dfrac{1}{\\sqrt3}\\right)$ must lie in $(0, \\pi)$. Since $\\cot\\tfrac{\\pi}{3} = \\tfrac{1}{\\sqrt3}$ and cotangent is negative in the second quadrant, the answer is $\\pi - \\dfrac{\\pi}{3} = \\dfrac{2\\pi}{3}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: undoing sine",
+      "blocks": [
+        {
+          "p": "Find $\\sin^{-1}\\left(\\sin\\dfrac{2\\pi}{3}\\right)$. It isn't $\\dfrac{2\\pi}{3}$, which is outside $\\left[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right]$. Since $\\sin\\tfrac{2\\pi}{3} = \\sin\\tfrac{\\pi}{3}$ and $\\tfrac{\\pi}{3}$ is in the range, the answer is $\\dfrac{\\pi}{3}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a domain fact",
+      "blocks": [
+        {
+          "p": "$\\sec\\theta$ only takes values with $|\\sec\\theta| \\ge 1$, so $\\sec^{-1}x$ accepts only $|x| \\ge 1$: its domain is $\\mathbb{R} - (-1, 1)$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: two identities",
+      "blocks": [
+        {
+          "p": "**$\\tan^{-1}x + \\cot^{-1}x = \\dfrac{\\pi}{2}$.** Let $\\theta = \\tan^{-1}x$, so $\\theta \\in \\left(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}\\right)$ and $\\cot\\left(\\tfrac{\\pi}{2}-\\theta\\right) = \\tan\\theta = x$. Since $\\tfrac{\\pi}{2} - \\theta$ lies in $(0, \\pi)$, it is $\\cot^{-1}x$."
+        },
+        {
+          "p": "**$\\tan^{-1}1 + \\tan^{-1}\\dfrac{1}{2} + \\tan^{-1}\\dfrac{1}{3} = \\dfrac{\\pi}{2}$.** Using $\\tan^{-1}a + \\tan^{-1}b = \\tan^{-1}\\dfrac{a+b}{1-ab}$ for $ab < 1$:"
+        },
+        {
+          "math": "\\tan^{-1}\\dfrac{1}{2} + \\tan^{-1}\\dfrac{1}{3} = \\tan^{-1}\\dfrac{\\tfrac{5}{6}}{1-\\tfrac{1}{6}} = \\tan^{-1}1 = \\dfrac{\\pi}{4}, \\qquad \\dfrac{\\pi}{4} + \\dfrac{\\pi}{4} = \\dfrac{\\pi}{2}"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Reading $\\sin^{-1}x$ as $\\dfrac{1}{\\sin x}$.** That's $\\csc x$.",
+            "**Cancelling $\\sin^{-1}(\\sin\\theta) = \\theta$ outside the principal range.**",
+            "**Using the tangent sum formula when $ab > 1$.** Then a correction of $\\pm\\pi$ is needed.",
+            "**Mixing up ranges:** $\\cos^{-1}$ and $\\cot^{-1}$ give angles between 0 and $\\pi$, while $\\sin^{-1}$ and $\\tan^{-1}$ are centred on 0."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists the definition, range, domain, principal value branch and graphs of inverse trigonometric functions. JEE Main 2026 lists inverse trigonometrical functions and their properties, and JEE Advanced 2026 lists inverse trigonometric functions (principal value only) and their elementary properties.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "These rest on the standard trigonometric values and identities.",
+    "links": [
+      {
+        "label": "Trigonometry Basics",
+        "href": "/resources/trigonometry"
+      },
+      {
+        "label": "Finding Direction Cosines",
+        "href": "/resources/direction-cosines"
+      }
+    ]
+  }
+}

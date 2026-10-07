@@ -1,0 +1,112 @@
+{
+  "slug": "complex-numbers",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "What are complex numbers?",
+      "blocks": [
+        {
+          "p": "No real number squares to a negative, so we define $i = \\sqrt{-1}$, which gives $\\sqrt{-25} = 5i$. A complex number is $x + iy$ with real part $x$ and imaginary part $y$."
+        }
+      ]
+    },
+    {
+      "heading": "Modulus, argument and conjugate",
+      "blocks": [
+        {
+          "p": "In polar form $x + iy = r(\\cos\\theta + i\\sin\\theta)$, where $r = \\sqrt{x^2+y^2}$ is the modulus and $\\theta$ the argument, chosen so that $\\cos\\theta = \\tfrac{x}{r}$ and $\\sin\\theta = \\tfrac{y}{r}$. The conjugate of $x + iy$ is $x - iy$, and $(x+iy)(x-iy) = x^2 + y^2$."
+        }
+      ]
+    },
+    {
+      "heading": "Arithmetic on complex numbers",
+      "blocks": [
+        {
+          "p": "Add by combining real and imaginary parts: $(1+2i) + (2+i) = 3+3i$. Multiply using $i^2 = -1$:"
+        },
+        {
+          "math": "z_1 z_2 = (x_1x_2 - y_1y_2) + i(x_1y_2 + x_2y_1)"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: multiplying and dividing",
+      "blocks": [
+        {
+          "math": "(3+2i)(1-4i) = 3 - 12i + 2i - 8i^2 = 11 - 10i"
+        },
+        {
+          "p": "To divide, multiply top and bottom by the conjugate of the denominator:"
+        },
+        {
+          "math": "\\dfrac{2+3i}{1-i} = \\dfrac{(2+3i)(1+i)}{(1-i)(1+i)} = \\dfrac{2 + 5i + 3i^2}{2} = \\dfrac{-1+5i}{2}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the argument in the right quadrant",
+      "blocks": [
+        {
+          "p": "Find the modulus and argument of $-1 + \\sqrt3\\,i$."
+        },
+        {
+          "p": "**Solution:** $r = \\sqrt{1 + 3} = 2$. A calculator's $\\tan^{-1}\\left(\\tfrac{\\sqrt3}{-1}\\right)$ gives $-\\tfrac{\\pi}{3}$, but the point $(-1, \\sqrt3)$ is in the second quadrant, so the argument is $\\pi - \\tfrac{\\pi}{3} = \\dfrac{2\\pi}{3}$. Check: $2\\left(\\cos\\tfrac{2\\pi}{3} + i\\sin\\tfrac{2\\pi}{3}\\right) = 2\\left(-\\tfrac{1}{2} + \\tfrac{\\sqrt3}{2}i\\right) = -1 + \\sqrt3\\,i$."
+        }
+      ]
+    },
+    {
+      "heading": "Powers of i",
+      "blocks": [
+        {
+          "p": "Powers of $i$ repeat every 4: $i^0 = 1$, $i^1 = i$, $i^2 = -1$, $i^3 = -i$, $i^4 = 1$. Divide the exponent by 4 and use the remainder: $45 = 4 \\times 11 + 1$, so $i^{45} = i$. Negative powers cycle too: $i^{-1} = -i$, $i^{-2} = -1$, $i^{-3} = i$, $i^{-4} = 1$."
+        }
+      ]
+    },
+    {
+      "heading": "The modulus of a product",
+      "blocks": [
+        {
+          "p": "Moduli multiply: $|z_1 z_2| = |z_1||z_2|$. From the example above, $|3+2i| = \\sqrt{13}$ and $|1-4i| = \\sqrt{17}$, so the product should have modulus $\\sqrt{221}$. Directly, $|11 - 10i| = \\sqrt{121 + 100} = \\sqrt{221}$, which matches. Arguments add in the same way, which is why multiplying by $i$ rotates a point by $90^\\circ$ on the Argand plane."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Taking the argument straight from $\\tan^{-1}(y/x)$.** Check the quadrant, as in the example above.",
+            "**Writing $i^2 = 1$.** It's $-1$.",
+            "**Dividing without the conjugate.** Multiply numerator and denominator by the denominator's conjugate to make it real.",
+            "**Treating $\\sqrt{a}\\sqrt{b} = \\sqrt{ab}$ as always true.** With two negatives it fails: $\\sqrt{-1}\\sqrt{-1} = -1$, not $1$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "JEE Main 2026 lists complex numbers in the form a + ib, the Argand diagram, their algebra, and modulus and argument. JEE Advanced 2026 lists the algebra of complex numbers, conjugation, polar representation and the modulus and principal argument, and the 2025-26 CBSE Class XI syllabus lists the algebraic properties of complex numbers and the Argand plane.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "jee-main-2026",
+      "jee-advanced-2026",
+      "cbse-11-12-2025-26"
+    ]
+  },
+  "related": {
+    "intro": "Complex roots appear whenever a quadratic's discriminant is negative.",
+    "links": [
+      {
+        "label": "Quadratic Equations",
+        "href": "/resources/quadratic-equations"
+      },
+      {
+        "label": "Inverse Trigonometric Functions",
+        "href": "/resources/inverse-trigonometric-functions"
+      }
+    ]
+  }
+}

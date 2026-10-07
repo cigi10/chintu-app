@@ -1,0 +1,99 @@
+{
+  "slug": "vector-calculus-gradient-divergence-curl",
+  "datePublished": "2026-09-25",
+  "sections": [
+    {
+      "heading": "Three operators, three different outputs",
+      "blocks": [
+        {
+          "list": [
+            "**Gradient** $\\nabla f$ takes a scalar field and returns a vector field pointing where $f$ increases fastest.",
+            "**Divergence** $\\nabla\\cdot F$ takes a vector field and returns a scalar measuring how much the field spreads out from a point.",
+            "**Curl** $\\nabla\\times F$ takes a vector field and returns a vector measuring its local rotation."
+          ]
+        },
+        {
+          "math": "\\nabla f = \\left(\\dfrac{\\partial f}{\\partial x}, \\dfrac{\\partial f}{\\partial y}, \\dfrac{\\partial f}{\\partial z}\\right), \\qquad \\nabla \\cdot F = \\dfrac{\\partial F_1}{\\partial x} + \\dfrac{\\partial F_2}{\\partial y} + \\dfrac{\\partial F_3}{\\partial z}"
+        },
+        {
+          "math": "\\nabla \\times F = \\left(\\dfrac{\\partial F_3}{\\partial y}-\\dfrac{\\partial F_2}{\\partial z},\\; \\dfrac{\\partial F_1}{\\partial z}-\\dfrac{\\partial F_3}{\\partial x},\\; \\dfrac{\\partial F_2}{\\partial x}-\\dfrac{\\partial F_1}{\\partial y}\\right)"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: gradient",
+      "blocks": [
+        {
+          "p": "For $f(x,y,z) = x^2yz^3$, $\\nabla f = (2xyz^3,\\; x^2z^3,\\; 3x^2yz^2)$. At $(1,2,1)$ this is $(4, 1, 6)$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: divergence and curl of a rotating field",
+      "blocks": [
+        {
+          "p": "For $F = (y, -x, 0)$: $\\nabla\\cdot F = 0 + 0 + 0 = 0$, and $\\nabla\\times F = (0-0,\\; 0-0,\\; -1-1) = (0,0,-2)$. Nothing flows in or out, and the field rotates about the $z$-axis, which is what the zero divergence and the $z$-directed curl say."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a field that both spreads and turns",
+      "blocks": [
+        {
+          "p": "For $F = (xy,\\; yz,\\; zx)$, find $\\nabla\\cdot F$ and $\\nabla\\times F$ at $(1,2,3)$."
+        },
+        {
+          "math": "\\nabla\\cdot F = y + z + x = 6 \\text{ at } (1,2,3)"
+        },
+        {
+          "math": "\\nabla\\times F = \\left(0 - y,\\; 0 - z,\\; 0 - x\\right) = (-y, -z, -x) = (-2, -3, -1) \\text{ at } (1,2,3)"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the curl of a gradient",
+      "blocks": [
+        {
+          "p": "Using $\\nabla f = (2xyz^3,\\; x^2z^3,\\; 3x^2yz^2)$ from above, the first component of its curl is $\\dfrac{\\partial}{\\partial y}(3x^2yz^2) - \\dfrac{\\partial}{\\partial z}(x^2z^3) = 3x^2z^2 - 3x^2z^2 = 0$, and the other two vanish the same way. In general $\\nabla\\times(\\nabla f) = \\vec{0}$ for any smooth $f$, a quick check on a computed gradient."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Writing divergence as a vector.** It's a scalar; curl is the vector.",
+            "**Swapping the order inside a curl component.** The first component is $\\partial F_3/\\partial y - \\partial F_2/\\partial z$, not the reverse.",
+            "**Evaluating before differentiating.** Substitute the point only after taking the derivatives.",
+            "**Taking the gradient of a vector field.** Gradient acts on a scalar function."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Gradient, divergence and curl are listed under Vector Analysis in the GATE 2027 EC syllabus and under Calculus in the ME syllabus; the EE syllabus lists vector identities, directional derivatives and the divergence and Stokes theorems.",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "gate-2027-ec",
+      "gate-2027-me",
+      "gate-2027-ee"
+    ]
+  },
+  "related": {
+    "intro": "Every derivative here is a partial derivative, covered on its own page.",
+    "links": [
+      {
+        "label": "Partial Differentiation",
+        "href": "/resources/partial-differentiation"
+      },
+      {
+        "label": "Operations on Vectors",
+        "href": "/resources/operations-on-vectors"
+      }
+    ]
+  }
+}

@@ -56,6 +56,31 @@
       ]
     },
     {
+      "heading": "Worked example: where the slope is zero",
+      "blocks": [
+        {
+          "p": "Find where $y = \\dfrac{x^2+1}{x-1}$ has a horizontal tangent."
+        },
+        {
+          "math": "y' = \\dfrac{2x(x-1) - (x^2+1)(1)}{(x-1)^2} = \\dfrac{x^2-2x-1}{(x-1)^2}"
+        },
+        {
+          "p": "The derivative is zero where the numerator is: $x^2 - 2x - 1 = 0$, so $x = 1 \\pm \\sqrt2$. Both are allowed, since neither makes the denominator zero."
+        },
+        {
+          "p": "The same rule gives $\\dfrac{d}{dx}\\sec x = \\dfrac{d}{dx}\\dfrac{1}{\\cos x} = \\dfrac{0 \\cdot \\cos x - 1 \\cdot (-\\sin x)}{\\cos^2 x} = \\sec x\\tan x$."
+        }
+      ]
+    },
+    {
+      "heading": "When not to use the quotient rule",
+      "blocks": [
+        {
+          "p": "If the numerator is a constant, rewriting is quicker: $\\dfrac{1}{x^2} = x^{-2}$, so the power rule gives $-2x^{-3}$ at once. The quotient rule agrees, $\\dfrac{0 \\cdot x^2 - 1 \\cdot 2x}{x^4} = -\\dfrac{2}{x^3}$, but takes longer and gives more chances to slip."
+        }
+      ]
+    },
+    {
       "heading": "Common mistakes",
       "blocks": [
         {
@@ -69,6 +94,18 @@
       ]
     }
   ],
+  "exam": {
+    "note": "JEE Main 2026 lists differentiation of the sum, difference, product and quotient of two functions, JEE Advanced 2026 lists the derivative of the sum, difference, product and quotient of two functions, and the 2025-26 CBSE Class XI syllabus lists the derivative of sum, difference, product and quotient of functions.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "jee-main-2026",
+      "jee-advanced-2026",
+      "cbse-11-12-2025-26"
+    ]
+  },
   "related": {
     "links": [
       {

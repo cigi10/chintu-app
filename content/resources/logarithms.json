@@ -1,0 +1,125 @@
+{
+  "slug": "logarithms",
+  "datePublished": "2026-09-17",
+  "sections": [
+    {
+      "heading": "What is a logarithm?",
+      "blocks": [
+        {
+          "p": "A logarithm asks what power a base must be raised to in order to produce a number: $2^4 = 16 \\iff \\log_2 16 = 4$. Likewise $6^4 = 1296$, so $\\log_6 1296 = 4$."
+        },
+        {
+          "p": "The logarithm of a number between 0 and 1 is negative ($\\log_{10} 0.01 = -2$), and the logarithm of zero or a negative number is undefined for real numbers."
+        }
+      ]
+    },
+    {
+      "heading": "Common, natural and binary logarithms",
+      "blocks": [
+        {
+          "list": [
+            "**Common** (base 10): $\\log_{10} 1000 = 3$.",
+            "**Natural** (base $e \\approx 2.71828$), written $\\ln x$: it appears in continuous growth, such as $FV = PV \\cdot e^{it}$.",
+            "**Binary** (base 2), common in computer science: $\\log_2 8 = 3$."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Logarithm rules",
+      "blocks": [
+        {
+          "math": "\\log_b(xy) = \\log_b x + \\log_b y, \\qquad \\log_b\\!\\left(\\dfrac{x}{y}\\right) = \\log_b x - \\log_b y, \\qquad \\log_b(x^y) = y\\log_b x"
+        },
+        {
+          "math": "\\log_b x = \\dfrac{\\log_k x}{\\log_k b} \\;\\;\\text{(change of base)}, \\qquad b^{\\log_b x} = x"
+        },
+        {
+          "p": "For example, $\\log_8 32 = \\dfrac{\\log_2 32}{\\log_2 8} = \\dfrac{5}{3}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: solving a log equation",
+      "blocks": [
+        {
+          "p": "Solve $\\log_2 x + \\log_2(x-2) = 3$."
+        },
+        {
+          "p": "**Solution:** Combine the logs: $\\log_2[x(x-2)] = 3$, so $x(x-2) = 8$, that is $x^2 - 2x - 8 = 0$, giving $x = 4$ or $x = -2$. Only $x = 4$ works: $x = -2$ would need $\\log_2(-2)$, which is undefined. Check: $\\log_2 4 + \\log_2 2 = 2 + 1 = 3$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: counting digits",
+      "blocks": [
+        {
+          "p": "How many digits does $2^{50}$ have, given $\\log_{10} 2 \\approx 0.30103$?"
+        },
+        {
+          "p": "**Solution:** $\\log_{10} 2^{50} = 50 \\times 0.30103 = 15.05$. A number $N$ with $\\log_{10} N$ between 15 and 16 has 16 digits. (Indeed $2^{50} = 1{,}125{,}899{,}906{,}842{,}624$.)"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: simplifying with the rules",
+      "blocks": [
+        {
+          "p": "Each of these collapses to a whole number once the rules are applied in the right order:"
+        },
+        {
+          "math": "\\log_{10} 2 + \\log_{10} 5 = \\log_{10} 10 = 1, \\qquad \\log_3 81 - \\log_3 9 = \\log_3 9 = 2"
+        },
+        {
+          "math": "2\\log_6 3 + \\log_6 4 - \\log_6 6 = \\log_6\\dfrac{9 \\times 4}{6} = \\log_6 6 = 1"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: an exponential equation",
+      "blocks": [
+        {
+          "p": "Solve $3^x = 20$. Take logarithms of both sides and bring the power down: $x\\log 3 = \\log 20$, so $x = \\dfrac{\\log 20}{\\log 3} \\approx 2.727$. This is the change-of-base formula in action: $x = \\log_3 20$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Splitting a sum.** $\\log(x + y)$ is not $\\log x + \\log y$; the rule is for a product.",
+            "**Keeping invalid roots.** Check every solution in the original equation's domain.",
+            "**Inverting change of base.** It's $\\dfrac{\\log x}{\\log b}$, with the base underneath.",
+            "**Assuming $\\log$ means $\\ln$.** Check which base the question uses."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Powers, exponents and logarithms are listed under numerical computation in the General Aptitude syllabus of every GATE 2027 paper. JEE Advanced 2026 lists logarithms and their properties, and JEE Main 2026 lists logarithmic functions in its limits, continuity and differentiability unit.",
+    "countdowns": [
+      "gate-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "gate-2027-brochure",
+      "jee-advanced-2026",
+      "jee-main-2026"
+    ]
+  },
+  "related": {
+    "intro": "Logarithms undo exponents, and they also solve growth and decay differential equations.",
+    "links": [
+      {
+        "label": "Laws of Exponents",
+        "href": "/resources/laws-of-exponents"
+      },
+      {
+        "label": "Differential Equations",
+        "href": "/resources/differential-equations"
+      }
+    ]
+  }
+}

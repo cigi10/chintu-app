@@ -103,6 +103,20 @@
       ]
     },
     {
+      "heading": "Worked example: a definite integral",
+      "blocks": [
+        {
+          "p": "Evaluate $\\displaystyle\\int_0^1 e^x(x+1)\\,dx$."
+        },
+        {
+          "p": "**Solution:** With $f(x) = x$, $f'(x) = 1$, so the integrand is $e^x[f(x)+f'(x)]$ and the antiderivative is $xe^x$:"
+        },
+        {
+          "math": "\\int_0^1 e^x(x+1)\\,dx = \\left[xe^x\\right]_0^1 = e - 0 = e \\approx 2.718"
+        }
+      ]
+    },
+    {
       "heading": "Common mistakes",
       "blocks": [
         {
@@ -114,6 +128,16 @@
       ]
     }
   ],
+  "exam": {
+    "note": "This pattern comes from integration by parts. JEE Main 2026 lists integration by substitution, by parts and by partial fractions, and the 2025-26 CBSE Class XII syllabus lists integration of a variety of functions by substitution, by partial fractions and by parts.",
+    "countdowns": [
+      "jee-2027"
+    ],
+    "sources": [
+      "jee-main-2026",
+      "cbse-11-12-2025-26"
+    ]
+  },
   "related": {
     "links": [
       {

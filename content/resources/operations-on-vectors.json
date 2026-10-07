@@ -1,0 +1,111 @@
+{
+  "slug": "operations-on-vectors",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "Adding and scaling vectors",
+      "blocks": [
+        {
+          "p": "Vectors add component by component, and a scalar multiplies every component: for $\\vec{a} = (a_1,a_2,a_3)$ and $\\vec{b} = (b_1,b_2,b_3)$, $\\vec{a}+\\vec{b} = (a_1+b_1, a_2+b_2, a_3+b_3)$ and $k\\vec{a} = (ka_1, ka_2, ka_3)$."
+        },
+        {
+          "p": "The **negative** of $\\vec{a}$, written $-\\vec{a}$, has the same magnitude but points the opposite way. If $\\vec{a} = \\overrightarrow{AB}$, then $-\\vec{a} = \\overrightarrow{BA}$."
+        }
+      ]
+    },
+    {
+      "heading": "Dot and cross products",
+      "blocks": [
+        {
+          "math": "\\vec{a}\\cdot\\vec{b} = a_1b_1 + a_2b_2 + a_3b_3 = |\\vec{a}||\\vec{b}|\\cos\\theta"
+        },
+        {
+          "math": "\\vec{a}\\times\\vec{b} = (a_2b_3-a_3b_2,\\; a_3b_1-a_1b_3,\\; a_1b_2-a_2b_1)"
+        },
+        {
+          "p": "The dot product is a number; the cross product is a vector perpendicular to both $\\vec{a}$ and $\\vec{b}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: all four operations",
+      "blocks": [
+        {
+          "p": "Let $\\vec{a} = 2\\hat{i}-\\hat{j}+3\\hat{k}$ and $\\vec{b} = \\hat{i}+4\\hat{j}-2\\hat{k}$."
+        },
+        {
+          "list": [
+            "$\\vec{a}+\\vec{b} = 3\\hat{i}+3\\hat{j}+\\hat{k}$ and $3\\vec{a}-2\\vec{b} = 4\\hat{i}-11\\hat{j}+13\\hat{k}$.",
+            "$\\vec{a}\\cdot\\vec{b} = 2 - 4 - 6 = -8$. With $|\\vec{a}| = \\sqrt{14}$ and $|\\vec{b}| = \\sqrt{21}$, $\\cos\\theta = \\dfrac{-8}{\\sqrt{294}} \\approx -0.467$, so $\\theta \\approx 117.8^\\circ$.",
+            "$\\vec{a}\\times\\vec{b} = ((-1)(-2)-(3)(4),\\; (3)(1)-(2)(-2),\\; (2)(4)-(-1)(1)) = (-10, 7, 9)$.",
+            "**Check:** $(-10,7,9)\\cdot\\vec{a} = -20-7+27 = 0$ and $(-10,7,9)\\cdot\\vec{b} = -10+28-18 = 0$, so the cross product is perpendicular to both."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a scalar triple product identity",
+      "blocks": [
+        {
+          "p": "Prove that $[\\vec{a}+\\vec{b}\\;\\;\\vec{b}+\\vec{c}\\;\\;\\vec{c}+\\vec{a}] = 2[\\vec{a}\\;\\;\\vec{b}\\;\\;\\vec{c}]$, where $[\\vec{x}\\;\\vec{y}\\;\\vec{z}] = \\vec{x}\\cdot(\\vec{y}\\times\\vec{z})$."
+        },
+        {
+          "p": "**Solution:** $(\\vec{b}+\\vec{c})\\times(\\vec{c}+\\vec{a}) = \\vec{b}\\times\\vec{c} + \\vec{b}\\times\\vec{a} + \\vec{c}\\times\\vec{a}$, since $\\vec{c}\\times\\vec{c} = \\vec{0}$. Dotting with $\\vec{a}+\\vec{b}$, every term where a vector meets a cross product containing itself vanishes, leaving $\\vec{a}\\cdot(\\vec{b}\\times\\vec{c}) + \\vec{b}\\cdot(\\vec{c}\\times\\vec{a})$. The scalar triple product is cyclic, so both terms equal $[\\vec{a}\\;\\vec{b}\\;\\vec{c}]$, and the sum is twice it."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: unit vectors summing to zero",
+      "blocks": [
+        {
+          "p": "If $\\vec{a}, \\vec{b}, \\vec{c}$ are unit vectors with $\\vec{a}+\\vec{b}+\\vec{c}=\\vec{0}$, find $\\vec{a}\\cdot\\vec{b} + \\vec{b}\\cdot\\vec{c} + \\vec{c}\\cdot\\vec{a}$."
+        },
+        {
+          "math": "|\\vec{a}+\\vec{b}+\\vec{c}|^2 = 3 + 2(\\vec{a}\\cdot\\vec{b}+\\vec{b}\\cdot\\vec{c}+\\vec{c}\\cdot\\vec{a}) = 0 \\;\\Rightarrow\\; \\vec{a}\\cdot\\vec{b}+\\vec{b}\\cdot\\vec{c}+\\vec{c}\\cdot\\vec{a} = -\\dfrac{3}{2}"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Treating the dot product as a vector.** It's a single number.",
+            "**Reversing the cross product.** $\\vec{b}\\times\\vec{a} = -(\\vec{a}\\times\\vec{b})$.",
+            "**Losing a sign in the middle component** of the cross product: it's $a_3b_1 - a_1b_3$.",
+            "**Skipping the perpendicularity check.** Dotting the cross product with each vector should give 0."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists addition of vectors, multiplication by a scalar, the negative of a vector, and the scalar (dot) and vector (cross) products. JEE Main 2026 lists the addition of vectors and scalar and vector products, and JEE Advanced 2026 lists dot and cross products and scalar and vector triple products.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "Unit vectors and projections are the natural next steps once these operations are routine.",
+    "links": [
+      {
+        "label": "Finding a Unit Vector",
+        "href": "/resources/unit-vector"
+      },
+      {
+        "label": "Projection of a Vector",
+        "href": "/resources/projection-of-a-vector"
+      },
+      {
+        "label": "Area of a Triangle and Parallelogram Using Vectors",
+        "href": "/resources/area-of-a-triangle-and-parallelogram-vectors"
+      }
+    ]
+  }
+}

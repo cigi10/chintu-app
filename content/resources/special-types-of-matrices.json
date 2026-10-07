@@ -1,0 +1,107 @@
+{
+  "slug": "special-types-of-matrices",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "Diagonal matrix",
+      "blocks": [
+        {
+          "p": "A square matrix is **diagonal** if every entry off the main diagonal is zero; the diagonal entries can be anything, including zero, as in $\\begin{bmatrix} 4 & 0 & 0 \\\\ 0 & -1 & 0 \\\\ 0 & 0 & 7 \\end{bmatrix}$."
+        }
+      ]
+    },
+    {
+      "heading": "Scalar matrix",
+      "blocks": [
+        {
+          "p": "A **scalar** matrix is a diagonal matrix with every diagonal entry equal to the same number $k$, such as $5I = \\begin{bmatrix} 5 & 0 & 0 \\\\ 0 & 5 & 0 \\\\ 0 & 0 & 5 \\end{bmatrix}$."
+        }
+      ]
+    },
+    {
+      "heading": "Identity matrix",
+      "blocks": [
+        {
+          "p": "The **identity** matrix $I$ is the scalar matrix with $k = 1$. It behaves like 1 in multiplication: $AI = IA = A$. So every identity matrix is scalar and every scalar matrix is diagonal, but not the other way round."
+        }
+      ]
+    },
+    {
+      "heading": "Zero and triangular matrices",
+      "blocks": [
+        {
+          "p": "The **zero** matrix $O$ has every entry 0. An **upper triangular** matrix has zeros below the diagonal, and a **lower triangular** one has zeros above it. A triangular matrix's determinant is the product of its diagonal: $\\det\\begin{bmatrix} 2 & 1 & 4 \\\\ 0 & -3 & 5 \\\\ 0 & 0 & 1 \\end{bmatrix} = 2 \\times (-3) \\times 1 = -6$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: how special matrices multiply",
+      "blocks": [
+        {
+          "math": "\\begin{bmatrix} 2 & 0 \\\\ 0 & 3 \\end{bmatrix}\\begin{bmatrix} 4 & 0 \\\\ 0 & -1 \\end{bmatrix} = \\begin{bmatrix} 8 & 0 \\\\ 0 & -3 \\end{bmatrix}"
+        },
+        {
+          "p": "Diagonal matrices multiply entry by entry along the diagonal. A scalar matrix $kI$ commutes with every square matrix of the same order, $kI \\cdot M = M \\cdot kI = kM$, and $\\det\\begin{bmatrix} 4 & 0 & 0 \\\\ 0 & -1 & 0 \\\\ 0 & 0 & 7 \\end{bmatrix} = -28$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: using a stated property",
+      "blocks": [
+        {
+          "p": "If $\\begin{bmatrix} x+2 & y-3 \\\\ 0 & 4 \\end{bmatrix}$ is a scalar matrix, the off-diagonal entry must be 0, so $y = 3$, and the diagonal entries must match, so $x + 2 = 4$ and $x = 2$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: matching determinants",
+      "blocks": [
+        {
+          "p": "If $\\begin{vmatrix} 3 & x \\\\ x & 1 \\end{vmatrix} = \\begin{vmatrix} 3 & 2 \\\\ 4 & 1 \\end{vmatrix}$, then $3 - x^2 = 3 - 8 = -5$, so $x^2 = 8$ and $x = \\pm 2\\sqrt2$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Calling any matrix with zeros on its diagonal a diagonal matrix.** It's the *off*-diagonal entries that must be zero.",
+            "**Assuming a diagonal matrix must be scalar.** Its diagonal entries can differ.",
+            "**Keeping only one root.** $x^2 = 8$ gives two values of $x$.",
+            "**Thinking only the identity commutes with everything.** Every scalar matrix $kI$ does."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists types of matrices, including the zero and identity matrix. JEE Main 2026 lists types of matrices, and JEE Advanced 2026 lists diagonal, symmetric and skew-symmetric matrices and their properties.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "These shapes come up again under matrix operations and square-matrix properties.",
+    "links": [
+      {
+        "label": "Square Matrix Properties",
+        "href": "/resources/square-matrix"
+      },
+      {
+        "label": "Operations on Matrices",
+        "href": "/resources/operations-on-matrices"
+      },
+      {
+        "label": "Symmetric and Skew-Symmetric Matrices",
+        "href": "/resources/symmetric-and-skew-symmetric-matrices"
+      }
+    ]
+  }
+}

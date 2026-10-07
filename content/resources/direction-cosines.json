@@ -1,0 +1,108 @@
+{
+  "slug": "direction-cosines",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "What they are",
+      "blocks": [
+        {
+          "p": "The direction cosines $(l, m, n)$ of a line are the cosines of the angles it makes with the $x$-, $y$- and $z$-axes. Any multiples $(a, b, c)$ of them are direction ratios; divide by the magnitude to get back to cosines:"
+        },
+        {
+          "math": "(l,m,n) = \\left(\\dfrac{a}{\\sqrt{a^2+b^2+c^2}}, \\dfrac{b}{\\sqrt{a^2+b^2+c^2}}, \\dfrac{c}{\\sqrt{a^2+b^2+c^2}}\\right), \\qquad l^2+m^2+n^2 = 1"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a coordinate axis",
+      "blocks": [
+        {
+          "p": "The $x$-axis has no $y$ or $z$ component, so its direction cosines are $(1, 0, 0)$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a line through two points",
+      "blocks": [
+        {
+          "p": "The line joining $(1,0,0)$ and $(0,1,1)$ has direction ratios $(-1, 1, 1)$ and magnitude $\\sqrt{3}$, so its direction cosines are $\\left(-\\dfrac{1}{\\sqrt3}, \\dfrac{1}{\\sqrt3}, \\dfrac{1}{\\sqrt3}\\right)$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: from direction ratios",
+      "blocks": [
+        {
+          "p": "For direction ratios $(2, -3, 6)$, the magnitude is $\\sqrt{4+9+36} = 7$, so the direction cosines are $\\left(\\dfrac{2}{7}, -\\dfrac{3}{7}, \\dfrac{6}{7}\\right)$. Check: $\\dfrac{4+9+36}{49} = 1$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: from given angles",
+      "blocks": [
+        {
+          "p": "A line makes $90^\\circ$, $60^\\circ$ and $30^\\circ$ with the axes, so its direction cosines are $(\\cos 90^\\circ, \\cos 60^\\circ, \\cos 30^\\circ) = \\left(0, \\dfrac{1}{2}, \\dfrac{\\sqrt3}{2}\\right)$."
+        },
+        {
+          "p": "If a line makes $45^\\circ$ with the $x$-axis and $60^\\circ$ with the $y$-axis, the third cosine comes from the identity: $n^2 = 1 - \\dfrac{1}{2} - \\dfrac{1}{4} = \\dfrac{1}{4}$, so $n = \\pm\\dfrac{1}{2}$ and the angle with the $z$-axis is $60^\\circ$ or $120^\\circ$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: the angle between two lines",
+      "blocks": [
+        {
+          "p": "For lines with direction cosines $\\left(\\tfrac{2}{7}, -\\tfrac{3}{7}, \\tfrac{6}{7}\\right)$ and $\\left(\\tfrac{1}{3}, \\tfrac{2}{3}, \\tfrac{2}{3}\\right)$:"
+        },
+        {
+          "math": "\\cos\\theta = \\dfrac{2}{21} - \\dfrac{6}{21} + \\dfrac{12}{21} = \\dfrac{8}{21}, \\qquad \\theta \\approx 67.6^\\circ"
+        }
+      ]
+    },
+    {
+      "heading": "Direction cosines and unit vectors",
+      "blocks": [
+        {
+          "p": "The direction cosines of a line are exactly the components of a unit vector along it: $l\\hat{i} + m\\hat{j} + n\\hat{k}$ has length $\\sqrt{l^2+m^2+n^2} = 1$. So finding direction cosines is the same calculation as normalising a vector, and the identity $l^2 + m^2 + n^2 = 1$ is just the statement that this vector has length 1."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Using direction ratios as cosines.** Divide by the magnitude first.",
+            "**Accepting impossible angles.** Angles of $30^\\circ$, $45^\\circ$ and $60^\\circ$ can't all describe one line: $\\tfrac{3}{4} + \\tfrac{1}{2} + \\tfrac{1}{4} = \\tfrac{3}{2} \\ne 1$.",
+            "**Forgetting the sign choice.** $(l, m, n)$ and $(-l, -m, -n)$ describe the same line in opposite directions."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists direction cosines and direction ratios of a line joining two points and the angle between two lines. JEE Main 2026 lists direction ratios and direction cosines and the angle between two intersecting lines, and JEE Advanced 2026 lists direction cosines and direction ratios.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "Direction ratios are exactly what a line's equation in 3D needs.",
+    "links": [
+      {
+        "label": "Finding the Equation of a Line",
+        "href": "/resources/equation-of-a-line"
+      },
+      {
+        "label": "Finding a Unit Vector",
+        "href": "/resources/unit-vector"
+      }
+    ]
+  }
+}
