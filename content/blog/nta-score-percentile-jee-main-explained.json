@@ -1,0 +1,183 @@
+{
+  "slug": "nta-score-percentile-jee-main-explained",
+  "title": "NTA Score and Percentile Explained for JEE Main",
+  "description": "What an NTA Score is in JEE Main, using only NTA's own definition from the official information bulletin: the percentile formula, 7-decimal rounding, ties, subject scores and cut-offs, with a fully worked shift.",
+  "author": "Studyloaf Team",
+  "readingTime": "7 min read",
+  "date": "2026-10-07",
+  "lastVerified": "2026-10-07",
+  "category": "jee",
+  "tags": [
+    "jee",
+    "percentile-and-rank",
+    "scorecard"
+  ],
+  "content": [
+    {
+      "heading": null,
+      "body": "Your JEE Main result isn't reported in marks. It's reported as an NTA Score, which is a percentile. This post explains exactly how that number is calculated, using only the description in NTA's JEE (Main) 2026 information bulletin (Appendix VII, \"Normalization procedure based on Percentile Score\"), and works through a small shift step by step. The JEE (Main) 2027 bulletin hadn't been published when this was checked; if its procedure differs, it takes precedence."
+    },
+    {
+      "heading": "NTA's definition",
+      "body": "In NTA's words, the percentile score \"indicates the percentage of candidates that have scored EQUAL TO OR BELOW (same or lower raw scores) that particular Candidate in that Shift.\" The formula in the bulletin is: Percentile = 100 × (number of candidates who appeared in the shift with a raw score equal to or less than the candidate) ÷ (total number of candidates who appeared in the shift)."
+    },
+    {
+      "heading": "What the bulletin adds",
+      "list": [
+        "The percentile score is the normalized score, used for the merit list instead of raw marks",
+        "Percentiles are calculated up to 7 decimal places \"to avoid the bunching effect and reduce ties\"",
+        "The highest raw score in every shift gets a percentile of 100",
+        "The percentile of the total is not an aggregate or average of the subject percentiles, and a percentile is not a percentage of marks",
+        "NTA scores of all shifts of both sessions are merged for the overall merit, and if you sit more than one session, your best NTA Score counts"
+      ]
+    },
+    {
+      "heading": "Worked example: a shift of 7 candidates",
+      "body": "A real shift has tens of thousands of candidates. Seven keeps every step visible, and dividing by 7 shows why 7 decimal places matter. Each row lists Mathematics, Physics and Chemistry raw marks and the total."
+    },
+    {
+      "heading": null,
+      "table": {
+        "caption": "Raw scores in the example shift (7 candidates appeared)",
+        "columns": [
+          "Candidate",
+          "Maths",
+          "Physics",
+          "Chemistry",
+          "Total"
+        ],
+        "rows": [
+          [
+            "Ira",
+            "80",
+            "76",
+            "75",
+            "231"
+          ],
+          [
+            "Kabir",
+            "70",
+            "62",
+            "55",
+            "187"
+          ],
+          [
+            "Meera",
+            "55",
+            "72",
+            "60",
+            "187"
+          ],
+          [
+            "Neel",
+            "52",
+            "50",
+            "48",
+            "150"
+          ],
+          [
+            "Om",
+            "20",
+            "40",
+            "32",
+            "92"
+          ],
+          [
+            "Pia",
+            "28",
+            "30",
+            "34",
+            "92"
+          ],
+          [
+            "Ravi",
+            "−1",
+            "4",
+            "−6",
+            "−3"
+          ]
+        ],
+        "rowHeaders": true
+      }
+    },
+    {
+      "heading": "Step by step: the total NTA Score",
+      "list": [
+        "Ira, 231: all 7 candidates scored 231 or less. 100 × 7 ÷ 7 = 100.0000000, as the bulletin says the top score always gets",
+        "Kabir and Meera, 187: 6 candidates scored 187 or less (both of them included). 100 × 6 ÷ 7 = 85.714285714..., which is 85.7142857 to 7 decimal places",
+        "Neel, 150: 4 candidates scored 150 or less. 100 × 4 ÷ 7 = 57.1428571",
+        "Om and Pia, 92: 3 candidates. 100 × 3 ÷ 7 = 42.857142857..., which rounds to 42.8571429",
+        "Ravi, −3: only Ravi. 100 × 1 ÷ 7 = 14.2857143. The lowest score's percentile isn't 0; it depends on how many appeared"
+      ]
+    },
+    {
+      "heading": "Rounding, checked against NTA's own example",
+      "body": "The bulletin says \"up to 7 decimal places\". Its own worked example (a shift of 41,326 candidates) is consistent with ordinary rounding, not cutting off: 100 × 37,244 ÷ 41,326 = 90.12244107..., printed as 90.1224411, and 100 × 456 ÷ 41,326 = 1.10342157..., printed as 1.1034216. Truncating would have given 90.1224410 and 1.1034215. The example above rounds the same way."
+    },
+    {
+      "heading": "Subject NTA Scores, calculated separately",
+      "body": "NTA converts the Mathematics, Physics and Chemistry raw scores into NTA scores the same way, each within the shift. Meera's subject scores are 71.4285714 (5 of 7 scored 55 or less in Maths), 85.7142857 (Physics) and 85.7142857 (Chemistry). Their average is about 80.95, but her total NTA Score is 85.7142857, because the total percentile comes only from total raw marks. That's the bulletin's point that the total is not an average of the subjects."
+    },
+    {
+      "heading": "Ties, and how subject scores break them",
+      "body": "Kabir and Meera both have a total NTA Score of 85.7142857. The bulletin resolves equal total NTA scores first by the NTA score in Mathematics, then Physics, then Chemistry, then by ratios of incorrect to correct answers. Kabir's Mathematics NTA score is 85.7142857 against Meera's 71.4285714, so Kabir ranks above her. The same rule puts Pia (Maths 42.8571429) above Om (Maths 28.5714286)."
+    },
+    {
+      "heading": "Cut-offs across shifts",
+      "body": "The bulletin also says what happens when the same eligibility marks fall at different percentiles in different shifts: the lowest percentile becomes the cut-off for that category in every shift. Its example: if the eligibility marks correspond to the 78th percentile in Shift 1 and the 79th in Shift 2, everyone at 78 or above in both shifts is eligible."
+    },
+    {
+      "heading": "Common mistakes",
+      "list": [
+        "Reading a percentile as a percentage of marks. 85.7142857 here belongs to a total of 187 out of 300",
+        "Averaging subject percentiles to get the total. They're calculated independently",
+        "Expecting the lowest score to get 0. It gets 100 ÷ (number who appeared)",
+        "Comparing raw marks across shifts. Only NTA Scores are comparable"
+      ]
+    },
+    {
+      "heading": "Go deeper",
+      "links": [
+        {
+          "label": "JEE Main percentile, NTA Score and rank: how normalization works across shifts and sessions",
+          "href": "/blog/jee-main-normalization-explained"
+        },
+        {
+          "label": "JEE Main tie-breaking rules",
+          "href": "/blog/jee-main-tie-breaking-rules"
+        },
+        {
+          "label": "JEE Main marking scheme explained",
+          "href": "/blog/jee-main-2027-marking-scheme-change"
+        }
+      ]
+    },
+    {
+      "heading": "Official sources",
+      "links": [
+        {
+          "label": "JEE (Main) 2026 information bulletin, NTA (PDF; Appendix VII covers the percentile procedure)",
+          "href": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2025/11/202511021649722475.pdf"
+        },
+        {
+          "label": "JEE (Main) official website, NTA",
+          "href": "https://jeemain.nta.nic.in/"
+        }
+      ]
+    },
+    {
+      "heading": "Sources and last verified date",
+      "body": "Everything about the NTA procedure in this post comes from the JEE (Main) 2026 information bulletin linked from the official JEE (Main) website, checked on 7 October 2026. The worked shift is invented; every number in it was computed exactly and rounded once."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "JEE Main 2027 Session 1 countdown",
+      "href": "/countdown/jee-2027"
+    },
+    {
+      "label": "Read next: JEE Main percentile, NTA Score and rank",
+      "href": "/blog/jee-main-normalization-explained"
+    }
+  ]
+}

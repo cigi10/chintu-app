@@ -89,6 +89,15 @@
       ]
     },
     {
+      "heading": null,
+      "links": [
+        {
+          "label": "Your raw marks under this scheme become an NTA Score before anyone is ranked. NTA Score and percentile explained works through that calculation step by step.",
+          "href": "/blog/nta-score-percentile-jee-main-explained"
+        }
+      ]
+    },
+    {
       "heading": "How to spot outdated advice",
       "body": "If your notes, practice sets or a senior's tips say \"numericals have no negative marking\" or \"choose 5 of 10\", they describe a pattern from 2021 or earlier. Before building a strategy around any rule, check it against the current year's information bulletin on jeemain.nta.nic.in, since NTA publishes the full marking scheme there for every cycle. And if you're timing numerical practice to see how often you finish cleanly versus guess under pressure, Studyloaf's free timer tags sessions by subject so that pattern shows up in your own data."
     }

@@ -38,6 +38,15 @@
       ]
     },
     {
+      "heading": null,
+      "links": [
+        {
+          "label": "For NTA's exact wording of this formula and a fully worked shift, ties included, see NTA Score and percentile explained.",
+          "href": "/blog/nta-score-percentile-jee-main-explained"
+        }
+      ]
+    },
+    {
       "heading": "Step 2: subject percentiles, calculated separately",
       "body": "NTA repeats the same calculation for Mathematics, Physics and Chemistry, each using only that subject's raw marks within your shift. These subject percentiles are not averaged to produce your total percentile, and your total percentile is not built from them. Your total NTA Score comes only from your total raw marks. The subject scores matter mainly for tie-breaking, where NTA compares candidates with equal total NTA Scores subject by subject in a fixed order, and then by accuracy. Our separate post on JEE Main tie-breaking rules walks through that order."
     },
