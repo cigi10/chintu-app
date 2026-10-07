@@ -1,5 +1,7 @@
 .tracker__top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 10px; }
 .tracker__exam-badge { font-weight: 700; font-size: 0.82rem; color: var(--color-text-secondary); background: var(--color-surface); border-radius: var(--radius-pill); padding: 6px 14px; border: 1.5px solid var(--color-border); box-shadow: var(--shadow-card); }
+.tracker__syllabus-link { margin: -0.4rem 0 0.9rem; font-size: 0.8rem; color: var(--color-text-secondary); }
+.tracker__syllabus-link a { color: var(--color-accent-strong); font-weight: 700; }
 .tracker__quicklinks { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.1rem; }
 
 .tracker__companion-wrap { display: flex; justify-content: center; margin: 0 auto 1.25rem; position: relative; max-width: 130px; width: 100%; }

@@ -16,7 +16,7 @@ import {
   importPackTopics,
 } from "@/lib/tracker";
 import { upsertTodoForTopic } from "@/lib/todos";
-import { RAW_PACKS, PACK_NAMES, PACK_DESC, examPackLabel } from "@/lib/examPacks";
+import { RAW_PACKS, PACK_NAMES, PACK_DESC, PACK_SYLLABUS_URL, examPackLabel } from "@/lib/examPacks";
 import { COUNTRIES, packsForCountry } from "@/lib/examRegions";
 import { trackTrackerUse } from "@/lib/analytics";
 
@@ -386,6 +386,14 @@ export default function PortionTracker() {
         <div className="tracker__exam-badge">{examPackLabel(examType)} · {overall}% complete</div>
         <Button variant="secondary" size="sm" onClick={() => setPendingSwitch(true)}>Switch exam</Button>
       </div>
+      {PACK_SYLLABUS_URL[examType] && (
+        <p className="tracker__syllabus-link">
+          Topics follow the{" "}
+          <a href={PACK_SYLLABUS_URL[examType]} target="_blank" rel="noopener noreferrer">
+            official GATE 2027 syllabus (PDF)
+          </a>
+        </p>
+      )}
 
       <div className="tracker__quicklinks">
         <Button variant="ghost" size="sm" onClick={() => router.push("/timer")}>

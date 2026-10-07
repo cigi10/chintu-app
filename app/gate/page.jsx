@@ -26,7 +26,7 @@ export const revalidate = 86400;
 const TOOLS = [
   { href: "/countdown/gate-2027", title: "GATE 2027 countdown", desc: "Days, hours and minutes to the first exam weekend." },
   { href: "/tools/timetable-generator", title: "Timetable generator", desc: "Build a weekly study plan around college or work." },
-  { href: "/tracker", title: "Syllabus tracker", desc: "Tick off topics with packs for GATE CS, ECE, ME and BT." },
+  { href: "/tracker", title: "Syllabus tracker", desc: "Tick off topics with packs for GATE CS, ECE, EE, ME and BT." },
 ];
 
 /** Published posts tagged "gate", newest first. */
