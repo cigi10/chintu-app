@@ -6,7 +6,7 @@ import "@/styles/footer.css";
 // server-rendered footer is the one sitewide crawlable path to the public
 // hubs. Keeping every hub here holds each resource, tool and blog page
 // within 3 clicks of any page, the homepage included.
-const PUBLIC_LINKS = ["blog", "resources", "quiz", "games", "timetableGenerator", "countdown"];
+const PUBLIC_LINKS = ["blog", "resources", "quiz", "games", "timetableGenerator", "countdown", "gate"];
 
 export default function Footer() {
   return (

@@ -39,6 +39,7 @@ const FEATURES = [
 const TRY_IT_TOOLS = [
   { href: NAV.timetableGenerator.href, title: "Timetable Generator", desc: "Build a study timetable in a couple of minutes." },
   { href: NAV.countdown.href, title: "Exam Countdowns", desc: "Live countdowns to JEE, NEET, CLAT, GATE and UPSC, all on one page." },
+  { href: NAV.gate.href, title: "GATE 2027 Hub", desc: "Official dates, 2027 syllabi and study tools for GATE." },
   { href: NAV.quiz.href, title: "Daily Quiz", desc: "A quick daily challenge for JEE, NEET, and more." },
   { href: NAV.resources.href, title: "Quick Resources", desc: "Formulas and shortcuts you keep having to look up." },
 ];

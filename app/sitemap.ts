@@ -6,7 +6,7 @@ import { getQuizCategorySlugs } from "@/lib/quiz";
 import { getExamSlugs } from "@/lib/examDates";
 import { SITE_URL } from "@/lib/seo";
 
-const STATIC_ROUTES = ["/", "/blog", "/quiz", "/games", "/games/crumb", "/resources", "/privacy", "/terms", "/tools/timetable-generator", "/countdown", "/contact", "/tutorial"];
+const STATIC_ROUTES = ["/", "/blog", "/quiz", "/games", "/games/crumb", "/resources", "/privacy", "/terms", "/tools/timetable-generator", "/countdown", "/gate", "/contact", "/tutorial"];
 
 // lastModified is only set where there's a real content date behind it
 // (a blog post's `updated` or publish date, a resource page's `updated`). Stamping every URL

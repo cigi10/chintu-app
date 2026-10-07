@@ -3,9 +3,14 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FlipClock from "@/components/FlipClock";
+import { GateKeyDates, GateThisWeek } from "@/components/GateKeyFacts";
 import { getExamBySlug, getExamSlugs, getCountdownTarget, formatExamDate, ESTIMATE_NOTICE } from "@/lib/examDates";
 import "@/styles/blog.css";
 import "@/styles/countdown.css";
+
+// Re-rendered daily so date-dependent blocks (the GATE "what to do this
+// week" stage) move on without waiting for a deploy.
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   return getExamSlugs().map(exam => ({ exam }));
@@ -87,6 +92,16 @@ export default async function ExamCountdownPage({ params }) {
           <p className="exam-countdown-card__source">
             {`The ${exam.name} date hasn't been announced yet. Check back once ${exam.body} confirms it.`}
           </p>
+        )}
+
+        {exam.slug === "gate-2027" && (
+          <>
+            <GateKeyDates />
+            <GateThisWeek />
+            <p className="exam-countdown-card__links gate-hub-link">
+              <Link href="/gate">Everything for GATE 2027 in one place: the GATE hub</Link>
+            </p>
+          </>
         )}
 
         {exam.about && (

@@ -1,0 +1,81 @@
+/* GATE 2027 blocks (components/GateKeyFacts.jsx) and the /gate hub. */
+
+.gate-dates {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+  margin: 4px 0 14px;
+}
+
+.gate-dates th,
+.gate-dates td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.gate-dates th {
+  font-weight: 600;
+  padding-right: 16px;
+  width: 42%;
+}
+
+.gate-registration a,
+.gate-week a,
+.exam-about__source a,
+.gate-hub a {
+  color: var(--color-accent-strong);
+  font-weight: 600;
+}
+
+.gate-week__stage {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.gate-hub__tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.gate-hub__tool {
+  display: block;
+  padding: 14px 16px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md, 12px);
+  background: var(--color-surface-alt);
+  text-decoration: none;
+}
+
+.gate-hub__tool:hover {
+  border-color: var(--color-accent-strong);
+}
+
+.gate-hub__tool-title {
+  display: block;
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.gate-hub__tool-desc {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 480px) {
+  .gate-dates th { width: 50%; }
+}
+
+.gate-hub-link {
+  margin-top: 20px;
+}
