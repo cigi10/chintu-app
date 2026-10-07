@@ -126,9 +126,9 @@
     }
   ],
   "exam": {
-    "note": "Thevenin's and Norton's theorems are listed in the GATE 2026 EC (Networks, Signals and Systems), EE (Electric Circuits) and IN (Electrical Circuits and Machines) syllabi, and all three also name maximum power transfer. They are not in the JEE Main 2026, JEE Advanced 2026 or NEET (UG) 2026 syllabi, which cover Kirchhoff's laws but not network theorems.",
+    "note": "Thevenin's and Norton's theorems are listed in the GATE 2027 EC (Networks, Signals and Systems), EE (Electric circuits) and IN (Electrical Circuits and Machines) syllabi, and all three also name maximum power transfer. They are not in the JEE Main 2026, JEE Advanced 2026 or NEET (UG) 2026 syllabi, which cover Kirchhoff's laws but not network theorems.",
     "countdowns": ["gate-2027"],
-    "sources": ["gate-2026-ec", "gate-2026-ee", "gate-2026-in", "jee-main-2026", "jee-advanced-2026", "neet-ug-2026"]
+    "sources": ["gate-2027-ec", "gate-2027-ee", "gate-2027-in", "jee-main-2026", "jee-advanced-2026", "neet-ug-2026"]
   },
   "related": {
     "intro": "This same circuit could be solved directly with Kirchhoff's laws instead of reducing it first, useful for checking a Thevenin/Norton reduction against a from-scratch calculation.",

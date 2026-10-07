@@ -138,9 +138,9 @@
     }
   ],
   "exam": {
-    "note": "Fourier series are listed in the Engineering Mathematics sections of the GATE 2026 EE and IN syllabi, and under Signals and Systems (continuous-time signals) in the GATE 2026 EC syllabus.",
+    "note": "Fourier series are listed in the GATE 2027 EE syllabus under both Engineering Mathematics and Signals and Systems, and under Signals and Systems in the GATE 2027 EC and IN syllabi.",
     "countdowns": ["gate-2027"],
-    "sources": ["gate-2026-ee", "gate-2026-in", "gate-2026-ec"]
+    "sources": ["gate-2027-ee", "gate-2027-in", "gate-2027-ec"]
   },
   "related": {
     "intro": "Fourier series and Laplace transforms are the two core tools engineering math uses to turn a hard problem in the time domain into an easier one somewhere else.",

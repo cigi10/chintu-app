@@ -127,9 +127,9 @@
     }
   ],
   "exam": {
-    "note": "Biasing is listed in the GATE 2026 EC syllabus (BJT and MOSFET amplifiers, under Analog Circuits) and the EE syllabus (amplifiers, under Analog and Digital Electronics); GATE IN lists the characteristics and applications of the BJT. The JEE Main 2026 and NEET (UG) 2026 syllabi list diodes and logic gates but no transistors.",
+    "note": "Biasing is listed in the GATE 2027 EC syllabus (BJT and MOSFET amplifiers, under Analog Circuits) and the EE syllabus (amplifiers, under Analog and Digital Electronics); GATE IN lists BJT and MOSFET circuits and biasing under Analog Electronics. The JEE Main 2026 and NEET (UG) 2026 syllabi list diodes and logic gates but no transistors.",
     "countdowns": ["gate-2027"],
-    "sources": ["gate-2026-ec", "gate-2026-ee", "gate-2026-in", "jee-main-2026", "neet-ug-2026"]
+    "sources": ["gate-2027-ec", "gate-2027-ee", "gate-2027-in", "jee-main-2026", "neet-ug-2026"]
   },
   "related": {
     "intro": "Once biased into its active region, a transistor becomes the building block behind op-amp circuits, though an op-amp is normally analyzed as a single ideal component rather than transistor by transistor.",

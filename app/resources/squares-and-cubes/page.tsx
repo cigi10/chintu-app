@@ -168,9 +168,9 @@ export default function SquaresAndCubesPage() {
           </div>
 
           <ExamSection exam={{
-            note: "Powers are listed under numerical computation and estimation in the General Aptitude syllabus, a section every GATE 2026 paper includes.",
+            note: "Powers are listed under numerical computation and estimation in the General Aptitude syllabus, a section every GATE 2027 paper includes.",
             countdowns: ["gate-2027"],
-            sources: ["gate-2026-brochure"],
+            sources: ["gate-2027-brochure"],
           }} />
         </article>
       </div>

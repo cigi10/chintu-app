@@ -130,9 +130,9 @@
     }
   ],
   "exam": {
-    "note": "The 2025-26 CBSE Class IX syllabus recalls the laws of exponents with integral powers in its Number Systems unit. Powers, exponents and logarithms are also listed in the General Aptitude syllabus that every GATE 2026 paper includes.",
+    "note": "The 2025-26 CBSE Class IX syllabus recalls the laws of exponents with integral powers in its Number Systems unit. Powers, exponents and logarithms are also listed in the General Aptitude syllabus that every GATE 2027 paper includes.",
     "countdowns": ["gate-2027"],
-    "sources": ["cbse-9-10-2025-26", "gate-2026-brochure"]
+    "sources": ["cbse-9-10-2025-26", "gate-2027-brochure"]
   },
   "related": {
     "intro": "These same rules are exactly what makes logarithms (the inverse operation of exponentiation) behave the way they do.",

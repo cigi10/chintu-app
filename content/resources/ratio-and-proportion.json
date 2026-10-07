@@ -198,9 +198,9 @@
     }
   ],
   "exam": {
-    "note": "Ratios and percentages are listed under numerical computation and estimation in the General Aptitude syllabus, a section every GATE 2026 paper includes.",
+    "note": "Ratios and percentages are listed under numerical computation and estimation in the General Aptitude syllabus, a section every GATE 2027 paper includes.",
     "countdowns": ["gate-2027"],
-    "sources": ["gate-2026-brochure"]
+    "sources": ["gate-2027-brochure"]
   },
   "related": {
     "intro": "Ratios turn into percentages as soon as the second term is 100, and profit and loss questions lean on both.",

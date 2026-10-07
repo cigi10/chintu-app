@@ -110,9 +110,9 @@
     }
   ],
   "exam": {
-    "note": "The JEE Main 2026 and NEET (UG) 2026 syllabi list the semiconductor diode's I-V characteristics in forward and reverse bias, the diode as a rectifier, and the LED, photodiode, solar cell and Zener diode. GATE 2026 EC lists the P-N junction under Electronic Devices. The JEE Advanced 2026 syllabus has no semiconductor topics.",
+    "note": "The JEE Main 2026 and NEET (UG) 2026 syllabi list the semiconductor diode's I-V characteristics in forward and reverse bias, the diode as a rectifier, and the LED, photodiode, solar cell and Zener diode. GATE 2027 EC lists the P-N junction under Electronic Devices. The JEE Advanced 2026 syllabus has no semiconductor topics.",
     "countdowns": ["jee-2027", "neet-2027", "gate-2027"],
-    "sources": ["jee-main-2026", "neet-ug-2026", "gate-2026-ec", "jee-advanced-2026"]
+    "sources": ["jee-main-2026", "neet-ug-2026", "gate-2027-ec", "jee-advanced-2026"]
   },
   "related": {
     "intro": "A diode is a non-linear component sitting inside an otherwise linear circuit. Kirchhoff's laws still apply to the rest of the loop around it, and two PN junctions back to back make a transistor.",

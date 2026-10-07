@@ -116,9 +116,9 @@
     }
   ],
   "exam": {
-    "note": "Op-amp circuits are listed in the GATE 2026 EC (amplifiers and summers, under Analog Circuits), EE (operational amplifiers) and IN (op-amp applications including the adder) syllabi. They are not in the JEE Main 2026 or NEET (UG) 2026 syllabi.",
+    "note": "Op-amp circuits are listed in the GATE 2027 EC (amplifiers and summers, under Analog Circuits), EE (operational amplifiers) and IN (op-amp applications including the adder) syllabi. They are not in the JEE Main 2026 or NEET (UG) 2026 syllabi.",
     "countdowns": ["gate-2027"],
-    "sources": ["gate-2026-ec", "gate-2026-ee", "gate-2026-in", "jee-main-2026", "neet-ug-2026"]
+    "sources": ["gate-2027-ec", "gate-2027-ee", "gate-2027-in", "jee-main-2026", "neet-ug-2026"]
   },
   "related": {
     "intro": "An op-amp is itself built from biased transistor stages internally, though it's normally treated as a single ideal block rather than analyzed transistor by transistor.",
