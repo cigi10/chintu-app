@@ -1,0 +1,126 @@
+{
+  "slug": "line-segment-ray-and-line",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "Three related but different objects",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Line segment, ray and line",
+            "columns": [
+              "Object",
+              "Endpoints",
+              "Length"
+            ],
+            "rows": [
+              [
+                "Line segment",
+                "two",
+                "a fixed, definite length"
+              ],
+              [
+                "Ray",
+                "one (where it starts)",
+                "no definite length; it extends forever one way"
+              ],
+              [
+                "Line",
+                "none",
+                "no definite length; it extends forever both ways"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "A complete line can't be drawn on paper; what we draw is a segment with arrowheads showing it continues."
+        }
+      ]
+    },
+    {
+      "heading": "Collinear points and concurrent lines",
+      "blocks": [
+        {
+          "p": "Three or more points on the same line are **collinear**. Three or more lines through the same single point are **concurrent**."
+        }
+      ]
+    },
+    {
+      "heading": "Two facts from Euclid",
+      "blocks": [
+        {
+          "list": [
+            "Given two distinct points, there is one and only one line through them.",
+            "Two distinct lines cannot have more than one point in common."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a ray standing on a line",
+      "blocks": [
+        {
+          "p": "If a ray stands on a line, the two adjacent angles it forms add up to $180^\\circ$ (a linear pair). If those angles are $3x$ and $2x + 20^\\circ$:"
+        },
+        {
+          "math": "3x + 2x + 20 = 180 \\;\\Rightarrow\\; 5x = 160 \\;\\Rightarrow\\; x = 32"
+        },
+        {
+          "p": "So the angles are $96^\\circ$ and $84^\\circ$, which do add to $180^\\circ$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: counting segments",
+      "blocks": [
+        {
+          "p": "How many line segments are determined by 5 points on a line? Each pair of points gives one segment, so there are $\\dbinom{5}{2} = 10$. For 4 points with no three collinear, each pair also determines a different line: $\\dbinom{4}{2} = 6$ lines."
+        }
+      ]
+    },
+    {
+      "heading": "Quick true or false",
+      "blocks": [
+        {
+          "list": [
+            "\"A ray has no end point.\" **False.** It has exactly one endpoint.",
+            "\"A line can be drawn on paper.\" **False, strictly:** only a segment representing it can be.",
+            "\"Two lines can meet at two points.\" **False:** distinct lines share at most one point."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Naming a ray in the wrong order.** Ray $AB$ starts at $A$ and passes through $B$; ray $BA$ is different.",
+            "**Treating a segment as a line.** Two segments can fail to meet even when the lines containing them would.",
+            "**Forgetting the 180° rule** when angles sit on a straight line."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class IX syllabus lists Euclid's geometry, including the axiom that two distinct points have one and only one line through them and the theorem that two distinct lines cannot have more than one point in common, and, under Lines and Angles, that if a ray stands on a line the two adjacent angles add up to 180°.",
+    "countdowns": [],
+    "sources": [
+      "cbse-9-10-2025-26"
+    ]
+  },
+  "related": {
+    "intro": "These building blocks lead into writing equations for lines in coordinate geometry.",
+    "links": [
+      {
+        "label": "Finding the Equation of a Line",
+        "href": "/resources/equation-of-a-line"
+      },
+      {
+        "label": "Pythagoras Theorem",
+        "href": "/resources/pythagoras-theorem"
+      }
+    ]
+  }
+}

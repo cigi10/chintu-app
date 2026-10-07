@@ -1,0 +1,113 @@
+{
+  "slug": "operations-on-matrices",
+  "datePublished": "2026-09-16",
+  "sections": [
+    {
+      "heading": "Addition and scalar multiplication",
+      "blocks": [
+        {
+          "p": "Two matrices can be added only if they have the same order; add entry by entry. Multiplying by a scalar multiplies every entry:"
+        },
+        {
+          "math": "\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} + \\begin{bmatrix} e & f \\\\ g & h \\end{bmatrix} = \\begin{bmatrix} a+e & b+f \\\\ c+g & d+h \\end{bmatrix}, \\qquad k\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = \\begin{bmatrix} ka & kb \\\\ kc & kd \\end{bmatrix}"
+        }
+      ]
+    },
+    {
+      "heading": "Multiplication",
+      "blocks": [
+        {
+          "p": "$AB$ is defined when the number of columns of $A$ equals the number of rows of $B$. An $m \\times n$ matrix times an $n \\times p$ matrix gives an $m \\times p$ matrix, and each entry is the sum of products of a row of $A$ with a column of $B$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example",
+      "blocks": [
+        {
+          "p": "Given:"
+        },
+        {
+          "math": "A = \\begin{bmatrix} 0 & 6 & 7 \\\\ -6 & 0 & 8 \\\\ 7 & -8 & 0 \\end{bmatrix}, \\quad B = \\begin{bmatrix} 0 & 1 & 1 \\\\ 1 & 0 & 2 \\\\ 1 & 2 & 0 \\end{bmatrix}, \\quad C = \\begin{bmatrix} 2 \\\\ -2 \\\\ 3 \\end{bmatrix}"
+        },
+        {
+          "p": "Calculate $AB$ and $AC$. ($B$ is 3×3 and $C$ is 3×1, so $B + C$ isn't defined.)"
+        },
+        {
+          "math": "AB = \\begin{bmatrix} 13 & 14 & 12 \\\\ 8 & 10 & -6 \\\\ -8 & 7 & -9 \\end{bmatrix}"
+        },
+        {
+          "math": "AC = \\begin{bmatrix} 0(2) + 6(-2) + 7(3) \\\\ -6(2) + 0(-2) + 8(3) \\\\ 7(2) + (-8)(-2) + 0(3) \\end{bmatrix} = \\begin{bmatrix} 9 \\\\ 12 \\\\ 30 \\end{bmatrix}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: AB and BA differ",
+      "blocks": [
+        {
+          "p": "Let $P = \\begin{bmatrix} 1 & 2 \\\\ 0 & 1 \\end{bmatrix}$ and $Q = \\begin{bmatrix} 1 & 0 \\\\ 3 & 1 \\end{bmatrix}$."
+        },
+        {
+          "math": "PQ = \\begin{bmatrix} 7 & 2 \\\\ 3 & 1 \\end{bmatrix}, \\qquad QP = \\begin{bmatrix} 1 & 2 \\\\ 3 & 7 \\end{bmatrix}"
+        },
+        {
+          "p": "So $PQ \\ne QP$: matrix multiplication isn't commutative. Also, a product can be zero without either factor being zero: $Z = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}$ is not the zero matrix, but $Z^2 = O$."
+        }
+      ]
+    },
+    {
+      "heading": "Useful properties",
+      "blocks": [
+        {
+          "list": [
+            "$A(BC) = (AB)C$ and $A(B + C) = AB + AC$, whenever the products are defined.",
+            "$(AB)^T = B^TA^T$, with the order reversed. For $A$ and $B$ above, this holds entry by entry.",
+            "$AI = IA = A$ for the identity matrix of matching order."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Assuming $AB = BA$.** It usually doesn't, as $PQ$ and $QP$ show.",
+            "**Multiplying entry by entry.** That's not matrix multiplication; use rows times columns.",
+            "**Cancelling a matrix.** $AB = AC$ doesn't imply $B = C$ unless $A$ is invertible.",
+            "**Writing $(AB)^T = A^TB^T$.** The order reverses."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists operations on matrices (addition, multiplication and multiplication by a scalar), the non-commutativity of multiplication and non-zero matrices whose product is the zero matrix. JEE Main 2026 lists the algebra of matrices, and JEE Advanced 2026 lists addition, multiplication by a scalar and product of matrices, and the transpose.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "Recognising special matrix shapes and their properties builds directly on these operations.",
+    "links": [
+      {
+        "label": "Special Types of Matrices",
+        "href": "/resources/special-types-of-matrices"
+      },
+      {
+        "label": "Symmetric and Skew-Symmetric Matrices",
+        "href": "/resources/symmetric-and-skew-symmetric-matrices"
+      },
+      {
+        "label": "Square Matrix Properties",
+        "href": "/resources/square-matrix"
+      }
+    ]
+  }
+}

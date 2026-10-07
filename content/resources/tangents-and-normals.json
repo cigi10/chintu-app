@@ -135,6 +135,17 @@
       ]
     },
     {
+      "heading": "Worked example: a tangent parallel to a line",
+      "blocks": [
+        {
+          "p": "Find the point on $y = x^2$ where the tangent is parallel to $y = 4x + 1$, and the tangent's equation."
+        },
+        {
+          "p": "**Solution:** Parallel lines have equal slopes, so $\\dfrac{dy}{dx} = 2x = 4$, giving $x = 2$ and the point $(2, 4)$. The tangent is $y - 4 = 4(x - 2)$, that is $y = 4x - 4$."
+        }
+      ]
+    },
+    {
       "heading": "Common mistakes",
       "blocks": [
         {
@@ -148,6 +159,17 @@
       ]
     }
   ],
+  "exam": {
+    "note": "JEE Advanced 2026 lists tangents and normals among the applications of derivatives. The 2025-26 CBSE Class XI syllabus relates the derivative to the slope of the tangent to a curve; the Class XII applications of derivatives (rate of change, increasing and decreasing functions, maxima and minima) and the JEE Main 2026 syllabus don't name tangents and normals.",
+    "countdowns": [
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "jee-advanced-2026",
+      "cbse-11-12-2025-26",
+      "jee-main-2026"
+    ]
+  },
   "related": {
     "intro": "When the curve's equation isn't solved for $y$, implicit differentiation finds the slope instead. Tangents and normals are also one of the standard applications of derivatives.",
     "links": [

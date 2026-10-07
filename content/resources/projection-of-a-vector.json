@@ -1,0 +1,114 @@
+{
+  "slug": "projection-of-a-vector",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "The idea",
+      "blocks": [
+        {
+          "p": "The projection of $\\vec{a}$ on $\\vec{b}$ is the part of $\\vec{a}$ that points along $\\vec{b}$: its shadow on the line of $\\vec{b}$. Using the dot product:"
+        },
+        {
+          "math": "\\text{scalar projection} = \\dfrac{\\vec{a}\\cdot\\vec{b}}{|\\vec{b}|} = |\\vec{a}|\\cos\\theta, \\qquad \\text{vector projection} = \\left(\\dfrac{\\vec{a}\\cdot\\vec{b}}{|\\vec{b}|^2}\\right)\\vec{b}"
+        },
+        {
+          "p": "The scalar projection is negative when the angle between them is obtuse."
+        }
+      ]
+    },
+    {
+      "heading": "Special angles",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Projection of a vector a on a directed line, by the angle θ between them",
+            "columns": [
+              "Angle",
+              "Scalar projection",
+              "Projection vector"
+            ],
+            "rows": [
+              [
+                "$\\theta = 0$",
+                "$|\\vec{a}|$",
+                "$\\vec{a}$ itself"
+              ],
+              [
+                "$\\theta = \\dfrac{\\pi}{2}$",
+                "0",
+                "the zero vector"
+              ],
+              [
+                "$\\theta = \\pi$",
+                "$-|\\vec{a}|$",
+                "$\\vec{a}$ itself (it already lies along the line, pointing the other way)"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "**Worked example:** if $\\overrightarrow{AB}$ makes an angle of $\\pi$ with a directed line $l$, then $\\overrightarrow{AB}$ lies along $l$ pointing the opposite way. Its scalar projection is $|\\overrightarrow{AB}|\\cos\\pi = -|\\overrightarrow{AB}|$, and the projection vector is $-|\\overrightarrow{AB}|\\,\\hat{l}$, which is $\\overrightarrow{AB}$ itself."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: in three dimensions",
+      "blocks": [
+        {
+          "p": "Find the projection of $\\vec{a} = 2\\hat{i}+3\\hat{j}+2\\hat{k}$ on $\\vec{b} = \\hat{i}+2\\hat{j}+\\hat{k}$."
+        },
+        {
+          "p": "**Solution:** $\\vec{a}\\cdot\\vec{b} = 2+6+2 = 10$ and $|\\vec{b}| = \\sqrt{6}$."
+        },
+        {
+          "math": "\\text{scalar projection} = \\dfrac{10}{\\sqrt{6}} = \\dfrac{5\\sqrt{6}}{3} \\approx 4.08, \\qquad \\text{vector projection} = \\dfrac{10}{6}\\vec{b} = \\dfrac{5}{3}\\hat{i}+\\dfrac{10}{3}\\hat{j}+\\dfrac{5}{3}\\hat{k}"
+        },
+        {
+          "p": "**Check:** what's left over, $\\vec{a} - \\text{projection} = \\dfrac{1}{3}\\hat{i}-\\dfrac{1}{3}\\hat{j}+\\dfrac{1}{3}\\hat{k}$, should be perpendicular to $\\vec{b}$: $\\dfrac{1}{3}-\\dfrac{2}{3}+\\dfrac{1}{3} = 0$. It is."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Dividing by $|\\vec{a}|$ instead of $|\\vec{b}|$.** You project *onto* $\\vec{b}$, so divide by $\\vec{b}$'s magnitude.",
+            "**Confusing the scalar and vector projection.** One is a number; the other is that number times the unit vector $\\hat{b}$.",
+            "**Mixing up projection of $\\vec{a}$ on $\\vec{b}$ with $\\vec{b}$ on $\\vec{a}$.** They have the same dot product but different denominators.",
+            "**Dropping the sign.** A negative scalar projection is meaningful: the angle is obtuse."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "None of the syllabi checked names projection separately; it is computed with the scalar (dot) product. The 2025-26 CBSE Class XII syllabus lists the scalar (dot) product with its geometrical interpretation and applications, JEE Main 2026 lists scalar and vector products, and JEE Advanced 2026 lists dot and cross products and their geometrical interpretations.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "Projection is a scaled unit vector along the target direction, so it leans on building a unit vector.",
+    "links": [
+      {
+        "label": "Finding a Unit Vector",
+        "href": "/resources/unit-vector"
+      },
+      {
+        "label": "Operations on Vectors",
+        "href": "/resources/operations-on-vectors"
+      },
+      {
+        "label": "Area of a Triangle and Parallelogram Using Vectors",
+        "href": "/resources/area-of-a-triangle-and-parallelogram-vectors"
+      }
+    ]
+  }
+}

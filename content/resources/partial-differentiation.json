@@ -1,0 +1,104 @@
+{
+  "slug": "partial-differentiation",
+  "datePublished": "2026-09-25",
+  "sections": [
+    {
+      "heading": "The idea",
+      "blocks": [
+        {
+          "p": "For a function of several variables like $f(x,y)$, a partial derivative with respect to one variable treats every other variable as a constant:"
+        },
+        {
+          "math": "\\dfrac{\\partial f}{\\partial x} = \\lim_{h\\to0}\\dfrac{f(x+h,y)-f(x,y)}{h}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: first partial derivatives",
+      "blocks": [
+        {
+          "p": "For $f(x,y) = x^3y^2 + \\sin(xy)$:"
+        },
+        {
+          "math": "\\dfrac{\\partial f}{\\partial x} = 3x^2y^2 + y\\cos(xy), \\qquad \\dfrac{\\partial f}{\\partial y} = 2x^3y + x\\cos(xy)"
+        },
+        {
+          "p": "The $y$ in $y\\cos(xy)$ comes from the chain rule: the derivative of $xy$ with respect to $x$ is $y$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: mixed partials agree",
+      "blocks": [
+        {
+          "p": "Differentiating $\\dfrac{\\partial f}{\\partial x}$ with respect to $y$, and $\\dfrac{\\partial f}{\\partial y}$ with respect to $x$, both give:"
+        },
+        {
+          "math": "\\dfrac{\\partial^2 f}{\\partial y\\,\\partial x} = \\dfrac{\\partial^2 f}{\\partial x\\,\\partial y} = 6x^2y + \\cos(xy) - xy\\sin(xy)"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: gradient and directional derivative",
+      "blocks": [
+        {
+          "p": "For $g(x,y) = x^2y + y^3$ at $(1,2)$: $g_x = 2xy = 4$ and $g_y = x^2 + 3y^2 = 13$, so $\\nabla g = (4, 13)$. The rate of change in the direction of $(3,4)$, using the unit vector $\\left(\\tfrac{3}{5}, \\tfrac{4}{5}\\right)$, is:"
+        },
+        {
+          "math": "D_{\\hat{u}}g = 4\\left(\\tfrac{3}{5}\\right) + 13\\left(\\tfrac{4}{5}\\right) = \\dfrac{64}{5} = 12.8"
+        },
+        {
+          "p": "The largest possible rate of change is $|\\nabla g| = \\sqrt{16 + 169} = \\sqrt{185} \\approx 13.6$, in the direction of $\\nabla g$ itself."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a minimum of two variables",
+      "blocks": [
+        {
+          "p": "Find the extreme value of $h(x,y) = x^2 + y^2 - 2x - 4y$."
+        },
+        {
+          "p": "**Solution:** $h_x = 2x - 2 = 0$ and $h_y = 2y - 4 = 0$ give the critical point $(1, 2)$. With $r = h_{xx} = 2$, $s = h_{xy} = 0$ and $t = h_{yy} = 2$, $rt - s^2 = 4 > 0$ and $r > 0$, so it's a minimum: $h(1,2) = 1 + 4 - 2 - 8 = -5$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Treating the other variable as a function.** In $\\partial/\\partial x$, $y$ is a constant: $\\partial(x^2y)/\\partial x = 2xy$.",
+            "**Forgetting the chain-rule factor** in terms like $\\sin(xy)$.",
+            "**Using a non-unit direction vector.** Divide by its length before taking the directional derivative.",
+            "**Calling every critical point an extremum.** If $rt - s^2 < 0$ it's a saddle point; if it's 0 the test is inconclusive."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Partial derivatives and maxima and minima are listed under Calculus in the GATE 2027 EC, EE and IN syllabi, and the EE syllabus also lists directional derivatives.",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "gate-2027-ec",
+      "gate-2027-ee",
+      "gate-2027-in"
+    ]
+  },
+  "related": {
+    "intro": "The gradient here is one of the three core vector calculus operators, and the Jacobian built from these derivatives leads to eigenvalues.",
+    "links": [
+      {
+        "label": "Vector Calculus: Gradient, Divergence and Curl",
+        "href": "/resources/vector-calculus-gradient-divergence-curl"
+      },
+      {
+        "label": "Eigenvalues and Eigenvectors",
+        "href": "/resources/matrices-eigenvalues-eigenvectors"
+      }
+    ]
+  }
+}

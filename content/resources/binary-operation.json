@@ -1,0 +1,96 @@
+{
+  "slug": "binary-operation",
+  "datePublished": "2026-09-22",
+  "sections": [
+    {
+      "heading": "What it is",
+      "blocks": [
+        {
+          "p": "A binary operation $*$ on a set $S$ takes any two elements of $S$ and combines them into an element of $S$ (closure). An identity element $e$ leaves every element unchanged: $a*e = e*a = a$. An inverse of $a$ is an element $b$ with $a*b = b*a = e$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: not a binary operation",
+      "blocks": [
+        {
+          "p": "Is subtraction a binary operation on the natural numbers? No: $2 - 5 = -3$ is not a natural number, so subtraction isn't closed on $\\mathbb{N}$. It is a binary operation on the integers."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: identity and inverse",
+      "blocks": [
+        {
+          "p": "Find the identity element for $a*b = \\dfrac{ab}{4}$ on the nonzero rationals, and the inverse of each element."
+        },
+        {
+          "p": "**Identity:** $a*e = a \\Rightarrow \\dfrac{ae}{4} = a \\Rightarrow e = 4$, and $e*a = \\dfrac{4a}{4} = a$ too."
+        },
+        {
+          "p": "**Inverse:** $a*b = 4 \\Rightarrow \\dfrac{ab}{4} = 4 \\Rightarrow b = \\dfrac{16}{a}$. For example, the inverse of 3 is $\\dfrac{16}{3}$: $3 * \\dfrac{16}{3} = \\dfrac{16}{4} = 4$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: commutative vs associative",
+      "blocks": [
+        {
+          "p": "For real numbers, $a*b = 1+ab$. Since $ab = ba$, it is commutative. For associativity:"
+        },
+        {
+          "math": "(a*b)*c = 1+(1+ab)c = 1+c+abc, \\qquad a*(b*c) = 1+a(1+bc) = 1+a+abc"
+        },
+        {
+          "p": "These differ by $c - a$, so they agree only when $a = c$. The operation is commutative but not associative."
+        }
+      ]
+    },
+    {
+      "heading": "Counting binary operations",
+      "blocks": [
+        {
+          "p": "On a set with $n$ elements, a binary operation assigns one of $n$ results to each of the $n^2$ ordered pairs, so there are $n^{n^2}$ binary operations. With $n = 2$ that's $2^4 = 16$; with $n = 3$ it's $3^9 = 19683$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Skipping closure.** Check that every result lands back in the set before anything else.",
+            "**Checking identity on one side only.** Both $a*e$ and $e*a$ must equal $a$ (they agree automatically only if the operation is commutative).",
+            "**Concluding associativity from a few numbers.** One counterexample disproves it; proving it needs the general algebra."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Binary operations aren't listed in the 2025-26 CBSE Class XII syllabus, the JEE Main 2026 syllabus or the JEE Advanced 2026 syllabus, which were checked for this page. The ideas here (closure, identity, inverse, commutativity, associativity) are still useful background for relations, functions and matrices.",
+    "countdowns": [],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "Checking properties like commutativity here is the same kind of check used on relations and functions.",
+    "links": [
+      {
+        "label": "Types of Relations",
+        "href": "/resources/types-of-relations"
+      },
+      {
+        "label": "Types of Functions",
+        "href": "/resources/types-of-functions"
+      },
+      {
+        "label": "Operations on Sets",
+        "href": "/resources/operations-on-sets"
+      }
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "slug": "equation-of-a-line",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "Vector and Cartesian form",
+      "blocks": [
+        {
+          "p": "A line through the point with position vector $\\vec{a}$, parallel to the direction vector $\\vec{b}$, has vector equation $\\vec{r} = \\vec{a} + \\lambda\\vec{b}$. With $\\vec{a} = (x_1,y_1,z_1)$ and $\\vec{b} = (a,b,c)$, the Cartesian form is:"
+        },
+        {
+          "math": "\\dfrac{x-x_1}{a} = \\dfrac{y-y_1}{b} = \\dfrac{z-z_1}{c}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: through two points",
+      "blocks": [
+        {
+          "p": "Find the line through $(3,-2,-5)$ and $(3,-2,6)$. The direction ratios are $(3-3, -2-(-2), 6-(-5)) = (0,0,11)$:"
+        },
+        {
+          "math": "\\vec{r} = (3\\hat{i}-2\\hat{j}-5\\hat{k}) + \\lambda(11\\hat{k}), \\qquad \\dfrac{x-3}{0} = \\dfrac{y+2}{0} = \\dfrac{z+5}{11}"
+        },
+        {
+          "p": "A zero denominator means that coordinate stays fixed: $x = 3$ and $y = -2$ while $z$ varies, a line parallel to the $z$-axis."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: point and parallel vector",
+      "blocks": [
+        {
+          "p": "The line through $2\\hat{i}+3\\hat{j}+\\hat{k}$ parallel to $4\\hat{i}-2\\hat{j}+3\\hat{k}$ is:"
+        },
+        {
+          "math": "\\vec{r} = (2+4\\lambda)\\hat{i}+(3-2\\lambda)\\hat{j}+(1+3\\lambda)\\hat{k}"
+        },
+        {
+          "p": "At $\\lambda = 1$ it passes through $(6, 1, 4)$, a quick way to generate a second point for checking."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: is a point on the line?",
+      "blocks": [
+        {
+          "p": "Does $(3,-2,10)$ lie on the first line? Its $x$ and $y$ match the fixed values 3 and −2, and $z + 5 = 15 = 11\\lambda$ gives $\\lambda = \\dfrac{15}{11}$. One value of $\\lambda$ works for every coordinate, so yes."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: angle between two lines",
+      "blocks": [
+        {
+          "p": "Lines with direction ratios $(1,2,2)$ and $(2,-1,2)$ meet at an angle $\\theta$ with:"
+        },
+        {
+          "math": "\\cos\\theta = \\dfrac{|1(2)+2(-1)+2(2)|}{\\sqrt{1+4+4}\\,\\sqrt{4+1+4}} = \\dfrac{4}{9}, \\qquad \\theta \\approx 63.6^\\circ"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Sign slips with negative coordinates.** Through $(3,-2,-5)$ the Cartesian form has $y+2$ and $z+5$, not $y-2$ and $z-5$.",
+            "**Reading a zero denominator as division by zero.** It's shorthand for that coordinate being constant.",
+            "**Checking a point with different λ values.** A point is on the line only if one λ satisfies every coordinate.",
+            "**Confusing direction ratios and direction cosines.** Direction cosines are the ratios divided by the vector's length."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists the Cartesian and vector equation of a line, skew lines, the shortest distance between two lines and the angle between two lines. JEE Main 2026 lists the equation of a line and skew lines in three-dimensional geometry, and JEE Advanced 2026 lists the equation of a straight line in space.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "Once a line has an equation, the shortest distance between two lines and the angle with a plane build on the same direction vector.",
+    "links": [
+      {
+        "label": "Shortest Distance Between Two Lines",
+        "href": "/resources/shortest-distance-between-lines"
+      },
+      {
+        "label": "Angle Between a Line and a Plane",
+        "href": "/resources/angle-between-line-and-plane"
+      },
+      {
+        "label": "Equation of a Plane",
+        "href": "/resources/equation-of-a-plane"
+      }
+    ]
+  }
+}

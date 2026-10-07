@@ -1,0 +1,121 @@
+{
+  "slug": "area-of-a-triangle-and-parallelogram-vectors",
+  "datePublished": "2026-09-22",
+  "sections": [
+    {
+      "heading": "The idea",
+      "blocks": [
+        {
+          "p": "The magnitude of the cross product of two vectors equals the area of the parallelogram they form as adjacent sides. A triangle is half of that parallelogram, so it uses the same cross product, halved:"
+        },
+        {
+          "math": "\\text{Area of parallelogram} = |\\vec{a} \\times \\vec{b}|, \\qquad \\text{Area of triangle} = \\dfrac{1}{2}|\\vec{a} \\times \\vec{b}|"
+        },
+        {
+          "p": "If the parallelogram is described by its diagonals $\\vec{d_1}$ and $\\vec{d_2}$ instead, its area is $\\dfrac{1}{2}|\\vec{d_1} \\times \\vec{d_2}|$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a triangle from three points",
+      "blocks": [
+        {
+          "p": "Find the area of the triangle with vertices $A(1,1,1)$, $B(1,2,3)$ and $C(2,3,1)$."
+        },
+        {
+          "p": "**Solution:** Build two side vectors from the same corner, $A$:"
+        },
+        {
+          "math": "\\overrightarrow{AB} = (0,1,2), \\qquad \\overrightarrow{AC} = (1,2,0)"
+        },
+        {
+          "math": "\\overrightarrow{AB} \\times \\overrightarrow{AC} = (1(0)-2(2),\\; 2(1)-0(0),\\; 0(2)-1(1)) = (-4,2,-1)"
+        },
+        {
+          "p": "The magnitude is $\\sqrt{16+4+1}=\\sqrt{21}$, so the area is $\\dfrac{\\sqrt{21}}{2}$. Starting from $B$ instead, $\\overrightarrow{BC} \\times \\overrightarrow{BA}$ is also $(-4,2,-1)$: any two sides that share a vertex give the same area."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a parallelogram from its sides",
+      "blocks": [
+        {
+          "p": "Find the area of a parallelogram whose adjacent sides are $\\vec{a} = \\hat{i}-\\hat{j}+3\\hat{k}$ and $\\vec{b} = 2\\hat{i}-7\\hat{j}+\\hat{k}$."
+        },
+        {
+          "math": "\\vec{a}\\times\\vec{b} = ((-1)(1)-(3)(-7),\\; (3)(2)-(1)(1),\\; (1)(-7)-(-1)(2)) = (20,5,-5)"
+        },
+        {
+          "math": "|\\vec{a}\\times\\vec{b}| = \\sqrt{400+25+25} = \\sqrt{450} = 15\\sqrt{2}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a parallelogram from its diagonals",
+      "blocks": [
+        {
+          "p": "The diagonals of a parallelogram are $\\vec{d_1} = 3\\hat{i}+\\hat{j}-2\\hat{k}$ and $\\vec{d_2} = \\hat{i}-3\\hat{j}+4\\hat{k}$. Find its area."
+        },
+        {
+          "math": "\\vec{d_1}\\times\\vec{d_2} = ((1)(4)-(-2)(-3),\\; (-2)(1)-(3)(4),\\; (3)(-3)-(1)(1)) = (-2,-14,-10)"
+        },
+        {
+          "p": "$|\\vec{d_1}\\times\\vec{d_2}| = \\sqrt{4+196+100} = \\sqrt{300} = 10\\sqrt{3}$, so the area is $\\dfrac{1}{2}(10\\sqrt{3}) = 5\\sqrt{3}$."
+        }
+      ]
+    },
+    {
+      "heading": "Check: a flat triangle both ways",
+      "blocks": [
+        {
+          "p": "For the triangle with vertices $(0,0)$, $(4,0)$ and $(1,3)$, treat the points as $(x, y, 0)$. Then $(4,0,0)\\times(1,3,0) = (0,0,12)$, so the area is $\\dfrac{1}{2}(12) = 6$. The determinant formula agrees:"
+        },
+        {
+          "math": "\\dfrac{1}{2}\\left|\\begin{vmatrix} 0 & 0 & 1 \\\\ 4 & 0 & 1 \\\\ 1 & 3 & 1 \\end{vmatrix}\\right| = \\dfrac{1}{2}|12| = 6"
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Forgetting the half for a triangle.** $|\\vec{a}\\times\\vec{b}|$ is the parallelogram; the triangle is half of it.",
+            "**Crossing position vectors instead of sides.** For the first example, $\\overrightarrow{OA}\\times\\overrightarrow{OB} = (1,-2,1)$, which has nothing to do with the triangle's area. Subtract to get side vectors first.",
+            "**Using the dot product.** The area needs $|\\vec{a}\\times\\vec{b}| = |\\vec{a}||\\vec{b}|\\sin\\theta$, not $\\vec{a}\\cdot\\vec{b}$.",
+            "**Treating diagonals as sides.** With diagonals, the area is half the cross product's magnitude, not the full magnitude."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists the vector (cross) product of vectors with its geometrical interpretation and applications, and also the area of a triangle using determinants. JEE Main 2026 lists scalar and vector products and the area of triangles using determinants, and JEE Advanced 2026 lists dot and cross products and their geometrical interpretations.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
+  "related": {
+    "intro": "The cross product here is the same tool behind the scalar triple product, and the flat case connects to the determinant formula.",
+    "links": [
+      {
+        "label": "Operations on Vectors",
+        "href": "/resources/operations-on-vectors"
+      },
+      {
+        "label": "Area of a Triangle Using Determinants",
+        "href": "/resources/area-of-a-triangle-determinants"
+      },
+      {
+        "label": "Projection of a Vector",
+        "href": "/resources/projection-of-a-vector"
+      }
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "slug": "laplace-transforms",
+  "datePublished": "2026-09-24",
+  "sections": [
+    {
+      "heading": "The definition",
+      "blocks": [
+        {
+          "p": "The Laplace transform turns a function of time $f(t)$ into a function of $s$, turning a differential equation in $t$ into an algebraic one in $s$:"
+        },
+        {
+          "math": "\\mathcal{L}\\{f(t)\\} = F(s) = \\int_0^\\infty e^{-st} f(t)\\, dt"
+        }
+      ]
+    },
+    {
+      "heading": "Standard transforms and properties",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Common Laplace transforms and properties",
+            "columns": [
+              "f(t)",
+              "F(s)"
+            ],
+            "rows": [
+              [
+                "$1$",
+                "$\\dfrac{1}{s}$"
+              ],
+              [
+                "$t^n$",
+                "$\\dfrac{n!}{s^{n+1}}$ (so $t^3 \\to \\dfrac{6}{s^4}$)"
+              ],
+              [
+                "$e^{at}$",
+                "$\\dfrac{1}{s-a}$"
+              ],
+              [
+                "$\\sin at$",
+                "$\\dfrac{a}{s^2+a^2}$"
+              ],
+              [
+                "$\\cos at$",
+                "$\\dfrac{s}{s^2+a^2}$"
+              ],
+              [
+                "$e^{at}f(t)$",
+                "$F(s-a)$ (first shifting)"
+              ],
+              [
+                "$f(t-a)u(t-a)$, $a > 0$",
+                "$e^{-as}F(s)$ (second shifting)"
+              ],
+              [
+                "$t\\,f(t)$",
+                "$-F'(s)$"
+              ],
+              [
+                "$f'(t)$",
+                "$sF(s) - f(0)$"
+              ],
+              [
+                "$f''(t)$",
+                "$s^2F(s) - sf(0) - f'(0)$"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "The transform is linear, so it can be applied term by term."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: first shifting",
+      "blocks": [
+        {
+          "p": "From $\\mathcal{L}\\{\\sin 4t\\} = \\dfrac{4}{s^2+16}$, replacing $s$ with $s-3$ gives $\\mathcal{L}\\{e^{3t}\\sin 4t\\} = \\dfrac{4}{(s-3)^2+16}$."
+        },
+        {
+          "p": "Similarly, $\\mathcal{L}\\{t\\sin t\\} = -\\dfrac{d}{ds}\\left(\\dfrac{1}{s^2+1}\\right) = \\dfrac{2s}{(s^2+1)^2}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a first-order ODE",
+      "blocks": [
+        {
+          "p": "Solve $\\dfrac{dy}{dt} + 2y = e^{-t}$ with $y(0)=0$."
+        },
+        {
+          "math": "sY - 0 + 2Y = \\dfrac{1}{s+1} \\;\\Rightarrow\\; Y = \\dfrac{1}{(s+1)(s+2)} = \\dfrac{1}{s+1} - \\dfrac{1}{s+2} \\;\\Rightarrow\\; y(t) = e^{-t} - e^{-2t}"
+        },
+        {
+          "p": "**Check:** $y(0) = 0$, and $y' + 2y = (-e^{-t}+2e^{-2t}) + (2e^{-t}-2e^{-2t}) = e^{-t}$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a second-order ODE",
+      "blocks": [
+        {
+          "p": "Solve $y'' + 3y' + 2y = 0$ with $y(0) = 1$ and $y'(0) = 0$."
+        },
+        {
+          "math": "(s^2Y - s) + 3(sY - 1) + 2Y = 0 \\;\\Rightarrow\\; Y = \\dfrac{s+3}{(s+1)(s+2)} = \\dfrac{2}{s+1} - \\dfrac{1}{s+2}"
+        },
+        {
+          "p": "So $y(t) = 2e^{-t} - e^{-2t}$. **Check:** $y(0) = 2 - 1 = 1$ and $y'(0) = -2 + 2 = 0$."
+        }
+      ]
+    },
+    {
+      "heading": "Initial and final value theorems",
+      "blocks": [
+        {
+          "p": "$f(0^+) = \\lim_{s\\to\\infty} sF(s)$, and $f(\\infty) = \\lim_{s\\to0} sF(s)$ when $f$ settles to a limit (all poles of $sF(s)$ in the left half-plane). For $F(s) = \\dfrac{1}{s(s+2)}$: $f(\\infty) = \\lim_{s\\to0}\\dfrac{1}{s+2} = \\dfrac{1}{2}$, which matches $f(t) = \\dfrac{1}{2} - \\dfrac{1}{2}e^{-2t}$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Dropping initial conditions** in $\\mathcal{L}\\{y'\\} = sY - y(0)$ and the second-derivative formula.",
+            "**Writing $\\mathcal{L}\\{t^n\\} = \\dfrac{n}{s^{n+1}}$.** It's $n!$ on top.",
+            "**Using the final value theorem when $f$ doesn't settle.** For $\\sin t$ it gives a wrong answer, because the poles are on the imaginary axis.",
+            "**Mixing up the two shifting theorems:** $e^{at}$ shifts $s$, while a time delay multiplies by $e^{-as}$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "Laplace transforms are listed in the GATE 2027 syllabi for EC (solving network equations), EE and IN (Signals and Systems), and ME (Differential Equations).",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "gate-2027-ec",
+      "gate-2027-ee",
+      "gate-2027-in",
+      "gate-2027-me"
+    ]
+  },
+  "related": {
+    "intro": "Laplace transforms and Fourier series are the two core tools for moving a problem out of the time domain.",
+    "links": [
+      {
+        "label": "Fourier Series",
+        "href": "/resources/fourier-series"
+      },
+      {
+        "label": "Partial Differentiation",
+        "href": "/resources/partial-differentiation"
+      }
+    ]
+  }
+}

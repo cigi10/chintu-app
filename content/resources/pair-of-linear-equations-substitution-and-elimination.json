@@ -1,0 +1,134 @@
+{
+  "slug": "pair-of-linear-equations-substitution-and-elimination",
+  "datePublished": "2026-09-22",
+  "sections": [
+    {
+      "heading": "Two algebraic methods",
+      "blocks": [
+        {
+          "steps": [
+            "**Substitution:** make one variable the subject of one equation, substitute into the other, solve, then back-substitute.",
+            "**Elimination:** multiply one or both equations so one variable has matching coefficients, then add or subtract to remove it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: substitution",
+      "blocks": [
+        {
+          "p": "Solve $x+y=14$ and $x-y=4$. From the second, $x = y+4$. Substituting: $(y+4)+y=14 \\Rightarrow 2y=10 \\Rightarrow y=5$, so $x=9$. Check: $9+5=14$ and $9-5=4$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: elimination",
+      "blocks": [
+        {
+          "p": "Solve $x+y=5$ and $2x-3y=4$. Multiply the first by 2: $2x+2y=10$. Subtract the second:"
+        },
+        {
+          "math": "(2x+2y)-(2x-3y) = 10-4 \\;\\Rightarrow\\; 5y=6 \\;\\Rightarrow\\; y=\\dfrac{6}{5}, \\quad x = 5-\\dfrac{6}{5} = \\dfrac{19}{5}"
+        },
+        {
+          "p": "Check: $2\\left(\\dfrac{19}{5}\\right) - 3\\left(\\dfrac{6}{5}\\right) = \\dfrac{38-18}{5} = 4$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: infinitely many solutions",
+      "blocks": [
+        {
+          "p": "Solve $3x-y=3$ and $9x-3y=9$. From the first, $y = 3x-3$. Substituting: $9x - 3(3x-3) = 9 \\Rightarrow 9 = 9$. Every variable cancels and a true statement is left: the second equation is 3 times the first, the same line, so there are infinitely many solutions."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: no solution",
+      "blocks": [
+        {
+          "p": "Solve $x+2y=3$ and $2x+4y=7$. Multiply the first by 2: $2x+4y=6$. Subtracting from the second gives $0 = 1$, which is false. The lines are parallel and the system has no solution."
+        }
+      ]
+    },
+    {
+      "heading": "The ratio test",
+      "blocks": [
+        {
+          "table": {
+            "caption": "For a₁x + b₁y = c₁ and a₂x + b₂y = c₂",
+            "columns": [
+              "Condition",
+              "Lines",
+              "Solutions"
+            ],
+            "rows": [
+              [
+                "$\\dfrac{a_1}{a_2} \\ne \\dfrac{b_1}{b_2}$",
+                "intersect",
+                "exactly one"
+              ],
+              [
+                "$\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} = \\dfrac{c_1}{c_2}$",
+                "coincide",
+                "infinitely many"
+              ],
+              [
+                "$\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} \\ne \\dfrac{c_1}{c_2}$",
+                "parallel",
+                "none"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "For $x+2y=3$ and $2x+4y=7$: $\\dfrac{1}{2} = \\dfrac{2}{4} \\ne \\dfrac{3}{7}$, so no solution, matching the elimination above."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a word problem",
+      "blocks": [
+        {
+          "p": "Two numbers add up to 50 and differ by 12. Let them be $x$ and $y$: $x+y=50$ and $x-y=12$. Adding gives $2x=62$, so $x=31$ and $y=19$."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Subtracting only some terms.** When subtracting equations, change the sign of every term, the constant included.",
+            "**Stopping after one variable.** Back-substitute to get the other, then check both equations.",
+            "**Reading $0 = 0$ as no solution.** A true statement means infinitely many solutions; a false one like $0 = 1$ means none."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class X syllabus lists pairs of linear equations in two variables, their graphical solution and consistency, the algebraic conditions for the number of solutions, and solving them algebraically by substitution and elimination.",
+    "countdowns": [],
+    "sources": [
+      "cbse-9-10-2025-26"
+    ]
+  },
+  "related": {
+    "intro": "Cross-multiplication packages the same elimination idea into one formula.",
+    "links": [
+      {
+        "label": "Pair of Linear Equations: Cross-Multiplication and Reducible Equations",
+        "href": "/resources/pair-of-linear-equations-cross-multiplication"
+      },
+      {
+        "label": "Pair of Linear Equations: Graphical Method",
+        "href": "/resources/pair-of-linear-equations-graphical-method"
+      },
+      {
+        "label": "Linear Equations",
+        "href": "/resources/linear-equations"
+      }
+    ]
+  }
+}

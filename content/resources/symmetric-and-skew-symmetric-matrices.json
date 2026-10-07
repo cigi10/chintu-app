@@ -1,0 +1,95 @@
+{
+  "slug": "symmetric-and-skew-symmetric-matrices",
+  "datePublished": "2026-09-18",
+  "sections": [
+    {
+      "heading": "The two definitions",
+      "blocks": [
+        {
+          "p": "A square matrix $A$ is **symmetric** if $A^T = A$, and **skew-symmetric** if $A^T = -A$. Every square matrix splits into a symmetric part plus a skew-symmetric part:"
+        },
+        {
+          "math": "A = \\underbrace{\\dfrac{1}{2}(A+A^T)}_{\\text{symmetric}} + \\underbrace{\\dfrac{1}{2}(A-A^T)}_{\\text{skew-symmetric}}"
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a 2×2 matrix",
+      "blocks": [
+        {
+          "p": "Split $A = \\begin{bmatrix} 3 & 5 \\\\ 1 & -1 \\end{bmatrix}$. With $A^T = \\begin{bmatrix} 3 & 1 \\\\ 5 & -1 \\end{bmatrix}$:"
+        },
+        {
+          "math": "\\dfrac{1}{2}(A+A^T) = \\begin{bmatrix} 3 & 3 \\\\ 3 & -1 \\end{bmatrix}, \\qquad \\dfrac{1}{2}(A-A^T) = \\begin{bmatrix} 0 & 2 \\\\ -2 & 0 \\end{bmatrix}"
+        },
+        {
+          "p": "The first equals its transpose, the second's transpose is its negative, and their sum is $A$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: a 3×3 matrix",
+      "blocks": [
+        {
+          "p": "Split $A = \\begin{bmatrix} 1 & 2 & 4 \\\\ 6 & 8 & 1 \\\\ 3 & 5 & 7 \\end{bmatrix}$."
+        },
+        {
+          "math": "\\dfrac{1}{2}(A+A^T) = \\begin{bmatrix} 1 & 4 & \\tfrac{7}{2} \\\\ 4 & 8 & 3 \\\\ \\tfrac{7}{2} & 3 & 7 \\end{bmatrix}, \\qquad \\dfrac{1}{2}(A-A^T) = \\begin{bmatrix} 0 & -2 & \\tfrac{1}{2} \\\\ 2 & 0 & -2 \\\\ -\\tfrac{1}{2} & 2 & 0 \\end{bmatrix}"
+        },
+        {
+          "p": "Adding the two returns $A$ entry by entry."
+        }
+      ]
+    },
+    {
+      "heading": "Key properties",
+      "blocks": [
+        {
+          "list": [
+            "Every diagonal entry of a skew-symmetric matrix is 0, since $a_{ii} = -a_{ii}$.",
+            "A skew-symmetric matrix of odd order has determinant 0. For example, $\\det\\begin{bmatrix} 0 & 2 & -3 \\\\ -2 & 0 & 4 \\\\ 3 & -4 & 0 \\end{bmatrix} = 0$.",
+            "For any square $A$: $A + A^T$ and $AA^T$ are symmetric, and $A - A^T$ is skew-symmetric.",
+            "The only matrix that is both symmetric and skew-symmetric is the zero matrix."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Forgetting the factor $\\tfrac{1}{2}$** in the decomposition, which makes the parts add up to $2A$.",
+            "**Calling a matrix skew-symmetric with a nonzero diagonal.** Its diagonal must be all zeros.",
+            "**Transposing incorrectly.** Rows become columns: entry $(i, j)$ moves to $(j, i)$."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists symmetric and skew-symmetric matrices with the transpose, and JEE Advanced 2026 lists symmetric and skew-symmetric matrices and their properties. JEE Main 2026 lists types of matrices without naming these two.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-advanced-2026",
+      "jee-main-2026"
+    ]
+  },
+  "related": {
+    "intro": "This decomposition sits alongside the other special matrix shapes and the basic matrix operations.",
+    "links": [
+      {
+        "label": "Special Types of Matrices",
+        "href": "/resources/special-types-of-matrices"
+      },
+      {
+        "label": "Operations on Matrices",
+        "href": "/resources/operations-on-matrices"
+      }
+    ]
+  }
+}

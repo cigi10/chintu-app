@@ -143,6 +143,20 @@
       ]
     },
     {
+      "heading": "Worked example: a definite integral",
+      "blocks": [
+        {
+          "p": "Evaluate $\\displaystyle\\int_0^1 xe^x\\,dx$."
+        },
+        {
+          "p": "**Solution:** With $u = x$ and $dv = e^x\\,dx$, the antiderivative is $xe^x - e^x$. So:"
+        },
+        {
+          "math": "\\int_0^1 xe^x\\,dx = \\left[xe^x - e^x\\right]_0^1 = (e - e) - (0 - 1) = 1"
+        }
+      ]
+    },
+    {
       "heading": "Common mistakes",
       "blocks": [
         {
@@ -156,6 +170,18 @@
       ]
     }
   ],
+  "exam": {
+    "note": "The 2025-26 CBSE Class XII syllabus lists integration by substitution, by partial fractions and by parts. JEE Main 2026 lists integration by substitution, by parts and by partial fractions, and JEE Advanced 2026 lists integration by parts alongside substitution and partial fractions.",
+    "countdowns": [
+      "jee-2027",
+      "jee-advanced-2027"
+    ],
+    "sources": [
+      "cbse-11-12-2025-26",
+      "jee-main-2026",
+      "jee-advanced-2026"
+    ]
+  },
   "related": {
     "links": [
       {

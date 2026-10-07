@@ -1,0 +1,152 @@
+{
+  "slug": "percentage",
+  "datePublished": "2026-09-16",
+  "sections": [
+    {
+      "heading": "What is a percentage?",
+      "blocks": [
+        {
+          "p": "A percentage expresses a number as a fraction of 100. To turn a score of $a$ out of $b$ into a percentage, compute $\\dfrac{a}{b} \\times 100$."
+        },
+        {
+          "p": "When combining scores from more than one test, add up all the marks scored and all the marks available first, and only then convert. Averaging each test's percentage gives a different answer whenever the tests are out of different totals."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: combining scores",
+      "blocks": [
+        {
+          "p": "A student scored 60 out of 75 in English, 60 out of 90 in Mathematics and 80 out of 100 in Science. Marks scored: $60 + 60 + 80 = 200$. Marks available: $75 + 90 + 100 = 265$. Combined percentage: $\\dfrac{200}{265} \\times 100 \\approx 75.47\\%$."
+        }
+      ]
+    },
+    {
+      "heading": "Shortcuts for common percentages",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Common percentages as quick operations",
+            "columns": [
+              "Percentage",
+              "Shortcut",
+              "Example"
+            ],
+            "rows": [
+              [
+                "10%",
+                "divide by 10",
+                "10% of 250 = 25"
+              ],
+              [
+                "5%",
+                "half of 10%",
+                "5% of 250 = 12.5"
+              ],
+              [
+                "1%",
+                "divide by 100",
+                "1% of 250 = 2.5"
+              ],
+              [
+                "50%",
+                "divide by 2",
+                "50% of 84 = 42"
+              ],
+              [
+                "25%",
+                "divide by 4",
+                "25% of 84 = 21"
+              ],
+              [
+                "20%",
+                "divide by 5",
+                "20% of 90 = 18"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "Build other percentages from these: 15% of 320 is $32 + 16 = 48$, and 35% of 200 is $60 + 10 = 70$. And $X\\%$ of $Y$ always equals $Y\\%$ of $X$: 8% of 50 is 50% of 8, which is 4, and 4% of 75 is 75% of 4, which is 3."
+        }
+      ]
+    },
+    {
+      "heading": "Increase, decrease and finding the percentage",
+      "blocks": [
+        {
+          "p": "To increase a number by $X\\%$, multiply by $\\left(1 + \\dfrac{X}{100}\\right)$; to decrease it, multiply by $\\left(1 - \\dfrac{X}{100}\\right)$. Increasing 400 by 15% gives $400 \\times 1.15 = 460$, and decreasing it by 15% gives $400 \\times 0.85 = 340$. To find what percentage 45 is of 60: $\\dfrac{45}{60} \\times 100 = 75\\%$."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: successive changes",
+      "blocks": [
+        {
+          "p": "A price rises by 20% and then falls by 20%. Is it back where it started?"
+        },
+        {
+          "p": "**Solution:** Multiply the factors: $1.2 \\times 0.8 = 0.96$. The price ends 4% *lower*, because the 20% fall is taken on the larger, increased price."
+        }
+      ]
+    },
+    {
+      "heading": "Worked example: reverse percentage",
+      "blocks": [
+        {
+          "p": "After a 25% increase, a price is 500. What was it before?"
+        },
+        {
+          "p": "**Solution:** $500$ is $1.25$ times the original, so the original is $500 \\div 1.25 = 400$. Taking 25% off 500 instead would give 375, which is wrong."
+        }
+      ]
+    },
+    {
+      "heading": "Percentage points vs percent",
+      "blocks": [
+        {
+          "p": "If a pass rate rises from 20% to 25%, it has risen by 5 **percentage points**, but by $\\dfrac{25-20}{20} \\times 100 = 25\\%$ in relative terms. Questions that say 'by what percent' usually want the relative change."
+        }
+      ]
+    },
+    {
+      "heading": "Common mistakes",
+      "blocks": [
+        {
+          "list": [
+            "**Averaging percentages from tests with different totals.** Add the raw marks first.",
+            "**Adding successive changes.** +20% then −20% is not 0%; multiply the factors.",
+            "**Reversing a change by subtracting the same percentage.** Divide by the factor instead.",
+            "**Mixing up percentage points and percent.** From 20% to 25% is 5 points, but a 25% rise."
+          ]
+        }
+      ]
+    }
+  ],
+  "exam": {
+    "note": "The General Aptitude section of every GATE 2027 paper lists numerical computation and estimation, including ratios and percentages, in its Quantitative Aptitude syllabus.",
+    "countdowns": [
+      "gate-2027"
+    ],
+    "sources": [
+      "gate-2027-brochure"
+    ]
+  },
+  "related": {
+    "intro": "A percentage is a fraction out of 100, so fraction arithmetic comes first, and profit and loss is where these ideas get used most.",
+    "links": [
+      {
+        "label": "Addition of Fractions",
+        "href": "/resources/addition-of-fractions"
+      },
+      {
+        "label": "Profit and Loss",
+        "href": "/resources/profit-and-loss"
+      },
+      {
+        "label": "Ratio and Proportion",
+        "href": "/resources/ratio-and-proportion"
+      }
+    ]
+  }
+}
