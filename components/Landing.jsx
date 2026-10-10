@@ -7,6 +7,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Companion from "@/components/Companion";
 import { NAV } from "@/lib/navItems";
+import EmailSignupForm from "@/components/EmailSignupForm";
 
 // Cycled in the hero via a plain sprite swap - same approach as the
 // dashboard's IDLE_POSES and StudyTimer's mood art, no transition/remount.
@@ -154,6 +155,8 @@ export default function Landing({ recentPosts = [] }) {
           Sign in to sync your progress →
         </Link>
       </section>
+
+      <EmailSignupForm sourcePage="/" />
 
       <footer className="landing__footer">
         <p className="landing__footer-note">

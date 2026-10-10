@@ -6,6 +6,7 @@ import JsonLd from "@/components/JsonLd";
 import TagChips from "@/components/TagChips";
 import BlogTable, { type BlogTableData } from "@/components/BlogTable";
 import BlogViewCount from "@/components/BlogViewCount";
+import EmailSignupForm from "@/components/EmailSignupForm";
 import { BlogFigure, BlogImage, type BlogFigureData, type BlogImageData } from "@/components/BlogFigure";
 import { getBlogPost, getBlogSlugs } from "@/lib/blogPosts";
 import { getBlogCategory } from "@/lib/blogCategories";
@@ -169,6 +170,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           )}
         </article>
+
+        {/* The email list is offered on GATE posts only, matching the
+            sources the signup route accepts (lib/emailSignup.js). */}
+        {post.tags?.includes("gate") && <EmailSignupForm sourcePage={`/blog/${post.slug}`} />}
       </div>
     </>
   );

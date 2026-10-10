@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <div className="legal-shell">
         <div className="legal-card">
           <h1 className="legal-title">Privacy Policy</h1>
-          <p className="legal-updated">Last updated: October 2, 2026</p>
+          <p className="legal-updated">Last updated: October 10, 2026</p>
 
           <p className="legal-p">
             Studyloaf (&quot;we,&quot; &quot;our,&quot; or &quot;the app&quot;) is a study companion
@@ -47,6 +47,10 @@ export default function PrivacyPage() {
               in-app configuration choices.
             </li>
             <li>
+              <strong>Email list (optional).</strong> If you sign up for study emails, we store your
+              email address, the page you signed up on, and when you agreed. See Section 6.
+            </li>
+            <li>
               <strong>Messages you send us.</strong> When you use the Write to Us form, the message
               you write is stored in our Supabase database, together with your account identifier
               if you are signed in, so we can read it and follow up. You can
@@ -75,6 +79,7 @@ export default function PrivacyPage() {
             <li>To send account-related emails, such as sign-up confirmation, password reset, or important service notices</li>
             <li>To diagnose bugs, monitor performance, and improve the reliability of the app</li>
             <li>To respond to support requests you send us</li>
+            <li>To send study plans and exam updates, only if you signed up for them (see Section 6)</li>
             <li>To understand how the site is used, through Google Analytics and Vercel Web Analytics</li>
             <li>To show advertising through Google AdSense, which helps keep Studyloaf free</li>
           </ul>
@@ -144,7 +149,38 @@ export default function PrivacyPage() {
             training process.
           </p>
 
-          <h2 className="legal-heading">6. Third-party service providers</h2>
+          <h2 className="legal-heading">6. Study emails (optional)</h2>
+          <p className="legal-p">
+            On some pages you can sign up to get study plans and exam updates (for example, for GATE or
+            JEE) by email. Signing up is optional and separate from creating an account.
+          </p>
+          <ul className="legal-list">
+            <li>
+              <strong>What we collect.</strong> Your email address, the exam the page is about (if
+              any), the page you signed up on, the time you agreed to receive emails, and the time you
+              unsubscribe, if you do.
+            </li>
+            <li>
+              <strong>Why.</strong> Only to send you the study emails you asked for. We record when
+              you agreed so we can show you gave consent.
+            </li>
+            <li>
+              <strong>How long we keep it.</strong> Until you unsubscribe. When you unsubscribe we stop
+              sending emails straight away and delete your address within 30 days. You can also ask us
+              to delete it immediately using the contact details at the end of this policy.
+            </li>
+            <li>
+              <strong>How to unsubscribe.</strong> Every email includes an unsubscribe link, or you can
+              write to us and we will remove you.
+            </li>
+            <li>
+              <strong>Never sold or shared.</strong> We never sell, rent, or share the email list with
+              anyone. It is stored in our Supabase database, and when sending emails we use only the
+              service providers listed in Section 7.
+            </li>
+          </ul>
+
+          <h2 className="legal-heading">7. Third-party service providers</h2>
           <p className="legal-p">
             We rely on the following third-party services to operate Studyloaf. Each processes a
             limited set of data on our behalf, under their own security and privacy practices:
@@ -152,8 +188,8 @@ export default function PrivacyPage() {
           <ul className="legal-list">
             <li>
               <strong>Supabase</strong>: provides authentication and database storage for your
-              account and study data, messages sent through Write to Us, and per-post blog view
-              counts. The view counter&apos;s 24-hour cookie is described in Section 4.
+              account and study data, messages sent through Write to Us, the optional email list,
+              and per-post blog view counts. The view counter&apos;s 24-hour cookie is described in Section 4.
             </li>
             <li>
               <strong>Google OAuth</strong>: used if you choose to sign in with your Google account,
@@ -179,7 +215,7 @@ export default function PrivacyPage() {
             </li>
           </ul>
 
-          <h2 className="legal-heading">7. Data security</h2>
+          <h2 className="legal-heading">8. Data security</h2>
           <p className="legal-p">
             We take reasonable technical and organizational measures to protect your information,
             including encrypted connections (HTTPS) between your browser and our servers, and
@@ -188,7 +224,7 @@ export default function PrivacyPage() {
             appropriate for an app of this scale.
           </p>
 
-          <h2 className="legal-heading">8. Data retention</h2>
+          <h2 className="legal-heading">9. Data retention</h2>
           <p className="legal-p">
             We retain your account and study data for as long as your account remains active, so that
             your progress and settings are preserved across sessions. If you delete your account or
@@ -197,7 +233,7 @@ export default function PrivacyPage() {
             reasons (such as backup rotation).
           </p>
 
-          <h2 className="legal-heading">9. Your rights and choices</h2>
+          <h2 className="legal-heading">10. Your rights and choices</h2>
           <p className="legal-p">You can, at any time:</p>
           <ul className="legal-list">
             <li>Request a copy of the personal data we hold about you</li>
@@ -210,7 +246,7 @@ export default function PrivacyPage() {
             within a reasonable timeframe.
           </p>
 
-          <h2 className="legal-heading">10. International users</h2>
+          <h2 className="legal-heading">11. International users</h2>
           <p className="legal-p">
             Studyloaf is used by students in multiple countries. Your information may be processed
             and stored on servers located outside your own country, including in regions where our
@@ -218,7 +254,7 @@ export default function PrivacyPage() {
             consent to this transfer and processing.
           </p>
 
-          <h2 className="legal-heading">11. Children&apos;s privacy</h2>
+          <h2 className="legal-heading">12. Children&apos;s privacy</h2>
           <p className="legal-p">
             Studyloaf is intended for students generally preparing for secondary school, standardized
             tests, or higher-education entrance exams. We do not knowingly collect personal
@@ -227,14 +263,14 @@ export default function PrivacyPage() {
             remove it.
           </p>
 
-          <h2 className="legal-heading">12. Changes to this policy</h2>
+          <h2 className="legal-heading">13. Changes to this policy</h2>
           <p className="legal-p">
             We may update this Privacy Policy as Studyloaf&apos;s features evolve. If we make material
             changes, we will update the &quot;Last updated&quot; date at the top of this page, and
             where appropriate, notify users through the app or by email.
           </p>
 
-          <h2 className="legal-heading">13. Contact us</h2>
+          <h2 className="legal-heading">14. Contact us</h2>
           <p className="legal-p">
             If you have questions about this Privacy Policy or how your data is handled, contact us
             at{" "}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { GateKeyDates, GateThisWeek } from "@/components/GateKeyFacts";
+import EmailSignupForm from "@/components/EmailSignupForm";
 import { getAllBlogPosts } from "@/lib/blogPosts";
 import { getResourceBySlug } from "@/lib/resources";
 import { GATE_2027_SYLLABI, GATE_2027_SITE, GATE_TOPIC_PAGES } from "@/lib/gate2027";
@@ -110,6 +111,8 @@ export default function GateHubPage() {
             </ul>
           </section>
         )}
+
+        <EmailSignupForm sourcePage="/gate" />
       </div>
     </>
   );
