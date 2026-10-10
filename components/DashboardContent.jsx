@@ -43,8 +43,13 @@ const IDLE_FRAME_MS = 2500;
 const DURATION_PRESETS = [15, 25, 45, 60, 90];
 const PRIORITY_COLOR = { high: "#F2619C", medium: "#F9C060", low: "#7EC8A0" };
 
-function greeting() {
-  const h = new Date().getHours();
+// The server renders in UTC, not the visitor's timezone, so a greeting
+// computed during render disagreed with the browser's for much of the day
+// and broke hydration (React #418). The server and the first client render
+// both show NEUTRAL_GREETING; the time-based one is set after mount.
+export const NEUTRAL_GREETING = "Hello!";
+
+export function greetingForHour(h) {
   if (h < 12) return "Good morning!";
   if (h < 17) return "Good afternoon!";
   if (h < 21) return "Good evening!";
@@ -73,8 +78,11 @@ const DAILY_QUOTES = [
   "Difficult roads often lead to beautiful destinations.",
 ];
 
-function getDailyQuote() {
-  const day = new Date().getDate() + new Date().getMonth() * 31;
+// Picked from the visitor's local date, so like the greeting it is only
+// read after mount: the server's UTC date is a different day for part of
+// every day in most timezones (00:00 to 05:30 in India).
+export function getDailyQuote(now = new Date()) {
+  const day = now.getDate() + now.getMonth() * 31;
   return DAILY_QUOTES[day % DAILY_QUOTES.length];
 }
 
@@ -119,6 +127,16 @@ function computeWeeklyReport(log) {
 export default function DashboardContent() {
   const router = useRouter();
 
+  const [greeting, setGreeting]         = useState(NEUTRAL_GREETING);
+  const [quote, setQuote]               = useState(null);
+  useEffect(() => {
+    // A one-time update after hydration is the point here: the browser's
+    // clock can't be read during the server render.
+    const now = new Date();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setGreeting(greetingForHour(now.getHours()));
+    setQuote(getDailyQuote(now));
+  }, []);
   const [idlePoseIndex, setIdlePoseIndex] = useState(0);
   const [todaySlots, setTodaySlots]     = useState([]);
   const [todayStats, setTodayStats]     = useState({ minutes: 0, coins: 0 });
@@ -340,7 +358,7 @@ export default function DashboardContent() {
     <div className="dashboard">
       
 
-      <h1 className="dashboard__greeting">{greeting()}</h1>
+      <h1 className="dashboard__greeting">{greeting}</h1>
       <Link href="/tutorial" className="dashboard__tour-link">New here? Take a 1-minute tour →</Link>
       <StreakBanner />
 
@@ -431,7 +449,8 @@ export default function DashboardContent() {
 
         <div className="dashboard__info-side">
 
-          <p className="dashboard__quote">&quot;{getDailyQuote()}&quot;</p>
+          {/* A non-breaking space holds the line until the quote is set. */}
+          <p className="dashboard__quote">{quote ? `"${quote}"` : "\u00A0"}</p>
 
           {/* Today's Goals */}
           <div className="dashboard__section">
