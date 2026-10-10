@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import DashboardContent from "@/components/DashboardContent";
+import FeedbackBox from "@/components/FeedbackBox";
 import { NOINDEX } from "@/lib/seo";
 
 export const metadata = {
@@ -13,6 +14,7 @@ export default function DashboardPage() {
     <div className="page-root">
       <Navbar />
       <DashboardContent />
+      <FeedbackBox page="/dashboard" />
     </div>
   );
 }

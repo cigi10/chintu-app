@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import StudyTimer from "@/components/StudyTimer";
+import FeedbackBox from "@/components/FeedbackBox";
 import { Suspense } from "react";
 import { NOINDEX } from "@/lib/seo";
 
@@ -22,6 +23,7 @@ export default function TimerPage() {
         <Suspense>
           <StudyTimer />
         </Suspense>
+        <FeedbackBox page="/timer" />
       </main>
     </div>
   );

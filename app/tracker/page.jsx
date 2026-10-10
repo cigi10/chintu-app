@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import PortionTracker from "@/components/PortionTracker";
+import FeedbackBox from "@/components/FeedbackBox";
 import { NOINDEX } from "@/lib/seo";
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function TrackerPage() {
           <p>Tap a topic to update its status</p>
         </div>
         <PortionTracker />
+        <FeedbackBox page="/tracker" />
       </main>
     </div>
   );
