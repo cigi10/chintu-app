@@ -3,6 +3,7 @@ import "@/styles/quiz.css";
 import "@/styles/button.css";
 import { useState, useEffect, useRef } from "react";
 import Button from "@/components/Button";
+import { trackQuizComplete } from "@/lib/analytics";
 
 const POINTS_PER_CORRECT = 10;
 
@@ -162,6 +163,8 @@ export default function PracticeQuiz({ category }) {
     setAnswers(nextAnswers);
     if (isLast) {
       setFinished(true);
+      // `score` already counts this last answer (see its comment above).
+      trackQuizComplete("practice", category.slug, score, questions.length);
     } else {
       setCurrent(current + 1);
       setSelected(null);

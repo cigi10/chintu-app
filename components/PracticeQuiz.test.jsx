@@ -1,6 +1,9 @@
 import { describe, it, expect, vi, beforeAll } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import PracticeQuiz from "@/components/PracticeQuiz";
+import { trackQuizComplete } from "@/lib/analytics";
+
+vi.mock("@/lib/analytics", () => ({ trackQuizComplete: vi.fn() }));
 
 // Two questions, single (always-correct) option each, so answers are
 // deterministic regardless of the component's shuffle-on-mount — the
@@ -61,6 +64,8 @@ describe("PracticeQuiz — gamified flow", () => {
     fireEvent.click(screen.getByRole("button", { name: /Finish/i }));
 
     expect(screen.getByText("Sharp Shooter")).toBeInTheDocument();
+    expect(trackQuizComplete).toHaveBeenCalledTimes(1);
+    expect(trackQuizComplete).toHaveBeenCalledWith("practice", "test-cat", 2, 2);
     await waitFor(() => expect(screen.getByText("20 pts")).toBeInTheDocument(), { timeout: 3000 });
   });
 });

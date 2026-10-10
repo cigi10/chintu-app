@@ -7,7 +7,7 @@ vi.mock("@/lib/storage", () => ({
 }));
 vi.mock("@/lib/coins", () => ({ hydrateCoins: vi.fn(async () => 150), setCoins: vi.fn(async () => {}) }));
 vi.mock("@/lib/timerAudio", () => ({ playSoundNow: vi.fn() }));
-vi.mock("@/lib/analytics", () => ({ trackSoundChange: vi.fn() }));
+vi.mock("@/lib/analytics", () => ({ trackSoundChange: vi.fn(), trackCoinSpend: vi.fn() }));
 // Prices are pending approval, so give Bell one here to exercise buying.
 vi.mock("@/lib/timerSounds", async importOriginal => {
   const real = await importOriginal();
@@ -16,7 +16,7 @@ vi.mock("@/lib/timerSounds", async importOriginal => {
 
 const { setData } = await import("@/lib/storage");
 const { setCoins } = await import("@/lib/coins");
-const { trackSoundChange } = await import("@/lib/analytics");
+const { trackSoundChange, trackCoinSpend } = await import("@/lib/analytics");
 const { default: CoinShop } = await import("./CoinShop");
 
 const card = name => screen.getByText(name, { selector: ".shop__item-name" }).closest(".shop__item-card");
@@ -43,6 +43,7 @@ describe("CoinShop timer sounds", () => {
     fireEvent.click(within(card("Bell")).getByRole("button", { name: "Buy" }));
 
     expect(setCoins).toHaveBeenCalledWith(50);
+    expect(trackCoinSpend).toHaveBeenCalledWith("sound", "sound_bell", 100);
     await waitFor(() =>
       expect(setData).toHaveBeenCalledWith("shop_ownership", expect.objectContaining({ owned: ["sound_bell"] }))
     );

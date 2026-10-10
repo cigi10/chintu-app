@@ -10,6 +10,7 @@ import { hydrateShop, saveShop } from "@/lib/shopOwnership";
 import { SOUNDS, SOUND_PRICES, isSoundOwned, isSoundForSale, shopIdForSound, loadSoundSettings, resolveSoundId } from "@/lib/timerSounds";
 import { saveSoundSettings } from "@/lib/soundSettings";
 import { playSoundNow } from "@/lib/timerAudio";
+import { trackCoinSpend } from "@/lib/analytics";
 
 const DEFAULT_SHOP = { owned: [], equipped: {} };
 const DEFAULT_SOUND_VIEW = { soundId: "ding", volume: 0.6, muted: false };
@@ -62,6 +63,7 @@ export default function CoinShop() {
     setCoins(newCoins); setShop(newShop);
     if (wasPreviewing) clearPreview(item.slot);
     persistCoins(newCoins); saveShop(newShop);
+    trackCoinSpend("accessory", item.id, item.cost);
   }
 
   function buySound(sound) {
@@ -72,6 +74,7 @@ export default function CoinShop() {
     const newShop = { ...shop, owned: [...shop.owned, shopId] };
     setCoins(newCoins); setShop(newShop);
     persistCoins(newCoins); saveShop(newShop);
+    trackCoinSpend("sound", shopId, price);
   }
 
   function selectSound(sound) {

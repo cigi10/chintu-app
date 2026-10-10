@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Button from "@/components/Button";
 import { getDailyQuestion } from "@/lib/quiz";
 import { hydrateQuizStreak, getDailyStreakInfo, recordDailyPlayed } from "@/lib/quizStreak";
+import { trackQuizComplete } from "@/lib/analytics";
 
 const POINTS_FOR_CORRECT = 10;
 
@@ -34,6 +35,7 @@ export default function DailyQuiz({ category }) {
     if (selected == null || submitted) return;
     setSubmitted(true);
     setStreak(recordDailyPlayed(category.slug));
+    trackQuizComplete("daily", category.slug, isCorrect ? 1 : 0, 1);
   }
 
   async function handleCopy() {
