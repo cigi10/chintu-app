@@ -1,9 +1,12 @@
 // @vitest-environment node
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { NextRequest } from "next/server";
-import { SIGNUP_SUCCESS_MESSAGE } from "@/lib/emailSignup";
+import { PLUS_WAITLIST_SUCCESS_MESSAGE, SIGNUP_NOT_OPEN_MESSAGE, SIGNUP_SUCCESS_MESSAGE } from "@/lib/emailSignup";
 
 const insert = vi.fn();
+const is = vi.fn();
+const eq = vi.fn(() => ({ is }));
+const update = vi.fn(() => ({ eq }));
 const createAdminClient = vi.fn();
 
 vi.mock("@/lib/supabase/admin", () => ({ createAdminClient: () => createAdminClient() }));
@@ -30,7 +33,11 @@ beforeEach(() => {
   insert.mockReset();
   insert.mockResolvedValue({ error: null });
   createAdminClient.mockReset();
-  createAdminClient.mockReturnValue({ from: () => ({ insert }) });
+  is.mockReset();
+  is.mockResolvedValue({ error: null });
+  update.mockClear();
+  eq.mockClear();
+  createAdminClient.mockReturnValue({ from: () => ({ insert, update }) });
 });
 
 describe("POST /api/email-signup", () => {
@@ -89,13 +96,50 @@ describe("POST /api/email-signup", () => {
     expect(insert).toHaveBeenCalledTimes(5);
   });
 
+  it("adds a new address to the Plus waitlist with its own row", async () => {
+    const res = await call({ ...valid, source_page: "plus_waitlist" });
+    expect(await res.json()).toEqual({ message: PLUS_WAITLIST_SUCCESS_MESSAGE });
+    const row = insert.mock.calls[0][0];
+    expect(row).toMatchObject({ email: "student@example.com", source_page: "plus_waitlist", exam_interest: null });
+    expect(row.plus_waitlist_at).toBe(row.consented_at);
+    expect(update).not.toHaveBeenCalled();
+  });
+
+  it("marks an address already on the list as Plus-interested, answering exactly like a new one", async () => {
+    const fresh = await call({ ...valid, source_page: "plus_waitlist" });
+    insert.mockResolvedValue({ error: { code: "23505", message: "duplicate key" } });
+    const repeat = await call({ ...valid, source_page: "plus_waitlist" });
+    expect(update).toHaveBeenCalledWith({ plus_waitlist_at: expect.any(String) });
+    expect(eq).toHaveBeenCalledWith("email", "student@example.com");
+    expect(is).toHaveBeenCalledWith("plus_waitlist_at", null);
+    expect(repeat.status).toBe(fresh.status);
+    expect(await repeat.json()).toEqual(await fresh.json());
+  });
+
+  it("never touches plus_waitlist_at for an ordinary repeat signup", async () => {
+    insert.mockResolvedValue({ error: { code: "23505", message: "duplicate key" } });
+    expect((await call(valid)).status).toBe(200);
+    expect(update).not.toHaveBeenCalled();
+  });
+
+  it("says sign-ups aren't open yet while the table doesn't exist", async () => {
+    for (const code of ["PGRST205", "42P01"]) {
+      insert.mockResolvedValue({ error: { code, message: "missing" } });
+      for (const source_page of ["/gate", "plus_waitlist"]) {
+        const res = await call({ ...valid, source_page });
+        expect(res.status).toBe(503);
+        expect(await res.json()).toEqual({ error: SIGNUP_NOT_OPEN_MESSAGE });
+      }
+    }
+  });
+
   it("returns 503 when the service-role key isn't configured", async () => {
     createAdminClient.mockReturnValue(null);
     expect((await call(valid)).status).toBe(503);
   });
 
   it("returns a generic 500 on other database errors", async () => {
-    insert.mockResolvedValue({ error: { code: "42P01", message: "relation does not exist" } });
+    insert.mockResolvedValue({ error: { code: "XX000", message: "internal relation failure" } });
     vi.spyOn(console, "error").mockImplementation(() => {});
     const res = await call(valid);
     expect(res.status).toBe(500);

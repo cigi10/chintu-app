@@ -7,7 +7,7 @@ vi.mock("@/lib/storage", () => ({
 }));
 vi.mock("@/lib/coins", () => ({ hydrateCoins: vi.fn(async () => 150), setCoins: vi.fn(async () => {}) }));
 vi.mock("@/lib/timerAudio", () => ({ playSoundNow: vi.fn() }));
-vi.mock("@/lib/analytics", () => ({ trackSoundChange: vi.fn(), trackCoinSpend: vi.fn() }));
+vi.mock("@/lib/analytics", () => ({ trackSoundChange: vi.fn(), trackCoinSpend: vi.fn(), trackPlusInterest: vi.fn(), trackEmailSignup: vi.fn() }));
 // Prices are pending approval, so give Bell one here to exercise buying.
 vi.mock("@/lib/timerSounds", async importOriginal => {
   const real = await importOriginal();

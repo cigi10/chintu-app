@@ -21,8 +21,14 @@ create table if not exists public.email_signups (
   consented_at timestamptz not null,
   source_page text not null check (char_length(source_page) <= 200),
   created_at timestamptz not null default now(),
-  unsubscribed_at timestamptz
+  unsubscribed_at timestamptz,
+  -- Set when the person tapped "Notify me" on the Studyloaf Plus card.
+  -- Rows created from that card also have source_page = 'plus_waitlist'.
+  plus_waitlist_at timestamptz
 );
+
+-- For a table created by an earlier version of this file.
+alter table public.email_signups add column if not exists plus_waitlist_at timestamptz;
 
 -- RLS on with no policies: anon and authenticated get no rows and can't
 -- insert, update or delete. The explicit revoke is belt and braces.
@@ -30,6 +36,7 @@ alter table public.email_signups enable row level security;
 revoke all on table public.email_signups from anon, authenticated;
 
 -- service_role bypasses RLS, but still needs ordinary table privileges.
--- insert: the signup route. select + update: the unsubscribe page, which
--- looks a row up by id and sets unsubscribed_at.
+-- insert: the signup route. update: the unsubscribe page (sets
+-- unsubscribed_at by id) and the signup route (sets plus_waitlist_at on an
+-- address already on the list). select: needed by those filtered updates.
 grant select, insert, update on table public.email_signups to service_role;

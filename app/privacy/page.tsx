@@ -157,11 +157,12 @@ export default function PrivacyPage() {
           <ul className="legal-list">
             <li>
               <strong>What we collect.</strong> Your email address, the exam the page is about (if
-              any), the page you signed up on, the time you agreed to receive emails, and the time you
-              unsubscribe, if you do.
+              any), the page you signed up on, the time you agreed to receive emails, the time you
+              joined the Studyloaf Plus waitlist (if you did), and the time you unsubscribe, if you do.
             </li>
             <li>
-              <strong>Why.</strong> Only to send you the study emails you asked for. We record when
+              <strong>Why.</strong> Only to send you the study emails you asked for, and to tell you
+              when Studyloaf Plus is ready if you joined its waitlist. We record when
               you agreed so we can show you gave consent.
             </li>
             <li>

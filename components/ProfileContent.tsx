@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Companion from "@/components/Companion";
 import Button from "@/components/Button";
 import RenameCompanion from "@/components/RenameCompanion";
+import PlusComingSoon from "@/components/PlusComingSoon";
 import { hydrateCompanionName, DEFAULT_NAME as DEFAULT_COMPANION_NAME } from "@/lib/companion";
 import { flushPendingWrites } from "@/lib/storage";
 import "@/styles/profile.css";
@@ -138,6 +139,7 @@ export default function ProfileContent() {
             Sign out anyway
           </button>
         )}
+        <PlusComingSoon source="profile" />
       </div>
 
       {confirmingForce && (

@@ -11,6 +11,7 @@ import { SOUNDS, SOUND_PRICES, isSoundOwned, isSoundForSale, shopIdForSound, loa
 import { saveSoundSettings } from "@/lib/soundSettings";
 import { playSoundNow } from "@/lib/timerAudio";
 import { trackCoinSpend } from "@/lib/analytics";
+import PlusComingSoon from "@/components/PlusComingSoon";
 
 const DEFAULT_SHOP = { owned: [], equipped: {} };
 const DEFAULT_SOUND_VIEW = { soundId: "ding", volume: 0.6, muted: false };
@@ -257,6 +258,7 @@ export default function CoinShop() {
           </div>
         </div>
       </div>
+      <PlusComingSoon source="shop" />
     </div>
   );
 }

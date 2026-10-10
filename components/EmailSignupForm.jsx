@@ -10,7 +10,12 @@ import { SIGNUP_ENDPOINT, isValidEmail, normalizeEmail } from "@/lib/emailSignup
 // homepage, /gate and the GATE posts), never inside the study app.
 // `sourcePage` is the path of the page it sits on; the server route
 // checks it against that list and derives the exam interest from it.
-export default function EmailSignupForm({ sourcePage }) {
+//
+// The Plus waitlist card (components/PlusComingSoon.jsx) reuses the form
+// with its own `heading` (null for none), `className` and `onSuccess`.
+const DEFAULT_HEADING = "Get a GATE/JEE study plan and exam updates by email";
+
+export default function EmailSignupForm({ sourcePage, heading = DEFAULT_HEADING, className = "", onSuccess = null }) {
   const id = useId();
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
@@ -38,6 +43,7 @@ export default function EmailSignupForm({ sourcePage }) {
         return;
       }
       trackEmailSignup(sourcePage);
+      onSuccess?.();
       setDone(data.message);
       setEmail("");
       setConsent(false);
@@ -49,10 +55,8 @@ export default function EmailSignupForm({ sourcePage }) {
   }
 
   return (
-    <section className="email-signup" aria-labelledby={`${id}-heading`}>
-      <h2 id={`${id}-heading`} className="email-signup__heading">
-        Get a GATE/JEE study plan and exam updates by email
-      </h2>
+    <section className={`email-signup ${className}`.trim()} aria-labelledby={heading ? `${id}-heading` : undefined}>
+      {heading && <h2 id={`${id}-heading`} className="email-signup__heading">{heading}</h2>}
       {done ? (
         <p className="email-signup__done" role="status">{done}</p>
       ) : (
